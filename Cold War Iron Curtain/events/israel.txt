@@ -1,0 +1,1767 @@
+####################################
+# ISRAEL NATIONAL FOCUS TREE
+#Written by: Leon (SteamId: leon912)
+###################################
+focus_tree = {
+	id = israel_focus
+
+	country = {
+		modifier = {
+			add = 40
+			tag = ISR
+		}
+	}
+
+	default = no
+
+	##### RECLAIM THE HOLY LAND TREE #####
+
+	#### Most of these events will follow the same effects from one another, so most will be documented early, if its a repeated effect style it probably wont be documented##
+	focus = {
+		id = ISR_build_the_knesset
+		icon = GFX_goal_anschluss
+		x = 1
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}	
+		complete_tooltip = {
+			add_political_power = 120
+			ISR = {
+					add_opinion_modifier = { target = USA modifier = democratic_leanings_good } 
+			}
+			USA = {
+					add_opinion_modifier = { target = ISR modifier = democratic_leanings_good }
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = ISR_build_the_knesset_tt
+			add_political_power = 120
+			ISR = {
+					add_opinion_modifier = { target = USA modifier = democratic_leanings_good } 
+			}
+			USA = {
+					add_opinion_modifier = { target = ISR modifier = democratic_leanings_good }
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_law_of_return
+		icon = GFX_goal_generic_military_deal
+		x = 1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_build_the_knesset }
+		complete_tooltip = {
+			add_national_unity = 0.05
+			add_manpower = 10500
+		}
+		completion_reward = {
+			custom_effect_tooltip = ISR_law_of_return_tt
+			add_national_unity = 0.05  # Add 5%
+			add_manpower = 10500   #Add 10,500 manpower
+		}
+	}
+	### Generates a war goal against Jordan ####
+	focus = {
+		id = ISR_claim_all_of_the_holy_city
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 1
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_law_of_return }
+		available = {
+			country_exists = PAL
+		}
+		bypass = {
+			NOT = { country_exists = PAL }
+		}
+		complete_tooltip = {
+			create_wargoal = {
+				type = take_state_focus
+				target = PAL
+			}
+			JOR = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad}
+			}
+			332 = {
+				add_claim_by = ISR
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = ISR_claim_all_of_the_holy_city_tt
+			create_wargoal = {
+				type = take_state_focus
+				target = PAL
+
+			}
+			JOR = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad}
+			}
+			332 = {
+				add_claim_by = ISR
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_operation_ezra_and_nehemiah
+		icon = GFX_goal_generic_military_deal
+		x = 1
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_claim_all_of_the_holy_city }
+		complete_tooltip = {
+			add_manpower = 1800
+			IRQ = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+				add_manpower = -900
+			}
+			SYR = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+				add_manpower = -900
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = ISR_operation_ezra_and_nehemiah_tt
+			add_manpower = 1800
+			IRQ = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+				add_manpower = -900
+			}
+			SYR = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+				add_manpower = -900
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_sinai_campaign
+		icon = GFX_goal_generic_major_war
+		x = 1
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_operation_ezra_and_nehemiah }
+		### We will add or degrade relations with target nations using these modifiers, democratic leanings which has a value of +/- 30. ###
+		complete_tooltip = { 
+			USA = { 
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad } 
+			}
+			FRA = { 
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad } 
+			}
+			ENG = { 
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad } 
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = ISR_sinai_campaign_tt
+			USA = { 
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad } 
+			}
+			FRA = { 
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad } 
+			}
+			ENG = { 
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad } 
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_military_ties_with_france
+		x = 1
+		y = 5
+		cost = 10
+		icon = GFX_goal_generic_army_tanks
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_sinai_campaign }
+		complete_tooltip = {
+			add_tech_bonus = {
+				name = nuclear_bonus #The nuclear bonus boost, completion effect.
+				bonus = 0.5
+				category = nuclear
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory #The military arms factory being given, effect.
+				level = 1
+				instant_build = yes
+			}
+		}
+		#### The construction of buildings and tech advances, are styled based off generics.txt when dealing with techs, and the construction focus boxes from generics.txt as well ###
+		completion_reward = {
+			custom_effect_tooltip = ISR_military_ties_with_france_tt
+			add_tech_bonus = {
+				name = nuclear_bonus
+				bonus = 0.5
+				category = nuclear
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_us_arms_deal
+		icon = GFX_focus_rocketry
+		x = 1
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_military_ties_with_france }
+		#### 454 is one of the starting states in Israel, Cyanron (sp?) ####
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			454 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				454 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_claim_all_of_the_holy_land
+		icon = GFX_goal_generic_demand_territory
+		x = 1
+		y = 7
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_us_arms_deal }
+		available = {
+			country_exists = JOR
+		}
+		bypass = {
+			NOT = { country_exists = JOR }
+		}
+		complete_tooltip = {
+			create_wargoal = {
+				type = take_state_focus
+				target = JOR
+
+			}
+			454 = {
+				add_claim_by = ISR
+			}
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = JOR
+			}
+			454 = {
+				add_claim_by = ISR
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_pre_emptive_strike
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 1
+		y = 8
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_claim_all_of_the_holy_land }
+		available = {
+			country_exists = JOR
+		}
+		bypass = {
+			NOT = { country_exists = JOR }
+			NOT = { country_exists = SYR }
+		}
+		complete_tooltip = {
+			army_experience = 50
+			air_experience = 50
+			create_wargoal = {
+				type = take_state_focus 
+				target = JOR
+
+			}
+			create_wargoal = {
+				type = take_state_focus 
+				target = SYR
+
+			}
+			SOV = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+			JOR = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+			SYR = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+			LEB = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+			IRQ = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+			YEM = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+			PAL = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+			OMA = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+		}
+		completion_reward = {
+			army_experience = 50
+			air_experience = 50
+			create_wargoal = {
+				type = take_state_focus 
+				target = JOR
+
+			}
+			create_wargoal = {
+				type = take_state_focus 
+				target = SYR
+
+			}
+			SOV = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+			JOR = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+			SYR = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+			LEB = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+			IRQ = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+			YEM = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+			PAL = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+			OMA = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_invasion_of_lebanon
+		x = 1
+		y = 9
+		icon = GFX_goal_generic_attack_allies
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_pre_emptive_strike }
+		available = {
+			country_exists = LEB
+		}
+		complete_tooltip = {
+			create_wargoal = {
+				type = annex_everything
+				target = LEB
+			}
+			SYR = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = LEB
+			}
+			SYR = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_camp_david_accords
+		x = 1
+		y = 10
+		cost = 10
+		icon = GFX_goal_support_fascism
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_invasion_of_lebanon }
+		complete_tooltip = {
+			EGY = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_good }
+			}
+			USA = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_good }
+			}
+		}
+		completion_reward = {
+			EGY = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_good }
+			}
+			USA = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_good }
+			}
+			JOR = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_good }
+			}
+		}
+	}
+
+	#### AIR TREE FOR ISRAEL ####
+	focus = {
+		id = ISR_aviation_effort
+		icon = GFX_goal_generic_build_airforce
+		x = 4
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}			
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}			
+		}
+		#### Air base construction is modeled after the airforce focus in generics.txt ####
+		completion_reward = {
+			air_experience = 25
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+						}
+					}
+				}
+				random_owned_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_air_supremacy
+		x = 4
+		y = 1
+		icon = GFX_goal_generic_air_fighter2
+		cost = 10
+		prerequisite = { focus = ISR_aviation_effort }
+		complete_tooltip = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.75
+				uses = 1
+				category = air_doctrine
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.75
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_desert_mirage
+		x = 3
+		y = 2
+		icon = GFX_goal_generic_air_fighter2
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_air_supremacy }
+		mutually_exclusive = { focus = ISR_attack_jet_focus }
+		complete_tooltip = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = light_air
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = light_air
+
+			}
+		}
+
+	}
+
+	focus = {
+		id = ISR_attack_jet_focus
+		x = 5
+		y = 2
+		icon = GFX_goal_generic_air_bomber
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_air_supremacy }
+		mutually_exclusive = { focus = ISR_desert_mirage }
+		complete_tooltip = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = medium_air
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = medium_air
+
+			}
+		}
+	}
+	focus = {
+		id = ISR_develop_ramat_david_air_base
+		x = 4
+		y = 3
+		cost = 10
+		icon = GFX_goal_generic_construct_military
+		ai_will_do = {
+			factor = 10
+		}
+		### A double listed prerequisite is interpreted as one OR the other ###
+		prerequisite = { 
+			focus = ISR_attack_jet_focus 
+			focus = ISR_desert_mirage
+		}
+		complete_tooltip = {
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_air_reform
+		x = 4
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_develop_ramat_david_air_base }
+		icon = GFX_goal_generic_air_fighter2
+		complete_tooltip = {
+			air_experience = 15
+		}
+		completion_reward = {
+			air_experience = 15
+		}
+	}
+
+	focus  = {
+		id = ISR_american_missile_deal
+		x = 4
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		icon = GFX_focus_rocketry
+		prerequisite = { focus = ISR_air_reform }
+		complete_tooltip = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 0.5
+				uses = 1
+				#category = nuclear
+				category = rocketry
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 0.5
+				uses = 1
+				#category = nuclear
+				category = rocketry
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_naval_effort
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 8
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+		complete_tooltip = {
+			navy_experience = 10
+		}
+		
+		completion_reward = {
+			navy_experience = 10
+		}
+	}
+
+	focus = {
+		id = ISR_naval_organisation
+		x = 8
+		y = 1
+		cost = 10
+		icon = GFX_goal_generic_build_navy
+		prerequisite = { focus = ISR_naval_effort }
+		ai_will_do = {
+			factor = 10
+		}
+		complete_tooltip = {
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+		}
+
+		#### Much of this is styled after the Naval branch from the generics.txt, when dealing with constructioing a free naval base ####
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = ships_bonus
+				bonus = 0.5
+				uses = 2
+				category = naval_equipment
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_submarine_focus
+		x = 7
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		icon = GFX_goal_generic_navy_submarine
+		prerequisite = { focus = ISR_naval_organisation }
+		complete_tooltip = {
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 0.5
+				uses = 2
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 0.5
+				uses = 2
+			}
+			random_owned_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}	
+		}
+	}
+
+	focus = {
+		id = ISR_cruiser_armament
+		x = 7
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = ISR_submarine_focus }
+		complete_tooltip = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_destroyer_focus
+		x = 9
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		icon = GFX_goal_generic_build_navy
+		prerequisite = { focus = ISR_naval_organisation }
+		complete_tooltip = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 0.5
+				uses = 2
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 0.5
+				uses = 2
+			}
+			random_owned_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}	
+		}
+	}
+
+	focus = {
+		id = ISR_missile_boats
+		x = 9
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_destroyer_focus }
+		icon = GFX_goal_generic_wolf_pack
+		complete_tooltip = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 0.5
+				uses = 2
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 0.5
+				uses = 2
+			}
+		}
+	}
+
+	####Industrial Focus for ISRAEL #####
+	focus = {
+		id = ISR_industrial_focus
+		x = 11
+		y = 0
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 10
+		icon = GFX_goal_generic_construct_civ_factory
+		complete_tooltip = {
+			WGR = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_good }
+			}
+			ISR = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_good }
+			}
+			add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+		}
+		completion_reward = {
+			WGR = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_good }
+			}
+			ISR = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_good }
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_american_aid
+		x = 11
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_industrial_focus }
+		icon = GFX_goal_generic_construct_civ_factory
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_eisenhower_doctrine
+		x = 11
+		y = 2
+		cost = 10
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = ISR_american_aid }
+		ai_will_do = {
+			factor = 10
+		}
+		complete_tooltip = {
+			USA = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_good }
+			}
+			ISR = {
+				add_opinion_modifier = { target = USA modifier = democratic_leanings_good }
+			}
+			add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_frg_industrial_aid
+		x = 11
+		y = 3
+		cost = 10
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = ISR_eisenhower_doctrine }
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_us_military_armaments_package_1
+		x = 11
+		y = 4
+		cost = 10
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = ISR_frg_industrial_aid }
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}	
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_us_military_armaments_package_2
+		x = 11
+		y = 5
+		cost = 10
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = ISR_us_military_armaments_package_1 }
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}	
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	###### ARMY EFFORT TREE ######
+	focus = {
+		id = ISR_IDF_training_programme
+		x = 13
+		y = 0
+		icon = GFX_goal_generic_axis_build_infantry
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		complete_tooltip = {
+			army_experience = 15
+		}
+		completion_reward = {
+			army_experience = 15
+		}
+	}
+
+	focus = {
+		id = ISR_british_tanks
+		x = 13
+		y = 1
+		icon = GFX_goal_generic_army_tanks
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_IDF_training_programme }
+		complete_tooltip = {
+			add_tech_bonus = {
+					name = armor_bonus
+					bonus = 0.5
+					uses = 2
+					category = armor
+				}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 0.5
+				uses = 2
+				category = armor
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_french_tanks
+		x = 15
+		y = 2
+		icon = GFX_goal_generic_army_tanks
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_british_tanks }
+		mutually_exclusive = { focus = ISR_american_tanks}
+		complete_tooltip = {
+			army_experience = 5
+			add_tech_bonus = {
+					name = armor_bonus
+					bonus = 0.5
+					uses = 2
+					category = armor
+				}
+		}
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 0.1
+				uses = 2
+				category = armor
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_american_tanks
+		x = 13
+		y = 2
+		icon = GFX_goal_generic_army_tanks
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_british_tanks }
+		mutually_exclusive = { focus = ISR_french_tanks }
+		complete_tooltip = {
+			army_experience = 10
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 0.1
+				technology = motorised_infantry
+			}
+		}
+		completion_reward = {
+			army_experience = 10
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 0.1
+				technology = motorised_infantry
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_armoured_effort
+		x = 14
+		y = 3
+		icon = GFX_goal_molotov_ribbentrop_pact
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = ISR_american_tanks focus = ISR_french_tanks }
+		complete_tooltip = {
+			add_tech_bonus = {
+				name = med_armor_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				technology = basic_medium_tank
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = med_armor_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				technology = basic_medium_tank
+			}
+		}
+	}
+
+	###### HULA VALLEY NATIONAL FOCUS ######
+	focus = {
+		id = ISR_hula_valley_reclaimation
+		x = 17
+		y = 0
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_tel_aviv_university
+		x = 17
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = ISR_hula_valley_reclaimation }
+		complete_tooltip = {
+			add_research_slot = 1
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = ISR_improve_relations_with_us
+		x = 17
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = ISR_tel_aviv_university }
+		complete_tooltip = {
+			USA = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_good }
+			}
+		}
+		completion_reward = {
+			USA = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_good }
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_move_knesset_to_jerusalem
+		x = 17
+		y = 3
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = ISR_improve_relations_with_us }
+		available = {
+			332 = {
+				is_controlled_by = ISR
+			}
+		}
+		complete_tooltip = {
+			add_political_power = 150
+			set_capital = 332
+		}
+		completion_reward = {
+			add_political_power = 150
+			set_capital = 332
+		}
+	}
+
+	focus = {
+		id = ISR_settler_initiative_golan_heights
+		x = 17
+		y = 4
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = ISR_move_knesset_to_jerusalem }
+		complete_tooltip = {
+			add_state_core = 332
+			add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+		}
+		completion_reward = {
+			add_state_core = 332
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_intifada
+		x = 17
+		y = 5
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		icon = GFX_goal_anti_comintern_pact
+		prerequisite = { focus = ISR_settler_initiative_golan_heights }
+		complete_tooltip = {
+			add_ideas = democratic_opposition_voicing_protests
+			add_political_power = 50
+		}
+		completion_reward = {
+			add_ideas = democratic_opposition_voicing_protests
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = ISR_crush_uprising
+		x = 18
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = ISR_intifada }
+		mutually_exclusive = { focus = ISR_free_palestine focus = ISR_return_to_1967 }
+		complete_tooltip = {
+			remove_ideas = democratic_opposition_voicing_protests
+			add_manpower = -1000
+			USA = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+		}
+		completion_reward = {
+			remove_ideas = democratic_opposition_voicing_protests
+			add_manpower = -1000
+			USA = {
+				add_opinion_modifier = { target = ISR modifier = democratic_leanings_bad }
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_free_palestine
+		x = 16
+		y = 6
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = ISR_intifada }
+		mutually_exclusive = { focus = ISR_crush_uprising focus = ISR_return_to_1967 }
+		complete_tooltip = {
+			remove_ideas = democratic_opposition_voicing_protests
+			puppet = PAL
+			PAL = { transfer_state = 332 }
+			set_capital = 454
+		}
+		completion_reward = {
+			remove_ideas = democratic_opposition_voicing_protests
+			puppet = PAL
+			PAL = { transfer_state = 332 }
+			set_capital = 454
+		}
+	}
+
+	focus = {
+		id = ISR_return_to_1967
+		x = 20
+		y = 6
+		cost = 10
+		icon = GFX_goal_generic_major_alliance
+		ai_will_do = {
+			factor = 10
+		}
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = ISR_intifada }
+		mutually_exclusive = { focus = ISR_free_palestine focus = ISR_crush_uprising }
+		complete_tooltip = {
+			remove_ideas = democratic_opposition_voicing_protests
+			ISR = {
+				add_to_faction = USA
+			}
+		}
+		completion_reward = {
+			remove_ideas = democratic_opposition_voicing_protests
+			USA = {
+				add_to_faction = ISR
+			}
+		}
+	}
+}

@@ -1,0 +1,980 @@
+focus_tree = {
+	id = cze_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = CZE
+		}
+		
+		modifier = {
+			add = 10
+			original_tag = CZE
+		}
+	}
+	
+	default = no
+
+	focus = {
+		id = CZE_czech_arms
+		mutually_exclusive = { focus = CZE_soviet_imports }
+		icon = GFX_goal_generic_small_arms
+		x = 3
+		y = 0
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_update_military_tactics
+		prerequisite = { focus = CZE_mechanize_the_army }
+		icon = GFX_goal_generic_army_doctrines
+		x = 4
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_modern_tactical_overhaul
+		prerequisite = { focus = CZE_update_military_tactics }
+		icon = GFX_goal_generic_army_doctrines
+		x = 3
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_update_existing_equipment
+		prerequisite = { focus = CZE_update_military_tactics }
+		icon = GFX_goal_generic_small_arms
+		x = 5
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_send_funding_to_Zbrojovka_arms
+		prerequisite = { focus = CZE_modern_tactical_overhaul }
+		prerequisite = { focus = CZE_update_existing_equipment }
+		icon = GFX_goal_generic_army_artillery
+		x = 4
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_soviet_imports
+		icon = GFX_goal_generic_trade
+		x = 5
+		y = 0
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_societal_purge
+		icon = GFX_goal_generic_war_with_comintern
+		x = 20
+		y = 0
+		cost = 20
+		completion_reward = {
+			add_national_unity = -0.2
+         }
+    }
+	focus = {
+		id = CZE_embrace_stalinism
+		prerequisite = { focus = CZE_societal_purge }
+		icon = GFX_goal_support_communism
+		x = 24
+		y = 1
+		cost = 10
+		completion_reward = {
+			add_political_power = 120
+         }
+    }
+	focus = {
+		id = CZE_reform_the_constitution_140D
+		prerequisite = { focus = CZE_embrace_stalinism }
+		icon = GFX_goal_generic_forceful_treaty
+		x = 21
+		y = 2
+		cost = 20
+		completion_reward = {
+			add_national_unity = 0.05
+         }
+    }	
+	focus = {
+		id = CZE_empower_the_stb
+		prerequisite = { focus = CZE_embrace_stalinism }
+		icon = GFX_goal_generic_military_deal
+		x = 23
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_political_power = 100
+         }
+    }
+	focus = {
+		id = CZE_create_the_presidium
+		prerequisite = { focus = CZE_embrace_stalinism }
+		icon = GFX_goal_generic_demand_territory
+		x = 25
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_political_power = 100
+         }
+    }
+	focus = {
+		id = CZE_abandon_stalinism
+		mutually_exclusive = { focus = CZE_force_stalinism }
+		prerequisite = { focus = CZE_reform_the_constitution_140D }
+		prerequisite = { focus = CZE_empower_the_stb }
+		prerequisite = { focus = CZE_create_the_presidium }
+		prerequisite = { focus = CZE_anti-western_propaganda }
+		icon = GFX_goal_generic_war_with_comintern
+		x = 24
+		y = 3
+		cost = 10
+		completion_reward = {
+			CZE = {
+					add_opinion_modifier = { target = SOV modifier = democratic_leanings_bad }
+			}
+			SOV = {
+					add_opinion_modifier = { target = CZE modifier = democratic_leanings_bad }
+			}
+         }
+    }
+	focus = {
+		id = CZE_revoke_secret_trials
+		prerequisite = { focus = CZE_abandon_stalinism }
+		icon = GFX_goal_generic_improve_relations
+		x = 24
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_ideas = revoke_secret_trials
+         }
+    }
+	focus = {
+		id = CZE_liberalize_the_arts
+		prerequisite = { focus = CZE_abandon_stalinism }
+		icon = GFX_goal_support_democracy
+		x = 22
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_national_unity = 0.10
+         }
+    }
+	focus = {
+		id = CZE_allow_limited_movement_of_people
+		prerequisite = { focus = CZE_abandon_stalinism }
+		icon = GFX_goal_generic_trade
+		x = 20
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_ideas = allow_limited_movement_of_people
+         }
+    }
+	focus = {
+		id = CZE_december_thesis
+		mutually_exclusive = { focus = CZE_purge_reformists_140D }
+		prerequisite = { focus = CZE_revoke_secret_trials }
+		prerequisite = { focus = CZE_liberalize_the_arts }
+		prerequisite = { focus = CZE_allow_limited_movement_of_people }
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 24
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_ideas = december_thesis
+			add_national_unity = 0.20
+         }
+    }
+	focus = {
+		id = CZE_prague_spring
+		prerequisite = { focus = CZE_december_thesis }
+		icon = GFX_goal_support_democracy
+		x = 24
+		y = 7
+		cost = 10
+		completion_reward = {	
+			add_ideas = prague_spring
+         }
+    }
+	focus = {
+		id = CZE_return_state_nationalism
+		prerequisite = { focus = CZE_prague_spring }
+		icon = GFX_goal_support_communism
+		x = 24
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_fortify_against_soviet_aggression
+		prerequisite = { focus = CZE_prague_spring }
+		icon = GFX_goal_support_communism
+		x = 22
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_join_nato
+		mutually_exclusive = { focus = CZE_european_revolutionary_activities }
+		prerequisite = { focus = CZE_prague_spring }
+		icon = GFX_goal_generic_improve_relations
+		x = 20
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_european_revolutionary_activities
+		mutually_exclusive = { focus = CZE_join_nato }
+		prerequisite = { focus = CZE_prague_spring }
+		icon = GFX_goal_anti_comintern_pact
+		x = 18
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_form_visegrad
+		prerequisite = { focus = CZE_european_revolutionary_activities }
+		icon = GFX_goal_generic_major_alliance
+		x = 18
+		y = 9
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_force_stalinism
+		mutually_exclusive = { focus = CZE_abandon_stalinism }
+		prerequisite = { focus = CZE_reform_the_constitution_140D }
+		prerequisite = { focus = CZE_empower_the_stb }
+		prerequisite = { focus = CZE_create_the_presidium }
+		prerequisite = { focus = CZE_anti-western_propaganda }
+		icon = GFX_goal_generic_dangerous_deal
+		x = 26
+		y = 3
+		cost = 10
+		completion_reward = {			CZE = {
+					add_opinion_modifier = { target = SOV modifier = democratic_leanings_good }
+			}
+			SOV = {
+					add_opinion_modifier = { target = CZE modifier = democratic_leanings_good }
+			}         }
+    }
+	focus = {
+		id = CZE_strengthen_the_stb
+		prerequisite = { focus = CZE_force_stalinism }
+		icon = GFX_goal_generic_position_armies
+		x = 26
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_political_power = 120
+         }
+    }
+	focus = {
+		id = CZE_formalize_continuation_of_stalinism
+		prerequisite = { focus = CZE_force_stalinism }
+		icon = GFX_goal_support_communism
+		x = 28
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_political_power = 120
+         }
+    }
+	focus = {
+		id = CZE_purge_reformists_140D
+                mutually_exclusive = { focus = CZE_december_thesis }
+		prerequisite = { focus = CZE_strengthen_the_stb }
+		prerequisite = { focus = CZE_formalize_continuation_of_stalinism }
+		icon = GFX_goal_generic_war_with_comintern
+		x = 26
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_ideas = purge_reformists
+			add_ideas = reign_of_terror
+         }
+    }
+	focus = {
+		id = CZE_prague_winter
+		prerequisite = { focus = CZE_purge_reformists_140D }
+		icon = GFX_goal_support_communism
+		x = 26
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_ideas = prague_winter
+         }
+    }
+	focus = {
+		id = CZE_death_squads
+		prerequisite = { focus = CZE_prague_winter }
+		icon = GFX_goal_generic_attack_allies
+		x = 26
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_ideas = death_squads
+         }
+    }
+	focus = {
+		id = CZE_national_occupation
+		prerequisite = { focus = CZE_prague_winter }
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 28
+		y = 8
+		cost = 10
+		completion_reward = {
+			remove_ideas = civil_underground
+         }
+    }
+	focus = {
+		id = CZE_force_european_revolution
+		prerequisite = { focus = CZE_prague_winter }
+		icon = GFX_goal_generic_war_with_comintern
+		x = 30
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_ideas = military_regime
+         }
+    }
+	focus = {
+		id = CZE_strike_at_the_imperialists
+		prerequisite = { focus = CZE_force_european_revolution }
+		icon = GFX_goal_demand_sudetenland
+		x = 30
+		y = 9
+		cost = 10
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = WGR
+			} 
+			WGR = {
+					add_opinion_modifier = { target = CZE modifier = democratic_leanings_bad }
+			}
+			WGR = {
+					add_opinion_modifier = { target = CZE modifier = democratic_leanings_bad }
+			}
+			WGR = {
+					add_opinion_modifier = { target = CZE modifier = democratic_leanings_bad }
+			}
+         }
+    }
+	focus = {
+		id = CZE_anti-western_propaganda
+		prerequisite = { focus = CZE_embrace_stalinism }
+		icon = GFX_goal_generic_propaganda
+
+		x = 27
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_political_power = 100
+         }
+    }
+	focus = {
+		id = CZE_societal_transformation
+		prerequisite = { focus = CZE_societal_purge }
+		icon = GFX_goal_generic_dangerous_deal
+		x = 15
+		y = 1
+		cost = 10
+		completion_reward = {
+			add_national_unity = 0.05
+         }
+    }
+	focus = {
+		id = CZE_nationalize_the_economy
+		prerequisite = { focus = CZE_societal_transformation }
+		icon = GFX_goal_generic_soviet_construction
+		x = 10
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_post_war_reconstruction
+		prerequisite = { focus = CZE_nationalize_the_economy }
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 7
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_national_projects
+		prerequisite = { focus = CZE_post_war_reconstruction }
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 7
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_ostrava_steel
+		prerequisite = { focus = CZE_national_projects }
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 7
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_czechoslovak_road_network
+		prerequisite = { focus = CZE_ostrava_steel }
+		icon = GFX_goal_generic_construct_civilian
+		x = 7
+		y = 9
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_agricultural_revolution
+		mutually_exclusive = { focus = CZE_national_industry }
+		prerequisite = { focus = CZE_nationalize_the_economy }
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 9
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_production_officers
+		prerequisite = { focus = CZE_agricultural_revolution }
+		prerequisite = { focus = CZE_industrial_development }
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 9
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_industrial_oversight_committee
+		prerequisite = { focus = CZE_production_officers }
+		icon = GFX_goal_generic_forceful_treaty
+		x = 9
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_stb_industrial_investigations
+		prerequisite = { focus = CZE_industrial_oversight_committee }
+		icon = GFX_goal_generic_war_with_comintern
+		x = 9
+		y = 9
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_national_industry
+		mutually_exclusive = { focus = CZE_agricultural_revolution }
+		prerequisite = { focus = CZE_nationalize_the_economy }
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 11
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_industrial_development
+		prerequisite = { focus = CZE_national_industry }
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 11
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_employ_all_workers
+		prerequisite = { focus = CZE_industrial_development }
+		prerequisite = { focus = CZE_eliminate_the_private_sector }
+		icon = GFX_goal_generic_construction
+		x = 12
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_industrial_reorganization
+		prerequisite = { focus = CZE_employ_all_workers }
+		icon = GFX_goal_generic_construct_civilian
+		x = 12
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_new_economic_model
+		prerequisite = { focus = CZE_industrial_reorganization }
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 12
+		y = 9
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_industrial_research_projects
+		prerequisite = { focus = CZE_new_economic_model }
+		icon = GFX_focus_research
+		x = 12
+		y = 10
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_peoples_militias
+		prerequisite = { focus = CZE_societal_transformation }
+		icon = GFX_goal_generic_small_arms
+		x = 13
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_ideas = peoples_militias
+         }
+    }
+	focus = {
+		id = CZE_promote_social_realism
+		prerequisite = { focus = CZE_societal_transformation }
+		icon = GFX_goal_generic_national_unity
+		x = 15
+		y = 2
+		cost = 10
+		completion_reward = {
+			CZE = {
+					add_opinion_modifier = { target = POL modifier = democratic_leanings_good }
+			}
+			POL = {
+					add_opinion_modifier = { target = CZE modifier = democratic_leanings_good }
+			}
+			CZE = {
+					add_opinion_modifier = { target = DDR modifier = democratic_leanings_good }
+			}
+			DDR = {
+					add_opinion_modifier = { target = CZE modifier = democratic_leanings_good }
+			}
+			CZE = {
+					add_opinion_modifier = { target = ROM modifier = democratic_leanings_good }
+			}
+			ROM = {
+					add_opinion_modifier = { target = CZE modifier = democratic_leanings_good }
+			}
+			CZE = {
+					add_opinion_modifier = { target = HUN modifier = democratic_leanings_good }
+			}
+			HUN = {
+					add_opinion_modifier = { target = CZE modifier = democratic_leanings_good }
+			}
+			CZE = {
+					add_opinion_modifier = { target = ALB modifier = democratic_leanings_good }
+			}
+			ALB = {
+					add_opinion_modifier = { target = CZE modifier = democratic_leanings_good }
+			}
+			CZE = {
+					add_opinion_modifier = { target = BUL modifier = democratic_leanings_good }
+			}
+			BUL = {
+					add_opinion_modifier = { target = CZE modifier = democratic_leanings_good }
+			}
+			CZE = {
+					add_opinion_modifier = { target = YUG modifier = democratic_leanings_good }
+			}
+			YUG = {
+					add_opinion_modifier = { target = CZE modifier = democratic_leanings_good }
+			}
+			CZE = {
+					add_opinion_modifier = { target = SOV modifier = democratic_leanings_good }
+			}
+			SOV = {
+					add_opinion_modifier = { target = CZE modifier = democratic_leanings_good }
+			}
+         }
+    }
+	focus = {
+		id = CZE_ban_nationalist_activities
+		prerequisite = { focus = CZE_societal_transformation }
+		icon = GFX_goal_generic_military_deal
+		x = 17
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_ideas = ban_nationalist_activities
+         }
+    }
+	focus = {
+		id = CZE_promote_party_loyalty
+		prerequisite = { focus = CZE_peoples_militias }
+		prerequisite = { focus = CZE_promote_social_realism }
+		prerequisite = { focus = CZE_ban_nationalist_activities }
+		icon = GFX_goal_generic_propaganda
+		x = 13
+		y = 3
+		cost = 10
+		completion_reward = {
+			add_ideas = promote_party_loyalty
+         }
+    }
+	focus = {
+		id = CZE_reform_education
+		prerequisite = { focus = CZE_peoples_militias }
+		prerequisite = { focus = CZE_promote_social_realism }
+		prerequisite = { focus = CZE_ban_nationalist_activities }
+		icon = GFX_goal_generic_forceful_treaty
+		x = 15
+		y = 3
+		cost = 10
+		completion_reward = {
+			add_ideas = reform_education
+         }
+    }
+	focus = {
+		id = CZE_constrain_slovak_autonomy
+		prerequisite = { focus = CZE_peoples_militias }
+		prerequisite = { focus = CZE_promote_social_realism }
+		prerequisite = { focus = CZE_ban_nationalist_activities }
+		icon = GFX_goal_generic_attack_allies
+		x = 17
+		y = 3
+		cost = 10
+		completion_reward = {
+			add_ideas = constrain_slovak_autonomy
+         }
+    }
+	focus = {
+		id = CZE_eliminate_the_private_sector
+		prerequisite = { focus = CZE_promote_party_loyalty }
+		prerequisite = { focus = CZE_reform_education }
+		prerequisite = { focus = CZE_constrain_slovak_autonomy }
+		icon = GFX_goal_generic_trade
+		x = 13
+		y = 4
+		cost = 10
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 3
+         }
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+                    }
+           }
+    }
+	focus = {
+		id = CZE_reform_the_judiciary
+		prerequisite = { focus = CZE_promote_party_loyalty }
+		prerequisite = { focus = CZE_reform_education }
+		prerequisite = { focus = CZE_constrain_slovak_autonomy }
+		icon = GFX_goal_generic_demand_territory
+		x = 15
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_political_power = 120
+         }
+    }
+	focus = {
+		id = CZE_bill_of_rights
+		prerequisite = { focus = CZE_promote_party_loyalty }
+		prerequisite = { focus = CZE_reform_education }
+		prerequisite = { focus = CZE_constrain_slovak_autonomy }
+		icon = GFX_goal_generic_forceful_treaty
+		x = 17
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_national_unity = 0.10
+         }
+    }
+	focus = {
+		id = CZE_soviet_stockpiles
+		prerequisite = { focus = CZE_soviet_imports }
+		icon = GFX_goal_generic_military_sphere
+		x = 9
+		y = 1
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_soviet_officers
+		prerequisite = { focus = CZE_soviet_stockpiles }
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 7
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_soviet_technological_donations
+		prerequisite = { focus = CZE_soviet_stockpiles }
+		icon = GFX_goal_generic_scientific_exchange
+		x = 9
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_military_integration
+		prerequisite = { focus = CZE_soviet_stockpiles }
+		icon = GFX_goal_generic_national_unity
+		x = 11
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_czech_air_innovations
+		prerequisite = { focus = CZE_czech_arms }
+		icon = GFX_goal_generic_build_airforce
+		x = 0
+		y = 1
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_bomber_aircraft
+		prerequisite = { focus = CZE_czech_air_innovations }
+		icon = GFX_goal_generic_air_bomber
+		x = 0
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_advanced_bomber_aircraft
+		prerequisite = { focus = CZE_bomber_aircraft }
+		mutually_exclusive = { focus = CZE_advanced_fighter_aircraft }
+		icon = GFX_goal_generic_CAS
+		x = 0
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_advanced_CAS
+		prerequisite = { focus = CZE_advanced_bomber_aircraft }
+		icon = GFX_goal_generic_air_naval_bomber
+		x = 0
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_fighter_aircraft
+		prerequisite = { focus = CZE_czech_air_innovations }
+		icon = GFX_goal_generic_air_fighter
+		x = 2
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_advanced_fighter_aircraft
+		prerequisite = { focus = CZE_fighter_aircraft }
+		mutually_exclusive = { focus = CZE_advanced_bomber_aircraft }
+		icon = GFX_goal_generic_CAS
+		x = 2
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_vysadkar
+		prerequisite = { focus = CZE_advanced_fighter_aircraft }
+		icon = GFX_goal_generic_special_forces
+		x = 2
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_guided_missile_tests
+		prerequisite = { focus = CZE_czech_arms }
+		icon = GFX_focus_rocketry
+		x = 2
+		y = 1
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_armor_engineers
+		prerequisite = { focus = CZE_czech_arms }
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 3
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_advanced_armor_designs
+		prerequisite = { focus = CZE_armor_engineers }
+		icon = GFX_goal_generic_army_tanks
+		x = 3
+		y = 3
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_military_research_academy
+		prerequisite = { focus = CZE_czech_air_innovations }
+		prerequisite = { focus = CZE_guided_missile_tests }
+		icon = GFX_focus_research
+		x = 1
+		y = 3
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_mechanize_the_army
+		prerequisite = { focus = CZE_czech_arms focus = CZE_soviet_imports }
+		icon = GFX_goal_generic_build_tank
+		x = 4
+		y = 1
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_global_arms_supply
+		prerequisite = { focus = CZE_mechanize_the_army }
+		icon = GFX_goal_generic_build_tank
+		x = 5
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+    }
+	focus = {
+		id = CZE_larger_expeditionary_forces
+		prerequisite = { focus = CZE_global_arms_supply }
+		icon = GFX_goal_generic_trade
+		x = 5
+		y = 3
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+         }
+}
+}
