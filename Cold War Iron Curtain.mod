@@ -6,5 +6,7 @@ tags={
 	"Historical"
 	"Map"
 }
+replace_path = "events"
+
 picture="coldwar.jpg"
 supported_version="1.3.3"

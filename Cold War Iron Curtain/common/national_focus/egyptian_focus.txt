@@ -38,6 +38,9 @@ focus_tree = {
 		id = EGY_nationalize_suez_canal
 		icon = GFX_goal_generic_demand_territory
 		cost = 10.00
+		prerequisite = {
+			focus = EGY_despose_king
+		}
 		mutually_exclusive = {
 			focus = democratic_reforms
 		}
@@ -62,25 +65,29 @@ focus_tree = {
 						}
 				}
 			completion_reward = {
-					create_wargoal = {
-							type = take_state_focus
-							target = ENG
-						}
-					447 = {
+					743 = {
 							add_claim_by = ENG
 							add_claim_by = EGY
 						}
+					EGY = { transfer_state = 743 }	
 					add_popularity = {
 							ideology = communism
 							popularity = 0.2
 						}
+				ENG = {
+					country_event = { id = egypt.60 }
+					custom_effect_tooltip = may_provoke_hostility
 				}
+			}
 
 	}
 	focus = {
 		id = EGY_camp_david_accords
 		icon = GFX_goal_support_fascism
 		cost = 10.00
+		prerequisite = {
+			focus = EGY_restore_egy_prestige
+		}
 		mutually_exclusive = {
 			focus = EGY_war_achieve_peace
 			focus = EGY_wipe_israel
