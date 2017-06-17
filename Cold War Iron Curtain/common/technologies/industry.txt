@@ -2,7 +2,7 @@ technologies = {
 
 	basic_machine_tools = {
 	
-		production_factory_max_efficiency_factor = 0.05
+		production_factory_max_efficiency_factor = 0.1
 
 		
 		path = {
@@ -21,21 +21,22 @@ technologies = {
 		}
 		
 		research_cost = 1.5
-		start_year = 1945
+		start_year = 1936
 		folder = {
 			name = industry_folder
 			position = { x = 0 y = 0 }
 		}
 		
 		ai_will_do = {
-			factor = 6
+			factor = 50
 		}
 		
 		categories = {
 			industry
 		}
 	}
-	
+
+	#Machine tools branch	
 	improved_machine_tools = {
 	
 		production_factory_max_efficiency_factor = 0.1
@@ -44,9 +45,14 @@ technologies = {
 			leads_to_tech = advanced_machine_tools 
 			research_cost_coeff = 1
 		}
+
+		path = {
+			leads_to_tech = improved_equipment_conversion
+			research_cost_coeff = 1
+		}
 		
 		research_cost = 1.5
-		start_year = 1949
+		start_year = 1937
 		
 		folder = {
 			name = industry_folder
@@ -54,7 +60,12 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 6
+			factor = 40
+						
+			modifier = {
+				factor = 10
+				date > "1937.1.1"
+			}
 		}
 		
 		categories = {
@@ -64,8 +75,7 @@ technologies = {
 	
 	advanced_machine_tools = {
 	
-		production_factory_max_efficiency_factor = 0.15
-
+		production_factory_max_efficiency_factor = 0.1
 		
 		path = {
 			leads_to_tech = assembly_line_production 
@@ -73,7 +83,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1951
+		start_year = 1939
 		
 		folder = {
 			name = industry_folder
@@ -81,7 +91,12 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 6
+			factor = 30
+						
+			modifier = {
+				factor = 10
+				date > "1939.1.1"
+			}
 		}
 		
 		categories = {
@@ -91,7 +106,7 @@ technologies = {
 	
 	assembly_line_production = {
 	
-		production_factory_max_efficiency_factor = 0.20
+		production_factory_max_efficiency_factor = 0.1
 		
 		#path = {
 		#	leads_to_tech = improved_machine_tools 
@@ -110,7 +125,7 @@ technologies = {
 		
 		
 		research_cost = 2
-		start_year = 1953
+		start_year = 1941
 		
 		folder = {
 			name = industry_folder
@@ -118,7 +133,12 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 20
+			
+			modifier = {
+				factor = 10
+				date > "1941.1.1"
+			}			
 		}
 		
 		categories = {
@@ -128,10 +148,11 @@ technologies = {
 	
 	flexible_line = {
 
-		line_change_production_efficiency_factor = 0.5
+		production_factory_max_efficiency_factor = 0.1
+		line_change_production_efficiency_factor = 0.2
 		
 		research_cost = 2.5
-		start_year = 1955
+		start_year = 1943
 		
 		XOR = {
 			streamlined_line
@@ -143,7 +164,12 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 20
+						
+			modifier = {
+				factor = 10
+				date > "1943.1.1"
+			}
 		}
 		
 		categories = {
@@ -153,10 +179,11 @@ technologies = {
 	
 	streamlined_line = {
 
-		production_factory_efficiency_gain_factor = 0.25
+		production_factory_max_efficiency_factor = 0.1
+		production_factory_efficiency_gain_factor = 0.1
 			
 		research_cost = 2.5
-		start_year = 1955
+		start_year = 1943
 		
 		XOR = {
 			flexible_line
@@ -168,7 +195,54 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 20
+			
+			modifier = {
+				factor = 10
+				date > "1943.1.1"
+			}
+			
+		}
+		
+		categories = {
+			industry
+		}
+	}
+
+	#Conversion branch - Enabled in DoD
+	improved_equipment_conversion = {
+	
+		equipment_conversion_speed = 0.40
+
+		allow_branch = {
+			has_dlc = "Death or Dishonor"
+		}
+
+		path = {
+			leads_to_tech = advanced_equipment_conversion
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.5
+		start_year = 1937
+		
+		folder = {
+			name = industry_folder
+			position = { x = 2 y = 4 }
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 2
+				date > "1937.1.1"
+			}
+
+			modifier = {
+				factor = 0
+				NOT = { has_government = fascism }
+			}
 		}
 		
 		categories = {
@@ -176,9 +250,42 @@ technologies = {
 		}
 	}
 	
+	advanced_equipment_conversion = {
+		
+		equipment_conversion_speed = 0.40
+
+		research_cost = 1.5
+		start_year = 1939
+		
+		folder = {
+			name = industry_folder
+			position = { x = 2 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 2
+				date > "1937.1.1"
+			}
+
+			modifier = {
+				factor = 0
+				NOT = { has_government = fascism }
+			}
+		}
+		
+		categories = {
+			industry
+		}
+	}
+
+	###############
 	concentrated_industry = {
 
-		industrial_capacity_factory = 0.2
+		industrial_capacity_factory = 0.15
+		industrial_capacity_dockyard = 0.1
 		global_building_slots_factor = 0.20
 		
 		path = {
@@ -198,17 +305,41 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 25
 
 			modifier = {
 				factor = 2
 				NOT = { tag = GER }
 			}
+			
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+			
+			modifier = {
+				factor = 2
+				tag = ENG
+			}
+			
+			modifier = {
+				factor = 2
+				tag = JAP
+			}
 
 			modifier = {
 				factor = 0
-				has_war = yes
 				has_tech = dispersed_industry
+			}
+			
+			modifier = {
+				factor = 0
+				is_researching_technology = dispersed_industry
+			}
+						
+			modifier = {
+				factor = 5
+				date > "1937.1.1"
 			}
 		}
 		
@@ -223,7 +354,8 @@ technologies = {
 	
 	concentrated_industry2 = {
 
-		industrial_capacity_factory = 0.2
+		industrial_capacity_factory = 0.15
+		industrial_capacity_dockyard = 0.1
 		global_building_slots_factor = 0.20
 		
 		path = {
@@ -232,7 +364,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1949
+		start_year = 1937
 		
 		folder = {
 			name = industry_folder
@@ -240,7 +372,13 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 20
+						
+			modifier = {
+				factor = 10
+				date > "1937.1.1"
+			}
+			
 		}
 		
 		categories = {
@@ -254,7 +392,8 @@ technologies = {
 	
 	concentrated_industry3 = {
 
-		industrial_capacity_factory = 0.2
+		industrial_capacity_factory = 0.15
+		industrial_capacity_dockyard = 0.1
 		global_building_slots_factor = 0.20
 		
 		path = {
@@ -263,7 +402,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1951
+		start_year = 1939
 		
 		folder = {
 			name = industry_folder
@@ -271,7 +410,12 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 20
+			
+			modifier = {
+				factor = 10
+				date > "1939.1.1"
+			}			
 		}
 		
 		categories = {
@@ -285,7 +429,8 @@ technologies = {
 	
 	concentrated_industry4 = {
 
-		industrial_capacity_factory = 0.2
+		industrial_capacity_factory = 0.15
+		industrial_capacity_dockyard = 0.1
 		global_building_slots_factor = 0.20
 		
 		path = {
@@ -294,7 +439,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1953
+		start_year = 1941
 		
 		folder = {
 			name = industry_folder
@@ -302,7 +447,12 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 20
+						
+			modifier = {
+				factor = 10
+				date > "1941.1.1"
+			}
 		}
 		
 		categories = {
@@ -316,11 +466,12 @@ technologies = {
 	
 	concentrated_industry5 = {
 
-		industrial_capacity_factory = 0.2
+		industrial_capacity_factory = 0.15
+		industrial_capacity_dockyard = 0.1
 		global_building_slots_factor = 0.20
 		
 		research_cost = 2
-		start_year = 1955
+		start_year = 1943
 		
 		folder = {
 			name = industry_folder
@@ -329,6 +480,16 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 4
+			
+			modifier = {
+				factor = 5
+				date > "1942.1.9"
+			}
+			
+			modifier = {
+				factor = 20
+				date > "1943.1.1"
+			}			
 		}
 		
 		categories = {
@@ -343,7 +504,10 @@ technologies = {
 	dispersed_industry = {
 
 		industrial_capacity_factory = 0.1
+		industrial_capacity_dockyard = 0.1
 		line_change_production_efficiency_factor = 0.1
+		production_factory_start_efficiency_factor = 0.05
+		equipment_conversion_speed = 0.20
 		industry_air_damage_factor = -0.1
 		global_building_slots_factor = 0.2
 		
@@ -364,17 +528,41 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 25
 
 			modifier = {
 				factor = 2
 				tag = GER
 			}
+			
+			modifier = {
+				factor = 0.25
+				tag = USA
+			}
+			
+			modifier = {
+				factor = 0.25
+				tag = ENG
+			}
+			
+			modifier = {
+				factor = 0.25
+				tag = JAP
+			}
 
 			modifier = {
 				factor = 0
-				has_war = yes
 				has_tech = concentrated_industry
+			}
+			
+			modifier = {
+				factor = 0
+				is_researching_technology = concentrated_industry
+			}
+
+			modifier = {
+				factor = 5
+				date > "1937.1.1"
 			}
 		}
 		
@@ -390,7 +578,9 @@ technologies = {
 	dispersed_industry2 = {
 
 		industrial_capacity_factory = 0.1
+		industrial_capacity_dockyard = 0.1
 		line_change_production_efficiency_factor = 0.1
+		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.1
 		global_building_slots_factor = 0.2
 		
@@ -400,7 +590,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1949
+		start_year = 1937
 		
 		folder = {
 			name = industry_folder
@@ -408,7 +598,12 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 20
+						
+			modifier = {
+				factor = 10
+				date > "1937.1.1"
+			}
 		}
 		
 		categories = {
@@ -423,7 +618,9 @@ technologies = {
 	dispersed_industry3 = {
 
 		industrial_capacity_factory = 0.1
+		industrial_capacity_dockyard = 0.1
 		line_change_production_efficiency_factor = 0.1
+		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.1
 		global_building_slots_factor = 0.2
 		
@@ -433,7 +630,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1951
+		start_year = 1939
 		
 		folder = {
 			name = industry_folder
@@ -441,7 +638,12 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 20
+						
+			modifier = {
+				factor = 10
+				date > "1939.1.1"
+			}			
 		}
 		
 		categories = {
@@ -456,7 +658,9 @@ technologies = {
 	dispersed_industry4 = {
 
 		industrial_capacity_factory = 0.1
+		industrial_capacity_dockyard = 0.1
 		line_change_production_efficiency_factor = 0.1
+		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.1
 		global_building_slots_factor = 0.2
 		
@@ -466,7 +670,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1953
+		start_year = 1941
 		
 		folder = {
 			name = industry_folder
@@ -474,7 +678,12 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 20
+						
+			modifier = {
+				factor = 10
+				date > "1941.1.1"
+			}
 		}
 		
 		categories = {
@@ -489,13 +698,15 @@ technologies = {
 	dispersed_industry5 = {
 
 		industrial_capacity_factory = 0.1
+		industrial_capacity_dockyard = 0.1
 		line_change_production_efficiency_factor = 0.1
+		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.1
 		global_building_slots_factor = 0.2
 		
 		
 		research_cost = 2
-		start_year = 1955
+		start_year = 1943
 		
 		folder = {
 			name = industry_folder
@@ -503,7 +714,13 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 20
+			
+			
+			modifier = {
+				factor = 10
+				date > "1943.1.1"
+			}
 		}
 		
 		categories = {
@@ -519,7 +736,7 @@ technologies = {
 
 		enable_building = {
 			building = synthetic_refinery
-			level = 4
+			level = 1
 		}
 		
 		#production_oil_factor = 0.1 #Can increase oil output - not used though.
@@ -530,7 +747,7 @@ technologies = {
 		}
 		
 		research_cost = 3
-		start_year = 1945
+		start_year = 1936
 		folder = {
 			name = industry_folder
 			position = { x = 0 y = 0 }
@@ -566,7 +783,7 @@ technologies = {
 
 		enable_building = {
 			building = synthetic_refinery
-			level = 5
+			level = 2
 		}
 		
 		path = {
@@ -587,7 +804,7 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 1
+			factor = 0.5
 			modifier = {
 				factor = 0.5
 				oil > 10
@@ -611,7 +828,7 @@ technologies = {
 
 		enable_building = {
 			building = synthetic_refinery
-			level = 6
+			level = 3
 		}
 		
 		path = {
@@ -620,7 +837,7 @@ technologies = {
 		}
 		
 		research_cost = 1.5
-		start_year = 1951
+		start_year = 1939
 		
 		folder = {
 			name = industry_folder
@@ -633,7 +850,7 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 1
+			factor = 0.5
 			modifier = {
 				factor = 0.5
 				oil > 10
@@ -657,7 +874,7 @@ technologies = {
 
 		enable_building = {
 			building = synthetic_refinery
-			level = 7
+			level = 4
 		}
 		
 		path = {
@@ -666,7 +883,7 @@ technologies = {
 		}
 		
 		research_cost = 1.5
-		start_year = 1955
+		start_year = 1943
 		
 		folder = {
 			name = industry_folder
@@ -679,7 +896,7 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 1
+			factor = 0.5
 			modifier = {
 				factor = 0.5
 				oil > 10
@@ -702,7 +919,8 @@ technologies = {
 	construction1 = {
 		
 		production_speed_buildings_factor = 0.10
-		
+		industry_repair_factor = 0.10
+
 		path = {
 			leads_to_tech = construction2
 			research_cost_coeff = 1
@@ -713,7 +931,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1945
+		start_year = 1936
 		categories = {
 			industry
 			construction_tech
@@ -725,13 +943,18 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 50
+			
+			modifier = {
+				factor = 5
+				date > "1937.1.1"
+			}
 		}
 	}
 
 	excavation1 = {
 		
-		 local_resources_factor = 0.10
+		local_resources_factor = 0.10
 		
 		path = {
 			research_cost_coeff = 1
@@ -750,13 +973,38 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 1
+			
+			modifier = {
+				factor = 5.0
+				OR = {
+					oil > 0
+					aluminium > 0
+					rubber > 0
+					tungsten > 0
+					steel > 0
+					chromium > 0
+				}
+			}
+			
+			modifier = {
+				factor = 1.5
+				OR = {
+					oil > 8
+					aluminium > 8
+					rubber > 8
+					tungsten > 8
+					steel > 8
+					chromium > 8
+				}
+			}
 		}
 	}
 	
 	construction2 = {
 
 		production_speed_buildings_factor = 0.10
+		industry_repair_factor = 0.10
 		
 		path = {
 			leads_to_tech = construction3 
@@ -768,7 +1016,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1949
+		start_year = 1937
 		
 		categories = {
 			industry
@@ -782,6 +1030,11 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 4
+			
+			modifier = {
+				factor = 10
+				date > "1937.1.1"
+			}			
 		}
 	}
 
@@ -794,7 +1047,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1949
+		start_year = 1937
 		
 		categories = {
 			industry
@@ -807,13 +1060,38 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 1
+			
+			modifier = {
+				factor = 5.0
+				OR = {
+					oil > 0
+					aluminium > 0
+					rubber > 0
+					tungsten > 0
+					steel > 0
+					chromium > 0
+				}
+			}
+			
+			modifier = {
+				factor = 1.5
+				OR = {
+					oil > 8
+					aluminium > 8
+					rubber > 8
+					tungsten > 8
+					steel > 8
+					chromium > 8
+				}
+			}
 		}
 	}	
 	
 	construction3 = {
 
-		industry_repair_factor = 0.5
+		production_speed_buildings_factor = 0.10
+		industry_repair_factor = 0.10
 		
 		path = {
 			leads_to_tech = construction4 
@@ -826,7 +1104,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1951
+		start_year = 1939
 		
 		categories = {
 			industry
@@ -839,7 +1117,22 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 10
+			
+			modifier = {
+				factor = 1.5
+				has_war = yes
+			}
+			
+			modifier = {
+				factor = 0.5
+				NOT = { has_war = yes }
+			}
+			
+			modifier = {
+				factor = 3
+				date > "1940.1.1"
+			}
 		}
 	}
 
@@ -853,7 +1146,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1951
+		start_year = 1939
 		
 		categories = {
 			industry
@@ -866,13 +1159,38 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 1
+			
+			modifier = {
+				factor = 5.0
+				OR = {
+					oil > 0
+					aluminium > 0
+					rubber > 0
+					tungsten > 0
+					steel > 0
+					chromium > 0
+				}
+			}
+			
+			modifier = {
+				factor = 1.5
+				OR = {
+					oil > 8
+					aluminium > 8
+					rubber > 8
+					tungsten > 8
+					steel > 8
+					chromium > 8
+				}
+			}
 		}
 	}		
 	
 	construction4 = {
 
 		production_speed_buildings_factor = 0.10
+		industry_repair_factor = 0.10
 		
 		path = {
 			leads_to_tech = construction5 
@@ -884,7 +1202,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1953
+		start_year = 1941
 		
 		categories = {
 			industry
@@ -898,6 +1216,11 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 4
+			
+			modifier = {
+				factor = 10
+				date > "1941.1.1"
+			}
 		}
 	}
 
@@ -910,7 +1233,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1953
+		start_year = 1941
 		
 		categories = {
 			industry
@@ -923,13 +1246,38 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 1
+			
+			modifier = {
+				factor = 5.0
+				OR = {
+					oil > 0
+					aluminium > 0
+					rubber > 0
+					tungsten > 0
+					steel > 0
+					chromium > 0
+				}
+			}
+			
+			modifier = {
+				factor = 1.5
+				OR = {
+					oil > 8
+					aluminium > 8
+					rubber > 8
+					tungsten > 8
+					steel > 8
+					chromium > 8
+				}
+			}
 		}
 	}			
 	
 	construction5 = {
 
 		production_speed_buildings_factor = 0.10
+		industry_repair_factor = 0.10
 		
 		path = {
 			leads_to_tech = excavation5
@@ -938,7 +1286,7 @@ technologies = {
 
 		
 		research_cost = 2
-		start_year = 1955
+		start_year = 1943
 		
 		categories = {
 			industry
@@ -952,6 +1300,11 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 4
+			
+			modifier = {
+				factor = 10
+				date > "1943.1.1"
+			}
 		}
 	}
 
@@ -965,7 +1318,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1955
+		start_year = 1943
 		
 		categories = {
 			industry
@@ -978,7 +1331,31 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 4
+			factor = 2
+			
+			modifier = {
+				factor = 5.0
+				OR = {
+					oil > 0
+					aluminium > 0
+					rubber > 0
+					tungsten > 0
+					steel > 0
+					chromium > 0
+				}
+			}
+			
+			modifier = {
+				factor = 1.5
+				OR = {
+					oil > 8
+					aluminium > 8
+					rubber > 8
+					tungsten > 8
+					steel > 8
+					chromium > 8
+				}
+			}
 		}
 	}			
 
