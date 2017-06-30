@@ -8,9 +8,9 @@ tags={
 }
 
 replace_path = "events"
-replace_path = "history\states"
-replace_path = "common\national_focus"
+replace_path = "history\\states"
+replace_path = "common\\national_focus"
 
 picture="coldwar.jpg"
 remote_file_id="717620160"
-supported_version="1.3.3"
+supported_version="1.4.1"
