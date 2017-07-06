@@ -1,0 +1,40 @@
+﻿##############
+# People Republic of China Events
+##############
+
+add_namespace = prc
+
+# 5 base division because of Focus Tree
+country_event = {
+	id = prc.1
+	title = prc.1.t
+	desc = prc.1.d
+	picture = GFX_report_event_indian_soldiers
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.1.a
+		hidden_effect = {
+			load_oob = "PRC_communist_reinforcements"
+		}
+		custom_effect_tooltip = PRC_Communist_Army_arrives
+		set_global_flag = prc_communist_army_setup
+	}
+}
+
+# (Hidden) Global flag for capitualated China
+country_event = {
+	id = prc.2
+	
+	hidden = yes
+	
+	tigger = {
+		tag = CHI
+		has_capitulated = yes
+	}
+
+	immediate = {
+		set_global_flag = china_capitualted
+	}
+}
