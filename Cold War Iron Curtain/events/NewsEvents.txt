@@ -1,136 +1,177 @@
-﻿add_namespace = news
+﻿##############
+# News Events
+##############
+
+add_namespace = news
+
+# End of the Nuremberg trials
 news_event = {
-	id = news.200
-	title = news.200.t
-	desc = news.200.d
-	picture = GFX_news_event_hitler_speech
-	
+	id = news.1
+	title = news.1.t
+	desc = news.1.d
+	picture = GFX_news_event_nuremberg
+
 	major = yes
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = news.200.a
-		trigger = {
-			NOT = {
-				TAG = EGY
-				TAG = FRA
-				TAG = ENG
-			}
-		}
+
+	immediate = {
+		set_global_flag = nuremberg_trials_over
 	}
-	option = {
-		name = news.200.b
-		trigger = { TAG = EGY }
+
+	trigger = {
+		date < 1949.5.26
+		NOT = { has_global_flag = nuremberg_trials_over }
 	}
+
 	option = {
-		name = news.200.c
-		trigger = { TAG = FRA }
-	}
-	option = {
-		name = news.200.e
-		trigger = { TAG = ENG }
-	}
-}
-news_event = {
-	id = news.206
-	title = news.200.t
-	desc = news.206.d
-	picture = GFX_news_event_020
-	
-	major = yes
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = news.206.a
-		trigger = {
-			NOT = {
-				TAG = EGY
-				TAG = FRA
-				TAG = ENG
-			}
-		}
-	}
-	option = {
-		name = news.206.b
-		trigger = { TAG = EGY }
-	}
-	option = {
-		name = news.206.c
-		trigger = { TAG = FRA }
-	}
-	option = {
-		name = news.206.e
-		trigger = { TAG = ENG }
+		name = news.1.a
 	}
 }
 
-# Remilitarization of the Rhineland (France goes to war)
+# End of the Berlin Airlift
 news_event = {
-	id = news.207
-	title = news.200.t
-	desc = news.207.d
-	picture = GFX_news_event_german_inspect_troops
-	
+	id = news.2
+	title = news.2.t
+	desc = news.2.d
+	picture = GFX_news_event_berlin_airlift
+
 	major = yes
 	
-	is_triggered_only = yes
-	
+	immediate = {
+		set_global_flag = berlin_airlift_over
+	}
+
+	trigger = {
+		date > 1949.9.30
+		NOT = { has_global_flag = berlin_airlift_over}
+	}
+
 	option = {
-		name = news.206.a
+		name = news.2.a
 		trigger = {
 			NOT = {
-				TAG = EGY
-				TAG = ENG
+				tag = SOV
 			}
 		}
 	}
+	
 	option = {
-		name = news.206.b
-		trigger = { TAG = EGY }
-	}
-	option = {
-		name = news.206.c
-		trigger = { TAG = ENG }
+		name = news.2.b
+		trigger = {
+			tag = SOV
+		}
 	}
 }
-# Remilitarization of the Rhineland (France goes to war)
+
+# The (first) Korean War breaks out
 news_event = {
-	id = news.208
-	title = news.208.t
-	desc = news.208.d
-	picture = GFX_news_event_german_inspect_troops
+	id = news.3
+	title = news.3.t
+	desc = news.3.desc
+	picture = GFX_news_event_korea_war
 	
 	major = yes
 	
-	is_triggered_only = yes
+	immediate = {
+		set_global_flag = first_korean_war
+	}
+	
+	trigger = {
+		tag = KPA
+		has_war_with = KOR
+		NOT = { has_global_flag = first_korean_war}
+	}
 	
 	option = {
-		name = news.206.a
+		name = news.3.a
+		trigger = {
+			tag = USA
+		}
+	}
+		
+	option = {
+		name = news.3.b
+		trigger = {
+			tag = SOV
+		}
+	}
+	
+	option = {
+		name = news.3.c
 		trigger = {
 			NOT = {
-				TAG = EGY
-				TAG = ISR
-				TAG = FRA
-				TAG = ENG
+				tag = USA
+				tag = SOV
+				tag = KOR
+				tag = KPA
 			}
 		}
 	}
+	
 	option = {
-		name = news.206.b
-		trigger = { TAG = EGY }
+		name = news.3.d
+		trigger = {
+			tag = KPA
+		}
 	}
+	
 	option = {
-		name = news.206.e
-		trigger = { TAG = ISR }
+		name = news.3.e
+		trigger = {
+			tag = KOR
+		}
 	}
-	option = {
-		name = news.206.c
-		trigger = { TAG = FRA }
+	
+	mean_time_to_happen = {
+		days = 1
 	}
+}
+
+# People's Republic of China creates simplified Chinese
+news_event = {
+	id = news.4
+	title = news.4.t
+	desc = news.4.d
+	picture = GFX_news_event_prc_simplchinese
+	
+	major = yes
+	is_triggered_only = yes
+	
 	option = {
-		name = news.206.c
-		trigger = { TAG = ENG }
+		name = news.4.a
+		trigger = {
+			tag = PRC
+		}
+	}
+	
+	option = {
+		name = news.4.b
+		trigger = {
+			NOT = {tag = PRC}
+		}
+	}
+}
+
+# PRC beat China / is the new China
+news_event = {
+	id = news.5
+	ititle = news.5.t
+	desc = news.5.d
+	picture = GFX_news_event_prc_winner
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = news.5.a
+		trigger = {
+			tag = PRC
+		}
+	}
+
+	option = {
+		name = news.5.b
+		trigger = {
+			NOT = {tag = PRC}
+		}
 	}
 }

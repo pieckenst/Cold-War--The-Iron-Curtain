@@ -1,0 +1,1755 @@
+focus_tree = {
+	id = PRC49
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = PRC
+		}
+	}
+	default = no
+	focus = {
+		id = prc_war
+		icon = GFX_goal_generic_attack_allies
+		cost = 10.00
+		x = 18
+		y = 0
+		completion_reward = {
+			country_event = prc.1
+		}
+	}
+	focus = {
+		id = spring_of_57
+		icon = GFX_goal_generic_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = prc_defend_communism
+		}
+		mutually_exclusive = {
+			focus = anti_right
+		}
+		x = 14
+		y = 7
+
+	}
+	focus = {
+		id = prc_foreign_affairs
+		icon = GFX_goal_generic_support_communism
+		cost = 10.00
+		prerequisite = {
+			focus = prc_war
+		}
+		x = 9
+		y = 1
+
+	}
+	focus = {
+		id = sino_soviet_treaty
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = prc_foreign_affairs
+		}
+		mutually_exclusive = {
+			focus = prc_marshall
+		}
+		x = 8
+		y = 2
+
+	}
+	focus = {
+		id = ussr_prc_assistance
+		icon = GFX_focus_generic_diplomatic_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = sino_soviet_treaty
+		}
+		x = 6
+		y = 3
+
+	}
+	focus = {
+		id = moscow_mission
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = sino_soviet_treaty
+		}
+		x = 8
+		y = 3
+
+	}
+	focus = {
+		id = sino_soviet_split
+		icon = GFX_goal_anti_comintern_pact
+		cost = 10.00
+		prerequisite = {
+			focus = moscow_mission
+		}
+		mutually_exclusive = {
+			focus = china_ssr
+		}
+		x = 8
+		y = 4
+
+	}
+	focus = {
+		id = prc_marshall
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 10.00
+		prerequisite = {
+			focus = prc_foreign_affairs
+		}
+		mutually_exclusive = {
+			focus = sino_soviet_treaty
+		}
+		x = 10
+		y = 2
+
+	}
+	focus = {
+		id = usa_prc_assistance
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 10.00
+		prerequisite = {
+			focus = prc_marshall
+		}
+		x = 10
+		y = 3
+
+	}
+	focus = {
+		id = prc_anti_soviet
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = sino_soviet_split
+			focus = usa_prc_assistance
+		}
+		x = 9
+		y = 5
+
+	}
+	focus = {
+		id = prc_defend_communism
+		icon = GFX_focus_generic_join_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = prc_anti_soviet
+		}
+		mutually_exclusive = {
+			focus = prc_nationalism
+		}
+		x = 10
+		y = 6
+
+	}
+	focus = {
+		id = cultural_revolution
+		icon = GFX_goal_generic_support_communism
+		cost = 10.00
+		prerequisite = {
+			focus = prc_defend_communism
+		}
+		x = 10
+		y = 7
+
+	}
+	focus = {
+		id = red_guards
+		icon = GFX_focus_generic_little_entente
+		cost = 10.00
+		prerequisite = {
+			focus = cultural_revolution
+		}
+		x = 8
+		y = 8
+
+	}
+	focus = {
+		id = four_olds
+		icon = GFX_goal_generic_political_pressure
+		cost = 10.00
+		prerequisite = {
+			focus = cultural_revolution
+		}
+		x = 10
+		y = 8
+
+	}
+	focus = {
+		id = gang_of_four
+		icon = GFX_goal_anti_comintern_pact
+		cost = 10.00
+		prerequisite = {
+			focus = four_olds
+		}
+		mutually_exclusive = {
+			focus = project_571
+		}
+		x = 10
+		y = 9
+
+	}
+	focus = {
+		id = prc_korean_intervention
+		icon = GFX_goal_generic_major_war
+		cost = 10.00
+		prerequisite = {
+			focus = prc_foreign_affairs
+		}
+		prerequisite = {
+			focus = prc_foreign_affairs
+		}
+		x = 12
+		y = 2
+
+	}
+	focus = {
+		id = prc_s_korea
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 10.00
+		prerequisite = {
+			focus = usa_prc_assistance
+		}
+		prerequisite = {
+			focus = prc_korean_intervention
+		}
+		mutually_exclusive = {
+			focus = prc_n_korea
+		}
+		x = 11
+		y = 4
+
+	}
+	focus = {
+		id = prc_n_korea
+		icon = GFX_goal_generic_dangerous_deal
+		cost = 10.00
+		prerequisite = {
+			focus = prc_korean_intervention
+		}
+		mutually_exclusive = {
+			focus = prc_s_korea
+		}
+		x = 13
+		y = 4
+
+	}
+	focus = {
+		id = unify_korea
+		icon = GFX_goal_generic_occypy_states_ongoing_war
+		cost = 10.00
+		prerequisite = {
+			focus = prc_s_korea
+			focus = prc_n_korea
+		}
+		x = 12
+		y = 5
+
+	}
+	focus = {
+		id = prc_ussr_war
+		icon = GFX_goal_anti_comintern_pact
+		cost = 10.00
+		prerequisite = {
+			focus = prc_anti_soviet
+		}
+		x = 12
+		y = 6
+
+	}
+	focus = {
+		id = anti_right
+		icon = GFX_goal_continuous_suppression
+		cost = 10.00
+		prerequisite = {
+			focus = prc_defend_communism
+		}
+		mutually_exclusive = {
+			focus = spring_of_57
+		}
+		x = 12
+		y = 7
+
+	}
+	focus = {
+		id = three_red_banners
+		icon = GFX_goal_generic_support_communism
+		cost = 10.00
+		prerequisite = {
+			focus = anti_right
+		}
+		x = 12
+		y = 8
+
+	}
+	focus = {
+		id = project_571
+		icon = GFX_goal_generic_occypy_states_ongoing_war
+		cost = 10.00
+		prerequisite = {
+			focus = four_olds
+		}
+		mutually_exclusive = {
+			focus = gang_of_four
+		}
+		x = 12
+		y = 9
+
+	}
+	focus = {
+		id = prc_student_movement
+		icon = GFX_goal_generic_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = spring_of_57
+		}
+		mutually_exclusive = {
+			focus = prc_64
+		}
+		x = 14
+		y = 8
+
+	}
+	focus = {
+		id = china_liberation
+		icon = GFX_goal_generic_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = prc_student_movement
+			focus = project_571
+		}
+		x = 13
+		y = 10
+
+	}
+	focus = {
+		id = hundred_flowers
+		icon = GFX_goal_generic_propaganda
+		cost = 10.00
+		prerequisite = {
+			focus = prc_foreign_affairs
+		}
+		prerequisite = {
+			focus = prc_foreign_affairs
+		}
+		x = 14
+		y = 2
+
+	}
+	focus = {
+		id = prc_kmt_truce
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = hundred_flowers
+		}
+		mutually_exclusive = {
+			focus = taiwan_liberation
+		}
+		x = 14
+		y = 3
+
+	}
+	focus = {
+		id = sim_chinese
+		icon = GFX_goal_generic_position_armies
+		cost = 10.00
+		prerequisite = {
+			focus = prc_war
+		}
+		x = 16
+		y = 1
+		completion_reward = {
+			add_national_unity = 00.15
+			hidden_effect = {
+				news_event = news.4
+			}
+		}
+	}
+	focus = {
+		id = one_child
+		icon = GFX_goal_continuous_increase_nu
+		cost = 10.00
+		prerequisite = {
+			focus = sim_chinese
+		}
+		completion_reward = {
+			add_national_unity = 00.05
+			add_ideas = population_growth_steady
+		}
+		x = 16
+		y = 2
+
+	}
+	focus = {
+		id = founding_prc
+		icon = GFX_focus_generic_join_comintern
+		cost = 10.00
+		available = {
+			has_global_flag = china_capitulated
+		}
+		prerequisite = {
+			focus = prc_war
+		}
+		x = 18
+		y = 1
+		completion_reward = {
+			add_political_power = 150
+			hidden_effect = {
+				news_event = news.5
+			}
+		}
+	}
+	focus = {
+		id = one_china
+		icon = GFX_goal_generic_defence
+		cost = 10.00
+		prerequisite = {
+			focus = founding_prc
+		}
+		x = 18
+		y = 2
+
+	}
+	focus = {
+		id = taiwan_liberation
+		icon = GFX_goal_generic_occypy_states_ongoing_war
+		cost = 10.00
+		prerequisite = {
+			focus = one_china
+		}
+		mutually_exclusive = {
+			focus = prc_kmt_truce
+		}
+		x = 16
+		y = 3
+
+	}
+	focus = {
+		id = liberate_macau
+		icon = GFX_goal_generic_occypy_states_ongoing_war
+		cost = 10.00
+		prerequisite = {
+			focus = taiwan_liberation
+		}
+		x = 15
+		y = 4
+
+	}
+	focus = {
+		id = liberate_hong_kong
+		icon = GFX_goal_generic_occypy_states_ongoing_war
+		cost = 10.00
+		prerequisite = {
+			focus = taiwan_liberation
+		}
+		x = 17
+		y = 4
+
+	}
+	focus = {
+		id = prc_in_un
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = one_china
+		}
+		x = 18
+		y = 3
+
+	}
+	focus = {
+		id = prc_us_relations
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = prc_in_un
+		}
+		x = 17
+		y = 5
+
+	}
+	focus = {
+		id = prc_jap_relation
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = prc_us_relations
+		}
+		x = 18
+		y = 6
+
+	}
+	focus = {
+		id = liberate_tibet
+		icon = GFX_goal_generic_occypy_states_ongoing_war
+		cost = 10.00
+		prerequisite = {
+			focus = one_china
+		}
+		x = 21
+		y = 3
+
+	}
+	focus = {
+		id = unfree_tibet
+		icon = GFX_goal_continuous_suppression
+		cost = 10.00
+		prerequisite = {
+			focus = liberate_tibet
+		}
+		mutually_exclusive = {
+			focus = free_tibet
+		}
+		x = 20
+		y = 4
+
+	}
+	focus = {
+		id = denounce_lama
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = unfree_tibet
+		}
+		x = 20
+		y = 5
+
+	}
+	focus = {
+		id = prc_india_war
+		icon = GFX_focus_RAJ_british_investors
+		cost = 10.00
+		prerequisite = {
+			focus = denounce_lama
+		}
+		x = 20
+		y = 6
+
+	}
+	focus = {
+		id = prc_invade_nepal
+		icon = GFX_goal_generic_occypy_states_ongoing_war
+		cost = 10.00
+		prerequisite = {
+			focus = prc_india_war
+		}
+		x = 19
+		y = 7
+
+	}
+	focus = {
+		id = prc_invade_bhutan
+		icon = GFX_goal_generic_occypy_states_ongoing_war
+		cost = 10.00
+		prerequisite = {
+			focus = prc_india_war
+		}
+		x = 21
+		y = 7
+
+	}
+	focus = {
+		id = free_tibet
+		icon = GFX_focus_generic_the_giant_wakes
+		cost = 10.00
+		prerequisite = {
+			focus = liberate_tibet
+		}
+		mutually_exclusive = {
+			focus = unfree_tibet
+		}
+		x = 22
+		y = 4
+
+	}
+	focus = {
+		id = buddhism_prc
+		icon = GFX_goal_tfv_smiling_buddha
+		cost = 10.00
+		prerequisite = {
+			focus = free_tibet
+		}
+		x = 22
+		y = 5
+
+	}
+	focus = {
+		id = prc_nepal
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = buddhism_prc
+			focus = denounce_lama
+		}
+		x = 22
+		y = 6
+
+	}
+	focus = {
+		id = prc_nepal_antimaoist
+		icon = GFX_goal_anti_comintern_pact
+		cost = 10.00
+		prerequisite = {
+			focus = prc_nepal
+		}
+		mutually_exclusive = {
+			focus = prc_maoist_nepal
+		}
+		x = 21
+		y = 8
+
+	}
+	focus = {
+		id = prc_maoist_nepal
+		icon = GFX_focus_generic_join_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = prc_nepal
+		}
+		mutually_exclusive = {
+			focus = prc_nepal_antimaoist
+		}
+		x = 23
+		y = 8
+
+	}
+	focus = {
+		id = massacre_landlords
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = prc_war
+		}
+		x = 27
+		y = 1
+
+	}
+	focus = {
+		id = prc_15
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = massacre_landlords
+		}
+		x = 27
+		y = 2
+
+	}
+	focus = {
+		id = prc_156_project
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = prc_15
+		}
+		x = 25
+		y = 3
+
+	}
+	focus = {
+		id = prc_25
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = prc_15
+		}
+		x = 27
+		y = 3
+
+	}
+	focus = {
+		id = prc_35
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = prc_25
+		}
+		x = 27
+		y = 4
+
+	}
+	focus = {
+		id = prc_45
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = prc_35
+		}
+		x = 27
+		y = 5
+
+	}
+	focus = {
+		id = prc_55
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = prc_45
+		}
+		x = 27
+		y = 6
+
+	}
+	focus = {
+		id = prc_65
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = prc_55
+		}
+		x = 27
+		y = 7
+
+	}
+	focus = {
+		id = prc_75
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = prc_65
+		}
+		x = 27
+		y = 8
+
+	}
+	focus = {
+		id = prc_collectivization 
+		icon = GFX_goal_continuous_repairments
+		cost = 10.00
+		prerequisite = {
+			focus = prc_15
+		}
+		x = 31
+		y = 3
+
+	}
+	focus = {
+		id = great_leap_forward
+		icon = GFX_focus_generic_socialist_science
+		cost = 10.00
+		prerequisite = {
+			focus = prc_collectivization 
+		}
+		x = 31
+		y = 4
+
+	}
+	focus = {
+		id = prc_backyard_furnace
+		icon = GFX_goal_generic_construction
+		cost = 10.00
+		prerequisite = {
+			focus = great_leap_forward
+		}
+		x = 29
+		y = 5
+
+	}
+	focus = {
+		id = prc_commune
+		icon = GFX_goal_generic_propaganda
+		cost = 10.00
+		prerequisite = {
+			focus = great_leap_forward
+		}
+		x = 31
+		y = 5
+
+	}
+	focus = {
+		id = prc_four_pests
+		icon = GFX_focus_SAF_colonialist_crusade
+		cost = 10.00
+		prerequisite = {
+			focus = great_leap_forward
+		}
+		x = 33
+		y = 5
+
+	}
+	focus = {
+		id = prc_economic_reform
+		icon = GFX_goal_tfv_generic_tech_sharing
+		cost = 10.00
+		prerequisite = {
+			focus = prc_55
+		}
+		prerequisite = {
+			focus = prc_four_pests
+		}
+		x = 33
+		y = 7
+
+	}
+	focus = {
+		id = prc_modern_industry
+		icon = GFX_goal_generic_air_production
+		cost = 10.00
+		prerequisite = {
+			focus = prc_economic_reform
+		}
+		x = 31
+		y = 8
+
+	}
+	focus = {
+		id = prc_modern_farms
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+		prerequisite = {
+			focus = prc_economic_reform
+		}
+		x = 33
+		y = 8
+
+	}
+	focus = {
+		id = prc_chengkun_railway
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10.00
+		prerequisite = {
+			focus = great_leap_forward
+		}
+		x = 35
+		y = 5
+
+	}
+	focus = {
+		id = prc_modern_defense
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = prc_economic_reform
+		}
+		x = 35
+		y = 8
+
+	}
+	focus = {
+		id = prc_modern_science
+		icon = GFX_focus_research
+		cost = 10.00
+		prerequisite = {
+			focus = prc_economic_reform
+		}
+		x = 37
+		y = 8
+
+	}
+	focus = {
+		id = prc_peoples_war
+		icon = GFX_focus_generic_join_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = prc_war
+		}
+		x = 46
+		y = 1
+
+	}
+	focus = {
+		id = prc_soviet_army
+		icon = GFX_focus_generic_diplomatic_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = prc_peoples_war
+		}
+		x = 39
+		y = 2
+
+	}
+	focus = {
+		id = prc_men_over_material
+		icon = GFX_focus_generic_little_entente
+		cost = 10.00
+		prerequisite = {
+			focus = prc_soviet_army
+		}
+		x = 37
+		y = 3
+
+	}
+	focus = {
+		id = prc_material_over_men
+		icon = GFX_goal_generic_small_arms
+		cost = 10.00
+		prerequisite = {
+			focus = prc_soviet_army
+		}
+		x = 39
+		y = 3
+
+	}
+	focus = {
+		id = prc_space_program
+		icon = GFX_focus_rocketry
+		cost = 10.00
+		prerequisite = {
+			focus = prc_collectivization 
+		}
+		x = 39
+		y = 4
+
+	}
+	focus = {
+		id = prc_base_20
+		icon = GFX_focus_rocketry
+		cost = 10.00
+		prerequisite = {
+			focus = prc_space_program
+		}
+		x = 39
+		y = 5
+
+	}
+	focus = {
+		id = prc_640
+		icon = GFX_focus_rocketry
+		cost = 10.00
+		prerequisite = {
+			focus = prc_base_20
+		}
+		x = 39
+		y = 6
+
+	}
+	focus = {
+		id = prc_shuguang
+		icon = GFX_focus_rocketry
+		cost = 10.00
+		prerequisite = {
+			focus = prc_640
+		}
+		x = 39
+		y = 8
+
+	}
+	focus = {
+		id = prc_shenzhou
+		icon = GFX_focus_rocketry
+		cost = 10.00
+		prerequisite = {
+			focus = prc_modern_science
+		}
+		prerequisite = {
+			focus = prc_shuguang
+		}
+		x = 38
+		y = 9
+
+	}
+	focus = {
+		id = prc_tiangong
+		icon = GFX_focus_rocketry
+		cost = 10.00
+		prerequisite = {
+			focus = prc_shenzhou
+		}
+		x = 36
+		y = 10
+
+	}
+	focus = {
+		id = prc_lei_fang
+		icon = GFX_goal_generic_propaganda
+		cost = 10.00
+		prerequisite = {
+			focus = prc_soviet_army
+		}
+		x = 41
+		y = 3
+
+	}
+	focus = {
+		id = prc_abolish_ranks
+		icon = GFX_focus_generic_little_entente
+		cost = 10.00
+		prerequisite = {
+			focus = prc_peoples_war
+		}
+		x = 42
+		y = 2
+
+	}
+	focus = {
+		id = prc_reform_army
+		icon = GFX_goal_generic_construct_military
+		cost = 10.00
+		prerequisite = {
+			focus = prc_peoples_war
+		}
+		mutually_exclusive = {
+			focus = petty_warfare
+		}
+		x = 44
+		y = 2
+
+	}
+	focus = {
+		id = prc_military_districts
+		icon = GFX_goal_generic_defence
+		cost = 10.00
+		prerequisite = {
+			focus = prc_reform_army
+		}
+		x = 44
+		y = 3
+
+	}
+	focus = {
+		id = prc_restore_ranks
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		cost = 10.00
+		prerequisite = {
+			focus = prc_abolish_ranks
+		}
+		prerequisite = {
+			focus = prc_military_districts
+		}
+		x = 42
+		y = 4
+
+	}
+	focus = {
+		id = petty_warfare
+		icon = GFX_goal_generic_build_tank
+		cost = 10.00
+		prerequisite = {
+			focus = prc_peoples_war
+		}
+		mutually_exclusive = {
+			focus = prc_reform_army
+		}
+		x = 46
+		y = 2
+
+	}
+	focus = {
+		id = prc_asymmetrical_war
+		icon = GFX_goal_demand_sudetenland
+		cost = 10.00
+		prerequisite = {
+			focus = petty_warfare
+		}
+		x = 46
+		y = 3
+
+	}
+	focus = {
+		id = prc_1_factory
+		icon = GFX_goal_generic_military_sphere
+		cost = 10.00
+		prerequisite = {
+			focus = prc_military_districts
+			focus = prc_asymmetrical_war
+		}
+		x = 45
+		y = 4
+
+	}
+	focus = {
+		id = prc_2_factory
+		icon = GFX_focus_wonderweapons
+		cost = 10.00
+		prerequisite = {
+			focus = prc_1_factory
+		}
+		x = 41
+		y = 5
+
+	}
+	focus = {
+		id = prc_army_farms
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+		prerequisite = {
+			focus = prc_1_factory
+		}
+		x = 43
+		y = 5
+
+	}
+	focus = {
+		id = prc_jap_tank
+		icon = GFX_focus_AST_war_japan
+		cost = 10.00
+		prerequisite = {
+			focus = prc_peoples_war
+		}
+		x = 48
+		y = 2
+
+	}
+	focus = {
+		id = prc_sov_tanks
+		icon = GFX_goal_support_fourth_int
+		cost = 10.00
+		prerequisite = {
+			focus = prc_jap_tank
+		}
+		x = 48
+		y = 3
+
+	}
+	focus = {
+		id = prc_usa_tanks
+		icon = GFX_goal_generic_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = prc_sov_tanks
+		}
+		x = 47
+		y = 4
+
+	}
+	focus = {
+		id = prc_reverse_engineering
+		icon = GFX_goal_generic_construction
+		cost = 10.00
+		prerequisite = {
+			focus = prc_sov_tanks
+		}
+		prerequisite = {
+			focus = prc_1_factory
+		}
+		x = 48
+		y = 5
+
+	}
+	focus = {
+		id = prc_3_factory
+		icon = GFX_goal_generic_air_fighter2
+		cost = 10.00
+		prerequisite = {
+			focus = prc_2_factory
+		}
+		x = 49
+		y = 6
+
+	}
+	focus = {
+		id = prc_spey
+		icon = GFX_goal_generic_air_fighter2
+		cost = 10.00
+		prerequisite = {
+			focus = prc_3_factory
+		}
+		x = 49
+		y = 7
+
+	}
+	focus = {
+		id = prc_dongfeng
+		icon = GFX_goal_generic_air_fighter2
+		cost = 10.00
+		prerequisite = {
+			focus = prc_spey
+		}
+		x = 49
+		y = 8
+
+	}
+	focus = {
+		id = prc_establish_navy
+		icon = GFX_goal_generic_navy_battleship
+		cost = 10.00
+		prerequisite = {
+			focus = prc_peoples_war
+		}
+		x = 51
+		y = 2
+
+	}
+	focus = {
+		id = prc_dalian_academy
+		icon = GFX_goal_generic_amphibious_assault
+		cost = 10.00
+		prerequisite = {
+			focus = prc_establish_navy
+		}
+		x = 50
+		y = 3
+
+	}
+	focus = {
+		id = prc_6_factory
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = prc_2_factory
+		}
+		x = 51
+		y = 6
+
+	}
+	focus = {
+		id = china_ssr
+		icon = GFX_focus_generic_join_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = ussr_prc_assistance
+		}
+		mutually_exclusive = {
+			focus = sino_soviet_split
+		}
+		x = 6
+		y = 4
+
+	}
+	focus = {
+		id = ping_pong_diplo
+		icon = GFX_goal_generic_major_alliance
+		cost = 10.00
+		prerequisite = {
+			focus = prc_in_un
+		}
+		x = 15
+		y = 5
+
+	}
+	focus = {
+		id = prc_nationalism
+		icon = GFX_goal_generic_support_fascism
+		cost = 10.00
+		prerequisite = {
+			focus = prc_anti_soviet
+		}
+		mutually_exclusive = {
+			focus = antis_campaign
+			focus = prc_defend_communism
+		}
+		x = 6
+		y = 6
+
+	}
+	focus = {
+		id = suppress_counter
+		icon = GFX_goal_generic_political_pressure
+		cost = 10.00
+		prerequisite = {
+			focus = china_ssr
+			focus = sino_soviet_split
+		}
+		x = 4
+		y = 5
+
+	}
+	focus = {
+		id = antis_campaign
+		icon = GFX_goal_demand_sudetenland
+		cost = 10.00
+		prerequisite = {
+			focus = suppress_counter
+		}
+		mutually_exclusive = {
+			focus = prc_nationalism
+		}
+		x = 4
+		y = 6
+
+	}
+	focus = {
+		id = sino_centrism
+		icon = GFX_goal_generic_support_fascism
+		cost = 10.00
+		prerequisite = {
+			focus = prc_nationalism
+		}
+		x = 2
+		y = 7
+
+	}
+	focus = {
+		id = prc_indochina
+		icon = GFX_focus_RAJ_indian_gurkhas
+		cost = 10.00
+		prerequisite = {
+			focus = prc_nationalism
+			focus = prc_defend_communism
+		}
+		x = 7
+		y = 7
+
+	}
+	focus = {
+		id = shanghai_pact
+		icon = GFX_goal_generic_territory_or_war
+		cost = 10.00
+		prerequisite = {
+			focus = sino_centrism
+			focus = prc_indochina
+		}
+		x = 3
+		y = 8
+
+	}
+	focus = {
+		id = japan_revenge
+		icon = GFX_focus_AST_war_japan
+		cost = 10.00
+		prerequisite = {
+			focus = sino_centrism
+		}
+		x = 1
+		y = 8
+
+	}
+	focus = {
+		id = befriend_india
+		icon = GFX_focus_RAJ_seek_help_from_soviet
+		cost = 10.00
+		prerequisite = {
+			focus = shanghai_pact
+		}
+		x = 1
+		y = 9
+
+	}
+	focus = {
+		id = befriend_pakistan
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = shanghai_pact
+		}
+		x = 3
+		y = 9
+
+	}
+	focus = {
+		id = indopakistan_intervention
+		icon = GFX_focus_RAJ_two_nation_theory
+		cost = 10.00
+		prerequisite = {
+			focus = befriend_india
+			focus = befriend_pakistan
+		}
+		x = 2
+		y = 10
+
+	}
+	focus = {
+		id = prc_uk_relations
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = prc_us_relations
+		}
+		x = 16
+		y = 6
+
+	}
+	focus = {
+		id = prc_uk_hong_kong
+		icon = GFX_focus_generic_the_giant_wakes
+		cost = 10.00
+		prerequisite = {
+			focus = prc_uk_relations
+			focus = ping_pong_diplo
+		}
+		x = 16
+		y = 7
+
+	}
+	focus = {
+		id = prc_laos_friend
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = china_burma_relations
+		}
+		mutually_exclusive = {
+			focus = prc_laos_hmong
+		}
+		x = 6
+		y = 12
+
+	}
+	focus = {
+		id = prc_laos_hmong
+		icon = GFX_focus_RAJ_indian_gurkhas
+		cost = 10.00
+		prerequisite = {
+			focus = china_burma_relations
+		}
+		mutually_exclusive = {
+			focus = prc_laos_friend
+		}
+		x = 8
+		y = 12
+
+	}
+	focus = {
+		id = prc_vietnam_war
+		icon = GFX_goal_demand_sudetenland
+		cost = 10.00
+		prerequisite = {
+			focus = prc_indochina
+		}
+		x = 6
+		y = 8
+
+	}
+	focus = {
+		id = prc_khmer_rogue
+		icon = GFX_goal_anschluss
+		cost = 10.00
+		prerequisite = {
+			focus = prc_support_cam
+		}
+		x = 4
+		y = 10
+
+	}
+	focus = {
+		id = prc_vietnam_puppet
+		icon = GFX_goal_anschluss
+		cost = 10.00
+		prerequisite = {
+			focus = prc_aid_vietnam
+		}
+		x = 8
+		y = 10
+
+	}
+	focus = {
+		id = prc_support_cam
+		icon = GFX_goal_generic_dangerous_deal
+		cost = 10.00
+		prerequisite = {
+			focus = prc_vietnam_war
+		}
+		mutually_exclusive = {
+			focus = prc_aid_vietnam
+		}
+		x = 6
+		y = 9
+
+	}
+	focus = {
+		id = prc_aid_vietnam
+		icon = GFX_goal_generic_dangerous_deal
+		cost = 10.00
+		prerequisite = {
+			focus = prc_vietnam_war
+		}
+		mutually_exclusive = {
+			focus = prc_support_cam
+		}
+		x = 8
+		y = 9
+
+	}
+	focus = {
+		id = prc_vietnam_invasion
+		icon = GFX_goal_demand_sudetenland
+		cost = 10.00
+		prerequisite = {
+			focus = prc_support_cam
+		}
+		x = 6
+		y = 10
+
+	}
+	focus = {
+		id = china_burma_relations
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = prc_vietnam_invasion
+			focus = prc_vietnam_puppet
+			focus = china_liberation
+		}
+		x = 7
+		y = 11
+
+	}
+	focus = {
+		id = prc_burmese_riots
+		icon = GFX_goal_demand_sudetenland
+		cost = 10.00
+		prerequisite = {
+			focus = china_burma_relations
+		}
+		x = 4
+		y = 12
+		mutually_exclusive = {
+			focus = prc_burma_insurgency
+		}
+
+	}
+	focus = {
+		id = prc_thailand
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = china_burma_relations
+		}
+		x = 10
+		y = 12
+
+	}
+	focus = {
+		id = prc_64
+		icon = GFX_goal_generic_army_tanks
+		cost = 10.00
+		prerequisite = {
+			focus = spring_of_57
+		}
+		mutually_exclusive = {
+			focus = prc_student_movement
+		}
+		x = 16
+		y = 8
+
+	}
+	focus = {
+		id = prc_burma_insurgency
+		icon = GFX_focus_RAJ_indian_gurkhas
+		cost = 10.00
+		prerequisite = {
+			focus = china_burma_relations
+		}
+		x = 2
+		y = 12
+
+	}
+	focus = {
+		id = prc_816_nuclear
+		icon = GFX_focus_wonderweapons
+		cost = 10.00
+		prerequisite = {
+			focus = prc_2_factory
+		}
+		x = 41
+		y = 6
+
+	}
+	focus = {
+		id = prc_SEZ
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = prc_economic_reform
+		}
+		x = 29
+		y = 8
+
+	}
+	focus = {
+		id = prc_world_factory
+		icon = GFX_goal_generic_production
+		cost = 10.00
+		prerequisite = {
+			focus = prc_SEZ
+		}
+		prerequisite = {
+			focus = prc_modern_industry
+		}
+		x = 30
+		y = 9
+
+	}
+	focus = {
+		id = prc_863_program
+		icon = GFX_focus_research
+		cost = 10.00
+		prerequisite = {
+			focus = prc_65
+		}
+		x = 25
+		y = 8
+
+	}
+	focus = {
+		id = prc_change
+		icon = GFX_focus_rocketry
+		cost = 10.00
+		prerequisite = {
+			focus = prc_shenzhou
+		}
+		x = 38
+		y = 10
+
+	}
+	focus = {
+		id = prc_underground_city
+		icon = GFX_goal_generic_construct_military
+		cost = 10.00
+		prerequisite = {
+			focus = prc_640
+		}
+		x = 37
+		y = 7
+
+	}
+	focus = {
+		id = prc_596
+		icon = GFX_focus_wonderweapons
+		cost = 10.00
+		prerequisite = {
+			focus = prc_640
+		}
+		prerequisite = {
+			focus = prc_816_nuclear
+		}
+		x = 41
+		y = 7
+
+	}
+	focus = {
+		id = prc_chic_6
+		icon = GFX_focus_wonderweapons
+		cost = 10.00
+		prerequisite = {
+			focus = prc_596
+		}
+		x = 41
+		y = 8
+
+	}
+	focus = {
+		id = prc_NPT
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = prc_chic_6
+		}
+		mutually_exclusive = {
+			focus = prc_non_ratify
+		}
+		x = 40
+		y = 9
+
+	}
+	focus = {
+		id = prc_non_ratify
+		icon = GFX_focus_wonderweapons
+		cost = 10.00
+		prerequisite = {
+			focus = prc_chic_6
+		}
+		mutually_exclusive = {
+			focus = prc_NPT
+		}
+		x = 42
+		y = 9
+
+	}
+	focus = {
+		id = prc_disarm_nuke
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = prc_NPT
+		}
+		x = 40
+		y = 10
+
+	}
+	focus = {
+		id = prc_nuclear_power
+		icon = GFX_focus_wonderweapons
+		cost = 10.00
+		prerequisite = {
+			focus = prc_collectivization 
+		}
+		x = 37
+		y = 4
+
+	}
+	focus = {
+		id = prc_4_factory
+		icon = GFX_goal_tfv_generic_tech_sharing
+		cost = 10.00
+		prerequisite = {
+			focus = prc_2_factory
+		}
+		x = 43
+		y = 6
+
+	}
+	focus = {
+		id = prc_5_factory
+		icon = GFX_goal_generic_army_tanks
+		cost = 10.00
+		prerequisite = {
+			focus = prc_2_factory
+		}
+		x = 45
+		y = 6
+
+	}
+	focus = {
+		id = prc_third_front
+		icon = GFX_goal_generic_construct_civilian
+		cost = 10.00
+		prerequisite = {
+			focus = prc_35
+		}
+		x = 25
+		y = 5
+
+	}
+	focus = {
+		id = prc_military_academy
+		icon = GFX_focus_generic_little_entente
+		cost = 10.00
+		prerequisite = {
+			focus = prc_1_factory
+		}
+		x = 45
+		y = 5
+
+	}
+	focus = {
+		id = prc_rocket_force
+		icon = GFX_focus_rocketry
+		cost = 10.00
+		prerequisite = {
+			focus = prc_2_factory
+		}
+		x = 47
+		y = 6
+
+	}
+	focus = {
+		id = prc_marines
+		icon = GFX_goal_generic_amphibious_assault
+		cost = 10.00
+		prerequisite = {
+			focus = prc_establish_navy
+		}
+		x = 52
+		y = 3
+
+	}
+	focus = {
+		id = prc_6603
+		icon = GFX_goal_generic_navy_submarine
+		cost = 10.00
+		prerequisite = {
+			focus = prc_dalian_academy
+		}
+		x = 52
+		y = 4
+
+	}
+	focus = {
+		id = prc_carrier_program
+		icon = GFX_goal_generic_navy_carrier
+		cost = 10.00
+		prerequisite = {
+			focus = prc_6603
+		}
+		prerequisite = {
+			focus = prc_6_factory
+		}
+		x = 52
+		y = 7
+
+	}
+}
