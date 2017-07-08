@@ -1,16 +1,14 @@
-name="Cold War: The Iron Curtain"
-archive="coldwar.zip"
+name="Cold War: The Iron Curtain 2.0"
+path="mod/coldwarironcurtain"
+replace_path="events"
+replace_path="history\\states"
+replace_path="common\\national_focus"
 tags={
 	"Gameplay"
 	"Military"
 	"Historical"
 	"Map"
 }
-
-replace_path = "events"
-replace_path = "history\states"
-replace_path = "common\national_focus"
-
-picture="coldwar.jpg"
-remote_file_id="717620160"
+picture="preview.jpg"
+remote_file_id="962729805"
 supported_version="1.4.1"
