@@ -79,12 +79,11 @@ give_guarantee = CHL
 give_guarantee = PAR
 give_guarantee = ARG
 give_guarantee = URG
+puppet = TTP
 
 set_convoys = 400
 set_national_unity = 0.6
-puppet = KOR
-puppet = JAP
-puppet = TTP
+
 
 set_politics = {
 
@@ -116,6 +115,29 @@ add_ideas = {
 
 
 # DIPLOMACY
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = KOR
+		autonomous_state = autonomy_mnna
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = JAP
+		autonomous_state = autonomy_mnna
+		freedom_level = 0.4
+	}
+}
+if = {
+	limit = {
+		NOT = { has_dlc = "Together for Victory" }
+	}
+	puppet = KOR
+	puppet = JAP
+}
+
 create_faction = NATO
 add_to_faction = WGR
 add_to_faction = USA
