@@ -1,7 +1,7 @@
 autonomy_state = {
-	id = autonomy_dominion
+	id = autonomy_protectorate
 	
-	min_freedom_level = 0.75
+	min_freedom_level = 0.70
 	
 	rule = {
 		can_not_declare_war = yes
@@ -15,11 +15,11 @@ autonomy_state = {
 	}
 	
 	ai_subject_wants_higher = {
-		factor = 0.0
+		factor = 1.0
 	}
 	
 	ai_overlord_wants_lower = {
-		factor = 1.0
+		factor = 0.0
 	}
 
 	ai_overlord_wants_garrison = {
@@ -28,31 +28,18 @@ autonomy_state = {
 
 	allowed = {
 		has_dlc = "Together for Victory"
-		NOT = { is_subject_of = SOV }
+		is_subject_of = ENG
 		if = {
 			limit = { has_dlc = "Death or Dishonor" }
 			NOT = { has_government = fascism }
 		}
 		OR = {
-			NOT = { tag = SUD }
-			NOT = { tag = OMA }
-			NOT = { tag = KEN }
-			NOT = { tag = KNA }
-			NOT = { tag = KUW }
+			tag = OMA 
+			tag = KUW 
 		}
 	}
 	
 	can_take_level = {
-		if = {
-			limit = {
-				original_tag = AST
-			}
-			OR = {
-				has_completed_focus = AST_adopt_westminster
-				has_completed_focus = AST_abandon_the_westminster_system
-				has_completed_focus = AST_sever_ties_with_uk
-			}
-		}
 	}
 
 	can_lose_level = {
