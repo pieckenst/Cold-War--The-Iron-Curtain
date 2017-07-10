@@ -6,9 +6,9 @@ add_namespace = news
 
 # End of the Nuremberg trials
 news_event = {
-	id = news.1
-	title = news.1.t
-	desc = news.1.d
+	id = news.1000
+	title = news.1000.t
+	desc = news.1000.d
 	picture = GFX_news_event_nuremberg
 
 	major = yes
@@ -23,15 +23,15 @@ news_event = {
 	}
 
 	option = {
-		name = news.1.a
+		name = news.1000.a
 	}
 }
 
 # End of the Berlin Airlift
 news_event = {
-	id = news.2
-	title = news.2.t
-	desc = news.2.d
+	id = news.1002
+	title = news.1002.t
+	desc = news.1002.d
 	picture = GFX_news_event_berlin_airlift
 
 	major = yes
@@ -46,7 +46,7 @@ news_event = {
 	}
 
 	option = {
-		name = news.2.a
+		name = news.1002.a
 		trigger = {
 			NOT = {
 				tag = SOV
@@ -55,7 +55,7 @@ news_event = {
 	}
 	
 	option = {
-		name = news.2.b
+		name = news.1002.b
 		trigger = {
 			tag = SOV
 		}
@@ -64,9 +64,9 @@ news_event = {
 
 # The (first) Korean War breaks out
 news_event = {
-	id = news.3
-	title = news.3.t
-	desc = news.3.desc
+	id = news.1003
+	title = news.1003.t
+	desc = news.1003.desc
 	picture = GFX_news_event_korea_war
 	
 	major = yes
@@ -82,21 +82,21 @@ news_event = {
 	}
 	
 	option = {
-		name = news.3.a
+		name = news.1003.a
 		trigger = {
 			tag = USA
 		}
 	}
 		
 	option = {
-		name = news.3.b
+		name = news.1003.b
 		trigger = {
 			tag = SOV
 		}
 	}
 	
 	option = {
-		name = news.3.c
+		name = news.1003.c
 		trigger = {
 			NOT = {
 				tag = USA
@@ -108,14 +108,14 @@ news_event = {
 	}
 	
 	option = {
-		name = news.3.d
+		name = news.1003.d
 		trigger = {
 			tag = KPA
 		}
 	}
 	
 	option = {
-		name = news.3.e
+		name = news.1003.e
 		trigger = {
 			tag = KOR
 		}
@@ -128,23 +128,23 @@ news_event = {
 
 # People's Republic of China creates simplified Chinese
 news_event = {
-	id = news.4
-	title = news.4.t
-	desc = news.4.d
+	id = news.1004
+	title = news.1004.t
+	desc = news.1004.d
 	picture = GFX_news_event_prc_simplchinese
 	
 	major = yes
 	is_triggered_only = yes
 	
 	option = {
-		name = news.4.a
+		name = news.1004.a
 		trigger = {
 			tag = PRC
 		}
 	}
 	
 	option = {
-		name = news.4.b
+		name = news.1004.b
 		trigger = {
 			NOT = {tag = PRC}
 		}
@@ -153,25 +153,56 @@ news_event = {
 
 # PRC beat China / is the new China
 news_event = {
-	id = news.5
-	ititle = news.5.t
-	desc = news.5.d
+	id = news.1005
+	title = news.1005.t
+	desc = news.1005.d
 	picture = GFX_news_event_prc_winner
 	
 	major = yes
 	is_triggered_only = yes
 	
 	option = {
-		name = news.5.a
+		name = news.1005.a
 		trigger = {
 			tag = PRC
 		}
 	}
 
 	option = {
-		name = news.5.b
+		name = news.1005.b
 		trigger = {
 			NOT = {tag = PRC}
+		}
+	}
+}
+
+# PRC establishes foreign ministeries
+news_event = {
+	id = news.1006
+	title = news.1006.t
+	desc = news.1006.d
+	picture = GFX_news_event_prc_foreign_ministeries
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1006.a
+		trigger = { tag = PRC }
+	}
+
+	option = {
+		name = news.1006.b
+		trigger = {
+			tag = SOV
+			tag = USA
+		}
+	}
+
+	option = {
+		name = news.1006.c
+		trigger = {
+			NOT = {tag = USA tag = SOV tag = PRC}
 		}
 	}
 }
