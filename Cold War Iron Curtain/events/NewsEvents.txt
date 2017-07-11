@@ -1,5 +1,8 @@
 ﻿##############
 # News Events
+#
+# Events start at news.1000, beacause of the old news events are still implemented and haven't been deleted yet
+#
 ##############
 
 add_namespace = news
@@ -204,5 +207,57 @@ news_event = {
 		trigger = {
 			NOT = {tag = USA tag = SOV tag = PRC}
 		}
+	}
+}
+
+# PRC Sino-Soviet Treaty
+news_event = {
+	id = news.1007
+	title = news.1007.t
+	desc = news.1007.d
+	picture = GFX_news_event_prc_sino_soviet_treaty
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1007.a
+		trigger = { tag = PRC tag = SOV }
+	}
+	
+	option = {
+		name = news.1007.b
+		trigger = { tag = USA }
+	}
+
+	option = {
+		name = news.1007.c
+		trigger = { NOT = { tag = SOV tag = USA tag = PRC } }
+	}
+}
+
+# PRC accepts Marshall Plan
+news_event = {
+	id = news.1008
+	title = news.1008.t
+	desc = news.1008.d
+	picture = GFX_news_event_prc_marshall_plan
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1007.a
+		trigger = { tag = PRC tag = USA }
+	}
+	
+	option = {
+		name = news.1007.b
+		trigger = { tag = SOV }
+	}
+
+	option = {
+		name = news.1007.c
+		trigger = { NOT = { tag = SOV tag = USA tag = PRC } }
 	}
 }
