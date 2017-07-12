@@ -39,6 +39,15 @@ focus_tree = {
 		prerequisite = {
 			focus = prc_war
 		}
+		completion_reward = {
+			custom_effect_tooltip = prc_foreign_ministeries_established
+			add_opinion_modifier = { target = USA modifier = PRC_foreign_affairs_opinion }
+			add_opinion_modifier = { target = SOV modifier = PRC_foreign_affairs_opinion }
+			add_opinion_modifier = { target = CHI modifier = PRC_foreign_affairs_CHI_opinion }
+			hidden_effect = {
+				news_event = news.1006
+			}
+		}
 		x = 9
 		y = 1
 
@@ -52,6 +61,12 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = prc_marshall
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = SOV modifier = PRC_sino_soviet_treaty_opinion }
+			hidden_effect = {
+				news_event = news.1007
+			}
 		}
 		x = 8
 		y = 2
@@ -102,6 +117,12 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = sino_soviet_treaty
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = USA modifier = PRC_marshall_plan_opinion }
+			hidden_effect = {
+				news_event = news.1008
+			}
 		}
 		x = 10
 		y = 2
@@ -201,6 +222,10 @@ focus_tree = {
 		prerequisite = {
 			focus = prc_foreign_affairs
 		}
+		completion_reward = {
+			set_rule = { can_send_volunteers = yes }
+			add_political_power = 150
+		}
 		x = 12
 		y = 2
 
@@ -218,6 +243,10 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = prc_n_korea
 		}
+		completion_reward = {
+			add_opinion_modifier = { target = KOR modifier = PRC_south_korean_treaty_good_opinion } 
+			add_opinion_modifier = { target = KPA modifier = PRC_south_korean_treaty_bad_opinion } 
+		}
 		x = 11
 		y = 4
 
@@ -231,6 +260,10 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = prc_s_korea
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = KOR modifier = PRC_north_korean_treaty_bad_opinion } 
+			add_opinion_modifier = { target = KPA modifier = PRC_north_korean_treaty_good_opinion } 
 		}
 		x = 13
 		y = 4
@@ -327,13 +360,15 @@ focus_tree = {
 	focus = {
 		id = hundred_flowers
 		icon = GFX_goal_generic_propaganda
-		cost = 10.00
+		cost = 20.00
 		prerequisite = {
 			focus = prc_foreign_affairs
 		}
 		prerequisite = {
 			focus = prc_foreign_affairs
 		}
+		completion_reward = {
+			}
 		x = 14
 		y = 2
 
@@ -364,7 +399,7 @@ focus_tree = {
 		completion_reward = {
 			add_national_unity = 00.15
 			hidden_effect = {
-				news_event = news.4
+				news_event = news.1004
 			}
 		}
 	}
@@ -398,7 +433,7 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 150
 			hidden_effect = {
-				news_event = news.5
+				news_event = news.1005
 			}
 		}
 	}
