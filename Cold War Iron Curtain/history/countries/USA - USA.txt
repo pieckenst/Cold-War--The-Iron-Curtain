@@ -79,7 +79,7 @@ give_guarantee = CHL
 give_guarantee = PAR
 give_guarantee = ARG
 give_guarantee = URG
-puppet = TTP
+
 
 set_convoys = 400
 set_national_unity = 0.6
@@ -129,13 +129,16 @@ if = {
 		autonomous_state = autonomy_mnna
 		freedom_level = 0.4
 	}
-}
-if = {
-	limit = {
-		NOT = { has_dlc = "Together for Victory" }
+	set_autonomy = {
+		target = TTP
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
 	}
-	puppet = KOR
-	puppet = JAP
+	else = {
+		puppet = KOR
+		puppet = JAP	
+		puppet = TTP
+	}
 }
 
 create_faction = NATO
