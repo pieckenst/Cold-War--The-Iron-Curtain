@@ -22,3 +22,108 @@ country_event = {
 		set_global_flag = prc_communist_army_setup
 	}
 }
+
+# PRC goes with South Korea
+country_event = {
+	id = prc.2
+	title = prc.2.t
+	desc = prc.2.d
+	picture = GFX_report_event_prc_successful
+	
+	trigger = {
+		PRC = {
+			owns_state = 746
+			owns_state = 745
+			owns_state = 747
+			owns_state = 749
+			owns_state = 748
+		}
+	}
+
+	option = {
+		name = prc.2.a
+		effect_tooltip = {
+			KOR = {
+				transfer_state = 745
+				transfer_state = 746
+				transfer_state = 747
+				transfer_state = 748
+				transfer_state = 749
+			}
+		}
+		hidden_effect = {
+			KOR = {
+				set_state_controller = 745
+				set_state_controller = 746
+				set_state_controller = 747
+				set_state_controller = 748
+				set_state_controller = 749
+				set_state_owner = 745
+				set_state_owner = 746
+				set_state_owner = 747
+				set_state_owner = 748
+				set_state_owner = 749
+			}
+		}
+	}
+
+	option = {
+		name = prc.2.b
+		add_opinion_modifier = { target = KOR modifier = PRC_south_korea_no_states } 
+	}
+}
+
+# PRC goes with North Korea
+country_event = {
+	id = prc.3
+	title = prc.3.t
+	desc = prc.3.d
+	picture = GFX_report_event_prc_successful
+	
+	trigger = {
+		PRC = {
+			owns_state = 750
+			owns_state = 753
+			owns_state = 754
+			owns_state = 751
+			owns_state = 752
+			controls_state = 750
+			controls_state = 753
+			controls_state = 754
+			controls_state = 752
+			controls_state = 751
+		}
+	}
+
+	option = {
+		name = prc.3.a
+		effect_tooltip = {
+			KPA = {
+				transfer_state = 750
+				transfer_state = 751
+				transfer_state = 752
+				transfer_state = 753
+				transfer_state = 754
+			}
+		}
+		hidden_effect = {
+			KPA = {
+				set_state_controller = 750
+				set_state_controller = 751
+				set_state_controller = 752
+				set_state_controller = 753
+				set_state_controller = 754
+				set_state_owner = 750
+				set_state_owner = 751
+				set_state_owner = 752
+				set_state_owner = 753
+				set_state_owner = 754
+			}
+		}
+	}
+
+	option = {
+		name = prc.3.b
+		add_opinion_modifier = { target = KPA modifier = PRC_north_korea_no_states } 
+	}
+}

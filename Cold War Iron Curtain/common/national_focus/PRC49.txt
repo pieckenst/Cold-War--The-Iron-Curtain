@@ -240,7 +240,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_opinion_modifier = { target = KOR modifier = PRC_south_korean_treaty_good_opinion } 
-			add_opinion_modifier = { target = KPA modifier = PRC_south_korean_treaty_bad_opinion } 
+			add_opinion_modifier = { target = KPA modifier = PRC_south_korean_treaty_bad_opinion }
+			hidden_effect = {
+				set_country_flag = go_with_s_korea
+			}
 		}
 		x = 11
 		y = 4
@@ -259,6 +262,9 @@ focus_tree = {
 		completion_reward = {
 			add_opinion_modifier = { target = KPA modifier = PRC_north_korean_treaty_good_opinion } 
 			add_opinion_modifier = { target = KOR modifier = PRC_north_korean_treaty_bad_opinion } 
+			hidden_effect = {
+				set_country_flag = go_with_n_korea
+			}
 		}
 		x = 13
 		y = 4
@@ -271,6 +277,30 @@ focus_tree = {
 		prerequisite = {
 			focus = prc_s_korea
 			focus = prc_n_korea
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					PRC = {
+						has_country_flag = go_with_n_korea
+						}
+					}
+				create_wargoal = {
+					type = annex_everything
+					target = KOR
+				}
+			}
+			if = {
+				limit = {
+					PRC = {
+						has_country_flag = go_with_s_korea
+						}
+					}
+				create_wargoal = {
+					type = annex_everything
+					target = KPA
+				}
+			}
 		}
 		x = 12
 		y = 5
@@ -409,7 +439,6 @@ focus_tree = {
 		}
 		x = 16
 		y = 2
-
 	}
 	focus = {
 		id = founding_prc
