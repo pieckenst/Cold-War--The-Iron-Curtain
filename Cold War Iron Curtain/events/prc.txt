@@ -29,8 +29,6 @@ country_event = {
 	title = prc.2.t
 	desc = prc.2.d
 	picture = GFX_report_event_prc_successful
-
-	hidden = no
 	
 	trigger = {
 		PRC = {
@@ -104,5 +102,28 @@ country_event = {
 	option = {
 		name = prc.3.b
 		add_opinion_modifier = { target = KPA modifier = PRC_north_korea_no_states } 
+	}
+}
+
+# After the civil war, the Republic of China exists in Taiwan
+country_event = {
+	id = prc.4
+	
+	trigger = {
+		PRC = {
+			owns_state = 524
+			owns_state = 604
+			owns_state = 601
+			controls_state = 524
+			controls_state = 604
+			controls_state = 601
+		}
+	}
+
+	immediate = {
+		CHI = {
+			transfer_state = 524
+		}
+		news_event = news.1009
 	}
 }
