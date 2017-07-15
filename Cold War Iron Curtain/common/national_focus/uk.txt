@@ -1136,6 +1136,10 @@ focus_tree = {
 		x = 31
 		y = 3
 		completion_reward = {
+			create_wargoal = { type = puppet target = CAN }	
+			create_wargoal = { type = puppet target = AST }	
+			create_wargoal = { type = puppet target = NZL }	
+			create_wargoal = { type = puppet target = SAF }	
 			CAN = {
 				add_autonomy_ratio = {
 						value = -0.05
@@ -1457,6 +1461,8 @@ focus_tree = {
 		completion_reward = {
 			MAY = {
 				transfer_state = 333
+				transfer_state = 336
+				transfer_state = 785
 			}
 			add_political_power = 100
 		
@@ -1476,7 +1482,9 @@ focus_tree = {
 		}
 		x = 50
 		y = 2
-		SOV = { add_opinion_modifier =  { target = ENG modifier = Stalinism } 	}
+		completion_reward = {
+			SOV = { add_opinion_modifier =  { target = ENG modifier = Stalinism } 	}
+		}
 	}
 	focus = {
 		id = ENG_EndRoyalFamily
@@ -1488,11 +1496,12 @@ focus_tree = {
 		}
 		x = 48
 		y = 3
-		add_popularity = {
+		completion_reward = {
+			add_popularity = {
 					ideology = communism
 					popularity = 0.25
 				}
-		
+		}
 	}
 	focus = {
 		id = ENG_CutTies
@@ -1505,34 +1514,22 @@ focus_tree = {
 		y = 4
 		completion_reward = {
 			BOT = {
-				add_autonomy_ratio = {
-						value = 100 
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}
 			ZIM = {
-				add_autonomy_ratio = {
-						value = 100
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}	
 			ZAM = {
-				add_autonomy_ratio = {
-						value = 100
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}
 			NYA = {
-				add_autonomy_ratio = {
-						value = 100
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}
 			KNA = {
-				add_autonomy_ratio = {
-						value = 100
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}	
 			UGA = {
-				add_autonomy_ratio = {
-						value = 100
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}	
 			SUD = {
 				add_autonomy_ratio = {
@@ -1570,9 +1567,9 @@ focus_tree = {
 		}
 		x = 50
 		y = 5
-		completion_reward = {
-			# ADD FACTION JOIN EVENT HERE #
-		}
+			completion_reward = {
+					add_to_faction = SOV
+				}
 	}
 	focus = {
 		id = ENG_Prepareforinvasion
@@ -1622,7 +1619,10 @@ focus_tree = {
 		}
 		x = 55
 		y = 1
-		
+			completion_reward = {
+					air_experience = 25
+
+				}
 	}
 	focus = {
 		id = ENG_ShdwScheme
@@ -1633,7 +1633,63 @@ focus_tree = {
 		}
 		x = 53
 		y = 2
-
+			completion_reward = {
+					air_experience = 25
+					if = {
+							limit = {
+									capital_scope = {
+											NOT = {
+													free_building_slots = {
+															building = air_base
+															size > 1
+														}
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					if = {
+							limit = {
+									capital_scope = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+								}
+							capital_scope = {
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					add_tech_bonus = {
+							name = air_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = air_doctrine
+						}
+				}
 	}
 	focus = {
 		id = ENG_SuthEnglishBase
@@ -1644,6 +1700,13 @@ focus_tree = {
 		}
 		x = 53
 		y = 3
+		completion_reward = {
+			120 = {
+					add_building_construction = {
+						type = air_base
+						level = 5					}	
+				}
+			}
 
 	}
 	focus = {
@@ -1655,7 +1718,14 @@ focus_tree = {
 		}
 		x = 55
 		y = 2
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = air_doc_bonus
+							bonus = 0.5
+							uses = 2
+							category = air_doctrine
+						}
+				}
 	}
 	focus = {
 		id = ENG_AirDoctrine
@@ -1708,7 +1778,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = fighter_bonus
 				bonus = 0.5
-				uses = 2
+				uses = 3
 				technology = early_fighter
 				technology = fighter1
 				technology = fighter2
@@ -2000,7 +2070,32 @@ focus_tree = {
 		}
 		x = 68
 		y = 1
-		
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+			}
+		}		
 	}
 	focus = {
 		id = ENG_passammo
@@ -3512,22 +3607,24 @@ focus_tree = {
 		x = 71
 		y = 4
 		completion_reward = {
-			army_leader_start_level = 1
+			#army_leader_start_level = 1
+			army_experience = 25
+			create_corps_commander = { skill = 3 }	
 		}
 	}
-	focus = {
-		id = ENG_Referendum
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		prerequisite = {
-			focus = ENG_DfndFalklands
-		}
-		x = 69
-		y = 5
-		completion_reward = {
-			event = FalklandsReferendum
-		}
-	}
+	#focus = {
+	#	id = ENG_Referendum
+	#	icon = GFX_goal_support_democracy
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = ENG_DfndFalklands
+	#	}
+	#	x = 69
+	#	y = 5
+	#	completion_reward = {
+	#		event = FalklandsReferendum
+	#	}
+	#}
 	focus = {
 		id = ENG_Decolonise
 		icon = GFX_focus_generic_concessions
@@ -3539,39 +3636,29 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 			BOT = {
-				add_autonomy_ratio = {
-						value = 100 
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}
 			ZIM = {
-				add_autonomy_ratio = {
-						value = 100
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}	
 			ZAM = {
-				add_autonomy_ratio = {
-						value = 100
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}
 			NYA = {
-				add_autonomy_ratio = {
-						value = 100
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}
 			KNA = {
-				add_autonomy_ratio = {
-						value = 100
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}	
 			UGA = {
-				add_autonomy_ratio = {
-						value = 100
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}	
 			SUD = {
 				add_autonomy_ratio = {
 						value = 100
 					}
+					kill_country_leader = yes
+					drop_cosmetic_tag = yes
 				}	
 				
 			}
@@ -3587,65 +3674,55 @@ focus_tree = {
 		y = 10
 		completion_reward = {
 			BOT = {
-				add_autonomy_ratio = {
-						value = 100 
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}
 			ZIM = {
-				add_autonomy_ratio = {
-						value = 100
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}	
 			ZAM = {
-				add_autonomy_ratio = {
-						value = 100
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}
 			NYA = {
-				add_autonomy_ratio = {
-						value = 100
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}
 			KNA = {
-				add_autonomy_ratio = {
-						value = 100
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}	
 			UGA = {
-				add_autonomy_ratio = {
-						value = 100
-					}
+				country_event = { days = 1 id = AFR.201 }	
 				}	
 			SUD = {
 				add_autonomy_ratio = {
 						value = 100
 					}
+					kill_country_leader = yes
+					drop_cosmetic_tag = yes
 				}	
 				
 			}
 	}
-	focus = {
-		id = ENG_decarib
-		icon = GFX_focus_rom_handle_king
-		cost = 10.00
-		prerequisite = {
-			focus = ENG_Decolonise
-		}
-		x = 45
-		y = 10
-            ######### ADD CARIBBEAN NATIONS HERE #########
-	}
-	focus = {
-		id = ENG_FalklandsBritish
-		icon = GFX_focus_generic_support_the_left_right
-		cost = 10.00
-		prerequisite = {
-			focus = ENG_Referendum
-		}
-		x = 69
-		y = 6
-		completion_reward = {
-			ideology_drift_defence = 50
-		}
-	}
+	#focus = {
+	#	id = ENG_decarib
+	#	icon = GFX_focus_rom_handle_king
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = ENG_Decolonise
+	#	}
+	#	x = 45
+	#	y = 10
+    #       ######### ADD CARIBBEAN NATIONS HERE #########
+	#}
+	#focus = {
+	#	id = ENG_FalklandsBritish
+	#	icon = GFX_focus_generic_support_the_left_right
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = ENG_Referendum
+	#	}
+	#	x = 69
+	#	y = 6
+	#	completion_reward = {
+	#		ideology_drift_defence = 50
+	#	}
+	#}
 }
