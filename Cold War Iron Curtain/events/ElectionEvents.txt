@@ -526,3 +526,59 @@ country_event = {
 		add_national_unity = -0.05
 	}
 }
+
+country_event = {
+	id = election.18
+	title = election.18.t
+	desc = election.18.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { tag = USA }
+		has_government = democratic
+		NOT = { democratic > 0.5 }
+		NOT = { socialist > 0.5 }
+		NOT = { conservative > 0.5 }
+		NOT = { centrist > 0.5 }
+		OR = {
+			socialist > 25
+			conservative > 25
+			centrist > 25
+		}
+	}
+	
+	option = {	#Form Coalition with Socialists
+		name = election.1.a
+		set_country_flag = coalition_with_socialists
+	}
+	option = {	#Form Coalition with Conservatives
+		name = election.1.a
+		set_country_flag = coalition_with_conservatives
+	}
+	option = {	#Form Coalition with Centrists
+		name = election.1.a
+		set_country_flag = coalition_with_centrists
+	}
+}
+country_event = {
+	id = election.19
+	title = election.19.t
+	desc = election.19.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { tag = USA }
+		OR = {
+		NOT = { has_government = conservative }
+		conservative > 0.5 
+	}
+	
+	option = {
+		name = election.1.a
+		set_politics = { ruling_party = conservative elections_allowed = yes }	
+	}
+}
