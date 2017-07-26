@@ -1,1 +1,31 @@
-﻿
+﻿################################
+# Events for the Soviet union
+################################
+
+add_namespace = sov
+
+# Yes or No to help to PRC?
+country_event = {
+	id = sov.1
+	title = sov.1.t
+	desc = sov.1.d
+	picture = GFX_report_event_help_PRC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sov.1.a
+		send_equipment = { target = PRC type = infantry_equipment amount = 10000 }
+		add_opinion_modifier = { target = PRC modifier = SOV_no_intervention_opinion }
+		ai_chance = {
+			factor = 75
+		}
+	}
+	option = {
+		name = sov.1.b
+		add_opinion_modifier = { target = PRC modifier = SOV_yes_intervention_opinion }
+		ai_chance = {
+			factor = 25
+		}
+	}
+}
