@@ -1,4 +1,46 @@
-﻿add_namespace = usa
+﻿#############################
+# USA events
+#############################
+
+add_namespace = usa
+
+# Yes or No to help to PRC?
+country_event = {
+	id = usa.700
+	title = usa.700.t
+	desc = usa.700.d
+	picture = GFX_report_event_help_PRC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = usa.700.a
+		send_equipment = { target = PRC type = infantry_equipment amount = 10000 }
+		add_opinion_modifier = { target = PRC modifier = USA_yes_intervention_opinion }
+		ai_chance = {
+			factor = 50
+		}
+		hidden_effect = {
+			PRC = {
+				country_event = prc.6
+			}
+		}
+	}
+	option = {
+		name = usa.700.b
+		add_opinion_modifier = { target = PRC modifier = USA_no_intervention_opinion }
+		ai_chance = {
+			factor = 50
+		}
+		hidden_effect = {
+			PRC = {
+				country_event = prc.7
+			}
+		}
+	}
+}
+
+
 
 # Election of 1952: Democratic Nomination
 country_event = {
