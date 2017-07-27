@@ -7,11 +7,15 @@ add_namespace = aus
 # The unification of Austria, Question
 country_event = {
 	id = aus.1
+	hidden = yes
 
 	trigger = {
-		date > 1955.7.25
-		date < 1955.7.30
+		date > 1955.7.20
 		NOT = { has_global_flag = aus_questions_over }
+	}
+
+	mean_time_to_happen = {
+		days = 7
 	}
 
 	immediate = {
@@ -29,14 +33,16 @@ country_event = {
 		}
 		set_global_flag = aus_questions_over
 	}
+
+	fire_only_once = yes
 }
 
 # The unification of Austria, Unification
 country_event = {
 	id = aus.2
+	hidden = yes
 
 	trigger = {
-		date > 1955.7.30
 		has_global_flag = eng_yes_austria
 		has_global_flag = fra_yes_austria
 		has_global_flag = sov_yes_austria
@@ -54,5 +60,11 @@ country_event = {
 		news_event = news.1014
 		set_global_flag = aus_austria_united
 	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+
+	fire_only_once = yes
 }
 	
