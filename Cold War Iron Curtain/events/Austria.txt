@@ -1,0 +1,58 @@
+﻿#####################
+# Austria Events
+#####################
+
+add_namespace = aus
+
+# The unification of Austria, Question
+country_event = {
+	id = aus.1
+
+	trigger = {
+		date > 1955.7.25
+		date < 1955.7.30
+		NOT = { has_global_flag = aus_questions_over }
+	}
+
+	immediate = {
+		USA = {
+			country_event = usa.701
+		}
+		SOV = {
+			country_event = sov.3
+		}
+		FRA = {
+			country_event = fra.1
+		}
+		ENG = {
+			country_event = eng.1
+		}
+		set_global_flag = aus_questions_over
+	}
+}
+
+# The unification of Austria, Unification
+country_event = {
+	id = aus.2
+
+	trigger = {
+		date > 1955.7.30
+		has_global_flag = eng_yes_austria
+		has_global_flag = fra_yes_austria
+		has_global_flag = sov_yes_austria
+		has_global_flag = usa_yes_austria
+		NOT = { has_global_flag = aus_austria_united }
+	}
+
+	immediate = {
+		AUS = {
+			transfer_state = 152
+			transfer_state = 758
+			transfer_state = 4
+			transfer_state = 153
+		}
+		news_event = news.1014
+		set_global_flag = aus_austria_united
+	}
+}
+	
