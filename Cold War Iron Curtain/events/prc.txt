@@ -194,3 +194,36 @@ news_event = {
 		name = prc.7.a
 	}
 }
+
+# PRC gets into the UN
+country_event = {
+	id = prc.9
+	hidden = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		has_global_flag = eng_yes_prc_un_recognition
+		has_global_flag = usa_yes_prc_un_recognition
+		has_global_flag = sov_yes_prc_un_recognition
+		has_global_flag = fra_yes_prc_un_recognition
+		NOT = { has_global_flag = prc_un_recognized }
+	}
+
+	immediate = {
+		add_opinion_modifier = { target = USA modifier = PRC_un_recognition_opinion }
+		add_opinion_modifier = { target = SOV modifier = PRC_un_recognition_opinion }
+		add_opinion_modifier = { target = FRA modifier = PRC_un_recognition_opinion }
+		add_opinion_modifier = { target = ENG modifier = PRC_un_recognition_opinion }
+		add_opinion_modifier = { target = CHI modifier = PRC_not_un_recognition_opinion }
+		news_event = news.1016
+		set_global_flag = prc_un_recognized
+	}
+
+	mean_time_to_happen = {
+		days = 7
+	}
+
+	option = {}
+
+}
