@@ -9,9 +9,12 @@ country_event = {
 	id = aus.1
 	hidden = yes
 
+	fire_only_once = yes
+
 	trigger = {
 		date > 1955.7.20
 		NOT = { has_global_flag = aus_questions_over }
+		date < 1955.7.30
 	}
 
 	mean_time_to_happen = {
@@ -34,13 +37,16 @@ country_event = {
 		set_global_flag = aus_questions_over
 	}
 
-	fire_only_once = yes
+	option = {}
+
 }
 
 # The unification of Austria, Unification
 country_event = {
 	id = aus.2
 	hidden = yes
+
+	fire_only_once = yes
 
 	trigger = {
 		has_global_flag = eng_yes_austria
@@ -62,9 +68,43 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		days = 2
+		days = 7
 	}
 
+	option = {}
+
+}
+
+# The unification of Austria, No Unification
+country_event = {
+	id = aus.3
+	hidden = yes
+
 	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			has_global_flag = eng_no_austria
+			has_global_flag = fra_no_austria
+			has_global_flag = sov_no_austria
+			has_global_flag = usa_no_austria
+		}
+		NOT = { has_global_flag = aus_austria_not_united }
+	}
+
+	immediate = {
+		ENG = { news_event = news.1015 }
+		FRA = { news_event = news.1015 }
+		SOV = { news_event = news.1015 }
+		USA = { news_event = news.1015 }
+		set_global_flag = aus_austria_not_united
+	}
+
+	mean_time_to_happen = {
+		days = 7
+	}
+
+	option = {}
+
 }
 	
