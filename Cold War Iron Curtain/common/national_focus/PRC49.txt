@@ -7,6 +7,7 @@ focus_tree = {
 			tag = PRC
 		}
 	}
+	continuous_focus_position = { x = 2000 y = 1200 }
 	default = no
 	focus = {
 		id = prc_war
@@ -443,6 +444,22 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = taiwan_liberation
 		}
+		completion_reward = {
+			CHI = {
+				if = {
+					limit = { ROOT = { has_government = fascism } }
+					add_ideas = fascist_influence
+				}
+				if = {
+					limit = { ROOT = { has_government = democratic } }
+					add_ideas = democratic_influence
+				}
+				if = {
+					limit = { ROOT = { has_government = communism } }
+					add_ideas = communist_influence
+				}
+			}
+		}
 		x = 14
 		y = 3
 
@@ -526,6 +543,20 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = prc_kmt_truce
 		}
+		bypass = {
+			OR = {
+				has_war_with = CHI
+				is_in_faction_with = CHI
+				NOT = { country_exists = CHI }
+			}
+		}
+		will_lead_to_war_with = ENG
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = CHI
+			}
+		}
 		x = 16
 		y = 3
 
@@ -537,6 +568,21 @@ focus_tree = {
 		prerequisite = {
 			focus = taiwan_liberation
 		}
+		bypass = {
+			OR = {
+				has_war_with = POR
+				is_in_faction_with = POR
+				NOT = { country_exists = POR }
+			}
+		}
+		will_lead_to_war_with = ENG
+		completion_reward = {
+			create_wargoal = {
+				target = POR
+				type = take_state_focus
+				generator = { 729 }
+			}
+		}
 		x = 15
 		y = 4
 
@@ -547,6 +593,21 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = taiwan_liberation
+		}
+		bypass = {
+			OR = {
+				has_war_with = ENG
+				is_in_faction_with = ENG
+				NOT = { country_exists = ENG }
+			}
+		}
+		will_lead_to_war_with = ENG
+		completion_reward = {
+			create_wargoal = {
+				target = ENG
+				type = take_state_focus
+				generator = { 326 }
+			}
 		}
 		x = 17
 		y = 4
