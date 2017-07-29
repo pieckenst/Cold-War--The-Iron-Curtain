@@ -211,13 +211,47 @@ country_event = {
 	}
 
 	immediate = {
-		add_opinion_modifier = { target = USA modifier = PRC_un_recognition_opinion }
 		add_opinion_modifier = { target = SOV modifier = PRC_un_recognition_opinion }
 		add_opinion_modifier = { target = FRA modifier = PRC_un_recognition_opinion }
 		add_opinion_modifier = { target = ENG modifier = PRC_un_recognition_opinion }
 		add_opinion_modifier = { target = CHI modifier = PRC_not_un_recognition_opinion }
 		news_event = news.1016
-		set_global_flag = prc_un_recognized
+		set_global_flag = prc_un_recognizzed
+	}
+
+	mean_time_to_happen = {
+		days = 7
+	}
+
+	option = {}
+
+}
+
+# PRC does not get into UN
+country_event = {
+	id = prc.10
+	hidden = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			has_global_flag = eng_no_prc_un_recognition
+			has_global_flag = usa_no_prc_un_recognition
+			has_global_flag = sov_no_prc_un_recognition
+			has_global_flag = fra_no_prc_un_recognition
+		}
+		NOT = { has_global_flag = prc_un_not_recognized }
+	}
+
+	immediate = {
+		add_opinion_modifier = { target = CHI modifier = PRC_un_recognition_opinion }
+		FRA = { news_event = news.1017 }
+		ENG = { news_event = news.1017 }
+		SOV = { news_event = news.1017 }
+		USA = { news_event = news.1017 }
+		CHI = { news_event = news.1017 }
+		set_global_flag = prc_un_not_recognized
 	}
 
 	mean_time_to_happen = {
