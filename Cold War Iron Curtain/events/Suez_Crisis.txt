@@ -141,7 +141,7 @@ country_event = {
 		ISR = { country_event = egypt.69 }
 		hidden_effect = {
 			news_event = { hours = 6 id = news.206 }
-			country_event = { hours = 72 id = egypt.70 }
+			ENG = { country_event = { hours = 72 id = egypt.70 } }
 		}
 	}
 }
@@ -224,5 +224,43 @@ country_event = {
 		hidden_effect = {
 			news_event = { hours = 6 id = news.208 }
 		}
+	}
+}
+
+# France invites Britain to the Franco-British Union
+country_event = {
+	id = egypt.70
+	title = egypt.70.t
+	desc = egypt.70.d
+	picture = GFX_report_event_british_artillery
+	
+	is_triggered_only = yes
+	
+	option = { # Yes
+		ai_chance = {
+			factor = 10
+		}
+		name = egypt.70.a
+		FBU = { annex_country = { target = FRA transfer_troops = yes} }
+		FBU = { annex_country = { target = ENG transfer_troops = yes} }
+		USA = { add_to_faction = FBU }
+		random_other_country = {
+			limit = { tag = FBU has_government = socialist }
+			change_tag_from = ENG
+			change_tag_from = FRA
+		}
+
+		hidden_effect = {
+			FRA = { set_country_flag = become_fbu }
+			ENG = { set_country_flag = become_fbu }
+			news_event = news.1023
+		}
+	}
+
+	option = { # No
+		ai_chance = {
+			factor = 90
+		}
+		name = egypt.70.b
 	}
 }
