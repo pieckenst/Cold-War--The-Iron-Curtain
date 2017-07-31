@@ -5,6 +5,8 @@ ideologies = {
 			}
 			market_liberal = {
 			}
+			gaullist = {
+			}
 		}
 		dynamic_faction_names = {
 			"FACTION_NAME_DEMOCRATIC_1"
@@ -27,7 +29,7 @@ ideologies = {
 			can_guarantee_other_ideologies = yes
 		}
 		
-		war_impact_on_world_tension = -1.0
+		war_impact_on_world_tension = 0.50
 		faction_impact_on_world_tension = -0.1
 		
 		modifiers = {
@@ -46,6 +48,9 @@ ideologies = {
 		ai_democratic = yes # uses the democratic AI behaviour
 	}	
 	
+
+#################################################
+
 	socialist = {	#Democratic Socialism
 		types = {
 			socialism = {
@@ -76,7 +81,7 @@ ideologies = {
 			can_guarantee_other_ideologies = yes
 		}
 		
-		war_impact_on_world_tension = -1.0
+		war_impact_on_world_tension = 0.50
 		faction_impact_on_world_tension = -0.1
 		
 		modifiers = {
@@ -95,17 +100,19 @@ ideologies = {
 		ai_democratic = yes # uses the democratic AI behaviour
 	}
 	
+
+#######################################################
+
 	democratic = {	#social_liberalism
 	
 		types = {
 			progressive = {
-			}
-		
+			}		
 			liberalism = {
 			}
-			neo_liberalism = {
-			
+			neo_liberalism = {	
 			}
+			
 		}
 		
 		dynamic_faction_names = {
@@ -129,7 +136,7 @@ ideologies = {
 			can_guarantee_other_ideologies = yes
 		}
 		
-		war_impact_on_world_tension = -1.0
+		war_impact_on_world_tension = 0.50
 		faction_impact_on_world_tension = -0.1
 		
 		modifiers = {
@@ -148,6 +155,8 @@ ideologies = {
 		ai_democratic = yes # uses the democratic AI behaviour
 	}
 
+
+###########################################
 
 	communism = {
 		
@@ -200,6 +209,9 @@ ideologies = {
 
 	}
 
+
+####################################################
+
 	fascism = {
 	
 		types = {
@@ -242,6 +254,10 @@ ideologies = {
 
 		ai_fascist = yes # uses the fascist AI behaviour
 	}
+
+
+#####################################################
+
 	centrist = {
 	
 		types = {
@@ -249,34 +265,51 @@ ideologies = {
 			}
 			
 			centrism = {
-			}	
+			}
+			christian-centrist = {
+			}
 		}
 		
 		dynamic_faction_names = {
-			"FACTION_NAME_FASCIST_1"
-			"FACTION_NAME_FASCIST_2"
-			"FACTION_NAME_FASCIST_3"
-			"FACTION_NAME_FASCIST_4"
-			"FACTION_NAME_FASCIST_5"
+			"FACTION_NAME_DEMOCRATIC_1"
+			"FACTION_NAME_DEMOCRATIC_2"
+			"FACTION_NAME_DEMOCRATIC_3"
+			"FACTION_NAME_DEMOCRATIC_4"
+			"FACTION_NAME_DEMOCRATIC_5"
+			"FACTION_NAME_DEMOCRATIC_6"
 		}
 		
 		color = { 192 192 192 }
 		
-		war_impact_on_world_tension = 1.0			#evil!
-		faction_impact_on_world_tension = 1.0
+		war_impact_on_world_tension = 0.50		
+		faction_impact_on_world_tension = 0.1
 		
 		rules = {
+			can_declare_war_on_same_ideology = yes
 			can_force_government = yes
 			can_send_volunteers = yes
 			can_puppet = yes
+			can_lower_tension = yes
+			can_only_justify_war_on_threat_country = no
+			can_guarantee_other_ideologies = yes
 		}
 		
 		modifiers = {
-			justify_war_goal_when_in_major_war_time = -0.80
+			generate_wargoal_tension = 1.00
+			join_faction_tension = 0.80
+			lend_lease_tension = 0.0
+			send_volunteers_tension = 0.0
+			guarantee_tension = 0.25
+			take_states_cost_factor = 0.25
+			annex_cost_factor = 0.5
 		}
 
 		ai_neutral = yes 
 	}
+
+
+####################################################
+
 	neutrality = {
 	
 		types = {
@@ -301,7 +334,7 @@ ideologies = {
 		color = { 124 124 124 }
 		
 		
-		war_impact_on_world_tension = 0.25		#no major danger
+		war_impact_on_world_tension = 0.5		#no major danger
 		faction_impact_on_world_tension = 0.1
 		
 		rules = {
