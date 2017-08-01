@@ -1,7 +1,5 @@
 ﻿capital = 744
 
-oob = "DDR_1949"
-
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
@@ -13,10 +11,10 @@ set_technology = {
 	motorised_infantry = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	
-	light_tanks_1 = 1
-	light_tanks_2 = 1
-	heavy_tanks_1 = 1
+	gwtank = 1
+	basic_light_tank = 1
+	improved_light_tank = 1
+	basic_heavy_tank = 1
 	early_fighter = 1
 	fighter1 = 1
 	early_bomber = 1
@@ -50,14 +48,15 @@ set_national_unity = 0.7
 
 1939.1.1 = {
 
+	add_political_power = 1197
 	
 
 	#BUILDINGS
 	
 
 	set_technology = {
-		light_tanks_2 = 1 
-		main_battle_tanks_1 = 1 
+		improved_light_tank = 1 
+		basic_medium_tank = 1 
 		CAS2 = 1
 		heavy_fighter1 = 1
 		interwar_artillery = 1
@@ -119,7 +118,7 @@ set_politics = {
 
 	parties = {
 		democratic = { 
-			popularity = 30
+			popularity = 35
 		}
 
 		fascism = {
@@ -127,24 +126,25 @@ set_politics = {
 		}
 		
 		communism = {
-			popularity = 60
+			popularity = 55
 			banned = no #default is no
-		}
-		pan_arabism = {
-			popularity = 0
-			banned = yes
 		}
 	}
 	
 	ruling_party = communism
 	last_election = "1936.1.1"
 	election_frequency = 48
-	elections_allowed = yes
+	elections_allowed = no
 
 }
 
+set_cosmetic_tag = DDR_Occupation
+
 
 add_ideas = {
+    ddr_idea_industrial_corruption
+	ddr_idea_mass_emigration
+	ddr_no_established_army
 }
 
 create_country_leader = {
@@ -171,12 +171,11 @@ create_country_leader = {
 create_country_leader = {
 	name = "Wilhelm Pieck"
 	desc = "POLITICS_WILHELM_PIECK_DESC"	 
-	picture = "Portrait_EastGermany_Wilhelm_Pieck.dds"
-	expire = "1960.9.7"
+	picture = gfx/leaders/GER/Portrait_Germany_Wilhelm_Pieck.dds
+	expire = "1965.1.1"
 	ideology = stalinism
 	traits = {
 		stalins_puppet
-		exiled
 	}
 }
 
@@ -254,6 +253,10 @@ create_equipment_variant = {
 		type = destroyer_2
 		parent_version = 0
 		upgrades = {
+			ship_torpedo_upgrade = 2
+			ship_engine_upgrade = 2
+			ship_ASW_upgrade = 2
+			ship_anti_air_upgrade = 2
 		}
 	}
 	# Heavy Cruisers #
@@ -269,47 +272,4 @@ create_equipment_variant = {
 	#	}
 	#	obsolete = yes
 	#}
-}
-
-1960.9.7 = {
-	create_country_leader = {
-		name = "Walter Ulbricht" 
-		picture = "Portrait_EastGermany_Walter_Ulbricht.dds"
-		expire = "1973.8.1"
-		ideology = stalinism
-	}
-}
-
-1973.8.1 = {
-	create_country_leader = {
-		name = "Willi Stoph" 
-		picture = "Portrait_EastGermany_Willi_Stoph.dds"
-		expire = "1999.4.13"
-		ideology = stalinism
-	}
-}
-
-1976.10.29 = {
-	create_country_leader = {
-		name = "Erich Honecker" 
-		picture = "Portrait_EastGermany_Erich_Honecker.dds"
-		expire = "1994.5.29"
-		ideology = stalinism
-	}
-}
-
-1989.10.24 = {
-	create_country_leader = {
-		name = "Egon Krenz" 
-		picture = "Portrait_EastGermany_Egon_Krenz.dds"
-		ideology = stalinism
-	}
-}
-
-1989.12.6 = {
-	create_country_leader = {
-		name = "Manfred Gerlach" 
-		picture = "Portrait_EastGermany_Manfred_Gerlach.dds"
-		ideology = stalinism
-	}
 }
