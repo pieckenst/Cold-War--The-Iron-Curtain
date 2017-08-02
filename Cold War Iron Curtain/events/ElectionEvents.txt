@@ -550,15 +550,15 @@ country_event = {
 	}
 	
 	option = {	#Form Coalition with Socialists
-		name = election.1.a
+		name = election.25.a
 		set_country_flag = coalition_with_socialists
 	}
 	option = {	#Form Coalition with Conservatives
-		name = election.1.a
+		name = election.25.c
 		set_country_flag = coalition_with_conservatives
 	}
 	option = {	#Form Coalition with Centrists
-		name = election.1.a
+		name = election.25.d
 		set_country_flag = coalition_with_centrists
 	}
 }
@@ -579,7 +579,172 @@ country_event = {
 	}
 	
 	option = {
-		name = election.1.a
+		name = election.19.a
 		set_politics = { ruling_party = conservative elections_allowed = yes }	
+	}
+}
+country_event = {
+	id = election.20
+	title = election.20.t
+	desc = election.20.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { tag = USA }
+		OR = {
+		NOT = { has_government = socialist }
+		socialist > 0.5 
+	}
+	
+	option = {
+		name = election.20.a
+		set_politics = { ruling_party = socialist elections_allowed = yes }	
+	}
+}
+country_event = {
+	id = election.21
+	title = election.21.t
+	desc = election.21.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { tag = USA }
+		OR = {
+		NOT = { has_government = centrist }
+		centrist > 0.5 
+	}
+	
+	option = {
+		name = election.21.a
+		set_politics = { ruling_party = centrist elections_allowed = yes }	
+	}
+}
+country_event = {
+	id = election.22
+	title = election.22.t
+	desc = election.22.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { tag = USA }
+		OR = {
+		NOT = { has_government = democratic }
+		democratic > 0.5 
+	}
+	
+	option = {
+		name = election.22.a
+		set_politics = { ruling_party = democratic elections_allowed = yes }	
+	}
+}
+country_event = {
+	id = election.23
+	title = election.23.t
+	desc = election.23.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { tag = USA }
+		has_government = socialist
+		NOT = { democratic > 0.5 }
+		NOT = { socialist > 0.5 }
+		NOT = { conservative > 0.5 }
+		NOT = { centrist > 0.5 }
+		OR = {
+			democratic > 25
+			conservative > 25
+			centrist > 25
+		}
+	}
+	
+	option = {	#Form Coalition with Liberals
+		name = election.25.b
+		set_country_flag = coalition_with_democratic
+	}
+	option = {	#Form Coalition with Conservatives
+		name = election.25.c
+		set_country_flag = coalition_with_conservatives
+	}
+	option = {	#Form Coalition with Centrists
+		name = election.25.d
+		set_country_flag = coalition_with_centrists
+	}
+}
+country_event = {
+	id = election.24
+	title = election.24.t
+	desc = election.24.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { tag = USA }
+		has_government = conservative
+		NOT = { democratic > 0.5 }
+		NOT = { socialist > 0.5 }
+		NOT = { conservative > 0.5 }
+		NOT = { centrist > 0.5 }
+		OR = {
+			democratic > 25
+			socialist > 25
+			centrist > 25
+		}
+	}
+	
+	option = {	#Form Coalition with Socialists
+		name = election.25.a
+		set_country_flag = coalition_with_socialists
+	}
+	option = {	#Form Coalition with Liberals
+		name = election.25.b
+		set_country_flag = coalition_with_democratic
+	}
+	option = {	#Form Coalition with Centrists
+		name = election.25.d
+		set_country_flag = coalition_with_centrists
+	}
+}
+country_event = {
+	id = election.25
+	title = election.25.t
+	desc = election.25.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { tag = USA }
+		has_government = centrist
+		NOT = { democratic > 0.5 }
+		NOT = { socialist > 0.5 }
+		NOT = { conservative > 0.5 }
+		NOT = { centrist > 0.5 }
+		OR = {
+			democratic > 25
+			socialist > 25
+			conservative > 25
+		}
+	}
+	
+	option = {	#Form Coalition with Socialists
+		name = election.25.a
+		set_country_flag = coalition_with_socialists
+	}
+	option = {	#Form Coalition with Liberals
+		name = election.25.b
+		set_country_flag = coalition_with_democratic
+	}
+	option = {	#Form Coalition with Conservatives
+		name = election.25.c
+		set_country_flag = coalition_with_conservatives
 	}
 }
