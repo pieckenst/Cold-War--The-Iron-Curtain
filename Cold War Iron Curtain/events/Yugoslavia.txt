@@ -53,3 +53,114 @@ country_event = {
 		set_global_flag = yug_back_down_trieste
 	}
 }
+
+#Titos Death Hidden Trigger
+country_event = {
+	id = yug.3
+	hidden = yes
+
+	trigger = {
+		date > 1980.5.4
+		date < 1980.5.15
+		NOT = { YUG = { has_country_flag = tito_dead } }
+	}
+
+	immediate = {
+		news_event = news.1024
+		set_country_flag = tito_dead
+	}
+
+	option = { }
+
+	mean_time_to_happen = { days = 7 }
+}
+
+# Collective Presidency
+country_event = {
+	id = yug.4
+	title = yug.4.t
+	desc = yug.4.d
+
+	is_triggered_only = yes
+
+	option = { # Only those who can be trusted
+		name = yug.4.a
+		ai_chance = {
+			factor = 6
+		}
+	}
+
+	option = { # Hand-Pick the Members
+		name = yug.4.b
+		ai_chance = {
+			factor = 5
+		}
+		add_ideas = { YUG_corruption_scandals }
+		add_political_power = 250
+		hidden_effect = {
+			country_event = yug.5
+		}
+	}
+
+	option = { # Let the republics pick them
+		name = yug.4.b
+		ai_chance = {
+			factor = 5
+		}
+		add_ideas = { YUG_corruption_scandals }
+		add_political_power = 200
+		hidden_effect = {
+			country_event = yug.5
+		}
+	}
+}
+
+# Corruption Scandals
+country_event = {
+	id = yug.5
+	title = yug.5.t
+	desc = yug.5.d
+
+	is_triggered_only = yes
+
+	option = { # Investigate further
+		name = yug.5.a
+		ai_chance = {
+			factor = 5
+		}
+		remove_ideas = YUG_corruption_scandals
+		add_ideas = { YUG_arrested_ministers }
+	}
+
+	option = { # We can't risk it getting public
+		name = yug.5.b
+		ai_chance = {
+			factor = 5
+		}
+		hidden_effect = {
+			if = { limit = { NOT = { has_country_flag = corruption_scandals } } }
+			set_country_flag = corruption_scandals
+		}
+	}
+
+}
+
+# Corruption Scandals, hidden trigger for new event
+country_event = {
+	id = yug.6
+	hidden = yes
+
+	trigger = {
+		has_country_flag = corruption_scandals 
+	}
+
+	immediate = {
+		country_event = yug.5
+	}
+
+	mean_time_to_happen = { days = 365 }
+
+	option = { }
+
+
+}

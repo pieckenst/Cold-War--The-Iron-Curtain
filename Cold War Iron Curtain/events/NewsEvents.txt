@@ -636,3 +636,31 @@ news_event = {
 
 
 }
+
+#Titos Death News Event
+news_event = {
+	id = news.1024
+	title = news.1024.t
+	desc = news.1024.d
+	picture = GFX_news_event_tito_dead
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = { tag = YUG }
+		name = news.1024.a
+		YUG = { 
+			create_country_leader = {
+				name = "Lazar Koliševski"
+				picture = "Portrait_Yugoslavia_Lazar_Kolisevski.dds"
+				ideology = stalinism
+			}
+			add_ideas = { YUG_Tito_is_dead }
+		}
+	}
+
+	option = {
+		trigger = { NOT = { tag = YUG } }
+		name = news.1024.b
+	}
+}
