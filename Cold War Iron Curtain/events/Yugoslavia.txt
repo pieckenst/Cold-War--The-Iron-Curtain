@@ -377,14 +377,14 @@ country_event = {
 	option = { 
 		name = yug.16.a
 		ai_chance = {
-			factor = 5
+			factor = 4
 		}
 		YUG = { annex_country = { target = ROOT } }
 	}
 	option = { 
 		name = yug.16.b
 		ai_chance = {
-			factor = 5
+			factor = 6
 		}
 		add_opinion_modifier = { target = ROOT modifier = YUG_not_uniting_opinion }
 	}
@@ -436,21 +436,21 @@ country_event = {
 	option = { 
 		name = yug.19.a
 		ai_chance = {
-			factor = 5
+			factor = 4
 		}
 		YUG = { annex_country = { target = ROOT } }
 	}
 	option = { 
 		name = yug.19.b
 		ai_chance = {
-			factor = 5
+			factor = 6
 		}
 		add_opinion_modifier = { target = ROOT modifier = YUG_not_uniting_opinion }
 	}
 }
 
 # Proclaim the Balkan Federation
-country_event = {
+news_event = {
 	id = yug.20
 	title = yug.20.t
 	desc = yug.20.d
@@ -462,6 +462,213 @@ country_event = {
 		ai_chance = {
 			factor = 5
 		}
-		add_political_power = 150
+	}
+}
+
+# A Romanian puppet
+country_event = {
+	id = yug.21
+	title = yug.21.t
+	desc = yug.21.d
+
+	is_triggered_only = yes
+
+	bypass = {
+		YUG = {
+			controls_state = 46
+		}
+	}
+
+	option = { 
+		name = yug.21.a
+		ai_chance = {
+			factor = 5
+		}
+		create_war_goal = {
+			target = RUM
+			type = puppet_wargoal_focus
+		}
+	}
+}
+
+# Invite Greece
+country_event = {
+	id = yug.22
+	title = yug.22.t
+	desc = yug.22.d
+
+	is_triggered_only = yes
+
+	option = { 
+		name = yug.22.a
+		ai_chance = {
+			factor = 5
+		}
+		GRE = { country_event = yug.19 }
+	}
+}
+
+# Destroy the Rebellion
+country_event = {
+	id = yug.23
+	title = yug.23.t
+	desc = yug.23.d
+
+	is_triggered_only = yes
+
+	option = { 
+		name = yug.23.a
+		ai_chance = {
+			factor = 5
+		}
+		add_manpower = 25000
+	}
+}
+
+# Bandung Conference
+country_event = {
+	id = yug.24
+	title = yug.24.t
+	desc = yug.24.d
+
+	is_triggered_only = yes
+
+	option = { 
+		name = yug.24.a
+		ai_chance = {
+			factor = 5
+		}
+		RAJ = { country_event = yug.25 }
+		INO = { country_event = yug.25 }
+		EGY = { country_event = yug.25 }
+	}
+}
+
+# Join Non-aligned Movement
+country_event = {
+	id = yug.25
+	title = yug.25.t
+	desc = yug.25.d
+
+	is_triggered_only = yes
+
+	option = { 
+		name = yug.25.a
+		ai_chance = {
+			factor = 5
+		}
+		YUG = { add_to_faction = ROOT}
+	}
+	option = { 
+		name = yug.25.a
+		ai_chance = {
+			factor = 5
+		}
+	}
+}
+
+# North African Expantion
+country_event = {
+	id = yug.26
+	title = yug.26.t
+	desc = yug.26.d
+
+	is_triggered_only = yes
+
+	option = { 
+		name = yug.26.a
+		ai_chance = {
+			factor = 5
+		}
+		TUN = { country_event = yug.25 }
+		LBA = { country_event = yug.25 }
+		MOR = { country_event = yug.25 }
+	}
+}
+
+# Middle East Expantion
+country_event = {
+	id = yug.27
+	title = yug.27.t
+	desc = yug.27.d
+
+	is_triggered_only = yes
+
+	option = { 
+		name = yug.27.a
+		ai_chance = {
+			factor = 5
+		}
+		IRQ = { country_event = yug.25 }
+		SAU = { country_event = yug.25 }
+		JOR = { country_event = yug.25 }
+		SYR = { country_event = yug.25 }
+	}
+}
+
+# Middle East Expantion
+country_event = {
+	id = yug.28
+	title = yug.28.t
+	desc = yug.28.d
+
+	is_triggered_only = yes
+
+	option = { 
+		name = yug.28.a
+		ai_chance = {
+			factor = 5
+		}
+		CAM = { country_event = yug.25 }
+		BHU = { country_event = yug.25 }
+		NEP = { country_event = yug.25 }
+		MAL = { country_event = yug.25 }
+	}
+}
+
+# Soviet Sattelite State
+country_event = {
+	id = yug.29
+	title = yug.29.t
+	desc = yug.29.d
+
+	is_triggered_only = yes
+
+	option = { 
+		name = yug.29.a
+		ai_chance = {
+			factor = 5
+		}
+		SOV = { puppet = YUG }
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
 	}
 }
