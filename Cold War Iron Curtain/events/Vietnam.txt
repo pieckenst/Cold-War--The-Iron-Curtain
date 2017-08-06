@@ -1,0 +1,46 @@
+﻿#############################
+# Vietnam events
+#############################
+
+add_namespace = vie
+
+# The Geneva Conference (hidden trigger)
+country_event = {
+	id = vie.1
+	
+	trigger = {
+		VIN = { 
+			owns_state = 786
+		}
+	}
+	
+	immediate = {
+		news_event = vie.2
+	}
+
+	option = { }
+
+	mean_time_to_happen = { days = 7 }
+}
+
+# The Geneva Conference
+news_event = {
+	id = vie.2
+	title = vie.2.t
+	desc = vie.2.d
+	
+	is_triggered_only = yes
+	major = yes
+
+	option = { 
+		name = vie.2.a
+		trigger = { tag = VIN }
+		FRA = { white_peace = VIN}
+	}
+
+	option = {
+		name = vie.2.b
+		trigger = { NOT = { tag = VIN } }
+	}
+
+}
