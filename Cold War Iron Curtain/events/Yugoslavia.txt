@@ -103,7 +103,7 @@ country_event = {
 	}
 
 	option = { # Let the republics pick them
-		name = yug.4.b
+		name = yug.4.c
 		ai_chance = {
 			factor = 5
 		}
@@ -211,4 +211,87 @@ country_event = {
 		}
 	}
 
+}
+
+# Purge the Gouvernment
+country_event = {
+	id = yug.8
+	title = yug.8.t
+	desc = yug.8.d
+
+	is_triggered_only = yes
+
+	option = { # Whatever is necessary
+		name = yug.8.a
+		ai_chance = {
+			factor = 5
+		}
+	}
+}
+
+# Suez Crisis
+country_event = {
+	id = yug.9
+	title = yug.9.t
+	desc = yug.9.d
+
+	is_triggered_only = yes
+
+	option = { # Support Egypt
+		name = yug.9.a
+		ai_chance = {
+			factor = 5
+		}
+		add_opinion_modifier = { target = ENG modifier = YUG_Suez_Crisis_hurting_opinion }
+		add_opinion_modifier = { target = EGY modifier = YUG_Suez_Crisis_improve_opinion }
+	}
+	option = { # Stay out
+		name = yug.9.b
+		ai_chance = {
+			factor = 5
+		}
+		add_opinion_modifier = { target = EGY modifier = YUG_Suez_Crisis_hurting_opinion }
+		add_opinion_modifier = { target = ENG modifier = YUG_Suez_Crisis_improve_opinion }
+	}
+}
+
+# The Afghan Question
+country_event = {
+	id = yug.10
+	title = yug.10.t
+	desc = yug.10.d
+
+	is_triggered_only = yes
+
+	option = { # Allow him to join
+		name = yug.10.a
+		ai_chance = {
+			factor = 5
+		}
+		YUG = { add_to_faction = AFG }
+	}
+	option = { # We cannot risk it
+		name = yug.10.b
+		ai_chance = {
+			factor = 5
+		}
+		add_opinion_modifier = { target = AFG modifier = YUG_Afghan_Question_hurting_opinion}
+	}
+}
+
+# Croatia Declares Independence
+country_event = {
+	id = yug.11
+	title = yug.11.t
+	desc = yug.11.d
+
+	is_triggered_only = yes
+
+	option = { # We cant let them leave
+		name = yug.11.a
+		ai_chance = {
+			factor = 5
+		}
+		
+	}
 }
