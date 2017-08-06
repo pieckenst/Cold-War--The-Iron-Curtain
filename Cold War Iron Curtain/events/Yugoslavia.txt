@@ -293,6 +293,134 @@ country_event = {
 			factor = 5
 		}
 		release = CRO
-		declare_war_on = { tag = CRO type = annex_everything }
+		YUG = { declare_war_on = { target = CRO type = annex_everything } }
+	}
+}
+
+# Serbia Declares Independence
+country_event = {
+	id = yug.12
+	title = yug.12.t
+	desc = yug.12.d
+
+	is_triggered_only = yes
+
+	option = { # We cant let them leave
+		name = yug.12.a
+		ai_chance = {
+			factor = 5
+		}
+		release = SER
+		YUG = { declare_war_on = { target = SER type = annex_everything } }
+	}
+}
+
+# Radical Coup
+country_event = {
+	id = yug.13
+	title = yug.13.t
+	desc = yug.13.d
+
+	is_triggered_only = yes
+
+	option = { 
+		name = yug.13.a
+		ai_chance = {
+			factor = 5
+		}
+		add_national_unity = -0.10
+	}
+}
+
+# The Bled Agreement
+country_event = {
+	id = yug.14
+	title = yug.14.t
+	desc = yug.14.d
+
+	is_triggered_only = yes
+
+	option = { 
+		name = yug.14.a
+		ai_chance = {
+			factor = 5
+		}
+		add_political_power = 150
+	}
+}
+
+# Pressure Bulgaria
+country_event = {
+	id = yug.15
+	title = yug.15.t
+	desc = yug.15.d
+
+	is_triggered_only = yes
+
+	option = { 
+		name = yug.15.a
+		ai_chance = {
+			factor = 5
+		}
+		BUL = { country_event = yug.16 }
+	}
+}
+
+# Yugoslavia Wants to Unite
+country_event = {
+	id = yug.16
+	title = yug.16.t
+	desc = yug.16.d
+
+	is_triggered_only = yes
+
+	option = { 
+		name = yug.16.a
+		ai_chance = {
+			factor = 5
+		}
+		YUG = { annex_country = { target = ROOT } }
+	}
+	option = { 
+		name = yug.16.b
+		ai_chance = {
+			factor = 5
+		}
+		add_opinion_modifier = { target = ROOT modifier = YUG_not_uniting_opinion }
+	}
+}
+
+# Pressure Albania
+country_event = {
+	id = yug.17
+	title = yug.17.t
+	desc = yug.17.d
+
+	is_triggered_only = yes
+
+	option = { 
+		name = yug.17.a
+		ai_chance = {
+			factor = 5
+		}
+		ALB = { country_event = yug.16 }
+	}
+}
+
+
+# Pressure Romania
+country_event = {
+	id = yug.18
+	title = yug.18.t
+	desc = yug.18.d
+
+	is_triggered_only = yes
+
+	option = { 
+		name = yug.18.a
+		ai_chance = {
+			factor = 5
+		}
+		ROM = { country_event = yug.16 }
 	}
 }
