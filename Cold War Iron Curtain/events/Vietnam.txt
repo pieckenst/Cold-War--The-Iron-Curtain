@@ -18,7 +18,8 @@ country_event = {
 	}
 	
 	immediate = {
-		news_event = vie.2
+		FRA = { country_event = vie.2 }
+		VIE = { country_event = vie.4 } 
 	}
 
 	option = { }
@@ -26,25 +27,108 @@ country_event = {
 	mean_time_to_happen = { days = 7 }
 }
 
-# The Geneva Conference
-news_event = {
+# The Geneva Conference (Preload)
+country_event = {
 	id = vie.2
 	title = vie.2.t
 	desc = vie.2.d
-	picture = GFX_news_event_geneva_conference
 	
 	is_triggered_only = yes
+	
+	option = { 
+		name = vie.2.a
+		hidden_effect = {
+			set_global_flag = FRA_yes_Geneva
+		}
+		ai_chance = {
+			factor = 98
+		}
+	}
+	
+	option = {
+		name = vie.2.b
+		ai_chance = {
+			factor = 2
+		}
+	}
+
+}
+
+# The Geneva Conference
+news_event = {
+	id = vie.3
+	title = vie.3.t
+	desc = vie.3.d
+	picture = GFX_news_event_geneva_conference
+	
+	trigger = {
+		has_global_flag = VIE_yes_Geneva
+		has_global_flag = FRA_yes_Geneva
+	}
+
+	immediate = {
+		FRA = { white_peace = { tag = VIN } }
+		VIE = { 
+			white_peace = { tag = VIN }
+			transfer_state = 788
+			transfer_state = 757
+		}
+		VIN = {
+			transfer_state = 671
+			transfer_state = 786
+			transfer_state = 787
+		}
+		786 = {
+			set_demilitarized_zone = yes
+		}
+		787 = {
+			set_demilitarized_zone = yes
+		}
+	}
+
+
 	major = yes
 
 	option = { 
-		name = vie.2.a
+		name = vie.3.a
 		trigger = { tag = VIN }
-		VIE = { white_peace = VIN}
+		
+
 	}
 
 	option = {
-		name = vie.2.b
+		name = vie.3.b
 		trigger = { NOT = { tag = VIN } }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+}
+
+# The Geneva Conference (Preload)
+country_event = {
+	id = vie.4
+	title = vie.4.t
+	desc = vie.4.d
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = vie.4.a
+
+		hidden_effect = {
+			set_global_flag = VIE_yes_Geneva
+		}
+		ai_chance = {
+			factor = 98
+		}
+	}
+	
+	option = {
+		name = vie.4.b
+		ai_chance = {
+			factor = 2
+		}
 	}
 
 }
