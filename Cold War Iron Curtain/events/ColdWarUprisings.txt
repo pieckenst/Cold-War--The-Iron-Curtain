@@ -1,0 +1,85 @@
+﻿################################
+# Cold War Uprisings
+################################
+
+add_namespace = cwu
+
+# Berlin uprising 1953
+country_event = {
+	id = cwu.1
+	title = cwu.1.t
+	desc = cwu.1.d
+
+	trigger = {
+		date > 1953.6.15
+		date < 1953.6.22
+		NOT = { DDR = { has_country_flag = berlin_uprising_1952 } }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { # Fight them
+		name = cwu.1.a
+		start_civil_war = {
+			ruling_party = communism
+			ideology = democratic
+			size = 0.2
+		}
+		hidden_effect = {
+			set_country_flag = ddr_fight_democrats
+		}
+	}
+
+	option = { # Give in to their demands
+		name = cwu.1.b
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
+			last_election = "1953.6.16"
+			parties = {
+				communism = 0
+				democratic = 40
+				socialist = 23
+				conservative = 12
+				fascist = 2
+				nationalist = 3
+				centrist = 20
+			}
+		}
+		hidden_effect = {
+			set_country_flag = ddr_become_democratic
+		}
+	}
+
+	immediate = {
+		DDR = { set_country_flag = berlin_uprising_1952 } }
+	}
+}
+
+#Berlin Uprising 1953 News Event
+news_event = {
+	id = cwu.2
+	title = cwu.2.t
+	desc = { 
+		text = cwu.2.d
+		trigger = { has_country_flag = ddr_fight_democrats }
+	}
+	desc = {
+		text = cwu.2.desc
+		trigger = { has_country_flag = ddr_become_democratic }
+	}
+	picture = GFX_news_event_berlin_uprising_1953
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.2.a
+		trigger = { tag = DDR }
+	}
+
+	option = {
+		name = cwu.2.b
+		trigger = { NOT = { tag = DDR } }
+	}
+}
