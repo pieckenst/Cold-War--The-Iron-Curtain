@@ -304,3 +304,101 @@ country_event = {
 		HUN = { country_event = cwu.7 }
 	}
 }
+
+# Prague Spring 1968
+country_event = {
+	id = cwu.10
+	title = cwu.10.t
+	desc = cwu.10.d
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { # Fight them
+		name = cwu.10.a
+		start_civil_war = {
+			ruling_party = communism
+			ideology = democratic
+			size = 0.4
+		}
+		hidden_effect = {
+			set_country_flag = cze_fight_democrats
+			news_event = cwu.11
+		}
+	}
+
+	option = { # Give in to their demands + Soviet Invasion
+		name = cwu.10.b
+		set_politics = {
+			last_election = "1968.1.5"
+			parties = {
+				communism = { popularity = 0 }
+				democratic = { popularity = 40 }
+				socialist = { popularity = 23 }
+				conservative = { popularity = 12 }
+				fascism = { popularity = 12 }
+				nationalism = { popularity = 3 }
+				centrist = { popularity = 20 }
+			}
+		}
+		SOV = { declare_war_on = { target = CZE type = puppet_wargoal_focus } }
+		hidden_effect = {
+			set_country_flag = cze_become_democratic
+			news_event = cwu.11
+		}
+	}
+
+	immediate = {
+		set_global_flag = czech_uprising_1968 
+	}
+}
+
+# Prague Spring 1968 News Event
+news_event = {
+	id = cwu.11
+	title = cwu.11.t
+	desc = { 
+		text = cwu.11.d
+		trigger = { has_country_flag = cze_fight_democrats }
+	}
+	desc = {
+		text = cwu.11.desc
+		trigger = { has_country_flag = cze_become_democratic }
+	}
+	picture = GFX_news_event_czech_uprising_1968
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.11.a
+		trigger = { tag = CZE }
+	}
+
+	option = {
+		name = cwu.11.b
+		trigger = { NOT = { tag = CZE } }
+	}
+}
+
+# Prague Spring hidden trigger
+country_event = {
+	id = cwu.12
+	title = cwu.12.t
+	desc = cwu.12.d
+
+	trigger = {
+		date > 1968.1.5
+		date < 1968.5.21
+		NOT = { has_global_flag = czech_uprising_1968 }
+	}
+
+	mean_time_to_happen = { days = 90 }
+
+	option = { }
+
+	immediate = {
+		HUN = { country_event = cwu.10 }
+	}
+}
