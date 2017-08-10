@@ -217,7 +217,7 @@ country_event = {
 		start_civil_war = {
 			ruling_party = communism
 			ideology = democratic
-			size = 0.4
+			size = 0.2
 		}
 		hidden_effect = {
 			set_country_flag = hun_fight_democrats
@@ -229,6 +229,7 @@ country_event = {
 		name = cwu.7.b
 		set_politics = {
 			last_election = "1956.10.23"
+			elections_allowed = yes
 			parties = {
 				communism = { popularity = 0 }
 				democratic = { popularity = 40 }
@@ -241,9 +242,8 @@ country_event = {
 		}
 		start_civil_war = {
 			ruling_party = democratic
-			elections_allowed = yes
 			ideology = communism
-			size = 0.6
+			size = 0.8
 		}
 		hidden_effect = {
 			set_country_flag = hun_become_democratic
@@ -320,7 +320,19 @@ country_event = {
 		start_civil_war = {
 			ruling_party = communism
 			ideology = democratic
-			size = 0.4
+			size = 0.2
+		}
+		random_other_country = {
+			limit = {
+				original_tag = CZE
+				NOT = { tag = CZE }
+			}
+			SOV = { declare_war_on = { target = PREV type = puppet_wargoal } }
+		}
+		create_country_leader = {
+			name = "Gustáv Husák"
+			picture = "Portrait_Czech_Gustav_Husak.dds"
+			ideology = stalinism
 		}
 		hidden_effect = {
 			set_country_flag = cze_fight_democrats
@@ -331,6 +343,8 @@ country_event = {
 	option = { # Give in to their demands + Soviet Invasion
 		name = cwu.10.b
 		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
 			last_election = "1968.1.5"
 			parties = {
 				communism = { popularity = 0 }
@@ -342,7 +356,11 @@ country_event = {
 				centrist = { popularity = 20 }
 			}
 		}
-		SOV = { declare_war_on = { target = CZE type = puppet_wargoal_focus } }
+		SOV = { 
+			end_puppet = CZE
+			remove_from_faction = CZE
+			declare_war_on = { target = CZE type = puppet_wargoal }
+		}
 		hidden_effect = {
 			set_country_flag = cze_become_democratic
 			news_event = cwu.11
