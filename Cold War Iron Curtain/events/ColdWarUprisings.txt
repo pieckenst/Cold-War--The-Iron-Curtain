@@ -201,3 +201,106 @@ country_event = {
 		POL = { country_event = cwu.4 }
 	}
 }
+
+# Hungarian Revolution 1956
+country_event = {
+	id = cwu.7
+	title = cwu.7.t
+	desc = cwu.7.d
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { # Fight them
+		name = cwu.7.a
+		start_civil_war = {
+			ruling_party = communism
+			ideology = democratic
+			size = 0.4
+		}
+		hidden_effect = {
+			set_country_flag = hun_fight_democrats
+			news_event = cwu.8
+		}
+	}
+
+	option = { # Give in to their demands + civil war
+		name = cwu.7.b
+		set_politics = {
+			last_election = "1956.10.23"
+			parties = {
+				communism = { popularity = 0 }
+				democratic = { popularity = 40 }
+				socialist = { popularity = 23 }
+				conservative = { popularity = 12 }
+				fascism = { popularity = 12 }
+				nationalism = { popularity = 3 }
+				centrist = { popularity = 20 }
+			}
+		}
+		start_civil_war = {
+			ruling_party = democratic
+			elections_allowed = yes
+			ideology = communism
+			size = 0.6
+		}
+		hidden_effect = {
+			set_country_flag = hun_become_democratic
+			news_event = cwu.8
+		}
+	}
+
+	immediate = {
+		set_global_flag = hungarian_uprising_1956 
+	}
+}
+
+# Hungarian Revolution 1956 News Event
+news_event = {
+	id = cwu.8
+	title = cwu.8.t
+	desc = { 
+		text = cwu.8.d
+		trigger = { has_country_flag = hun_fight_democrats }
+	}
+	desc = {
+		text = cwu.8.desc
+		trigger = { has_country_flag = hun_become_democratic }
+	}
+	picture = GFX_news_event_hungarian_uprising_1956
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.8.a
+		trigger = { tag = HUN }
+	}
+
+	option = {
+		name = cwu.8.b
+		trigger = { NOT = { tag = HUN } }
+	}
+}
+
+# Hungarian Revolution hidden trigger
+country_event = {
+	id = cwu.9
+	title = cwu.9.t
+	desc = cwu.9.d
+
+	trigger = {
+		date > 1956.10.23
+		date < 1956.11.10
+		NOT = { has_global_flag = hungarian_uprising_1956 }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { }
+
+	immediate = {
+		HUN = { country_event = cwu.7 }
+	}
+}
