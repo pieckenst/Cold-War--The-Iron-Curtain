@@ -420,3 +420,102 @@ country_event = {
 		CZE = { country_event = cwu.10 }
 	}
 }
+
+# Polish Protests 1970
+country_event = {
+	id = cwu.13
+	title = cwu.13.t
+	desc = cwu.13.d
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { # Fight them
+		name = cwu.13.a
+		start_civil_war = {
+			ruling_party = communism
+			ideology = democratic
+			size = 0.3
+		}
+		hidden_effect = {
+			set_country_flag = pol_fight_democrats_1970
+			news_event = cwu.14
+		}
+	}
+
+	option = { # Give in to their demands
+		name = cwu.13.b
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
+			last_election = "1968.1.5"
+			parties = {
+				communism = { popularity = 0 }
+				democratic = { popularity = 40 }
+				socialist = { popularity = 23 }
+				conservative = { popularity = 12 }
+				fascism = { popularity = 12 }
+				nationalism = { popularity = 3 }
+				centrist = { popularity = 20 }
+			}
+		}
+		hidden_effect = {
+			set_country_flag = pol_become_democratic_1970
+			news_event = cwu.14
+		}
+	}
+
+	immediate = {
+		set_global_flag = polish_uprising_1970 
+	}
+}
+
+# Polish Protests 1970 News Event
+news_event = {
+	id = cwu.14
+	title = cwu.14.t
+	desc = { 
+		text = cwu.14.d
+		trigger = { has_country_flag = pol_fight_democrats_1970 }
+	}
+	desc = {
+		text = cwu.14.desc
+		trigger = { has_country_flag = pol_become_democratic_1970 }
+	}
+	picture = GFX_news_event_polish_uprising_1970
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.14.a
+		trigger = { tag = POL }
+	}
+
+	option = {
+		name = cwu.14.b
+		trigger = { NOT = { tag = POL } }
+	}
+}
+
+# Polish Protests hidden trigger
+country_event = {
+	id = cwu.15
+	title = cwu.15.t
+	desc = cwu.15.d
+
+	trigger = {
+		date > 1970.12.14
+		date < 1968.12.19
+		NOT = { has_global_flag = polish_uprising_1970 }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { }
+
+	immediate = {
+		POL = { country_event = cwu.13 }
+	}
+}
