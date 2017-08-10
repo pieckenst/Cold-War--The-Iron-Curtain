@@ -3,6 +3,8 @@ path="mod/coldwarironcurtain"
 replace_path="events"
 replace_path="history\\states"
 replace_path="common\\national_focus"
+replace_path="gfx\\loadingscreens"
+
 tags={
 	"Gameplay"
 	"Military"
