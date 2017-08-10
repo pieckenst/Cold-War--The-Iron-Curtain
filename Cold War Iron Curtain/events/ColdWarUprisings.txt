@@ -102,3 +102,102 @@ country_event = {
 		DDR = { country_event = cwu.1 }
 	}
 }
+
+# Poznan June 1959
+country_event = {
+	id = cwu.4
+	title = cwu.4.t
+	desc = cwu.4.d
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { # Fight them
+		name = cwu.4.a
+		start_civil_war = {
+			ruling_party = communism
+			ideology = democratic
+			size = 0.1
+		}
+		hidden_effect = {
+			set_country_flag = pol_fight_democrats
+			news_event = cwu.5
+		}
+	}
+
+	option = { # Give in to their demands
+		name = cwu.4.b
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
+			last_election = "1959.6.28"
+			parties = {
+				communism = { popularity = 0 }
+				democratic = { popularity = 40 }
+				socialist = { popularity = 23 }
+				conservative = { popularity = 12 }
+				fascism = { popularity = 12 }
+				nationalism = { popularity = 3 }
+				centrist = { popularity = 20 }
+			}
+		}
+		hidden_effect = {
+			set_country_flag = pol_become_democratic
+			news_event = cwu.5
+		}
+	}
+
+	immediate = {
+		set_global_flag = poznan_uprising_1959 
+	}
+}
+
+# Pozan June 1959 News Event
+news_event = {
+	id = cwu.2
+	title = cwu.2.t
+	desc = { 
+		text = cwu.2.d
+		trigger = { has_country_flag = pol_fight_democrats }
+	}
+	desc = {
+		text = cwu.2.desc
+		trigger = { has_country_flag = pol_become_democratic }
+	}
+	picture = GFX_news_event_poznan_uprising_1959
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.2.a
+		trigger = { tag = POL }
+	}
+
+	option = {
+		name = cwu.2.b
+		trigger = { NOT = { tag = POL } }
+	}
+}
+
+# Pozan June hidden trigger
+country_event = {
+	id = cwu.6
+	title = cwu.6.t
+	desc = cwu.6.d
+
+	trigger = {
+		date > 1959.6.28
+		date < 1959.7.5
+		NOT = { has_global_flag = poznan_uprising_1959 }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { }
+
+	immediate = {
+		POL = { country_event = cwu.4 }
+	}
+}
