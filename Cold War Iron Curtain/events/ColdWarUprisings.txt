@@ -619,23 +619,23 @@ country_event = {
 
 # Uprising in Kosovo 1981
 country_event = {
-	id = cwu.19
-	title = cwu.19.t
-	desc = cwu.19.d
+	id = cwu.22
+	title = cwu.22.t
+	desc = cwu.22.d
 
 	is_triggered_only = yes
 
 	mean_time_to_happen = { days = 7 }
 
 	option = { # Fight them
-		name = cwu.19.a
+		name = cwu.22.a
 		YUG = { 
 			release = KOS
 			declare_war_on = { target = KOS type = civil_war }
 		}
 		hidden_effect = {
 			set_country_flag = kos_fight_democrats_81
-			news_event = cwu.20
+			news_event = cwu.23
 			KOS = { 
 				load_oob = "KOS_81" 
 				create_country_leader = {
@@ -648,7 +648,7 @@ country_event = {
 	}
 
 	option = { # Give in to their demands
-		name = cwu.19.b
+		name = cwu.22.b
 		YUG = { 
 			release = KOS
 			puppet = KOS
@@ -657,12 +657,12 @@ country_event = {
 			set_politics = {
 				ruling_party = communism
 				elections_allowed = no
-				last_election = "81.3.11"
+				last_election = "1981.3.11"
 			}
 		}
 		hidden_effect = {
 			set_country_flag = kos_become_free_81
-			news_event = cwu.20
+			news_event = cwu.23
 			KOS = { 
 				create_country_leader = {
 					name = "Ilaz Kurteshi"
@@ -680,14 +680,14 @@ country_event = {
 
 # Uprising in Kosovo 1981 News Event
 news_event = {
-	id = cwu.20
-	title = cwu.20.t
+	id = cwu.23
+	title = cwu.23.t
 	desc = { 
-		text = cwu.20.d
+		text = cwu.23.d
 		trigger = { has_country_flag = kos_fight_democrats_81 }
 	}
 	desc = {
-		text = cwu.20.desc
+		text = cwu.23.desc
 		trigger = { has_country_flag = kos_become_free_81 }
 	}
 	picture = GFX_news_event_kosovan_uprising_81
@@ -696,21 +696,21 @@ news_event = {
 	major = yes
 
 	option = {
-		name = cwu.20.a
+		name = cwu.23.a
 		trigger = { tag = KOS }
 	}
 
 	option = {
-		name = cwu.20.b
+		name = cwu.23.b
 		trigger = { NOT = { tag = KOS } }
 	}
 }
 
 # Uprising in Kosovo hidden trigger
 country_event = {
-	id = cwu.21
-	title = cwu.21.t
-	desc = cwu.21.d
+	id = cwu.24
+	title = cwu.24.t
+	desc = cwu.24.d
 
 	trigger = {
 		date > 1981.3.11
@@ -723,6 +723,116 @@ country_event = {
 	option = { }
 
 	immediate = {
-		YUG = { country_event = cwu.19 }
+		YUG = { country_event = cwu.22 }
+	}
+}
+
+# Slovene Spring 1987
+country_event = {
+	id = cwu.22
+	title = cwu.22.t
+	desc = cwu.22.d
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { # Fight them
+		name = cwu.22.a
+		YUG = { 
+			release = SLV
+			declare_war_on = { target = SLV type = civil_war }
+		}
+		hidden_effect = {
+			set_country_flag = slv_fight_democrats_87
+			news_event = cwu.23
+			KOS = { 
+				load_oob = "SLV_87" 
+				create_country_leader = {
+					name = "France Popit"
+					picture = "Portrait_Slovenia_France_Popit.dds"
+					ideology = stalinism
+				}				
+			}
+		}
+	}
+
+	option = { # Give in to their demands
+		name = cwu.22.b
+		YUG = { 
+			release = SLV
+			puppet = SLV
+		}
+		KOS = { 
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+				last_election = "1987.12.6"
+			}
+		}
+		hidden_effect = {
+			set_country_flag = slv_become_free_87
+			news_event = cwu.23
+			KOS = { 
+				create_country_leader = {
+					name = "France Popit"
+					picture = "Portrait_Slovenia_France_Popit.dds"
+					ideology = stalinism
+				}			
+			}
+		}
+	}
+
+	immediate = {
+		set_global_flag = slovene_uprising_87
+	}
+}
+
+# Slovene Spring 1987 News Event
+news_event = {
+	id = cwu.23
+	title = cwu.23.t
+	desc = { 
+		text = cwu.23.d
+		trigger = { has_country_flag = slv_fight_democrats_87 }
+	}
+	desc = {
+		text = cwu.23.desc
+		trigger = { has_country_flag = slv_become_free_87 }
+	}
+	picture = GFX_news_event_slovene_uprising_87
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.23.a
+		trigger = { tag = SLV }
+	}
+
+	option = {
+		name = cwu.23.b
+		trigger = { NOT = { tag = SLV } }
+	}
+}
+
+# Slovene Spring hidden trigger
+country_event = {
+	id = cwu.24
+	title = cwu.24.t
+	desc = cwu.24.d
+
+	trigger = {
+		date > 1987.12.6
+		date < 1988.5.15
+		NOT = { has_global_flag = slovene_uprising_87 }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { }
+
+	immediate = {
+		YUG = { country_event = cwu.22 }
 	}
 }
