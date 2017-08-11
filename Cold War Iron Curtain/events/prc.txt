@@ -262,3 +262,34 @@ country_event = {
 	option = {}
 
 }
+
+# PRC sends out communist event
+country_event = {
+	id = prc.11
+	title = prc.11.t
+	desc = prc.11.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.11.b
+		ROOT = { add_opinion_modifier = { target = PRC modifier = PRC_communism_for_PRC_opinion } }
+		ROOT = { add_opinion_modifier = { target = SOV modifier = PRC_communism_against_USSR_opinion } }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.1
+				ROOT = { is_in_faction_with = SOV }
+			}
+		}
+	}
+
+	option = {
+		name = prc.11.b
+		ROOT = { add_opinion_modifier = { target = SOV modifier = PRC_communism_for_USSR_opinion } }
+		ROOT = { add_opinion_modifier = { target = PRC modifier = PRC_communism_against_PRC_opinion } }
+		ai_chance = {
+			factor = 50
+		}
+	}
+}
