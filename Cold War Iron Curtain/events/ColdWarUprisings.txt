@@ -616,3 +616,113 @@ country_event = {
 		YUG = { country_event = cwu.16 }
 	}
 }
+
+# Uprising in Kosovo 1981
+country_event = {
+	id = cwu.19
+	title = cwu.19.t
+	desc = cwu.19.d
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { # Fight them
+		name = cwu.19.a
+		YUG = { 
+			release = KOS
+			declare_war_on = { target = KOS type = civil_war }
+		}
+		hidden_effect = {
+			set_country_flag = kos_fight_democrats_81
+			news_event = cwu.20
+			KOS = { 
+				load_oob = "KOS_81" 
+				create_country_leader = {
+					name = "Ilaz Kurteshi"
+					picture = "Portrait_Kosovo_Ilaz_Kurteshi.dds"
+					ideology = stalinism
+				}				
+			}
+		}
+	}
+
+	option = { # Give in to their demands
+		name = cwu.19.b
+		YUG = { 
+			release = KOS
+			puppet = KOS
+		}
+		KOS = { 
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+				last_election = "81.3.11"
+			}
+		}
+		hidden_effect = {
+			set_country_flag = kos_become_free_81
+			news_event = cwu.20
+			KOS = { 
+				create_country_leader = {
+					name = "Ilaz Kurteshi"
+					picture = "Portrait_Kosovo_Ilaz_Kurteshi.dds"
+					ideology = stalinism
+				}				
+			}
+		}
+	}
+
+	immediate = {
+		set_global_flag = kosovan_uprising_81
+	}
+}
+
+# Uprising in Kosovo 1981 News Event
+news_event = {
+	id = cwu.20
+	title = cwu.20.t
+	desc = { 
+		text = cwu.20.d
+		trigger = { has_country_flag = kos_fight_democrats_81 }
+	}
+	desc = {
+		text = cwu.20.desc
+		trigger = { has_country_flag = kos_become_free_81 }
+	}
+	picture = GFX_news_event_kosovan_uprising_81
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.20.a
+		trigger = { tag = KOS }
+	}
+
+	option = {
+		name = cwu.20.b
+		trigger = { NOT = { tag = KOS } }
+	}
+}
+
+# Uprising in Kosovo hidden trigger
+country_event = {
+	id = cwu.21
+	title = cwu.21.t
+	desc = cwu.21.d
+
+	trigger = {
+		date > 1981.3.11
+		date < 1981.4.20
+		NOT = { has_global_flag = kosovan_uprising_81 }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { }
+
+	immediate = {
+		YUG = { country_event = cwu.19 }
+	}
+}
