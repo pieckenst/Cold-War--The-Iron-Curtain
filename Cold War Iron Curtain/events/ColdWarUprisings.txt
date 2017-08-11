@@ -228,6 +228,7 @@ country_event = {
 	option = { # Give in to their demands + civil war
 		name = cwu.7.b
 		set_politics = {
+			ruling_party = democratic
 			last_election = "1956.10.23"
 			elections_allowed = yes
 			parties = {
@@ -507,7 +508,7 @@ country_event = {
 
 	trigger = {
 		date > 1970.12.14
-		date < 1968.12.19
+		date < 1970.12.19
 		NOT = { has_global_flag = polish_uprising_1970 }
 	}
 
@@ -517,5 +518,101 @@ country_event = {
 
 	immediate = {
 		POL = { country_event = cwu.13 }
+	}
+}
+
+# Coration Spring 1971
+country_event = {
+	id = cwu.16
+	title = cwu.16.t
+	desc = cwu.16.d
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { # Fight them
+		name = cwu.16.a
+		YUG = { 
+			release = CRO 
+			declare_war_on = { target = CRO type = civil_war }
+		}
+		hidden_effect = {
+			set_country_flag = cro_fight_democrats_1971
+			news_event = cwu.17
+			CRO = { load_oob = "CRO_1971" }
+		}
+	}
+
+	option = { # Give in to their demands
+		name = cwu.16.b
+		YUG = { 
+			release = CRO
+			puppet = CRO
+		}
+		CRO = { 
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+				last_election = "1971.9.3"
+			}
+		}
+		hidden_effect = {
+			set_country_flag = cro_become_free_1971
+			news_event = cwu.17
+		}
+	}
+
+	immediate = {
+		set_global_flag = croatian_uprising_1971
+	}
+}
+
+# Coration Spring 1971 News Event
+news_event = {
+	id = cwu.17
+	title = cwu.17.t
+	desc = { 
+		text = cwu.17.d
+		trigger = { has_country_flag = cro_fight_democrats_1971 }
+	}
+	desc = {
+		text = cwu.17.desc
+		trigger = { has_country_flag = cro_become_free_1971 }
+	}
+	picture = GFX_news_event_croatian_uprising_1971
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.17.a
+		trigger = { tag = CRO }
+	}
+
+	option = {
+		name = cwu.17.b
+		trigger = { NOT = { tag = CRO } }
+	}
+}
+
+# Coration Spring hidden trigger
+country_event = {
+	id = cwu.18
+	title = cwu.18.t
+	desc = cwu.18.d
+
+	trigger = {
+		date > 1971.9.3
+		date < 1972.1.7
+		NOT = { has_global_flag = croatian_uprising_1971 }
+	}
+
+	mean_time_to_happen = { days = 30 }
+
+	option = { }
+
+	immediate = {
+		YUG = { country_event = cwu.16 }
 	}
 }
