@@ -25,6 +25,9 @@ country_event = {
 			set_country_flag = ddr_fight_democrats
 			news_event = cwu.2
 		}
+		ai_chance = {
+			factor = 80
+		}
 	}
 
 	option = { # Give in to their demands
@@ -46,6 +49,9 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = ddr_become_democratic
 			news_event = cwu.2
+		}
+		ai_chance = {
+			factor = 20
 		}
 	}
 
@@ -729,23 +735,23 @@ country_event = {
 
 # Slovene Spring 1987
 country_event = {
-	id = cwu.22
-	title = cwu.22.t
-	desc = cwu.22.d
+	id = cwu.25
+	title = cwu.25.t
+	desc = cwu.25.d
 
 	is_triggered_only = yes
 
 	mean_time_to_happen = { days = 7 }
 
 	option = { # Fight them
-		name = cwu.22.a
+		name = cwu.25.a
 		YUG = { 
 			release = SLV
 			declare_war_on = { target = SLV type = civil_war }
 		}
 		hidden_effect = {
 			set_country_flag = slv_fight_democrats_87
-			news_event = cwu.23
+			news_event = cwu.26
 			KOS = { 
 				load_oob = "SLV_1987" 
 				create_country_leader = {
@@ -758,7 +764,7 @@ country_event = {
 	}
 
 	option = { # Give in to their demands
-		name = cwu.22.b
+		name = cwu.25.b
 		YUG = { 
 			release = SLV
 			puppet = SLV
@@ -772,7 +778,7 @@ country_event = {
 		}
 		hidden_effect = {
 			set_country_flag = slv_become_free_87
-			news_event = cwu.23
+			news_event = cwu.26
 			KOS = { 
 				create_country_leader = {
 					name = "France Popit"
@@ -790,14 +796,14 @@ country_event = {
 
 # Slovene Spring 1987 News Event
 news_event = {
-	id = cwu.23
-	title = cwu.23.t
+	id = cwu.26
+	title = cwu.26.t
 	desc = { 
-		text = cwu.23.d
+		text = cwu.26.d
 		trigger = { has_country_flag = slv_fight_democrats_87 }
 	}
 	desc = {
-		text = cwu.23.desc
+		text = cwu.26.desc
 		trigger = { has_country_flag = slv_become_free_87 }
 	}
 	picture = GFX_news_event_slovene_uprising_87
@@ -806,21 +812,21 @@ news_event = {
 	major = yes
 
 	option = {
-		name = cwu.23.a
+		name = cwu.26.a
 		trigger = { tag = SLV }
 	}
 
 	option = {
-		name = cwu.23.b
+		name = cwu.26.b
 		trigger = { NOT = { tag = SLV } }
 	}
 }
 
 # Slovene Spring hidden trigger
 country_event = {
-	id = cwu.24
-	title = cwu.24.t
-	desc = cwu.24.d
+	id = cwu.27
+	title = cwu.27.t
+	desc = cwu.27.d
 
 	trigger = {
 		date > 1987.12.6
@@ -833,6 +839,6 @@ country_event = {
 	option = { }
 
 	immediate = {
-		YUG = { country_event = cwu.22 }
+		YUG = { country_event = cwu.25 }
 	}
 }
