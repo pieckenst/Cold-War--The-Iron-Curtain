@@ -826,3 +826,80 @@ country_event = {
 		YUG = { country_event = cwu.25 }
 	}
 }
+# Second Malayan Emergency 1967
+country_event = {
+	id = cwu.28
+	title = cwu.28.t
+	desc = cwu.28.d
+
+	is_triggered_only = yes
+
+	option = { # Fight them
+		name = cwu.28.a
+		MLA = { 
+			release = MAL
+			declare_war_on = { target = MAL type = civil_war }
+		}
+		hidden_effect = {
+			set_country_flag = mal_fight_commies_67
+			news_event = cwu.29
+			MAL = { 
+				load_oob = "MAL_1967" 				
+			}
+		}
+	}
+
+	
+	immediate = {
+		set_global_flag = malayan_uprising_67
+	}
+}
+
+# Second Malayan Emergency 1967 News Event
+news_event = {
+	id = cwu.29
+	title = cwu.29.t
+	desc = { 
+		text = cwu.29.d
+		trigger = { has_country_flag = mal_fight_democrats_87 } # If the country choses to fight the commies
+	}
+	desc = {
+		text = cwu.29.desc
+		trigger = { MLA = { controls_state = 786 } } # When the commies control the state
+	}
+	picture = GFX_news_event_malayan_uprising_67
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.29.a
+		trigger = { tag = MAL tag = MLA } # What the two countries say to the news event
+	}
+
+	option = {
+		name = cwu.29.b
+		trigger = { NOT = { tag = MLA tag = MAL } } #What the others say to it 
+	}
+}
+
+# Second Malayan Emergency hidden trigger
+country_event = {
+	id = cwu.30
+	title = cwu.30.t
+	desc = cwu.30.d
+
+	trigger = {
+		date > 1967.6.17 # Its year.month.day 'from the biggest to the smallest
+		date < 1967.6.24 # 7 days is fine
+		NOT = { has_global_flag = malayan_uprising_67 } # So the event doesn't trigger 7 times in a row
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { }
+
+	immediate = {
+		MAL = { country_event = cwu.28 } #Malaysia gets the event of communist uprisings
+	}
+}
