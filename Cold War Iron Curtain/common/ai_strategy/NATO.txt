@@ -1,0 +1,44 @@
+seek_NATO_alliance = {
+	
+	enable = {		
+		OR = {
+			tag = BEL
+			tag = FRA
+			tag = ENG
+			tag = CAN
+			tag = WGR
+			tag = ITA
+			tag = POR
+			tag = NET
+			tag = NOR
+			tag = DEN
+			tag = ICE
+			tag = LUX
+			tag = SAF
+			tag = AUS
+			tag = SPA
+			tag = IRE
+		}
+		
+		NOT = { has_country_flag = left_NATO }
+		
+	}
+	
+	abort = {
+		OR = {
+			has_war_with = USA
+			USA = { exists = no }
+		}
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "USA"			
+		value = 200
+	}
+	ai_strategy = {
+		type = alliance
+		id = "USA"			
+		value = 200
+	}
+}
