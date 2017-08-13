@@ -12,8 +12,6 @@ country_event = {
 
 	is_triggered_only = yes
 
-	mean_time_to_happen = { days = 7 }
-
 	option = { # Fight them
 		name = cwu.1.a
 		start_civil_war = {
@@ -24,6 +22,9 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = ddr_fight_democrats
 			news_event = cwu.2
+		}
+		ai_chance = {
+			factor = 80
 		}
 	}
 
@@ -46,6 +47,9 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = ddr_become_democratic
 			news_event = cwu.2
+		}
+		ai_chance = {
+			factor = 20
 		}
 	}
 
@@ -103,15 +107,13 @@ country_event = {
 	}
 }
 
-# Poznan June 1959
+# Poznan June 1956
 country_event = {
 	id = cwu.4
 	title = cwu.4.t
 	desc = cwu.4.d
 
 	is_triggered_only = yes
-
-	mean_time_to_happen = { days = 7 }
 
 	option = { # Fight them
 		name = cwu.4.a
@@ -131,7 +133,7 @@ country_event = {
 		set_politics = {
 			ruling_party = democratic
 			elections_allowed = yes
-			last_election = "1959.6.28"
+			last_election = "1956.6.28"
 			parties = {
 				communism = { popularity = 0 }
 				democratic = { popularity = 40 }
@@ -149,34 +151,34 @@ country_event = {
 	}
 
 	immediate = {
-		set_global_flag = poznan_uprising_1959 
+		set_global_flag = poznan_uprising_1956 
 	}
 }
 
-# Pozan June 1959 News Event
+# Pozan June 1956 News Event
 news_event = {
-	id = cwu.2
-	title = cwu.2.t
+	id = cwu.5
+	title = cwu.5.t
 	desc = { 
-		text = cwu.2.d
+		text = cwu.5.d
 		trigger = { has_country_flag = pol_fight_democrats }
 	}
 	desc = {
-		text = cwu.2.desc
+		text = cwu.5.desc
 		trigger = { has_country_flag = pol_become_democratic }
 	}
-	picture = GFX_news_event_poznan_uprising_1959
+	picture = GFX_news_event_poznan_uprising_1956
 
 	is_triggered_only = yes
 	major = yes
 
 	option = {
-		name = cwu.2.a
+		name = cwu.5.a
 		trigger = { tag = POL }
 	}
 
 	option = {
-		name = cwu.2.b
+		name = cwu.5.b
 		trigger = { NOT = { tag = POL } }
 	}
 }
@@ -188,9 +190,9 @@ country_event = {
 	desc = cwu.6.d
 
 	trigger = {
-		date > 1959.6.28
-		date < 1959.7.5
-		NOT = { has_global_flag = poznan_uprising_1959 }
+		date > 1956.6.28
+		date < 1956.7.5
+		NOT = { has_global_flag = poznan_uprising_1956 }
 	}
 
 	mean_time_to_happen = { days = 7 }
@@ -199,5 +201,628 @@ country_event = {
 
 	immediate = {
 		POL = { country_event = cwu.4 }
+	}
+}
+
+# Hungarian Revolution 1956
+country_event = {
+	id = cwu.7
+	title = cwu.7.t
+	desc = cwu.7.d
+
+	is_triggered_only = yes
+
+	option = { # Fight them
+		name = cwu.7.a
+		start_civil_war = {
+			ruling_party = communism
+			ideology = democratic
+			size = 0.2
+		}
+		hidden_effect = {
+			set_country_flag = hun_fight_democrats
+			news_event = cwu.8
+		}
+	}
+
+	option = { # Give in to their demands + civil war
+		name = cwu.7.b
+		set_politics = {
+			ruling_party = democratic
+			last_election = "1956.10.23"
+			elections_allowed = yes
+			parties = {
+				communism = { popularity = 0 }
+				democratic = { popularity = 40 }
+				socialist = { popularity = 23 }
+				conservative = { popularity = 12 }
+				fascism = { popularity = 12 }
+				nationalism = { popularity = 3 }
+				centrist = { popularity = 20 }
+			}
+		}
+		start_civil_war = {
+			ruling_party = democratic
+			ideology = communism
+			size = 0.8
+		}
+		hidden_effect = {
+			set_country_flag = hun_become_democratic
+			news_event = cwu.8
+		}
+	}
+
+	immediate = {
+		set_global_flag = hungarian_uprising_1956 
+	}
+}
+
+# Hungarian Revolution 1956 News Event
+news_event = {
+	id = cwu.8
+	title = cwu.8.t
+	desc = { 
+		text = cwu.8.d
+		trigger = { has_country_flag = hun_fight_democrats }
+	}
+	desc = {
+		text = cwu.8.desc
+		trigger = { has_country_flag = hun_become_democratic }
+	}
+	picture = GFX_news_event_hungarian_uprising_1956
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.8.a
+		trigger = { tag = HUN }
+	}
+
+	option = {
+		name = cwu.8.b
+		trigger = { NOT = { tag = HUN } }
+	}
+}
+
+# Hungarian Revolution hidden trigger
+country_event = {
+	id = cwu.9
+	title = cwu.9.t
+	desc = cwu.9.d
+
+	trigger = {
+		date > 1956.10.23
+		date < 1956.11.10
+		NOT = { has_global_flag = hungarian_uprising_1956 }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { }
+
+	immediate = {
+		HUN = { country_event = cwu.7 }
+	}
+}
+
+# Prague Spring 1968
+country_event = {
+	id = cwu.10
+	title = cwu.10.t
+	desc = cwu.10.d
+
+	is_triggered_only = yes
+
+	option = { # Fight them
+		name = cwu.10.a
+		start_civil_war = {
+			ruling_party = communism
+			ideology = democratic
+			size = 0.2
+		}
+		random_other_country = {
+			limit = {
+				original_tag = CZE
+				NOT = { tag = CZE }
+			}
+			SOV = { declare_war_on = { target = PREV type = puppet_wargoal } }
+		}
+		create_country_leader = {
+			name = "Gustáv Husák"
+			picture = "Portrait_Czech_Gustav_Husak.dds"
+			ideology = stalinism
+		}
+		hidden_effect = {
+			set_country_flag = cze_fight_democrats
+			news_event = cwu.11
+		}
+	}
+
+	option = { # Give in to their demands + Soviet Invasion
+		name = cwu.10.b
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
+			last_election = "1968.1.5"
+			parties = {
+				communism = { popularity = 0 }
+				democratic = { popularity = 40 }
+				socialist = { popularity = 23 }
+				conservative = { popularity = 12 }
+				fascism = { popularity = 12 }
+				nationalism = { popularity = 3 }
+				centrist = { popularity = 20 }
+			}
+		}
+		SOV = { 
+			end_puppet = CZE
+			remove_from_faction = CZE
+			declare_war_on = { target = CZE type = puppet_wargoal }
+		}
+		hidden_effect = {
+			set_country_flag = cze_become_democratic
+			news_event = cwu.11
+		}
+	}
+
+	immediate = {
+		set_global_flag = czech_uprising_1968 
+	}
+}
+
+# Prague Spring 1968 News Event
+news_event = {
+	id = cwu.11
+	title = cwu.11.t
+	desc = { 
+		text = cwu.11.d
+		trigger = { has_country_flag = cze_fight_democrats }
+	}
+	desc = {
+		text = cwu.11.desc
+		trigger = { has_country_flag = cze_become_democratic }
+	}
+	picture = GFX_news_event_czech_uprising_1968
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.11.a
+		trigger = { tag = CZE }
+	}
+
+	option = {
+		name = cwu.11.b
+		trigger = { NOT = { tag = CZE } }
+	}
+}
+
+# Prague Spring hidden trigger
+country_event = {
+	id = cwu.12
+	title = cwu.12.t
+	desc = cwu.12.d
+
+	trigger = {
+		date > 1968.1.5
+		date < 1968.5.21
+		NOT = { has_global_flag = czech_uprising_1968 }
+	}
+
+	mean_time_to_happen = { days = 90 }
+
+	option = { }
+
+	immediate = {
+		CZE = { country_event = cwu.10 }
+	}
+}
+
+# Polish Protests 1970
+country_event = {
+	id = cwu.13
+	title = cwu.13.t
+	desc = cwu.13.d
+
+	is_triggered_only = yes
+
+	option = { # Fight them
+		name = cwu.13.a
+		start_civil_war = {
+			ruling_party = communism
+			ideology = democratic
+			size = 0.3
+		}
+		hidden_effect = {
+			set_country_flag = pol_fight_democrats_1970
+			news_event = cwu.14
+		}
+	}
+
+	option = { # Give in to their demands
+		name = cwu.13.b
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
+			last_election = "1968.1.5"
+			parties = {
+				communism = { popularity = 0 }
+				democratic = { popularity = 40 }
+				socialist = { popularity = 23 }
+				conservative = { popularity = 12 }
+				fascism = { popularity = 12 }
+				nationalism = { popularity = 3 }
+				centrist = { popularity = 20 }
+			}
+		}
+		hidden_effect = {
+			set_country_flag = pol_become_democratic_1970
+			news_event = cwu.14
+		}
+	}
+
+	immediate = {
+		set_global_flag = polish_uprising_1970 
+	}
+}
+
+# Polish Protests 1970 News Event
+news_event = {
+	id = cwu.14
+	title = cwu.14.t
+	desc = { 
+		text = cwu.14.d
+		trigger = { has_country_flag = pol_fight_democrats_1970 }
+	}
+	desc = {
+		text = cwu.14.desc
+		trigger = { has_country_flag = pol_become_democratic_1970 }
+	}
+	picture = GFX_news_event_polish_uprising_1970
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.14.a
+		trigger = { tag = POL }
+	}
+
+	option = {
+		name = cwu.14.b
+		trigger = { NOT = { tag = POL } }
+	}
+}
+
+# Polish Protests hidden trigger
+country_event = {
+	id = cwu.15
+	title = cwu.15.t
+	desc = cwu.15.d
+
+	trigger = {
+		date > 1970.12.14
+		date < 1970.12.19
+		NOT = { has_global_flag = polish_uprising_1970 }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { }
+
+	immediate = {
+		POL = { country_event = cwu.13 }
+	}
+}
+
+# Coration Spring 1971
+country_event = {
+	id = cwu.16
+	title = cwu.16.t
+	desc = cwu.16.d
+
+	is_triggered_only = yes
+
+	option = { # Fight them
+		name = cwu.16.a
+		YUG = { 
+			release = CRO 
+			declare_war_on = { target = CRO type = civil_war }
+		}
+		hidden_effect = {
+			set_country_flag = cro_fight_democrats_1971
+			news_event = cwu.17
+			CRO = { load_oob = "CRO_1971" }
+		}
+	}
+
+	option = { # Give in to their demands
+		name = cwu.16.b
+		YUG = { 
+			release = CRO
+			puppet = CRO
+		}
+		CRO = { 
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+				last_election = "1971.9.3"
+			}
+		}
+		hidden_effect = {
+			set_country_flag = cro_become_free_1971
+			news_event = cwu.17
+		}
+	}
+
+	immediate = {
+		set_global_flag = croatian_uprising_1971
+	}
+}
+
+# Coration Spring 1971 News Event
+news_event = {
+	id = cwu.17
+	title = cwu.17.t
+	desc = { 
+		text = cwu.17.d
+		trigger = { has_country_flag = cro_fight_democrats_1971 }
+	}
+	desc = {
+		text = cwu.17.desc
+		trigger = { has_country_flag = cro_become_free_1971 }
+	}
+	picture = GFX_news_event_croatian_uprising_1971
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.17.a
+		trigger = { tag = CRO }
+	}
+
+	option = {
+		name = cwu.17.b
+		trigger = { NOT = { tag = CRO } }
+	}
+}
+
+# Coration Spring hidden trigger
+country_event = {
+	id = cwu.18
+	title = cwu.18.t
+	desc = cwu.18.d
+
+	trigger = {
+		date > 1971.9.3
+		date < 1972.1.7
+		NOT = { has_global_flag = croatian_uprising_1971 }
+	}
+
+	mean_time_to_happen = { days = 30 }
+
+	option = { }
+
+	immediate = {
+		YUG = { country_event = cwu.16 }
+	}
+}
+
+# Uprising in Kosovo 1981
+country_event = {
+	id = cwu.22
+	title = cwu.22.t
+	desc = cwu.22.d
+
+	is_triggered_only = yes
+
+	option = { # Fight them
+		name = cwu.22.a
+		YUG = { 
+			release = KOS
+			declare_war_on = { target = KOS type = civil_war }
+		}
+		hidden_effect = {
+			set_country_flag = kos_fight_democrats_81
+			news_event = cwu.23
+			KOS = { 
+				load_oob = "KOS_1981" 
+				create_country_leader = {
+					name = "Ilaz Kurteshi"
+					picture = "Portrait_Kosovo_Ilaz_Kurteshi.dds"
+					ideology = stalinism
+				}				
+			}
+		}
+	}
+
+	option = { # Give in to their demands
+		name = cwu.22.b
+		YUG = { 
+			release = KOS
+			puppet = KOS
+		}
+		KOS = { 
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+				last_election = "1981.3.11"
+			}
+		}
+		hidden_effect = {
+			set_country_flag = kos_become_free_81
+			news_event = cwu.23
+			KOS = { 
+				create_country_leader = {
+					name = "Ilaz Kurteshi"
+					picture = "Portrait_Kosovo_Ilaz_Kurteshi.dds"
+					ideology = stalinism
+				}				
+			}
+		}
+	}
+
+	immediate = {
+		set_global_flag = kosovan_uprising_81
+	}
+}
+
+# Uprising in Kosovo 1981 News Event
+news_event = {
+	id = cwu.23
+	title = cwu.23.t
+	desc = { 
+		text = cwu.23.d
+		trigger = { has_country_flag = kos_fight_democrats_81 }
+	}
+	desc = {
+		text = cwu.23.desc
+		trigger = { has_country_flag = kos_become_free_81 }
+	}
+	picture = GFX_news_event_kosovan_uprising_81
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.23.a
+		trigger = { tag = KOS }
+	}
+
+	option = {
+		name = cwu.23.b
+		trigger = { NOT = { tag = KOS } }
+	}
+}
+
+# Uprising in Kosovo hidden trigger
+country_event = {
+	id = cwu.24
+	title = cwu.24.t
+	desc = cwu.24.d
+
+	trigger = {
+		date > 1981.3.11
+		date < 1981.4.20
+		NOT = { has_global_flag = kosovan_uprising_81 }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { }
+
+	immediate = {
+		YUG = { country_event = cwu.22 }
+	}
+}
+
+# Slovene Spring 1987
+country_event = {
+	id = cwu.25
+	title = cwu.25.t
+	desc = cwu.25.d
+
+	is_triggered_only = yes
+
+	option = { # Fight them
+		name = cwu.25.a
+		YUG = { 
+			release = SLV
+			declare_war_on = { target = SLV type = civil_war }
+		}
+		hidden_effect = {
+			set_country_flag = slv_fight_democrats_87
+			news_event = cwu.26
+			KOS = { 
+				load_oob = "SLV_1987" 
+				create_country_leader = {
+					name = "France Popit"
+					picture = "Portrait_Slovenia_France_Popit.dds"
+					ideology = stalinism
+				}				
+			}
+		}
+	}
+
+	option = { # Give in to their demands
+		name = cwu.25.b
+		YUG = { 
+			release = SLV
+			puppet = SLV
+		}
+		KOS = { 
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+				last_election = "1987.12.6"
+			}
+		}
+		hidden_effect = {
+			set_country_flag = slv_become_free_87
+			news_event = cwu.26
+			KOS = { 
+				create_country_leader = {
+					name = "France Popit"
+					picture = "Portrait_Slovenia_France_Popit.dds"
+					ideology = stalinism
+				}			
+			}
+		}
+	}
+
+	immediate = {
+		set_global_flag = slovene_uprising_87
+	}
+}
+
+# Slovene Spring 1987 News Event
+news_event = {
+	id = cwu.26
+	title = cwu.26.t
+	desc = { 
+		text = cwu.26.d
+		trigger = { has_country_flag = slv_fight_democrats_87 }
+	}
+	desc = {
+		text = cwu.26.desc
+		trigger = { has_country_flag = slv_become_free_87 }
+	}
+	picture = GFX_news_event_slovene_uprising_87
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.26.a
+		trigger = { tag = SLV }
+	}
+
+	option = {
+		name = cwu.26.b
+		trigger = { NOT = { tag = SLV } }
+	}
+}
+
+# Slovene Spring hidden trigger
+country_event = {
+	id = cwu.27
+	title = cwu.27.t
+	desc = cwu.27.d
+
+	trigger = {
+		date > 1987.12.6
+		date < 1988.5.15
+		NOT = { has_global_flag = slovene_uprising_87 }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { }
+
+	immediate = {
+		YUG = { country_event = cwu.25 }
 	}
 }
