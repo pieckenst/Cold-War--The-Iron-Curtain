@@ -689,3 +689,29 @@ news_event = {
 		trigger = { NOT = { tag = GRE } }
 	}
 }
+
+# End of the Malayan Emergency
+news_event = {
+	id = news.1026
+	title = news.1026.t
+	desc = news.1026.d
+	picture = GFX_news_event_malayan_emergency
+
+	trigger = { # So, when the civil war end, this event will fire
+		MLA = NOT = { { has_war_with = MAL } }
+	}
+	
+	major = yes #Major, so ervy country in the world can see it
+
+	option = {
+		name = news.1025.a
+		trigger = { tag = MAL } #Option for Malaysia
+	}
+
+	option = {
+		name = news.1025.b
+		trigger = { NOT = { tag = MAL } } #Option for everybody else
+	}
+}
+
+# Good, let's move on
