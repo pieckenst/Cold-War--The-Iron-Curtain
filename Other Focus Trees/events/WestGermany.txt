@@ -1,0 +1,54 @@
+﻿#####################
+# West Germany Events
+#####################
+
+add_namespace = wgr
+
+# WGR in NATO
+country_event = {
+	id = wgr.1
+	title = wgr.1.t
+	desc = wgr.1.d
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = wgr.1.a
+		add_to_faction = WGR
+		ai_chance = { factor = 85 }
+	}
+
+	option = {
+		name = wgr.1.b
+		add_opinion_modifier = { target = WGR modifier = WGR_Not_NATO_Opinion }
+		ai_chance = { factor = 15 }
+	}
+}
+
+# Invite Saarland
+country_event = {
+	id = wgr.2
+	title = wgr.2.t
+	desc = wgr.2.d
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = wgr.2.a
+		WGR = { annex_country = SAR }
+		ai_chance = { factor = 90 }
+	}
+
+	option = {
+		name = wgr.2.b
+		FRA = { puppet = SAR }
+		add_opinion_modifier = { target = WGR modifier = WGR_No_Saarland_Opinion }
+		ai_chance = { factor = 5 }
+	}
+	option = {
+		name = wgr.2.c
+		add_opinion_modifier = { target = WGR modifier = WGR_No_Saarland_Opinion }
+		add_opinion_modifier = { target = FRA modifier = WGR_No_Saarland_Opinion }
+		ai_chance = { factor = 5 }
+	}
+}

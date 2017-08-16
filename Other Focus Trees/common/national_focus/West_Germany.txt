@@ -31,6 +31,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = WGR_Mordern_Blitzkrieg
 		}
+		completion_reward = {
+			army_morale_factor = 0.10
+		}
 		x = 23
 		y = 16
 
@@ -130,7 +133,13 @@ focus_tree = {
 		icon = GFX_goal_generic_forceful_treaty
 		cost = 10.00
 		prerequisite = {
-			focus = WGR_Political_Sovereignty
+			focus = WGR_True_Democracy
+		}
+		prerequisite = {
+			focus = WGR_Ridding_the_fascists
+		}
+		prerequisite = {
+			focus = WGR_Ban_the_Communist
 		}
 		x = 8
 		y = 2
@@ -305,6 +314,9 @@ focus_tree = {
 		}
 		x = 8
 		y = 6
+		completion_reward = {
+			army_org_factor = 0.10
+		}
 
 	}
 	focus = {
@@ -455,8 +467,8 @@ focus_tree = {
 		x = 10
 		y = 3
 		completion_reward = {
-				country_event = wgr.1 # Economic_Cooperation
-			}
+			trade_opinion_factor = 0.5
+		}
 
 	}
 	focus = {
@@ -679,6 +691,9 @@ focus_tree = {
 		}
 		x = 16
 		y = 1
+		completion_reward = {
+			USA = { send_equipment = { target = WGR type = light_tanks_1 amount = 350 } }
+		}
 
 	}
 	focus = {
@@ -708,8 +723,9 @@ focus_tree = {
 		x = 16
 		y = 3
 		completion_reward = {
-				country_event = Operation_Xavier.1
-			}
+			
+		}
+		ai_will_do = { factor = 0 }
 
 	}
 	focus = {
@@ -861,7 +877,7 @@ focus_tree = {
 			focus = WGR_Bonn_Paris_Convetions
 		}
 		completion_reward = {
-			USA = { country_event = west_germany.10}
+			USA = { country_event = west_germany.1}
 		}
 		x = 12
 		y = 5
@@ -877,11 +893,8 @@ focus_tree = {
 		x = 10
 		y = 6
 		completion_reward = {
-				SAR = {
-					country_event = wgr.2
-				}
-			}
-
+			SAR = { country_event = wgr.2 }
+		}
 	}
 	focus = {
 		id = WGR_Call_for_Great_Britain_to_Join
@@ -892,6 +905,9 @@ focus_tree = {
 		}
 		prerequisite = {
 		focus = WGR_Saarland_Invitation
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = ENG modifier = WGR_Britain_Join_opinion}
 		}
 		x = 8
 		y = 7
@@ -2656,6 +2672,11 @@ focus_tree = {
 		mutually_exclusive = {
 		focus = WGR_Training_of_the_Elites
 		}
+		completion_reward = {
+			research_bonus = {
+				land_doctrine = 0.10
+			}
+		}
 		x = 17
 		y = 16
 
@@ -2668,6 +2689,12 @@ focus_tree = {
 		focus = WGR_Mordern_Blitzkrieg
 		focus = WGR_Training_of_the_Elites
 		}
+		completion_reward = {
+			create_wargoal = {
+				target = DDR
+				type = puppet_wargoal_focus
+			}
+		}
 		x = 19
 		y = 17
 
@@ -2679,6 +2706,12 @@ focus_tree = {
 		prerequisite = {
 		focus = WGR_Mordern_Blitzkrieg
 		focus = WGR_Training_of_the_Elites
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = DDR
+			}	
 		}
 		x = 21
 		y = 17
