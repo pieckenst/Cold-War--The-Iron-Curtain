@@ -692,7 +692,7 @@ focus_tree = {
 		x = 16
 		y = 1
 		completion_reward = {
-			USA = { send_equipment = { target = WGR type = light_tanks_1 amount = 350 } }
+			USA = { send_equipment = { target = WGR type = heavy_tanks_1 amount = 150 } }
 		}
 
 	}
@@ -723,7 +723,10 @@ focus_tree = {
 		x = 16
 		y = 3
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.10
+			}
 		}
 		ai_will_do = { factor = 0 }
 
@@ -738,7 +741,7 @@ focus_tree = {
 		x = 16
 		y = 4
 		completion_reward = {
-				every_other_country = {
+			every_other_country = {
 				limit = {
 					NOT = {
 						has_government = fascism
@@ -748,28 +751,26 @@ focus_tree = {
 					target = WGR
 					modifier = WGR_ODESSA_Opinion
 				}
-				}
-
-				WGR = {
-					add_ideas = ODESSA
-				}
-				BRA = {
-					add_ideas = ODESSA
-				}
-				ARG = {
-					add_ideas = ODESSA
-				}
-				JAP = {
-					add_ideas = ODESSA
-				}
-				SPA = {
-					add_ideas = ODESSA
-				}
-				CPR = {
-					add_ideas = ODESSA
-				}
 			}
-
+			WGR = {
+				add_ideas = ODESSA
+			}
+			BRA = {
+				add_ideas = ODESSA
+			}
+			ARG = {
+				add_ideas = ODESSA
+			}
+			JAP = {
+				add_ideas = ODESSA
+			}
+			SPA = {
+				add_ideas = ODESSA
+			}
+			CPR = {
+				add_ideas = ODESSA
+			}
+		}
 	}
 	focus = {
 		id = WGR_The_Ratlines
@@ -781,26 +782,25 @@ focus_tree = {
 		x = 16
 		y = 5
 		completion_reward = {
-				WGR = {
-					add_ideas = Ratlines
-				}
-				BRA = {
-					add_ideas = Ratlines
-				}
-				ARG = {
-					add_ideas = Ratlines
-				}
-				JAP = {
-					add_ideas = Ratlines
-				}
-				SPA = {
-					add_ideas = Ratlines
-				}
-				PRC = {
-					add_ideas = Ratlines
-				}
+			WGR = {
+				add_ideas = Ratlines
 			}
-
+			BRA = {
+				add_ideas = Ratlines
+			}
+			ARG = {
+				add_ideas = Ratlines
+			}
+			JAP = {
+				add_ideas = Ratlines
+			}
+			SPA = {
+				add_ideas = Ratlines
+			}
+			PRC = {
+				add_ideas = Ratlines
+			}
+		}
 	}
 	focus = {
 		id = WGR_HIAG
@@ -1004,8 +1004,7 @@ focus_tree = {
 		x = 16
 		y = 12
 		completion_reward = {
-
-}
+			FRA = { country_event = wgr.3 }
 
 	}
 	focus = {
@@ -1014,6 +1013,12 @@ focus_tree = {
 		cost = 20.00
 		prerequisite = {
 		focus = WGR_Vote_on_Alsace-Lorraine
+		}
+		completion_reward = {
+			create_wargoal = {
+				target = AUS
+				type = annex_everything
+			}
 		}
 		x = 16
 		y = 13
@@ -1026,6 +1031,22 @@ focus_tree = {
 		prerequisite = {
 		focus = WGR_Demand_on_Austria
 		}
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = CZE
+				generator = { 69 }
+			}
+			create_wargoal = {
+				type = take_state_focus
+				target = POL
+				generator = { 85 63 741 66 67 }
+			}
+			create_wargoal = {
+				type = take_state_focus
+				target = DEN
+				generator = { 776 }
+			}
 		x = 16
 		y = 14
 
@@ -1037,6 +1058,7 @@ focus_tree = {
 		prerequisite = {
 		focus = WGR_Founding_the_Bundeswhr
 		}
+		USA = { send_equipment = { target = WGR type = light_tanks_1 amount = 150 } }
 		x = 18
 		y = 1
 
@@ -1070,9 +1092,13 @@ focus_tree = {
 		x = 18
 		y = 3
 		completion_reward = {
-
-}
-
+			add_tech_bonus = {
+				name = "American-German Tank Cooperation"
+				uses = 1
+				bonus = 0.5
+				category = cat_light_armor
+			}
+		}
 	}
 	focus = {
 		id = WGR_Foreign_Light_Tank_Requests
@@ -1081,6 +1107,7 @@ focus_tree = {
 		prerequisite = {
 		focus = WGR_Founding_the_Bundeswhr
 		}
+		USA = { send_equipment = { target = WGR type = light_tanks_1 amount = 150 } }
 		x = 20
 		y = 1
 
@@ -1101,9 +1128,7 @@ focus_tree = {
 					bonus = 0.5
 					category = cat_light_armor
 				}
-				add_ideas = Agility_over_Protection
 			}
-
 	}
 	focus = {
 		id = WGR_Franco_German_Tank_Cooperation
@@ -1119,13 +1144,26 @@ focus_tree = {
 					add_opinion_modifier = {
 						target = ROOT
 						modifier = WGR_Tank_Cooperation_opinion
-						}
+					}
+					add_tech_bonus = {
+						name = "Franco-German Tank Cooperation"
+						uses = 1
+						bonus = 0.5
+						category = cat_heavy_armor
+					}
 				}
 				ROOT = {
 					add_opinion_modifier = {
 						target = FRA
 						modifier = WGR_Tank_Cooperation_opinion
-						}
+					}
+					add_tech_bonus = {
+						name = "Franco-German Tank Cooperation"
+						uses = 1
+						bonus = 0.5
+						category = cat_heavy_armor
+					}
+				}
 				}
 			}
 
@@ -1333,14 +1371,13 @@ focus_tree = {
 		x = 26
 		y = 1
 		completion_reward = {
-				add_tech_bonus = {
-					name = Heckler_&_Koch
-					uses = 1
-					bonus = 0.5
-					category = infantry_tech
-				}
+			add_tech_bonus = {
+				name = Heckler_&_Koch
+				uses = 1
+				bonus = 0.5
+				category = infantry_tech
 			}
-
+		}
 	}
 	focus = {
 		id = WGR_G3_Rifle
@@ -1351,6 +1388,15 @@ focus_tree = {
 		}
 		x = 26
 		y = 2
+		completion_reward = {
+			add_tech_bonus = {
+				name = "G3 Rifle"
+				uses = 1
+				bonus = 0.5
+				category = infantry_equipment
+			}
+		}
+	}
 
 	}
 	focus = {
@@ -1840,73 +1886,72 @@ focus_tree = {
 		x = 30
 		y = 4
 		completion_reward = {
-				53 = {
-					if = {
-						limit = {
-								is_controlled_by = ROOT
-							}
-						add_extra_state_shared_building_slots = 2
-						add_building_construction = {
-								type = Radar_Station
-								level = 2
-								instant_build = yes
-							}
-						}
-				}
-				54 = {
-					if = {
-						limit = {
-								is_controlled_by = ROOT
-							}
-						add_extra_state_shared_building_slots = 2
-						add_building_construction = {
-								type = Radar_Station
-								level = 2
-								instant_build = yes
-							}
-						}
-				}
-				55 = {
-					if = {
-						limit = {
-								is_controlled_by = ROOT
-							}
-						add_extra_state_shared_building_slots = 2
-						add_building_construction = {
-								type = Radar_Station
-								level = 2
-								instant_build = yes
-							}
-						}
-				}
-				59 = {
-					if = {
-						limit = {
-								is_controlled_by = ROOT
-							}
-						add_extra_state_shared_building_slots = 2
-						add_building_construction = {
-								type = Radar_Station
-								level = 2
-								instant_build = yes
-							}
-						}
-				}
-				58 = {
-					if = {
-						limit = {
-								is_controlled_by = ROOT
-							}
-						add_extra_state_shared_building_slots = 2
-						add_building_construction = {
-								type = Radar_Station
-								level = 2
-								instant_build = yes
-							}
-						}
+			53 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = Radar_Station
+						level = 2
+						instant_build = yes
+					}
 				}
 			}
-
+			54 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = Radar_Station
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			55 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = Radar_Station
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			59 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = Radar_Station
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			58 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = Radar_Station
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
 	}
 	focus = {
 		id = WGR_Mordern_Programming
@@ -2013,9 +2058,75 @@ focus_tree = {
 		prerequisite = {
 		focus = WGR_Formation_of_the_Luftwaffe
 		}
+		completion_reward = {
+			53 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			54 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			55 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			59 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			58 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
 		x = 34
 		y = 1
-
 	}
 	focus = {
 		id = WGR_Refresh_the_Elites
@@ -2486,6 +2597,13 @@ focus_tree = {
 		prerequisite = {
 		focus = WGR_European_Political_Cooperation
 		}
+		completion_reward = {
+			add_polical_power = 150
+			every_other_country = {
+				limit = { is_in_faction_with = WGR }
+				add_opinion_modifier = { target = ROOT modifier = WGR_Common_Foreign_and_Security_Policy_opinion }
+			}
+		}
 		x = 10
 		y = 9
 
@@ -2525,11 +2643,12 @@ focus_tree = {
 				every_other_country = {
 					limit = {
 						has_idea = Member_of_EEC
-						}
+					}
 					add_opinion_modifier = {
 						target = ROOT
 						modifier = WGR_Members_of_EEC_opinion
-						}
+					}
+					add_ideas = { Member_of_EU }
 				}
 			}
 
@@ -2551,14 +2670,13 @@ focus_tree = {
 					add_opinion_modifier = {
 						target = WGR
 						modifier = WGR_Preperation_for_Reunification_opinion
-						}
+					}
 				}
 				add_opinion_modifier = {
 					target = DDR
 					modifier = WGR_Preperation_for_Reunification_opinion
 				}
 			}
-
 	}
 	focus = {
 		id = WGR_Reunification
@@ -2571,7 +2689,7 @@ focus_tree = {
 		y = 12
 		completion_reward = {
 				DDR = {
-					country_event = west_germany.4
+					country_event = wgr.4
 				}
 			}
 
@@ -2582,6 +2700,14 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 		focus = WGR_Reunification
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_in_faction_with = GER } 
+			}
+			army_org_factor = 0.05
+			army_morale_factor = 0.05
+			army_org = 10.00
 		}
 		x = 10
 		y = 13
@@ -2601,11 +2727,11 @@ focus_tree = {
 				every_other_country = {
 					limit = {
 						has_idea = Member_of_EU
-						}
+					}
 					add_opinion_modifier = {
 						target = WGR
 						modifier = WGR_Members_of_EU_opinion
-						}
+					}
 				}
 			}
 
@@ -2616,6 +2742,21 @@ focus_tree = {
 		cost = 20.00
 		prerequisite = {
 		focus = WGR_Reforming_to_European_Union
+		}
+		completion_reward = {
+			55 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = rocket_site
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
 		}
 		x = 12
 		y = 12
@@ -2631,9 +2772,13 @@ focus_tree = {
 		x = 14
 		y = 12
 		completion_reward = {
-				add_political_power = 200
-				add_national_unity = 0.05
+			add_political_power = 200
+			add_national_unity = 0.05
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.10
 			}
+		}
 
 	}
 	focus = {
@@ -2642,6 +2787,13 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 		focus = WGR_Purge_the_Reformist
+		}
+		completion_reward = {
+			add_political_power = 200
+			add_popularity = {
+				ideology = communism
+				popularity = -0.10
+			}
 		}
 		x = 14
 		y = 13

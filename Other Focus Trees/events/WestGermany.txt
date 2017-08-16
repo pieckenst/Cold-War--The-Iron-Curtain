@@ -52,3 +52,75 @@ country_event = {
 		ai_chance = { factor = 5 }
 	}
 }
+
+# Vote Alsace-Lorraine
+country_event = {
+	id = wgr.3
+	title = wgr.3.t
+	desc = wgr.3.d
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = wgr.3.a
+		WGR = { 
+			transfer_state = 28
+			transfer_state = 17
+		}
+		ai_chance = { factor = 1 }
+	}
+
+	option = {
+		name = wgr.3.b
+		add_opinion_modifier = { target = WGR modifier = WGR_No_Alsace_Opinion }
+		ai_chance = { factor = 99 }
+	}
+}
+
+# Vote Alsace-Lorraine
+country_event = {
+	id = wgr.4
+	title = wgr.4.t
+	desc = wgr.4.d
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = wgr.4.a
+		GER = { 
+			transfer_state = 42
+			transfer_state = 50
+			transfer_state = 51
+			transfer_state = 52
+			transfer_state = 53
+			transfer_state = 54
+			transfer_state = 55
+			transfer_state = 56
+			transfer_state = 57
+			transfer_state = 58
+			transfer_state = 59
+			transfer_state = 60
+			transfer_state = 61
+			transfer_state = 62
+			transfer_state = 63
+			transfer_state = 64
+			transfer_state = 65
+			transfer_state = 66
+			transfer_state = 67
+			transfer_state = 68
+			transfer_state = 69
+		}
+		random_other_country = {
+			limit = { tag = GER }
+			change_tag_from = WGR
+			change_tag_from = DDR
+		}
+		ai_chance = { factor = 80 }
+	}
+
+	option = {
+		name = wgr.4.b
+		add_opinion_modifier = { target = WGR modifier = WGR_No_Unification_Opinion }
+		ai_chance = { factor = 20 }
+	}
+}
