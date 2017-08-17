@@ -16,7 +16,7 @@ focus_tree = {
 		y = 0
 		completion_reward = {
 			add_national_unity = 0.1
-			remove_ideass = Occupation
+			remove_ideas = Occupation
 			add_timed_idea = {
 					idea = Newfound_Sovereignty
 					days = 350
@@ -28,8 +28,12 @@ focus_tree = {
 		id = WGR_Training_of_the_Elites
 		icon = GFX_goal_generic_defence
 		cost = 10.00
+		prerequisite = {
+			focus = WGR_Germany_First
+			focus = WGR_Demand_old_Territory
+		}
 		mutually_exclusive = {
-			focus = WGR_Mordern_Blitzkrieg
+			focus = WGR_modern_Blitzkrieg
 		}
 		completion_reward = {
 			army_experience = 25
@@ -48,7 +52,7 @@ focus_tree = {
 		date > 1950.06.01
 	}
 	completion_reward = {
-		remove_ideass = NATO_Military_Restrictions
+		remove_ideas = NATO_Military_Restrictions
 		add_timed_idea = {
 			idea = Founding_the_Bundeswehr
 			days = 728
@@ -195,7 +199,7 @@ focus_tree = {
 				}
 			}
 			add_ideas = Member_of_European_Defense_Community
-			remove_ideass = Pleven_Plan
+			remove_ideas = Pleven_Plan
 		}
 
 	}
@@ -331,20 +335,17 @@ focus_tree = {
 		}
 		x = 10
 		y = 1
-		available = {
-			if = {
-				NOT = {
-					has_idea = Newfound_Sovereignty
-				}
-			}
-		}
 		completion_reward = {
 			add_popularity = {
-				ideology = communism
+				ideology = conservatism
 				popularity = 0.05
 			}
 			add_popularity = {
-				ideology = fascism
+				ideology = socialist
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = centrist
 				popularity = 0.05
 			}
 			every_other_country = {
@@ -353,11 +354,11 @@ focus_tree = {
 				}
 				add_opinion_modifier = {
 					target = WGR
-					modifier = WGR_Radicaliztion_opinion
+					modifier = WGR_True_Democracy_opinion
 				}
 			}
 			add_timed_idea = {
-				idea = Radicaliztion_Idea
+				idea = True_Democracy_Idea
 				days = 728
 			}
 		}
@@ -441,9 +442,9 @@ focus_tree = {
 		icon = GFX_goal_generic_military_deal
 		cost = 10.00
 		prerequisite = {
-		focus = WGR_True_Democracy
-		focus = WGR_Ridding_the_Fascists
-		focus = WGR_Ban_the_Communist
+			focus = WGR_True_Democracy
+			focus = WGR_Ridding_the_Fascists
+			focus = WGR_Ban_the_Communist
 		}
 		x = 10
 		y = 2
@@ -1965,7 +1966,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = WGR_Mordern_Programming
+		id = WGR_modern_Programming
 		icon = GFX_focus_research
 		cost = 10.00
 		prerequisite = {
@@ -1986,7 +1987,7 @@ focus_tree = {
 		focus = WGR_Enlistment_of_Noxdorf_Computers_AG
 		}
 		prerequisite = {
-		focus = WGR_Mordern_Programming
+		focus = WGR_modern_Programming
 		}
 		x = 30
 		y = 5
@@ -2034,7 +2035,7 @@ focus_tree = {
 		icon = GFX_focus_research
 		cost = 10.00
 		prerequisite = {
-		focus = WGR_Mordern_Programming
+		focus = WGR_modern_Programming
 		}
 		x = 32
 		y = 5
@@ -2267,7 +2268,7 @@ focus_tree = {
 		x = 35
 		y = 5
 		completion_reward = {
-				remove_ideass = Starfighter_Crisis
+				remove_ideas = Starfighter_Crisis
 				add_ideas = WGR_Form_the_ASA
 			}
 
@@ -2472,7 +2473,7 @@ focus_tree = {
 		x = 42
 		y = 3
 		completion_reward = {
-				remove_ideass = Disorganized_Navy
+				remove_ideas = Disorganized_Navy
 			}
 
 	}
@@ -2589,9 +2590,12 @@ focus_tree = {
 		x = 12
 		y = 9
 		completion_reward = {
-				remove_ideass = Member_of_ECSC
+			every_other_country = {
+				limit = { has_idea = Member_of_ECSC } 
+				remove_ideas = Member_of_ECSC
 				add_ideas = Member_of_EEC
 			}
+		}
 
 	}
 	focus = {
@@ -2819,7 +2823,7 @@ focus_tree = {
 
 	}
 	focus = {
-		id = WGR_Mordern_Blitzkrieg
+		id = WGR_Modern_Blitzkrieg
 		icon = GFX_goal_generic_army_tanks
 		cost = 10.00
 		prerequisite = {
@@ -2846,7 +2850,7 @@ focus_tree = {
 		icon = GFX_goal_generic_war_with_comintern
 		cost = 10.00
 		prerequisite = {
-		focus = WGR_Mordern_Blitzkrieg
+		focus = WGR_Modern_Blitzkrieg
 		focus = WGR_Training_of_the_Elites
 		}
 		completion_reward = {
@@ -2864,7 +2868,7 @@ focus_tree = {
 		icon = GFX_goal_generic_major_war
 		cost = 10.00
 		prerequisite = {
-		focus = WGR_Mordern_Blitzkrieg
+		focus = WGR_modern_Blitzkrieg
 		focus = WGR_Training_of_the_Elites
 		}
 		completion_reward = {
