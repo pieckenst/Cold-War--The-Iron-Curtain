@@ -58,6 +58,9 @@ focus_tree = {
 			days = 728
 		}
 	}
+	ai_will_do = {
+		factor = 2
+	}
 
 	}
 	focus = {
@@ -105,6 +108,9 @@ focus_tree = {
 					}
 				}
 			}
+		}
+		ai_will_do = {
+			factor = 2
 		}
 
 	}
@@ -400,7 +406,9 @@ focus_tree = {
 					popularity = -0.25
 				}
 			}
-
+		ai_will_do = {
+			factor = 0
+		}
 	}
 	focus = {
 		id = WGR_Ban_the_Communist
@@ -427,7 +435,7 @@ focus_tree = {
 						}
 					add_opinion_modifier = {
 						target = ROOT
-						modifier = WGR_Side_with_democracy_opinion
+						modifier = WGR_Side_with_democracy_east_opinion
 						}
 				}
 				add_popularity = {
@@ -892,6 +900,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			USA = { country_event = wgr.1}
+		}
+		ai_will_do = {
+			factor = 2
 		}
 		x = 12
 		y = 5
@@ -2606,11 +2617,17 @@ focus_tree = {
 		focus = WGR_European_Political_Cooperation
 		}
 		completion_reward = {
-			add_political_power = 150
+			add_national_unity = -0.05
 			every_other_country = {
-				limit = { is_in_faction_with = WGR }
-				add_opinion_modifier = { target = ROOT modifier = WGR_Common_Foreign_and_Security_Policy_opinion }
+				limit = {
+					has_idea = Member_of_EU
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = WGR_Common_Security_Policy_opinion
+				}
 			}
+			add_ideas = Common_Security_Policy
 		}
 		x = 10
 		y = 9
@@ -2976,30 +2993,6 @@ focus_tree = {
 			}
 		completion_reward = {
 				add_manpower = 100000
-			}
-
-	}
-	focus = {
-		id = WGR_Common_Foreign_and_Security_Policy_1
-		icon = GFX_goal_generic_defence
-		cost = 10.00
-		prerequisite = {
-		focus = WGR_European_Political_Cooperation
-		}
-		x = 20
-		y = 10
-		completion_reward = {
-				add_national_unity = -0.05
-				every_other_country = {
-					limit = {
-						has_idea = Member_of_EU
-						}
-					add_opinion_modifier = {
-						target = ROOT
-						modifier = WGR_Common_Security_Policy_opinion
-						}
-				}
-				add_ideas = Common_Security_Policy
 			}
 
 	}
