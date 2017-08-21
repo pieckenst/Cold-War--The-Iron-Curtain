@@ -13,4 +13,4 @@ tags={
 }
 picture="preview.jpg"
 remote_file_id="962729805"
-supported_version="1.4.1"
+supported_version="1.4.2"

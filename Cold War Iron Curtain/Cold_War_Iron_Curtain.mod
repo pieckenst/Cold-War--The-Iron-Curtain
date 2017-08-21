@@ -10,4 +10,4 @@ tags={
 	"Historical"
 	"Map"
 }
-supported_version="1.4.1"
+supported_version="1.4.2"
