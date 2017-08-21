@@ -1343,6 +1343,22 @@ focus_tree = {
 		}
 		x = 40
 		y = 1
+		completion_reward = {
+				army_experience = 10
+				add_tech_bonus = {
+						name = land_doc_bonus
+						bonus = 0.5
+						uses = 1
+						category = land_doctrine
+					}
+				add_tech_bonus = {
+					name = infantry_weapons_bonus
+					bonus = 0.5
+					uses = 2
+					category = infantry_weapons
+					category = artillery
+				}	
+			}
 	}
 	focus = {
 		id = JAP_army
@@ -1357,6 +1373,22 @@ focus_tree = {
 		}
 		x = 44
 		y = 1
+		completion_reward = {
+				army_experience = 10
+				add_tech_bonus = {
+						name = land_doc_bonus
+						bonus = 0.5
+						uses = 1
+						category = land_doctrine
+					}
+				add_tech_bonus = {
+					name = infantry_weapons_bonus
+					bonus = 0.5
+					uses = 2
+					category = infantry_weapons
+					category = artillery
+				}	
+			}
 	}
 	focus = {
 		id = JAP_jasdf
@@ -1371,6 +1403,82 @@ focus_tree = {
 		}
 		x = 47
 		y = 1
+			complete_tooltip = {
+					air_experience = 25
+					if = {
+							limit = {
+									has_country_flag = aviation_effort_AB
+								}
+							add_building_construction = {
+									type = air_base
+									level = 2
+									instant_build = yes
+								}
+						}
+					add_tech_bonus = {
+							name = air_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = air_doctrine
+						}
+				}
+			completion_reward = {
+					air_experience = 25
+					if = {
+							limit = {
+									capital_scope = {
+											NOT = {
+													free_building_slots = {
+															building = air_base
+															size > 1
+														}
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					if = {
+							limit = {
+									capital_scope = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+								}
+							capital_scope = {
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					add_tech_bonus = {
+							name = air_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = air_doctrine
+						}
+				}
 	}
 	focus = {
 		id = JAP_airforce
@@ -1385,6 +1493,83 @@ focus_tree = {
 		}
 		x = 51
 		y = 1
+		
+			complete_tooltip = {
+					air_experience = 25
+					if = {
+							limit = {
+									has_country_flag = aviation_effort_AB
+								}
+							add_building_construction = {
+									type = air_base
+									level = 2
+									instant_build = yes
+								}
+						}
+					add_tech_bonus = {
+							name = air_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = air_doctrine
+						}
+				}
+			completion_reward = {
+					air_experience = 25
+					if = {
+							limit = {
+									capital_scope = {
+											NOT = {
+													free_building_slots = {
+															building = air_base
+															size > 1
+														}
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					if = {
+							limit = {
+									capital_scope = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+								}
+							capital_scope = {
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					add_tech_bonus = {
+							name = air_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = air_doctrine
+						}
+				}
 	}
 	focus = {
 		id = JAP_jmsdf
@@ -1399,6 +1584,118 @@ focus_tree = {
 		}
 		x = 54
 		y = 1
+			complete_tooltip = {
+					navy_experience = 25
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+							type = dockyard
+							level = 3
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					navy_experience = 25
+					if = {
+							limit = {
+									NOT = {
+											any_owned_state = {
+													dockyard > 0
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+									any_owned_state = {
+											is_coastal = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									any_owned_state = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									NOT = {
+											any_owned_state = {
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+								}
+							random_state = {
+									limit = {
+											controller = {
+													tag = ROOT
+												}
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+				}
 	}
 	focus = {
 		id = JAP_manchuria
@@ -1596,7 +1893,9 @@ focus_tree = {
 		}
 		x = 57
 		y = 2
-
+		completion_reward = {
+			navy_experience = 25
+		}
 	}
 	focus = {
 		id = JAP_battleship
@@ -1610,7 +1909,22 @@ focus_tree = {
 		}
 		x = 56
 		y = 3
-
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = basic_battlecruiser
+				technology = basic_battleship
+				technology = improved_battleship
+				technology = advanced_battleship
+				technology = heavy_battleship
+				technology = heavy_battleship2
+				technology = early_carrier
+				technology = basic_carrier
+				technology = improved_carrier
+				technology = advanced_carrier
+			}
 	}
 	focus = {
 		id = JAP_destroyer
@@ -1624,7 +1938,18 @@ focus_tree = {
 		}
 		x = 53
 		y = 2
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = early_destroyer
+				technology = basic_destroyer
+				technology = improved_destroyer
+				technology = advanced_destroyer
+			}
+		}
 	}
 	focus = {
 		id = JAP_cruiser
@@ -1638,7 +1963,18 @@ focus_tree = {
 		}
 		x = 55
 		y = 2
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = improved_light_cruiser
+				technology = advanced_light_cruiser
+				technology = improved_heavy_cruiser
+				technology = advanced_heavy_cruiser
+			}
+		}
 	}
 	focus = {
 		id = JAP_cas
@@ -1652,7 +1988,15 @@ focus_tree = {
 		}
 		x = 48
 		y = 2
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = CAS_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				category = cas_bomber
+			}
+		}
 	}
 	focus = {
 		id = JAP_bomber
@@ -1666,7 +2010,15 @@ focus_tree = {
 		}
 		x = 50
 		y = 2
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = nav_bomber_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				category = naval_bomber
+			}
+		}
 	}
 	focus = {
 		id = JAP_tactical
@@ -1678,7 +2030,17 @@ focus_tree = {
 		}
 		x = 49
 		y = 3
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 0.5
+				uses = 2
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+				technology = strategic_bomber3
+				category = tactical_bomber
+			}
+		}
 	}
 	focus = {
 		id = JAP_interceptor
@@ -1689,7 +2051,20 @@ focus_tree = {
 		}
 		x = 46
 		y = 2
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 0.5
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+		}
 	}
 	focus = {
 		id = JAP_offensive
@@ -1722,7 +2097,15 @@ focus_tree = {
 		}
 		x = 42
 		y = 3
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_artillery_bonus
+							bonus = 0.65
+							uses = 3
+							category = infantry_weapons
+							category = artillery
+						}
+				}
 	}
 	focus = {
 		id = JAP_armor
@@ -1736,7 +2119,12 @@ focus_tree = {
 		}
 		x = 44
 		y = 3
-
+					add_tech_bonus = {
+							name = armor_bonus
+							bonus = 0.5
+							uses = 2
+							category = armor
+						}
 	}
 	focus = {
 		id = JAP_mechanized
@@ -1747,7 +2135,14 @@ focus_tree = {
 		}
 		x = 44
 		y = 4
-
+completion_reward = {
+					add_tech_bonus = {
+							name = motorized_bonus
+							ahead_reduction = 0.5
+							uses = 1
+							category = motorized_equipment
+						}
+				}
 	}
 	focus = {
 		id = JAP_fortify
