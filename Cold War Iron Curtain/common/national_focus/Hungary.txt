@@ -362,7 +362,7 @@ focus_tree = {
 		y = 0
 
 		completion_reward = {
-			add_ideas = partisan_suppression_focus
+			add_ideas = one_form_of_government 
 		}
 	}
 	focus = {
@@ -372,14 +372,9 @@ focus_tree = {
 		x = 39
 		y = 0
 			completion_reward = {
-					army_experience = 5
-					add_tech_bonus = {
-							name = land_doc_bonus
-							bonus = 0.75
-							uses = 2
-							category = land_doctrine
-						}
-				}
+				add_political_power = 120
+			}
+		}
 
 	}
 	focus = {
@@ -1151,7 +1146,12 @@ focus_tree = {
 		}
 		x = 30
 		y = 1
-
+		
+		completion_reward = {
+			add_national_unity = 0.1
+			add_popularity = { ideology = centrist popularity = 0.05 }
+			add_popularity = { ideology = conservative popularity = 0.05 }
+		}
 	}
 	focus = {
 		id = HUN_loosen_religous_controls
@@ -1162,7 +1162,11 @@ focus_tree = {
 		}
 		x = 30
 		y = 2
-
+		completion_reward = {
+			add_national_unity = 0.1
+			add_popularity = { ideology = conservative popularity = 0.1 }
+			add_popularity = { ideology = centrist popularity = 0.05 }			
+		}
 	}
 	focus = {
 		id = HUN_abolish_avh
@@ -1173,6 +1177,10 @@ focus_tree = {
 		}
 		x = 30
 		y = 3
+		
+		completion_reward = {
+			add_national_unity = 0.1
+		}
 
 	}
 	focus = {
@@ -1187,7 +1195,10 @@ focus_tree = {
 		}
 		x = 32
 		y = 1
-
+		completion_reward = {
+			add_national_unity = -0.1
+			add_popularity = { ideology = communism popularity = 0.1 }	
+		}
 	}
 	focus = {
 		id = HUN_avh_propaganda_network
@@ -1213,7 +1224,10 @@ focus_tree = {
 		}
 		x = 32
 		y = 3
-
+		
+		completion_reward = {
+			add_ideas = partisan_suppression_focus
+		}
 		
 	}
 	focus = {
@@ -1224,7 +1238,7 @@ focus_tree = {
 			focus = HUN_new_constitution
 		}
 		mutually_exclusive = {
-			focus = HUN_reign_in_avh
+			focus = HUN_consolidate_socialist_parties
 		}
 		x = 37
 		y = 1
@@ -1244,7 +1258,7 @@ focus_tree = {
 		x = 37
 		y = 2
 		completion_reward = {
-			add_national_unity = 10
+			add_national_unity = 0.10
 			add_political_power = -120
 		}
 	}
@@ -1258,7 +1272,7 @@ focus_tree = {
 		x = 37
 		y = 3
 		completion_reward = {
-			add_national_unity = 10
+			add_national_unity = 0.10
 			add_political_power = -120
 			add_manpower = 20000	
 		}
@@ -1288,7 +1302,7 @@ focus_tree = {
 		y = 5
 		completion_reward = {
 			add_political_power = 120
-			add_national_unity = 5
+			add_national_unity = 0.05
 		}
 	}
 	focus = {
@@ -1298,9 +1312,7 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_new_constitution
 		}
-		mutually_exclusive = {
-			focus = HUN_reign_in_avh
-		}
+
 		x = 39
 		y = 2
 		completion_reward = {
@@ -1314,11 +1326,12 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_show_trials
 		}
+
 		x = 39
 		y = 3
 			completion_reward = {
 				add_political_power = 120
-				add_national_unity = -10
+				add_national_unity = -0.10
 			}
 
 	}
@@ -1327,7 +1340,7 @@ focus_tree = {
 		icon = GFX_goal_continuous_increase_nu
 		cost = 10.00
 		prerequisite = {
-			focus = HUN_rakosi_takes_over
+			focus = HUN_rakosi_consolidates_power
 		}
 		x = 39
 		y = 4
@@ -1433,6 +1446,9 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = HUN_new_constitution
+		}
+		mutually_exclusive = {
+			focus = HUN_support_political_opposition
 		}
 		x = 41
 		y = 1
