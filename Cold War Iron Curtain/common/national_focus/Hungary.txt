@@ -26,7 +26,7 @@ focus_tree = {
 							uses = 1
 							category = land_doctrine
 						}
-					POL = {
+					HUN = {
 							add_opinion_modifier = {
 									target = SOV
 									modifier = large_decrease
@@ -34,7 +34,7 @@ focus_tree = {
 						}
 					SOV = {
 							add_opinion_modifier = {
-									target = POL
+									target = HUN
 									modifier = large_decrease
 								}
 						}
@@ -51,7 +51,7 @@ focus_tree = {
 		x = 9
 		y = 0
 			completion_reward = {
-					POL = {
+					HUN = {
 							add_opinion_modifier = {
 									target = SOV
 									modifier = large_decrease
@@ -59,7 +59,7 @@ focus_tree = {
 						}
 					SOV = {
 							add_opinion_modifier = {
-									target = POL
+									target = HUN
 									modifier = large_decrease
 								}
 						}
@@ -361,6 +361,9 @@ focus_tree = {
 		x = 31
 		y = 0
 
+		completion_reward = {
+			add_ideas = partisan_suppression_focus
+		}
 	}
 	focus = {
 		id = HUN_new_constitution
@@ -450,7 +453,7 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					army_experience = 20
-					POL = {
+					HUN = {
 							add_opinion_modifier = {
 									target = SOV
 									modifier = large_decrease
@@ -458,7 +461,7 @@ focus_tree = {
 						}
 					SOV = {
 							add_opinion_modifier = {
-									target = POL
+									target = HUN
 									modifier = large_decrease
 								}
 						}
@@ -909,7 +912,7 @@ focus_tree = {
 		y = 3
 			completion_reward = {
 					air_experience = 10
-					POL = {
+					HUN = {
 							add_opinion_modifier = {
 									target = SOV
 									modifier = large_decrease
@@ -917,7 +920,7 @@ focus_tree = {
 						}
 					SOV = {
 							add_opinion_modifier = {
-									target = POL
+									target = HUN
 									modifier = large_decrease
 								}
 						}
@@ -1195,6 +1198,10 @@ focus_tree = {
 		}
 		x = 32
 		y = 2
+		
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.15 }	
+		}
 
 	}
 	focus = {
@@ -1207,6 +1214,7 @@ focus_tree = {
 		x = 32
 		y = 3
 
+		
 	}
 	focus = {
 		id = HUN_support_political_opposition
@@ -1220,7 +1228,11 @@ focus_tree = {
 		}
 		x = 37
 		y = 1
-
+		completion_reward = {
+			add_popularity = { ideology = conservative popularity = 0.1 }	
+			add_popularity = { ideology = centrist popularity = 0.1 }	
+			add_popularity = { ideology = democratic popularity = 0.1 }	
+		}
 	}
 	focus = {
 		id = HUN_protect_german_population
@@ -1231,7 +1243,10 @@ focus_tree = {
 		}
 		x = 37
 		y = 2
-
+		completion_reward = {
+			add_national_unity = 10
+			add_political_power = -120
+		}
 	}
 	focus = {
 		id = HUN_petition_soviets_for_prisoners_of_war
@@ -1242,7 +1257,11 @@ focus_tree = {
 		}
 		x = 37
 		y = 3
-
+		completion_reward = {
+			add_national_unity = 10
+			add_political_power = -120
+			add_manpower = 20000	
+		}
 	}
 	focus = {
 		id = HUN_organize_secret_militias
@@ -1253,7 +1272,10 @@ focus_tree = {
 		}
 		x = 37
 		y = 4
-
+		completion_reward = {
+			add_political_power = -120
+			add_manpower = 20000
+		}
 	}
 	focus = {
 		id = HUN_secretly_safeguard_former_opposition_leaders
@@ -1264,7 +1286,10 @@ focus_tree = {
 		}
 		x = 37
 		y = 5
-
+		completion_reward = {
+			add_political_power = 120
+			add_national_unity = 5
+		}
 	}
 	focus = {
 		id = HUN_show_trials
@@ -1278,10 +1303,12 @@ focus_tree = {
 		}
 		x = 39
 		y = 2
-
+		completion_reward = {
+			add_political_power = 120
+		}
 	}
 	focus = {
-		id = HUN_rakosi_takes_over
+		id = HUN_rakosi_consolidates_power
 		icon = GFX_goal_support_communism
 		cost = 10.00
 		prerequisite = {
@@ -1290,14 +1317,9 @@ focus_tree = {
 		x = 39
 		y = 3
 			completion_reward = {
-					army_experience = 5
-					add_tech_bonus = {
-							name = land_doc_bonus
-							bonus = 0.75
-							uses = 2
-							category = land_doctrine
-						}
-				}
+				add_political_power = 120
+				add_national_unity = -10
+			}
 
 	}
 	focus = {
@@ -1309,7 +1331,47 @@ focus_tree = {
 		}
 		x = 39
 		y = 4
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}			
+		}
 
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = HUN_five_year_plan
@@ -1323,126 +1385,47 @@ focus_tree = {
 		}
 		x = 39
 		y = 5
-			available_if_capitulated = yes
-			available = {
-					any_state = {
-							is_coastal = yes
-							is_controlled_by = ROOT
-						}
-				}
-			complete_tooltip = {
-					navy_experience = 25
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-							type = dockyard
-							level = 3
-							instant_build = yes
-						}
-				}
-			completion_reward = {
-					navy_experience = 25
-					if = {
-							limit = {
-									NOT = {
-											any_owned_state = {
-													dockyard > 0
-													free_building_slots = {
-															building = dockyard
-															size > 2
-															include_locked = yes
-														}
-												}
-										}
-									any_owned_state = {
-											is_coastal = yes
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											is_coastal = yes
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-							set_country_flag = naval_effort_built
-						}
-					if = {
-							limit = {
-									NOT = {
-											has_country_flag = naval_effort_built
-										}
-									any_owned_state = {
-											dockyard > 0
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											dockyard > 0
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-							set_country_flag = naval_effort_built
-						}
-					if = {
-							limit = {
-									NOT = {
-											has_country_flag = naval_effort_built
-										}
-									NOT = {
-											any_owned_state = {
-													free_building_slots = {
-															building = dockyard
-															size > 2
-															include_locked = yes
-														}
-												}
-										}
-								}
-							random_state = {
-									limit = {
-											controller = {
-													tag = ROOT
-												}
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-						}
-				}
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}			
+		}
 
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = HUN_consolidate_socialist_parties
@@ -1453,126 +1436,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 1
-			available_if_capitulated = yes
-			available = {
-					any_state = {
-							is_coastal = yes
-							is_controlled_by = ROOT
-						}
-				}
-			complete_tooltip = {
-					navy_experience = 25
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-							type = dockyard
-							level = 3
-							instant_build = yes
-						}
-				}
-			completion_reward = {
-					navy_experience = 25
-					if = {
-							limit = {
-									NOT = {
-											any_owned_state = {
-													dockyard > 0
-													free_building_slots = {
-															building = dockyard
-															size > 2
-															include_locked = yes
-														}
-												}
-										}
-									any_owned_state = {
-											is_coastal = yes
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											is_coastal = yes
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-							set_country_flag = naval_effort_built
-						}
-					if = {
-							limit = {
-									NOT = {
-											has_country_flag = naval_effort_built
-										}
-									any_owned_state = {
-											dockyard > 0
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											dockyard > 0
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-							set_country_flag = naval_effort_built
-						}
-					if = {
-							limit = {
-									NOT = {
-											has_country_flag = naval_effort_built
-										}
-									NOT = {
-											any_owned_state = {
-													free_building_slots = {
-															building = dockyard
-															size > 2
-															include_locked = yes
-														}
-												}
-										}
-								}
-							random_state = {
-									limit = {
-											controller = {
-													tag = ROOT
-												}
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-						}
-				}
-
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.15 }	
+		}
 	}
 	focus = {
 		id = HUN_expel_german_population
@@ -1581,12 +1447,24 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_consolidate_socialist_parties
 		}
-		mutually_exclusive = {
-			focus = HUN_reign_in_avh
-		}
 		x = 41
 		y = 2
-
+		completion_reward = {
+			add_manpower = -20000
+			add_political_power = 120
+					HUN = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = HUN
+									modifier = large_increase
+								}
+						}			
+		}
 	}
 	focus = {
 		id = HUN_anti_religion_campaign
@@ -1612,13 +1490,7 @@ focus_tree = {
 		x = 41
 		y = 4
 			completion_reward = {
-					army_experience = 5
-					add_tech_bonus = {
-							name = land_doc_bonus
-							bonus = 0.75
-							uses = 2
-							category = land_doctrine
-						}
+					add_political_power = 120
 				}
 
 	}
@@ -1670,6 +1542,7 @@ focus_tree = {
 		y = 7
 		completion_reward = {
 			set_politics = { ruling_party = fascism elections_allowed = yes }
+			add_popularity = { ideology = fascism popularity = 0.25 }	
 			add_political_power = 200
 		}
 	}
@@ -1683,7 +1556,7 @@ focus_tree = {
 		x = 38
 		y = 7
 		completion_reward = {
-			set_politics = { ruling_party = socialist elections_allowed = yes }
+			set_politics = { ruling_party = socialist elections_allowed = no }
 			add_political_power = 200
 		}
 	}
@@ -1696,7 +1569,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 7
-
+		completion_reward = {
+		add_popularity = { ideology = communism popularity = 0.15 }	
+		}
 	}
 	focus = {
 		id = HUN_prepare_for_invasion
@@ -1780,126 +1655,7 @@ focus_tree = {
 		}
 		x = 39
 		y = 8
-			available_if_capitulated = yes
-			available = {
-					any_state = {
-							is_coastal = yes
-							is_controlled_by = ROOT
-						}
-				}
-			complete_tooltip = {
-					navy_experience = 25
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-							type = dockyard
-							level = 3
-							instant_build = yes
-						}
-				}
-			completion_reward = {
-					navy_experience = 25
-					if = {
-							limit = {
-									NOT = {
-											any_owned_state = {
-													dockyard > 0
-													free_building_slots = {
-															building = dockyard
-															size > 2
-															include_locked = yes
-														}
-												}
-										}
-									any_owned_state = {
-											is_coastal = yes
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											is_coastal = yes
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-							set_country_flag = naval_effort_built
-						}
-					if = {
-							limit = {
-									NOT = {
-											has_country_flag = naval_effort_built
-										}
-									any_owned_state = {
-											dockyard > 0
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											dockyard > 0
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-							set_country_flag = naval_effort_built
-						}
-					if = {
-							limit = {
-									NOT = {
-											has_country_flag = naval_effort_built
-										}
-									NOT = {
-											any_owned_state = {
-													free_building_slots = {
-															building = dockyard
-															size > 2
-															include_locked = yes
-														}
-												}
-										}
-								}
-							random_state = {
-									limit = {
-											controller = {
-													tag = ROOT
-												}
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-						}
-				}
-
+	
 	}
 	focus = {
 		id = HUN_transition_to_parliamentary_social_democracy
@@ -1914,7 +1670,8 @@ focus_tree = {
 		x = 37
 		y = 8
 		completion_reward = {
-			set_politics = { ruling_party = democratic elections_allowed = yes }
+			set_politics = { ruling_party = socialist elections_allowed = yes }
+			add_popularity = { ideology = socialist popularity = 0.25 }	
 			add_political_power = 200
 		}
 	}
@@ -1929,6 +1686,7 @@ focus_tree = {
 		y = 7
 		completion_reward = {
 			set_politics = { ruling_party = conservative elections_allowed = yes }
+			add_popularity = { ideology = conservative popularity = 0.25 }	
 			add_political_power = 200
 		}
 	}
