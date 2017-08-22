@@ -109,7 +109,9 @@ focus_tree = {
 		cost = 10.00
 		x = 16
 		y = 0
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = SOV_urban_planning
@@ -117,7 +119,104 @@ focus_tree = {
 		cost = 10.00
 		x = 25
 		y = 0
-
+		completion_reward = {
+							random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					add_tech_bonus = {
+							name = industrial_bonus
+							bonus = 0.5
+							uses = 1
+							category = industry
+						}
+				}
 	}
 	focus = {
 		id = SOV_agriculture
@@ -388,7 +487,11 @@ focus_tree = {
 		}
 		x = 0
 		y = 11
-
+		
+		completion_reward = {
+			send_equipment = { target = VIN type = infantry_equipment amount = 1000 }	
+			
+		}
 	}
 	focus = {
 		id = SOV_helsinki_treaty
@@ -2513,7 +2616,9 @@ focus_tree = {
 		}
 		x = 82
 		y = 3
-
+		ITA = {
+			add_popularity = { ideology = communism popularity = 0.1 }	
+		}
 	}
 	focus = {
 		id = SOV_italian_sleeper_cells
@@ -2524,7 +2629,9 @@ focus_tree = {
 		}
 		x = 82
 		y = 4
-
+		ITA = {
+			add_ideas = communist_pressure
+		}
 	}
 	focus = {
 		id = SOV_bolster_worker_unionism
@@ -2535,7 +2642,9 @@ focus_tree = {
 		}
 		x = 82
 		y = 5
-
+		ITA = {
+			add_popularity = { ideology = communism popularity = 0.10 }	
+		}
 	}
 	focus = {
 		id = SOV_infilitrate_west_germany
