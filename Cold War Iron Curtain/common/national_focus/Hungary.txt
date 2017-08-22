@@ -371,12 +371,13 @@ focus_tree = {
 		cost = 10.00
 		x = 39
 		y = 0
-			completion_reward = {
-				add_political_power = 120
-			}
+		completion_reward = {
+			add_political_power = 120
+			drop_cosmetic_tag = yes
+			set_politics = { ruling_party = communism elections_allowed = no }
 		}
-
 	}
+
 	focus = {
 		id = HUN_equipment_effort
 		icon = GFX_goal_rhineland
@@ -572,7 +573,7 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_mechanization_effort_II
 		}
-		x = 2
+		x = 4
 		y = 7
 			completion_reward = {
 					add_tech_bonus = {
@@ -794,6 +795,10 @@ focus_tree = {
 		}
 		x = 9
 		y = 6
+		
+		completion_reward = {
+			add_ideas = militarized_schools
+		} 
 
 	}
 	focus = {
@@ -931,7 +936,18 @@ focus_tree = {
 		}
 		x = 20
 		y = 1
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 2
+				technology = early_submarine
+				technology = basic_submarine
+				technology = improved_submarine
+				technology = advanced_submarine
+			}
+		}
 	}
 	focus = {
 		id = HUN_naval_transporation
@@ -942,7 +958,18 @@ focus_tree = {
 		}
 		x = 20
 		y = 2
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 0.5
+				uses = 2
+				technology = convoy_interdiction_ti
+				technology = unrestricted_submarine_warfare
+				technology = wolfpacks
+				technology = advanced_submarine_warfare
+				technology = combined_operations_raiding
+			}
+		}
 	}
 	focus = {
 		id = HUN_fast_navy
@@ -953,7 +980,18 @@ focus_tree = {
 		}
 		x = 20
 		y = 3
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = early_destroyer
+				technology = basic_destroyer
+				technology = improved_destroyer
+				technology = advanced_destroyer
+			}
+		}
 	}
 	focus = {
 		id = HUN_develop_local_naval_industry
@@ -964,7 +1002,120 @@ focus_tree = {
 		}
 		x = 22
 		y = 1
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
 
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
 	}
 	focus = {
 		id = HUN_soviet_naval_officers
@@ -975,6 +1126,10 @@ focus_tree = {
 		}
 		x = 22
 		y = 2
+		
+		completion_reward = {
+			navy_experience = 50	
+		}
 
 	}
 	focus = {
@@ -986,7 +1141,25 @@ focus_tree = {
 		}
 		x = 22
 		y = 3
-
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = basic_battlecruiser
+				technology = basic_battleship
+				technology = improved_battleship
+				technology = advanced_battleship
+				technology = heavy_battleship
+				technology = heavy_battleship2
+				technology = early_carrier
+				technology = basic_carrier
+				technology = improved_carrier
+				technology = advanced_carrier
+			}
+		}
 	}
 	focus = {
 		id = HUN_ready_to_strike
@@ -1022,7 +1195,47 @@ focus_tree = {
 		}
 		x = 25
 		y = 2
+	complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}			
+		}
 
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = HUN_expand_heavy_industry
@@ -1033,7 +1246,47 @@ focus_tree = {
 		}
 		x = 25
 		y = 3
+	complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}			
+		}
 
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = HUN_rebuild_infrastructure
@@ -1044,7 +1297,75 @@ focus_tree = {
 		}
 		x = 25
 		y = 4
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		}
 
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = HUN_scientific_funding
@@ -1055,7 +1376,9 @@ focus_tree = {
 		}
 		x = 25
 		y = 5
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = HUN_soviet_scientists
@@ -1064,9 +1387,12 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_scientific_funding
 		}
+		mutually_exclusive = { focus = HUN_independent_scientists }
 		x = 23
 		y = 6
-
+		completion_reward = {
+			add_ideas = progress_cult_focus
+		}
 	}
 	focus = {
 		id = HUN_establish_military_industry
@@ -1077,7 +1403,47 @@ focus_tree = {
 		}
 		x = 27
 		y = 1
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
 
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = HUN_expand_and_rebuild_military_factories
@@ -1088,7 +1454,47 @@ focus_tree = {
 		}
 		x = 27
 		y = 2
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 3
+				instant_build = yes
+			}
+		}
 
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = HUN_industrial_development
@@ -1099,7 +1505,68 @@ focus_tree = {
 		}
 		x = 27
 		y = 3
-
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = HUN_finish_rebuilding
@@ -1110,7 +1577,68 @@ focus_tree = {
 		}
 		x = 27
 		y = 4
-
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = HUN_independent_scientists
@@ -1121,7 +1649,9 @@ focus_tree = {
 		}
 		x = 27
 		y = 6
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = HUN_meteor_rockets
@@ -1132,7 +1662,15 @@ focus_tree = {
 		}
 		x = 27
 		y = 7
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = jet_rocket_bonus
+				ahead_reduction = 0.5
+				uses = 2
+				category = rocketry
+				category = jet_technology
+			}
+		}
 	}
 	focus = {
 		id = HUN_reign_in_avh
@@ -1332,6 +1870,18 @@ focus_tree = {
 			completion_reward = {
 				add_political_power = 120
 				add_national_unity = -0.10
+					
+				create_country_leader = {
+					name = "Mátyás Rákosi"
+					desc = "POLITICS_MATYAS_RAKOSKI_DESC"
+					picture = "Portrait_Hungary_Matyas_Rakoski.dds"
+					expire = "1965.1.1"
+					ideology = stalinism
+					traits = {
+						#
+					}
+				}
+				#retire_country_leader = yes	
 			}
 
 	}
@@ -1619,14 +2169,14 @@ focus_tree = {
 
 	}
 	focus = {
-		id = H_bomb_development
+		id = HUN_H_bomb_development
 		icon = GFX_focus_wonderweapons
 		cost = 10.00
 		prerequisite = {
 			focus = HUN_special_forces
 			focus = HUN_army_for_another_war
 		}
-		x = 6
+		x = 10
 		y = 8
 			completion_reward = {
 					add_tech_bonus = {
@@ -1646,7 +2196,60 @@ focus_tree = {
 		}
 		x = 15
 		y = 4
+		completion_reward = {
+			air_experience = 25
 
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+						}
+					}
+				}
+				random_owned_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
 	}
 	focus = {
 		id = HUN_soviet_controlled_science
@@ -1657,7 +2260,9 @@ focus_tree = {
 		}
 		x = 23
 		y = 7
-
+		completion_reward = {
+			add_ideas = educate_the_peasants
+		}
 	}
 	focus = {
 		id = HUN_embrace_titoism
@@ -1671,7 +2276,32 @@ focus_tree = {
 		}
 		x = 39
 		y = 8
-	
+		completion_reward = {
+					HUN = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_decrease
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = HUN
+									modifier = large_decrease
+								}
+						}		
+					HUN = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = large_increase
+								}
+						}
+					YUG = {
+							add_opinion_modifier = {
+									target = HUN
+									modifier = large_increase
+								}
+						}			
+		}
 	}
 	focus = {
 		id = HUN_transition_to_parliamentary_social_democracy
