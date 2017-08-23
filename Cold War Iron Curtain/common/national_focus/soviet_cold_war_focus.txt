@@ -2880,7 +2880,10 @@ focus_tree = {
 		}
 		x = 97
 		y = 1
-
+		
+		completion_reward = {
+			add_political_power = 160
+		}
 	}
 	focus = {
 		id = SOV_support_israeli_indep
@@ -2948,9 +2951,8 @@ focus_tree = {
 		x = 93
 		y = 4
 		completion_reward = {
-			ISR = {
-				add_to_faction = SOV
-			}
+				add_to_faction = ISR
+			
 		}
 	}
 	focus = {
@@ -3072,7 +3074,7 @@ focus_tree = {
 		x = 97
 		y = 10
 		completion_reward = {
-			send_equipment = { target = ISR type = infantry_equipment amount = 1000 }	
+			send_equipment = { target = KPA type = infantry_equipment amount = 1000 }	
 		}
 	}
 	focus = {
@@ -3085,9 +3087,8 @@ focus_tree = {
 		x = 97
 		y = 11
 		completion_reward = {
-			KPA = {
-				add_to_faction = SOV
-			}
+			add_to_faction = KPA
+			
 		}
 	}
 	focus = {
@@ -3138,7 +3139,10 @@ focus_tree = {
 		}
 		x = 96
 		y = 5
-
+		completion_reward = {
+			send_equipment = { target = SYR type = infantry_equipment amount = 1000 }	
+			send_equipment = { target = SYR type = fighter_equipment amount = 500 }	
+		}
 	}
 	focus = {
 		id = SOV_egyptian_army_funding
@@ -3149,7 +3153,10 @@ focus_tree = {
 		}
 		x = 98
 		y = 5
-
+		completion_reward = {
+			send_equipment = { target = EGY type = infantry_equipment amount = 1000 }	
+			send_equipment = { target = EGY type = fighter_equipment amount = 500 }	
+		}
 	}
 	focus = {
 		id = SOV_egyptian_infrastructure_funding
@@ -3160,7 +3167,89 @@ focus_tree = {
 		}
 		x = 98
 		y = 6
-
+		completion_reward = {
+			EGY = {
+						if = {
+				limit = {
+					all_owned_state = {
+						NOT = { infrastructure < 5 }
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = infrastructure
+							size > 2
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes						
+					}
+					set_state_flag = SOV_infrastructure_effort_3Inf
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = infrastructure
+							size > 2
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+					set_state_flag = SOV_infrastructure_effort_3Inf
+				}				
+			}
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_infrastructure_effort_3Inf	
+			}
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_infrastructure_effort_3Inf	
+			}
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_infrastructure_effort_3Inf	
+			}
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_infrastructure_effort_3Inf	
+			}
+		}
+		}
 	}
 	focus = {
 		id = SOV_syrian_infrastructure_funding
@@ -3171,7 +3260,89 @@ focus_tree = {
 		}
 		x = 96
 		y = 6
-
+		completion_reward = {
+			EGY = {
+						if = {
+				limit = {
+					all_owned_state = {
+						NOT = { infrastructure < 5 }
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = infrastructure
+							size > 2
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes						
+					}
+					set_state_flag = SOV_infrastructure_effort_3Inf
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = infrastructure
+							size > 2
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+					set_state_flag = SOV_infrastructure_effort_3Inf
+				}				
+			}
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_infrastructure_effort_3Inf	
+			}
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_infrastructure_effort_3Inf	
+			}
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_infrastructure_effort_3Inf	
+			}
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_infrastructure_effort_3Inf	
+			}
+		}
+		}
 	}
 	focus = {
 		id = SOV_japanese_communist_propaganda
@@ -3182,7 +3353,9 @@ focus_tree = {
 		}
 		x = 100
 		y = 9
-
+		completion_reward = {
+			JAP = { add_ideas = communist_pressure }
+		}
 	}
 	focus = {
 		id = SOV_japanese_treaty
@@ -3196,7 +3369,20 @@ focus_tree = {
 		}
 		x = 99
 		y = 10
-
+		completion_reward = {
+				JAP = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = JAP
+						modifier = large_increase
+						}
+			}
+		}
 	}
 	focus = {
 		id = SOV_soviet_concede_sakhailin_to_japan
@@ -3207,7 +3393,14 @@ focus_tree = {
 		}
 		x = 99
 		y = 11
-
+		
+		completion_reward = {
+			JAP = {
+				transfer_state = 655
+				transfer_state = 537
+				transfer_state = 536
+			}
+		}
 	}
 	focus = {
 		id = SOV_expel_americans_from_japan
@@ -3218,7 +3411,12 @@ focus_tree = {
 		}
 		x = 99
 		y = 12
-
+		
+		completion_reward = {
+			USA = {
+				remove_from_faction = JAP
+			}
+		}
 	}
 	focus = {
 		id = SOV_soviet_arabian_sphere
@@ -3229,7 +3427,13 @@ focus_tree = {
 		}
 		x = 100
 		y = 3
-
+		completion_reward = {
+			SAU = { add_ideas = communist_pressure }
+			JOR = { add_ideas = communist_pressure }
+			SYR = { add_ideas = communist_pressure }
+			EGY = { add_ideas = communist_pressure }
+			IRQ = { add_ideas = communist_pressure }
+		}
 	}
 	focus = {
 		id = SOV_direct_intervention
@@ -3254,7 +3458,16 @@ focus_tree = {
 		}
 		x = 100
 		y = 5
-
+		available = {
+			country_exists = DRY
+			DRY = { has_government = communism }
+		}		
+		completion_reward = {
+			DRY = {
+				send_equipment = { target = DRY type = infantry_equipment amount = 1000 }	
+				add_ideas = soviet_advisors
+			}
+		}
 	}
 	focus = {
 		id = SOV_make_south_yemen_puppet
@@ -3265,7 +3478,13 @@ focus_tree = {
 		}
 		x = 100
 		y = 6
-
+		available = {
+			country_exists = DRY
+			DRY = { has_government = communism }
+		}		
+		completion_reward = {
+			puppet = DRY
+		}
 	}
 	focus = {
 		id = SOV_soviet_arabian_pact
@@ -3282,7 +3501,20 @@ focus_tree = {
 		}
 		x = 98
 		y = 7
-
+		completion_reward = {
+				SAU = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = SAU
+						modifier = large_increase
+						}
+			}
+		}
 	}
 	focus = {
 		id = SOV_support_red_army_faction
@@ -3296,7 +3528,11 @@ focus_tree = {
 		}
 		x = 101
 		y = 10
-
+		completion_reward = {
+			JAP = {
+				add_popularity = { ideology = communism popularity = 0.10 }	
+			}
+		}
 	}
 	focus = {
 		id = SOV_insuregency_in_japan
@@ -3307,7 +3543,9 @@ focus_tree = {
 		}
 		x = 101
 		y = 11
-
+		completion_reward = {
+			add_ideas = communist_pressure
+		}
 	}
 	focus = {
 		id = SOV_start_japanese_civil_war
@@ -3318,7 +3556,14 @@ focus_tree = {
 		}
 		x = 101
 		y = 12
-
+			completion_reward = {
+					JAP = {
+							start_civil_war = {
+									ideology = communism
+									size = 0.5
+								}
+						}
+					}
 	}
 	focus = {
 		id = SOV_invite_japan_warsaw_pact
@@ -3330,7 +3575,15 @@ focus_tree = {
 		}
 		x = 100
 		y = 13
-
+		completion_reward = {
+			any_other_country = {
+				limit = {
+					original_tag = JAP
+					has_government = communism
+				}
+				add_to_faction = JAP
+			}
+		}
 	}
 	focus = {
 		id = SOV_foster_political_neutrality_turkey
@@ -3341,7 +3594,20 @@ focus_tree = {
 		}
 		x = 102
 		y = 2
-
+		completion_reward = {
+				TUR = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = TUR
+						modifier = large_increase
+						}
+			}
+		}		
 	}
 	focus = {
 		id = SOV_istanbul_conference
@@ -3352,7 +3618,9 @@ focus_tree = {
 		}
 		x = 102
 		y = 3
-
+		completion_reward = {
+			diplomatic_relation = { country = TUR relation = non_aggression_pact }	
+		}
 	}
 	focus = {
 		id = SOV_turkish_soviet_cooperation
@@ -3363,6 +3631,12 @@ focus_tree = {
 		}
 		x = 102
 		y = 4
+		
+		completion_reward = {
+			USA = {
+				remove_from_faction = TUR	
+			}
+		}
 
 	}
 	focus = {
@@ -3432,7 +3706,15 @@ focus_tree = {
 		}
 		x = 108
 		y = 5
-
+		available = {
+			country_exists = BAL
+		}		
+		completion_reward = {
+			BAL = {
+				send_equipment = { target = BAL type = infantry_equipment amount = 1000 }	
+				add_ideas = soviet_advisors
+			}
+		}
 	}
 	focus = {
 		id = SOV_re_occupy_northern_iran
@@ -3452,7 +3734,14 @@ focus_tree = {
 		}
 		x = 104
 		y = 7
-
+		completion_reward = {
+				create_wargoal = {
+					type = take_state_focus
+					target = PER
+					generator = { 419 420 266 }
+				}
+			
+		}
 	}
 	focus = {
 		id = SOV_afghanistan_intervention
@@ -3464,7 +3753,16 @@ focus_tree = {
 		}
 		x = 102
 		y = 8
-
+		available = {
+			country_exists = AFG
+			AFG = { has_government = communism }
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = AFG
+			} 
+		}
 	}
 	focus = {
 		id = SOV_detente_with_the_west
@@ -3596,7 +3894,9 @@ focus_tree = {
 		}
 		x = 11
 		y = 21
-
+		completion_reward = {
+			PER = { add_popularity = { ideology = communism popularity = 0.2 }	 }
+		}		
 	}
 	focus = {
 		id = SOV_arabian_sea_interest
@@ -3607,7 +3907,9 @@ focus_tree = {
 		}
 		x = 11
 		y = 22
-
+		completion_reward = {
+			SAU = { add_popularity = { ideology = communism popularity = 0.2 }	 }
+		}
 	}
 	focus = {
 		id = SOV_consolidate_power_kgb
@@ -3798,7 +4100,21 @@ focus_tree = {
 		}
 		x = 110
 		y = 5
-
+		available = {
+			any_other_country = {
+				original_tag = OMA
+				has_government = communism
+			}
+		}		
+		completion_reward = {
+			any_other_country = {
+				limit = {
+					original_tag = OMA
+					has_government = communism
+				}
+				send_equipment = { target = PREV type = infantry_equipment amount = 1000 }	
+			}
+		}
 	}
 	focus = {
 		id = SOV_PRC_civil_war_aid
@@ -3812,7 +4128,16 @@ focus_tree = {
 		}
 		x = 93
 		y = 9
-
+		available = {
+			country_exists = PRC
+			PRC = { has_government = communism }
+		}		
+		completion_reward = {
+			PRC = {
+				send_equipment = { target = PRC type = infantry_equipment amount = 1000 }	
+				add_ideas = soviet_advisors
+			}
+		}
 	}
 	focus = {
 		id = SOV_invite_china_warsaw_pact
@@ -3823,7 +4148,9 @@ focus_tree = {
 		}
 		x = 93
 		y = 10
-
+		completion_reward = {
+			add_to_faction = PRC
+		}
 	}
 	focus = {
 		id = SOV_support_nigerian_communist_government
@@ -3834,7 +4161,22 @@ focus_tree = {
 		}
 		x = 82
 		y = 9
-
+		available = {
+			any_other_country = {
+				original_tag = NIA
+				has_government = communism
+			}
+		}		
+		completion_reward = {
+			any_other_country = {
+				limit = {
+					original_tag = NIA
+					has_government = communism
+				}
+				send_equipment = { target = PREV type = infantry_equipment amount = 1000 }	
+				add_ideas = soviet_advisors
+			}
+		}
 	}
 	focus = {
 		id = SOV_finance_nigerian_kainiji_dam
@@ -3847,17 +4189,7 @@ focus_tree = {
 		y = 10
 
 	}
-	focus = {
-		id = SOV_send_arms_to_frelimo_Copy
-		icon = GFX_goal_continuous_reduce_training_time
-		cost = 10.00
-		prerequisite = {
-			focus = SOV_mozambique_advisors
-		}
-		x = 78
-		y = 11
 
-	}
 	focus = {
 		id = SOV_support_guatamala_rebels
 		icon = GFX_goal_generic_small_arms
@@ -3867,6 +4199,20 @@ focus_tree = {
 		}
 		x = 66
 		y = 9
-
+		available = {
+			any_other_country = {
+				original_tag = GUA
+				has_government = communism
+			}
+		}		
+		completion_reward = {
+			any_other_country = {
+				limit = {
+					original_tag = GUA
+					has_government = communism
+				}
+				send_equipment = { target = PREV type = infantry_equipment amount = 1000 }	
+			}
+		}
 	}
 }
