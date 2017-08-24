@@ -1091,7 +1091,22 @@ focus_tree = {
 		}
 		x = 10
 		y = 1
-
+		completion_reward = {
+			add_named_threat = { threat = 15 name = }
+					USA = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_decrease
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+			
+		}
 	}
 	focus = {
 		id = SOV_blame_jewish_doctors
@@ -1102,7 +1117,10 @@ focus_tree = {
 		}
 		x = 10
 		y = 2
-
+		completion_reward = {
+			add_named_threat = { threat = 15 name = }
+			add_national_unity = -0.05
+		}
 	}
 	focus = {
 		id = SOV_anti_western_propaganda
@@ -1113,7 +1131,10 @@ focus_tree = {
 		}
 		x = 10
 		y = 3
-
+		
+		completion_reward = {
+			add_named_threat = { threat = 15 name = }
+		}
 	}
 	focus = {
 		id = SOV_declare_war_usa
@@ -1181,6 +1202,10 @@ focus_tree = {
 		}
 		x = 13
 		y = 8
+		
+		completion_reward = {
+			add_ideas = increase_the_population
+		}
 
 	}
 	focus = {
@@ -1290,6 +1315,10 @@ focus_tree = {
 		}
 		x = 14
 		y = 2
+		
+		completion_reward = {
+			add_ideas = industry_rearrangement
+		}
 
 	}
 	focus = {
@@ -1462,7 +1491,38 @@ focus_tree = {
 		}
 		x = 15
 		y = 20
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = SOV_revitalize_the_economy
@@ -1484,7 +1544,38 @@ focus_tree = {
 		}
 		x = 18
 		y = 1
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = SOV_militarization
@@ -1756,7 +1847,9 @@ completion_reward = {
 		}
 		x = 19
 		y = 7
-
+		completion_reward = {
+			add_national_unity = 0.1
+		}
 	}
 	focus = {
 		id = SOV_economic_liberalization
@@ -2137,7 +2230,22 @@ completion_reward = {
 		}
 		x = 32
 		y = 7
-
+		completion_reward = {
+			add_named_threat = { threat = -15 name = }
+					USA = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+		}
+		
 	}
 	focus = {
 		id = SOV_capitalist_reforms
@@ -5674,7 +5782,14 @@ completion_reward = {
 		}
 		x = 45
 		y = 7
-
+		completion_reward = { 
+						add_tech_bonus = {
+							name = cat_light_armor
+							bonus = 0.5
+							uses = 2
+							category = armor
+						}	
+		}
 	}
 	focus = {
 		id = SOV_medium_focus
@@ -5685,6 +5800,15 @@ completion_reward = {
 		}
 		x = 47
 		y = 7
+		
+		completion_reward = { 
+						add_tech_bonus = {
+							name = cat_medium_armor
+							bonus = 0.5
+							uses = 2
+							category = armor
+						}	
+		}
 
 	}
 	focus = {
@@ -5696,7 +5820,14 @@ completion_reward = {
 		}
 		x = 49
 		y = 7
-
+		completion_reward = { 
+						add_tech_bonus = {
+							name = cat_heavy_armor
+							bonus = 0.5
+							uses = 2
+							category = armor
+						}	
+		}
 	}
 	focus = {
 		id = SOV_continued_arming
