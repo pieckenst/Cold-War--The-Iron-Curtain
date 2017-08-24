@@ -111,6 +111,9 @@ country_event = {
 		ai_chance = {
 			factor = 1
 		}
+		hidden_effect = {
+			news_event = { id = cubamc.17 days = 2 }
+		}
 	}
 	option = {
 		name = cubamc.3.f
@@ -124,6 +127,9 @@ country_event = {
 		}
 		ai_chance = {
 			factor = 1
+		}
+		hidden_effect = {
+			news_event = { id = cubamc.18 days = 2 }
 		}
 	}
 	option = {
@@ -143,6 +149,7 @@ news_event = {
 	picture = GFX_news_event_CMC_soviet_missiles_spotted
 
 	is_triggered_only = yes
+	major = yes
 
 	option = {
 		name = cubamc.4.a
@@ -225,6 +232,9 @@ country_event = {
 		ai_chance = {
 			factor = 10
 		}
+		hidden_effect = {
+			news_event = { id = cubamc.16 days = 2 }
+		}
 	}
 }
 
@@ -292,6 +302,7 @@ news_event = {
 	picture = GFX_news_event_CMC_west_to_east_berlin
 
 	is_triggered_only = yes
+	major = yes
 
 	option = {
 		name = cubamc.10.a
@@ -312,7 +323,9 @@ news_event = {
 	title = cubamc.11.t
 	desc = cubamc.11.d
 	picture = GFX_news_event_CMC_missile_sites_traded
+
 	is_triggered_only = yes
+	major = yes
 
 	option = {
 		name = cubamc.11.a
@@ -342,6 +355,9 @@ country_event = {
 		ai_chance = {
 			factor = 80
 		}
+		hidden_effect = { 
+			news_event = { id = cubamc.14 days = 2 } 
+		}
 	}
 	option = {
 		name = cubamc.12.b
@@ -349,8 +365,17 @@ country_event = {
 			target = CUB
 			type = puppet_wargoal
 		}
+		CUB = {
+			start_civil_war = {
+				ideology = communism
+				size = 0.3
+			}
+		}
 		ai_chance = {
 			factor = 20
+		}
+		hidden_effect = { 
+			news_event = { id = cubamc.15 days = 2 } 
 		}
 	}
 }
@@ -381,5 +406,128 @@ country_event = {
 		ai_chance = {
 			factor = 20
 		}
+	}
+}
+
+news_event = {
+	id = cubamc.14
+	title = cubamc.14.t
+	desc = cubamc.14.d
+	picture = GFX_news_event_CMC_cuba_removes_missiles
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cubamc.14.a
+		trigger = { tag = USA}
+	}
+	option = {
+		name = cubamc.14.b
+		trigger = { tag = SOV}
+	}
+	option = {
+		name = cubamc.14.c
+		trigger = { NOT = { tag = USA tag = SOV } }
+	}
+}
+
+news_event = {
+	id = cubamc.15
+	title = cubamc.15.t
+	desc = cubamc.15.d
+	picture = GFX_news_event_CMC_soviet_war_with_cuba
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cubamc.15.a
+		trigger = { tag = USA}
+	}
+	option = {
+		name = cubamc.15.b
+		trigger = { tag = SOV}
+	}
+	option = {
+		name = cubamc.15.c
+		trigger = { NOT = { tag = USA tag = SOV } }
+	}
+	option = {
+		name = cubamc.15.e
+		trigger = { tag = CUB }
+	}
+}
+
+news_event = {
+	id = cubamc.16
+	title = cubamc.16.t
+	desc = cubamc.16.d
+	picture = GFX_news_event_CMC_cuba_war_with_USA
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cubamc.16.a
+		trigger = { tag = USA}
+	}
+	option = {
+		name = cubamc.16.b
+		trigger = { tag = SOV}
+	}
+	option = {
+		name = cubamc.16.c
+		trigger = { NOT = { tag = USA tag = SOV } }
+	}
+	option = {
+		name = cubamc.16.e
+		trigger = { tag = CUB }
+	}
+}
+
+news_event = {
+	id = cubamc.17
+	title = cubamc.17.t
+	desc = cubamc.17.d
+	picture = GFX_news_event_CMC_cuba_war_with_USA1
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cubamc.17.a
+		trigger = { tag = USA}
+	}
+	option = {
+		name = cubamc.17.b
+		trigger = { tag = SOV}
+	}
+	option = {
+		name = cubamc.17.c
+		trigger = { NOT = { tag = USA tag = SOV } }
+	}
+}
+
+news_event = {
+	id = cubamc.18
+	title = cubamc.18.t
+	desc = cubamc.18.d
+	picture = GFX_news_event_CMC_cuba_war_with_USA_airstrike
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cubamc.18.a
+		trigger = { tag = USA}
+	}
+	option = {
+		name = cubamc.18.b
+		trigger = { tag = SOV}
+	}
+	option = {
+		name = cubamc.18.c
+		trigger = { NOT = { tag = USA tag = SOV } }
 	}
 }
