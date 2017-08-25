@@ -5,12 +5,11 @@
 add_namespace = cuba
 
 # USA Cuban Protection Pact
-
 country_event = {
 
 	id = cuba.2
-	title = "American-Cuban Protection Agreement"
-	desc = "After WWII, countries scramble to pick a side between the Communists and the Capitalists. Cuba has decided to look up to the United States of America for protection."
+	title = cuba.2.t
+	desc = cuba.2.d
 	picture = GFX_report_event_german_speech
 
 	fire_only_once = yes
@@ -22,7 +21,7 @@ country_event = {
 			base = 1
 		}
 
-		name = "America will keep us safe from the commies"
+		name = cuba.2.t
 		add_political_power = 50
 		USA = { give_guarantee = CUB }
 	}
@@ -32,8 +31,8 @@ country_event = {
 country_event = {
 
 	id = cuba.3
-	title = "Elect Batista"
-	desc = "The election results are in and it seems that Batista has won. The people of Cuba are already restless so lets see if he holds his promises."
+	title = cuba.3.t
+	desc = cuba.3.d
 	picture = GFX_report_event_german_speech
 
 	fire_only_once = yes
@@ -45,8 +44,12 @@ country_event = {
 			base = 1
 		}
 
-		name = "Batista might be our saviour."
-		create_country_leader = { name = "Fulgencio Batista" desc = "" picture = "gfx/leaders/CUB/fulgencio_batista.dds" expire = "1965.1.1" ideology = conservatism traits = { } }
+		name = cuba.3.a
+		create_country_leader = { 
+			name = "Fulgencio Batista" 
+			picture = "gfx/leaders/CUB/fulgencio_batista.dds"
+			ideology = conservatism 
+		}
 	}
 }
 
@@ -54,8 +57,8 @@ country_event = {
 country_event = {
 
 	id = cuba.4
-	title = "Communist Revolution"
-	desc = "Whether it was intended or not. The commies will take over the Cuban government and set up their own regime. Their leader is Fidel Castro and he has become leader of Cuba after fighting a hard revolution. He was supported by his brother Raul Castro and their friend Che Guevara."
+	title = cuba.4.t
+	desc = cuba.4.d
 	picture = GFX_report_event_german_speech
 
 	fire_only_once = yes
@@ -67,19 +70,24 @@ country_event = {
 			base = 1
 		}
 
-		name = "Fidel is a man of the people."
-			create_country_leader = { name = "Fidel Castro" desc = "" picture = "gfx/leaders/CUB/fidel_castro.dds" expire = "1999.1.1" ideology = marxism traits = { } }
-			add_popularity = { ideology = communism popularity = 0.65 }
-			set_politics = { ruling_party = communism elections_allowed = no }
-			set_party_name = { ideology = communism long_name = "Partido Comunista de Cuba" name = "Partido Comunista de Cuba" }
+		name = cuba.4.d
+		create_country_leader = { 
+			name = "Fidel Castro" 
+			picture = "gfx/leaders/CUB/fidel_castro.dds" 
+			expire = "1999.1.1" 
+			ideology = marxism 
+		}
+		add_popularity = { ideology = communism popularity = 0.65 }
+		set_politics = { ruling_party = communism elections_allowed = no }
+		set_party_name = { ideology = communism long_name = "Partido Comunista de Cuba" name = "Partido Comunista de Cuba" }
 	}
 }
 
 country_event = {
 
 	id = cuba.5
-	title = "Form the Carribean Alligence"
-	desc = "Being apart of NATO is too risky. Cuba does not want to be in a full scale war but does want allies. They will still remain close with the USA but will keep some distance with them."
+	title = cuba.5.t
+	desc = cuba.5.d
 	picture = GFX_report_event_german_speech
 
 	fire_only_once = yes
@@ -91,7 +99,7 @@ country_event = {
 			base = 1
 		}
 
-		name = "Form the faction"
+		name = cuba.5.a
 		create_faction = "Carribean Alligence"
 	}
 }
@@ -99,8 +107,8 @@ country_event = {
 country_event = {
 
 	id = cuba.6
-	title = "Ask to join NATO"
-	desc = "A war is inevitable, right? Joining the Americans will mean that we can destroy the communists quicker."
+	title = cuba.6.t
+	desc = cuba.6.d
 	picture = GFX_report_event_german_speech
 
 	fire_only_once = yes
@@ -112,7 +120,7 @@ country_event = {
 			base = 1
 		}
 
-		name = "Join NATO."
+		name = cuba.6.a
 		USA = {
 			add_to_faction = CUB }
 	}
@@ -121,8 +129,8 @@ country_event = {
 country_event = {
 
 	id = cuba.7
-	title = "Ask to join Warsaw"
-	desc = "A war is inevitable, right? Joining the Soviets will mean that we can destroy the dirty capitalists quicker."
+	title = cuba.7.t
+	desc = cuba.7.d
 	picture = GFX_report_event_german_speech
 
 	fire_only_once = yes
@@ -134,7 +142,7 @@ country_event = {
 			base = 1
 		}
 
-		name = "Join Warsaw."
+		name = cuba.7.a
 		SOV = {
 			add_to_faction = CUB }
 	}
@@ -143,8 +151,8 @@ country_event = {
 country_event = {
 
 	id = cuba.8
-	title = "Spanish Alliance"
-	desc = "Cuban's are ethnically and culturally spanish and it is time we show our loyalty to Spain and form an alliance with them."
+	title = cuba.8.t
+	desc = cuba.8.d
 	picture = GFX_report_event_german_speech
 
 	fire_only_once = yes
@@ -156,11 +164,13 @@ country_event = {
 			base = 1
 		}
 
-		name = "Form the Alliance!"
+		name = cuba.8.a
 		SPR = {
-			create_faction = "Trans-Atlantic Spanish Alliance" }
+			create_faction = "Trans-Atlantic Spanish Alliance" 
+		}
 		SPR = {
-			add_to_faction = CUB }
+			add_to_faction = CUB 
+		}
 		remove_ideas = internationalism
 	}
 }
@@ -170,8 +180,8 @@ country_event = {
 country_event = {
 
 	id = cuba.9
-	title = "Soviet-Cuban Protection Agreement"
-	desc = "After WWII, countries scramble to pick a side between the Communists and the Capitalists. Cuba has decided to look up to the Union of the Soviet Socialist Republics, USSR, for protection."
+	title = cuba.9.t
+	desc = cuba.9.d
 	picture = GFX_report_event_german_speech
 
 	fire_only_once = yes
@@ -183,10 +193,10 @@ country_event = {
 			base = 1
 		}
 
-		name = "Russia will keep us safe from the capitalist pigs."
+		name = cuba.9.a
 		add_political_power = 50
 		SOV = { give_guarantee = CUB }
-		NOT = { USA = { give_guarantee = CUB } }
+		USA = { diplomatic_relation = { country = CUB relation = military_access active = no } }
 	}
 }
 
@@ -194,8 +204,8 @@ country_event = {
 country_event = {
 
 	id = cuba.10
-	title = "Ban Elections"
-	desc = "Fulgencio Batista was so desperate to keep his role as leader that he banned public elections from taking place."
+	title = cuba.10.t
+	desc = cuba.10.d
 	picture = GFX_report_event_german_speech
 
 	fire_only_once = yes
@@ -207,7 +217,7 @@ country_event = {
 			base = 1
 		}
 
-		name = "Well... that ain't good."
+		name = cuba.10.a
 		create_country_leader = { name = "Fulgencio Batista" desc = "" picture = "gfx/leaders/CUB/fulgencio_batista.dds" expire = "1965.1.1" ideology = fascism_ideology traits = { } }
 		set_politics = { ruling_party = fascism elections_allowed = no }
 		hidden_effect = {add_popularity = { ideology = fascism popularity = 0.65 } }
@@ -220,8 +230,8 @@ country_event = {
 country_event = {
 
 	id = cuba.11
-	title = "Cuban Missile Crisis"
-	desc = "On the 16th of October, 1962, the Soviet Union had placed their missiles on the shore of Cuba. This tension was heightened due to the missile in Turkey which shared a border with the Soviet Union. Both superpowers are currently resolving this crisis but right now it seems like a nuclear fallout will conclude this crisis."
+	title = cuba.11.t
+	desc = cuba.11.d
 	picture = GFX_report_event_german_speech
 
 	fire_only_once = yes
@@ -233,7 +243,7 @@ country_event = {
 			base = 1
 		}
 
-		name = "Uh Oh"
+		name = cuba.11.a
 		add_political_power = 25
 		add_popularity = { ideology = communism popularity = -0.15 }
 		add_national_unity = -0.05
@@ -248,8 +258,8 @@ country_event = {
 country_event = {
 
 	id = cuba.12
-	title = "Trade Embargo"
-	desc = "To crush the Cuba and their economy as much as possible, the United States has but a trade ban, embargo, on all Cuban goods and also attempted to put tarifs on other countries trading with Cuba."
+	title = cuba.12.t
+	desc = cuba.12.d
 	picture = GFX_report_event_german_speech
 
 	fire_only_once = yes
@@ -264,7 +274,7 @@ country_event = {
 			base = 1
 		}
 
-		name = "You've got to be kidding me"
+		name = cuba.12.a
 		add_political_power = -50
 		add_popularity = { ideology = communism popularity = 0.10 }
 		add_national_unity = 0.20
@@ -279,8 +289,8 @@ country_event = {
 country_event = {
 
 	id = cuba.13
-	title = "Invite Carribean Members"
-	desc = "In an effort to expand Cuba's faction, they invite the Dominican Republic and also Haiti."
+	title = cuba.13.t
+	desc = cuba.13.d
 	picture = GFX_report_event_german_speech
 
 	fire_only_once = yes
@@ -292,7 +302,7 @@ country_event = {
 			base = 1
 		}
 
-		name = "Let's hope they accept"
+		name = cuba.13.a
 		add_to_faction = HAI
 		add_to_faction = DOM	
 	}
@@ -302,8 +312,8 @@ country_event = {
 country_event = {
 
 	id = cuba.14
-	title = "Invite Mainland Members"
-	desc = "In an effort to expand Cuba's faction, they invite the countries in Central America."
+	title = cuba.14.t
+	desc = cuba.14.d
 	picture = GFX_report_event_german_speech
 
 	fire_only_once = yes
@@ -315,7 +325,7 @@ country_event = {
 			base = 1
 		}
 
-		name = "Let's hope they accept"
+		name = cuba.14.a
 		add_to_faction = GUA
 		add_to_faction = HON
 		add_to_faction = NIC
@@ -328,8 +338,8 @@ country_event = {
 country_event = {
 
 	id = cuba.15
-	title = "Restrict the Communist Party"
-	desc = "The Communist party is growing. Batista attempts to take them out by restricting them but this only gains them support."
+	title = cuba.15.t
+	desc = cuba.15.d
 	picture = GFX_report_event_german_speech
 
 	fire_only_once = yes
@@ -341,7 +351,7 @@ country_event = {
 			base = 1
 		}
 
-		name = "Death to the commies"
+		name = cuba.15.a
 		add_popularity = { ideology = communism popularity = -0.25 }
 		add_ideas = internationalism
 		remove_ideas = liberty_ethos_focus
@@ -352,8 +362,8 @@ country_event = {
 country_event = {
 
 	id = cuba.16
-	title = "Anti-Imperialist Propaganda"
-	desc = "We can not allow countries exploiting our comrades. We must show the people what colonialism truely looks like."
+	title = cuba.16.t
+	desc = cuba.16.d
 	picture = GFX_report_event_german_speech
 
 	fire_only_once = yes
@@ -365,44 +375,33 @@ country_event = {
 			base = 1
 		}
 
-		name = "Death to the imperialist swines"
+		name = cuba.16.a
 			ENG = { 
-					add_opinion_modifier = { target = ROOT modifier = SAF_anti_colonialist_crusaders }
-			 }
+				add_opinion_modifier = { target = ROOT modifier = SAF_anti_colonialist_crusaders }
+			}
 			FRA = { 
-			 		add_opinion_modifier = { target = ROOT modifier = SAF_anti_colonialist_crusaders } 
-			 }
+			 	add_opinion_modifier = { target = ROOT modifier = SAF_anti_colonialist_crusaders } 
+			}
 			BEL = { 
-			 		add_opinion_modifier = { target = ROOT modifier = SAF_anti_colonialist_crusaders } 
-			 }
+			 	add_opinion_modifier = { target = ROOT modifier = SAF_anti_colonialist_crusaders } 
+			}
 			POR = { 
-			 		add_opinion_modifier = { target = ROOT modifier = SAF_anti_colonialist_crusaders } 
-			 }
+			 	add_opinion_modifier = { target = ROOT modifier = SAF_anti_colonialist_crusaders } 
+			}
 
-		}
-
-	}
-	
+		}}
 # Support Congo Uprising
 country_event = {
 
 	id = cuba.17
-
-	title = "Support Congo Uprising"
-
-	desc = "We must free our comrades in the Congo. They must break their chains of Imperialism!"
-
+	title = cuba.17.t
+	desc = cuba.17.d
 	picture = GFX_report_event_fascist_gathering
-
-	
-
 	is_triggered_only = yes
-
-	
 
 	option = {
 
-		name = "Liberate the Congo"
+		name = cuba.17.a
 		CON = { set_state_owner = 353 }
 
 		}
@@ -413,22 +412,15 @@ country_event = {
 country_event = {
 
 	id = cuba.18
-
-	title = "Support Congo Uprising"
-
-	desc = "We must free our comrades in the Congo. They must break their chains of Imperialism!"
-
+	title = cuba.18.t
+	desc = cuba.18.d
 	picture = GFX_report_event_fascist_gathering
-
-	
 
 	is_triggered_only = yes
 
-	
-
 	option = {
 
-		name = "Liberate the Congo"
+		name = cuba.18.a
 		CON = { set_state_owner = 353 }
 
 	}
@@ -438,20 +430,15 @@ country_event = {
 country_event = {
 
 	id = cuba.19
-
-	title = "Subjugate the Carribean"
-
-	desc = "We must expand our democratic influence to the whole Carribean."
-
+	title = cuba.19.t
+	desc = cuba.19.d
 	picture = GFX_report_event_fascist_gathering
-
-	
 
 	is_triggered_only = yes
 
 	option = {
 
-		name = "Yes... more power"
+		name = cuba.19.a
 		annex_country = { target = DOM transfer_troops = yes }
 		annex_country = { target = HAI transfer_troops = yes }
 		add_political_power = 75
@@ -463,20 +450,15 @@ country_event = {
 country_event = {
 
 	id = cuba.20
-
-	title = "Recover from Sugar Crisis"
-
-	desc = "Our country is in a crisis. We have damaged our economy by exporting too much sugar."
-
+	title = cuba.20.t
+	desc = cuba.20.d
 	picture = GFX_report_event_fascist_gathering
-
-	
 
 	is_triggered_only = yes
 
 	option = {
 
-		name = "Ok"
+		name = cuba.20.a
 		remove_ideas = sugar_crisis
 
 	}
@@ -487,20 +469,15 @@ country_event = {
 country_event = {
 
 	id = cuba.21
-
-	title = "Support Greek Uprising"
-
-	desc = "Greece is having a lot of trouble as their country is ideologically divided. The communists have started a revolution against a fascist government backed by the US."
-
+	title = cuba.21.t
+	desc = cuba.21.d
 	picture = GFX_report_event_fascist_gathering
-
-	
 
 	is_triggered_only = yes
 
 	option = {
 
-		name = "Death to the Commies!"
+		name = cuba.21.a
 		hidden_effect = { GRE = { start_civil_war = { ideology = communism size = 0.1 } } }
 		hidden_effect = { GRE = { add_popularity = { ideology = fascism popularity = 0.5 } } }
 		hidden_effect = { GRE = { set_politics = { ruling_party = fascism elections_allowed = no } } }
@@ -514,20 +491,15 @@ country_event = {
 country_event = {
 
 	id = cuba.22
-
-	title = "Expand Industry to Mainland"
-
-	desc = "It's time to expand our industry and influence out of our island and to the mainland of the America's."
-
+	title = cuba.22.t
+	desc = cuba.22.d
 	picture = GFX_report_event_fascist_gathering
-
-	
 
 	is_triggered_only = yes
 
 	option = {
 
-		name = "We must expand!"
+		name = cuba.22.a
 		CUB = { set_state_owner = 311 }
 		311 = { add_extra_state_shared_building_slots = 3
 					add_building_construction = {
@@ -550,20 +522,15 @@ country_event = {
 country_event = {
 
 	id = cuba.23
-
-	title = "Cuban-American Pact"
-
-	desc = "Cuba has decided to make an agreement. The US will give the territory of Puerto Rico in exchange for equipment and resouces."
-
+	title = cuba.23.t
+	desc = cuba.23.d
 	picture = GFX_report_event_fascist_gathering
-
-	
 
 	is_triggered_only = yes
 
 	option = {
 
-		name = "We must expand!"
+		name = cuba.23.a
 		CUB = { set_state_owner = 686 }
 		send_equipment = { target = USA type = infantry_equipment amount = 1500 }
 		USA = { add_resource = { type = chromium amount = 16 state = 366 } }
@@ -574,20 +541,15 @@ country_event = {
 country_event = {
 
 	id = cuba.24
-
-	title = "Spread the Revolution"
-
-	desc = "Che Guevara, a leading military expert in the Cuban Revolution has propped up a revolution in Bolivia. The Cuban government has decided to send aid to the communists."
-
+	title = cuba.24.t
+	desc = cuba.24.d
 	picture = GFX_report_event_fascist_gathering
-
-	
 
 	is_triggered_only = yes
 
 	option = {
 
-		name = "Support the Communists"
+		name = cuba.24.a
 		hidden_effect = { BOL = { start_civil_war = { ideology = communism size = 0.4 } } }
 		hidden_effect = { BOL = { add_popularity = { ideology = fascism popularity = 0.5 } } }
 		hidden_effect = { BOL = { set_politics = { ruling_party = fascism elections_allowed = no } } }
