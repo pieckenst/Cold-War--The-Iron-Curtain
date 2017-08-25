@@ -415,7 +415,8 @@ focus_tree = {
 		y = 0
 		completion_reward = {
 			add_political_power = 120
-			all_allied_country = {
+			every_country = {
+				limit = { is_in_faction_with = SOV }
 				add_political_power = 120
 			}
 		}
@@ -1244,7 +1245,8 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			add_ideas = one_form_of_government
-			all_allied_country = {
+			every_country = {
+				limit = { is_in_faction_with = SOV }
 				add_ideas = one_form_of_government
 			}
 		}
@@ -2824,7 +2826,29 @@ completion_reward = {
 		}
 		x = 49
 		y = 3
-
+		completion_reward = {
+			add_national_unity = 0.05
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = WGR
+			} 
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = FRA
+			} 		
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ITA
+			} 
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ENG
+			} 				
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = USA
+			} 					
+		}
 	}
 	focus = {
 		id = SOV_mass_the_armor
@@ -2877,7 +2901,17 @@ completion_reward = {
 		}
 		x = 49
 		y = 4
-
+		completion_reward = {
+			add_national_unity = 0.05
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = POR
+			} 
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SPR
+			} 
+		}
 	}
 	focus = {
 		id = SOV_reform_ministry_of_defense
@@ -2938,7 +2972,8 @@ completion_reward = {
 		x = 54
 		y = 1
 		completion_reward = {
-			add_equipment_to_stockpile = { type = fighter_equipment amount = 500 producer = SOV }	
+			add_equipment_to_stockpile = { type = fighter_equipment_1 amount = 500 producer = SOV }
+	
 		}
 	}
 	focus = {
@@ -2953,7 +2988,9 @@ completion_reward = {
 		}
 		x = 52
 		y = 3
-
+		completion_reward = {
+			air_experience = 0.25
+		}
 	}
 	focus = {
 		id = SOV_transpolar_bombing
@@ -3021,7 +3058,15 @@ completion_reward = {
 		}
 		x = 56
 		y = 3
-
+			completion_reward = {
+					army_experience = 25
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+				}
 	}
 	focus = {
 		id = SOV_expand_far_eastern_infrastructure
@@ -3032,7 +3077,50 @@ completion_reward = {
 		}
 		x = 54
 		y = 4
-
+		completion_reward = {
+			561 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}				
+			}
+			408 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}				
+			}
+			560 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}				
+			}
+			657 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}				
+			}
+			537 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}				
+			}
+			655 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}				
+			}
+		}
 	}
 	focus = {
 		id = SOV_expand_siberian_infrastructure
@@ -3043,7 +3131,71 @@ completion_reward = {
 		}
 		x = 54
 		y = 5
-
+		completion_reward = {
+			561 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}				
+			}
+			516 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}				
+			}
+			574 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}				
+			}
+			575 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}				
+			}
+			576 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}				
+			}
+			577 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}				
+			}
+			578 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}				
+			}
+			579 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}				
+			}
+			580 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}				
+			}
+		}
 	}
 	focus = {
 		id = SOV_expand_russian_infrastructure
@@ -3054,7 +3206,53 @@ completion_reward = {
 		}
 		x = 54
 		y = 6
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = { 
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+					state_population > 1000000
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_improve_railway_3Inf
+			}
+			random_owned_controlled_state = {
+				limit = { 
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+					state_population > 1000000
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_improve_railway_3Inf
+			}
+			random_owned_controlled_state = {
+				limit = { 
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+					state_population > 1000000
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_improve_railway_3Inf
+			}
+		}
 	}
 	focus = {
 		id = SOV_far_eastern_defences
@@ -3065,7 +3263,100 @@ completion_reward = {
 		}
 		x = 54
 		y = 7
-
+		completion_reward = {
+			563 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					custom_effect_tooltip = SOV_far_east_fortification_forts_1
+					hidden_effect = {
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 4719
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 12622
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 10559
+							instant_build = yes
+						}
+					}
+				}					
+			}
+			657 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					custom_effect_tooltip = SOV_far_east_fortification_forts_2
+					hidden_effect = {
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 7763
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 4725
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 10655
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 7801
+							instant_build = yes
+						}
+					}
+				}
+			}
+			409 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					custom_effect_tooltip = SOV_far_east_fortification_forts_3
+					hidden_effect = {
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 12189
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 10466
+							instant_build = yes
+						}
+					}
+				}
+			}
+			408 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 11643
+						instant_build = yes
+					}
+				}
+			}
+			# Other possible Provinces
+			# 4719 12622 10559 12543 7851 10678 12657 7763 4725 10655 7801 10722 7672 4805
+			# 12189 10466 11643 6686 664 6684 3787 6838 3977 11879 1755
+		}
 	}
 	focus = {
 		id = SOV_first_line_of_defences
@@ -3076,7 +3367,122 @@ completion_reward = {
 		}
 		x = 54
 		y = 8
+		completion_reward = {
+			209 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = bunker
+						level = 6
+						province = 415
+						instant_build = yes
+					}
+				}
+				#add_building_construction = {
+				#	type = bunker
+				#	level = 6
+				#	province = 209
+				#	instant_build = yes
+				#}
+			}
+			210 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 3333
+						instant_build = yes
+					}
+				}
+			}
+			207 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 3219
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 6371
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 6220
+						instant_build = yes
+					}
+				}
+			}
+			206 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 11370
+						instant_build = yes
+					}
+				}
+			}
+			202 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = bunker
+						level = 7
+						province = 525
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 7
+						province = 3494
+						instant_build = yes
+					}
+				}
 
+			}
+			203 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = bunker
+						level = 7
+						province = 11409
+						instant_build = yes
+					}
+				}
+			}
+			192 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = bunker
+						level = 5
+						province = 754
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						province = 741
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						province = 11670
+						instant_build = yes
+					}
+				}
+			}
+		}
 	}
 	focus = {
 		id = SOV_second_line_of_defences
@@ -3087,7 +3493,79 @@ completion_reward = {
 		}
 		x = 54
 		y = 9
+		completion_reward = {
+			573 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					custom_effect_tooltip = SOV_far_east_fortification_forts_1
+					hidden_effect = {
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 10329
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 11223
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 7320
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 3280
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 4758
+							instant_build = yes
+						}
+					}
+				}					
+			}
+			582 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					custom_effect_tooltip = SOV_far_east_fortification_forts_2
+					hidden_effect = {
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 10185
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 4311
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 12200
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 4383
+							instant_build = yes
+						}
+					}
+				}
+			}
 
+		}
 	}
 	focus = {
 		id = SOV_continued_arming
@@ -3098,7 +3576,20 @@ completion_reward = {
 		}
 		x = 54
 		y = 10
-
+		completion_reward = {
+					add_tech_bonus = {
+							name = infantry_weapons_bonus
+							bonus = 0.5
+							uses = 1
+							category = infantry_weapons
+						}
+					add_tech_bonus = {
+							name = armor_bonus
+							bonus = 0.5
+							uses = 1
+							category = armor
+						}
+					}
 	}
 	focus = {
 		id = SOV_army_redevelopment
@@ -3109,7 +3600,10 @@ completion_reward = {
 		}
 		x = 58
 		y = 4
-
+			completion_reward = {
+					army_experience = 5
+					add_ideas = militarized_schools
+				}
 	}
 	focus = {
 		id = SOV_new_land_doctrines
@@ -3194,6 +3688,53 @@ completion_reward = {
 		x = 58
 		y = 9
 
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = { 
+					free_building_slots = {
+						building = anti_air_building
+						size > 2
+					}
+					state_population > 1000000
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_improve_railway_3Inf
+			}
+			random_owned_controlled_state = {
+				limit = { 
+					free_building_slots = {
+						building = anti_air_building
+						size > 2
+					}
+					state_population > 1000000
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_improve_railway_3Inf
+			}
+			random_owned_controlled_state = {
+				limit = { 
+					free_building_slots = {
+						building = anti_air_building
+						size > 2
+					}
+					state_population > 1000000
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_improve_railway_3Inf
+			}
+		}
 	}
 	focus = {
 		id = SOV_airfield_initiative
@@ -3205,6 +3746,53 @@ completion_reward = {
 		x = 58
 		y = 10
 
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = { 
+					free_building_slots = {
+						building = air_base
+						size > 2
+					}
+					state_population > 1000000
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_improve_railway_3Inf
+			}
+			random_owned_controlled_state = {
+				limit = { 
+					free_building_slots = {
+						building = anti_air_building
+						size > 2
+					}
+					state_population > 1000000
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_improve_railway_3Inf
+			}
+			random_owned_controlled_state = {
+				limit = { 
+					free_building_slots = {
+						building = anti_air_building
+						size > 2
+					}
+					state_population > 1000000
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_improve_railway_3Inf
+			}
+		}
 	}
 	focus = {
 		id = SOV_nuclear_initiatiive
@@ -4016,7 +4604,8 @@ completion_reward = {
 		x = 65
 		y = 1
 		completion_reward = {
-			all_allied_country = { 
+				every_country = {
+				limit = { is_in_faction_with = SOV }
 					random_owned_controlled_state = {
 							limit = {
 									free_building_slots = {
@@ -4095,7 +4684,8 @@ completion_reward = {
 		x = 69
 		y = 1
 		completion_reward = {
-			all_allied_country = {
+			every_country = {
+				limit = { is_in_faction_with = SOV }
 				random_owned_controlled_state = {
 					limit = {
 						industrial_complex > 0
@@ -4150,7 +4740,8 @@ completion_reward = {
 		y = 2
 		
 		completion_reward = {
-			all_allied_country = {
+			every_country = {
+				limit = { is_in_faction_with = SOV }
 				random_owned_controlled_state = {
 					limit = {
 						industrial_complex > 0
@@ -4198,7 +4789,8 @@ completion_reward = {
 		x = 67
 		y = 3
 		completion_reward = {
-			all_allied_country = {
+			every_country = {
+				limit = { is_in_faction_with = SOV }
 				capital_scope = {
 					add_resource = { type = oil amount = 4 state = THIS }
 				}
@@ -4215,7 +4807,8 @@ completion_reward = {
 		x = 67
 		y = 4
 		completion_reward = {
-			all_allied_country = {
+			every_country = {
+				limit = { is_in_faction_with = SOV }
 				capital_scope = {
 					add_resource = { type = oil amount = 6 state = THIS }
 				}
@@ -4233,7 +4826,8 @@ completion_reward = {
 		x = 67
 		y = 5
 		completion_reward = {
-			all_allied_country = {
+			every_country = {
+				limit = { is_in_faction_with = SOV }
 					all_owned_state = {
 							add_extra_state_shared_building_slots = 2
 						}
@@ -4280,7 +4874,8 @@ completion_reward = {
 		x = 66
 		y = 6
 		completion_reward = {
-			all_allied_country = {
+			every_country = {
+				limit = { is_in_faction_with = SOV }
 				add_ideas = workers_culture
 			}
 		}
@@ -4295,7 +4890,8 @@ completion_reward = {
 		x = 68
 		y = 6
 		completion_reward = {
-			all_allied_country = {
+			every_country = {
+				limit = { is_in_faction_with = SOV }
 				add_ideas = progress_cult_focus
 			}
 		}
@@ -4539,7 +5135,13 @@ completion_reward = {
 		}
 		x = 73
 		y = 3
-
+		completion_reward = {
+			add_ideas = big_seven
+			every_country = {
+				limit = { is_in_faction_with = SOV }
+				add_ideas = big_seven
+			}
+		}
 	}
 	focus = {
 		id = SOV_yugoslavian_interest
@@ -4563,6 +5165,10 @@ completion_reward = {
 									modifier = large_increase
 								}
 						}
+					create_wargoal = {
+						type = puppet_wargoal_focus
+						target = PRC
+					}
 				}
 	}
 	focus = {
@@ -4604,11 +5210,12 @@ completion_reward = {
 		x = 75
 		y = 3
 		completion_reward = {
-			all_allied_country = {
+			every_country = {
+				limit = { is_in_faction_with = SOV }
 				add_ideas = communist_pressure
 			}
 		}
-	}
+	}	
 	focus = {
 		id = SOV_main_center_for_missle_detection
 		icon = GFX_focus_rocketry
@@ -4618,7 +5225,15 @@ completion_reward = {
 		}
 		x = 75
 		y = 4
-
+		completion_reward = {
+			capital_scope = {
+				add_building_construction = {
+					type = radar_station
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = SOV_radar_network_expansion
@@ -4629,7 +5244,20 @@ completion_reward = {
 		}
 		x = 75
 		y = 5
+		completion_reward = {
+			every_country = {
+				limit = { is_in_faction_with = SOV }
+				capital_scope = {
 
+					add_building_construction = {
+						type = radar_station
+						level = 3
+						instant_build = yes
+					}
+					set_state_flag = SOV_improve_railway_3Inf
+				}
+			}
+		}
 	}
 	focus = {
 		id = SOV_support_FARC
@@ -4716,7 +5344,8 @@ completion_reward = {
 		x = 77
 		y = 2
 		completion_reward = {
-			all_allied_country = {
+			every_country = {
+				limit = { is_in_faction_with = SOV }
 					all_owned_state = {
 							add_extra_state_shared_building_slots = 1
 						}
@@ -6332,7 +6961,8 @@ completion_reward = {
 		x = 11
 		y = 20
 		completion_reward = {
-			all_allied_country = {
+				every_country = {
+				limit = { is_in_faction_with = SOV }
 				add_popularity = { ideology = communism popularity = 0.15 }
 			}
 		}
