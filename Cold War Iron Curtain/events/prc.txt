@@ -312,3 +312,53 @@ country_event = {
 		}
 	}
 }
+
+# Annexation of ETR
+country_event = {
+	id = prc.12
+	title = prc.12.t
+	desc = prc.12.d
+
+	trigger = {
+		PRC = { NOT = { has_war_with = CHI } }
+		country_exists = ETK
+	}
+
+	option = {
+		name = prc.12.a
+		ETR = { country_event = prc.13 }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+}
+
+# Annexation of ETR to ETR
+country_event = {
+	id = prc.13
+	title = prc.13.t
+	desc = prc.13.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = prc.13.a
+		PRC = { annex_country = ETR }
+		ai_chance = {
+			factor = 99
+		}
+	}
+
+	option = {
+		name = prc.13.b
+		PRC = {
+			declare_war_on = {
+				target = ETR
+				type = annex_everything
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
