@@ -29,7 +29,7 @@ country_event = {
 	
 	trigger = {
 		NOT = { tag = USA }
-		OR = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
+		AND = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
 		has_government = democratic
 		NOT = {
 			OR = {
@@ -69,7 +69,7 @@ country_event = {
 	
 	trigger = {
 		NOT = { tag = USA }
-		OR = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
+		AND = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
 		has_government = democratic
 		has_war = no
 		OR = {
@@ -120,7 +120,7 @@ country_event = {
 
 	option = {
 		name = election.3.b
-		ai_chance = { factor = 0 }
+		ai_chance = { factAND = 0 }
 		add_national_unity = -0.05
 	}
 }
@@ -136,7 +136,7 @@ country_event = {
 
 	trigger = {
 		NOT = { tag = USA }
-		OR = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
+		AND = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
 		has_government = democratic
 		NOT = { has_idea = fascism_defeated }
 		fascism > 0.15
@@ -169,7 +169,7 @@ country_event = {
 
 	trigger = {
 		NOT = { tag = USA }
-		OR = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
+		AND = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
 		has_government = democratic
 		NOT = { has_idea = communism_defeated }
 		communism > 0.15
@@ -202,7 +202,7 @@ country_event = {
 
 	trigger = {
 		NOT = { tag = USA }
-		OR = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
+		AND = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
 		has_government = democratic
 		democratic < 0.5
 		fascism < 0.5
@@ -246,7 +246,7 @@ country_event = {
 
 	trigger = {
 		NOT = { tag = USA }
-		OR = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
+		AND = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
 		has_government = democratic
 		has_country_flag = coalition_with_fascists
 		any_country = {
@@ -288,7 +288,7 @@ country_event = {
 
 	trigger = {
 		NOT = { tag = USA }
-		OR = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
+		AND = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
 		has_government = democratic
 		has_country_flag = coalition_with_communists
 		any_country = {
@@ -420,7 +420,7 @@ country_event = {
 
 	trigger = {
 		NOT = { tag = USA }
-		OR = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
+		AND = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
 		has_government = democratic
 		has_war = yes
 	}
@@ -456,7 +456,7 @@ country_event = {
 
 	trigger = {
 		NOT = { tag = USA }
-		OR = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
+		AND = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
 		has_government = democratic
 		has_war = yes
 		any_war_score < 20
@@ -494,7 +494,10 @@ country_event = {
 
 	trigger = {
 		NOT = { tag = USA }
-		OR = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
+		AND = { 
+			NOT = { tag = SPR } 
+			NOT = { date < 1937.1.1 } 
+		}
 		has_government = fascism
 		fascism > 0.5
 	}
@@ -516,7 +519,7 @@ country_event = {
 
 	trigger = {
 		NOT = { tag = USA }
-		OR = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
+		AND = { NOT = { tag = SPR } NOT = { date < 1937.1.1 } }
 		has_government = fascism
 		NOT = { fascism > 0.5 }
 	}
@@ -572,7 +575,7 @@ country_event = {
 
 	trigger = {
 		NOT = { tag = USA }
-		OR = {
+		AND = {
 			NOT = { has_government = conservative }
 			conservative > 0.5 
 		}
@@ -593,7 +596,7 @@ country_event = {
 
 	trigger = {
 		NOT = { tag = USA }
-		OR = {
+		AND = {
 			NOT = { has_government = socialist }
 			socialist > 0.5 
 		}
@@ -615,7 +618,7 @@ country_event = {
 
 	trigger = {
 		NOT = { tag = USA }
-		OR = {
+		AND = {
 			NOT = { has_government = centrist }
 			centrist > 0.5 
 		}
@@ -637,7 +640,7 @@ country_event = {
 
 	trigger = {
 		NOT = { tag = USA }
-		OR = {
+		AND = {
 			NOT = { has_government = democratic }
 			democratic > 0.5 
 		}
