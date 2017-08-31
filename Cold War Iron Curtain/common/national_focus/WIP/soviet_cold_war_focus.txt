@@ -101,7 +101,9 @@ focus_tree = {
 		}
 		x = 13
 		y = 15
-
+		completion_reward = {
+			#Event Fire for KGB Coup
+		}
 	}
 	focus = {
 		id = SOV_soviet_development
@@ -405,7 +407,118 @@ focus_tree = {
 		cost = 10.00
 		x = 62
 		y = 0
-
+			complete_tooltip = {
+					navy_experience = 25
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+							type = dockyard
+							level = 3
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					navy_experience = 25
+					if = {
+							limit = {
+									NOT = {
+											any_owned_state = {
+													dockyard > 0
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+									any_owned_state = {
+											is_coastal = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									any_owned_state = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									NOT = {
+											any_owned_state = {
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+								}
+							random_state = {
+									limit = {
+											controller = {
+													tag = ROOT
+												}
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+				}
 	}
 	focus = {
 		id = SOV_COMECON
@@ -437,7 +550,16 @@ focus_tree = {
 		cost = 10.00
 		x = 78
 		y = 11
-
+		available = {
+			country_exists = MZB
+			MZB = { has_government = communism }
+		}		
+		x = 78
+		y = 9
+		completion_reward = {
+			send_equipment = { target = MZB type = infantry_equipment amount = 3000 }	
+			send_equipment = { target = MZB type = fighter_equipment amount = 500 }	
+		}
 	}
 	focus = {
 		id = SOV_egalitarian_beliefs
@@ -527,7 +649,10 @@ focus_tree = {
 		}
 		x = 0
 		y = 3
-
+		
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.1 }	
+		}
 	}
 	focus = {
 		id = SOV_revitalize_the_new_economic_policy
@@ -684,7 +809,10 @@ focus_tree = {
 		}
 		x = 0
 		y = 12
-
+		
+		completion_reward = {
+			#Fire Helsinki Treaty Event
+		}
 	}
 	focus = {
 		id = SOV_revise_the_economy
@@ -1205,7 +1333,9 @@ focus_tree = {
 		}
 		x = 8
 		y = 16
-
+		completion_reward = {
+			#Fire Events For Fall of Soviet Union
+		}
 	}
 	focus = {
 		id = SOV_normalize_relations
@@ -1216,7 +1346,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 17
-
+		completion_reward = {
+				add_named_threat = { threat = -75 name =  }
+		}
 	}
 	focus = {
 		id = SOV_an_iron_curtain
@@ -1273,7 +1405,9 @@ focus_tree = {
 		}
 		x = 7
 		y = 4
-
+		completion_reward = {
+			swap_ideas = { remove_idea = gulag_politic add_idea = gulag_politic_expanded }
+		}
 	}
 	focus = {
 		id = SOV_form_russian_federation
@@ -1287,7 +1421,13 @@ focus_tree = {
 		}
 		x = 8
 		y = 18
-
+		
+		completion_reward = {
+			add_popularity = { ideology = democratic popularity = 0.35 }
+			add_popularity = { ideology = nationalism popularity = 0.10 }
+			add_popularity = { ideology = conservative popularity = 0.10 }
+			set_politics = { ruling_party = democratic elections_allowed = yes }
+		}
 	}
 	focus = {
 		id = SOV_keep_the_union
@@ -1302,7 +1442,10 @@ focus_tree = {
 		x = -3
 		y = 0
 		relative_position_id = SOV_form_russian_federation
-
+		
+		completion_reward = {
+			#Fire Events for Soviet Civil War
+		}
 	}
 	focus = {
 		id = SOV_restore_the_glory
@@ -1340,7 +1483,41 @@ focus_tree = {
 		}
 		x = 8
 		y = 20
-
+		completion_reward = {
+			add_national_unity = 0.05
+			create_wargoal = {
+				type = annex_everything
+				target = BEL
+			} 
+			create_wargoal = {
+				type = annex_everything
+				target = EST
+			} 		
+			create_wargoal = {
+				type = annex_everything
+				target = LAT
+			} 
+			create_wargoal = {
+				type = annex_everything
+				target = LIT
+			} 				
+			create_wargoal = {
+				type = annex_everything
+				target = KAZ
+			} 				
+			create_wargoal = {
+				type = annex_everything
+				target = GEO
+			} 		
+			create_wargoal = {
+				type = annex_everything
+				target = UKR
+			} 				
+			create_wargoal = {
+				type = annex_everything
+				target = AZR	
+			} 				
+		}
 	}
 	focus = {
 		id = SOV_payments_to_politburo_officials
@@ -1505,7 +1682,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 2
-
+		completion_reward = {
+			#Events Fire for Stalin Note
+		}
 	}
 	focus = {
 		id = SOV_farmers_first
@@ -1545,7 +1724,9 @@ focus_tree = {
 		}
 		x = 13
 		y = 16
-
+		completion_reward = {
+			add_ideas = undo_the_damage
+		}
 	}
 	focus = {
 		id = SOV_KGB_leading_union
@@ -1818,7 +1999,69 @@ focus_tree = {
 		}
 		x = 15
 		y = 19
-
+		completion_reward = {
+			add_national_unity = 0.05
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = BEL
+			} 
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = EST
+			} 		
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = LAT
+			} 
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = LIT
+			} 				
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = KAZ
+			} 				
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ARM
+			} 		
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = GEO
+			} 		
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = UKR
+			} 		
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = POL
+			} 		
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = CZE
+			} 	
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = HUN
+			} 			
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = AZR	
+			} 				
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ROM
+			} 	
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = YUG
+			} 	
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ALB
+			} 	
+		}
 	}
 	focus = {
 		id = SOV_renew_military_industrial_complex
@@ -2383,7 +2626,11 @@ completion_reward = {
 		}
 		x = 22
 		y = 9
-
+		
+		completion_reward = {
+			add_national_unity = 0.10
+			add_ideas = total_loyalty
+		}
 	}
 	focus = {
 		id = SOV_city_economics
@@ -2550,7 +2797,22 @@ completion_reward = {
 		}
 		x = 28
 		y = 7
-
+			completion_reward = {
+					army_experience = 25
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 2
+							category = land_doctrine
+						}
+					add_tech_bonus = {
+							name = infantry_weapons_bonus
+							bonus = 0.5
+							uses = 1
+							category = infantry_weapons
+							category = artillery
+						}
+					}
 	}
 	focus = {
 		id = SOV_military_advancements
@@ -2561,7 +2823,9 @@ completion_reward = {
 		}
 		x = 28
 		y = 8
-
+		completion_reward = {
+			add_ideas = SOV_military_primacy
+		}
 	}
 	focus = {
 		id = SOV_western_thaw
@@ -2614,7 +2878,7 @@ completion_reward = {
 		y = 9
 			completion_reward = {
 					add_ideas = nationalism
-					add_popularity = { ideology = fascism popularity = 0.25 }	
+					add_popularity = { ideology = nationalism popularity = 0.25 }	
 				}
 	}
 	focus = {
@@ -3897,7 +4161,9 @@ completion_reward = {
 		}
 		x = 56
 		y = 12
-
+		completion_reward = {
+			add_ideas = SOV_military_production_initiatiive_idea		
+		}
 	}
 	focus = {
 		id = SOV_great_soviet_engineering
@@ -3908,7 +4174,9 @@ completion_reward = {
 		}
 		x = 55
 		y = 13
-
+		completion_reward = {
+			add_ideas = SOV_great_soviet_engineering		
+		}
 	}
 	focus = {
 		id = SOV_nuclear_deterence
@@ -4177,7 +4445,25 @@ completion_reward = {
 		}
 		x = 60
 		y = 5
-
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = basic_battlecruiser
+				technology = basic_battleship
+				technology = improved_battleship
+				technology = advanced_battleship
+				technology = heavy_battleship
+				technology = heavy_battleship2
+				technology = early_carrier
+				technology = basic_carrier
+				technology = improved_carrier
+				technology = advanced_carrier
+			}
+		}
 	}
 	focus = {
 		id = SOV_civilian_factory_initiative
@@ -4329,7 +4615,25 @@ completion_reward = {
 		}
 		x = 62
 		y = 3
-
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = basic_battlecruiser
+				technology = basic_battleship
+				technology = improved_battleship
+				technology = advanced_battleship
+				technology = heavy_battleship
+				technology = heavy_battleship2
+				technology = early_carrier
+				technology = basic_carrier
+				technology = improved_carrier
+				technology = advanced_carrier
+			}
+		}
 	}
 	focus = {
 		id = SOV_naval_industry_two
@@ -4745,7 +5049,12 @@ completion_reward = {
 		}
 		x = 67
 		y = 1
-
+		completion_reward = {
+			every_country = {
+				limit = { is_in_faction_with = SOV }
+				add_ideas = soviet_research_collaboration
+			}
+		}
 	}
 	focus = {
 		id = SOV_rebuild_member_civilian_industries
@@ -4978,6 +5287,12 @@ completion_reward = {
 		}
 		x = 70
 		y = 2
+		completion_reward = {
+			every_country = {
+				limit = { is_in_faction_with = SOV }
+				add_ideas = hold_til_the_russians
+			}
+		}		
 
 	}
 	focus = {
@@ -4989,6 +5304,10 @@ completion_reward = {
 		}
 		x = 70
 		y = 3
+		
+		completion_reward = {
+			add_ideas = SOV_fortification_focus
+		}
 
 	}
 	focus = {
@@ -5000,7 +5319,12 @@ completion_reward = {
 		}
 		x = 70
 		y = 4
-
+		completion_reward = {
+			every_country = {
+				limit = { is_in_faction_with = SOV }
+				add_ideas = SOV_fortification_focus
+			}
+		}
 	}
 	focus = {
 		id = SOV_anti_colonialism
@@ -5111,7 +5435,21 @@ completion_reward = {
 		}
 		x = 68
 		y = 9
-
+		available = {
+			any_other_country = {
+				original_tag = GRN
+				has_government = communism
+			}
+		}		
+		completion_reward = {
+			random_other_country = {
+				limit = {
+					original_tag = GRN
+					has_government = communism
+				}
+				send_equipment = { target = PREV type = infantry_equipment amount = 3000 }	
+			}
+		}
 	}
 	focus = {
 		id = SOV_cuban_revolution
@@ -5186,7 +5524,9 @@ completion_reward = {
 		}
 		x = 76
 		y = 1
-
+		completion_reward = {
+		
+		}
 	}
 	focus = {
 		id = SOV_internal_stability
@@ -5197,7 +5537,9 @@ completion_reward = {
 		}
 		x = 73
 		y = 2
-
+		completion_reward = {
+			add_national_unity = 0.15
+		}
 	}
 	focus = {
 		id = SOV_soviet_big_seven
@@ -5271,7 +5613,18 @@ completion_reward = {
 		}
 		x = 74
 		y = 9
-
+		available = {
+			country_exists = SUR
+			NOT = { has_government = communism }
+		}	
+			completion_reward = {
+					SUR = {
+							start_civil_war = {
+									ideology = communism
+									size = 0.5
+								}
+						}
+				}	
 	}
 	focus = {
 		id = SOV_influence_eastern_bloc
@@ -5456,7 +5809,7 @@ completion_reward = {
 			}
 	}
 	focus = {
-		id = SOV_build_berlin_wall
+		id = SOV_build_berlin_wall		#Berlin Question
 		icon = GFX_goal_support_communism
 		cost = 10.00
 		prerequisite = {
@@ -5464,10 +5817,12 @@ completion_reward = {
 		}
 		x = 77
 		y = 3
-
+		completion_reward = {
+			#Berlin Question Event Chain
+		}
 	}
 	focus = {
-		id = SOV_build_anti_air_defences_east_germany
+		id = SOV_build_anti_air_defences_east_germany	#Boost East German Air Experience
 		icon = GFX_goal_generic_construct_military
 		cost = 10.00
 		prerequisite = {
@@ -5475,7 +5830,9 @@ completion_reward = {
 		}
 		x = 77
 		y = 4
-
+		completion_reward = {
+            DDR = { air_experience = 25 }
+		}
 	}
 	focus = {
 		id = SOV_africa_operations
@@ -5498,9 +5855,16 @@ completion_reward = {
 		prerequisite = {
 			focus = SOV_africa_operations
 		}
+		available = {
+			country_exists = MZB
+			MZB = { has_government = communism }
+		}		
 		x = 78
 		y = 9
-
+		completion_reward = {
+			send_equipment = { target = MZB type = infantry_equipment amount = 3000 }	
+			send_equipment = { target = MZB type = fighter_equipment amount = 500 }	
+		}
 	}
 	focus = {
 		id = SOV_mozambique_advisors
@@ -5509,9 +5873,15 @@ completion_reward = {
 		prerequisite = {
 			focus = SOV_fund_mozambiqan_war_of_independence
 		}
+		available = {
+			country_exists = MZB
+			MZB = { has_government = communism }
+		}		
 		x = 78
 		y = 10
-
+		completion_reward = {
+			MZB = { add_ideas = soviet_advisors }
+		}
 	}
 	focus = {
 		id = SOV_spread_the_revolution
@@ -5522,7 +5892,26 @@ completion_reward = {
 		}
 		x = 82
 		y = 2
-
+		completion_reward = {
+			FRA = {
+				add_ideas = internationalism
+			}
+			ITA = {
+				add_ideas = internationalism
+			}
+			ENG = {
+				add_ideas = internationalism
+			}
+			NOR = {
+				add_ideas = internationalism
+			}
+			BEL = {
+				add_ideas = internationalism
+			}
+			HOL = {
+				add_ideas = internationalism
+			}
+		}
 	}
 	focus = {
 		id = SOV_french_communists
@@ -5572,9 +5961,16 @@ completion_reward = {
 		prerequisite = {
 			focus = SOV_africa_operations
 		}
+		available = {
+			country_exists = MZB
+			MZB = { has_government = communism }
+		}		
 		x = 80
 		y = 9
-
+		completion_reward = {
+			send_equipment = { target = MZB type = infantry_equipment amount = 3000 }	
+			send_equipment = { target = MZB type = fighter_equipment amount = 500 }	
+		}
 	}
 	focus = {
 		id = SOV_send_advisors_to_angola
@@ -5583,9 +5979,16 @@ completion_reward = {
 		prerequisite = {
 			focus = SOV_support_the_mpla
 		}
+		available = {
+			country_exists = ANG
+			ANG = { has_government = communism }
+		}		
 		x = 80
 		y = 10
 
+		completion_reward = {
+			ANG = { add_ideas = soviet_advisors }
+		}
 	}
 	focus = {
 		id = SOV_invade_angola
@@ -5594,9 +5997,17 @@ completion_reward = {
 		prerequisite = {
 			focus = SOV_send_advisors_to_angola
 		}
+		available = {
+			country_exists = ANG
+		}	
 		x = 80
 		y = 11
-
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ANG
+			} 
+		}
 	}
 	focus = {
 		id = SOV_italian_communists
@@ -5752,7 +6163,21 @@ completion_reward = {
 		}
 		x = 86
 		y = 9
-
+		available = {
+			any_other_country = {
+				original_tag = COG
+				has_government = communism
+			}
+		}		
+		completion_reward = {
+			random_other_country = {
+				limit = {
+					original_tag = COG
+					has_government = communism
+				}
+				send_equipment = { target = PREV type = infantry_equipment amount = 3000 }	
+			}
+		}
 	}
 	focus = {
 		id = SOV_eritrean_civil_war
@@ -5763,9 +6188,20 @@ completion_reward = {
 		}
 		x = 88
 		y = 9
-
+		available = {
+			country_exists = ERT
+			NOT = { has_government = communism }
+		}	
+			completion_reward = {
+					ERT = {
+							start_civil_war = {
+									ideology = communism
+									size = 0.5
+								}
+						}
+				}		
 	}
-	focus = {
+	focus = {	#Zimbabwe People's Revolutionary Army
 		id = SOV_support_ZIRPA
 		icon = GFX_goal_continuous_reduce_training_time
 		cost = 10.00
@@ -5774,7 +6210,21 @@ completion_reward = {
 		}
 		x = 90
 		y = 9
-
+		available = {
+			any_other_country = {
+				original_tag = ZIM
+				has_government = communism
+			}
+		}		
+		completion_reward = {
+			random_other_country = {
+				limit = {
+					original_tag = ZIM
+					has_government = communism
+				}
+				send_equipment = { target = PREV type = infantry_equipment amount = 3000 }	
+			}
+		}
 	}
 	focus = {
 		id = SOV_middle_east_operations
@@ -5912,7 +6362,9 @@ completion_reward = {
 		}
 		x = 95
 		y = 9
-
+		completion_reward = {
+			#Demand Unity Gov Event Fires
+		}
 	}
 	focus = {
 		id = SOV_zhenbao_island_incident
@@ -6542,7 +6994,14 @@ completion_reward = {
 		}
 		x = 100
 		y = 4
-
+		
+		completion_reward = {
+			SAU = { add_ideas = communist_pressure }
+			JOR = { add_ideas = communist_pressure }
+			SYR = { add_ideas = communist_pressure }
+			EGY = { add_ideas = communist_pressure }
+			IRQ = { add_ideas = communist_pressure }
+		}
 	}
 	focus = {
 		id = SOV_fund_south_yemen_aden_emergency
@@ -6735,6 +7194,24 @@ completion_reward = {
 
 	}
 	focus = {
+		id = SOV_revoke_treaty_of_kars
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_middle_east_operations
+		}
+		mutually_exclusive = {
+			focus = SOV_foster_political_neutrality_turkey
+		}
+		x = 100
+		y = 2
+		
+		completion_reward = {
+			#Fires Events for Turkish Crisis
+		}
+
+	}	
+	focus = {
 		id = SOV_syrian_civil_war
 		icon = GFX_focus_generic_support_the_left_right
 		cost = 10.00
@@ -6893,7 +7370,9 @@ completion_reward = {
 		}
 		x = 16
 		y = 8
-
+		completion_reward = {
+			#German Re-Unification Fires: Beria Edition
+		}
 	}
 	focus = {
 		id = SOV_dismantle_nkvd
@@ -7075,7 +7554,9 @@ completion_reward = {
 		}
 		x = 15
 		y = 22
-
+		completion_reward = {
+			add_political_power = 120
+		}
 	}
 	focus = {
 		id = SOV_industrial_complexes
@@ -7310,7 +7791,10 @@ completion_reward = {
 		}
 		x = 45
 		y = 5
-
+			completion_reward = {
+					add_manpower = 20000
+					load_oob = soviet_reinforcements_2
+				}
 	}
 	focus = {
 		id = SOV_mixed_warfare
@@ -7390,7 +7874,10 @@ completion_reward = {
 		}
 		x = 54
 		y = 10
-
+			completion_reward = {
+					add_manpower = 20000
+					load_oob = soviet_reinforcements_1
+				}
 	}
 	focus = {
 		id = SOV_spark_civil_wars_west_europe
