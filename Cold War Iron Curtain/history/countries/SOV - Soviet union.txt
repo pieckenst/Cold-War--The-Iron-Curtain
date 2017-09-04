@@ -16,7 +16,21 @@ set_technology = {
 	motorised_infantry = 1
 	paratroopers = 1
 	gw_artillery = 1
-	
+	lmg_infantry_weapons1 = 1
+	heavy_infantry_weapons1 = 1
+	heavy_infantry_weapons2 = 1
+	improved_infantry_weapons = 1
+	infantry_weapons_1940 = 1
+	mortar_infantry_weapons_1 = 1
+	mortar_infantry_weapons_2 = 1
+	light_infantry_weapons_1940 = 1
+	light_infantry_weapons_1941 = 1
+	light_infantry_weapons_1943 = 1
+	lmg_infantry_weapons2 = 1
+	lmg_infantry_weapons3 = 1
+	lmg_infantry_weapons4 = 1
+	semi_assault_1945 = 1
+
 	light_tanks_1 = 1  # PLACEHOLDER
 	#heavy_tanks_1 = 1  # PLACEHOLDER
 	#main_battle_tanks_1 = 1 # PLACEHOLDER
@@ -128,13 +142,50 @@ if = {
 		autonomous_state = autonomy_easternbloc
 		freedom_level = 0.1
 	}
+	set_autonomy = {
+		target = EST
+		autonomous_state = autonomy_ssr
+		freedom_level = 0.1
+	}
+	set_autonomy = {
+		target = LAT
+		autonomous_state = autonomy_ssr
+		freedom_level = 0.1
+	}
+	set_autonomy = {
+		target = LIT
+		autonomous_state = autonomy_ssr
+		freedom_level = 0.1
+	}
+	set_autonomy = {
+		target = AZR
+		autonomous_state = autonomy_ssr
+		freedom_level = 0.1
+	}
+	set_autonomy = {
+		target = GEO
+		autonomous_state = autonomy_ssr
+		freedom_level = 0.1
+	}
+	set_autonomy = {
+		target = ARM
+		autonomous_state = autonomy_ssr
+		freedom_level = 0.1
+	}
+
 	else = {
+		puppet = ARM
+		puppet = GEO
+		puppet = AZR
 		puppet = DDR
 		puppet = POL
 		puppet = CZE
 		puppet = HUN
 		puppet = ROM
 		puppet = BUL	
+		puppet = EST
+		puppet = LAT
+		puppet = LIT
 	}
 }
 
@@ -150,6 +201,13 @@ add_to_faction = HUN
 add_to_faction = ROM
 add_to_faction = BUL
 add_to_faction = ALB
+add_to_faction = LIT
+add_to_faction = LAT
+add_to_faction = EST
+add_to_faction = GEO
+add_to_faction = ARM
+add_to_faction = AZR
+
 
 
 add_ideas = {
@@ -159,12 +217,9 @@ add_ideas = {
 create_country_leader = {
 	name = "Joseph Stalin"
 	desc = "POLITICS_JOSEPH_STALIN_DESC"
-	picture = "stalin.dds"
-	expire = "2000.3.1"
+	picture = "Portrait_Soviet_Joseph_Stalin.dds"
+	expire = "1953.3.5"
 	ideology = stalinism
-	traits = {
-		
-	}
 }
 
 create_country_leader = {
@@ -582,5 +637,22 @@ create_equipment_variant = {
 			ship_armor_upgrade = 2
 			ship_gun_upgrade = 2
 		}
+	}
+}
+
+create_country_leader = {
+	name = "Joseph Stalin"
+	desc = "POLITICS_JOSEPH_STALIN_DESC"
+	picture = "Portrait_Soviet_Joseph_Stalin.dds"
+	expire = "1953.3.5"
+	ideology = stalinism
+}
+
+1953.3.5 = {
+	create_country_leader = {
+		name = "Georgy Malenkov"
+		picture = "Portrait_Soviet_Georgy_Malenkov.dds"
+		expire = "1988.1.4"
+		ideology = stalinism
 	}
 }

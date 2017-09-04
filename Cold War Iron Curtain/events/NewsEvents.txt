@@ -1,7 +1,7 @@
 ﻿##############
 # News Events
 #
-# Events start at news.1000, beacause of the old news events are still implemented and haven't been deleted yet
+# Events start at news.1000, beacause the old news events are still implemented and haven't been deleted yet
 #
 ##############
 
@@ -13,21 +13,25 @@ news_event = {
 	title = news.1000.t
 	desc = news.1000.d
 	picture = GFX_news_event_nuremberg
-
+	
 	major = yes
+
+	trigger = {
+		date > 1949.5.20
+		date < 1949.6.1
+		NOT = { has_global_flag = nuremberg_trials_over }
+	}
 
 	immediate = {
 		set_global_flag = nuremberg_trials_over
 	}
 
-	trigger = {
-		date < 1949.5.26
-		date > 1949.5.1
-		NOT = { has_global_flag = nuremberg_trials_over }
-	}
-
 	option = {
 		name = news.1000.a
+	}
+
+	mean_time_to_happen = {
+		days = 2
 	}
 }
 
@@ -37,7 +41,7 @@ news_event = {
 	title = news.1002.t
 	desc = news.1002.d
 	picture = GFX_news_event_berlin_airlift
-
+	
 	major = yes
 	
 	immediate = {
@@ -45,8 +49,8 @@ news_event = {
 	}
 
 	trigger = {
-		date > 1949.9.30
-		date < 1949.10.2
+		date > 1949.9.29
+		date < 1949.10.3
 		NOT = { has_global_flag = berlin_airlift_over}
 	}
 
@@ -64,6 +68,10 @@ news_event = {
 		trigger = {
 			tag = SOV
 		}
+	}
+
+	mean_time_to_happen = {
+		days = 2
 	}
 }
 
@@ -409,7 +417,7 @@ news_event = {
 	title = news.1015.t
 	desc = news.1015.d
 	picture = GFX_news_event_aus_unification
-	
+
 	major = yes
 	is_triggered_only = yes
 	
@@ -431,7 +439,7 @@ news_event = {
 	title = news.1016.t
 	desc = news.1016.d
 	picture = GFX_news_event_un_new_member
-	
+
 	is_triggered_only = yes
 	major = yes
 	
@@ -488,7 +496,7 @@ news_event = {
 	title = news.1018.t
 	desc = news.1018.d
 	picture = GFX_news_event_tri_unification
-	
+
 	is_triggered_only = yes
 	major = yes
 	
@@ -515,7 +523,7 @@ news_event = {
 	title = news.1019.t
 	desc = news.1019.d
 	picture = GFX_news_event_tri_unification
-	
+
 	is_triggered_only = yes
 	major = yes
 	
@@ -542,7 +550,7 @@ news_event = {
 	title = news.1020.t
 	desc = news.1020.d
 	picture = GFX_news_event_tri_unification
-	
+
 	is_triggered_only = yes
 	major = yes
 	
@@ -569,7 +577,7 @@ news_event = {
 	title = news.1021.t
 	desc = news.1021.d
 	picture = GFX_news_event_tri_unification
-	
+
 	is_triggered_only = yes
 	major = yes
 	
@@ -596,7 +604,7 @@ news_event = {
 	title = news.1022.t
 	desc = news.1022.d
 	picture = GFX_news_event_tri_unification
-	
+
 	is_triggered_only = yes
 	major = yes
 	
@@ -623,7 +631,7 @@ news_event = {
 	title = news.1023.t
 	desc = news.1023.d
 	picture = GFX_news_event_fbu_unification
-	
+
 	is_triggered_only = yes
 	major = yes
 	
@@ -688,4 +696,76 @@ news_event = {
 		name = news.1025.b
 		trigger = { NOT = { tag = GRE } }
 	}
+
+}
+
+# End of the Malayan Emergency
+news_event = {
+	id = news.1026
+	title = news.1026.t
+	fire_only_once = yes
+	desc = {
+		trigger = { MLA = { controls_state = 784 } }
+		text = news.1026.d
+	}
+	desc = {
+		trigger = { MAL = { controls_state = 784 } }
+		text = news.1026.desc
+	}
+	picture = GFX_news_event_malayan_emergency_48
+
+	trigger = { # So, when the civil war end, this event will fire. 
+		MLA = { NOT = { has_war_with = MAL } }
+	}
+	
+	major = yes
+	fire_only_once = yes
+
+	option = {
+		name = news.1026.a
+		trigger = { tag = MAL }
+	}
+
+	option = {
+		name = news.1026.b
+		trigger = { NOT = { tag = MAL } }
+	}
+
+	mean_time_to_happen = { days = 1 }
+}
+
+# End of the Second Malayan Emergency
+news_event = {
+	id = news.1027
+	title = news.1027.t
+	fire_only_once = yes
+	desc = {
+		trigger = { MLA = { controls_state = 784 } }
+		text = news.1027.d
+	}
+	desc = {
+		trigger = { MAL = { controls_state = 784 } }
+		text = news.1027.desc
+	}
+	picture = GFX_news_event_second_malayan_emergency_67 
+
+	trigger = { 
+		MLA = { NOT = { has_war_with = MAL } }
+		has_global_flag = malayan_uprising_67
+	}
+	
+	major = yes 
+	fire_only_once = yes
+
+	option = {
+		name = news.1027.a
+		trigger = { tag = MAL } #Option for Malaysia
+	}
+
+	option = {
+		name = news.1027.b
+		trigger = { NOT = { tag = MAL } } 
+	}
+
+	mean_time_to_happen = { days = 1 }
 }

@@ -11,6 +11,8 @@ country_event = {
 	desc = prc.1.d
 	picture = GFX_report_event_indian_soldiers
 	
+	fire_only_once = yes
+	
 	is_triggered_only = yes
 	
 	option = {
@@ -29,6 +31,8 @@ country_event = {
 	title = prc.2.t
 	desc = prc.2.d
 	picture = GFX_report_event_prc_successful
+	
+	fire_only_once = yes
 	
 	trigger = {
 		PRC = {
@@ -69,6 +73,8 @@ country_event = {
 	desc = prc.3.d
 	picture = GFX_report_event_prc_successful
 	
+	fire_only_once = yes
+	
 	trigger = {
 		PRC = {
 			owns_state = 750
@@ -108,6 +114,9 @@ country_event = {
 # After the civil war, the Republic of China exists in Taiwan
 country_event = {
 	id = prc.4
+	hidden = yes
+	
+	fire_only_once = yes
 	
 	trigger = {
 		PRC = {
@@ -142,6 +151,8 @@ country_event = {
 	desc = prc.5.d
 	picture = GFX_report_event_indian_soldiers
 	
+	fire_only_once = yes
+	
 	is_triggered_only = yes
 	
 	option = {
@@ -161,6 +172,8 @@ news_event = {
 	desc = prc.6.d
 	picture = GFX_report_event_prc_successful
 	
+	fire_only_once = yes
+	
 	is_triggered_only = yes
 	
 	option = {
@@ -175,6 +188,8 @@ news_event = {
 	desc = prc.7.d
 	picture = GFX_report_event_prc_successful
 	
+	fire_only_once = yes
+	
 	is_triggered_only = yes
 	
 	option = {
@@ -188,6 +203,8 @@ news_event = {
 	title = prc.8.t
 	desc = prc.8.d
 	picture = GFX_report_event_prc_successful
+	
+	fire_only_once = yes
 	
 	is_triggered_only = yes
 	
@@ -269,6 +286,8 @@ country_event = {
 	title = prc.11.t
 	desc = prc.11.d
 	
+	fire_only_once = yes
+	
 	is_triggered_only = yes
 	
 	option = {
@@ -290,6 +309,56 @@ country_event = {
 		ROOT = { add_opinion_modifier = { target = PRC modifier = PRC_communism_against_PRC_opinion } }
 		ai_chance = {
 			factor = 50
+		}
+	}
+}
+
+# Annexation of ETR
+country_event = {
+	id = prc.12
+	title = prc.12.t
+	desc = prc.12.d
+
+	trigger = {
+		PRC = { NOT = { has_war_with = CHI } }
+		country_exists = ETR
+	}
+
+	option = {
+		name = prc.12.a
+		ETR = { country_event = prc.13 }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+}
+
+# Annexation of ETR to ETR
+country_event = {
+	id = prc.13
+	title = prc.13.t
+	desc = prc.13.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = prc.13.a
+		PRC = { annex_country = { target = ETR } }
+		ai_chance = {
+			factor = 99
+		}
+	}
+
+	option = {
+		name = prc.13.b
+		PRC = {
+			declare_war_on = {
+				target = ETR
+				type = annex_everything
+			}
+		}
+		ai_chance = {
+			factor = 1
 		}
 	}
 }

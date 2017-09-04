@@ -9,10 +9,15 @@ country_event = {
 	id = gre.1
 	hidden = yes
 
+	fire_only_once = yes
+
 	trigger = {
-		GRE = {
-			owns_state = 185
-			controls_state = 185
+		OR = {
+			GRE = {
+				owns_state = 185
+				controls_state = 185
+			}
+			GRE = { NOT = { has_war_with = PDG } }
 		}
 	}
 

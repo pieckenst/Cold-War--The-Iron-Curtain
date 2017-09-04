@@ -19,6 +19,13 @@ country_event = {
 			ideology = democratic
 			size = 0.2
 		}
+		random_other_country = {
+			limit = {
+				original_tag = CZE
+				NOT = { tag = CZE }
+			}
+			SOV = { declare_war_on = { target = PREV type = puppet_wargoal } }
+		}
 		hidden_effect = {
 			set_country_flag = ddr_fight_democrats
 			news_event = cwu.2
@@ -126,6 +133,7 @@ country_event = {
 			set_country_flag = pol_fight_democrats
 			news_event = cwu.5
 		}
+		ai_chance = { factor = 1 }
 	}
 
 	option = { # Give in to their demands
@@ -148,6 +156,7 @@ country_event = {
 			set_country_flag = pol_become_democratic
 			news_event = cwu.5
 		}
+		ai_chance = { factor = 0 }
 	}
 
 	immediate = {
@@ -216,25 +225,26 @@ country_event = {
 		name = cwu.7.a
 		start_civil_war = {
 			ruling_party = communism
-			ideology = democratic
+			ideology = socialist
 			size = 0.2
 		}
 		hidden_effect = {
 			set_country_flag = hun_fight_democrats
 			news_event = cwu.8
 		}
+		ai_chance = { factor = 1 }
 	}
 
 	option = { # Give in to their demands + civil war
 		name = cwu.7.b
 		set_politics = {
-			ruling_party = democratic
+			ruling_party = socialist
 			last_election = "1956.10.23"
 			elections_allowed = yes
 			parties = {
 				communism = { popularity = 0 }
-				democratic = { popularity = 40 }
-				socialist = { popularity = 23 }
+				democratic = { popularity = 23 }
+				socialist = { popularity = 40 }
 				conservative = { popularity = 12 }
 				fascism = { popularity = 12 }
 				nationalism = { popularity = 3 }
@@ -242,7 +252,7 @@ country_event = {
 			}
 		}
 		start_civil_war = {
-			ruling_party = democratic
+			ruling_party = socialist
 			ideology = communism
 			size = 0.8
 		}
@@ -250,6 +260,7 @@ country_event = {
 			set_country_flag = hun_become_democratic
 			news_event = cwu.8
 		}
+		ai_chance = { factor = 0 }
 	}
 
 	immediate = {
@@ -337,6 +348,7 @@ country_event = {
 			set_country_flag = cze_fight_democrats
 			news_event = cwu.11
 		}
+		ai_chance = { factor = 0 }
 	}
 
 	option = { # Give in to their demands + Soviet Invasion
@@ -364,6 +376,7 @@ country_event = {
 			set_country_flag = cze_become_democratic
 			news_event = cwu.11
 		}
+		ai_chance = { factor = 1 }
 	}
 
 	immediate = {
@@ -439,6 +452,7 @@ country_event = {
 			set_country_flag = pol_fight_democrats_1970
 			news_event = cwu.14
 		}
+		ai_chance = { factor = 1 }
 	}
 
 	option = { # Give in to their demands
@@ -461,6 +475,7 @@ country_event = {
 			set_country_flag = pol_become_democratic_1970
 			news_event = cwu.14
 		}
+		ai_chance = { factor = 0 }
 	}
 
 	immediate = {
@@ -536,6 +551,7 @@ country_event = {
 			news_event = cwu.17
 			CRO = { load_oob = "CRO_1971" }
 		}
+		ai_chance = { factor = 1 }
 	}
 
 	option = { # Give in to their demands
@@ -555,6 +571,7 @@ country_event = {
 			set_country_flag = cro_become_free_1971
 			news_event = cwu.17
 		}
+		ai_chance = { factor = 0 }
 	}
 
 	immediate = {
@@ -613,21 +630,22 @@ country_event = {
 
 # Uprising in Kosovo 1981
 country_event = {
-	id = cwu.22
-	title = cwu.22.t
-	desc = cwu.22.d
+	id = cwu.19
+	title = cwu.19.t
+	desc = cwu.19.d
 
 	is_triggered_only = yes
 
 	option = { # Fight them
-		name = cwu.22.a
+		name = cwu.19.a
 		YUG = { 
 			release = KOS
 			declare_war_on = { target = KOS type = civil_war }
 		}
+		ai_chance = { factor = 1 }
 		hidden_effect = {
 			set_country_flag = kos_fight_democrats_81
-			news_event = cwu.23
+			news_event = cwu.20
 			KOS = { 
 				load_oob = "KOS_1981" 
 				create_country_leader = {
@@ -640,7 +658,7 @@ country_event = {
 	}
 
 	option = { # Give in to their demands
-		name = cwu.22.b
+		name = cwu.19.b
 		YUG = { 
 			release = KOS
 			puppet = KOS
@@ -654,7 +672,7 @@ country_event = {
 		}
 		hidden_effect = {
 			set_country_flag = kos_become_free_81
-			news_event = cwu.23
+			news_event = cwu.20
 			KOS = { 
 				create_country_leader = {
 					name = "Ilaz Kurteshi"
@@ -663,6 +681,7 @@ country_event = {
 				}				
 			}
 		}
+		ai_chance = { factor = 0 }
 	}
 
 	immediate = {
@@ -672,14 +691,14 @@ country_event = {
 
 # Uprising in Kosovo 1981 News Event
 news_event = {
-	id = cwu.23
-	title = cwu.23.t
+	id = cwu.20
+	title = cwu.20.t
 	desc = { 
-		text = cwu.23.d
+		text = cwu.20.d
 		trigger = { has_country_flag = kos_fight_democrats_81 }
 	}
 	desc = {
-		text = cwu.23.desc
+		text = cwu.20.desc
 		trigger = { has_country_flag = kos_become_free_81 }
 	}
 	picture = GFX_news_event_kosovan_uprising_81
@@ -688,21 +707,21 @@ news_event = {
 	major = yes
 
 	option = {
-		name = cwu.23.a
+		name = cwu.20.a
 		trigger = { tag = KOS }
 	}
 
 	option = {
-		name = cwu.23.b
+		name = cwu.20.b
 		trigger = { NOT = { tag = KOS } }
 	}
 }
 
 # Uprising in Kosovo hidden trigger
 country_event = {
-	id = cwu.24
-	title = cwu.24.t
-	desc = cwu.24.d
+	id = cwu.21
+	title = cwu.21.t
+	desc = cwu.21.d
 
 	trigger = {
 		date > 1981.3.11
@@ -715,27 +734,27 @@ country_event = {
 	option = { }
 
 	immediate = {
-		YUG = { country_event = cwu.22 }
+		YUG = { country_event = cwu.19 }
 	}
 }
 
 # Slovene Spring 1987
 country_event = {
-	id = cwu.25
-	title = cwu.25.t
-	desc = cwu.25.d
+	id = cwu.22
+	title = cwu.22.t
+	desc = cwu.22.d
 
 	is_triggered_only = yes
 
 	option = { # Fight them
-		name = cwu.25.a
+		name = cwu.22.a
 		YUG = { 
 			release = SLV
 			declare_war_on = { target = SLV type = civil_war }
 		}
 		hidden_effect = {
 			set_country_flag = slv_fight_democrats_87
-			news_event = cwu.26
+			news_event = cwu.23
 			KOS = { 
 				load_oob = "SLV_1987" 
 				create_country_leader = {
@@ -745,10 +764,11 @@ country_event = {
 				}				
 			}
 		}
+		ai_chance = { factor = 1 }
 	}
 
 	option = { # Give in to their demands
-		name = cwu.25.b
+		name = cwu.22.b
 		YUG = { 
 			release = SLV
 			puppet = SLV
@@ -762,7 +782,7 @@ country_event = {
 		}
 		hidden_effect = {
 			set_country_flag = slv_become_free_87
-			news_event = cwu.26
+			news_event = cwu.23
 			KOS = { 
 				create_country_leader = {
 					name = "France Popit"
@@ -771,6 +791,7 @@ country_event = {
 				}			
 			}
 		}
+		ai_chance = { factor = 0 }
 	}
 
 	immediate = {
@@ -780,14 +801,14 @@ country_event = {
 
 # Slovene Spring 1987 News Event
 news_event = {
-	id = cwu.26
-	title = cwu.26.t
+	id = cwu.23
+	title = cwu.23.t
 	desc = { 
-		text = cwu.26.d
+		text = cwu.23.d
 		trigger = { has_country_flag = slv_fight_democrats_87 }
 	}
 	desc = {
-		text = cwu.26.desc
+		text = cwu.23.desc
 		trigger = { has_country_flag = slv_become_free_87 }
 	}
 	picture = GFX_news_event_slovene_uprising_87
@@ -796,21 +817,21 @@ news_event = {
 	major = yes
 
 	option = {
-		name = cwu.26.a
+		name = cwu.23.a
 		trigger = { tag = SLV }
 	}
 
 	option = {
-		name = cwu.26.b
+		name = cwu.23.b
 		trigger = { NOT = { tag = SLV } }
 	}
 }
 
 # Slovene Spring hidden trigger
 country_event = {
-	id = cwu.27
-	title = cwu.27.t
-	desc = cwu.27.d
+	id = cwu.24
+	title = cwu.24.t
+	desc = cwu.24.d
 
 	trigger = {
 		date > 1987.12.6
@@ -824,5 +845,81 @@ country_event = {
 
 	immediate = {
 		YUG = { country_event = cwu.25 }
+	}
+}
+# Second Malayan Emergency 1967
+country_event = {
+	id = cwu.25
+	title = cwu.25.t
+	desc = cwu.25.d
+
+	is_triggered_only = yes
+
+	option = { # Fight them
+		name = cwu.25.a
+		MLA = { 
+			release = MAL
+			declare_war_on = { target = MAL type = civil_war }
+		}
+		hidden_effect = {
+			set_country_flag = mal_fight_commies_67
+			news_event = cwu.26
+			MAL = { 
+				load_oob = "MAL_1967" 				
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+	immediate = {
+		set_global_flag = malayan_uprising_67
+	}
+}
+
+# Second Malayan Emergency 1967 News Event
+news_event = {
+	id = cwu.26
+	title = cwu.26.t
+	desc = { 
+		text = cwu.26.d
+		trigger = { has_country_flag = mal_fight_democrats_87 } # If the country choses to fight the commies
+	}
+	desc = {
+		text = cwu.26.desc
+		trigger = { MLA = { controls_state = 786 } } # When the commies control the state
+	}
+	picture = GFX_news_event_malayan_uprising_67
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = cwu.26.a
+		trigger = { tag = MAL tag = MLA } # What the two countries say to the news event
+	}
+
+	option = {
+		name = cwu.26.b
+		trigger = { NOT = { tag = MLA tag = MAL } } #What the others say to it 
+	}
+}
+
+# Second Malayan Emergency hidden trigger
+country_event = {
+	id = cwu.27
+	title = cwu.27.t
+	desc = cwu.27.d
+
+	trigger = {
+		date > 1967.6.17 # Its year.month.day 'from the biggest to the smallest
+		date < 1967.6.24 # 7 days is fine
+		NOT = { has_global_flag = malayan_uprising_67 } # So the event doesn't trigger 7 times in a row
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	option = { }
+
+	immediate = {
+		MAL = { country_event = cwu.28 } #Malaysia gets the event of communist uprisings
 	}
 }

@@ -1,0 +1,1058 @@
+technologies = {
+
+	icbm = {
+
+		rocket_artillery = {
+			soft_attack = 0.01
+		}
+		
+		research_cost = 6
+		
+		folder = {
+			name = space_folder
+			position = { x = 5 y = 0 }
+		}
+		
+		path = {
+			leads_to_tech = satellite
+			research_cost_coeff = 1
+		}
+		
+		categories = {
+			satellite_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	satellite = {
+	
+		decryption = 1
+		
+		path = {
+			leads_to_tech = crewed_space_capsule
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = lunar_missions_unmanned
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 3
+		start_year = 1964
+		folder = {
+			name = space_folder
+			position = { x = 5 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			satellite_tech
+		}
+		
+		on_research_complete = {
+		    custom_effect_tooltip = SPACE_TECH_EVENT_MAJOR_POWERS
+		}
+	}
+	
+	crewed_space_capsule = {
+	
+	
+	
+		
+		
+		path = {
+			leads_to_tech = no_descent
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = safe_descent
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 4
+		start_year = 1966
+		folder = {
+			name = space_folder
+			position = { x = 3 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			spacefaring_tech
+		}
+		
+		on_research_complete = {
+		    custom_effect_tooltip = SPACE_TECH_EVENT
+		}
+	}
+	
+	first_mammal_in_space = {
+	
+	
+	    on_research_complete = {
+		    custom_effect_tooltip = SPACE_TECH_EVENT
+		}
+		
+		path = {
+			leads_to_tech = manned_space_flight
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 5
+		start_year = 1968
+		folder = {
+			name = space_folder
+			position = { x = 4 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			spacefaring_tech
+		}
+	}
+	
+	no_descent = {
+	
+		
+		
+		XOR = {
+			safe_descent
+		}
+		
+		path = {
+			leads_to_tech = first_mammal_in_space
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 1
+		start_year = 1968
+		folder = {
+			name = space_folder
+			position = { x = 0 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			spacefaring_tech
+		}
+		
+	}
+	
+	safe_descent = {
+	
+		air_accidents_factor = -0.1
+		
+		XOR = {
+			no_descent
+		}
+		
+		path = {
+			leads_to_tech = first_mammal_in_space
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 1.5
+		start_year = 1968
+		folder = {
+			name = space_folder
+			position = { x = 8 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			cat_safe_descent
+		}
+	}
+	
+	manned_space_flight = {
+	
+	    on_research_complete = {
+		    custom_effect_tooltip = SPACE_TECH_EVENT
+		}
+		
+		path = {
+			leads_to_tech = suborbital_flight
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = orbital_flight
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 6
+		start_year = 1972
+		folder = {
+			name = space_folder
+			position = { x = 5 y = 16 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			spacefaring_tech
+		}
+	}
+	
+	suborbital_flight = {
+	
+		air_interception_detect_factor = 0.02
+		
+		on_research_complete = {
+		    custom_effect_tooltip = SUBORBITAL_FLIGHT_TOOLTIP
+		}
+		
+
+	
+		
+		research_cost = 1
+		start_year = 1974
+		folder = {
+			name = space_folder
+			position = { x = 3 y = 20 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			spacefaring_tech
+		}
+	}
+	
+	orbital_flight = {
+	
+		
+		path = {
+			leads_to_tech = semi_advanced_spacefaring
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 3.5
+		start_year = 1974
+		folder = {
+			name = space_folder
+			position = { x = 7 y = 20 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			spacefaring_tech
+		}
+	}
+	
+	semi_advanced_spacefaring = {
+	
+		signal_company = {
+			initiative = 0.01
+		}
+		
+		path = {
+			leads_to_tech = multi_crewed_space_capsule
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = better_systems
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 1.5
+		start_year = 1975
+		folder = {
+			name = space_folder
+			position = { x = 7 y = 24 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			spacefaring_tech
+		}
+	}
+	
+	multi_crewed_space_capsule = {
+	
+		field_hospital = {
+			casualty_trickleback = 0.05
+		}
+		
+		path = {
+			leads_to_tech = manned_lunar_preparation
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 3
+		start_year = 1977
+		folder = {
+			name = space_folder
+			position = { x = 5 y = 28 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			spacefaring_tech
+		}
+	}
+	
+	better_systems = {
+	
+		maintenance_company = {
+			reliability_factor = 0.02
+		}
+		conscription = 0.002
+		
+		path = {
+			leads_to_tech = manned_lunar_preparation
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 2
+		start_year = 1977
+		folder = {
+			name = space_folder
+			position = { x = 9 y = 28 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			spacefaring_tech
+		}
+	}
+	
+	manned_lunar_preparation = {
+		
+		on_research_complete = {
+		    custom_effect_tooltip = LUNAR_PREPARATION_TOOLTIP
+		}
+		
+		path = {
+			leads_to_tech = advanced_space_faring
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = manned_lunar_flyby
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 3.5
+		start_year = 1977
+		folder = {
+			name = space_folder
+			position = { x = 7 y = 32 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			moon_tech
+		}
+	}
+	
+	advanced_space_faring = {
+	
+		research_time_factor = -0.01
+		
+		path = {
+			leads_to_tech = colonisation_modules
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = efficient_fuel
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 2.5
+		start_year = 1980
+		folder = {
+			name = space_folder
+			position = { x = 7 y = 36 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			spacefaring_tech
+		}
+	}
+	
+	colonisation_modules = {
+	
+		global_building_slots_factor = 0.1
+		
+		path = {
+			leads_to_tech = manned_martian_preparation
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 2.5
+		start_year = 1982
+		folder = {
+			name = space_folder
+			position = { x = 5 y = 40 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			spacefaring_tech
+		}
+	}
+	
+	efficient_fuel = {
+	
+		logistics_company = {
+			supply_consumption_factor = -0.05
+		}
+		
+		path = {
+			leads_to_tech = manned_martian_preparation
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 2
+		start_year = 1982
+		folder = {
+			name = space_folder
+			position = { x = 9 y = 40 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			spacefaring_tech
+		}
+	}
+	
+	manned_martian_preparation = {
+		
+		on_research_complete = {
+		    custom_effect_tooltip = MARTIAN_PREPARATION_TOOLTIP
+		}
+		
+		path = {
+			leads_to_tech = manned_martian_flyby
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 6
+		start_year = 1987
+		folder = {
+			name = space_folder
+			position = { x = 9 y = 44 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			mars_tech
+		}
+	}
+	
+	lunar_missions_unmanned = {
+	
+		
+		path = {
+			leads_to_tech = lunar_probe_flyby
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = lunar_missions_crewed
+			research_cost_coeff = 1
+		}
+		
+		on_research_complete = {
+		    custom_effect_tooltip = SPACE_TECH_EVENT
+		}
+
+	
+		
+		research_cost = 3
+		start_year = 1966
+		folder = {
+			name = space_folder
+			position = { x = 11 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			moon_tech
+		}
+	}
+	
+	lunar_probe_flyby = {
+		
+		on_research_complete = {
+		    custom_effect_tooltip = LUNAR_PROBE_FLYBY_TOOLTIP
+		}
+		
+		path = {
+			leads_to_tech = lunar_probe_orbit
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 4
+		start_year = 1968
+		folder = {
+			name = space_folder
+			position = { x = 13 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			moon_tech
+		}
+	}
+	
+	lunar_probe_orbit = {
+	
+		research_time_factor = -0.01
+		
+		path = {
+			leads_to_tech = lunar_probe_lander
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 5
+		start_year = 1968
+		folder = {
+			name = space_folder
+			position = { x = 13 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			moon_tech
+		}
+	}
+	
+	lunar_probe_lander = {
+	
+		local_resources_factor = 0.03
+		
+		path = {
+			leads_to_tech = manned_lunar_flyby
+			research_cost_coeff = 1
+		}
+		
+		on_research_complete = {
+		    custom_effect_tooltip = SPACE_TECH_EVENT
+		}
+		
+
+	
+		
+		research_cost = 6.5
+		start_year = 1969
+		folder = {
+			name = space_folder
+			position = { x = 13 y = 16 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			moon_tech
+		}
+	}
+	
+	lunar_missions_crewed = {
+	
+		
+		
+		path = {
+			leads_to_tech = manned_lunar_flyby
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = mars_missions_unmanned
+			research_cost_coeff = 1
+		}
+		
+
+	
+		
+		research_cost = 2.5
+		start_year = 1971
+		folder = {
+			name = space_folder
+			position = { x = 18 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			moon_tech
+		}
+	}
+	
+	manned_lunar_flyby = {
+	
+		research_time_factor = -0.01
+		
+		path = {
+			leads_to_tech = manned_lunar_landing
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 3
+		start_year = 1974
+		folder = {
+			name = space_folder
+			position = { x = 18 y = 20 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			moon_tech
+		}
+	}
+	
+	manned_lunar_landing = {
+	
+		infantry = {
+			default_morale = 0.1
+		}
+		
+		path = {
+			leads_to_tech = moon_base
+			research_cost_coeff = 1
+		}
+		
+		on_research_complete = {
+		    custom_effect_tooltip = SPACE_TECH_EVENT
+		}
+
+	
+		
+		research_cost = 8.5
+		start_year = 1978
+		folder = {
+			name = space_folder
+			position = { x = 18 y = 24 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			moon_tech
+		}
+	}
+	
+	moon_base = {
+	
+		research_time_factor = -0.02
+		
+		path = {
+			leads_to_tech = lunar_colonisation
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 9.5
+		start_year = 1982
+		folder = {
+			name = space_folder
+			position = { x = 18 y = 28 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			moon_tech
+		}
+		
+		on_research_complete = {
+		    custom_effect_tooltip = SPACE_TECH_EVENT
+		}
+	}
+	
+	lunar_colonisation = {
+	
+		production_speed_buildings_factor = 0.04
+		
+
+	
+		
+		research_cost = 10
+		start_year = 1985
+		folder = {
+			name = space_folder
+			position = { x = 18 y = 32 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			moon_tech
+		}
+	}
+	
+	mars_missions_unmanned = {
+	
+		
+		
+		path = {
+			leads_to_tech = martian_probe_flyby
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = mars_missions_manned
+			research_cost_coeff = 1
+		}
+		
+
+	
+		
+		research_cost = 3
+		start_year = 1975
+		folder = {
+			name = space_folder
+			position = { x = 22 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			mars_tech
+		}
+	}
+	
+	martian_probe_flyby = {
+		
+		on_research_complete = {
+		    custom_effect_tooltip = MARTIAN_PROBE_FLYBY_TOOLTIP
+		}
+		
+		path = {
+			leads_to_tech = martian_probe_orbit
+			research_cost_coeff = 1
+		}
+		
+
+	
+		
+		research_cost = 3.5
+		start_year = 1978
+		folder = {
+			name = space_folder
+			position = { x = 22 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			mars_tech
+		}
+	}
+	
+	martian_probe_orbit = {
+	
+		research_time_factor = -0.01
+		
+		path = {
+			leads_to_tech = martian_probe_lander
+			research_cost_coeff = 1
+		}
+		
+
+	
+		
+		research_cost = 3.5
+		start_year = 1979
+		folder = {
+			name = space_folder
+			position = { x = 22 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			mars_tech
+		}
+	}
+	
+	martian_probe_lander = {
+	
+		local_resources_factor = 0.03
+		
+		path = {
+			leads_to_tech = manned_martian_flyby
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 6
+		start_year = 1980
+		folder = {
+			name = space_folder
+			position = { x = 22 y = 16 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			mars_tech
+		}
+	}
+	
+	mars_missions_manned = {
+	
+		
+		path = {
+			leads_to_tech = manned_martian_flyby
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 4
+		start_year = 1984
+		folder = {
+			name = space_folder
+			position = { x = 26 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			mars_tech
+		}
+	}
+	
+	manned_martian_flyby = {
+	
+		research_time_factor = -0.01
+		
+		path = {
+			leads_to_tech = manned_martian_landing
+			research_cost_coeff = 1
+		}
+
+	
+		
+		research_cost = 5
+		start_year = 1987
+		folder = {
+			name = space_folder
+			position = { x = 26 y = 28 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			mars_tech
+		}
+	}
+	
+	manned_martian_landing = {
+	
+		infantry = {
+			default_morale = 0.1
+		}
+		
+		path = {
+			leads_to_tech = mars_base
+			research_cost_coeff = 1
+		}
+		
+		on_research_complete = {
+		    custom_effect_tooltip = SPACE_TECH_EVENT
+		}
+
+	
+		
+		research_cost = 10
+		start_year = 1990
+		folder = {
+			name = space_folder
+			position = { x = 26 y = 32 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			mars_tech
+		}
+	}
+	
+	mars_base = {
+	
+		research_time_factor = -0.02
+		
+		path = {
+			leads_to_tech = martian_colonisation
+			research_cost_coeff = 1
+		}
+		
+		on_research_complete = {
+		    custom_effect_tooltip = SPACE_TECH_EVENT
+		} 
+
+	
+		
+		research_cost = 10.5
+		start_year = 1993
+		folder = {
+			name = space_folder
+			position = { x = 26 y = 36 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			mars_tech
+		}
+	}
+	
+	martian_colonisation = {
+	
+		production_speed_buildings_factor = 0.04
+		
+
+	
+		
+		research_cost = 12
+		start_year = 1995
+		folder = {
+			name = space_folder
+			position = { x = 26 y = 40 }
+		}
+		
+		ai_will_do = {
+			factor = 6
+		}
+		
+		categories = {
+			mars_tech
+		}
+	}
+	
+	
+	
+}
