@@ -159,6 +159,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
+			
+		available = {
+			date > 1956.1.1
+		}
+		
 		prerequisite = { focus = ISR_operation_ezra_and_nehemiah }
 		### We will add or degrade relations with target nations using these modifiers, democratic leanings which has a value of +/- 30. ###
 		complete_tooltip = { 
@@ -318,6 +323,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
+			
+		available = {
+			date > 1967.1.1
+		}
+		
 		prerequisite = { focus = ISR_us_arms_deal }
 		available = {
 			country_exists = JOR
@@ -326,20 +336,13 @@ focus_tree = {
 			NOT = { country_exists = JOR }
 		}
 		complete_tooltip = {
-			create_wargoal = {
-				type = take_state_focus
-				target = JOR
 
-			}
 			454 = {
 				add_claim_by = ISR
 			}
 		}
 		completion_reward = {
-			create_wargoal = {
-				type = take_state_focus
-				target = JOR
-			}
+
 			454 = {
 				add_claim_by = ISR
 			}
@@ -355,17 +358,33 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
+				
+		available = {
+			date > 1967.1.1
+		}
+		
 		prerequisite = { focus = ISR_claim_all_of_the_holy_land }
+		mutually_exclusive = { focus = ISR_End_Problem_with_Arabs_Using_Force}
 		available = {
 			country_exists = JOR
 		}
 		bypass = {
 			NOT = { country_exists = JOR }
 			NOT = { country_exists = SYR }
+			NOT = { country_exists = EGY}
 		}
 		complete_tooltip = {
+		
 			army_experience = 50
 			air_experience = 50
+			
+			453 = {
+				add_claim_by = ISR
+			}
+			799 = {
+				add_claim_by = ISR
+			}
+			
 			create_wargoal = {
 				type = take_state_focus 
 				target = JOR
@@ -374,6 +393,11 @@ focus_tree = {
 			create_wargoal = {
 				type = take_state_focus 
 				target = SYR
+
+			}
+			create_wargoal = {
+				type = take_state_focus 
+				target = EGY
 
 			}
 			SOV = {
@@ -402,8 +426,17 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+		
 			army_experience = 50
 			air_experience = 50
+			
+			453 = {
+				add_claim_by = ISR
+			}
+			799 = {
+				add_claim_by = ISR
+			}
+			
 			create_wargoal = {
 				type = take_state_focus 
 				target = JOR
@@ -412,6 +445,11 @@ focus_tree = {
 			create_wargoal = {
 				type = take_state_focus 
 				target = SYR
+
+			}
+			create_wargoal = {
+				type = take_state_focus 
+				target = EGY
 
 			}
 			SOV = {
@@ -450,6 +488,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
+				
+		available = {
+			date > 1982.1.1
+		}
+		
 		prerequisite = { focus = ISR_pre_emptive_strike }
 		available = {
 			country_exists = LEB
@@ -507,7 +550,7 @@ focus_tree = {
 
 	#### AIR TREE FOR ISRAEL ####
 	focus = {
-		id = ISR_aviation_effort
+		id = ISR_aviation_effortI
 		icon = GFX_goal_generic_build_airforce
 		x = 4
 		y = 0
@@ -750,28 +793,297 @@ focus_tree = {
 			}
 		}
 	}
-
+	
 	focus = {
-		id = ISR_naval_effort
-		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 8
-		y = 0
+		id = ISR_aviation_effortII
+		icon = GFX_goal_generic_build_airforce
+		x = 4
+		y = 6
 		cost = 10
 		ai_will_do = {
 			factor = 10
 		}
+		prerequisite = { focus = ISR_american_missile_deal }
+		
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}			
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}			
+		}
+		#### Air base construction is modeled after the airforce focus in generics.txt ####
+		completion_reward = {
+			air_experience = 25
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+						}
+					}
+				}
+				random_owned_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = ISR_aviation_effortIII
+		icon = GFX_goal_generic_build_airforce
+		x = 4
+		y = 7
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = ISR_aviation_effortII }
+		
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}			
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}			
+		}
+		#### Air base construction is modeled after the airforce focus in generics.txt ####
+		completion_reward = {
+			air_experience = 25
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+						}
+					}
+				}
+				random_owned_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_naval_effortI
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 8
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+
+
 		available = {
 			any_state = {
 				is_coastal = yes
 				is_controlled_by = ROOT
 			}
 		}
+
 		complete_tooltip = {
-			navy_experience = 10
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
 		}
 		
 		completion_reward = {
-			navy_experience = 10
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
 		}
 	}
 
@@ -939,6 +1251,134 @@ focus_tree = {
 			}
 		}
 	}
+	
+	focus = {
+		id = ISR_naval_effortII
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 7
+		y = 4
+		cost = 10
+		
+		prerequisite = { focus = ISR_cruiser_armament }
+
+		available_if_capitulated = yes
+
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
 
 	focus = {
 		id = ISR_destroyer_focus
@@ -1033,6 +1473,134 @@ focus_tree = {
 			}
 		}
 	}
+	
+	focus = {
+		id = ISR_naval_effortIII
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 9
+		y = 4
+		cost = 10
+		
+		prerequisite = { focus = ISR_missile_boats }
+
+		available_if_capitulated = yes
+		
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
 
 	####Industrial Focus for ISRAEL #####
 	focus = {
@@ -1059,6 +1627,9 @@ focus_tree = {
 				}
 		}
 		completion_reward = {
+		
+		add_ideas = idea_ISR_Industrial
+		
 			WGR = {
 				add_opinion_modifier = { target = ISR modifier = democratic_leanings_good }
 			}
@@ -1516,6 +2087,10 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+		
+		add_ideas = idea_ISR_Infantery_equipment
+		add_ideas = idea_ISR_Motorized_Equipment
+		
 			add_tech_bonus = {
 				name = med_armor_bonus
 				bonus = 0.5
@@ -1742,6 +2317,217 @@ focus_tree = {
 			}
 		}
 	}
+	
+	focus = {
+		id = ISR_Create_Alliance_Pro_Sionist
+		
+		x = 18
+		y = 7
+		
+		icon = GFX_goal_generic_military_deal
+		cost = 10.00
+		
+		prerequisite = { focus = ISR_crush_uprising }
+		
+		available = {
+				is_in_faction = no
+		}
+		
+		complete_tooltip = {
+			SYR = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_bad
+					}
+				}
+			EGY = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_bad
+					}
+			}
+			PAL = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_bad
+					}
+			}
+			JOR = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_bad
+					}
+			}
+			LEB = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_bad
+					}
+			}
+			SAU = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_bad
+					}
+			}
+			IRQ = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_bad
+					}
+			}			
+		}
+	
+
+		completion_reward = {
+			set_rule = { can_create_factions = yes }
+			create_faction = "Pro-Sionist"
+			
+			SYR = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_bad
+					}
+			}
+			EGY = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_bad
+					}
+			}
+			PAL = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_bad
+					}
+			}
+			JOR = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_bad
+					}
+			}
+			LEB = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_bad
+					}
+			}
+			SAU = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_bad
+					}
+			}
+			IRQ = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_bad
+					}
+			}			
+
+		}
+	}
+	
+	focus = {
+		id = ISR_End_Problem_with_Arabs_Using_Force
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 18
+		y = 8
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = ISR_Create_Alliance_Pro_Sionist }
+				
+		bypass = {
+			NOT = { country_exists = JOR }
+			NOT = { country_exists = SYR }
+			NOT = { country_exists = EGY}
+			NOT = { country_exists = PAL}
+			NOT = { country_exists = IRQ}
+			NOT = { country_exists = LEB}
+		}
+		complete_tooltip = {
+		
+			army_experience = 150
+			air_experience = 150
+
+			
+			create_wargoal = {
+				type = take_state_focus 
+				target = JOR
+
+			}
+			create_wargoal = {
+				type = take_state_focus 
+				target = SYR
+
+			}
+			create_wargoal = {
+				type = take_state_focus 
+				target = EGY
+
+			}
+			create_wargoal = {
+				type = take_state_focus 
+				target = PAL
+
+			}
+			create_wargoal = {
+				type = take_state_focus 
+				target = IRQ
+
+			}
+			create_wargoal = {
+				type = take_state_focus 
+				target = LEB
+
+			}
+			
+		}
+		completion_reward = {
+		
+			army_experience = 150
+			air_experience = 150
+			
+
+			
+			create_wargoal = {
+				type = take_state_focus 
+				target = JOR
+
+			}
+			create_wargoal = {
+				type = take_state_focus 
+				target = SYR
+
+			}
+			create_wargoal = {
+				type = take_state_focus 
+				target = EGY
+
+			}
+			
+			create_wargoal = {
+				type = take_state_focus 
+				target = PAL
+
+			}
+			create_wargoal = {
+				type = take_state_focus 
+				target = IRQ
+
+			}
+			create_wargoal = {
+				type = take_state_focus 
+				target = LEB
+
+			}
+			
+		}
+	}
 
 	focus = {
 		id = ISR_free_palestine
@@ -1793,4 +2579,1069 @@ focus_tree = {
 			}
 		}
 	}
+
+
+
+
+
+###### Exodus to Israel ######
+
+	focus = {
+		id = ISR_exodus_1949
+		x = 24
+		y = 0
+		cost = 10
+		icon = GFX_goal_generic_scientific_exchange
+		
+		available = {
+			date > 1949.1.1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		
+		add_manpower = 150000
+		
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ISR_exodus_1950
+		x = 24
+		y = 1
+		cost = 10
+		icon = GFX_goal_generic_scientific_exchange
+		
+		available = {
+			date > 1950.1.1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = ISR_exodus_1949 }
+		
+		completion_reward = {
+		
+		add_manpower = 150000
+		
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ISR_exodus_1951
+		x = 24
+		y = 2
+		cost = 10
+		icon = GFX_goal_generic_scientific_exchange
+		
+		available = {
+			date > 1951.1.1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = ISR_exodus_1950 }
+		
+		completion_reward = {
+		
+		add_manpower = 150000
+		
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ISR_exodus_1952
+		x = 24
+		y = 3
+		cost = 10
+		icon = GFX_goal_generic_scientific_exchange
+		
+		available = {
+			date > 1952.1.1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = ISR_exodus_1951 }
+		
+		completion_reward = {
+		
+		add_manpower = 150000
+		
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ISR_exodus_1953
+		x = 24
+		y = 4
+		cost = 10
+		icon = GFX_goal_generic_scientific_exchange
+		
+		available = {
+			date > 1953.1.1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = ISR_exodus_1952 }
+		
+		completion_reward = {
+		
+		add_manpower = 150000
+		
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ISR_exodus_1954
+		x = 24
+		y = 5
+		cost = 10
+		icon = GFX_goal_generic_scientific_exchange
+		
+		available = {
+			date > 1954.1.1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = ISR_exodus_1953 }
+		
+		completion_reward = {
+		
+		add_manpower = 150000
+		
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ISR_exodus_1955
+		x = 24
+		y = 6
+		cost = 10
+		icon = GFX_goal_generic_scientific_exchange
+		
+		available = {
+			date > 1955.1.1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = ISR_exodus_1954 }
+		
+		completion_reward = {
+		
+		add_manpower = 150000
+		
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ISR_exodus_1956
+		x = 24
+		y = 7
+		cost = 10
+		icon = GFX_goal_generic_scientific_exchange
+		
+		available = {
+			date > 1956.1.1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = ISR_exodus_1955 }
+		
+		completion_reward = {
+		
+		add_manpower = 150000
+		
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+		focus = {
+		id = ISR_exodus_1957
+		x = 24
+		y = 8
+		cost = 10
+		icon = GFX_goal_generic_scientific_exchange
+		
+		available = {
+			date > 1957.1.1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = ISR_exodus_1955 }
+		
+		completion_reward = {
+		
+		add_manpower = 150000
+		
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+		focus = {
+		id = ISR_exodus_1958
+		x = 24
+		y = 9
+		cost = 10
+		icon = GFX_goal_generic_scientific_exchange
+		
+		available = {
+			date > 1958.1.1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = ISR_exodus_1955 }
+		
+		completion_reward = {
+		
+		add_manpower = 150000
+		
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ISR_Trump_1949
+		icon = GFX_goal_generic_allies_build_infantry
+		cost = 10.00
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+
+		x = 26
+		y = 0
+		completion_reward = {
+		
+				add_ideas = idea_ISR_Trump_to_Victory
+				add_ideas = idea_ISR_Military_to_Victory
+			}
+
+	}
+	
+	focus = {
+		id = ISR_Construction_Speed
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = ISR_Trump_1949 }
+
+		x = 26
+		y = 1
+		completion_reward = {
+		
+				add_ideas = idea_ISR_Impulse_Settlements
+			}
+
+	}
+	
+	focus = {
+		id = ISR_MiningI
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+
+		x = 26
+		y = 2
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = ISR_Construction_Speed }
+		
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						owns_state = 454
+						any_country = {
+							is_puppet_of = ISR
+							owns_state = 454
+						}
+					}
+				}
+				add_resource = {	#Tel Aviv 
+					type = oil 
+					amount = 15
+					
+					state = 454
+				}
+				
+				add_resource = {	#Tel Aviv 
+					
+					type = steel
+					amount = 30
+					
+					state = 454
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 793
+						any_country = {
+							is_puppet_of = ISR
+							owns_state = 793
+						}
+					}
+				}
+				add_resource = { 	#Eliat
+					type = oil 
+					amount = 15
+					
+					state = 793
+				}
+				
+				add_resource = {	#Eliat
+					
+					type = steel
+					amount = 30
+					
+					state = 793
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 794
+						any_country = {
+							is_puppet_of = ISR
+							owns_state = 794
+						}
+					}
+				}
+				add_resource = {	#Haifa
+					type = oil 
+					amount = 15
+					
+					state = 794
+				}
+				
+				add_resource = {	#Haifa
+					
+					type = steel
+					amount = 30
+					
+					state = 794
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = ISR_MiningII
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+
+		x = 26
+		y = 3
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = ISR_MiningI }
+		
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						owns_state = 781
+						any_country = {
+							is_puppet_of = ISR
+							owns_state = 781
+						}
+					}
+				}
+				add_resource = {	#West Bank
+					type = chromium 
+					amount = 15
+					
+					state = 781
+				}
+				
+				add_resource = {	#West Bank 
+					
+					type = rubber
+					amount = 30
+					
+					state = 781
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = ISR_MiningIII
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+
+		x = 26
+		y = 4
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = ISR_MiningII }
+		
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						owns_state = 798
+						any_country = {
+							is_puppet_of = ISR
+							owns_state = 798
+						}
+					}
+				}
+				add_resource = {	#Northern
+					type = tungsten 
+					amount = 15
+					
+					state = 798
+				}
+				
+				add_resource = {	#Northern
+					
+					type = aluminium
+					amount = 30
+					
+					state = 798
+				}
+			}
+		}
+
+	}
+	
+
 }
