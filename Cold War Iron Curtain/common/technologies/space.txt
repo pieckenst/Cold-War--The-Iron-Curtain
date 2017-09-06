@@ -1258,6 +1258,15 @@ technologies = {
 			space_manned
 		}
 
+		on_research_complete = {
+			add_tech_bonus = {
+				name = space_mars_bonus
+				bonus = 0.5
+				uses = 1
+				category = space_mars
+			}
+		}
+
 		path = {
 			leads_to_tech = manned_martian_landing
 			research_cost_coeff = 1
@@ -1284,6 +1293,21 @@ technologies = {
 			space_manned
 		}
 
+		on_research_complete = {
+			add_tech_bonus = {
+				name = space_manned_bonus
+				bonus = 0.5
+				uses = 1
+				category = space_manned
+			}
+			add_tech_bonus = {
+				name = space_unmanned_bonus
+				bonus = 0.5
+				uses = 1
+				category = space_unmanned
+			}
+		}
+
 		path = {
 			leads_to_tech = martian_base
 			research_cost_coeff = 1
@@ -1291,7 +1315,11 @@ technologies = {
 
 	}
 
-	martian_base = {	
+	martian_base = {
+
+		MONTHLY_POPULATION  = 0.1
+		conscription_factor = 0.01
+		local_resources_factor = 0.10
 
 		research_cost = 1
 		start_year = 1993
@@ -1317,7 +1345,11 @@ technologies = {
 
 	}
 
-	martian_colonization = {	
+	martian_colonization = {
+
+		MONTHLY_POPULATION  = 0.2
+		conscription_factor = 0.02
+		local_resources_factor = 0.10
 
 		research_cost = 1
 		start_year = 1997
@@ -1362,6 +1394,15 @@ technologies = {
 			space_unmanned
 		}
 
+		on_research_complete = {
+			add_tech_bonus = {
+				name = space_venus_bonus
+				bonus = 0.5
+				uses = 1
+				category = space_venus
+			}
+		}
+
 		path = {
 			leads_to_tech = venus_probe_flyby
 			research_cost_coeff = 1
@@ -1374,7 +1415,9 @@ technologies = {
 
 	}
 
-	venus_probe_flyby = {	
+	venus_probe_flyby = {
+
+		decryption = 0.5
 
 		research_cost = 1
 		start_year = 1962
@@ -1401,6 +1444,10 @@ technologies = {
 
 	venus_probe_orbit = {	
 
+		signal_company = {
+			initiative = 0.03
+		}
+
 		research_cost = 1
 		start_year = 1969
 
@@ -1424,7 +1471,9 @@ technologies = {
 		}
 	}
 
-	venus_probe_lander = {	
+	venus_probe_lander = {
+
+		local_resources_factor = 0.05
 
 		research_cost = 1
 		start_year = 1970
@@ -1468,6 +1517,15 @@ technologies = {
 			space_station
 		}
 
+		on_research_complete = {
+			add_tech_bonus = {
+				name = space_station_bonus
+				bonus = 0.5
+				uses = 1
+				category = space_station
+			}
+		}
+
 		path = {
 			leads_to_tech = life_support_module
 			research_cost_coeff = 1
@@ -1479,7 +1537,12 @@ technologies = {
 		}
 	}
 
-	life_support_module = {	
+	life_support_module = {
+
+		submarine = {
+			max_organisation = 10
+			surface_detection = 0.1	
+		}
 
 		research_cost = 1
 		start_year = 1972
@@ -1505,7 +1568,17 @@ technologies = {
 
 	}
 
-	solar_module = {	
+	solar_module = {
+
+		category_all_infantry = {
+			max_organisation = 5
+		}
+		category_tanks = {
+			max_organisation = 1
+		}
+		category_motorized = {
+			max_organisation = 1
+		}
 
 		research_cost = 1
 		start_year = 1975
@@ -1531,7 +1604,9 @@ technologies = {
 
 	}
 
-	storage_module = {	
+	storage_module = {
+
+		out_of_supply_factor = -0.10
 
 		research_cost = 1
 		start_year = 1977
@@ -1557,7 +1632,9 @@ technologies = {
 
 	}
 
-	laboratory_module = {	
+	laboratory_module = {
+
+		research_time_factor = -0.03
 
 		research_cost = 1
 		start_year = 1979
@@ -1583,7 +1660,16 @@ technologies = {
 
 	}
 
-	space_station = {	
+	space_station = {
+
+		recon = {
+			recon = 5
+		}
+		decryption = 0.5
+		signal_company = {
+			initiative = 0.1
+		}
+		research_time_factor = -0.05
 
 		research_cost = 1
 		start_year = 1982
@@ -1609,7 +1695,16 @@ technologies = {
 
 	}
 
-	international_space_station = {	
+	international_space_station = {
+
+		recon = {
+			recon = 10
+		}
+		decryption = 1
+		signal_company = {
+			initiative = 0.1
+		}
+		research_time_factor = -0.05
 
 		research_cost = 1
 		start_year = 1998
@@ -1653,6 +1748,15 @@ technologies = {
 			space_mercury
 		}
 
+		on_research_complete = {
+			add_tech_bonus = {
+				name = space_mercury_bonus
+				bonus = 0.5
+				uses = 1
+				category = space_mercury
+			}
+		}
+
 		path = {
 			leads_to_tech = mercury_probe_flyby
 			research_cost_coeff = 1
@@ -1665,7 +1769,9 @@ technologies = {
 
 	}
 
-	mercury_probe_flyby = {	
+	mercury_probe_flyby = {
+
+		decryption = 0.5
 
 		research_cost = 1
 		start_year = 1973
@@ -1691,7 +1797,11 @@ technologies = {
 
 	}
 
-	mercury_probe_orbit = {	
+	mercury_probe_orbit = {
+
+		signal_company = {
+			initiative = 0.03
+		}
 
 		research_cost = 1
 		start_year = 1975
@@ -1718,6 +1828,8 @@ technologies = {
 	}
 
 	mercury_probe_lander = {	
+
+		local_resources_factor = 0.05
 
 		research_cost = 1
 		start_year = 1983
@@ -1761,6 +1873,15 @@ technologies = {
 			space_jupiter
 		}
 
+		on_research_complete = {
+			add_tech_bonus = {
+				name = space_jupiter_bonus
+				bonus = 0.5
+				uses = 1
+				category = space_jupiter
+			}
+		}
+
 		path = {
 			leads_to_tech = jupiter_probe_flyby
 			research_cost_coeff = 1
@@ -1773,7 +1894,9 @@ technologies = {
 
 	}
 
-	jupiter_probe_flyby = {	
+	jupiter_probe_flyby = {
+
+		decryption = 0.5
 
 		research_cost = 1
 		start_year = 1974
@@ -1798,7 +1921,11 @@ technologies = {
 		}
 	}
 
-	jupiter_probe_orbit = {	
+	jupiter_probe_orbit = {
+
+		signal_company = {
+			initiative = 0.03
+		}
 
 		research_cost = 1
 		start_year = 1981
@@ -1824,6 +1951,8 @@ technologies = {
 	}
 
 	jupiter_probe_lander = {	
+
+		local_resources_factor = 0.05
 
 		research_cost = 1
 		start_year = 1995
@@ -1866,13 +1995,24 @@ technologies = {
 			space_saturn
 		}
 
+		on_research_complete = {
+			add_tech_bonus = {
+				name = space_saturn_bonus
+				bonus = 0.5
+				uses = 1
+				category = space_saturn
+			}
+		}
+
 		path = {
 			leads_to_tech = saturn_probe_flyby
 			research_cost_coeff = 1
 		}
 	}
 
-	saturn_probe_flyby = {	
+	saturn_probe_flyby = {
+
+		decryption = 0.5
 
 		research_cost = 1
 		start_year = 1979
@@ -1897,7 +2037,11 @@ technologies = {
 		}
 	}
 
-	saturn_probe_orbit = {	
+	saturn_probe_orbit = {
+
+		signal_company = {
+			initiative = 0.03
+		}
 
 		research_cost = 1
 		start_year = 1980
@@ -1922,7 +2066,9 @@ technologies = {
 		}
 	}
 
-	saturn_probe_lander = {	
+	saturn_probe_lander = {
+
+		local_resources_factor = 0.05
 
 		research_cost = 1
 		start_year = 1995
