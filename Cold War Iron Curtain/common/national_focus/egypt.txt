@@ -17,7 +17,6 @@ focus_tree = {
 			ai_will_do = {
 					factor = 10
 				}
-			#This was suppose to add to the nasser party, but I don't know if that was already made or not, for now it will default to communism due to nasser and socialist ideology.
 			complete_tooltip = {
 					add_political_power = 120
 					add_popularity = {
@@ -326,38 +325,121 @@ focus_tree = {
 					factor = 10
 				}
 			available = {
-					any_state = {
-							is_coastal = yes
-							is_controlled_by = ROOT
-						}
-				}
-			complete_tooltip = {
-					add_building_construction = {
-							type = dockyard
-							level = 3
-							instant_build = yes
-						}
-				}
-			completion_reward = {
-					random_owned_state = {
-							limit = {
-									dockyard > 0
-									free_building_slots = {
-											building = dockyard
-											size > 0
-											include_locked = yes
-										}
-								}
-							add_extra_state_shared_building_slots = 3
-							add_building_construction = {
-									type = dockyard
-									level = 3
-									instant_build = yes
-								}
-						}
-				}
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
 
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
 	}
+	
 	focus = {
 		id = EGY_industry_delta
 		icon = GFX_goal_generic_construct_infrastructure
@@ -369,6 +451,9 @@ focus_tree = {
 				}
 			available_if_capitulated = yes
 			completion_reward = {
+			
+			add_ideas = idea_EGY_Industrial
+			
 					446 = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
@@ -425,6 +510,9 @@ focus_tree = {
 						}
 				}
 			completion_reward = {
+			
+					add_ideas = idea_EGY_Trump_Panarabismo
+					
 					add_popularity = {
 							ideology = pan_arabism
 							popularity = 0.2
@@ -2253,42 +2341,129 @@ focus_tree = {
 		}
 		x = 11
 		y = 2
-			ai_will_do = {
-					factor = 10
-				}
-			available = {
-					any_state = {
-							is_coastal = yes
-							is_controlled_by = ROOT
-						}
-				}
-			complete_tooltip = {
-					add_building_construction = {
-							type = dockyard
-							level = 3
-							instant_build = yes
-						}
-				}
-			completion_reward = {
-					random_owned_state = {
-							limit = {
-									dockyard > 0
-									free_building_slots = {
-											building = dockyard
-											size > 0
-											include_locked = yes
-										}
-								}
-							add_extra_state_shared_building_slots = 3
-							add_building_construction = {
-									type = dockyard
-									level = 3
-									instant_build = yes
-								}
-						}
-				}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
 
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
 	}
+			
+
+	
 	focus = {
 		id = EGY_industry_expansion
 		icon = GFX_goal_generic_construct_civ_factory
@@ -2889,6 +3064,9 @@ focus_tree = {
 		y = 3
 			available_if_capitulated = yes
 			completion_reward = {
+			
+		add_ideas = idea_EGY_Infantery_equipment
+			
 					add_tech_bonus = {
 							name = infantry_weapons_bonus
 							bonus = 0.5
@@ -2990,6 +3168,11 @@ focus_tree = {
 		prerequisite = {
 			focus = EGY_mechanized_effort
 		}
+		
+		completion_reward = {
+		add_ideas = idea_EGY_Motorized_Equipment
+		}
+		
 		x = 25
 		y = 3
 
@@ -3457,6 +3640,148 @@ focus_tree = {
 							category = tactical_bomber
 						}
 				}
+
+	}
+
+	focus = {
+		id = EGY_Create_League_Arabe
+		icon = GFX_goal_generic_military_deal
+		cost = 10.00
+		
+		available = {
+				has_war = yes
+				is_in_faction = no
+		}
+		
+		complete_tooltip = {
+			SYR = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_good
+					}
+				}
+			EGY = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_good
+					}
+			}
+			PAL = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_good
+					}
+			}
+			JOR = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_good
+					}
+			}
+			LEB = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_good
+					}
+			}
+			SAU = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_good
+					}
+			}
+			IRQ = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_good
+					}
+			}			
+		}
+	
+
+		completion_reward = {
+			set_rule = { can_create_factions = yes }
+			create_faction = "League_Arabe"
+			
+			SYR = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_good
+					}
+			}
+			EGY = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_good
+					}
+			}
+			PAL = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_good
+					}
+			}
+			JOR = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_good
+					}
+			}
+			LEB = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_good
+					}
+			}
+			SAU = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_good
+					}
+			}
+			IRQ = {
+					add_opinion_modifier = {
+						target = EGY
+						modifier = democratic_leanings_good
+					}
+			}			
+
+		}
+		x = 34
+		y = 0
+
+	}
+
+
+	focus = {
+		id = EGY_Call_League_Arabe
+		icon = GFX_goal_generic_military_deal
+		cost = 10.00
+
+		x = 34
+		y = 1
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = {
+			focus = EGY_Create_League_Arabe
+		}
+		
+		available = {
+				has_war = yes
+				is_in_faction = yes
+		}
+		
+		completion_reward = {
+			PAL = { country_event = egypte.1 }
+			JOR = { country_event = egypte.1 }
+			SYR = { country_event = egypte.1 }
+			LEB = { country_event = egypte.1 }
+			SAU = { country_event = egypte.1 }
+			IRQ = { country_event = egypte.1 }
+		}
 
 	}
 }
