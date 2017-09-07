@@ -1,0 +1,102 @@
+﻿###########################
+# Czechslovakia Events
+###########################
+
+add_namespace = czech
+
+country_event = {
+	id = czech.1
+	title = czech.1.t
+	desc = czech.1.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_defensive_war = no
+		NOT = { has_government = democracy }
+	}
+
+	
+	option = { # Support Nationalists
+		name = czech.1.a
+		trigger = { is_ai = no }
+		hidden_effect = {
+			set_capital = 445
+			start_civil_war = {
+				ruling_party = communism
+				ideology = democratic
+				size = 0.5
+				capital = 445
+				states = { 9 69 74 75 }
+			}
+			random_country = {
+				limit = {
+					original_tag = CZE
+					has_government = communism
+				}
+				load_oob = "CZE_Civil_War"
+				set_equipment_fraction = 0.3
+				set_national_unity = 0.9
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.35
+				}
+			}
+			news_event = { hours = 6 id = news.63 }
+			set_global_flag = spanish_civil_war
+			
+			load_oob = "SPA_Civil_War"
+			set_equipment_fraction = 0.3
+			set_national_unity = 0.9
+			
+			add_popularity = {
+				ideology = fascism
+				popularity = 1
+			}
+
+		}
+		custom_effect_tooltip = nationalists_chosen
+	}
+	option = { # Support Republicans
+		name = czech.1.b
+		hidden_effect = {
+			start_civil_war = {
+				ideology = communism
+				size = 0.5
+				capital = 664
+				states = { 70 71 664 72 }
+			}
+			random_country = {
+				limit = {
+					original_tag = SPR
+					has_government = communism
+				}
+				set_equipment_fraction = 0.3
+				set_national_unity = 0.9
+				#country_event = { id = czech.2 days = 1 }
+				load_oob = "CZE_Civil_War"
+			}
+			news_event = { hours = 6 id = news.63 }
+			set_global_flag = spanish_civil_war
+			
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.5
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = -1
+			}	
+			load_oob = "SPA_Civil_War"
+			set_equipment_fraction = 0.3
+			set_national_unity = 0.8
+			
+		}
+		custom_effect_tooltip = republicans_chosen
+	}
+}

@@ -1,0 +1,125 @@
+﻿################################
+# Events for the Soviet union
+################################
+
+add_namespace = sov
+
+# Yes or No to help to PRC?
+country_event = {
+	id = sov.1
+	title = sov.1.t
+	desc = sov.1.d
+	picture = GFX_report_event_help_PRC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sov.1.a
+		send_equipment = { target = PRC type = infantry_equipment amount = 10000 }
+		add_opinion_modifier = { target = PRC modifier = SOV_yes_intervention_opinion }
+		ai_chance = {
+			factor = 75
+		}
+		hidden_effect = {
+			PRC = {
+				country_event = prc.6
+			}
+		}
+	}
+	option = {
+		name = sov.1.b
+		add_opinion_modifier = { target = PRC modifier = SOV_no_intervention_opinion }
+		ai_chance = {
+			factor = 25
+		}
+		hidden_effect = {
+			PRC = {
+				country_event = prc.7
+			}
+		}
+	}
+}
+
+# Yes or No PRC joins faction
+country_event = {
+	id = sov.2
+	title = sov.2.t
+	desc = sov.2.d
+	picture = GFX_report_event_help_PRC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sov.2.a
+		add_opinion_modifier = { target = PRC modifier = SOV_yes_faction_opinion }
+		add_to_Faction = PRC
+		ai_chance = {
+			factor = 10
+		}
+		hidden_effect = {
+			news_event = news.1012
+		}
+	}
+	option = {
+		name = sov.2.b
+		add_opinion_modifier = { target = PRC modifier = SOV_no_faction_opinion }
+		ai_chance = {
+			factor = 1
+		}
+		hidden_effect = {
+			PRC = {
+				country_event = prc.8
+			}
+		}
+	}
+}
+
+# The Reunification of Austria
+country_event = {
+	id = sov.3
+	title = sov.3.t
+	desc = sov.3.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = sov.3.a
+		set_global_flag = sov_yes_austria
+		ai_chance = {
+			factor = 15
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 1
+		}
+		name = sov.3.b
+		set_global_flag = sov_no_austria
+	}
+}
+
+# UN recognition of PRC
+country_event = {
+	id = sov.4
+	title = sov.4.t
+	desc = sov.4.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = sov.4.a
+		set_global_flag = sov_yes_prc_un_recognition
+		ai_chance = {
+			factor = 15
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 1
+		}
+		name = sov.4.b
+		set_global_flag = sov_no_prc_un_recognition
+	}
+}
