@@ -1,0 +1,62 @@
+﻿###########################
+# Palestina Events
+###########################
+
+add_namespace = palestina
+
+
+#Surrender when Israel has taken too much land in Palestina
+country_event = {
+	id = palestina.1
+	title = palestina.1.t
+	desc = palestina.1.d
+	picture = GFX_report_event_soviet_tanks_snow
+	
+	trigger = {
+		tag = PAL
+		has_war_with = ISR
+		surrender_progress > 0.25
+		has_civil_war = no
+		ISR = { has_completed_focus = ISR_pre_emptive_strike }
+	}
+
+	mean_time_to_happen = { days = 0 }
+
+	fire_only_once = yes
+
+	#Surrender and offer territory
+	option = {
+		name = palestina.1.a
+
+		ISR = {
+			country_event = { id = palestina.2 }
+		}
+		custom_effect_tooltip = palestina.1.a_tt
+		effect_tooltip = {
+			ISR = { 
+				white_peace = {
+					tag = PAL 
+					message = PAL_agree_peace 
+				} 
+			}
+
+		}
+	}
+}
+
+#Israel response to Palestina surrender
+country_event = {
+	id = palestina.2
+	title = palestina.2.t
+	desc = palestina.2.d
+	picture = GFX_report_event_finnish_soldiers_snow
+	
+	is_triggered_only = yes
+
+	#Accept surrender
+	option = {
+		name = palestina.2.a
+
+		white_peace = PAL
+	}
+}
