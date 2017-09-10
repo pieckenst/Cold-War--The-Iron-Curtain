@@ -1718,6 +1718,100 @@ focus_tree = {
 			}
 		}
 	}
+	
+	focus = {
+		id = JOR_Mining
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+
+		x = 10
+		y = 4
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = JOR_infrastructure_effort }
+		
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						owns_state = 808
+						any_country = {
+							is_puppet_of = JOR
+							owns_state = 808
+						}
+					}
+				}
+				add_resource = {	#Aqaba
+					type = oil 
+					amount = 35
+					
+					state = 808
+				}
+				
+				add_resource = {	#Aqaba 
+					
+					type = steel
+					amount = 15
+					
+					state = 808
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 455
+						any_country = {
+							is_puppet_of = JOR
+							owns_state = 455
+						}
+					}
+				}
+				add_resource = { 	#Jordan
+					type = oil 
+					amount = 15
+					
+					state = 455
+				}
+				
+				add_resource = {	#Jordan
+					
+					type = steel
+					amount = 10
+					
+					state = 455
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 455
+						any_country = {
+							is_puppet_of = JOR
+							owns_state = 455
+						}
+					}
+				}
+				add_resource = {	#Jordan
+					type = oil 
+					amount = 10
+					
+					state = 455
+				}
+				
+				add_resource = {	#Jordan
+					
+					type = rubber
+					amount = 10
+					
+					state = 455
+				}
+			}
+		}
+
+	}
 
 	focus = {
 		id = JOR_construction_effort_3

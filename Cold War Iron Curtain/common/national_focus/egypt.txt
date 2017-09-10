@@ -3011,6 +3011,102 @@ focus_tree = {
 				}
 
 	}
+	
+	focus = {
+		id = EGY_Mining
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+
+		x = 19
+		y = 6
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = EGY_military_industrial_complex_two }
+		
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						owns_state = 457
+						any_country = {
+							is_puppet_of = EGY
+							owns_state = 457
+						}
+					}
+				}
+				add_resource = {	#Arabian Desert
+					type = oil 
+					amount = 45
+					
+					state = 457
+				}
+				
+				add_resource = {	#Arabian Desert 
+					
+					type = steel
+					amount = 25
+					
+					state = 457
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 446
+						any_country = {
+							is_puppet_of = EGY
+							owns_state = 446
+						}
+					}
+				}
+				add_resource = { 	#Cairo
+					type = oil 
+					amount = 25
+					
+					state = 446
+				}
+				
+				add_resource = {	#Cairo
+					
+					type = steel
+					amount = 10
+					
+					state = 446
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 552
+						any_country = {
+							is_puppet_of = EGY
+							owns_state = 552
+						}
+					}
+				}
+				add_resource = {	#Western Desert
+					type = oil 
+					amount = 60
+					
+					state = 552
+				}
+				
+				add_resource = {	#Western Desert
+					
+					type = steel
+					amount = 25
+					
+					state = 552
+				}
+			}
+		}
+
+	}
+	
+	
 	focus = {
 		id = EGY_equipment_effort_1
 		icon = GFX_goal_generic_allies_build_infantry
