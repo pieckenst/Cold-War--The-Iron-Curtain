@@ -36,7 +36,7 @@ country_event = {
 		hidden_effect = {
 			add_named_threat = { threat = 10 name = "NATO does not cede Berlin" }
 			news_event = { id = berlincrisis.3 days = 1 }
-			country_event = { id = berlincrisis.4 days = 2 }
+			SOV = { country_event = { id = berlincrisis.4 days = 2 } }
 		}
 		ai_chance = { 
 			factor = 80
@@ -94,7 +94,7 @@ news_event = {
 
 	option = {
 		name = berlincrisis.3.c
-		trigger = { NOT = { tag = SOV} tag = USA }
+		trigger = { NOT = { tag = SOV tag = USA } }
 	}
 }
 
@@ -159,7 +159,7 @@ country_event = {
 			news_event = { id = berlincrisis.6 days = 1 }
 		}
 		ai_chance = {
-			factor = 20
+			factor = 10
 			modifier = {
 				factor = 0
 				is_historical_focus_on = yes
@@ -176,6 +176,13 @@ country_event = {
 			news_event = { id = berlincrisis.7 days = 1 }
 			SOV = { news_event = { id = berlincrisis.8 days = 2 } }
 		}
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
 	}
 
 	option = {
@@ -186,6 +193,13 @@ country_event = {
 		add_named_threat = { threat = -5 name = "NATO pulling out of Berlin"}
 		hidden_effect = {
 			news_event = { id = berlincrisis."XXXXXXXXXXXX" days = 1 }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
 		}
 	}
 }
