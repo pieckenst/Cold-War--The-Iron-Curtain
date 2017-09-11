@@ -2549,5 +2549,183 @@ focus_tree = {
 			}
 		}
 	}
+	
+	focus = {
+		id = RAJ_MiningI
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+
+		x = 26
+		y = 0
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						owns_state = 428
+						any_country = {
+							is_puppet_of = ISR
+							owns_state = 428
+						}
+					}
+				}
+				add_resource = {	#Gujarat
+					type = oil 
+					amount = 25
+					
+					state = 428
+				}
+				
+				add_resource = {	#Gujarat 
+					
+					type = steel
+					amount = 35
+					
+					state = 428
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 435
+						any_country = {
+							is_puppet_of = RAJ
+							owns_state = 435
+						}
+					}
+				}
+				add_resource = { 	#Bihar
+					type = oil 
+					amount = 25
+					
+					state = 435
+				}
+				
+				add_resource = {	#Bihar
+					
+					type = steel
+					amount = 40
+					
+					state = 435
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 423
+						any_country = {
+							is_puppet_of = RAJ
+							owns_state = 423
+						}
+					}
+				}
+				add_resource = {	#Maduri
+					type = oil 
+					amount = 15
+					
+					state = 423
+				}
+				
+				add_resource = {	#Maduri
+					
+					type = steel
+					amount = 30
+					
+					state = 423
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = RAJ_MiningII
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+
+		x = 26
+		y = 1
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = RAJ_MiningI }
+		
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						owns_state = 439
+						any_country = {
+							is_puppet_of = RAJ
+							owns_state = 439
+						}
+					}
+				}
+				add_resource = {	#Delhi
+					type = chromium 
+					amount = 20
+					
+					state = 439
+				}
+				
+				add_resource = {	#Delhi
+					
+					type = rubber
+					amount = 25
+					
+					state = 439
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = RAJ_MiningIII
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+
+		x = 26
+		y = 2
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = RAJ_MiningII }
+		
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						owns_state = 438
+						any_country = {
+							is_puppet_of = RAJ
+							owns_state = 438
+						}
+					}
+				}
+				add_resource = {	#Lucknow
+					type = tungsten 
+					amount = 25
+					
+					state = 438
+				}
+				
+				add_resource = {	#Lucknow
+					
+					type = aluminium
+					amount = 35
+					
+					state = 438
+				}
+			}
+		}
+
+	}
 
 }

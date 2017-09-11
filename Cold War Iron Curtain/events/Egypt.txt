@@ -188,3 +188,59 @@ country_event = {
 		transfer_state = 453
 	}
 }
+
+
+#Surrender when UK has taken too much land in egypte with focus
+country_event = {
+	id = egypte.6
+	title = egypte.6.t
+	desc = egypte.6.d
+	picture = GFX_report_event_soviet_tanks_snow
+	
+	trigger = {
+		tag = EGY
+		has_war_with = ENG
+		surrender_progress > 0.20
+		has_civil_war = no
+		EGY = { has_completed_focus = EGY_nationalize_suez_canal}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+
+	fire_only_once = yes
+
+	#Surrender and offer territory
+	option = {
+		name = egypte.6.a
+
+		ENG = {
+			country_event = { id = egypte.7 }
+		}
+		custom_effect_tooltip = egypte.6.a_tt
+		effect_tooltip = {
+			ENG = { 
+				white_peace = {
+					tag = EGY 
+					message = EGY_agree_peace 
+				} 
+			}
+		}
+	}
+}
+
+#UK response to egypte surrender
+country_event = {
+	id = egypte.7
+	title = egypte.7.t
+	desc = egypte.7.d
+	picture = GFX_report_event_finnish_soldiers_snow
+	
+	is_triggered_only = yes
+
+	#Accept surrender
+	option = {
+		name = egypte.7.a
+
+		white_peace = EGY
+	}
+}

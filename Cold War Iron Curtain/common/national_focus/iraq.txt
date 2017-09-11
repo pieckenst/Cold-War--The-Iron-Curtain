@@ -1718,6 +1718,100 @@ focus_tree = {
 			}
 		}
 	}
+	
+	focus = {
+		id = IRQ_Mining
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+
+		x = 10
+		y = 4
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = IRQ_infrastructure_effort }
+		
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						owns_state = 813
+						any_country = {
+							is_puppet_of = IRQ
+							owns_state = 813
+						}
+					}
+				}
+				add_resource = {	#Bashra
+					type = oil 
+					amount = 35
+					
+					state = 813
+				}
+				
+				add_resource = {	#Bashra 
+					
+					type = steel
+					amount = 20
+					
+					state = 813
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 291
+						any_country = {
+							is_puppet_of = IRQ
+							owns_state = 291
+						}
+					}
+				}
+				add_resource = { 	#Baghdad
+					type = oil 
+					amount = 35
+					
+					state = 291
+				}
+				
+				add_resource = {	#Baghdad
+					
+					type = steel
+					amount = 20
+					
+					state = 291
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 676
+						any_country = {
+							is_puppet_of = IRQ
+							owns_state = 676
+						}
+					}
+				}
+				add_resource = {	#Mosul
+					type = oil 
+					amount = 40
+					
+					state = 676
+				}
+				
+				add_resource = {	#Mosul
+					
+					type = rubber
+					amount = 10
+					
+					state = 676
+				}
+			}
+		}
+
+	}
 
 	focus = {
 		id = IRQ_construction_effort_3
