@@ -1926,32 +1926,122 @@ focus_tree = {
 		}
 		x = 61
 		y = 1
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = dockyard
-											size > 2
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = dockyard
-																			size > 2
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
+			
+			
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
 						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
 				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
 
 	}
 	focus = {
@@ -2014,32 +2104,70 @@ focus_tree = {
 		}
 		x = 55
 		y = 4
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
+			
+		completion_reward {
+
+		random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
 									free_building_slots = {
-											building = arms_factory
-											size > 4
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = arms_factory
-																			size > 4
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
 								}
+							}
 						}
+					}
 				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -2054,32 +2182,121 @@ focus_tree = {
 		}
 		x = 60
 		y = 3
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = dockyard
-											size > 4
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = dockyard
-																			size > 4
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
+		
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
 						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
 				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
 
 	}
 	focus = {
@@ -2205,32 +2422,71 @@ focus_tree = {
 		}
 		x = 68
 		y = 1
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
+			
+		
+		completion_reward {
+
+		random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
 									free_building_slots = {
-											building = arms_factory
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = arms_factory
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
 								}
+							}
 						}
+					}
 				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -2242,32 +2498,71 @@ focus_tree = {
 		}
 		x = 68
 		y = 2
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
+			
+		
+		completion_reward {
+
+		random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
 									free_building_slots = {
-											building = arms_factory
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = arms_factory
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
 								}
+							}
 						}
+					}
 				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -2279,32 +2574,71 @@ focus_tree = {
 		}
 		x = 68
 		y = 3
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
+			
+		
+		completion_reward {
+
+		random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
 									free_building_slots = {
-											building = arms_factory
-											size > 1
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = arms_factory
-																			size > 1
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
 								}
+							}
 						}
+					}
 				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -3345,7 +3679,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ENG_GlasgowDocks
-		icon = GFX_goal_generic_construct_naval_dockyard
+		icon = GFX_goal_generic_construct_mil_factory
 		cost = 10.00
 		prerequisite = {
 			focus = ENG_NorfolksDocks
