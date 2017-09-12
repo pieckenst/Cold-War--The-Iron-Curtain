@@ -29,6 +29,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = anti_right
 		}
+		completion_reward = {
+			add_popularity = {
+				ideology = liberal
+				popularity = 0.2
+			}
+			add_national_unity = 0.05
+		}
 		x = 14
 		y = 7
 
@@ -184,6 +191,8 @@ focus_tree = {
 			every_country = {
 				limit = {
 					has_government = communism
+					has_government = maoism
+					has_government = trotskyism
 				}
 				country_event = prc.11
 			}
@@ -202,6 +211,18 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = prc_nationalism
 		}
+		completion_reward = {
+			add_opinion_modifier = { target = SOV modifier = PRC_defend_communism_opinion }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = maoism
+				popularity = 0.1
+			}
+			add_political_power = 150
+		}
 		x = 10
 		y = 6
 
@@ -212,6 +233,9 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = prc_defend_communism
+		}
+		completion_reward = {
+			add_ideas = PRC_cultural_revolution
 		}
 		x = 10
 		y = 7
@@ -234,6 +258,27 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = cultural_revolution
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = maoism
+				popularity = 0.2
+			}
+			add_national_unity = -0.10
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure < 7
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 		x = 10
 		y = 8
@@ -357,6 +402,19 @@ focus_tree = {
 		prerequisite = {
 			focus = prc_anti_soviet
 		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = SOV
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 1
+				is_historical_focus_on = no
+			}
+		}
 		x = 12
 		y = 6
 
@@ -371,6 +429,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = spring_of_57
 		}
+		completion_reward = {
+			add_popularity = {
+				ideology = maoism
+				popularity = 0.1
+			}
+			add_national_unity = -0.05
+		}
 		x = 12
 		y = 7
 
@@ -381,6 +446,38 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = anti_right
+		}
+		completion_reward = {
+			add_political_power = 100
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure < 6
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 		x = 12
 		y = 8
@@ -409,6 +506,12 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = prc_64
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = liberal
+				popularity = 0.2
+			}
 		}
 		x = 14
 		y = 8
@@ -483,7 +586,7 @@ focus_tree = {
 		x = 16
 		y = 1
 		completion_reward = {
-			add_national_unity = 00.15
+			add_national_unity = 0.15
 			hidden_effect = {
 				news_event = news.1004
 			}
@@ -2198,6 +2301,12 @@ focus_tree = {
 			focus = antis_campaign
 			focus = prc_defend_communism
 		}
+		completion_reward = {
+			add_popularity = {
+				ideology = nationalism
+				popularity = 0.35
+			}	
+		}
 		x = 6
 		y = 6
 
@@ -2228,6 +2337,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = prc_nationalism
 		}
+		completion_reward = {
+			add_popularity = {
+				ideology = maoism
+				popularity = 0.2
+			}
+			add_political_power = 150
+		}
 		x = 4
 		y = 6
 
@@ -2238,6 +2354,9 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = prc_nationalism
+		}
+		completion_reward = {
+			add_ideas = PRC_sino_centrism
 		}
 		x = 2
 		y = 7
@@ -2250,6 +2369,11 @@ focus_tree = {
 		prerequisite = {
 			focus = prc_nationalism
 			focus = prc_defend_communism
+		}
+		completion_reward = {
+			add_ideas = PRC_indochina
+			add_opinion_modifier = { target = VIN modifier = PRC_Indochina_North_opinion }
+			add_opinion_modifier = { target = VIE modifier = PRC_Indochina_South_opinion }
 		}
 		x = 7
 		y = 7
@@ -2273,6 +2397,19 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = sino_centrism
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = JAP
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 1
+				is_historical_focus_on = no
+			}
 		}
 		x = 1
 		y = 8
@@ -2482,6 +2619,13 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = prc_student_movement
+		}
+		completion_reward = {
+			add_national_unity = -0.05
+			add_popularity = {
+				ideology = liberal
+				popularity = -0.20
+			}
 		}
 		x = 16
 		y = 8

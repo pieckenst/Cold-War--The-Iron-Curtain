@@ -1718,6 +1718,100 @@ focus_tree = {
 			}
 		}
 	}
+	
+	focus = {
+		id = SYR_Mining
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+
+		x = 10
+		y = 4
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = SYR_infrastructure_effort }
+		
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						owns_state = 810
+						any_country = {
+							is_puppet_of = SYR
+							owns_state = 810
+						}
+					}
+				}
+				add_resource = {	#Raqqa
+					type = oil 
+					amount = 35
+					
+					state = 810
+				}
+				
+				add_resource = {	#Raqqa 
+					
+					type = steel
+					amount = 20
+					
+					state = 810
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 677
+						any_country = {
+							is_puppet_of = SYR
+							owns_state = 677
+						}
+					}
+				}
+				add_resource = { 	#Aleppo
+					type = oil 
+					amount = 30
+					
+					state = 677
+				}
+				
+				add_resource = {	#Aleppo
+					
+					type = steel
+					amount = 15
+					
+					state = 677
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 554
+						any_country = {
+							is_puppet_of = SYR
+							owns_state = 554
+						}
+					}
+				}
+				add_resource = {	#Damascus
+					type = oil 
+					amount = 20
+					
+					state = 554
+				}
+				
+				add_resource = {	#Damascus
+					
+					type = rubber
+					amount = 10
+					
+					state = 554
+				}
+			}
+		}
+
+	}
 
 	focus = {
 		id = SYR_construction_effort_3
