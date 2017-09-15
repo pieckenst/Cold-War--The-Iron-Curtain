@@ -51,6 +51,7 @@ focus_tree = {
 		y = 1
 		completion_reward = {
 			remove_ideas = unstable_economy
+			add_ideas = idea_JAP_Industrial
 		}
 	}
 	focus = {
@@ -104,7 +105,7 @@ focus_tree = {
 		completion_reward = {
 			set_politics = { ruling_party = fascism elections_allowed = no }
 			add_popularity = { ideology = fascism popularity = 0.35 }
-			add_ideas = state_shintoism_focus
+			add_ideas = state_shintoism
 		}
 	}
 	focus = {
@@ -304,7 +305,7 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 			diplomatic_relation = { country = SOV relation = non_aggression_pact }
-			set_political_party = { ideology = communism popularity = 0.5 }
+			add_popularity = { ideology = communism popularity = 0.5 }
 		}
 	}
 	focus = {
@@ -350,7 +351,7 @@ focus_tree = {
 		x = 11
 		y = 5
 		completion_reward = {
-			set_political_party = { ideology = democratic popularity = -0.5 }
+			add_popularity = { ideology = democratic popularity = -0.5 }
 			set_politics = { ruling_party = communism elections_allowed = no }
 			USA = {
 					country_event = japan.105 
@@ -419,7 +420,7 @@ focus_tree = {
 		x = 17
 		y = 2
 		completion_reward = {
-			set_political_party = { ideology = democratic popularity = 0.5 }
+			add_popularity = { ideology = democratic popularity = 0.5 }
 			add_ideas = liberty_ethos_focus
 		}
 	}
@@ -513,7 +514,7 @@ focus_tree = {
 		x = 19
 		y = 5
 		completion_reward = {
-			set_political_party = { ideology = communism popularity = -2.5 }
+			add_popularity = { ideology = communism popularity = -0.25 }
 		}
 	}
 	focus = {
@@ -1006,28 +1007,85 @@ focus_tree = {
 		}
 		x = 32
 		y = 2
+		
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 4
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 4
+				instant_build = yes
+			}
+		}
+
 		completion_reward = {
-			hidden_effect = {
-				282 = {
-					if = {
-						limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-							type = infrastructure
-							level = 8
-							instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
 						}
 					}
 				}
-				532 = {
-					if = {
-						limit = { is_controlled_by = ROOT }
-
-						add_building_construction = {
-							type = infrastructure
-							level = 8
-							instant_build = yes
+				add_building_construction = {
+					type = infrastructure
+					level = 4
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
 						}
 					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 4
+					instant_build = yes
 				}
 			}
 		}
@@ -1041,19 +1099,88 @@ focus_tree = {
 		}
 		x = 32
 		y = 3
+		
+		
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 4
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 4
+				instant_build = yes
+			}
+		}
+
 		completion_reward = {
-			hidden_effect = {
-				531 = {
-					if = {
-						limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-							type = infrastructure
-							level = 8
-							instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
 						}
 					}
 				}
-			}	
+				add_building_construction = {
+					type = infrastructure
+					level = 4
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 4
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -1066,17 +1193,86 @@ focus_tree = {
 		}
 		x = 32
 		y = 4
+		
+		
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 4
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 4
+				instant_build = yes
+			}
+		}
+
 		completion_reward = {
-			hidden_effect = {
-				529 = {
-					if = {
-						limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-							type = infrastructure
-							level = 8
-							instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
 						}
 					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 4
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 4
+					instant_build = yes
 				}
 			}
 		}
@@ -1091,17 +1287,86 @@ focus_tree = {
 		}
 		x = 32
 		y = 5
+		
+		
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 4
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 4
+				instant_build = yes
+			}
+		}
+
 		completion_reward = {
-			hidden_effect = {
-				528 = {
-					if = {
-						limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-							type = infrastructure
-							level = 8
-							instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
 						}
 					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 4
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 4
+					instant_build = yes
 				}
 			}
 		}
@@ -1917,6 +2182,121 @@ focus_tree = {
 		}
 		x = 58
 		y = 1
+		
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
 	}
 	focus = {
 		id = jap_motorized
@@ -2348,6 +2728,894 @@ focus_tree = {
 				}
 		}
 
+	}
+	
+	focus = {
+		id = JAP_rebuild_navyI
+
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = JAP_jsdf
+		}
+
+		x = 60
+		y = 1
+		
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
+	
+		focus = {
+		id = JAP_rebuild_navyII
+
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = JAP_jsdf
+		}
+
+		x = 60
+		y = 2
+		
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
+	
+		focus = {
+		id = JAP_rebuild_navyIII
+
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = JAP_jsdf
+		}
+
+		x = 60
+		y = 3
+		
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
+	
+		focus = {
+		id = JAP_rebuild_navyIV
+
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = JAP_jsdf
+		}
+
+		x = 60
+		y = 4
+		
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
+	
+		focus = {
+		id = JAP_rebuild_navyV
+
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = JAP_jsdf
+		}
+
+		x = 60
+		y = 5
+		
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
+	
+	focus = {
+		id = JAP_firebombing
+		icon = GFX_focus_generic_the_giant_wakes
+		cost = 10.00
+		
+		x = 20
+		y = 1
+		
+		available = {
+			JAP = {
+					num_of_factories > 100
+			}
+		} 
+		
+		completion_reward = {
+			remove_ideas = firebombing
+		}
+	}
+	
+	focus = {
+		id = JAP_increase_production 
+
+		icon = GFX_goal_continuous_reduce_training_time
+		cost = 10.00
+
+		prerequisite = {
+			focus = JAP_new
+		}
+		x = 30
+		y = 8
+		completion_reward = {
+			add_ideas = idea_JAP_Infantery_equipment
+			add_ideas = idea_JAP_Motorized_Equipment
+		}
+	}
+	
+	focus = {
+		id =  JAP_reworked_our_army
+
+		icon = GFX_goal_continuous_reduce_training_time
+		cost = 10.00
+
+		prerequisite = {
+			focus = JAP_increase_production 
+		}
+		x = 30
+		y = 9
+		completion_reward = {
+			add_ideas = idea_JAP_Reworked_our_Army 
+		}
+	}
+	
+	focus = {
+		id = JAP_MiningI
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+
+		x = 28
+		y = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = JAP_reworked_our_army}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						owns_state = 282
+						any_country = {
+							is_puppet_of = JAP
+							owns_state = 282
+						}
+					}
+				}
+				add_resource = {	#Kanto
+					type = oil 
+					amount = 15
+					
+					state = 282
+				}
+				
+				add_resource = {	#Kanto 
+					
+					type = steel
+					amount = 30
+					
+					state = 282
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 532
+						any_country = {
+							is_puppet_of = JAP
+							owns_state = 532
+						}
+					}
+				}
+				add_resource = { 	#Tokai
+					type = oil 
+					amount = 15
+					
+					state = 532
+				}
+				
+				add_resource = {	#Tokai
+					
+					type = steel
+					amount = 30
+					
+					state = 532
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						owns_state = 531
+						any_country = {
+							is_puppet_of = JAP
+							owns_state = 531
+						}
+					}
+				}
+				add_resource = {	#Kansai
+					type = oil 
+					amount = 15
+					
+					state = 531
+				}
+				
+				add_resource = {	#Kansai
+					
+					type = steel
+					amount = 30
+					
+					state = 531
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = JAP_MiningII
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+
+		x = 30
+		y = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = JAP_reworked_our_army}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						owns_state = 529
+						any_country = {
+							is_puppet_of = JAP
+							owns_state = 529
+						}
+					}
+				}
+				add_resource = {	#Chugoku
+					type = chromium 
+					amount = 15
+					
+					state = 529
+				}
+				
+				add_resource = {	#Chugoku
+					
+					type = rubber
+					amount = 30
+					
+					state = 529
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = JAP_MiningIII
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+
+		x = 32
+		y = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = JAP_reworked_our_army }
+		
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						owns_state = 528
+						any_country = {
+							is_puppet_of = JAP
+							owns_state = 528
+						}
+					}
+				}
+				add_resource = {	#Kyushu
+					type = tungsten 
+					amount = 15
+					
+					state = 528
+				}
+				
+				add_resource = {	#Kyushu
+					
+					type = aluminium
+					amount = 30
+					
+					state = 528
+				}
+			}
+		}
+
+	}
+	
+	focus = {
+		id = JAP_reconstruction_begins
+		icon = GFX_focus_generic_the_giant_wakes
+		cost = 10.00
+
+		prerequisite = {
+			focus = JAP_firebombing
+		}
+
+		x = 20
+		y = 2
+		completion_reward = {
+			add_ideas = idea_JAP_Reconstruction_begins
+		}
 	}
 
 }
