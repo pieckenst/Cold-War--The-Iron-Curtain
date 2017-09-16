@@ -8,6 +8,7 @@ focus_tree = {
 		}
 	}
 	default = no
+	continuous_focus_position = { x = 1400 y = 1400 }
 	focus = {
 		id = SOV_stalin_reforms
 		text = SOV_stalin_reforms
@@ -361,15 +362,18 @@ focus_tree = {
 		cost = 10.00
 		x = 46
 		y = 1
-			completion_reward = {
-					army_experience = 5
-					add_tech_bonus = {
-							name = land_doc_bonus
-							bonus = 0.5
-							uses = 2
-							category = land_doctrine
-						}
-				}
+		prerequisite = {
+			focus = SOV_lessons_from_the_great_patriotic_war
+		}
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
 	}
 	focus = {
 		id = SOV_lessons_from_the_great_patriotic_war
@@ -1349,7 +1353,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SOV_gorbachav_reforms
 		}
-		x = 8
+		x = 6
 		y = 16
 		completion_reward = {
 			#Fire Events For Fall of Soviet Union
@@ -1372,9 +1376,6 @@ focus_tree = {
 		id = SOV_an_iron_curtain
 		icon = GFX_focus_generic_soviet_politics
 		cost = 10.00
-		prerequisite = {
-			focus = SOV_stalin_reforms
-		}
 		prerequisite = {
 			focus = SOV_stalin_reforms
 		}
@@ -2354,7 +2355,7 @@ focus_tree = {
 			focus = SOV_militarization_3
 		}
 		x = 16
-		y = 4
+		y = 5
 		completion_reward = {
 			add_tech_bonus = {
 				name = secret_bonus
@@ -2511,8 +2512,8 @@ completion_reward = {
 		prerequisite = {
 			focus = SOV_militarization_4
 		}
-		x = 20
-		y = 5
+		x = 21
+		y = 6
 completion_reward = {
 					every_state = {
 							add_extra_state_shared_building_slots = 1
@@ -2877,6 +2878,7 @@ completion_reward = {
 		cost = 10.00
 		prerequisite = {
 			focus = SOV_western_thaw
+			focus = SOV_abandon_collective_agriculture
 		}
 		x = 33
 		y = 8
@@ -3024,7 +3026,7 @@ completion_reward = {
 			focus = SOV_expand_the_VDV
 		}
 		x = 37
-		y = 2
+		y = 3
 			completion_reward = {
 					add_tech_bonus = {
 							name = special_forces_bonus
@@ -4204,7 +4206,7 @@ completion_reward = {
 			focus = SOV_nuclear_initiatiive
 		}
 		x = 59
-		y = 11
+		y = 12
 		completion_reward = {
 			add_tech_bonus = {
 				name = secret_bonus
@@ -7593,10 +7595,7 @@ completion_reward = {
 		icon = GFX_goal_continuous_non_factory_construct
 		cost = 10.00
 		prerequisite = {
-			focus = SOV_industrialization_4
-		}
-		prerequisite = {
-			focus = SOV_militarization_5
+			focus = SOV_militarization_4
 		}
 		x = 16
 		y = 6
