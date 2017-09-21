@@ -696,11 +696,10 @@ focus_tree = {
 			}
 		}
 		will_lead_to_war_with = POR
+		
 		completion_reward = {
-			create_wargoal = {
-				target = POR
-				type = take_state_focus
-				generator = { 729 }
+			PRC = {
+				transfer_state = 729
 			}
 		}
 		x = 15
@@ -722,11 +721,10 @@ focus_tree = {
 			}
 		}
 		will_lead_to_war_with = ENG
+		
 		completion_reward = {
-			create_wargoal = {
-				target = ENG
-				type = take_state_focus
-				generator = { 326 }
+			PRC = {
+				transfer_state = 326
 			}
 		}
 		x = 17
@@ -788,6 +786,23 @@ focus_tree = {
 		}
 		x = 18
 		y = 6
+		
+		complete_tooltip = {
+			JAP = {
+				add_opinion_modifier = { target = PRC modifier = democratic_leanings_good }
+			}
+			PRC = {
+				add_opinion_modifier = { target = JAP modifier = democratic_leanings_good }
+			}
+		}
+		completion_reward = {
+			JAP = {
+				add_opinion_modifier = { target = PRC modifier = democratic_leanings_good }
+			}
+			PRC = {
+				add_opinion_modifier = { target = JAP modifier = democratic_leanings_good }
+			}
+		}
 
 	}
 	focus = {
@@ -2548,7 +2563,7 @@ focus_tree = {
 			random_owned_state = {
 				limit = {
 					free_building_slots = {
-						building = industrial_complex
+						building = arms_factory
 						size > 0
 						include_locked = yes
 					}
@@ -2558,7 +2573,7 @@ focus_tree = {
 							owner = {
 								any_owned_state = {
 									free_building_slots = {
-										building = industrial_complex
+										building = arms_factory
 										size > 0
 										include_locked = yes
 									}
@@ -2570,7 +2585,7 @@ focus_tree = {
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
-					type = industrial_complex
+					type = arms_factory
 					level = 2
 					instant_build = yes
 				}
@@ -2579,7 +2594,7 @@ focus_tree = {
 			random_owned_state = {
 				limit = {
 					free_building_slots = {
-						building = industrial_complex
+						building = arms_factory
 						size > 0
 						include_locked = yes
 					}
@@ -2589,7 +2604,7 @@ focus_tree = {
 							owner = {
 								any_owned_state = {
 									free_building_slots = {
-										building = industrial_complex
+										building = arms_factory
 										size > 0
 										include_locked = yes
 									}
@@ -2601,7 +2616,7 @@ focus_tree = {
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
-					type = industrial_complex
+					type = arms_factory
 					level = 2
 					instant_build = yes
 				}
@@ -2610,7 +2625,7 @@ focus_tree = {
 			random_owned_state = {
 				limit = {
 					free_building_slots = {
-						building = industrial_complex
+						building = arms_factory
 						size > 0
 						include_locked = yes
 					}
@@ -2620,7 +2635,7 @@ focus_tree = {
 							owner = {
 								any_owned_state = {
 									free_building_slots = {
-										building = industrial_complex
+										building = arms_factory
 										size > 0
 										include_locked = yes
 									}
@@ -2632,7 +2647,7 @@ focus_tree = {
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
-					type = industrial_complex
+					type = arms_factory
 					level = 2
 					instant_build = yes
 				}
@@ -3053,6 +3068,16 @@ focus_tree = {
 		}
 		x = 48
 		y = 3
+		
+		completion_reward = {
+			army_experience = 25
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 0.5
+				uses = 2
+				category = armor
+			}
+		}
 
 	}
 	focus = {
@@ -3089,6 +3114,82 @@ focus_tree = {
 		}
 		x = 49
 		y = 6
+		
+		available_if_capitulated = yes
+		
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_2_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name =  air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+		completion_reward = {
+			air_experience = 25
+			if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							NOT = { is_controlled_by = ROOT }
+							NOT = {
+								free_building_slots = {
+									building = air_base
+									size > 1
+								}
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}				
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			add_tech_bonus = {
+				name =  air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
 
 	}
 	focus = {
@@ -3100,6 +3201,82 @@ focus_tree = {
 		}
 		x = 49
 		y = 7
+		
+		available_if_capitulated = yes
+		
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_2_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name =  air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+		completion_reward = {
+			air_experience = 25
+			if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							NOT = { is_controlled_by = ROOT }
+							NOT = {
+								free_building_slots = {
+									building = air_base
+									size > 1
+								}
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}				
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			add_tech_bonus = {
+				name =  air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
 
 	}
 	focus = {
@@ -3111,6 +3288,82 @@ focus_tree = {
 		}
 		x = 49
 		y = 8
+		
+		available_if_capitulated = yes
+		
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_2_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name =  air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+		completion_reward = {
+			air_experience = 25
+			if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							NOT = { is_controlled_by = ROOT }
+							NOT = {
+								free_building_slots = {
+									building = air_base
+									size > 1
+								}
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}				
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			add_tech_bonus = {
+				name =  air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
 
 	}
 	focus = {
@@ -3852,14 +4105,22 @@ focus_tree = {
 		x = 4
 		y = 10
 		
+		available = {
+			is_puppet = no
+			NOT = { has_war_with = CAM }
+		}
+		bypass = {
+			CAM = { is_puppet_of = PRC }
+
 		completion_reward = {
-			create_wargoal = {
-				type = puppet_wargoal_focus
-				target = CAM
+			CAM = {
+				country_event = prc.14
 			}
 		}
-
+		
+		}
 	}
+
 	focus = {
 		id = prc_vietnam_puppet
 		icon = GFX_goal_anschluss
@@ -3870,10 +4131,17 @@ focus_tree = {
 		x = 8
 		y = 10
 		
+		available = {
+			is_puppet = no
+			NOT = { has_war_with = VIN }
+		}
+		bypass = {
+			VIN = { is_puppet_of = PRC }
+		}
+
 		completion_reward = {
-			create_wargoal = {
-				type = puppet_wargoal_focus
-				target = VIN
+			VIN = {
+				country_event = prc.14
 			}
 		}
 
@@ -3927,6 +4195,13 @@ focus_tree = {
 		}
 		x = 6
 		y = 10
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = VIN
+			}
+		}
 
 	}
 	focus = {
