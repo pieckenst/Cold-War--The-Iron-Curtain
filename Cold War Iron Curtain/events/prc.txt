@@ -362,3 +362,169 @@ country_event = {
 		}
 	}
 }
+
+# China event from Cambodia: Become puppet or not
+country_event = {
+	id = prc.14
+	title = prc.14.t
+	desc = prc.14.d
+	picture = GFX_report_event_asian_politicians
+	
+	is_triggered_only = yes
+	
+	#Accept - become puppet
+	option = {
+		name = prc.14.a
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = PRC
+					ratio > 0.10
+				}
+				is_historical_focus_on = yes
+			}
+		}
+		PRC = { 
+			country_event = { id = prc.15 }
+			effect_tooltip = { puppet = CAM }
+		}
+	}
+
+	option = {
+		name = prc.14.b
+		ai_chance = { factor = 40 }
+		PRC = { 
+			country_event = { id = prc.16 }
+			effect_tooltip = {
+				create_wargoal = {
+					type = take_state
+					target = CAM
+					generator = owned_states
+				}
+			}
+		}
+	}
+}
+
+# Cambodia accepts and is puppeted
+country_event = {
+	id = prc.15
+	title = prc.15.t
+	desc = prc.15.d
+	picture = GFX_report_event_chinese_japanese_handshake
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.15.a
+		puppet = CAM
+		#add_named_threat = { threat = 20 name = prc_khmer_rogue }
+		#hidden_effect = {
+		#	news_event = { hours = 6 id = news.210 }
+		#}
+	}
+}
+
+# Cambodia refuses, gain cb
+country_event = {
+	id = prc.16
+	title = prc.16.t
+	desc = prc.16.d
+	picture = GFX_report_event_chinese_soldiers_02
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.16.a
+		create_wargoal = {
+			type = take_state
+			target = CAM
+			generator = owned_states
+		}
+	}
+}
+
+# China event from Vietnam: Become puppet or not
+country_event = {
+	id = prc.17
+	title = prc.17.t
+	desc = prc.17.d
+	picture = GFX_report_event_asian_politicians
+	
+	is_triggered_only = yes
+	
+	#Accept - become puppet
+	option = {
+		name = prc.17.a
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = PRC
+					ratio > 0.10
+				}
+				is_historical_focus_on = yes
+			}
+		}
+		PRC = { 
+			country_event = { id = prc.18 }
+			effect_tooltip = { puppet = VIN }
+		}
+	}
+
+	option = {
+		name = prc.17.b
+		ai_chance = { factor = 40 }
+		PRC = { 
+			country_event = { id = prc.19 }
+			effect_tooltip = {
+				create_wargoal = {
+					type = take_state
+					target = VIN
+					generator = owned_states
+				}
+			}
+		}
+	}
+}
+
+# Vietnam accepts and is puppeted
+country_event = {
+	id = prc.18
+	title = prc.18.t
+	desc = prc.18.d
+	picture = GFX_report_event_chinese_japanese_handshake
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.18.a
+		puppet = VIN
+		#add_named_threat = { threat = 20 name = prc_khmer_rogue }
+		#hidden_effect = {
+		#	news_event = { hours = 6 id = news.210 }
+		#}
+	}
+}
+
+# Vietnam refuses, gain cb
+country_event = {
+	id = prc.19
+	title = prc.19.t
+	desc = prc.19.d
+	picture = GFX_report_event_chinese_soldiers_02
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.19.a
+		create_wargoal = {
+			type = take_state
+			target = VIN
+			generator = owned_states
+		}
+	}
+}
