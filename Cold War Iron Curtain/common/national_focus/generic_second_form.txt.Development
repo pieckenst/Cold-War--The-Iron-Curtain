@@ -9,7 +9,7 @@ focus_tree = {
 	reset_on_civilwar = no
 
 	focus = {
-		id = GTF_army_effort
+		id = army_effort
 		icon = GFX_goal_generic_allies_build_infantry
 		x = 1
 		y = 0
@@ -18,7 +18,7 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			army_experience = 50
+			army_experience = 5
 			add_tech_bonus = {
 				name = land_doc_bonus
 				bonus = 0.5
@@ -29,7 +29,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_equipment_effort
+		id = equipment_effort
 		icon = GFX_goal_generic_small_arms
 		prerequisite = { focus = army_effort }
 		x = 0
@@ -50,7 +50,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_motorization_effort
+		id = motorization_effort
 		icon = GFX_goal_generic_army_motorized
 		prerequisite = { focus = army_effort }
 		bypass = { has_tech = motorised_infantry }
@@ -70,7 +70,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_doctrine_effort
+		id = doctrine_effort
 		icon = GFX_goal_generic_army_doctrines
 		prerequisite = { focus = army_effort }
 		x = 1
@@ -91,7 +91,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_equipment_effort_2
+		id = equipment_effort_2
 		icon = GFX_goal_generic_army_artillery
 		prerequisite = { focus = equipment_effort }
 		x = 0
@@ -112,7 +112,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_mechanization_effort
+		id = mechanization_effort
 		icon = GFX_goal_generic_build_tank
 		prerequisite = { focus = motorization_effort }
 		x = 2
@@ -132,7 +132,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_doctrine_effort_2
+		id = doctrine_effort_2
 		icon = GFX_goal_generic_army_doctrines
 		prerequisite = { focus = doctrine_effort }
 		x = 1
@@ -153,7 +153,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_equipment_effort_3
+		id = equipment_effort_3
 		icon = GFX_goal_generic_army_artillery2
 		prerequisite = { focus = equipment_effort_2 }
 		x = 0
@@ -163,9 +163,6 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-		
-		add_ideas = idea_GTF_Infantery_equipment
-		
 			add_tech_bonus = {
 				name = infantry_artillery_bonus
 				ahead_reduction = 1
@@ -177,7 +174,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_armor_effort
+		id = armor_effort
 		icon = GFX_goal_generic_army_tanks
 		prerequisite = { focus = mechanization_effort }
 		x = 2
@@ -187,9 +184,6 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-		
-		add_ideas = idea_GTF_Motorized_Equipment
-		
 			add_tech_bonus = {
 				name = armor_bonus
 				bonus = 0.5
@@ -200,7 +194,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_special_forces
+		id = special_forces
 		icon = GFX_goal_generic_special_forces
 		prerequisite = { focus = equipment_effort_3 }
 		prerequisite = { focus = doctrine_effort_2 }
@@ -227,7 +221,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_aviation_effort
+		id = aviation_effort
 		icon = GFX_goal_generic_build_airforce
 		x = 5
 		y = 0
@@ -310,7 +304,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_fighter_focus
+		id = fighter_focus
 		icon = GFX_goal_generic_air_fighter
 		prerequisite = { focus = aviation_effort }
 		mutually_exclusive = { focus = bomber_focus }
@@ -337,7 +331,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_bomber_focus
+		id = bomber_focus
 		icon = GFX_goal_generic_air_bomber
 		prerequisite = { focus = aviation_effort }
 		mutually_exclusive = { focus = fighter_focus }
@@ -361,7 +355,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_aviation_effort_2
+		id = aviation_effort_2
 		icon = GFX_goal_generic_air_doctrine
 		prerequisite = { focus = bomber_focus focus = fighter_focus }
 		x = 5
@@ -447,9 +441,10 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_CAS_effort
+		id = CAS_effort
 		icon = GFX_goal_generic_CAS
 		prerequisite = { focus = aviation_effort_2 }
+		prerequisite = { focus = motorization_effort }
 		x = 4
 		y = 3
 		cost = 10
@@ -468,9 +463,10 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_rocket_effort
+		id = rocket_effort
 		icon = GFX_focus_rocketry
 		prerequisite = { focus = aviation_effort_2 }
+		prerequisite = { focus = infrastructure_effort }
 		x = 5
 		y = 4
 		cost = 10
@@ -497,7 +493,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_NAV_effort
+		id = NAV_effort
 		icon = GFX_goal_generic_air_naval_bomber
 		prerequisite = { focus = aviation_effort_2 }
 		prerequisite = { focus = flexible_navy }
@@ -519,7 +515,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_naval_effort
+		id = naval_effort
 		icon = GFX_goal_generic_construct_naval_dockyard
 		x = 9
 		y = 0
@@ -645,7 +641,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_flexible_navy
+		id = flexible_navy
 		icon = GFX_goal_generic_build_navy
 		prerequisite = { focus = naval_effort }
 		mutually_exclusive = { focus = large_navy }
@@ -684,7 +680,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_large_navy
+		id = large_navy
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		prerequisite = { focus = naval_effort }
 		mutually_exclusive = { focus = flexible_navy }
@@ -719,7 +715,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_submarine_effort
+		id = submarine_effort
 		icon = GFX_goal_generic_navy_submarine
 		prerequisite = { focus = flexible_navy focus = large_navy }
 		x = 8
@@ -757,7 +753,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_cruiser_effort
+		id = cruiser_effort
 		icon = GFX_goal_generic_navy_cruiser
 		prerequisite = { focus = large_navy focus = flexible_navy }
 		x = 10
@@ -795,7 +791,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_destroyer_effort
+		id = destroyer_effort
 		icon = GFX_goal_generic_wolf_pack
 		prerequisite = { focus = submarine_effort }
 		x = 8
@@ -830,128 +826,10 @@ focus_tree = {
 				technology = advanced_destroyer
 			}
 		}
-		
-		available_if_capitulated = yes
-
-
-		available = {
-			any_state = {
-				is_coastal = yes
-				is_controlled_by = ROOT
-			}
-		}
-
-		complete_tooltip = {
-			navy_experience = 25
-			add_extra_state_shared_building_slots = 3
-			add_building_construction = {
-				type = dockyard
-				level = 3
-				instant_build = yes
-			}
-		}
-		
-		completion_reward = {
-			navy_experience = 25
-			if = {
-				limit = {
-					NOT = {
-						any_owned_state = {
-							dockyard > 0
-							free_building_slots = {
-								building = dockyard
-								size > 2
-								include_locked = yes
-							}
-						}
-					}
-					any_owned_state = {
-						is_coastal = yes
-					}
-				}
-				random_owned_controlled_state = {
-					limit = {
-						is_coastal = yes
-						free_building_slots = {
-							building = dockyard
-							size > 2
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-						type = dockyard
-						level = 3
-						instant_build = yes
-					}
-				}
-				set_country_flag = naval_effort_built
-			}
-			if = {
-				limit = {
-					NOT = { has_country_flag = naval_effort_built }
-					any_owned_state = {
-						dockyard > 0
-						free_building_slots = {
-							building = dockyard
-							size > 2
-							include_locked = yes
-						}
-					}
-				}
-				random_owned_controlled_state = {
-					limit = {
-						dockyard > 0
-						free_building_slots = {
-							building = dockyard
-							size > 2
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-						type = dockyard
-						level = 3
-						instant_build = yes
-					}
-				}
-				set_country_flag = naval_effort_built
-			}
-			if = {
-				limit = {
-					NOT = { has_country_flag = naval_effort_built }
-					NOT = {
-						any_owned_state = {
-							free_building_slots = {
-								building = dockyard
-								size > 2
-								include_locked = yes
-							}
-						}
-					}
-				}
-				random_state = {
-					limit = {
-						controller = { tag = ROOT }
-						free_building_slots = {
-							building = dockyard
-							size > 2
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-						type = dockyard
-						level = 3
-						instant_build = yes
-					}
-				}
-			}			
-		}
 	}
 
 	focus = {
-		id = GTF_capital_ships_effort
+		id = capital_ships_effort
 		icon = GFX_goal_generic_navy_battleship
 		prerequisite = { focus = cruiser_effort }
 		x = 10
@@ -993,128 +871,10 @@ focus_tree = {
 				technology = advanced_carrier
 			}
 		}
-		
-		available_if_capitulated = yes
-
-
-		available = {
-			any_state = {
-				is_coastal = yes
-				is_controlled_by = ROOT
-			}
-		}
-
-		complete_tooltip = {
-			navy_experience = 25
-			add_extra_state_shared_building_slots = 3
-			add_building_construction = {
-				type = dockyard
-				level = 3
-				instant_build = yes
-			}
-		}
-		
-		completion_reward = {
-			navy_experience = 25
-			if = {
-				limit = {
-					NOT = {
-						any_owned_state = {
-							dockyard > 0
-							free_building_slots = {
-								building = dockyard
-								size > 2
-								include_locked = yes
-							}
-						}
-					}
-					any_owned_state = {
-						is_coastal = yes
-					}
-				}
-				random_owned_controlled_state = {
-					limit = {
-						is_coastal = yes
-						free_building_slots = {
-							building = dockyard
-							size > 2
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-						type = dockyard
-						level = 3
-						instant_build = yes
-					}
-				}
-				set_country_flag = naval_effort_built
-			}
-			if = {
-				limit = {
-					NOT = { has_country_flag = naval_effort_built }
-					any_owned_state = {
-						dockyard > 0
-						free_building_slots = {
-							building = dockyard
-							size > 2
-							include_locked = yes
-						}
-					}
-				}
-				random_owned_controlled_state = {
-					limit = {
-						dockyard > 0
-						free_building_slots = {
-							building = dockyard
-							size > 2
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-						type = dockyard
-						level = 3
-						instant_build = yes
-					}
-				}
-				set_country_flag = naval_effort_built
-			}
-			if = {
-				limit = {
-					NOT = { has_country_flag = naval_effort_built }
-					NOT = {
-						any_owned_state = {
-							free_building_slots = {
-								building = dockyard
-								size > 2
-								include_locked = yes
-							}
-						}
-					}
-				}
-				random_state = {
-					limit = {
-						controller = { tag = ROOT }
-						free_building_slots = {
-							building = dockyard
-							size > 2
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-						type = dockyard
-						level = 3
-						instant_build = yes
-					}
-				}
-			}			
-		}
 	}
 
 	focus = {
-		id = GTF_industrial_effort
+		id = industrial_effort
 		icon = GFX_goal_generic_production
 		x = 13
 		y = 0
@@ -1123,9 +883,6 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-		
-		add_ideas = idea_GTF_Industrial
-		
 			add_tech_bonus = {
 				name = industrial_bonus
 				bonus = 0.5
@@ -1158,7 +915,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_construction_effort
+		id = construction_effort
 		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = { focus = industrial_effort }
 		x = 12
@@ -1172,10 +929,31 @@ focus_tree = {
 		ai_will_do = {
 			factor = 2
 		}
-		
-		completion_reward {
-		
-		random_owned_state = {
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}			
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
 						building = industrial_complex
@@ -1198,40 +976,10 @@ focus_tree = {
 						}
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 0
-						include_locked = yes
-					}
-					OR = {
-						is_in_home_area = yes
-						NOT = {
-							owner = {
-								any_owned_state = {
-									free_building_slots = {
-										building = arms_factory
-										size > 0
-										include_locked = yes
-									}
-									is_in_home_area = yes
-								}
-							}
-						}
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -1239,7 +987,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_production_effort
+		id = production_effort
 		icon = GFX_goal_generic_construct_mil_factory
 		prerequisite = { focus = industrial_effort }
 		x = 14
@@ -1252,40 +1000,31 @@ focus_tree = {
 		ai_will_do = {
 			factor = 2			
 		}
-		
-		completion_reward {
 
-		random_owned_state = {
-				limit = {
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
 					free_building_slots = {
-						building = industrial_complex
-						size > 0
+						building = arms_factory
+						size < 1
 						include_locked = yes
 					}
-					OR = {
-						is_in_home_area = yes
-						NOT = {
-							owner = {
-								any_owned_state = {
-									free_building_slots = {
-										building = industrial_complex
-										size > 0
-										include_locked = yes
-									}
-									is_in_home_area = yes
-								}
-							}
-						}
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
 				}
 			}
-			random_owned_state = {
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
 						building = arms_factory
@@ -1308,10 +1047,10 @@ focus_tree = {
 						}
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -1319,7 +1058,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_construction_effort_2
+		id = construction_effort_2
 		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = { focus = construction_effort }
 		x = 12
@@ -1347,10 +1086,10 @@ focus_tree = {
 		}
 
 		complete_tooltip = {
-			add_extra_state_shared_building_slots = 2
+			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = industrial_complex
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}		
@@ -1379,10 +1118,10 @@ focus_tree = {
 						}
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -1390,7 +1129,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_production_effort_2
+		id = production_effort_2
 		icon = GFX_goal_generic_construct_mil_factory
 		prerequisite = { focus = production_effort }
 		x = 14
@@ -1418,10 +1157,10 @@ focus_tree = {
 		}
 
 		complete_tooltip = {
-			add_extra_state_shared_building_slots = 2
+			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = arms_factory
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}		
@@ -1450,10 +1189,10 @@ focus_tree = {
 						}
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -1461,7 +1200,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_infrastructure_effort
+		id = infrastructure_effort
 		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = construction_effort_2 }
 		x = 12
@@ -1485,12 +1224,12 @@ focus_tree = {
 		complete_tooltip = {
 			add_building_construction = {
 				type = infrastructure
-				level = 4
+				level = 1
 				instant_build = yes
 			}
 			add_building_construction = {
 				type = infrastructure
-				level = 4
+				level = 1
 				instant_build = yes
 			}
 		}
@@ -1519,7 +1258,7 @@ focus_tree = {
 				}
 				add_building_construction = {
 					type = infrastructure
-					level = 4
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -1546,7 +1285,7 @@ focus_tree = {
 				}
 				add_building_construction = {
 					type = infrastructure
-					level = 4
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -1554,7 +1293,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_production_effort_3
+		id = production_effort_3
 		icon = GFX_goal_generic_construct_mil_factory
 		prerequisite = { focus = production_effort_2 }
 		x = 14
@@ -1582,10 +1321,10 @@ focus_tree = {
 		}
 
 		complete_tooltip = {
-			add_extra_state_shared_building_slots = 2
+			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = arms_factory
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}		
@@ -1614,10 +1353,10 @@ focus_tree = {
 						}
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -1625,7 +1364,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_infrastructure_effort_2
+		id = infrastructure_effort_2
 		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = infrastructure_effort }
 		x = 12
@@ -1649,12 +1388,12 @@ focus_tree = {
 		complete_tooltip = {
 			add_building_construction = {
 				type = infrastructure
-				level = 4
+				level = 1
 				instant_build = yes
 			}
 			add_building_construction = {
 				type = infrastructure
-				level = 4
+				level = 1
 				instant_build = yes
 			}
 		}
@@ -1683,7 +1422,7 @@ focus_tree = {
 				}
 				add_building_construction = {
 					type = infrastructure
-					level = 4
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -1710,7 +1449,7 @@ focus_tree = {
 				}
 				add_building_construction = {
 					type = infrastructure
-					level = 4
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -1718,7 +1457,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_construction_effort_3
+		id = construction_effort_3
 		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = { focus = infrastructure_effort }
 		x = 14
@@ -1789,7 +1528,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_nuclear_effort
+		id = nuclear_effort
 		icon = GFX_focus_wonderweapons
 		prerequisite = { focus = infrastructure_effort_2 }
 		x = 10
@@ -1816,7 +1555,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_extra_tech_slot
+		id = extra_tech_slot
 		icon = GFX_focus_research
 		prerequisite = { focus = infrastructure_effort_2 }
 		x = 12
@@ -1831,7 +1570,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GTF_extra_tech_slot_2
+		id = extra_tech_slot_2
 		icon = GFX_focus_research
 		prerequisite = { focus = extra_tech_slot }
 		available = {
@@ -1851,7 +1590,7 @@ focus_tree = {
 	}	
 
 	focus = {
-		id = GTF_secret_weapons
+		id = secret_weapons
 		icon = GFX_goal_generic_secret_weapon
 		prerequisite = { focus = infrastructure_effort_2 }
 		x = 14
@@ -1881,7 +1620,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_political_effort
+		id = political_effort
 		icon = GFX_goal_generic_demand_territory
 		x = 19
 		y = 0
@@ -1895,7 +1634,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_collectivist_ethos
+		id = collectivist_ethos
 		icon = GFX_goal_generic_national_unity #icon = GFX_goal_tripartite_pact
 		prerequisite = { focus = political_effort }
 		mutually_exclusive = { focus = liberty_ethos}
@@ -1938,7 +1677,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_nationalism_focus
+		id = nationalism_focus
 		icon = GFX_goal_support_fascism #icon = GFX_goal_tripartite_pact
 		prerequisite = { focus = collectivist_ethos }
 		mutually_exclusive = { focus = internationalism_focus }
@@ -1983,7 +1722,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GTF_internationalism_focus
+		id = internationalism_focus
 		icon = GFX_goal_support_communism #icon = GFX_goal_tripartite_pact
 		prerequisite = { focus = collectivist_ethos }
 		mutually_exclusive = { focus = nationalism_focus }
@@ -2034,7 +1773,7 @@ focus_tree = {
 	}	
 
 	focus = {
-		id = GTF_liberty_ethos
+		id = liberty_ethos
 		icon = GFX_goal_support_democracy
 		prerequisite = { focus = political_effort }
 		mutually_exclusive = { focus = collectivist_ethos }
@@ -2090,7 +1829,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_militarism
+		id = militarism
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = nationalism_focus }
 		x = 16
@@ -2111,7 +1850,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_political_correctness
+		id = political_correctness
 		icon = GFX_goal_generic_dangerous_deal
 		prerequisite = { focus = internationalism_focus }
 		x = 18
@@ -2131,7 +1870,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_neutrality_focus
+		id = neutrality_focus
 		icon = GFX_goal_generic_neutrality_focus
 		prerequisite = { focus = liberty_ethos }
 		mutually_exclusive = { focus = interventionism_focus }
@@ -2151,7 +1890,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_interventionism_focus
+		id = interventionism_focus
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = liberty_ethos }
 		mutually_exclusive = { focus = neutrality_focus }
@@ -2181,7 +1920,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_military_youth
+		id = military_youth
 		icon = GFX_goal_generic_more_territorial_claims
 		prerequisite = { focus = militarism }
 		x = 16
@@ -2245,7 +1984,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_deterrence
+		id = deterrence
 		icon = GFX_goal_generic_defence
 		prerequisite = { focus = neutrality_focus }
 		x = 20
@@ -2260,7 +1999,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_volunteer_corps
+		id = volunteer_corps
 		icon = GFX_goal_generic_allies_build_infantry
 		prerequisite = { focus = interventionism_focus }
 		x = 22
@@ -2275,7 +2014,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_paramilitarism
+		id = paramilitarism
 		icon = GFX_goal_generic_military_sphere
 		prerequisite = { focus = military_youth }
 		x = 16
@@ -2290,7 +2029,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_indoctrination_focus
+		id = indoctrination_focus
 		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = political_correctness }
 		x = 18
@@ -2306,7 +2045,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_foreign_expeditions
+		id = foreign_expeditions
 		icon = GFX_goal_generic_more_territorial_claims
 		prerequisite = { focus = volunteer_corps }
 		x = 22
@@ -2321,7 +2060,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_why_we_fight
+		id = why_we_fight
 		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = foreign_expeditions focus = deterrence }
 		available = { 
@@ -2352,7 +2091,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_political_commissars
+		id = political_commissars
 		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = indoctrination_focus }
 		available = {
@@ -2419,7 +2158,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GTF_ideological_fanaticism
+		id = ideological_fanaticism
 		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = paramilitarism focus = political_commissars }
 		x = 17
@@ -2441,7 +2180,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GTF_technology_sharing
+		id = technology_sharing
 		icon = GFX_goal_generic_scientific_exchange
 		prerequisite = { focus = ideological_fanaticism focus = why_we_fight }
 		available = {
