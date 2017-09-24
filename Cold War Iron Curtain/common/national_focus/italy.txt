@@ -896,7 +896,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			remove_idea = ITA_path_of_tradition
+			remove_ideas = ITA_path_of_tradition
 			set_party_name = { ideology = fascism long_name = ITA_social_party_long name = ITA_social_party }
 			custom_effect_tooltip = ITA_SOCIAL_tt
 			set_cosmetic_tag = ITA_SOCIAL
@@ -933,8 +933,8 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			remove_idea = ITA_path_of_tradition
-			add_idea = monarchist_influence
+			remove_ideas = ITA_path_of_tradition
+			add_ideas = monarchist_influence
 			set_party_name = { ideology = monarchism long_name = ITA_royalist_party_long name = ITA_royalist_party }
 			custom_effect_tooltip = ITA_KINGDOM_tt
 			set_cosmetic_tag = ITA_KINGDOM
@@ -1369,7 +1369,7 @@ focus_tree = {
 			MON = {
 				add_opinion_modifier = { target = ITA modifier = ITA_embargo_communists }
 			}
-			NPA = {
+			KPA = {
 				add_opinion_modifier = { target = ITA modifier = ITA_embargo_communists }
 			}
 			ETR = {
@@ -1577,9 +1577,15 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			 = {
+			FRA = { 
 				exists = yes
-			has_government = democratic
+				OR = {
+					has_government = democratic
+					has_government = socialist
+					has_government = conservative
+					has_government = centrist
+					has_government = liberal
+				}
 			}
 		}
 		
@@ -1598,9 +1604,15 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			ENG = {
+			ENG = { 
 				exists = yes
-			has_government = democratic
+				OR = {
+					has_government = democratic
+					has_government = socialist
+					has_government = conservative
+					has_government = centrist
+					has_government = liberal
+				}
 			}
 		}
 		
@@ -2278,24 +2290,24 @@ focus_tree = {
 		}
 	}
 	focus = {
-	id = ITA_amphibious_landing
-	icon = GFX_goal_generic_amphibious_assault
+		id = ITA_amphibious_landing
+		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = ITA_naval_doctrine_ii }
-	x = 42
-	y = 5
+		cost = 10.00
+		x = 42
+		y = 5
 
-	available_if_capitulated = yes	
+		available_if_capitulated = yes	
 
-	completion_reward = {
-		add_tech_bonus = {
-			name = chl_amphibious_focus
-			bonus = 0.5
-			uses = 1
-			category = tp_tech
+		completion_reward = {
+			add_tech_bonus = {
+				name = chl_amphibious_focus
+				bonus = 0.5
+				uses = 1
+				category = tp_tech
 			}
 		}
 	}
-	cost = 10
 	##air effort##
 	focus = {
 		id = ITA_aviation_effort
