@@ -494,8 +494,6 @@ focus_tree = {
 		}
 		
 		prerequisite = { focus = ISR_pre_emptive_strike }
-		mutually_exclusive = { focus = ISR_democratic_middle_east}
-		
 		available = {
 			country_exists = LEB
 		}
@@ -2334,43 +2332,43 @@ focus_tree = {
 		complete_tooltip = {
 			SYR = {
 					add_opinion_modifier = {
-						target = ISR
+						target = EGY
 						modifier = democratic_leanings_bad
 					}
 				}
 			EGY = {
 					add_opinion_modifier = {
-						target = ISR
+						target = EGY
 						modifier = democratic_leanings_bad
 					}
 			}
 			PAL = {
 					add_opinion_modifier = {
-						target = ISR
+						target = EGY
 						modifier = democratic_leanings_bad
 					}
 			}
 			JOR = {
 					add_opinion_modifier = {
-						target = ISR
+						target = EGY
 						modifier = democratic_leanings_bad
 					}
 			}
 			LEB = {
 					add_opinion_modifier = {
-						target = ISR
+						target = EGY
 						modifier = democratic_leanings_bad
 					}
 			}
 			SAU = {
 					add_opinion_modifier = {
-						target = ISR
+						target = EGY
 						modifier = democratic_leanings_bad
 					}
 			}
 			IRQ = {
 					add_opinion_modifier = {
-						target = ISR
+						target = EGY
 						modifier = democratic_leanings_bad
 					}
 			}			
@@ -2383,43 +2381,43 @@ focus_tree = {
 			
 			SYR = {
 					add_opinion_modifier = {
-						target = ISR
+						target = EGY
 						modifier = democratic_leanings_bad
 					}
 			}
 			EGY = {
 					add_opinion_modifier = {
-						target = ISR
+						target = EGY
 						modifier = democratic_leanings_bad
 					}
 			}
 			PAL = {
 					add_opinion_modifier = {
-						target = ISR
+						target = EGY
 						modifier = democratic_leanings_bad
 					}
 			}
 			JOR = {
 					add_opinion_modifier = {
-						target = ISR
+						target = EGY
 						modifier = democratic_leanings_bad
 					}
 			}
 			LEB = {
 					add_opinion_modifier = {
-						target = ISR
+						target = EGY
 						modifier = democratic_leanings_bad
 					}
 			}
 			SAU = {
 					add_opinion_modifier = {
-						target = ISR
+						target = EGY
 						modifier = democratic_leanings_bad
 					}
 			}
 			IRQ = {
 					add_opinion_modifier = {
-						target = ISR
+						target = EGY
 						modifier = democratic_leanings_bad
 					}
 			}			
@@ -2438,7 +2436,6 @@ focus_tree = {
 		}
 		
 		prerequisite = { focus = ISR_Create_Alliance_Pro_Sionist }
-		mutually_exclusive = { focus = ISR_pre_emptive_strike}
 				
 		bypass = {
 			NOT = { country_exists = JOR }
@@ -2455,32 +2452,32 @@ focus_tree = {
 
 			
 			create_wargoal = {
-				type = puppet_wargoal_focus 
+				type = take_state_focus 
 				target = JOR
 
 			}
 			create_wargoal = {
-				type = puppet_wargoal_focus 
+				type = take_state_focus 
 				target = SYR
 
 			}
 			create_wargoal = {
-				type = puppet_wargoal_focus 
+				type = take_state_focus 
 				target = EGY
 
 			}
 			create_wargoal = {
-				type = puppet_wargoal_focus 
+				type = take_state_focus 
 				target = PAL
 
 			}
 			create_wargoal = {
-				type = puppet_wargoal_focus 
+				type = take_state_focus 
 				target = IRQ
 
 			}
 			create_wargoal = {
-				type = puppet_wargoal_focus 
+				type = take_state_focus 
 				target = LEB
 
 			}
@@ -2494,33 +2491,33 @@ focus_tree = {
 
 			
 			create_wargoal = {
-				type = puppet_wargoal_focus 
+				type = take_state_focus 
 				target = JOR
 
 			}
 			create_wargoal = {
-				type = puppet_wargoal_focus 
+				type = take_state_focus 
 				target = SYR
 
 			}
 			create_wargoal = {
-				type = puppet_wargoal_focus 
+				type = take_state_focus 
 				target = EGY
 
 			}
 			
 			create_wargoal = {
-				type = puppet_wargoal_focus 
+				type = take_state_focus 
 				target = PAL
 
 			}
 			create_wargoal = {
-				type = puppet_wargoal_focus 
+				type = take_state_focus 
 				target = IRQ
 
 			}
 			create_wargoal = {
-				type = puppet_wargoal_focus 
+				type = take_state_focus 
 				target = LEB
 
 			}
@@ -2528,10 +2525,9 @@ focus_tree = {
 		}
 	}
 
-	
 	focus = {
 		id = ISR_free_palestine
-		x = 20
+		x = 16
 		y = 6
 		cost = 10
 		ai_will_do = {
@@ -2543,234 +2539,22 @@ focus_tree = {
 		complete_tooltip = {
 			remove_ideas = democratic_opposition_voicing_protests
 			puppet = PAL
+			PAL = { transfer_state = 332 }
+			set_capital = 454
 		}
 		completion_reward = {
 			remove_ideas = democratic_opposition_voicing_protests
 			puppet = PAL
+			PAL = { transfer_state = 332 }
+			set_capital = 454
 		}
 	}
-	
-	focus = {
-		id = ISR_democratic_middle_east
-		x = 20
-		y = 9
-		cost = 10
-		ai_will_do = {
-			factor = 10
-		}
-		icon = GFX_goal_generic_small_arms
-		prerequisite = { focus = ISR_free_palestine focus = ISR_pre_emptive_strike}
-		mutually_exclusive = { focus = ISR_invasion_of_lebanon}
-
-		completion_reward = {
-		
-		add_ideas = foreign_expeditions_focus
-		
-			JOR = {
-				start_civil_war = {
-					ideology = democratic
-					size = 0.8
-				}
-			}
-			LEB = {
-				start_civil_war = {
-					ideology = democratic
-					size = 0.8
-				}
-			}
-			SYR = {
-				start_civil_war = {
-					ideology = democratic
-					size = 0.8
-				}
-			}
-			IRQ = {
-				start_civil_war = {
-					ideology = democratic
-					size = 0.8
-				}
-			}
-			SAU = {
-				start_civil_war = {
-					ideology = democratic
-					size = 0.8
-				}
-			}
-		}
-	}
-	
-	focus = {
-		id = ISR_alliance_middle_east
-		x = 20
-		y = 10
-		cost = 10
-		ai_will_do = {
-			factor = 10
-		}
-		icon = GFX_goal_generic_major_alliance
-		prerequisite = { focus = ISR_democratic_middle_east }
-		
-
-		available = {
-				is_in_faction = no
-				
-				LEB = {
-					has_government = democratic
-                }
-				IRQ = {
-					has_government = democratic
-                }
-				SYR = {
-					has_government = democratic
-                }
-				SAU = {
-					has_government = democratic
-                }
-				JOR = {
-					has_government = democratic
-                }
-		}
-		
-		complete_tooltip = {
-			SYR = {
-					add_opinion_modifier = {
-						target = ISR
-						modifier = democratic_leanings_good
-					}
-				}
-
-			PAL = {
-					add_opinion_modifier = {
-						target = ISR
-						modifier = democratic_leanings_good
-					}
-			}
-			JOR = {
-					add_opinion_modifier = {
-						target = ISR
-						modifier = democratic_leanings_good
-					}
-			}
-			LEB = {
-					add_opinion_modifier = {
-						target = ISR
-						modifier = democratic_leanings_good
-					}
-			}
-			SAU = {
-					add_opinion_modifier = {
-						target = ISR
-						modifier = democratic_leanings_good
-					}
-			}
-			IRQ = {
-					add_opinion_modifier = {
-						target = ISR
-						modifier = democratic_leanings_good
-					}
-			}			
-		}
-	
-
-		completion_reward = {
-			set_rule = { can_create_factions = yes }
-			create_faction = "Democratic_Middle_East"
-			
-			SYR = {
-					add_opinion_modifier = {
-						target = ISR
-						modifier = democratic_leanings_good
-					}
-			}
-
-			PAL = {
-					add_opinion_modifier = {
-						target = ISR
-						modifier = democratic_leanings_good
-					}
-			}
-			JOR = {
-					add_opinion_modifier = {
-						target = ISR
-						modifier = democratic_leanings_good
-					}
-			}
-			LEB = {
-					add_opinion_modifier = {
-						target = ISR
-						modifier = democratic_leanings_good
-					}
-			}
-			SAU = {
-					add_opinion_modifier = {
-						target = ISR
-						modifier = democratic_leanings_good
-					}
-			}
-			IRQ = {
-					add_opinion_modifier = {
-						target = ISR
-						modifier = democratic_leanings_good
-					}
-			}			
-
-		}
-	}
-	
-	focus = {
-		id = ISR_Form_Alliance
-		icon = GFX_goal_generic_major_alliance
-		cost = 10.00
-
-		x = 20
-		y = 11
-		
-		prerequisite = {
-			focus = ISR_alliance_middle_east
-		}
-		
-		completion_reward = {
-			PAL = { country_event = israel.1 }
-			JOR = { country_event = israel.1 }
-			SYR = { country_event = israel.1 }
-			LEB = { country_event = israel.1 }
-			SAU = { country_event = israel.1 }
-			IRQ = { country_event = israel.1 }
-		}
-
-	}
-	
-	focus = {
-		id = ISR_arm_new_allies
-		icon = GFX_focus_secret_rearmament
-		cost = 10.00
-		prerequisite = {
-			focus = ISR_Form_Alliance
-		}
-		x = 20
-		y = 12
-		completion_reward = {
-			send_equipment = { target = PAL type = infantry_equipment amount = 15000 }	
-			send_equipment = { target = PAL type = fighter_equipment amount = 1500 }	
-			send_equipment = { target = SAU type = infantry_equipment amount = 15000 }	
-			send_equipment = { target = SAU type = fighter_equipment amount = 1500 }	
-			send_equipment = { target = JOR type = infantry_equipment amount = 15000 }	
-			send_equipment = { target = JOR type = fighter_equipment amount = 1500 }	
-			send_equipment = { target = IRQ type = infantry_equipment amount = 15000 }	
-			send_equipment = { target = IRQ type = fighter_equipment amount = 1500 }	
-			send_equipment = { target = SYR type = infantry_equipment amount = 15000 }	
-			send_equipment = { target = SYR type = fighter_equipment amount = 1500 }	
-		}
-	}
-	
-	
-	
 
 	focus = {
 		id = ISR_return_to_1967
-		x = 16
+		x = 20
 		y = 6
-		cost = 1
+		cost = 10
 		icon = GFX_goal_generic_major_alliance
 		ai_will_do = {
 			factor = 10
@@ -2791,8 +2575,6 @@ focus_tree = {
 			}
 		}
 	}
-	
-	
 
 
 
@@ -3484,7 +3266,7 @@ focus_tree = {
 			factor = 10
 		}
 		
-		prerequisite = { focus = ISR_exodus_1956 }
+		prerequisite = { focus = ISR_exodus_1955 }
 		
 		completion_reward = {
 		
@@ -3568,7 +3350,7 @@ focus_tree = {
 			factor = 10
 		}
 		
-		prerequisite = { focus = ISR_exodus_1957 }
+		prerequisite = { focus = ISR_exodus_1955 }
 		
 		completion_reward = {
 		
