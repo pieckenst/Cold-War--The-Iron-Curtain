@@ -3,11 +3,8 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 10
-			tag = USA
-		}
-		modifier = {
 			add = 100
+			tag = USA
 			date < 1961.1.1	
 		}
 	}
@@ -35,7 +32,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_korea
-		icon = GFX_focus_renounce_the_treaty_of_triannon
+		icon = GFX_goal_support_democracy #Need New Icon
 		cost = 10.00
 		x = 21
 		y = 0
@@ -47,8 +44,8 @@ focus_tree = {
 		id = USA_the_american_army1
 		icon = GFX_goal_generic_political_pressure
 		cost = 10.00
-		x = -2
-		y = -1
+		x = 22
+		y = 1
 		completion_reward = {
 			navy_experience = 50
 			random_owned_controlled_state = {
@@ -305,7 +302,7 @@ focus_tree = {
 		y = 0
 		completion_reward = {
 			every_country = {
-				limit = { is_in_faction_with = SOV }
+				limit = { is_in_faction_with = USA }
 				random_owned_controlled_state = {
 					limit = {
 						industrial_complex > 0
@@ -347,9 +344,6 @@ focus_tree = {
 		id = USA_foriegn_affairs
 		icon = GFX_focus_generic_strike_at_democracy1
 		cost = 10.00
-		mutually_exclusive = {
-			focus = USA_defend_the_border
-		}
 		x = 15
 		y = 4
 		completion_reward = {
@@ -362,6 +356,9 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = USA_support_arab_cause
+		}
+		prerequisite = {
+			focus = USA_foriegn_affairs
 		}
 		x = 16
 		y = 5
@@ -537,7 +534,8 @@ focus_tree = {
 					add_opinion_modifier = {
 					target = JAP
 					modifier = large_increase
-				}		
+					}		
+				}
 				CHI = {
 							add_opinion_modifier = {
 									target = USA
@@ -548,6 +546,7 @@ focus_tree = {
 					add_opinion_modifier = {
 					target = CHI
 					modifier = large_increase
+					}
 				}
 				KOR = {
 							add_opinion_modifier = {
@@ -560,6 +559,7 @@ focus_tree = {
 					target = KOR
 					modifier = large_increase
 				}
+			}
 		}
 	}
 	focus = {
@@ -581,7 +581,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_the_bully_pulpit
-		icon = GFX_focus_renounce_the_treaty_of_triannon
+		icon = GFX_goal_support_democracy #Need New Icon
 		cost = 10.00
 		prerequisite = {
 			focus = USA_fair_society
@@ -598,7 +598,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_expansion_of_social_security
-		icon = GFX_focus_renounce_the_treaty_of_triannon
+		icon = GFX_goal_support_democracy #Need New Icon
 		cost = 10.00
 		prerequisite = {
 			focus = USA_the_bully_pulpit
@@ -617,7 +617,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_crack_down_on_strikes
-		icon = GFX_focus_renounce_the_treaty_of_triannon
+		icon = GFX_goal_support_democracy #Need New Icon
 		cost = 10.00
 		prerequisite = {
 			focus = USA_expansion_of_social_security
@@ -658,7 +658,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_repeal_taft_hartley
-		icon = GFX_focus_renounce_the_treaty_of_triannon
+		icon = GFX_goal_support_democracy #Need New Icon
 		cost = 10.00
 		prerequisite = {
 			focus = USA_expansion_of_social_security
@@ -689,7 +689,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_housing_act_of_1949
-		icon = GFX_focus_renounce_the_treaty_of_triannon
+		icon = GFX_goal_support_democracy #Need New Icon
 		cost = 10.00
 		prerequisite = {
 			focus = USA_continue_price_controls
@@ -703,7 +703,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_increase_min_wage
-		icon = GFX_focus_renounce_the_treaty_of_triannon
+		icon = GFX_goal_support_democracy #Need New Icon
 		cost = 10.00
 		prerequisite = {
 			focus = USA_brennan_plan
@@ -792,6 +792,8 @@ focus_tree = {
 					target = FRA
 					modifier = large_increase
 				}
+			}
+		}
 	}
 	focus = {
 		id = USA_arm_imperialist_vietnam
@@ -832,11 +834,13 @@ focus_tree = {
 		x = 6
 		y = 8
 		completion_reward = {
-			add_tech_bonus = {
-				name = secret_bonus
-				bonus = 0.5
-				uses = 2
-				category = nuclear
+			FRA = {
+				add_tech_bonus = {
+					name = secret_bonus
+					bonus = 0.5
+					uses = 2
+					category = nuclear
+				}
 			}
 		}
 	}
@@ -1004,7 +1008,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_advisors to malaysia
+		id = USA_advisors_to_malaysia
 		icon = GFX_focus_generic_little_entente
 		cost = 10.00
 		prerequisite = {
@@ -1021,7 +1025,7 @@ focus_tree = {
 		icon = GFX_focus_generic_strike_at_democracy1
 		cost = 10.00
 		prerequisite = {
-			focus = USA_advisors to malaysia
+			focus = USA_advisors_to_malaysia
 		}
 		x = 10
 		y = 8
@@ -1791,7 +1795,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_restart_marshall_mission
-		icon = GFX_focus_renounce_the_treaty_of_triannon
+		icon = GFX_goal_support_democracy #Need New Icon
 		cost = 10.00
 		prerequisite = {
 			focus = USA_the_chinese_civil_war
@@ -1856,7 +1860,7 @@ focus_tree = {
 		x = 16
 		y = 7
 		completion_reward = {
-			ISR = { add_ideas = american_advisors
+			ISR = { add_ideas = american_advisors }
 		}
 	}
 	focus = {
@@ -2071,10 +2075,57 @@ focus_tree = {
 		}
 		x = 18
 		y = 3
-		completion_reward = {
-			#level 5 forts on korean border provs
+			completion_reward = {
+			KOR = {
+					750 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 7125
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 12040
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 1003
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 4107
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 7221
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 10036
+									instant_build = yes
+								}
+						}
+					525 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 1148
+									instant_build = yes
+								}
+							}
+						}
+				}
 		}
-	}
 	focus = {
 		id = USA_pre_emptive_strike
 		icon = GFX_focus_generic_strike_at_democracy1
@@ -2147,6 +2198,7 @@ focus_tree = {
 					target = KOR
 					modifier = large_decrease
 				}		
+			}
 		}
 	}
 	focus = {
@@ -2219,7 +2271,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_call_for_de_colonization
-		icon = GFX_focus_renounce_the_treaty_of_triannon
+		icon = GFX_goal_support_democracy #Need New Icon
 		cost = 10.00
 		prerequisite = {
 			focus = USA_end_of_colonization
@@ -2260,7 +2312,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 7
-
+		completion_reward = {
+			add_ideas = islamism_drift
+		}
 	}
 	focus = {
 		id = USA_recognize_iranian_government
@@ -2274,7 +2328,20 @@ focus_tree = {
 		}
 		x = 24
 		y = 7
-
+		completion_reward = {
+				PER = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = PER
+						modifier = large_increase
+						}
+			}
+		}
 	}
 	focus = {
 		id = USA_iranian_industrial_development
@@ -2285,7 +2352,40 @@ focus_tree = {
 		}
 		x = 24
 		y = 8
-
+			completion_reward = {
+				PER = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+			}
 	}
 	focus = {
 		id = USA_further_deployment_to_europe1
@@ -2299,7 +2399,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 1
-
+		completion_reward = {
+			add_ideas = further_deployment_to_europe
+		}
 	}
 	focus = {
 		id = USA_establish_us_european_command1
@@ -2310,7 +2412,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 2
-
+		completion_reward = {
+			army_experience = 50
+		}
 	}
 	focus = {
 		id = USA_mobilize_against_the_ussr1
@@ -2321,7 +2425,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 3
-
+		completion_reward = {
+			add_ideas = korean_war_draft
+		}
 	}
 	focus = {
 		id = USA_the_korean_war_draft
@@ -2335,6 +2441,10 @@ focus_tree = {
 		}
 		x = 26
 		y = 4
+		
+		completion_reward = {
+			add_ideas = korean_war_draft
+		}
 
 	}
 	focus = {
@@ -2421,7 +2531,7 @@ focus_tree = {
 		x = 30
 		y = 7
 		completion_reward = {
-			add_ideas = 
+			add_political_power = 120
 		}
 	}
 	focus = {
@@ -3022,7 +3132,13 @@ focus_tree = {
 		}
 		x = 36
 		y = 4
-
+		completion_reward = {
+			every_country = {
+				limit = { is_in_faction_with = USA }
+				add_national_unity = 0.1
+				add_political_power = 120
+			}
+		}
 	}
 	focus = {
 		id = USA_consolidate_our_positions1
@@ -3087,10 +3203,10 @@ focus_tree = {
 		icon = GFX_goal_generic_navy_carrier
 		cost = 10.00
 		prerequisite = {
-			focus = USA_rebuild_and_modernize_our_navy1
-		}
-		prerequisite = {
-			focus = USA_consolidate_our_positions1
+			OR = {
+				focus = USA_rebuild_and_modernize_our_navy1
+				focus = USA_consolidate_our_positions1
+			}
 		}
 		x = 42
 		y = 2
@@ -3355,7 +3471,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_call_for_nato_members_to_return_treaty_ports_roc
-		icon = GFX_focus_renounce_the_treaty_of_triannon
+		icon = GFX_goal_support_democracy #Need New Icon
 		cost = 10.00
 		prerequisite = {
 			focus = USA_the_treaty_ports
@@ -3398,7 +3514,14 @@ focus_tree = {
 		}
 		x = 22
 		y = 8
-
+		completion_reward = {
+				PER = {
+						start_civil_war = {
+								ideology = islamism
+								size = 0.5
+							}
+					}
+			}	
 	}
 	focus = {
 		id = USA_arm_greek_government
@@ -3411,7 +3534,7 @@ focus_tree = {
 		y = 5
 		completion_reward = {
 			send_equipment = { target = GRE type = infantry_equipment amount = 3000 }	
-			send_equipment = { target = MZB GRE = fighter_equipment amount = 500 }	
+			send_equipment = { target = GRE type = fighter_equipment amount = 500 }	
 		}
 	}
 	focus = {
@@ -3533,7 +3656,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_McCarran_internal_security_act
-		icon = GFX_goal_unknown
+		icon = GFX_goal_support_democracy #Need New Icon
 		cost = 10.00
 		prerequisite = {
 			focus = USA_continue_price_controls
