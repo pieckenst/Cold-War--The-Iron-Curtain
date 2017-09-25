@@ -156,6 +156,9 @@ country_event = {
 	
 	option = { 
 		name = usa.1001.a
+		trigger = {
+			NOT = { has_global_flag = eisenhower_scandal }
+		}
 		ai_chance = {
 			factor = 55
 		}
@@ -189,7 +192,6 @@ country_event = {
 
 	trigger = {
 		tag = USA
-		democratic > 0.5
 		date > 1952.1.1
 		date < 1953.1.1
 	}
@@ -218,6 +220,7 @@ country_event = {
 			expire = "1965.1.1"
 			ideology = liberalism
 		}
+		set_country_flag = president_stevenson
 	}
 	
 	option = { 
@@ -236,6 +239,7 @@ country_event = {
 			expire = "1965.1.1"
 			ideology = liberalism
 		}
+		set_country_flag = president_kefauver
 	}
 	option = { 
 		name = usa.1002.d
@@ -245,17 +249,22 @@ country_event = {
 		ai_chance = {
 			factor = 35
 		}
-		set_party_name = { ideology = democratic long_name = USA_republican_party name = USA_republican_party }
+		set_politics = { ruling_party = fascism elections_allowed = yes }
+		add_popularity = { ideology = fascism popularity = 0.36 }
+		add_popularity = { ideology = liberalism popularity = -0.16 }
+		add_popularity = { ideology = conservative popularity = -0.20 }
+		set_party_name = { ideology = fascism long_name = USA_republican_party name = USA_republican_party }
 		create_country_leader = {
 			name = "Douglas MacArthur"
 			desc = "POLITICS_DOUGLAS_MACARTHUR_DESC"
 			picture = "Portrait_USA_Douglas_MacArthur.dds"
 			expire = "1965.1.1"
-			ideology = conservatism
+			ideology = fascism_ideology
 			traits = {
 				
 			} 
 		}
+		set_country_flag = president_macarthur
 		remove_unit_leader = 57
 	}
 	option = { 
@@ -266,7 +275,6 @@ country_event = {
 		ai_chance = {
 			factor = 35
 		}
-		set_party_name = { ideology = democratic long_name = USA_republican_party name = USA_republican_party }
 		create_country_leader = {
 			name = "Robert Taft"
 			desc = ""
@@ -277,7 +285,7 @@ country_event = {
 				
 			} 
 		}
-		remove_unit_leader = 57
+		set_country_flag = president_taft
 	}
 	option = { 
 		name = usa.1002.f
@@ -287,7 +295,6 @@ country_event = {
 		ai_chance = {
 			factor = 35
 		}
-		set_party_name = { ideology = democratic long_name = USA_republican_party name = USA_republican_party }
 		create_country_leader = {
 			name = "Dwight D. Eisenhower"
 			desc = ""
@@ -298,5 +305,6 @@ country_event = {
 				
 			} 
 		}
+		set_country_flag = president_eisenhower
 	}
 }
