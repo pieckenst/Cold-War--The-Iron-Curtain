@@ -227,7 +227,9 @@ focus_tree = {
 		cost = 5.00
 		x = 8
 		y = 0
-
+		completion_reward = {
+			add_political_power = 120
+		}
 	}
 	focus = {
 		id = PER_industrialize_the_north
@@ -934,19 +936,21 @@ focus_tree = {
 		}
 		x = 7
 		y = 2
-			available = {
-					NOT = {
-							has_war_with = GER
-						}
-					is_in_faction_with = GER
-				}
-			ai_will_do = {
-					factor = 10
-				}
-			completion_reward = {
-					add_ideas = PER_german_millitary_cooperation_focus
-				}
 
+		completion_reward = {
+				ISR = {
+							add_opinion_modifier = {
+									target = PER
+									modifier = large_decrease
+								}
+						}
+					PER = {
+							add_opinion_modifier = {
+									target = ISR
+						modifier = large_decrease
+						}
+			}
+		}
 	}
 	focus = {
 		id = PER_align_with_arabs
@@ -957,7 +961,68 @@ focus_tree = {
 		}
 		x = 7
 		y = 4
-
+		completion_reward = {
+				EGY = {
+							add_opinion_modifier = {
+									target = PER
+									modifier = large_increase
+								}
+						}
+					PER = {
+							add_opinion_modifier = {
+									target = EGY
+						modifier = large_increase
+						}
+			}
+				SAU = {
+							add_opinion_modifier = {
+									target = PER
+									modifier = large_increase
+								}
+						}
+				PER = {
+					add_opinion_modifier = {
+					target = SAU
+					modifier = large_increase
+				}
+			}
+				JOR = {
+							add_opinion_modifier = {
+									target = PER
+									modifier = large_increase
+								}
+						}
+				PER = {
+					add_opinion_modifier = {
+					target = JOR
+					modifier = large_increase
+				}
+			}
+				IRQ = {
+							add_opinion_modifier = {
+									target = PER
+									modifier = large_increase
+								}
+						}
+				PER = {
+					add_opinion_modifier = {
+					target = IRQ
+					modifier = large_increase
+				}
+			}
+				SYR = {
+							add_opinion_modifier = {
+									target = PER
+									modifier = large_increase
+								}
+						}
+				PER = {
+					add_opinion_modifier = {
+					target = SYR
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = PER_invest_in_synthetics
@@ -1004,18 +1069,20 @@ focus_tree = {
 		}
 		x = 9
 		y = 2
-			available = {
-					NOT = {
-							has_war_with = GER
+		completion_reward = {
+				ISR = {
+							add_opinion_modifier = {
+									target = PER
+									modifier = small_increase
+								}
 						}
-					is_in_faction_with = GER
-				}
-			ai_will_do = {
-					factor = 10
-				}
-			completion_reward = {
-					add_ideas = PER_german_millitary_cooperation_focus
-				}
+					PER = {
+							add_opinion_modifier = {
+									target = ISR
+						modifier = small_increase
+						}
+			}
+		}
 
 	}
 	focus = {
@@ -1027,7 +1094,20 @@ focus_tree = {
 		}
 		x = 9
 		y = 4
-
+		completion_reward = {
+				ISR = {
+							add_opinion_modifier = {
+									target = PER
+									modifier = large_increase
+								}
+						}
+					PER = {
+							add_opinion_modifier = {
+									target = ISR
+						modifier = large_increase
+						}
+			}
+		}
 	}
 	focus = {
 		id = PER_gulf_claims
@@ -2123,7 +2203,6 @@ focus_tree = {
 				}
 			completion_reward = {
 					add_ideas = monarchist_influence
-					add_ideas = reactionary_drift
 				}
 
 	}
@@ -2223,7 +2302,10 @@ focus_tree = {
 		}
 		x = 28
 		y = 7
-
+		
+		completion_reward = {
+			#Azerbaijian Event
+		}
 	}
 	focus = {
 		id = PER_soviet_oil_development
@@ -2302,7 +2384,9 @@ focus_tree = {
 		}
 		x = 29
 		y = 3
-
+		completion_reward = {
+			add_national_unity = 0.10
+		}
 	}
 	focus = {
 		id = PER_democratic_focus
@@ -2410,7 +2494,9 @@ focus_tree = {
 		}
 		x = 31
 		y = 7
-
+		completion_reward = {
+			#Gulf States Event
+		}
 	}
 	focus = {
 		id = PER_liberate_iraqi_shias
@@ -2425,7 +2511,19 @@ focus_tree = {
 		}
 		x = 32
 		y = 8
-
+			completion_reward = {
+					create_wargoal = {
+							target = IRQ
+							type = take_state_focus
+							generator = { 291 }
+						}
+					IRQ = {
+							add_opinion_modifier = {
+									target = PER
+									modifier = PER_claimed_iraq
+								}
+						}
+				}
 	}
 	focus = {
 		id = PER_request_kuwait
@@ -2436,7 +2534,9 @@ focus_tree = {
 		}
 		x = 33
 		y = 7
-
+		completion_reward = {
+			#Kuwait Event
+		}
 	}
 	focus = {
 		id = PER_prc_co_operation
@@ -2804,7 +2904,7 @@ focus_tree = {
 					factor = 10
 				}
 			completion_reward = {
-					add_ideas = PER_german_millitary_cooperation_focus
+					add_ideas = american_advisors
 				}
 
 	}
@@ -2817,7 +2917,9 @@ focus_tree = {
 		}
 		x = 25
 		y = 7
-
+		completion_reward = {
+			add_ideas = PER_authoritarianism
+		}
 	}
 	focus = {
 		id = PER_crush_liberal_dissent
@@ -2830,8 +2932,8 @@ focus_tree = {
 		y = 8
 
 			completion_reward = {
-
-				}
+				add_ideas = anti_democracy_drift
+			}
 
 	}
 	focus = {
@@ -2864,7 +2966,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 9
-
+		completion_reward = {
+			add_ideas = urban_culture
+		}
 	}
 	focus = {
 		id = PER_join_nato
@@ -2892,8 +2996,8 @@ focus_tree = {
 					factor = 1
 				}
 			completion_reward = {
-					
-				}
+				add_ideas = reactionary_drift
+			}
 
 	}
 	focus = {
@@ -2909,8 +3013,8 @@ focus_tree = {
 					factor = 1
 				}
 			completion_reward = {
-					custom_effect_tooltip = available_political_advisor
-					show_ideas_tooltip = PER_bardia_mazandarani
+					add_political_power = 120
+					add_research_slot = 1
 					add_national_unity = 0.05
 				}
 
@@ -2973,8 +3077,9 @@ focus_tree = {
 					factor = 1
 				}
 			completion_reward = {
-					
-				}
+				add_national_unity = -0.10
+				add_political_power = 120
+			}
 
 	}
 	focus = {
