@@ -98,10 +98,8 @@ country_event = {
 	id = swf.4
 	title = "Death of Stalin"
 	desc = swf.4.d
-	picture = GFX_news_event_truman_death
+	picture = GFX_report_stalin_death
 
-	fire_only_once = yes
-	
 
 	trigger = {
 		date > 1953.3.3
@@ -114,6 +112,10 @@ country_event = {
 
 	option = {
 		name = "Nikita Khrushchev will be our next Premier"
+		  ai_chance = {
+			  factor = 30
+		   }
+		set_global_flag = stalin_dead
 		set_country_flag = premier_khrushchev
 		kill_country_leader = yes
 		create_country_leader = {
@@ -129,6 +131,10 @@ country_event = {
 	
 	option = {
 		name = "Georgy Malenkov will be our next Premier."
+		  ai_chance = {
+			  factor = 25
+		   }
+		   set_global_flag = stalin_dead
 		set_country_flag = premier_malenkov
 		kill_country_leader = yes
 		create_country_leader = {
@@ -141,6 +147,10 @@ country_event = {
 	}
 	option = {
 		name = "Lavrentiy Beria will be our next Premier."
+		  ai_chance = {
+			  factor = 25
+		   }
+		   set_global_flag = stalin_dead
 		set_country_flag = premier_beria
 		kill_country_leader = yes
 		create_country_leader = {
@@ -153,6 +163,10 @@ country_event = {
 	}	
 	option = {
 		name = "Other Options"
+		  ai_chance = {
+			  factor = 20
+		   }
+		   set_global_flag = stalin_dead
 		country_event = { id = swf.5 }
 	}	
 }
@@ -160,9 +174,7 @@ country_event = {
 	id = swf.5
 	title = "Death of Stalin"
 	desc = swf.4.d
-	picture = GFX_news_event_truman_death
-
-	fire_only_once = yes
+	picture = GFX_report_stalin_death
 	
 
 	is_triggered_only = yes
@@ -170,6 +182,9 @@ country_event = {
 
 	option = {
 		name = "Klim Voroshilov will be our next Premier"
+		  ai_chance = {
+			  factor = 25
+		   }
 		set_country_flag = premier_voroshilo
 		kill_country_leader = yes
 		create_country_leader = {
@@ -183,6 +198,9 @@ country_event = {
 	
 	option = {
 		name = "Georgy Zhukov will be our next Premier"
+		  ai_chance = {
+			  factor = 25
+		   }
 		set_country_flag = premier_zhukov
 		kill_country_leader = yes
 		create_country_leader = {
@@ -195,6 +213,9 @@ country_event = {
 	}
 	option = {
 		name = "Vyacheslav Molotov will be our next Premier."
+		  ai_chance = {
+			  factor = 25
+		   }
 		set_country_flag = premier_molotov
 		kill_country_leader = yes
 		create_country_leader = {
@@ -207,6 +228,9 @@ country_event = {
 	}	
 	option = {
 		name = "Other Options"
+		  ai_chance = {
+			  factor = 25
+		   }
 		country_event = { id = swf.6 }
 	}	
 }
@@ -214,7 +238,7 @@ country_event = {
 	id = swf.6
 	title = "Death of Stalin"
 	desc = swf.4.d
-	picture = GFX_news_event_truman_death
+	picture = GFX_report_stalin_death
 
 	fire_only_once = yes
 	
@@ -224,6 +248,9 @@ country_event = {
 
 	option = {
 		name = "Nikolai Bulganin will be our next Premier"
+		  ai_chance = {
+			  factor = 34
+		   }
 		set_country_flag = premier_bulganin
 		kill_country_leader = yes
 		create_country_leader = {
@@ -237,6 +264,9 @@ country_event = {
 	
 	option = {
 		name = "Lazar Kaganovich will be our next Premier"
+		  ai_chance = {
+			  factor = 33
+		   }
 		set_country_flag = premier_kaganovich
 		kill_country_leader = yes
 		create_country_leader = {
@@ -249,6 +279,9 @@ country_event = {
 	}
 	option = {
 		name = "Anastas Mikoyan will be our next Premier."
+		  ai_chance = {
+			  factor = 33
+		   }
 		set_country_flag = premier_mikoyan
 		kill_country_leader = yes
 		create_country_leader = {
@@ -264,3 +297,71 @@ country_event = {
 		country_event = { id = swf.4 }
 	}	
 }
+country_event = {
+	id = swf.7
+	title = "Formation of the Warsaw Pact"
+	desc = swf.7.d
+	picture = GFX_report_warsaw_pact
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "The Cominform is dead! Long live the Warsaw Pact!"
+		dismantle_faction = yes	
+		create_faction = "Warsaw Pact"	
+		all_country  = {
+			limit = {
+				has_country_flag = warsaw_pact
+			}
+			SOV = { add_to_faction = PREV }
+		}				
+	}
+}	
+country_event = {
+	id = swf.8
+	title = "Join the Warsaw Pact"
+	desc = swf.7.d
+	picture = GFX_report_warsaw_pact
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "The Cominform is dead! Long live the Warsaw Pact!"
+		SOV = { add_to_faction = ROOT }	
+		all_country  = {
+			limit = {
+				has_country_flag = warsaw_pact
+			}
+			SOV = { add_to_faction = PREV }
+		}		
+	}
+}	
+country_event = {
+	id = swf.9
+	hidden = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		date > 1955.5.14
+		date < 1955.5.20
+	}
+
+	mean_time_to_happen = { days = 1 }
+	
+	immediate = {
+		all_country  = {
+			limit = {
+				is_in_faction_with = SOV
+			}
+			set_country_flag = warsaw_pact
+		}
+	}
+	option = {	
+		country_event = { hours = 2 id = swf.7 } 
+	}
+}	
