@@ -302,10 +302,16 @@ country_event = {
 	title = "Formation of the Warsaw Pact"
 	desc = swf.7.d
 	picture = GFX_report_warsaw_pact
+	
+	major = yes
 
 	fire_only_once = yes
 
-	is_triggered_only = yes
+	trigger = {
+		tag = SOV
+		date > 1955.5.14
+		date < 1955.5.20
+	}
 
 	mean_time_to_happen = { days = 1 }
 	
@@ -313,12 +319,11 @@ country_event = {
 		name = "The Cominform is dead! Long live the Warsaw Pact!"
 		dismantle_faction = yes	
 		create_faction = "Warsaw Pact"	
-		all_country  = {
-			limit = {
-				has_country_flag = warsaw_pact
-			}
-			SOV = { add_to_faction = PREV }
-		}				
+		add_to_faction = MON
+		all_country = {
+			limit = { OVERLORD = SOV }
+			country_event = { id = swf.8 }
+		}
 	}
 }	
 country_event = {
@@ -332,36 +337,6 @@ country_event = {
 	option = {
 		name = "The Cominform is dead! Long live the Warsaw Pact!"
 		SOV = { add_to_faction = ROOT }	
-		all_country  = {
-			limit = {
-				has_country_flag = warsaw_pact
-			}
-			SOV = { add_to_faction = PREV }
-		}		
 	}
 }	
-country_event = {
-	id = swf.9
-	hidden = yes
 
-	fire_only_once = yes
-
-	trigger = {
-		date > 1955.5.14
-		date < 1955.5.20
-	}
-
-	mean_time_to_happen = { days = 1 }
-	
-	immediate = {
-		all_country  = {
-			limit = {
-				is_in_faction_with = SOV
-			}
-			set_country_flag = warsaw_pact
-		}
-	}
-	option = {	
-		country_event = { hours = 2 id = swf.7 } 
-	}
-}	
