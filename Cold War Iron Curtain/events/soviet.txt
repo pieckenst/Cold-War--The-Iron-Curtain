@@ -1,0 +1,164 @@
+add_namespace = soviet
+country_event = {
+    id = soviet.1
+	title = "Transfer of Crimea?"
+	desc = "As we reach the 300th anniversary of Ukraine becoming a part of the Tsardom of Russia, more and more people have started talking about what shall we do for the Ukrainian SSR and their anniversary. Some of the political leaders in our congress have started to talk about a transfer of Crimea from the USSR to the Ukrainian SSR. We have always been very close to the Ukrainians and they have said that this land belongs to them. This could be the perfect gift for their friendship with us for over 300 years. However the land is very valuable and has plenty of ports and resources for us. What should we vote for?"
+	picture = GFX_report_event_usa_election_generic
+	
+	fire_only_once = yes
+	
+	is_triggered_only = no
+	
+	mean_time_to_happen = {
+	        days = 1
+	}
+	trigger = {
+	    tag = SOV
+		country_exists = UKR
+		date > 1954.2.19
+		date < 1954.3.1
+	}
+	
+	option = {
+	    name = "Vote Yes on the Decree"
+		ai_chance = {
+		    factor = 90
+		}
+		UKR = { transfer_state = 137 }	
+					add_opinion_modifier = {
+							target = UKR
+							modifier = large_increase
+						}
+					UKR = {
+							add_opinion_modifier = {
+									target = ROOT
+									modifier = large_increase
+								}
+						}
+		hidden_effect = {
+			news_event = { hours = 6 id = soviet.2 }
+		}
+	}
+	
+	option = {
+	    name = "Vote No on the Decree"
+		ai_chance = {
+		    factor = 10
+		}
+		UKR = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = large_decrease
+			}
+		}
+	}
+}
+news_event = {
+    id = soviet.2
+	title = "USSR Transfers Crimea to Ukraine SSR"
+	desc = "The USSR has given the gift of Crimea to the Ukraine SSR as their friendship for over 300 years. Ukraine joined the Tsardom of Russia 300 years ago, and the USSR wanted to show their appreciation for their friendship. The Ukrainian SSR has said that they love this gift of friendship."
+	picture = GFX_report_event_usa_election_generic
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "Interesting development, what does it mean?"
+		trigger = { TAG = USA }
+	}
+	
+	option = {
+		name = "For our friend for over 300 years"
+		trigger = { TAG = SOV }
+	}
+	
+	option = {
+		name = "We accept this gift of friendship."
+		trigger = { TAG = UKR }
+	}	
+	option = {
+		name = "Finally something good done by the USSR"
+		trigger = { 
+			NOT = { TAG = UKR }
+			NOT = { TAG = SOV }
+			NOT = { TAG = USA }
+		}
+	}	
+}
+country_event = {
+    id = soviet.3
+	title = "Annexation of Karelo-Finnish SSR?"
+	desc = "After a decade of World War II and improvement of relations with Finland, members of congress have declared that it is time for the Karelo-Finnish SSR to be annexed into the USSR. We also need the land for the border with Norway and Sweden in case we need to launch an invasion or defend. However some of the Finnish political leaders in the congress have wanted to keep it a SSR for the Finnish people in the area. What should we do? Do we accept Finlandization or not?"
+	picture = GFX_report_event_usa_election_generic
+	
+	fire_only_once = yes
+	
+	is_triggered_only = no
+	
+	mean_time_to_happen = {
+	        days = 1
+	}
+	trigger = {
+	    tag = SOV
+		country_exists = UKR
+		date > 1956.7.15
+		date < 1956.8.15
+	}
+	
+	option = {
+	    name = "Vote Yes on the Decree"
+		ai_chance = {
+		    factor = 90
+		}
+		annex_country = { target = KRL }	
+					FIN = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = small_decrease
+								}
+						}
+		hidden_effect = {
+			news_event = { hours = 6 id = soviet.4 }
+		}
+	}
+	
+	option = {
+	    name = "Vote No on the Decree"
+		ai_chance = {
+		    factor = 10
+		}
+		FIN = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = large_increase
+			}
+		}
+	}
+}
+news_event = {
+    id = soviet.4
+	title = "Karelo-Finnish SSR Annexed into USSR"
+	desc = "The USSR has annexed the Karelo-Finnish SSR into the USSR. This is the first time a Soviet Republic has been annexed into another. The USSR stated that after increased Finnish-Soviet relations, they though it would be time to annex the Karelo-Finnish SSR. There is however a few people angry at the move. The Finnish population in the once SSR has been afraid of more Soviet control and less autonomy for them. The Soviets have stated that the Finnish should not be worried. The Soviets have been celebrating the new oblasts into the USSR in Moscow."
+	picture = GFX_report_event_usa_election_generic
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "Interesting"
+		trigger = { 
+			NOT = { TAG = SOV } 
+			NOT = { TAG = FIN } 
+		}
+	}
+	option = {
+		name = "Disturbing"
+		trigger = { TAG = FIN }
+	}	
+	option = {
+		name = "We will keep marching on the West."
+		trigger = { TAG = SOV }
+	}	
+}
