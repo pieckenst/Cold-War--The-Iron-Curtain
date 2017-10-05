@@ -1,0 +1,266 @@
+﻿add_namespace = swf
+# Truman Assasination Attempt Trigger
+country_event = {
+	id = swf.1
+	hidden = yes
+
+	trigger = {
+		tag = USA
+		date > 1950.10.31
+		date < 1950.11.5
+		NOT = { has_global_flag = truman_assasination_attempt }
+		NOT = { has_global_flag = truman_assasinated }
+		has_capitulated = no
+	}
+
+	mean_time_to_happen = { days = 1 }
+	fire_only_once = yes
+
+
+	immediate = {
+		random_list = { 
+			80 = { news_event = { hours = 6 id = swf.2 } } 
+			20 = { news_event = { hours = 6 id = swf.3 } } 
+		}	
+	}
+}
+news_event = {
+	id = swf.2
+	title = "Attempted Assassination on President Truman!"
+	desc = swf.2.d
+	picture = GFX_news_event_truman_assasination_attempt
+
+	fire_only_once = yes
+	
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Thank God for Truman being fine."
+		trigger = { TAG = USA }
+	}
+	
+	option = {
+		name = "A close call for our 'friend'."
+		trigger = { TAG = SOV }
+	}
+	
+	option = {
+		name = "Thank God for Truman being alive."
+		trigger = { 
+			NOT = { TAG = SOV }
+			NOT = { TAG = USA }
+		}
+	}	
+}
+news_event = {
+	id = swf.3
+	title = "President Truman Assassinated!"
+	desc = swf.3.d
+	picture = GFX_news_event_truman_death
+
+	fire_only_once = yes
+	
+
+	is_triggered_only = yes
+
+#	immediate = {
+#
+#	}
+	option = {
+		name = "President Truman will be missed. President Barkley will lead us now."
+		trigger = { TAG = USA }
+		set_country_flag = truman_assasinated
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Alben W. Barkley"
+			desc = ""
+			picture = "Portrait_Barkley.dds"
+			expire = "1960.1.1"
+			ideology = liberalism
+		}
+	}
+	
+	option = {
+		name = "How will this change for us?"
+		trigger = { TAG = SOV }
+	}
+	
+	option = {
+		name = "President Truman will be missed. What will happen now?"
+		trigger = { 
+			NOT = { TAG = SOV }
+			NOT = { TAG = USA }
+		}
+	}	
+}
+country_event = {
+	id = swf.4
+	title = "Death of Stalin"
+	desc = swf.4.d
+	picture = GFX_news_event_truman_death
+
+	fire_only_once = yes
+	
+
+	trigger = {
+		date > 1953.3.3
+		date < 1953.3.6
+		NOT = { has_global_flag = stalin_dead }
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+
+	option = {
+		name = "Nikita Khrushchev will be our next Premier"
+		set_country_flag = premier_khrushchev
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Nikita Khrushchev"
+			desc = ""
+			picture = "Portrait_Soviet_Nikita_Khrushchev.dds"
+			expire = "1980.1.1"
+			ideology = leninism
+		}
+		news_event = { hours = 6 id = news.1029 }
+		news_event = { hours = 12 id = news.1030 }
+	}
+	
+	option = {
+		name = "Georgy Malenkov will be our next Premier."
+		set_country_flag = premier_malenkov
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Georgy Malenkov"
+			desc = ""
+			picture = "Portrait_Soviet_Georgy_Malenkov.dds"
+			expire = "1980.1.1"
+			ideology = leninism
+		}
+	}
+	option = {
+		name = "Lavrentiy Beria will be our next Premier."
+		set_country_flag = premier_beria
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Lavrentiy Beria"
+			desc = ""
+			picture = "Portrait_Beria.dds"
+			expire = "1980.1.1"
+			ideology = leninism
+		}
+	}	
+	option = {
+		name = "Other Options"
+		country_event = { id = swf.5 }
+	}	
+}
+country_event = {
+	id = swf.5
+	title = "Death of Stalin"
+	desc = swf.4.d
+	picture = GFX_news_event_truman_death
+
+	fire_only_once = yes
+	
+
+	is_triggered_only = yes
+
+
+	option = {
+		name = "Klim Voroshilov will be our next Premier"
+		set_country_flag = premier_voroshilo
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Klim Voroshilov"
+			desc = ""
+			picture = "Portrait_Soviet_Kliment_Voroshilov.dds"
+			expire = "1980.1.1"
+			ideology = leninism
+		}
+	}
+	
+	option = {
+		name = "Georgy Zhukov will be our next Premier"
+		set_country_flag = premier_zhukov
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Georgy Zhukov"
+			desc = ""
+			picture = "Portrait_Soviet_Gregory_Zhukov.dds"
+			expire = "1980.1.1"
+			ideology = leninism
+		}
+	}
+	option = {
+		name = "Vyacheslav Molotov will be our next Premier."
+		set_country_flag = premier_molotov
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Vyacheslav Molotov"
+			desc = ""
+			picture = "Portrait_Molotov.dds"
+			expire = "1980.1.1"
+			ideology = stalinism
+		}
+	}	
+	option = {
+		name = "Other Options"
+		country_event = { id = swf.6 }
+	}	
+}
+country_event = {
+	id = swf.6
+	title = "Death of Stalin"
+	desc = swf.4.d
+	picture = GFX_news_event_truman_death
+
+	fire_only_once = yes
+	
+
+	is_triggered_only = yes
+
+
+	option = {
+		name = "Nikolai Bulganin will be our next Premier"
+		set_country_flag = premier_bulganin
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Nikolai Bulganin"
+			desc = ""
+			picture = "Portrait_Bulganin.dds"
+			expire = "1980.1.1"
+			ideology = stalinism
+		}
+	}
+	
+	option = {
+		name = "Lazar Kaganovich will be our next Premier"
+		set_country_flag = premier_kaganovich
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Lazar Kaganovich"
+			desc = ""
+			picture = "Portrait_Kaganovich.dds"
+			expire = "1980.1.1"
+			ideology = leninism
+		}
+	}
+	option = {
+		name = "Anastas Mikoyan will be our next Premier."
+		set_country_flag = premier_mikoyan
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Anastas Mikoyan"
+			desc = ""
+			picture = "Portrait_Mikoyan.dds"
+			expire = "1991.1.1"
+			ideology = leninism
+		}
+	}	
+	option = {
+		name = "Other Options"
+		country_event = { id = swf.4 }
+	}	
+}
