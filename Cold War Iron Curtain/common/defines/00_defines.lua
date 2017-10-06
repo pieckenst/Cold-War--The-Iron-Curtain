@@ -76,7 +76,7 @@ NDiplomacy = {
 	TENSION_VOLUNTEER_FORCE_DIVISION = 0.5,			-- Amount of tension generated for each sent division
 	TENSION_DECAY = 0.1,							-- Each months tension decays this much
 	TENSION_SIZE_FACTOR = 1.0,						-- All action tension values are multiplied by this value
-	TENSION_TIME_SCALE_START_DATE = "1949.1.1.12",	-- Starting at this date, the tension values will be scaled down (will be equal to 1 before that)
+	TENSION_TIME_SCALE_START_DATE = "1990.1.1.12",	-- Starting at this date, the tension values will be scaled down (will be equal to 1 before that)
 	TENSION_TIME_SCALE_MONTHLY_FACTOR = -0.001,		-- Timed tension scale will be modified by this amount starting with TENSION_TIME_SCALE_START_DATE
 	TENSION_TIME_SCALE_MIN = 0.25,					-- Timed tension scale won't decrease under this value
 	TENSION_GUARANTEE = -5,
@@ -217,7 +217,7 @@ NCountry = {
 	MIN_FOCUSES_FOR_CONTINUOUS = 10,				-- Focuses needed to unlock continuous focuses
 	AUTONOMOUS_TOTAL_SCORE = 4000,					-- Total score for autonomous scale
 	AUTONOMOUS_SPILLOVER = 0.025,					-- Total score that can be saved to reach next level
-	CIVIL_WAR_INVOLVEMENT_MIN_TENSION = 0.5,		-- base value of world tension to involve other sides to the civil war
+	CIVIL_WAR_INVOLVEMENT_MIN_TENSION = 1.0,		-- base value of world tension to involve other sides to the civil war
 	UNCAPITULATE_LEVEL = 0.1,                       -- if we reclaim this much and our capital we reset capitulate status
 },
 
@@ -631,7 +631,7 @@ NAir = {
 	BASE_STRATEGIC_BOMBING_HIT_SHIP_DAMAGE_FACTOR = 50,
 	BASE_STRATEGIC_BOMBING_HIT_PLANE_CHANCE = 0.5,		-- Chance to hit a plane in airbase when it is bombed.
 	BASE_STRATEGIC_BOMBING_HIT_PLANE_DAMAGE_FACTOR = 0.2,
-	STRATEGIC_BOMBER_NUKE_AIR_SUPERIORITY = 0.75,		-- How much air superiority is needed for a tactical bomber to be able to nuke a province
+	STRATEGIC_BOMBER_NUKE_AIR_SUPERIORITY = 0.0,		-- How much air superiority is needed for a tactical bomber to be able to nuke a province
 	AGGRESSION_THRESHOLD = { 0.0, 0.25, 0.5 },			-- Threshold levels for mission aggressivity for air
 	ACE_WING_SIZE =	100,								-- size of wing ace bonuses are set up for. if lower more bonus, if higher less bonus
 	ACE_WING_SIZE_MAX_BONUS = 10,                       -- biggest bonus we can get from having a small wing with an ace on
@@ -818,17 +818,17 @@ NAI = {
 	GARRISON_FRACTION = 0.0, 					-- How large part of a front should always be holding the line rather than advancing at the enemy
 	
 	DIPLOMATIC_ACTION_GOOD_BAD_RATIO_THRESHOLD = 1,
-	BASE_RELUCTANCE = 20, 						-- Base reluctance applied to all diplomatic offers
-	DIPLOMATIC_ACTION_RANDOM_FACTOR = 0.5, 		-- How much of the AI diplomatic action scoring is randomly determined (1.0 = half random, 2.0 = 2/3rd random, etc)
-	DIPLOMATIC_ACTION_PROPOSE_SCORE = 50, 		-- AI must score a diplomatic action at least this highly to propose it themselves
-	DILPOMATIC_ACTION_DECLARE_WAR_WARGOAL_BASE = 50, -- Base diplomatic action score bonus to go to war per wargoal
+	BASE_RELUCTANCE = 25, 						-- Base reluctance applied to all diplomatic offers
+	DIPLOMATIC_ACTION_RANDOM_FACTOR = 0.25, 		-- How much of the AI diplomatic action scoring is randomly determined (1.0 = half random, 2.0 = 2/3rd random, etc)
+	DIPLOMATIC_ACTION_PROPOSE_SCORE = 55, 		-- AI must score a diplomatic action at least this highly to propose it themselves
+	DILPOMATIC_ACTION_DECLARE_WAR_WARGOAL_BASE = 25, -- Base diplomatic action score bonus to go to war per wargoal
 	DIPLOMATIC_ACTION_BREAK_SCORE = -10, 		-- AI must score a diplomatic action less than this to break it off	
-	DIPLOMACY_CREATE_FACTION_FACTOR = 0.75,		-- Factor for AI desire to create a new faction. Val < 1.0 makes it less likely to create than to join.
+	DIPLOMACY_CREATE_FACTION_FACTOR = 0.5,		-- Factor for AI desire to create a new faction. Val < 1.0 makes it less likely to create than to join.
 	DIPLOMACY_FACTION_WRONG_IDEOLOGY_PENALTY = 0, -- AI penalty for diplomatic faction acitons between nations of different ideologies
 	DIPLOMACY_FACTION_SAME_IDEOLOGY_MAJOR = 0, -- AI bonus acceptance when being asked about faction is a major of the same ideology
-	DIPLOMACY_FACTION_NEUTRALITY_PENALTY = 50,	-- Neutral nations have a separate penalty, not wanting to get involved at all, rather than caring much about the difference in ideology
-	DIPLOMACY_FACTION_GLOBAL_TENSION_FACTOR = 0.2,-- How much the AI takes global tension into account when considering faction actions
-	DIPLOMACY_LEAVE_FACTION_OPINION_FACTOR = 0.75,-- How much the opinion of countries being targeted by faction leader matters when deciding to leave a faction (democratic only)
+	DIPLOMACY_FACTION_NEUTRALITY_PENALTY = 0,	-- Neutral nations have a separate penalty, not wanting to get involved at all, rather than caring much about the difference in ideology
+	DIPLOMACY_FACTION_GLOBAL_TENSION_FACTOR = 0.0,-- How much the AI takes global tension into account when considering faction actions
+	DIPLOMACY_LEAVE_FACTION_OPINION_FACTOR = 2.0,-- How much the opinion of countries being targeted by faction leader matters when deciding to leave a faction (democratic only)
 	DIPLOMACY_FACTION_WAR_RELUCTANCE = -50,		-- Penalty to desire to enter a faction with a country that we are not fighting wars together with.
 	DIPLOMACY_SCARED_MINOR_EXTRA_RELUCTANCE = -50, -- extra reluctance to join stuff as scared minor
 	DIPLOMACY_FACTION_PLAYER_JOIN = 20,			-- Bonus for human players asking to join a faction.
