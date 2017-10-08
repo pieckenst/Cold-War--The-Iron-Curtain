@@ -52,13 +52,21 @@ country_event = {
 		name = usa.701.a
 		set_global_flag = usa_yes_austria
 		ai_chance = {
-			factor = 15
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
 		}
 	}
 
 	option = {
 		ai_chance = {
-			factor = 1
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
 		}
 		name = usa.701.b
 		set_global_flag = usa_no_austria
@@ -102,9 +110,8 @@ country_event = {
 
 	trigger = {
 		tag = USA
-		democratic > 0.5
 		date > 1952.7.25
-		date < 1953.8.1
+		date < 1952.8.1
 	}
 
 	mean_time_to_happen = { days = 1 }
@@ -112,7 +119,7 @@ country_event = {
 	option = { 
 		name = usa.1000.a
 		ai_chance = {
-			factor = 60
+			factor = 70
 		}
 		set_country_flag = stevenson_dem_nominee_52
 	}
@@ -120,14 +127,14 @@ country_event = {
 	option = { 
 		name = usa.1000.b
 		ai_chance = {
-			factor = 20
+			factor = 0
 		}
 		set_country_flag = truman_dem_nominee_52
 	}
 	option = { 
 		name = usa.1000.c
 		ai_chance = {
-			factor = 20
+			factor = 30
 		}
 		set_country_flag = kefauver_dem_nominee_52
 	}	
@@ -147,9 +154,8 @@ country_event = {
 
 	trigger = {
 		tag = USA
-		democratic > 0.5
 		date > 1952.7.11
-		date < 1953.8.1
+		date < 1952.8.1
 	}
 
 	mean_time_to_happen = { days = 1 }
@@ -198,6 +204,9 @@ country_event = {
 	
 	option = { 
 		name = usa.1002.a
+		ai_chance = {
+			factor = 0
+		}
 		trigger = {
 			has_country_flag = truman_dem_nominee_52
 		}
@@ -214,7 +223,7 @@ country_event = {
 		}
 		set_party_name = { ideology = democratic long_name = USA_democratic_party name = USA_democratic_party }
 		create_country_leader = {
-			name = "Adlai Stevenson II"
+			name = "Adlai Stevenson III"
 			desc = ""
 			picture = "adlai_stevenson_ii.dds"
 			expire = "1965.1.1"
@@ -285,6 +294,7 @@ country_event = {
 				
 			} 
 		}
+		set_politics = { ruling_party = conservative elections_allowed = yes }
 		set_country_flag = president_taft
 	}
 	option = { 
@@ -305,6 +315,7 @@ country_event = {
 				
 			} 
 		}
+		set_politics = { ruling_party = conservative elections_allowed = yes }
 		set_country_flag = president_eisenhower
 	}
 }

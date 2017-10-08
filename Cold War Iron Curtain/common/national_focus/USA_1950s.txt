@@ -44,38 +44,38 @@ focus_tree = {
 		id = USA_the_american_army1
 		icon = GFX_goal_generic_political_pressure
 		cost = 10.00
-		x = 22
-		y = 1
+		x = 26
+		y = 0
 		completion_reward = {
-			navy_experience = 50
+			army_experience = 50
 			random_owned_controlled_state = {
 				limit = {
-					dockyard > 0
+					arms_factory > 0
 					free_building_slots = {
-						building = dockyard
+						building = arms_factory
 						size > 1
 						include_locked = yes
 					}
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
-					type = dockyard
+					type = arms_factory
 					level = 2
 					instant_build = yes
 				}
 			}
 			random_owned_controlled_state = {
 				limit = {
-					dockyard > 0
+					arms_factory > 0
 					free_building_slots = {
-						building = dockyard
+						building = arms_factory
 						size > 1
 						include_locked = yes
 					}
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
-					type = dockyard
+					type = arms_factory
 					level = 2
 					instant_build = yes
 				}
@@ -85,9 +85,9 @@ focus_tree = {
 				limit = {
 					NOT = {
 						any_owned_state = {
-							dockyard > 0
+							arms_factory > 0
 							free_building_slots = {
-								building = dockyard
+								building = arms_factory
 								size > 0
 								include_locked = yes
 							}
@@ -97,14 +97,14 @@ focus_tree = {
 				random_owned_controlled_state = {
 					limit = {
 						free_building_slots = {
-							building = dockyard
+							building = arms_factory
 							size > 1
 							include_locked = yes
 						}
 					}
 					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
-						type = dockyard
+						type = arms_factory
 						level = 2
 						instant_build = yes
 					}
@@ -112,14 +112,14 @@ focus_tree = {
 				random_owned_controlled_state = {
 					limit = {
 						free_building_slots = {
-							building = dockyard
+							building = arms_factory
 							size > 1
 							include_locked = yes
 						}
 					}
 					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
-						type = dockyard
+						type = arms_factory
 						level = 2
 						instant_build = yes
 					}
@@ -576,7 +576,6 @@ focus_tree = {
 			add_to_faction = KOR
 			add_to_faction = JAP
 			add_to_faction = CHI
-			add_to_faction = PHI
 		}
 	}
 	focus = {
@@ -913,7 +912,10 @@ focus_tree = {
 		}
 		x = 8
 		y = 6
-		
+		available = {
+			country_exists = PER
+		}
+	
 		completion_reward = {
 			PER = { add_ideas = monarchist_influence }
 		}
@@ -949,7 +951,7 @@ focus_tree = {
 	focus = {
 		id = USA_aid_roc
 		icon = GFX_focus_secret_rearmament
-		cost = 10.00
+		cost = 2.00
 		prerequisite = {
 			focus = USA_the_chinese_civil_war
 		}
@@ -967,7 +969,7 @@ focus_tree = {
 	focus = {
 		id = USA_advisors_roc
 		icon = GFX_focus_generic_little_entente
-		cost = 10.00
+		cost = 2.00
 		prerequisite = {
 			focus = USA_aid_roc
 		}
@@ -980,7 +982,7 @@ focus_tree = {
 	focus = {
 		id = USA_declare_war_on_prc
 		icon = GFX_goal_anti_comintern_pact
-		cost = 10.00
+		cost = 2.00
 		prerequisite = {
 			focus = USA_advisors_roc
 		}
@@ -2426,7 +2428,7 @@ focus_tree = {
 		x = 28
 		y = 3
 		completion_reward = {
-			add_ideas = korean_war_draft
+			add_ideas = anti_soviet_mobilization
 		}
 	}
 	focus = {
@@ -3743,7 +3745,6 @@ focus_tree = {
 			CHI = { add_ideas = fascist_influence }
 			JAP = { add_ideas = fascist_influence }
 			KOR = { add_ideas = fascist_influence }
-			PHI = { add_ideas = fascist_influence }
 			VIE = { add_ideas = fascist_influence }
 			WGR = { add_ideas = fascist_influence }
 			NOR = { add_ideas = fascist_influence }

@@ -341,6 +341,10 @@ focus_tree = {
 		x = 32
 		y = 0
 
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.25 }	
+		}
+		
 	}
 	focus = {
 		id = POL_secretly_support_ZSL
@@ -351,7 +355,9 @@ focus_tree = {
 		}
 		x = 34
 		y = 0
-
+		completion_reward = {
+			add_popularity = { ideology = democratic popularity = 0.25 }	
+		}
 	}
 	focus = {
 		id = POL_equipment_effort
@@ -597,7 +603,15 @@ completion_reward = {
 		}
 		x = 7
 		y = 3
-
+				completion_reward = {
+					add_tech_bonus = {
+							name = special_forces_bonus
+							bonus = 0.5
+							uses = 2
+							technology = marines
+							technology = marines2
+						}
+				}	
 	}
 	focus = {
 		id = POL_expand_mechanized_forces
@@ -625,7 +639,13 @@ completion_reward = {
 		}
 		x = 9
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = motorized_bonus
+							bonus = 0.75
+							technology = motorised_infantry
+						}
+				}
 	}
 	focus = {
 		id = POL_mechanized_advancements
@@ -1634,7 +1654,10 @@ completion_reward = {
 		}
 		x = 32
 		y = 1
-
+		completion_reward = {
+			add_political_power = 300
+			add_popularity = { ideology = communism popularity = 0.05 }
+		}
 	}
 	focus = {
 		id = POL_unite_communist_movements
@@ -1645,7 +1668,9 @@ completion_reward = {
 		}
 		x = 32
 		y = 2
-
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.15 }
+		}
 	}
 	focus = {
 		id = POL_help_the_cursed_soldiers
@@ -1656,7 +1681,10 @@ completion_reward = {
 		}
 		x = 34
 		y = 1
-
+		completion_reward = {
+			add_national_unity = 0.15
+			add_manpower = 100000
+		}
 	}
 	focus = {
 		id = POL_unite_against_communism
@@ -1667,7 +1695,10 @@ completion_reward = {
 		}
 		x = 34
 		y = 2
-
+		
+		completion_reward = {
+			add_popularity = { ideology = democratic popularity = 0.15 }
+		}
 	}
 	focus = {
 		id = POL_poznan_uprising
@@ -1677,9 +1708,14 @@ completion_reward = {
 			focus = POL_unite_communist_movements
 			focus = POL_unite_against_communism
 		}
+		bypass = {
+			has_country_flag = poznan_uprising_1956
+		}	
 		x = 33
 		y = 3
-
+		completion_reward = {
+			country_event = cwu.4
+		}
 	}
 	focus = {
 		id = POL_gomulka_will_save_us
@@ -1919,7 +1955,10 @@ completion_reward = {
 		}
 		x = 9
 		y = 6
-
+		completion_reward = {
+			army_experience = 20
+			add_manpower = 100000
+		}
 	}
 	focus = {
 		id = POL_H_bomb_development
@@ -2231,6 +2270,37 @@ completion_reward = {
 		}
 		x = 21
 		y = 8
-
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 }

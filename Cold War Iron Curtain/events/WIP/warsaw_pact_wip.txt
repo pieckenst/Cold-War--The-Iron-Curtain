@@ -1,0 +1,49 @@
+country_event = {
+	id = swf.7
+	title = "Formation of the Warsaw Pact"
+	desc = swf.7.d
+	picture = GFX_report_warsaw_pact
+	
+	major = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SOV
+		date > 1955.5.14
+		date < 1955.5.20
+	}
+
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "The Cominform is dead! Long live the Warsaw Pact!"
+		dismantle_faction = yes	
+		create_faction = "Warsaw Pact"	
+		if = {
+			limit = {
+				tag = MON
+				has_government = communism
+			}
+			add_to_faction = MON
+		}
+		all_country = {
+			limit = { OVERLORD = SOV }
+			country_event = { id = swf.8 }
+		}
+	}
+}	
+country_event = {
+	id = swf.8
+	title = "Join the Warsaw Pact"
+	desc = swf.7.d
+	picture = GFX_report_warsaw_pact
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "The Cominform is dead! Long live the Warsaw Pact!"
+		SOV = { add_to_faction = ROOT }	
+	}
+}	
+

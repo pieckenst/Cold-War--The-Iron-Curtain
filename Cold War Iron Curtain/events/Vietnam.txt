@@ -14,6 +14,8 @@ country_event = {
 	trigger = {
 		VIN = {
 			controls_state = 786
+			controls_state = 787
+			controls_state = 788
 		}
 	}
 	
@@ -133,17 +135,29 @@ country_event = {
 	immediate = {
 		FRA = { 
 			white_peace = VIN
-			end_puppet = VIE
 		}
 		VIE = { 
-			white_peace = VIN
 			transfer_state = 788
 			transfer_state = 757
+			add_state_core = 788
+			add_state_core = 757
+			add_state_core = 671
+			add_state_core = 786
+			add_state_core = 787
 		}
 		VIN = {
 			transfer_state = 671
 			transfer_state = 786
 			transfer_state = 787
+			set_capital = 786
+		}
+		CAM = {
+		transfer_state = 286
+		add_state_core = 286
+		}
+		LAO = {
+		transfer_state = 670
+		add_state_core = 670
 		}
 		787 = {
 			set_demilitarized_zone = yes
@@ -151,7 +165,32 @@ country_event = {
 		788 = {
 			set_demilitarized_zone = yes
 		}
-		news_event = vie.3
+		#news_event = vie.3
+	}
+
+	option = { }
+
+}
+# 17th North DMZ failsafe event
+country_event = {
+	id = vie.6
+	title = vie.6.t
+	desc = vie.6.d
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+	if = {
+	limit = { 787 = { is_demilitarized_zone = no }}
+		787 = {
+			set_demilitarized_zone = yes
+		}
+	
+	}
+	
 	}
 
 	option = { }

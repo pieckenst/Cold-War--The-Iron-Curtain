@@ -1421,7 +1421,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SOV_reign_of_terror
+		id = SOV_reign_of_terror_1
 		icon = GFX_goal_generic_war_with_comintern
 		cost = 10.00
 		prerequisite = {
@@ -5473,20 +5473,20 @@ completion_reward = {
 		}
 		x = 68
 		y = 9
-		available = {
-			any_other_country = {
-				original_tag = GRN
-				has_government = communism
-			}
-		}		
+		#available = {
+		#	any_other_country = {
+		#		original_tag = GRN
+		#		has_government = communism
+		#	}
+		#}		
 		completion_reward = {
-			random_other_country = {
-				limit = {
-					original_tag = GRN
-					has_government = communism
-				}
-				send_equipment = { target = PREV type = infantry_equipment amount = 3000 }	
-			}
+		#	random_other_country = {
+		#		limit = {
+		#			original_tag = GRN
+		#			has_government = communism
+		#		}
+		#		send_equipment = { target = PREV type = infantry_equipment amount = 3000 }	
+			#}
 		}
 	}
 	focus = {
@@ -5651,17 +5651,17 @@ completion_reward = {
 		}
 		x = 74
 		y = 9
-		available = {
-			country_exists = SUR
-			NOT = { has_government = communism }
-		}	
+		#available = {
+		#	country_exists = SUR
+		#	NOT = { has_government = communism }
+		#}	
 			completion_reward = {
-					SUR = {
-							start_civil_war = {
-									ideology = communism
-									size = 0.5
-								}
-						}
+					#SUR = {
+					#		start_civil_war = {
+					#				ideology = communism
+					#				size = 0.5
+					#			}
+					#	}
 				}	
 	}
 	focus = {
@@ -5932,22 +5932,22 @@ completion_reward = {
 		y = 2
 		completion_reward = {
 			FRA = {
-				add_ideas = internationalism
+				add_timed_idea = { idea = soviet_subversion days = 100 }	
 			}
 			ITA = {
-				add_ideas = internationalism
+				add_timed_idea = { idea = soviet_subversion days = 100 }	
 			}
 			ENG = {
-				add_ideas = internationalism
+				add_timed_idea = { idea = soviet_subversion days = 100 }	
 			}
 			NOR = {
-				add_ideas = internationalism
+				add_timed_idea = { idea = soviet_subversion days = 100 }	
 			}
 			BEL = {
-				add_ideas = internationalism
+				add_timed_idea = { idea = soviet_subversion days = 100 }	
 			}
 			HOL = {
-				add_ideas = internationalism
+				add_timed_idea = { idea = soviet_subversion days = 100 }	
 			}
 		}
 	}
@@ -6103,7 +6103,7 @@ completion_reward = {
 		y = 3
 		completion_reward = {
 			WGR = {
-				add_ideas = communist_pressure
+				add_timed_idea = { idea = soviet_subversion days = 100 }	
 			}
 		}
 	}
@@ -6118,7 +6118,7 @@ completion_reward = {
 		y = 4
 		completion_reward = {
 			WGR = {
-				add_ideas = internationalism
+				add_timed_idea = { idea = soviet_subversion days = 100 }	
 			}
 		}
 	}
@@ -6226,17 +6226,17 @@ completion_reward = {
 		}
 		x = 88
 		y = 9
-		available = {
-			country_exists = ERT
-			NOT = { has_government = communism }
-		}	
+		#available = {
+		#	country_exists = ERT
+		#	NOT = { has_government = communism }
+		#}	
 			completion_reward = {
-					ERT = {
-							start_civil_war = {
-									ideology = communism
-									size = 0.5
-								}
-						}
+					#ERT = {
+					#		start_civil_war = {
+					##				ideology = communism
+					#				size = 0.5
+					#			}
+					#	}
 				}		
 	}
 	focus = {	#Zimbabwe People's Revolutionary Army
@@ -7173,7 +7173,7 @@ completion_reward = {
 					original_tag = JAP
 					has_government = communism
 				}
-				add_to_faction = JAP
+				SOV = { add_to_faction = PREV }
 			}
 		}
 	}
@@ -7901,7 +7901,7 @@ completion_reward = {
 		}
 	}
 	focus = {
-		id = SOV_continued_arming
+		id = SOV_continued_arming_2
 		icon = GFX_goal_continuous_reduce_training_time
 		cost = 10.00
 		prerequisite = {
@@ -7924,25 +7924,274 @@ completion_reward = {
 		x = 82
 		y = 7
 			completion_reward = {
-					FRA = {
-							start_civil_war = {
-									ideology = communism
-									size = 0.5
-								}
-						}
-					ITA = {
-							start_civil_war = {
-									ideology = communism
-									size = 0.5
-								}
-						}
-					WGR = {
-							start_civil_war = {
-									ideology = communism
-									size = 0.5
-								}
-						}
+				if = {
+					limit = {
+						tag = FRA
+						has_government = democratic
+					}
+					start_civil_war = {
+						ruling_party = democratic
+						ideology = communism 
+						size = 0.4
+					}
 				}
+				
+				if = {
+					limit = {
+						tag = FRA
+						has_government = socialist
+					}
+					start_civil_war = {
+						ruling_party = socialist
+						ideology = communism 
+						size = 0.4
+					}
+				}
+				if = {
+					limit = {
+						tag = FRA
+						has_government = conservative
+					}
+					start_civil_war = {
+						ruling_party = conservative
+						ideology = communism 
+						size = 0.4
+					}
+				}				
+				if = {
+					limit = {
+						tag = FRA
+						has_government = liberal
+					}
+					start_civil_war = {
+						ruling_party = liberal
+						ideology = communism 
+						size = 0.4
+					}
+				}	
+				if = {
+					limit = {
+						tag = FRA
+						has_government = centrist
+					}
+					start_civil_war = {
+						ruling_party = centrist
+						ideology = communism 
+						size = 0.4
+					}
+				}	
+				if = {
+					limit = {
+						tag = FRA
+						has_government = fascism
+					}
+					start_civil_war = {
+						ruling_party = fascism
+						ideology = communism 
+						size = 0.4
+					}
+				}	
+				if = {
+					limit = {
+						tag = FRA
+						has_government = monarchism
+					}
+					start_civil_war = {
+						ruling_party = monarchism
+						ideology = communism 
+						size = 0.4
+					}
+				}	
+				if = {
+					limit = {
+						tag = FRA
+						has_government = neutrality
+					}
+					start_civil_war = {
+						ruling_party = neutrality
+						ideology = communism 
+						size = 0.4
+					}
+				}					
+				if = {
+					limit = {
+						tag = ITA
+						has_government = democratic
+					}
+					start_civil_war = {
+						ruling_party = democratic
+						ideology = communism 
+						size = 0.4
+					}
+				}
+				
+				if = {
+					limit = {
+						tag = ITA
+						has_government = socialist
+					}
+					start_civil_war = {
+						ruling_party = socialist
+						ideology = communism 
+						size = 0.4
+					}
+				}
+				if = {
+					limit = {
+						tag = ITA
+						has_government = conservative
+					}
+					start_civil_war = {
+						ruling_party = conservative
+						ideology = communism 
+						size = 0.4
+					}
+				}				
+				if = {
+					limit = {
+						tag = ITA
+						has_government = liberal
+					}
+					start_civil_war = {
+						ruling_party = liberal
+						ideology = communism 
+						size = 0.4
+					}
+				}	
+				if = {
+					limit = {
+						tag = ITA
+						has_government = centrist
+					}
+					start_civil_war = {
+						ruling_party = centrist
+						ideology = communism 
+						size = 0.4
+					}
+				}	
+				if = {
+					limit = {
+						tag = ITA
+						has_government = fascism
+					}
+					start_civil_war = {
+						ruling_party = fascism
+						ideology = communism 
+						size = 0.4
+					}
+				}	
+				if = {
+					limit = {
+						tag = ITA
+						has_government = monarchism
+					}
+					start_civil_war = {
+						ruling_party = monarchism
+						ideology = communism 
+						size = 0.4
+					}
+				}	
+				if = {
+					limit = {
+						tag = ITA
+						has_government = neutrality
+					}
+					start_civil_war = {
+						ruling_party = neutrality
+						ideology = communism 
+						size = 0.4
+					}
+				}
+				if = {
+					limit = {
+						tag = WGR
+						has_government = democratic
+					}
+					start_civil_war = {
+						ruling_party = democratic
+						ideology = communism 
+						size = 0.4
+					}
+				}
+				
+				if = {
+					limit = {
+						tag = WGR
+						has_government = socialist
+					}
+					start_civil_war = {
+						ruling_party = socialist
+						ideology = communism 
+						size = 0.4
+					}
+				}
+				if = {
+					limit = {
+						tag = WGR
+						has_government = conservative
+					}
+					start_civil_war = {
+						ruling_party = conservative
+						ideology = communism 
+						size = 0.4
+					}
+				}				
+				if = {
+					limit = {
+						tag = WGR
+						has_government = liberal
+					}
+					start_civil_war = {
+						ruling_party = liberal
+						ideology = communism 
+						size = 0.4
+					}
+				}	
+				if = {
+					limit = {
+						tag = WGR
+						has_government = centrist
+					}
+					start_civil_war = {
+						ruling_party = centrist
+						ideology = communism 
+						size = 0.4
+					}
+				}	
+				if = {
+					limit = {
+						tag = WGR
+						has_government = fascism
+					}
+					start_civil_war = {
+						ruling_party = fascism
+						ideology = communism 
+						size = 0.4
+					}
+				}	
+				if = {
+					limit = {
+						tag = WGR
+						has_government = monarchism
+					}
+					start_civil_war = {
+						ruling_party = monarchism
+						ideology = communism 
+						size = 0.4
+					}
+				}	
+				if = {
+					limit = {
+						tag = WGR
+						has_government = neutrality
+					}
+					start_civil_war = {
+						ruling_party = neutrality
+						ideology = communism 
+						size = 0.4
+					}
+				}						
+			}
 
 	}
 	focus = {
