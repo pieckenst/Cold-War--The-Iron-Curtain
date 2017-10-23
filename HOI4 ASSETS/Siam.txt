@@ -4,27 +4,30 @@ focus_tree = {
 		factor = 0
 		modifier = {
 			add = 10
-			tag = 
+			tag = SIA
 		}
 	}
 	default = no
 	focus = {
-		id = coup d'etat of 1947
+		id = new_constitution
 		icon = GFX_goal_generic_demand_territory
-		cost = 0.00
+		cost = 10.00
 		mutually_exclusive = {
 			focus = Communist Revolution
 		}
 		x = 3
 		y = 0
-
+		completion_reward = {
+			add_political_power = 120
+			add_national_unity =  0.05
+		}
 	}
 	focus = {
 		id = Communist Revolution
 		icon = GFX_goal_support_communism
-		cost = 0.00
+		cost = 10.00
 		mutually_exclusive = {
-			focus = coup d'etat of 1947
+			focus = new_constitution
 		}
 		x = 11
 		y = 0
@@ -33,65 +36,329 @@ focus_tree = {
 	focus = {
 		id = National Thai Army
 		icon = GFX_goal_generic_allies_build_infantry
-		cost = 0.00
+		cost = 10.00
 		x = 18
 		y = 0
-
+		completion_reward = {
+			army_experience = 25
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = National Thai Navy
 		icon = GFX_goal_generic_build_navy
-		cost = 0.00
+		cost = 10.00
 		x = 23
 		y = 0
-
+			completion_reward = {
+					navy_experience = 25
+					if = {
+							limit = {
+									NOT = {
+											any_owned_state = {
+													dockyard > 0
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+									any_owned_state = {
+											is_coastal = yes
+										}
+								}
+							random_owned_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									any_owned_state = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+								}
+							random_owned_state = {
+									limit = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									NOT = {
+											any_owned_state = {
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+								}
+							random_state = {
+									limit = {
+											controller = {
+													tag = ROOT
+												}
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+				}
 	}
 	focus = {
 		id = National Air Force
 		icon = GFX_goal_generic_build_airforce
-		cost = 0.00
+		cost = 10.00
 		x = 28
 		y = 0
+		completion_reward = {
+					air_experience = 25
+					if = {
+							limit = {
+									capital_scope = {
+											NOT = {
+													free_building_slots = {
+															building = air_base
+															size > 1
+														}
+												}
+										}
+								}
+							random_owned_state = {
+									limit = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					if = {
+							limit = {
+									capital_scope = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+								}
+							capital_scope = {
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					add_tech_bonus = {
+							name = air_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = air_doctrine
+						}
+				}
 
 	}
 	focus = {
 		id = Establish ASEAN
 		icon = GFX_goal_generic_national_unity
-		cost = 0.00
+		cost = 10.00
 		x = 2
 		y = 7
-
+		completion_reward = {
+			create_faction = "Association of Southeast Asian Nations"	
+		}
 	}
 	focus = {
 		id = Join NATO
 		icon = GFX_goal_generic_improve_relations
-		cost = 0.00
+		cost = 10.00
 		x = 6
 		y = 7
-
+		completion_reward = {
+			USA = { add_to_faction = SIA }
+		}
 	}
 	focus = {
 		id = National Highway
 		icon = GFX_goal_generic_construct_civ_factory
-		cost = 0.00
+		cost = 10.00
 		x = 36
 		y = 0
-
+			complete_tooltip = {
+					add_building_construction = {
+							type = infrastructure
+							level = 3
+							instant_build = yes
+						}
+					add_building_construction = {
+							type = infrastructure
+							level = 3
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 0
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 0
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}
+						}
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 0
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 0
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = Education Reform
 		icon = GFX_goal_generic_intelligence_exchange
-		cost = 0.00
+		cost = 10.00
 		x = 42
 		y = 0
-
+		completion_reward = {
+			add_ideas = KOR_education_reform
+		}
 	}
 	focus = {
 		id = Restore Pridi Government
 		icon = GFX_goal_anschluss
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
-			focus = coup d'etat of 1947
+			focus = new_constitution
 		}
 		mutually_exclusive = {
 			focus = Reform Plaek Government
@@ -101,22 +368,114 @@ focus_tree = {
 
 	}
 	focus = {
-		id = Yellow Cover Dossler
+		id = Yellow Cover Dossier
 		icon = GFX_goal_generic_forceful_treaty
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Restore Pridi Government
 		}
 		x = 1
 		y = 2
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = Install Civil Government
 		icon = GFX_goal_generic_major_alliance
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
-			focus = Yellow Cover Dossler
+			focus = Yellow Cover Dossier
 		}
 		x = 1
 		y = 3
@@ -125,7 +484,7 @@ focus_tree = {
 	focus = {
 		id = Peace and Freedom 
 		icon = GFX_goal_support_democracy
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Install Civil Government
 		}
@@ -136,7 +495,7 @@ focus_tree = {
 	focus = {
 		id = Freedom Election
 		icon = GFX_goal_support_democracy
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Peace and Freedom 
 		}
@@ -147,9 +506,9 @@ focus_tree = {
 	focus = {
 		id = Reform Plaek Government
 		icon = GFX_goal_anschluss
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
-			focus = coup d'etat of 1947
+			focus = new_constitution
 		}
 		mutually_exclusive = {
 			focus = Restore Pridi Government
@@ -162,7 +521,7 @@ focus_tree = {
 	focus = {
 		id = Thai Cultural Mamdates
 		icon = GFX_goal_support_fascism
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Reform Plaek Government
 		}
@@ -173,7 +532,7 @@ focus_tree = {
 	focus = {
 		id = Reform Miliary Government
 		icon = GFX_goal_rhineland
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Thai Cultural Mamdates
 		}
@@ -184,7 +543,7 @@ focus_tree = {
 	focus = {
 		id = Abolish Pridi Government
 		icon = GFX_goal_generic_attack_allies
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Reform Miliary Government
 		}
@@ -195,7 +554,7 @@ focus_tree = {
 	focus = {
 		id = Support USA
 		icon = GFX_goal_generic_improve_relations
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Establish ASEAN
 		}
@@ -206,9 +565,9 @@ focus_tree = {
 	focus = {
 		id = Install Sarit Government
 		icon = GFX_goal_anschluss
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
-			focus = coup d'etat of 1947
+			focus = new_constitution
 		}
 		mutually_exclusive = {
 			focus = Reform Plaek Government
@@ -220,40 +579,46 @@ focus_tree = {
 	focus = {
 		id = Fater Govern Children
 		icon = GFX_goal_generic_national_unity
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Install Sarit Government
 		}
 		x = 5
 		y = 2
-
+		completion_reward = {
+			add_ideas = monarchist_influence
+		}
 	}
 	focus = {
 		id = Restore Royal Institution
 		icon = GFX_goal_generic_improve_relations
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Fater Govern Children
 		}
 		x = 5
 		y = 3
-
+		completion_reward = {
+			set_politics = { ruling_party = monarchism elections_allowed = no }	
+		}
 	}
 	focus = {
 		id = Abolish Khana Ratsadon
 		icon = GFX_goal_generic_attack_allies
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Restore Royal Institution
 		}
 		x = 5
 		y = 4
-
+		completion_reward = {
+			remove_ideas = Khana_Ratsadon	
+		}
 	}
 	focus = {
 		id = Election of Constitution
 		icon = GFX_goal_generic_dangerous_deal
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Abolish Khana Ratsadon
 		}
@@ -267,7 +632,7 @@ focus_tree = {
 	focus = {
 		id = Support France
 		icon = GFX_goal_generic_improve_relations
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Join NATO
 		}
@@ -278,7 +643,7 @@ focus_tree = {
 	focus = {
 		id = People's Revolution 
 		icon = GFX_goal_generic_war_with_comintern
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Communist Revolution
 		}
@@ -289,7 +654,7 @@ focus_tree = {
 	focus = {
 		id = Support China
 		icon = GFX_goal_generic_improve_relations
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = People's Revolution 
 		}
@@ -300,7 +665,7 @@ focus_tree = {
 	focus = {
 		id = Support Soviet
 		icon = GFX_goal_generic_improve_relations
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = People's Revolution 
 		}
@@ -311,7 +676,7 @@ focus_tree = {
 	focus = {
 		id = Overthrow Fascist
 		icon = GFX_goal_generic_demand_territory
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Support Soviet
 		}
@@ -325,7 +690,7 @@ focus_tree = {
 	focus = {
 		id = Reform Estate
 		icon = GFX_goal_generic_soviet_construction
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Overthrow Fascist
 		}
@@ -336,7 +701,7 @@ focus_tree = {
 	focus = {
 		id = Publish Revolution
 		icon = GFX_goal_generic_war_with_comintern
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Reform Estate
 		}
@@ -347,7 +712,7 @@ focus_tree = {
 	focus = {
 		id = Weapon Equipment 1945
 		icon = GFX_goal_generic_small_arms
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = National Thai Army
 		}
@@ -358,51 +723,92 @@ focus_tree = {
 	focus = {
 		id = Weapon Equipment 1950
 		icon = GFX_goal_generic_small_arms
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Weapon Equipment 1945
 		}
 		x = 17
 		y = 2
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_weapons_bonus
+							bonus = 0.5
+							uses = 1
+							category = infantry_weapons
+							category = artillery
+						}
+				}
 
 	}
 	focus = {
 		id = Weapon Equipment 1960
 		icon = GFX_goal_generic_small_arms
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Weapon Equipment 1950
 		}
 		x = 17
 		y = 3
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_weapons_bonus
+							bonus = 0.5
+							uses = 1
+							category = infantry_weapons
+							category = artillery
+						}
+				}
 
 	}
 	focus = {
 		id = Artillery Equipment 
 		icon = GFX_goal_generic_army_artillery2
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Weapon Equipment 1960
 		}
 		x = 17
 		y = 4
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_weapons_bonus
+							bonus = 0.5
+							uses = 1
+							category = infantry_weapons
+							category = artillery
+						}
+				}
 
 	}
 	focus = {
 		id = Armor Equipment
 		icon = GFX_goal_generic_army_tanks
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Artillery Equipment 
 		}
 		x = 17
 		y = 5
-
+			completion_reward = {
+					army_experience = 5
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+					add_tech_bonus = {
+							name = armor_bonus
+							bonus = 0.5
+							uses = 2
+							category = armor
+						}
+				}
 	}
 	focus = {
 		id = Nak Sueksa Wicha Thahan
 		icon = GFX_goal_generic_allies_build_infantry
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = National Thai Army
 		}
@@ -413,7 +819,7 @@ focus_tree = {
 	focus = {
 		id = Thai Volunteer Force
 		icon = GFX_goal_generic_political_pressure
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Nak Sueksa Wicha Thahan
 		}
@@ -424,7 +830,7 @@ focus_tree = {
 	focus = {
 		id = New Battleship
 		icon = GFX_goal_generic_navy_battleship
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = National Thai Navy
 		}
@@ -435,7 +841,7 @@ focus_tree = {
 	focus = {
 		id = Reform Submarine
 		icon = GFX_goal_generic_navy_submarine
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = New Battleship
 		}
@@ -446,7 +852,7 @@ focus_tree = {
 	focus = {
 		id = Submarine Warfare
 		icon = GFX_goal_generic_navy_anti_submarine
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Reform Submarine
 		}
@@ -457,7 +863,7 @@ focus_tree = {
 	focus = {
 		id = Battleship Warfare
 		icon = GFX_goal_generic_navy_battleship
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Submarine Warfare
 		}
@@ -468,7 +874,7 @@ focus_tree = {
 	focus = {
 		id = Thai Figther 
 		icon = GFX_goal_generic_air_fighter
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = National Air Force
 		}
@@ -479,7 +885,7 @@ focus_tree = {
 	focus = {
 		id = Figther Warfare
 		icon = GFX_goal_generic_air_fighter2
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Thai Figther 
 		}
@@ -490,7 +896,7 @@ focus_tree = {
 	focus = {
 		id = Thai Bomber
 		icon = GFX_goal_generic_air_bomber
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = National Air Force
 		}
@@ -501,7 +907,7 @@ focus_tree = {
 	focus = {
 		id = Bomber Warfare
 		icon = GFX_goal_generic_air_doctrine
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Thai Bomber
 		}
@@ -512,7 +918,7 @@ focus_tree = {
 	focus = {
 		id = Isan Industrialization
 		icon = GFX_goal_generic_construct_civ_factory
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = National Highway
 		}
@@ -523,7 +929,7 @@ focus_tree = {
 	focus = {
 		id = Lanna Oil
 		icon = GFX_goal_generic_oil_refinery
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = National Highway
 		}
@@ -534,7 +940,7 @@ focus_tree = {
 	focus = {
 		id = Thanon Mittraphap
 		icon = GFX_goal_generic_construct_infrastructure
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Lanna Oil
 		}
@@ -548,7 +954,7 @@ focus_tree = {
 	focus = {
 		id = New Airfield Nationwide
 		icon = GFX_goal_generic_air_fighter
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Thanon Mittraphap
 		}
@@ -559,7 +965,7 @@ focus_tree = {
 	focus = {
 		id = New Ship Nationwide
 		icon = GFX_goal_generic_construct_naval_dockyard
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = New Airfield Nationwide
 		}
@@ -570,7 +976,7 @@ focus_tree = {
 	focus = {
 		id = Pre-Collegiate School
 		icon = GFX_goal_generic_intelligence_exchange
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Education Reform
 		}
@@ -581,7 +987,7 @@ focus_tree = {
 	focus = {
 		id = Secondary Education
 		icon = GFX_goal_generic_intelligence_exchange
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Pre-Collegiate School
 		}
@@ -592,7 +998,7 @@ focus_tree = {
 	focus = {
 		id = Rajabhat University
 		icon = GFX_goal_generic_intelligence_exchange
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Secondary Education
 		}
@@ -601,9 +1007,9 @@ focus_tree = {
 
 	}
 	focus = {
-		id = Anit Communist
+		id = Anti Communist
 		icon = GFX_goal_generic_demand_territory
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Support France
 		}
@@ -617,7 +1023,7 @@ focus_tree = {
 	focus = {
 		id = Rajamangala University
 		icon = GFX_goal_generic_intelligence_exchange
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Rajabhat University
 		}
@@ -628,7 +1034,7 @@ focus_tree = {
 	focus = {
 		id = Vocational Education 
 		icon = GFX_goal_generic_intelligence_exchange
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Rajamangala University
 		}
@@ -639,7 +1045,7 @@ focus_tree = {
 	focus = {
 		id = Chulachomklao Mailitary
 		icon = GFX_goal_generic_military_sphere
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Secondary Education
 		}
@@ -650,23 +1056,181 @@ focus_tree = {
 	focus = {
 		id = Thai Naval Academy
 		icon = GFX_goal_generic_navy_cruiser
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Chulachomklao Mailitary
 		}
 		x = 43
 		y = 4
-
+		completion_reward = {
+					navy_experience = 25
+					if = {
+							limit = {
+									NOT = {
+											any_owned_state = {
+													dockyard > 0
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+									any_owned_state = {
+											is_coastal = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									any_owned_state = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									NOT = {
+											any_owned_state = {
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+								}
+							random_state = {
+									limit = {
+											controller = {
+													tag = ROOT
+												}
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+				}
 	}
 	focus = {
 		id = Thai Air Force Academy
 		icon = GFX_goal_generic_air_fighter2
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = Thai Naval Academy
 		}
 		x = 43
 		y = 5
-
+			completion_reward = {
+					air_experience = 25
+					if = {
+							limit = {
+									capital_scope = {
+											NOT = {
+													free_building_slots = {
+															building = air_base
+															size > 1
+														}
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					if = {
+							limit = {
+									capital_scope = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+								}
+							capital_scope = {
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					add_tech_bonus = {
+							name = air_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = air_doctrine
+						}
+				}
 	}
 }
