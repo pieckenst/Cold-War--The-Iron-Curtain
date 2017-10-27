@@ -329,7 +329,7 @@ technologies = {
 		}
 		
 		sub_technologies = {
-			cv_fighter3
+			cv_fighter3 
 		}
 		
 		ai_will_do = {
@@ -1441,11 +1441,14 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
+		sub_technologies = {
+			cv_fighter4
+		}
 		
 		dependencies = {
 			jet_engines = 1
 		}
-		
+				
 		research_cost = 2
 		start_year = 1945
 		
@@ -1462,6 +1465,47 @@ technologies = {
 
 		ai_will_do = {
 			factor = 1
+		}
+	}
+	
+	cv_fighter4 = {
+
+		enable_equipments = {
+			cv_fighter_equipment_4
+		}
+	
+		research_cost = 1.0 #Carrier Variant
+		start_year = 1944
+		
+		categories = {
+			naval_air
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2.5
+				tag = USA
+			}
+			
+			modifier = {
+				factor = 2.5
+				tag = JAP
+			}
+			modifier = {
+				factor = 1.5
+				date > "1945.1.1"
+			}
+			modifier = {
+				factor = 2.5
+				has_navy_size = { type = carrier size > 3 }# if nation has carriers, more likely
+			}
+			modifier = {
+				factor = 0
+				has_navy_size = { type = carrier size < 1 }# if nation has no carriers, don't bother
+			}
 		}
 	}
 	
