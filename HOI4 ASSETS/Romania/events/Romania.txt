@@ -1,0 +1,574 @@
+###########################
+# Romanian Events
+###########################
+add_namespace = romania
+
+#Execute Royal Family
+country_event = {
+	
+	id = romania.100
+	title = romania.100.t
+	desc = romania.100.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = {
+			base = 1
+		}
+
+		name = romania.100.a
+	}
+}
+
+#Nationalist Civil War
+country_event = {
+	
+	id = romania.101
+	title = romania.101.t
+	desc = romania.101.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Side With Nationalists
+		name = romania.101.a
+		hidden_effect = {
+			start_civil_war = {
+				ideology = fascism
+				size = 0.5
+				capital = 79
+				states = { 79 76 83 82 }
+			}
+			random_other_country = {
+				limit = {
+					original_tag = ROM
+					has_government = marxism-leninism
+				}
+				set_equipment_fraction = 0.5
+				set_national_unity = 0.9
+			}
+			
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.6
+			}
+			add_popularity = {
+				ideology = marxism-leninism
+				popularity = -1
+			}	
+			set_equipment_fraction = 0.5
+			set_national_unity = 0.9
+			
+		}
+	}
+	option = { #Side Wtih Communists
+		name = romania.101.b
+		trigger = { is_ai = no }
+		hidden_effect = {
+			set_capital = 176
+			start_civil_war = {
+				ruling_party = marxism-leninism
+				ideology = fascism
+				size = 0.5
+				capital = 46
+				states = { 46 81 84 }
+			}
+			random_other_country = {
+				limit = {
+					original_tag = ROM
+					has_government = fascism
+				}
+				set_equipment_fraction = 0.5
+				set_national_unity = 0.9
+			}
+			set_equipment_fraction = 0.5
+			set_national_unity = 0.9
+			
+			add_popularity = {
+				ideology = marxism-leninism
+				popularity = 1
+			}
+		}
+	}
+}
+#Democratic Civil War
+country_event = {
+	
+	id = romania.102
+	title = romania.102.t
+	desc = romania.102.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Side With Democrats
+		name = romania.102.a
+		hidden_effect = {
+			start_civil_war = {
+				ideology = democratic
+				size = 0.5
+				capital = 79
+				states = { 79 76 83 82 }
+			}
+			random_other_country = {
+				limit = {
+					original_tag = ROM
+					has_government = marxism-leninism
+				}
+				set_equipment_fraction = 0.5
+				set_national_unity = 0.9
+			}
+			
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.6
+			}
+			add_popularity = {
+				ideology = marxism-leninism
+				popularity = -0.6
+			}	
+			set_equipment_fraction = 0.5
+			set_national_unity = 0.9
+			
+		}
+	}
+	option = { #Side Wtih Communists
+		name = romania.102.b
+		trigger = { is_ai = no }
+		hidden_effect = {
+			set_capital = 176
+			start_civil_war = {
+				ruling_party = marxism-leninism
+				ideology = democratic
+				size = 0.5
+				capital = 46
+				states = { 46 81 84 }
+			}
+			random_other_country = {
+				limit = {
+					original_tag = ROM
+					has_government = democratic
+				}
+				set_equipment_fraction = 0.5
+				set_national_unity = 0.9
+			}
+			set_equipment_fraction = 0.5
+			set_national_unity = 0.9
+			
+			add_popularity = {
+				ideology = marxism-leninism
+				popularity = 1
+			}
+		}
+	}
+}
+#Trial Of Ceausescu
+country_event = {
+	
+	id = romania.103
+	title = romania.103.t
+	desc = romania.103.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Execute Him
+		name = romania.103.a
+		add_popularity = {
+				ideology = marxism-leninism
+				popularity = -1
+		}
+		add_political_power = -100
+	}
+	option = { #Let Him Live
+		name = romania.103.a
+		add_popularity = {
+			ideology = marxism-leninism
+			popularity = 0.05
+		}
+		add_ideas = he_lives_focus
+		add_political_power = 100
+	}
+}
+#Monarchist Civil War
+country_event = {
+	
+	id = romania.104
+	title = romania.104.t
+	desc = romania.104.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Side With Monarchists
+		name = romania.104.a
+		hidden_effect = {
+			start_civil_war = {
+				ideology = monarchism
+				size = 0.5
+				capital = 79
+				states = { 79 76 83 82 }
+			}
+			random_other_country = {
+				limit = {
+					original_tag = ROM
+					has_government = marxism-leninism
+				}
+				set_equipment_fraction = 0.5
+				set_national_unity = 0.9
+			}
+			
+			set_politics = {
+				ruling_party = monarchism
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.6
+			}
+			add_popularity = {
+				ideology = marxism-leninism
+				popularity = -1
+			}	
+			set_equipment_fraction = 0.5
+			set_national_unity = 0.9
+			
+		}
+	}
+	option = { #Side Wtih Communists
+		name = romania.104.b
+		trigger = { is_ai = no }
+		hidden_effect = {
+			set_capital = 176
+			start_civil_war = {
+				ruling_party = marxism-leninism
+				ideology = monarchism
+				size = 0.5
+				capital = 46
+				states = { 46 81 84 }
+			}
+			random_other_country = {
+				limit = {
+					original_tag = ROM
+					has_government = monarchism
+				}
+				set_equipment_fraction = 0.5
+				set_national_unity = 0.9
+			}
+			set_equipment_fraction = 0.5
+			set_national_unity = 0.9
+			
+			add_popularity = {
+				ideology = marxism-leninism
+				popularity = 1
+			}
+		}
+	}
+}
+#Demand Dobrudja
+country_event = {
+	
+	id = romania.105
+	title = romania.105.t
+	desc = romania.105.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	days = 3
+
+	option = { #Give Into The Demands
+		name = romania.105.a
+		hidden_effect = {
+			random_other_country = {
+				limit = {
+					original_tag = ROM
+				}
+				set_state_owner = 77
+				set_state_controller = 77
+			}
+		}
+		ROM = {
+			country_event = romania.106
+		}
+	}
+	option = { #Refuse The Demand
+		name = romania.105.b
+		ROM = {
+			country_event.107
+		}
+	}
+}
+#Bulgaria Gives Into The Demands
+country_event = { 
+	
+	id = romania.106
+	title = romania.106.t
+	desc = romania.106.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #They Have Seen Reason
+		name = romania.106.a
+		add_political_power = 25
+	}
+}
+#Bulgaria Refused Our Demands
+country_event = {
+	
+	id = romania.107
+	title = romania.107.t
+	desc = romania.107.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #We Will Respect Their Decision
+		name = romania.107.a
+		add_political_power = -25
+		unity_factor = -0.05
+	}
+	option = { #They've Made A Serious Mistake
+		name = romania.107.b
+		create_wargoal = {
+			type = take_state_focus
+			target = BUL
+			generator = { 77 }
+		}
+	}
+}
+#MLD - Romania Demands Bessarabia
+country_event = {
+	
+	id = romania.108
+	title = romania.108.t
+	desc = romania.108.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Give Into Their Demands
+		name = romania.108.a
+		ROM = {
+			country_event = romania.109
+		}
+		
+	}
+	option = { #It Is Our Land Now
+		name = romania.108.b
+		ROM= {
+			country_event = romania.110
+		}
+	}
+}
+#MLD - Accepts Romanian Demands
+country_event = { 
+	
+	id = romania.109
+	title = romania.109.t
+	desc = romania.109.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #They Have Seen Reason
+		name = romania.106.a
+		add_political_power = 25
+		annex_country = { target = MLD transfer_troops = no }
+	}
+}
+#MLD - Refuses Romanian Demands
+country_event = {
+	id = romania.110
+	title = romania.110.t
+	desc = romania.110.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #We Will Respect Their Decision
+		name = romania.110.a
+		add_political_power = -25
+		unity_factor = -0.05
+	}
+	option = { #They've Made A Serious Mistake
+		name = romania.110.b
+		create_wargoal = {
+			type = take_state_focus
+			target = MLD
+			generator = { 78 }
+		}
+	}
+}
+#Romania Leaves Warsaw Pact
+country_event = {
+	id = romania.111
+	title = romania.111.t
+	desc = romania.111.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = romania.111.a
+		if = { limit = { is_in_faction_with = SOV }
+				remove_from_faction = ROM
+			}
+	}
+}
+#USA - Romania Requests To Join NATO
+country_event = {
+	id = romania.112
+	title = romania.112.t
+	desc = romania.112.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Let Them Join
+		name = romania.112.a
+		if = { 
+			limit = { is_in_faction_with = SOV }
+				remove_from_faction = ROM
+		}
+		add_to_faction = ROM
+	}
+	option = { #They're On Their Own
+		name = romania.112.b
+		ROM = {
+			country_event = romania.113
+		}
+		unity_factor = -0.05
+	}
+}
+#Romania's Request Is Denied
+country_event = {
+	id = romania.113
+	title = romania.113.t
+	desc = romania.113.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #They Have Doomed Us
+		name = romania.113.a
+	}
+}
+#Bulgaria - Romania Requests Our Alligence In Their Coalition
+country_event = {
+	id = romania.114
+	title = romania.114.t
+	desc = romania.114.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Join The Coalition
+		name = romania.114.a
+		ROM = {
+			add_to_faction = BUL
+		}
+	}
+	option = { #Refuse Their Request
+		name = romania.114.b
+		ROM = {
+			country_event = romania.115
+		}
+	}
+}
+#Romania - Bulgaria Refuses Request To Join Faction
+country_event = {
+	id = romania.115
+	title = romania.115.t
+	desc = romania.115.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Their Loss
+		name = romania.115.a
+	}
+}
+#Romania Wants To Puppet Us
+country_event = {
+	id = romania.116
+	title = romania.116.t
+	desc = romania.116.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #We Will Join Them
+		name = romania.116.a
+		ROM = {
+			puppet = ALB
+		}
+	}
+	option = { #We Are Independent
+		name = romania.116.b
+		ROM = {
+			country_event = romania.117
+		}
+	}
+}
+#Romania - Albania Refuses Puppet
+country_event = {
+	id = romania.117
+	title = romania.117.t
+	desc = romania.117.d
+	picture = GFX_report_event_german_speech
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #They've Made A Mistake
+		name = romania.116.a
+		create_wargoal = { type = annex_everything target = ALB }
+	}
+}
