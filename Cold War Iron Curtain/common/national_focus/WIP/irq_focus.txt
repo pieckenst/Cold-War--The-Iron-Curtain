@@ -1840,7 +1840,16 @@ focus_tree = {
 		}
 		x = 22
 		y = 5
-
+		completion_reward = {
+			completion_reward = {
+					add_tech_bonus = {
+							name = TUR_fighter_modernisation
+							bonus = 0.5
+							uses = 2
+							category = light_fighter
+						}
+				}		
+		}
 	}
 	focus = {
 		id = irq_soviet_scuds
@@ -1851,7 +1860,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 6
-
+		completion_reward = {
+			add_equipment_to_stockpile = { type = cruisemissile_1 amount = 400 producer = SOV }	
+		}
 	}
 	focus = {
 		id = IRQ_american_advisors
@@ -1964,7 +1975,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 4
-
+		completion_reward = {
+			add_ideas = american_intel_sharing
+		}
 	}
 	focus = {
 		id = IRQ_american_tanks
@@ -2137,7 +2150,9 @@ focus_tree = {
 		}
 		x = 29
 		y = 5
-
+		completion_reward = {
+			add_equipment_to_stockpile = { type = cruisemissile_1 amount = 400 producer = USA }	
+		}
 	}
 	focus = {
 		id = IRQ_american_airfield_development
@@ -2218,7 +2233,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 6
-
+		completion_reward = {
+			add_ideas = american_mic_advisors
+		}
 	}
 	focus = {
 		id = irq_flexible_navy
@@ -2780,7 +2797,7 @@ focus_tree = {
 							type = annex_everything
 							target = SYR
 						}
-						SYR = { every_owned_state = { add_core_of = TUR }	}
+						SYR = { every_owned_state = { add_core_of = IRQ }	}
 				}
 	}
 	focus = {
@@ -2873,7 +2890,14 @@ focus_tree = {
 		}
 		x = 44
 		y = 7
-
+		completion_reward = {
+			413 = { add_core_of = IRQ }
+			create_wargoal = {
+				type = take_state_focus
+				target = PER
+				generator = { 413 }
+			}
+		}
 	}
 	focus = {
 		id = IRQ_pan_arabist_coup
@@ -2887,7 +2911,10 @@ focus_tree = {
 		}
 		x = 46
 		y = 2
-
+		completion_reward = {
+			set_politics = { ruling_party = pan_arabism elections_allowed = no }
+			add_timed_idea = { idea = pan_arab_influence days = 365 }	
+		}
 	}
 	focus = {
 		id = IRQ_crush_kurdish_seperatism
@@ -2936,7 +2963,9 @@ focus_tree = {
 		}
 		x = 51
 		y = 1
-
+		completion_reward = {
+			add_timed_idea = { idea = IRQ_traditionalist_drift days = 365 }	
+		}
 	}
 	focus = {
 		id = IRQ_strengthen_the_monarchy
@@ -2950,7 +2979,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 2
-
+		completion_reward = {
+			add_timed_idea = { idea = monarchist_influence days = 365 }	
+		}
 	}
 	focus = {
 		id = IRQ_the_arab_federation
@@ -2975,7 +3006,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 4
-
+		completion_reward = {
+			#NEEDS EVENT
+		}
 	}
 	focus = {
 		id = IRQ_free_officer_victory
@@ -2989,7 +3022,10 @@ focus_tree = {
 		}
 		x = 46
 		y = 5
-
+		completion_reward = {
+			set_politics = { ruling_party = socialist elections_allowed = no }
+			add_timed_idea = { idea = IRQ_free_officer_era_drift days = 365 }	
+		}
 	}
 	focus = {
 		id = IRQ_align_with_the_iraqi_communists
@@ -3003,7 +3039,11 @@ focus_tree = {
 		}
 		x = 45
 		y = 6
-
+		completion_reward = {
+			set_politics = { ruling_party = communism elections_allowed = no }
+			add_timed_idea = { idea = internationalism days = 365 }	
+			add_national_unity = -0.10
+		}
 	}
 	focus = {
 		id = IRQ_align_with_the_socialists
@@ -3018,7 +3058,9 @@ focus_tree = {
 		}
 		x = 47
 		y = 6
-
+		completion_reward = {
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = IRQ_demand_kuwait
@@ -3034,7 +3076,7 @@ focus_tree = {
 		}
 		x = 48
 		y = 7
-
+		#EVENT
 	}
 	focus = {
 		id = IRQ_preserve_the_federation
@@ -3048,7 +3090,9 @@ focus_tree = {
 		}
 		x = 50
 		y = 5
-
+		completion_reward = {
+			start_civil_war = { ideology = socialist size = 0.40 }	
+		}
 	}
 	focus = {
 		id = IRQ_strengthen_ties_to_uk
@@ -3059,7 +3103,20 @@ focus_tree = {
 		}
 		x = 50
 		y = 6
-
+		completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = IRQ
+									modifier = large_increase
+								}
+						}
+					IRQ = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}			
+		}
 	}
 	focus = {
 		id = IRQ_request_kuwait
@@ -3070,7 +3127,7 @@ focus_tree = {
 		}
 		x = 50
 		y = 7
-
+		#EVENT
 	}
 	focus = {
 		id = IRQ_begin_economic_liberalization
@@ -3188,7 +3245,9 @@ focus_tree = {
 		}
 		x = 51
 		y = 2
-
+		completion_reward = {
+			add_timed_idea = { idea = shia_radical_drift days = 365 }	
+		}
 	}
 	focus = {
 		id = IRQ_iraqi_revolution
@@ -3217,17 +3276,17 @@ focus_tree = {
 							type = annex_everything
 							target = SAU
 						}
-						SAU = { any_owned_state = { add_core_of = TUR }	}
+						SAU = { any_owned_state = { add_core_of = IRQ }	}
 					create_wargoal = {
 							type = annex_everything
 							target = OMA
 						}
-						OMA = { any_owned_state = { add_core_of = TUR }	}
+						OMA = { any_owned_state = { add_core_of = IRQ }	}
 					create_wargoal = {
 							type = annex_everything
 							target = YEM
 						}
-						YEM = { any_owned_state = { add_core_of = TUR }	}
+						YEM = { any_owned_state = { add_core_of = IRQ }	}
 				}
 	}
 	focus = {
@@ -3239,7 +3298,12 @@ focus_tree = {
 		}
 		x = 52
 		y = 5
-
+		completion_reward = {
+			SYR = { add_timed_idea = { idea = shia_radical_drift days = 300 } }
+			PER = { add_timed_idea = { idea = shia_radical_drift days = 300 } }
+			AFG = { add_timed_idea = { idea = shia_radical_drift days = 300 } }
+			LEB = { add_timed_idea = { idea = shia_radical_drift days = 300 } }
+		}
 	}
 	focus = {
 		id = IRQ_shia_crescent
@@ -3250,7 +3314,23 @@ focus_tree = {
 		}
 		x = 52
 		y = 6
-
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = SYR
+						}
+						SYR = { any_owned_state = { add_core_of = IRQ }	}
+					create_wargoal = {
+							type = annex_everything
+							target = LEB
+						}
+						LEB = { any_owned_state = { add_core_of = IRQ }	}
+					create_wargoal = {
+							type = annex_everything
+							target = JOR
+						}
+						JOR = { any_owned_state = { add_core_of = IRQ }	}
+				}
 	}
 	focus = {
 		id = irq_extra_tech_slot_2
@@ -3290,7 +3370,9 @@ focus_tree = {
 		}
 		x = 19
 		y = 4
-
+		completion_reward = {
+			add_equipment_to_stockpile = { type = motorized_equipment_2 amount = 500 producer = SOV }	
+		}
 	}
 	focus = {
 		id = IRQ_soviet_tanks
@@ -3304,7 +3386,11 @@ focus_tree = {
 		}
 		x = 17
 		y = 5
-
+		completion_reward = {
+			add_equipment_to_stockpile = { type = main_battle_tanks_2 amount = 150 producer = SOV }	
+			add_equipment_to_stockpile = { type = lt_equipment_1 amount = 300 producer = SOV }	
+			add_equipment_to_stockpile = { type = ht_equipment_2 amount = 100 producer = SOV }	
+		}
 	}
 	focus = {
 		id = IRQ_soviet_mechanized_equipment
@@ -3318,7 +3404,9 @@ focus_tree = {
 		}
 		x = 19
 		y = 5
-
+		completion_reward = {
+			add_equipment_to_stockpile = { type = mechanized_equipment_3 amount = 500 producer = SOV }	
+		}
 	}
 	focus = {
 		id = IRQ_backwards_engineer_soviet_designs
@@ -3332,7 +3420,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 6
-
+		completion_reward = {
+			add_ideas = soviet_military_desgins
+		}
 	}
 	focus = {
 		id = irq_purge_officer_corps
@@ -3349,7 +3439,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 7
-
+		completion_reward = {
+			remove_ideas = incompetent_officer_corps
+		}
 	}
 	focus = {
 		id = IRQ_american_mechanized_equipment
@@ -3360,7 +3452,10 @@ focus_tree = {
 		}
 		x = 27
 		y = 5
-
+		completion_reward = {
+			add_equipment_to_stockpile = { type = mechanized_equipment_3 amount = 500 producer = USA }
+			add_equipment_to_stockpile = { type = motorized_equipment_2 amount = 500 producer = SOV }	
+		}
 	}
 	focus = {
 		id = IRQ_american_license_agreements
@@ -3374,7 +3469,18 @@ focus_tree = {
 		}
 		x = 26
 		y = 6
-
+		completion_reward = {
+			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = motorized_equipment_2 version = 0 }	
+			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = mechanized_equipment_3 version = 0 }	
+			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = main_battle_tanks_2 version = 0 }	
+			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = lt_equipment_1 version = 0 }	
+			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = ht_equipment_2 version = 0 }	
+			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = assault_rifle_equipment_1 version = 0 }	
+			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = CAS_equipment_4 version = 0 }	
+			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = jet_fighter_equipment_2 version = 0 }		
+			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = jet_tac_bomber_equipment_2 version = 0 }	
+			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = jet_strat_bomber_equipment_2 version = 0 }				
+		}
 	}
 	focus = {
 		id = irq_soviet_military_development
@@ -3459,8 +3565,9 @@ focus_tree = {
 		x = 55
 		y = 2
 		completion_reward = {
-			add_ideas = islamism_drift
+			add_timed_idea = { idea = islamism_drift days = 365 }	
 		}
+		
 	}
 	focus = {
 		id = IRQ_agrarian_reform
@@ -3801,7 +3908,9 @@ focus_tree = {
 		}
 		x = 46
 		y = 8
-
+		completion_reward = {
+			remove_ideas = Iraq_Petroleum_Company
+		}
 	}
 	focus = {
 		id = IRQ_align_with_saudi_arabia
@@ -3836,7 +3945,10 @@ focus_tree = {
 		}
 		x = 55
 		y = 4
-
+		
+		completion_reward = {
+			set_politics = { ruling_party = islamism elections_allowed = no }	
+		}
 	}
 	focus = {
 		id = IRQ_unite_the_arab_levant
@@ -3847,7 +3959,18 @@ focus_tree = {
 		}
 		x = 55
 		y = 5
-
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = JOR
+						}
+						JOR = { every_owned_state = { add_core_of = IRQ }	}
+					create_wargoal = {
+							type = annex_everything
+							target = SYR
+						}
+						SYR = { every_owned_state = { add_core_of = IRQ }	}
+				}
 	}
 	focus = {
 		id = IRQ_liberate_khuzestan
@@ -3858,5 +3981,13 @@ focus_tree = {
 		}
 		x = 55
 		y = 6
+		completion_reward = {
+			413 = { add_core_of = IRQ }
+			create_wargoal = {
+				type = take_state_focus
+				target = PER
+				generator = { 413 }
+			}
+		}
 	}
 }
