@@ -1,52 +1,54 @@
-seek_NATO_alliance = {
+seek_NATO_membership = {
 	
-	enable = {		
-		OR = {
+	enable = {
+	
+		NOT = { tag = USA }
+		USA = { is_in_faction = yes }
+		
+		OR = {		#These countries should always desire membership
 			tag = BEL
-			tag = FRA
-			tag = ENG
 			tag = CAN
-			tag = WGR
-			tag = ITA
-			tag = POR
-			tag = NOR
 			tag = DEN
+			tag = FRA
 			tag = ICE
+			tag = ITA
 			tag = LUX
-			tag = SAF
-			tag = AUS
-			tag = SPR
 			tag = HOL
-			tag = AST
-			tag = NZL
+			tag = NOR
+			tag = ENG
+			tag = GRE
+			tag = TUR
 			tag = WGR
-			ROOT = { is_in_faction_with = USA }
+			tag = AUS
+			tag = NZL
+			tag = POR
 		}
+		
+		
+		is_a_democracy = yes
+		USA = { is_a_democracy = yes }
+		
 	}
 	
 	abort = {
-		has_government = communism
-		has_government = fascism
-		has_government = nationalism
-		has_government = monarchism
-		has_government = maoism
-		has_government = islamism
-		has_government = trotskyism
-		has_government = pan_arabism
-		has_government = neutrality
-		has_government = radical_shiaism
-		
+		OR = {
+			has_war_with = USA
+			USA = { is_in_faction = no }
+			is_a_democracy = no
+			USA = { is_a_democracy = no }
+			USA = { exists = no }
+		}
 	}
 	
 	ai_strategy = {
 		type = befriend
-		id = "USA"			
-		value = 2000
+		id = "USA"
+		value = 100
 	}
 	ai_strategy = {
 		type = alliance
-		id = "USA"			
-		value = 4000
+		id = "USA"
+		value = 200
 	}
 }
 western_europe_fp = {
@@ -72,20 +74,37 @@ western_europe_fp = {
 			tag = NZL
 			tag = WGR
 		}
+		OR = {
+			AND = {
+				is_a_democracy = yes
+				USA = { is_a_democracy = yes }
+			}
+			AND = {
+				tag = POR
+				USA = { is_a_democracy = yes }			
+			}
+		}
 	}
 	
 	abort = {
+		OR = {
+			has_war_with = USA
+			USA = { is_in_faction = no }
+			is_a_democracy = no
+			USA = { is_a_democracy = no }
+			USA = { exists = no }
+		}
 	}
 	
 	ai_strategy = {
 		type = befriend
 		id = "USA"			
-		value = 2000
+		value = 150
 	}
 	ai_strategy = {
 		type = alliance
 		id = "USA"			
-		value = 4000
+		value = 200
 	}
 }
 USA_foriegn_policy = {

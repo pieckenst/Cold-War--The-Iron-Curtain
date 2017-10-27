@@ -198,7 +198,9 @@ focus_tree = {
 		cost = 10.00
 		x = 34
 		y = 0
-		
+		ai_will_do = {
+			factor = 100
+		}		
 		completion_reward = {
 			add_political_power = 200
 		}
@@ -1589,6 +1591,13 @@ focus_tree = {
 		}
 		x = 25
 		y = 1
+		ai_will_do = {
+			factor = 25
+			modifier = {
+                factor = 100
+                is_historical_focus_on = yes
+            }
+		}
 		completion_reward = {
 			add_ideas = liberty_ethos_focus
 		}
@@ -1605,6 +1614,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 2
+		ai_will_do = {
+			factor = 50
+		}
 		completion_reward = {
 			add_ideas = traditionalist_drift
 			remove_ideas = liberty_ethos_focus
@@ -1622,6 +1634,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 2
+		ai_will_do = {
+			factor = 50
+		}
 		completion_reward = {
 			add_ideas = social_democracy_drift
 			remove_ideas = liberty_ethos_focus
@@ -1674,6 +1689,13 @@ focus_tree = {
 		}
 		x = 34
 		y = 1
+		ai_will_do = {
+			factor = 25
+			modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+		}
 		completion_reward = {
 			add_ideas = militarism_focus
 		}
@@ -1791,13 +1813,13 @@ focus_tree = {
 							type = annex_everything
 							target = SOV
 						}
-					UKR = { any_owned_state = { add_core_of = TUR }	}
-					BUL = { any_owned_state = { add_core_of = TUR }	}
-					ARM = { any_owned_state = { add_core_of = TUR }	}
-					GEO = { any_owned_state = { add_core_of = TUR }	}
-					AZR = { any_owned_state = { add_core_of = TUR }	}
-					ROM = { any_owned_state = { add_core_of = TUR }	}
-					HUN = { any_owned_state = { add_core_of = TUR }	}
+					UKR = { every_owned_state = { add_core_of = TUR }	}
+					BUL = { every_owned_state = { add_core_of = TUR }	}
+					ARM = { every_owned_state = { add_core_of = TUR }	}
+					GEO = { every_owned_state = { add_core_of = TUR }	}
+					AZR = { every_owned_state = { add_core_of = TUR }	}
+					ROM = { every_owned_state = { add_core_of = TUR }	}
+					HUN = { every_owned_state = { add_core_of = TUR }	}
 			}		
 		}
 	}
@@ -1840,7 +1862,7 @@ focus_tree = {
 							type = annex_everything
 							target = SYR
 						}
-						SYR = { any_owned_state = { add_core_of = TUR }	}
+						SYR = { every_owned_state = { add_core_of = TUR }	}
 				}
 	}
 	focus = {
@@ -1919,12 +1941,14 @@ focus_tree = {
 		x = 34
 		y = 10
 		completion_reward = {
-			every_owned_state = {
-				add_building_construction = {
-					type = infrastructure
-					level = 3
-					instant_build = yes
-				}		
+			TUR = {
+				every_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}		
+				}
 			}
 		}
 	}
@@ -2046,7 +2070,7 @@ focus_tree = {
 		x = 37
 		y = 2
 		completion_reward = {
-			set_politics = { ruling_party = monarchism elections_allowed = yes }
+			set_politics = { ruling_party = monarchism elections_allowed = no }
 			add_ideas = monarchism_influence
 		}
 	}
@@ -2080,7 +2104,7 @@ focus_tree = {
 							type = annex_everything
 							target = IRQ
 						}
-						IRQ = { any_owned_state = { add_core_of = TUR }	}
+						IRQ = { every_owned_state = { add_core_of = TUR }	}
 				}
 	}
 	focus = {
@@ -2097,7 +2121,7 @@ focus_tree = {
 							type = annex_everything
 							target = SYR
 						}
-						SYR = { any_owned_state = { add_core_of = TUR }	}
+						SYR = { every_owned_state = { add_core_of = TUR }	}
 				}
 	}
 	focus = {
@@ -2117,17 +2141,17 @@ focus_tree = {
 							type = annex_everything
 							target = ISR
 						}
-						ISR = { any_owned_state = { add_core_of = TUR }	}
+						ISR = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = LEB
 						}
-						LEB = { any_owned_state = { add_core_of = TUR }	}
+						LEB = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = JOR
 						}
-						JOR = { any_owned_state = { add_core_of = TUR }	}
+						JOR = { every_owned_state = { add_core_of = TUR }	}
 				}
 	}
 	focus = {
@@ -2144,17 +2168,17 @@ focus_tree = {
 							type = annex_everything
 							target = SAU
 						}
-						SAU = { any_owned_state = { add_core_of = TUR }	}
+						SAU = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = OMA
 						}
-						OMA = { any_owned_state = { add_core_of = TUR }	}
+						OMA = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = YEM
 						}
-						YEM = { any_owned_state = { add_core_of = TUR }	}
+						YEM = { every_owned_state = { add_core_of = TUR }	}
 				}
 	}
 	focus = {
@@ -2171,7 +2195,7 @@ focus_tree = {
 							type = annex_everything
 							target = EGY
 						}
-					EGY = { any_owned_state = { add_core_of = TUR }	}
+					EGY = { every_owned_state = { add_core_of = TUR }	}
 			}
 	}
 	focus = {
@@ -2188,22 +2212,22 @@ focus_tree = {
 							type = annex_everything
 							target = LBA
 						}
-						LBA = { any_owned_state = { add_core_of = TUR }	}
+						LBA = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = ALG
 						}
-						ALG = { any_owned_state = { add_core_of = TUR }	}
+						ALG = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = MOR
 						}
-						MOR = { any_owned_state = { add_core_of = TUR }	}
+						MOR = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = TUN
 						}
-						TUN = { any_owned_state = { add_core_of = TUR }	}
+						TUN = { every_owned_state = { add_core_of = TUR }	}
 				}
 	}
 	focus = {
@@ -2220,7 +2244,7 @@ focus_tree = {
 							type = annex_everything
 							target = GRE
 						}
-					GRE = { any_owned_state = { add_core_of = TUR }	}
+					GRE = { every_owned_state = { add_core_of = TUR }	}
 			}
 	}
 	focus = {
@@ -2237,7 +2261,7 @@ focus_tree = {
 							type = annex_everything
 							target = YUG
 						}
-					YUG = { any_owned_state = { add_core_of = TUR }	}
+					YUG = { every_owned_state = { add_core_of = TUR }	}
 			}
 	}
 	focus = {
@@ -2258,13 +2282,13 @@ focus_tree = {
 							type = annex_everything
 							target = SOV
 						}
-					UKR = { any_owned_state = { add_core_of = TUR }	}
-					BUL = { any_owned_state = { add_core_of = TUR }	}
-					ARM = { any_owned_state = { add_core_of = TUR }	}
-					GEO = { any_owned_state = { add_core_of = TUR }	}
-					AZR = { any_owned_state = { add_core_of = TUR }	}
-					ROM = { any_owned_state = { add_core_of = TUR }	}
-					HUN = { any_owned_state = { add_core_of = TUR }	}
+					UKR = { every_owned_state = { add_core_of = TUR }	}
+					BUL = { every_owned_state = { add_core_of = TUR }	}
+					ARM = { every_owned_state = { add_core_of = TUR }	}
+					GEO = { every_owned_state = { add_core_of = TUR }	}
+					AZR = { every_owned_state = { add_core_of = TUR }	}
+					ROM = { every_owned_state = { add_core_of = TUR }	}
+					HUN = { every_owned_state = { add_core_of = TUR }	}
 			}		
 		}
 	}
@@ -2277,6 +2301,13 @@ focus_tree = {
 		}
 		x = 43
 		y = 1
+		ai_will_do = {
+			factor = 25
+			modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+		}
 		completion_reward = {
 			add_political_power = 200
 		}
@@ -3237,6 +3268,13 @@ focus_tree = {
 		}
 		x = 26
 		y = 8
+		ai_will_do = {
+			factor = 50
+			modifier = {
+                factor = 100
+                is_historical_focus_on = yes
+            }
+		}
 		completion_reward = {
 				create_country_leader = {
 					name = "Cemal Gürsel"
@@ -3516,17 +3554,17 @@ focus_tree = {
 							type = annex_everything
 							target = ISR
 						}
-						ISR = { any_owned_state = { add_core_of = TUR }	}
+						ISR = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = LEB
 						}
-						LEB = { any_owned_state = { add_core_of = TUR }	}
+						LEB = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = JOR
 						}
-						JOR = { any_owned_state = { add_core_of = TUR }	}
+						JOR = { every_owned_state = { add_core_of = TUR }	}
 				}
 	}
 	focus = {
@@ -3623,17 +3661,17 @@ focus_tree = {
 							type = annex_everything
 							target = SAU
 						}
-						SAU = { any_owned_state = { add_core_of = TUR }	}
+						SAU = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = OMA
 						}
-						OMA = { any_owned_state = { add_core_of = TUR }	}
+						OMA = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = YEM
 						}
-						YEM = { any_owned_state = { add_core_of = TUR }	}
+						YEM = { every_owned_state = { add_core_of = TUR }	}
 				}
 	}
 	focus = {
@@ -3650,7 +3688,7 @@ focus_tree = {
 							type = annex_everything
 							target = EGY
 						}
-					EGY = { any_owned_state = { add_core_of = TUR }	}
+					EGY = { every_owned_state = { add_core_of = TUR }	}
 			}
 	}
 	focus = {
@@ -3667,22 +3705,22 @@ focus_tree = {
 							type = annex_everything
 							target = LBA
 						}
-						LBA = { any_owned_state = { add_core_of = TUR }	}
+						LBA = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = ALG
 						}
-						ALG = { any_owned_state = { add_core_of = TUR }	}
+						ALG = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = MOR
 						}
-						MOR = { any_owned_state = { add_core_of = TUR }	}
+						MOR = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = TUN
 						}
-						TUN = { any_owned_state = { add_core_of = TUR }	}
+						TUN = { every_owned_state = { add_core_of = TUR }	}
 				}
 	}
 	focus = {
@@ -3699,17 +3737,17 @@ focus_tree = {
 							type = annex_everything
 							target = MAU
 						}
-						MAU = { any_owned_state = { add_core_of = TUR }	}
+						MAU = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = CHA
 						}
-						CHA = { any_owned_state = { add_core_of = TUR }	}
+						CHA = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = MLI
 						}
-						MLI = { any_owned_state = { add_core_of = TUR }	}
+						MLI = { every_owned_state = { add_core_of = TUR }	}
 				}
 	}
 	focus = {
@@ -3726,7 +3764,7 @@ focus_tree = {
 							type = annex_everything
 							target = PER
 						}
-						PER = { any_owned_state = { add_core_of = TUR }	}
+						PER = { every_owned_state = { add_core_of = TUR }	}
 				}
 	}
 	focus = {
@@ -3743,29 +3781,29 @@ focus_tree = {
 							type = annex_everything
 							target = AZR
 						}
-						AZR = { any_owned_state = { add_core_of = TUR }	}
+						AZR = { every_owned_state = { add_core_of = TUR }	}
 						
 					create_wargoal = {
 							type = annex_everything
 							target = KAZ
 						}
-						KAZ = { any_owned_state = { add_core_of = TUR }	}
+						KAZ = { every_owned_state = { add_core_of = TUR }	}
 						
 					create_wargoal = {
 							type = annex_everything
 							target = KYR
 						}
-						KYR = { any_owned_state = { add_core_of = TUR }	}
+						KYR = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = TJK
 						}
-						TJK = { any_owned_state = { add_core_of = TUR }	}
+						TJK = { every_owned_state = { add_core_of = TUR }	}
 					create_wargoal = {
 							type = annex_everything
 							target = TRK
 						}
-						TRK = { any_owned_state = { add_core_of = TUR }	}
+						TRK = { every_owned_state = { add_core_of = TUR }	}
 		}
 	}
 	focus = {
@@ -3786,7 +3824,7 @@ focus_tree = {
 							type = annex_everything
 							target = PAK
 						}
-						TUR = { any_owned_state = { add_core_of = PAK }	}
+						TUR = { every_owned_state = { add_core_of = PAK }	}
 				}
 	}
 	focus = {
@@ -3806,7 +3844,7 @@ focus_tree = {
 							type = annex_everything
 							target = INO
 						}
-						INO = { any_owned_state = { add_core_of = TUR }	}
+						INO = { every_owned_state = { add_core_of = TUR }	}
 				}
 	}
 	focus = {
@@ -3845,7 +3883,7 @@ focus_tree = {
 							type = annex_everything
 							target = YUG
 						}
-						TUR = { any_owned_state = { add_core_of = YUG }	}
+						TUR = { every_owned_state = { add_core_of = YUG }	}
 				}
 	}
 	focus = {
@@ -3869,7 +3907,7 @@ focus_tree = {
 											is_in_home_area = yes
 											NOT = {
 													owner = {
-															any_owned_state = {
+															every_owned_state = {
 																	free_building_slots = {
 																			building = industrial_complex
 																			size > 0
@@ -3976,6 +4014,13 @@ focus_tree = {
 		}
 		x = 22
 		y = 7
+		ai_will_do = {
+			factor = 50
+			modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+		}
 		completion_reward = {
 			remove_ideas = TUR_economic_crisis
 		}
@@ -4019,6 +4064,13 @@ focus_tree = {
 		}
 		x = 25
 		y = 7
+		ai_will_do = {
+			factor = 50
+			modifier = {
+                factor = 100
+                is_historical_focus_on = yes
+            }
+		}
 		completion_reward = {
 			remove_ideas = TUR_economic_crisis
 		}
@@ -4038,6 +4090,13 @@ focus_tree = {
 		}
 		x = 24
 		y = 8
+		ai_will_do = {
+			factor = 50
+			modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+		}
 			completion_reward = {
 					random_owned_controlled_state = {
 							limit = {
