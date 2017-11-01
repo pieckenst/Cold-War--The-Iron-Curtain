@@ -266,19 +266,30 @@ country_event = {
 			factor = 10
 		}
 		name = egypt.70.a
-		FBU = { annex_country = { target = FRA transfer_troops = yes} }
-		FBU = { annex_country = { target = ENG transfer_troops = yes} }
-		USA = { add_to_faction = FBU }
-		random_other_country = {
-			limit = { tag = FBU has_government = socialist }
-			change_tag_from = ENG
-			change_tag_from = FRA
-		}
+		ENG = { annex_country = { target = FRA transfer_troops = yes} }
+		ENG = { add_cosmetic_tag = ENG_FBU }
 
 		hidden_effect = {
 			FRA = { set_country_flag = become_fbu }
 			ENG = { set_country_flag = become_fbu }
 			news_event = news.1023
+			every_state = {
+				limit = {
+					is_core_of = FRA
+				}
+				ENG = {
+					add_state_core = PREV
+				}
+			}
+			every_country = {
+				limit = {
+					is_puppet_of = FRA
+				}
+				ENG = {
+					puppet = PREV
+				}
+			}
+
 		}
 	}
 
