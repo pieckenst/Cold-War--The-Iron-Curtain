@@ -983,6 +983,8 @@ NAI = {
 	
 	SUPPLY_CRISIS_LIMIT = 0.9,					-- If a unit is standing in an area with 
 
+	MAX_ALLOWED_NAVAL_DANGER = 80,				-- AI will ignore naval paths that has danger value of above this threshold while assigning units
+	TRANSFER_DANGER_HOSTILE_SHIPS = 50, 		-- max danger from complete enemy naval supriority over ai in an area
 	FASCISTS_BEFRIEND_FASCISTS = 10,
 	FASCISTS_BEFRIEND_DEMOCRACIES = -25,
 	FASCISTS_BEFRIEND_COMMUNISTS = -25,
@@ -1019,6 +1021,7 @@ NAI = {
 	DIPLOMACY_FACTION_CIVILWAR_WANTS_HELP = -50,
 	FACTION_UNSTABLE_ACCEPTANCE = -100,
 	DIPLOMACY_AT_WAR_WITH_ALLY_RELUCTANCE = -1000,
+	DIPLOMACY_FACTION_JOIN_COUP_INITIATOR_BONUS = 70,	-- If a country initiated coup on an another country, civil war revolter is more likely to join initiator's faction
 
 	CALL_ALLY_WT_LIMIT = 0.8,                           -- fascists are hesitant to call allies if tension is lower than this
 	CALL_ALLY_FASCIST_DESIRE_WT = -60,                  -- less desire if we are below the tension limit
