@@ -23,11 +23,13 @@ seek_NATO_membership = {
 			tag = NZL
 			tag = POR
 		}
-		
-		
 		is_a_democracy = yes
 		USA = { is_a_democracy = yes }
-		
+
+		AND = {
+			tag = WGR
+			date > 1955.5.6
+		}
 	}
 	
 	abort = {
@@ -53,13 +55,12 @@ seek_NATO_membership = {
 }
 western_europe_fp = {
 	
-	enable = {		
+	enable = {	
 		OR = {
 			tag = BEL
 			tag = FRA
 			tag = ENG
 			tag = CAN
-			tag = WGR
 			tag = ITA
 			tag = POR
 			tag = NOR
@@ -68,11 +69,9 @@ western_europe_fp = {
 			tag = LUX
 			tag = SAF
 			tag = AUS
-			tag = SPR
 			tag = HOL
 			tag = AST
 			tag = NZL
-			tag = WGR
 		}
 		OR = {
 			AND = {
@@ -82,6 +81,14 @@ western_europe_fp = {
 			AND = {
 				tag = POR
 				USA = { is_a_democracy = yes }			
+			}
+			AND = {
+				tag = SPR
+				date > 1982.5.30
+			}
+			AND = {
+				tag = WGR
+				date > 1955.5.6
 			}
 		}
 	}
@@ -126,11 +133,6 @@ USA_foriegn_policy = {
 		id = "WGR"			
 		value = 400
 	}
-	ai_strategy = {
-		type = alliance
-		id = "WGR"			
-		value = 400
-	}	
 	ai_strategy = {
 		type = contain
 		id = "KPA"			
