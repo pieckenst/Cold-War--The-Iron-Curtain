@@ -13,7 +13,7 @@ set /p originalflag=Which flag name would you like to rename and copy? (ex.: USA
 echo.
 set /p newflag=What should the new name be? (ex.: USA_socialist.tga) 
 echo.
-set /p another=Another new name? ("yes" or "no")
+set /p another=Another new name? ("yes" or "no") 
 echo.
 if %another% == yes goto another1
 echo --------------------------------
