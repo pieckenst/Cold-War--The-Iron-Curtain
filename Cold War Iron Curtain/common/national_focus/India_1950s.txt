@@ -929,7 +929,20 @@ focus_tree = {
 		}
 		x = 6
 		y = 1
-
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = chromium
+									amount = 25
+								}
+						}
+					random_owned_state = {
+							add_resource = {
+									type = steel
+									amount = 25
+								}
+						}
+				}
 	}
 	focus = {
 		id = RAJ_steel_industry
@@ -940,7 +953,16 @@ focus_tree = {
 		}
 		x = 6
 		y = 2
-
+		completion_reward = {
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = steel
+									amount = 50
+								}
+						}
+				}		
+		}
 	}
 	focus = {
 		id = RAJ_oil_development
@@ -970,7 +992,14 @@ focus_tree = {
 		}
 		x = 6
 		y = 4
-
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = chromium
+									amount = 50
+								}
+						}
+					}
 	}
 	focus = {
 		id = RAJ_equipment_effort_2
@@ -2337,7 +2366,7 @@ focus_tree = {
 		x = 28
 		y = 7
 			completion_reward = {
-					remove_ideas = incompetent_officer_corps
+					army_experience = 50
 				}
 
 	}
@@ -2519,7 +2548,8 @@ focus_tree = {
 		x = 12
 		y = 8
 			completion_reward = {
-					remove_ideas = incompetent_officer_corps
+				army_experience = 50
+					
 				}
 
 	}
@@ -2728,7 +2758,7 @@ focus_tree = {
 		x = 20
 		y = 7
 			completion_reward = {
-					remove_ideas = incompetent_officer_corps
+					army_experience = 50
 				}
 
 	}
@@ -2857,7 +2887,9 @@ focus_tree = {
 		cost = 10.00
 		x = 39
 		y = -1
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = RAJ_declare_the_republic_of_india
@@ -2868,7 +2900,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 1
-
+		completion_reward = {
+			set_autonomy = { target = RAJ autonomy_state = autonomy_free }
+		}
 	}
 	focus = {
 		id = RAJ_education_reform
@@ -2879,7 +2913,10 @@ focus_tree = {
 		}
 		x = 39
 		y = 2
-
+			completion_reward = {
+					add_ideas = KOR_education_reform
+					add_research_slot = 1
+				}
 	}
 	focus = {
 		id = RAJ_lift_the_ban_on_rss
@@ -2893,7 +2930,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 3
-
+		completion_reward = {
+			remove_ideas = ban_on_rss
+		}
 	}
 	focus = {
 		id = RAJ_promote_hindutva
@@ -2907,7 +2946,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 4
-
+		completion_reward = {
+			add_timed_idea = { idea = promote_hindutva days = 300 }	
+		}
 	}
 	focus = {
 		id = RAJ_continue_the_ban_on_the_rss
@@ -2921,7 +2962,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 3
-
+		completion_reward = {
+			swap_ideas = { remove_idea = ban_on_rss add_idea = ban_on_rss_perm }	
+		}
 	}
 	focus = {
 		id = RAJ_embrace_social_democracy
@@ -2938,7 +2981,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 4
-
+		completion_reward = {
+			add_timed_idea = { idea = social_democracy_drift days = 300 }	
+		}
 	}
 	focus = {
 		id = RAJ_embrace_the_non_aligned_movement
@@ -2956,7 +3001,20 @@ focus_tree = {
 		}
 		x = 39
 		y = 5
-
+		completion_reward = {
+					YUG = {
+							add_opinion_modifier = {
+									target = RAJ
+									modifier = large_increase
+								}
+						}
+					RAJ = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = large_increase
+								}
+						}		
+		}
 	}
 	focus = {
 		id = RAJ_legislate_against_caste_discrimination
@@ -2967,7 +3025,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 6
-
+		completion_reward = {
+			remove_ideas = caste_discrimination
+		}
 	}
 	focus = {
 		id = RAJ_state_organization_act
@@ -2978,7 +3038,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 7
-
+		completion_reward = {
+			add_national_unity = 0.15
+		}
 	}
 	focus = {
 		id = RAJ_lift_ban_on_communist_party_of_india
@@ -2992,7 +3054,9 @@ focus_tree = {
 		}
 		x = 43
 		y = 4
-
+		completion_reward = {
+			add_timed_idea = { idea = communist_pressure days = 300 }	
+		}
 	}
 	focus = {
 		id = RAJ_collectivization_of_the_peasents
@@ -3006,7 +3070,9 @@ focus_tree = {
 		}
 		x = 43
 		y = 5
-
+		completion_reward = {
+			add_ideas = KOR_revolution_in_the_rice_paddies_focus
+		}
 	}
 	focus = {
 		id = RAJ_first_five_year_plan
@@ -3017,7 +3083,190 @@ focus_tree = {
 		}
 		x = 43
 		y = 6
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = RAJ_stick_with_the_communist_party_of_india
@@ -3031,7 +3280,20 @@ focus_tree = {
 		}
 		x = 41
 		y = 7
-
+		completion_reward = {
+					RAJ = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = RAJ
+									modifier = large_increase
+								}
+						}		
+		}
 	}
 	focus = {
 		id = RAJ_finish_unification
@@ -3042,7 +3304,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 1
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = RAJ_accension_of_manipur
@@ -3053,10 +3317,12 @@ focus_tree = {
 		}
 		x = 45
 		y = 2
-
+		completion_reward = {
+			annex_country = { target = MNI }	
+		}
 	}
 	focus = {
-		id = RAJ_accension_of_manipur_Copy
+		id = RAJ_accension_of_tripura
 		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
@@ -3064,10 +3330,12 @@ focus_tree = {
 		}
 		x = 48
 		y = 2
-
+		completion_reward = {
+			annex_country = { target = BHU }	
+		}
 	}
 	focus = {
-		id = RAJ_accension_of_manipur_Copy_Copy
+		id = RAJ_accension_of_sikkim
 		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
@@ -3075,24 +3343,39 @@ focus_tree = {
 		}
 		x = 51
 		y = 2
-
+		completion_reward = {
+			annex_country = { target = SKK }	
+		}
 	}
 	focus = {
 		id = RAJ_relations_with_nepal
 		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
-			focus = RAJ_accension_of_manipur_Copy
+			focus = RAJ_accension_of_tripura
 		}
 		prerequisite = {
 			focus = RAJ_accension_of_manipur
 		}
 		prerequisite = {
-			focus = RAJ_accension_of_manipur_Copy_Copy
+			focus = RAJ_accension_of_sikkim
 		}
 		x = 46
 		y = 3
-
+		completion_reward = {
+					RAJ = {
+							add_opinion_modifier = {
+									target = NEP
+									modifier = large_increase
+								}
+						}
+					NEP = {
+							add_opinion_modifier = {
+									target = RAJ
+									modifier = large_increase
+								}
+						}
+					}
 	}
 	focus = {
 		id = RAJ_influence_nepal
@@ -3106,7 +3389,9 @@ focus_tree = {
 		}
 		x = 45
 		y = 4
-
+		completion_reward = { 
+			puppet = NEP 
+		}
 	}
 	focus = {
 		id = RAJ_Accension_of_nepal
@@ -3120,24 +3405,39 @@ focus_tree = {
 		}
 		x = 47
 		y = 4
-
+		completion_reward = {
+			annex_country = { target = NEP }	
+		}
 	}
 	focus = {
 		id = RAJ_relations_with_bhutan
 		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
-			focus = RAJ_accension_of_manipur_Copy_Copy
+			focus = RAJ_accension_of_sikkim
 		}
 		prerequisite = {
-			focus = RAJ_accension_of_manipur_Copy
+			focus = RAJ_accension_of_tripura
 		}
 		prerequisite = {
 			focus = RAJ_accension_of_manipur
 		}
 		x = 50
 		y = 3
-
+		completion_reward = {
+					RAJ = {
+							add_opinion_modifier = {
+									target = BHU
+									modifier = large_increase
+								}
+						}
+					BHU = {
+							add_opinion_modifier = {
+									target = RAJ
+									modifier = large_increase
+								}
+						}
+					}
 	}
 	focus = {
 		id = RAJ_demand_ceylon
@@ -3151,7 +3451,9 @@ focus_tree = {
 		}
 		x = 47
 		y = 5
-
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = CEY }
+		}
 	}
 	focus = {
 		id = RAJ_the_tibet_situation
@@ -3165,7 +3467,20 @@ focus_tree = {
 		}
 		x = 49
 		y = 5
-
+		completion_reward = {
+					RAJ = {
+							add_opinion_modifier = {
+									target = TIB
+									modifier = large_increase
+								}
+						}
+					TIB = {
+							add_opinion_modifier = {
+									target = RAJ
+									modifier = large_increase
+								}
+						}
+					}
 	}
 	focus = {
 		id = RAJ_safeguard_tibet
@@ -3180,7 +3495,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 6
-
+		completion_reward = {
+			puppet = TIB
+		}
 	}
 	focus = {
 		id = RAJ_protect_bhutan
@@ -3194,7 +3511,9 @@ focus_tree = {
 		}
 		x = 49
 		y = 4
-
+		completion_reward = {
+			puppet = BHU
+		}
 	}
 	focus = {
 		id = RAJ_Accension_of_tibet
@@ -3209,7 +3528,9 @@ focus_tree = {
 		}
 		x = 50
 		y = 6
-
+		completion_reward = {
+			annex_country = { target = TIB }	
+		}
 	}
 	focus = {
 		id = RAJ_hinduism_not_socialism
@@ -3223,7 +3544,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 6
-
+		completion_reward = {
+			add_ideas = anti_democracy_drift
+		}
 	}
 	focus = {
 		id = RAJ_religous_fanaticism
@@ -3234,7 +3557,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 7
-
+		completion_reward = {
+			add_ideas = militarism_focus
+		}
 	}
 	focus = {
 		id = RAJ_embrace_capitalism
@@ -3245,7 +3570,190 @@ focus_tree = {
 		}
 		x = 35
 		y = 8
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = RAJ_naxalite_revolution
@@ -3259,7 +3767,10 @@ focus_tree = {
 		}
 		x = 45
 		y = 7
-
+		completion_reward = {
+			add_ideas = maoist_drift
+			set_politics = { ruling_party = maoism elections_allowed = no }	
+		}
 	}
 	focus = {
 		id = RAJ_join_the_warsaw_pact
@@ -3273,7 +3784,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 8
-
+		completion_reward = {
+			SOV = { add_to_faction = RAJ }
+		}
 	}
 	focus = {
 		id = RAJ_Accension_of_bhutan
@@ -3287,7 +3800,9 @@ focus_tree = {
 		}
 		x = 51
 		y = 4
-
+		completion_reward = {
+			annex_country = { target = BHU }	
+		}
 	}
 	focus = {
 		id = RAJ_join_NATO
@@ -3301,7 +3816,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 10
-
+		completion_reward = {
+			USA = { add_to_faction = RAJ }
+		}
 	}
 	focus = {
 		id = RAJ_nationalize_heavy_industry
@@ -3316,7 +3833,190 @@ focus_tree = {
 		}
 		x = 39
 		y = 8
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = RAJ_land_reform
@@ -3327,7 +4027,10 @@ focus_tree = {
 		}
 		x = 39
 		y = 9
-
+		completion_reward = {
+			add_national_unity = 0.05
+			add_ideas = land_reform
+		}
 	}
 	focus = {
 		id = RAJ_rights_for_females
@@ -3338,7 +4041,10 @@ focus_tree = {
 		}
 		x = 39
 		y = 10
-
+		completion_reward = {
+			add_national_unity = 0.10
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = RAJ_industrialization_and_infrastructure_effort
@@ -3349,7 +4055,190 @@ focus_tree = {
 		}
 		x = 39
 		y = 11
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = RAJ_indian_institutes_of_technology
@@ -3360,7 +4249,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 12
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = RAJ_western_education
@@ -3371,7 +4262,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 9
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = RAJ_american_development_aid
@@ -3382,7 +4275,190 @@ focus_tree = {
 		}
 		x = 35
 		y = 11
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = RAJ_restore_old_borders
@@ -3396,7 +4472,11 @@ focus_tree = {
 		}
 		x = 35
 		y = 13
-
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = PAK }
+			create_wargoal = { type = annex_everything target = BAN }
+			create_wargoal = { type = annex_everything target = CEY }
+		}
 	}
 	focus = {
 		id = RAJ_soviet_advisors
@@ -3407,7 +4487,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 9
-
+		completion_reward = {
+			add_ideas = militarized_schools
+		}
 	}
 	focus = {
 		id = RAJ_crush_the_reactionaries
@@ -3419,7 +4501,12 @@ focus_tree = {
 		}
 		x = 43
 		y = 11
-
+		completion_reward = {
+							start_civil_war = {
+									ideology = fascism
+									size = 0.30
+								}
+							}
 	}
 	focus = {
 		id = RAJ_subvert_religion
@@ -3430,7 +4517,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 10
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = RAJ_cultural_revolution
@@ -3441,7 +4530,9 @@ focus_tree = {
 		}
 		x = 45
 		y = 10
-
+		completion_reward = {
+			add_ideas = PRC_cultural_revolution
+		}
 	}
 	focus = {
 		id = RAJ_peoples_liberation_army
@@ -3452,7 +4543,9 @@ focus_tree = {
 		}
 		x = 45
 		y = 8
-
+		completion_reward = {
+			add_ideas = PRC_peoples_army
+		}
 	}
 	focus = {
 		id = RAJ_chinese_advisors
@@ -3463,7 +4556,9 @@ focus_tree = {
 		}
 		x = 45
 		y = 9
-
+		completion_reward = {
+			add_ideas = chinese_advisors
+		}
 	}
 	focus = {
 		id = RAJ_crush_islamist_insurgents
@@ -3474,7 +4569,14 @@ focus_tree = {
 		}
 		x = 34
 		y = 12
-
+		completion_reward = {
+			start_civil_war = {
+				ruling_party = fascism
+				ideology = islamism
+				size = 0.3
+				states = { 441 }
+			}
+		}
 	}
 	focus = {
 		id = RAJ_crush_naxalite_insurgents
@@ -3485,7 +4587,12 @@ focus_tree = {
 		}
 		x = 36
 		y = 12
-
+		completion_reward = {
+							start_civil_war = {
+									ideology = maoism
+									size = 0.5
+								}
+							}
 	}
 	focus = {
 		id = RAJ_embrace_the_RSS_paramilitary
@@ -3496,6 +4603,8 @@ focus_tree = {
 		}
 		x = 35
 		y = 5
-
+		completion_reward = {
+			add_ideas = military_youth_focus
+		}
 	}
 }
