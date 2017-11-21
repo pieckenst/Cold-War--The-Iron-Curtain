@@ -1,0 +1,58 @@
+﻿###########################
+# Greece Events
+###########################
+
+add_namespace = RAJ
+
+# Hidden Trigger, end of civil war
+country_event = {
+	id = RAJ.1
+	hidden = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			RAJ = {
+				owns_state = 427
+				controls_state = 427
+			}
+			RAJ = { NOT = { has_war_with = CPI } }
+		}
+	}
+
+	#immediate = {
+	#	news_event = news.1025
+	#}
+
+	mean_time_to_happen = { days = 7 }
+
+	option = {}
+}
+
+# Hidden Trigger, end of civil war
+country_event = {
+	id = RAJ.2
+	hidden = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		CPI = {
+			exists = yes
+			has_war_with = RAJ
+			surrender_progress > 0.75
+		}
+	}
+
+	fire_only_once = yes
+
+	immediate = {
+		CPI = { white_peace = RAJ }
+		RAJ = { annex_country = { target = CPI } }
+	}
+
+	mean_time_to_happen = { days = 7 }
+
+	option = {}
+}
