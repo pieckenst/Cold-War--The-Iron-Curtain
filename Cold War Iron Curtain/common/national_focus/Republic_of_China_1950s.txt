@@ -3170,8 +3170,54 @@ focus_tree = {
 		x = 41
 		y = 6
 		completion_reward = {
+			political_power = 120
+		}
+	}
+	focus = {
+		id = CHI_democratic_coup
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+
+		prerequisite = {
+			focus = CHI_CIA_coup
+		}
+		mutually_exclusive = {
+			focus = CHI_Zhang_Xueliang_coup
+		}
+		x = 40
+		y = 7
+		completion_reward = {
 			set_politics = { ruling_party = socialist elections_allowed = yes }
 			add_ideas = social_democracy_drift
+			add_national_unity = 0.15
+		}
+	}
+	focus = {
+		id = CHI_Zhang_Xueliang_coup
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = CHI_CIA_coup
+		}
+		mutually_exclusive = {
+			focus = CHI_democratic_coup
+		}
+		x = 41
+		y = 7
+		completion_reward = {
+			add_national_unity = 0.15
+			set_politics = { ruling_party = nationalism elections_allowed = yes }
+			add_ideas = nationalist_drift
+					create_country_leader = {
+							name = "Zhang Xueliang"
+							desc = "POLITICS_Xueliang_DESC"
+							picture = "Xueliang.dds"
+							expire = "2001.1.1"
+							ideology = nationalist_ideology
+							traits = {
+
+							}
+						}
 		}
 	}
 	focus = {
