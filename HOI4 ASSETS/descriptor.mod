@@ -1,9 +1,16 @@
-name="Persia Rising"
-archive="persia_rising.zip"
+name="Cold War: The Iron Curtain"
+archive="coldwar.zip"
 tags={
-	"National Focuses"
-	"Balance"
+	"Gameplay"
+	"Military"
+	"Historical"
+	"Map"
 }
-picture="thumb.jpg"
-remote_file_id="703916652"
+
+replace_path = "events"
+replace_path = "history\\states"
+replace_path = "common\\national_focus"
+
+picture="coldwar.jpg"
+remote_file_id="717620160"
 supported_version="1.4.1"
