@@ -80,7 +80,7 @@ country_event = {
 	}
 }
 news_event = {
-	id = chi.3
+	id = chi.4
 	title = "Execution of Mao"
 	desc = "After the Chinese Civil War concluded, many former PRC Officials were interned by the government and put on trial. Earlier today, Mao Zedong was executed by firing squad"
 	picture = GFX_roc_army
@@ -99,4 +99,32 @@ news_event = {
 		trigger = { NOT = {  TAG = CHI } }
 	}
 	
+}
+country_event = {
+	id = chi.5
+	title = "The Second Taiwanese Straits Crisis"
+	desc = "A artillery skrimish between ourselves and the PRC has occured leaving thousands dead on both sides, what shall we do?"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "De-Esclaate the Situation"
+		puppet = CHI
+		ai_chance = {
+			factor = 75
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 25
+		}
+		name = "Escalate the Situation"
+		CHI = {
+			create_wargoal = {
+				type = annex_everything
+				target = PRC
+			}
+		}
+	}
 }
