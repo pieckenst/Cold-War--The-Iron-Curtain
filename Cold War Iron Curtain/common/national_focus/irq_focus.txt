@@ -2942,7 +2942,9 @@ focus_tree = {
 		}
 		x = 46
 		y = 4
-		#NEEDS EVENTS
+		completion_reward = {
+			UAR = { annex_country = { target = IRQ } }
+		}
 	}
 	focus = {
 		id = IRQ_traditionalist_values
@@ -2988,7 +2990,10 @@ focus_tree = {
 		}
 		x = 48
 		y = 3
-		#NEEDS EVENTS
+		completion_reward = {
+			set_cosmetic_tag = ARF_IRQ
+			annex_country = { target = JOR }
+		}
 	}
 	focus = {
 		id = IRQ_14th_of_july_revolution
@@ -3000,13 +3005,16 @@ focus_tree = {
 		x = 48
 		y = 4
 		completion_reward = {
-			#NEEDS EVENT
+			country_event = swfs.2
 		}
 	}
 	focus = {
 		id = IRQ_free_officer_victory
 		icon = GFX_focus_generic_support_the_left_right
-		cost = 10.00
+		cost = 1.0
+		bypass = {
+			has_country_flag = fall_of_the_monarchy
+		}
 		prerequisite = {
 			focus = IRQ_14th_of_july_revolution
 		}
@@ -3069,12 +3077,15 @@ focus_tree = {
 		}
 		x = 48
 		y = 7
-		#EVENT
+		completion_reward = {
+			ENG = { country_event = swfs.5 }
+		}
 	}
 	focus = {
 		id = IRQ_preserve_the_federation
 		icon = GFX_focus_rom_royal_dictatorship
 		cost = 10.00
+		bypass = { has_country_flag = stand_with_the_monarchy }
 		prerequisite = {
 			focus = IRQ_14th_of_july_revolution
 		}
@@ -3120,7 +3131,9 @@ focus_tree = {
 		}
 		x = 50
 		y = 7
-		#EVENT
+		completion_reward = {
+			ENG = { country_event = swfs.5 }
+		}
 	}
 	focus = {
 		id = IRQ_begin_economic_liberalization
@@ -3798,7 +3811,11 @@ focus_tree = {
 		x = 46
 		y = 11
 		completion_reward = {
-			#Event
+			start_civil_war = {
+				ideology = pan_arabism
+				size = 0.35
+				states = { 676 }
+			}
 		}
 	}
 	focus = {
