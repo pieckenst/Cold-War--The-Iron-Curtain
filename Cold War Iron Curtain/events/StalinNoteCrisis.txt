@@ -1,0 +1,47 @@
+﻿###########################
+# Stalin Note Crisis Events
+###########################
+
+add_namespace = notecrisis
+
+# Stalin Note from USSR
+country_event = {
+	id = notecrisis.1
+	title = notecrisis.1.t
+	desc = notecrisis.1.d
+	picture = GFX_report_SNC_Note_From_USSR
+
+	is_triggered_only = yes
+
+	option = {
+		name = notecrisis.1.a
+		USA = { 
+			add_opinion_modifier = { target = SOV modifier = SNC_Stalin_Note_Agreed } 
+		}
+		WGR = { country_event = { id = notecrisis.2 days = 1 } }
+		ai_chance = {
+			factor = 20
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		add_named_threat = { threat = 1 name = "USA agrees to Stalin Notes" }
+	}
+
+	option = {
+		name = notecrisis.1.b
+		USA = {
+			add_opinion_modifier = { target = SOV modifier = SNC_Stalin_Note_Not_Agreed }
+		}
+		SOV = { country_event = { id = notecrisis.3 days = 1 } }
+		ai_chance = {
+			factor = 80
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+		add_named_threat = { threat = 5 name = "USA does not agree to Stalin Notes" }
+	}
+}
