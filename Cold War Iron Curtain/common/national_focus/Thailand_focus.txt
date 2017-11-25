@@ -372,7 +372,10 @@ focus_tree = {
 		cost = 10.00
 		x = 9
 		y = 2
-			available_if_capitulated = yes
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = SIA_army_effort
+		}
 			completion_reward = {
 					add_tech_bonus = {
 							name = infantry_weapons_bonus
@@ -3881,15 +3884,16 @@ focus_tree = {
 		}
 		x = 54
 		y = 7
-			completion_reward = {
-					every_neighbor_country = {
-							create_wargoal = {
-									type = puppet
-									target = THIS
-								}
-						}
+		completion_reward = {
+			every_neighbor_country = {
+            	ROOT = { 
+					create_wargoal = { 
+						type = annex_everything 
+						target = PREV 
+					}
 				}
-
+        	}
+		}
 	}
 	focus = {
 		id = SIA_Weapon_Equipment_1945
