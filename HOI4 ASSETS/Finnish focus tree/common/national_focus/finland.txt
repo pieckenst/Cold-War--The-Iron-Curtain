@@ -1,0 +1,1405 @@
+focus_tree = {
+	id = finland
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FIN
+		}
+	}
+	default = no
+	focus = {
+		id = FIN_political_focus
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		x = 22
+		y = 0
+					completion_reward = {
+					add_political_power = 150
+				}
+
+	}
+	focus = {
+		id = FIN_economy_reform
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		x = 54
+		y = 0
+\\Add 150 PP
+	}
+	focus = {
+		id = FIN_prepare_conscription
+		icon = GFX_goal_generic_axis_build_infantry
+		cost = 10.00
+		x = 67
+		y = 0
+\\Add army 50 experience
+	}
+	focus = {
+		id = FIN_nordic_council
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		x = 74
+		y = 0
+\\Add national spirit Nordic council member
+	}
+	focus = {
+		id = FIN_friendly_soviets
+		icon = GFX_goal_support_communism
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_political_focus
+		}
+		mutually_exclusive = {
+			focus = FIN_friends_in_west
+			focus = FIN_fourth_option
+		}
+		x = 7
+		y = 1
+					completion_reward = {
+					add_political_power = 50
+					add_popularity = {
+							ideology = communism
+							popularity = 0.05
+						}
+				}
+
+	}
+	focus = {
+		id = FIN_neutral_soviet
+		icon = GFX_goal_generic_alliance
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_friendly_soviets
+		}
+		mutually_exclusive = {
+			focus = FIN_legacy_of_1918
+		}
+		x = 4
+		y = 2
+\\???
+	}
+	focus = {
+		id = FIN_soviet_friends
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_neutral_soviet
+		}
+		x = 2
+		y = 3
+\\Improve relations with Soviet union
+	}
+	focus = {
+		id = FIN_welfare_state
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_neutral_soviet
+		}
+		x = 6
+		y = 3
+\\Add 2% national unity, a bit of PP
+	}
+	focus = {
+		id = FIN_censor_anti_soviet_media
+		icon = GFX_focus_renounce_the_treaty_of_triannon
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_welfare_state
+		}
+		x = 6
+		y = 4
+\\Add few percent popularity to communism, reduce national unity/reduce PP
+	}
+	focus = {
+		id = FIN_moskovan_kortti
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_censor_anti_soviet_media
+		}
+		x = 6
+		y = 5
+\\Improve relations with Soviet union
+	}
+	focus = {
+		id = FIN_legacy_of_1918
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_friendly_soviets
+		}
+		mutually_exclusive = {
+			focus = FIN_neutral_soviet
+		}
+		x = 11
+		y = 2
+					completion_reward = {
+					add_popularity = {
+							ideology = communism
+							popularity = 0.2
+						}
+				}
+
+	}
+	focus = {
+		id = FIN_embrace_soviet
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_legacy_of_1918
+		}
+		x = 11
+		y = 3
+\\Add communist popularity, improve relations with soviets
+	}
+	focus = {
+		id = FIN_support_prosoviet
+		icon = GFX_goal_support_communism
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_embrace_soviet
+		}
+		x = 9
+		y = 4
+\\Popularity of communism, reduce PP
+	}
+	focus = {
+		id = FIN_jail_anticommunist
+		icon = GFX_goal_generic_secret_weapon
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_support_prosoviet
+		}
+		x = 9
+		y = 5
+\\Remove popularity for fascism and nationalism, increase support for communism
+
+	focus = {
+		id = FIN_propaganda_com
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_embrace_soviet
+		}
+		x = 13
+		y = 4
+\\Communist popularit, reduce PP
+	}
+	focus = {
+		id = FIN_cencor_anitcommunists
+		icon = GFX_focus_renounce_the_treaty_of_triannon
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_propaganda_com
+		}
+		x = 13
+		y = 5
+\\reduce popularity for every other party exect communism,
+	}
+	focus = {
+		id = FIN_communist_coup
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_cencor_anitcommunists
+		}
+		prerequisite = {
+			focus = FIN_jail_anticommunist
+		}
+		prerequisite = {
+			focus = FIN_cencor_anitcommunists
+		}
+		x = 11
+		y = 6
+\\Change ruling party to communist
+	}
+	focus = {
+		id = FIN_com_sta
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_communist_coup
+		}
+		x = 11
+		y = 7
+\\Add national unity and PP
+	}
+	focus = {
+		id = FIN_ban_parties
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_com_sta
+		}
+		x = 14
+		y = 8
+\\Make communism 100% popular (?)
+	}
+	focus = {
+		id = FIN_join_wp
+		icon = GFX_focus_generic_join_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_com_sta
+		}
+		x = 8
+		y = 8
+\\Event for soviets to join comintern/warsaw pact/whateverthefaction
+	}
+	focus = {
+		id = FIN_soviet_politicans
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_ban_parties
+		}
+		x = 14
+		y = 9
+\\???
+	}
+	focus = {
+		id = FIN_communist_changes
+		icon = GFX_goal_support_communism
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_soviet_politicans
+		}
+		x = 14
+		y = 10
+\\Remove national unity, add PP
+	}
+	focus = {
+		id = FIN_friends_in_west
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_political_focus
+		}
+		mutually_exclusive = {
+			focus = FIN_friendly_soviets
+			focus = FIN_fourth_option
+		}
+		x = 22
+		y = 1
+\\???
+	}
+	focus = {
+		id = FIN_warm_relations
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_friends_in_west
+		}
+		x = 22
+		y = 2
+\\Improve relations to western countries
+	}
+	focus = {
+		id = FIN_cancel_yya
+		icon = GFX_focus_renounce_the_treaty_of_triannon
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_warm_relations
+		}
+		x = 20
+		y = 3
+\\News event for dropping out of YYA agreement, worsen relations to soviet union
+	}
+	focus = {
+		id = FIN_fire_pro_soviets
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_cancel_yya
+		}
+		x = 20
+		y = 4
+\\Reduce communist popularity
+	}
+	focus = {
+		id = FIN_marshall_plan
+		icon = GFX_goal_generic_major_alliance
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_warm_relations
+		}
+		x = 24
+		y = 3
+\\Something about marshall plan, civil factories?
+	}
+	focus = {
+		id = FIN_western_equipment
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_marshall_plan
+		}
+		x = 24
+		y = 4
+\\Add american weapons
+	}
+	focus = {
+		id = FIN_proclaim_western
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_fire_pro_soviets
+		}
+		prerequisite = {
+			focus = FIN_western_equipment
+		}
+		x = 22
+		y = 5
+\\Reduce opinion of soviet union
+	}
+	focus = {
+		id = FIN_nordic_cooperation
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_proclaim_western
+		}
+		mutually_exclusive = {
+			focus = FIN_nato_cooperation
+		}
+		x = 19
+		y = 6
+\\Improve relations with Sweden, Norway and Denmark
+	}
+	focus = {
+		id = FIN_nato_cooperation
+		icon = GFX_focus_generic_the_giant_wakes
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_proclaim_western
+		}
+		mutually_exclusive = {
+			focus = FIN_nordic_cooperation
+		}
+		x = 24
+		y = 6
+\\Improve relations with NATO countries
+	}
+	focus = {
+		id = FIN_nato_exercise
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_nato_cooperation
+		}
+		x = 24
+		y = 7
+\\Add army experience
+	}
+	focus = {
+		id = FIN_join_nato
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_nato_exercise
+		}
+		x = 24
+		y = 8
+\\Request to join NATO
+	}
+	focus = {
+		id = FIN_nato_standards
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_join_nato
+		}
+		x = 24
+		y = 10
+\\Something about infranty equipment
+	}
+	focus = {
+		id = FIN_fourth_option
+		icon = GFX_goal_support_fascism
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_political_focus
+		}
+		mutually_exclusive = {
+			focus = FIN_friendly_soviets
+			focus = FIN_friends_in_west
+		}
+		x = 39
+		y = 1
+
+	}
+	focus = {
+		id = FIN_nationalistic_waves
+		icon = GFX_focus_hun_elect_a_king
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_fourth_option
+		}
+		mutually_exclusive = {
+			focus = FIN_fascism_rises
+		}
+		x = 32
+		y = 2
+\\Add popularity for monarchists
+	}
+	focus = {
+		id = FIN_public_opinions
+		icon = GFX_goal_generic_position_armies
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_nationalistic_waves
+		}
+		x = 32
+		y = 3
+\\Add political power
+	}
+	focus = {
+		id = FIN_preperations_for_kingdom
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_public_opinions
+		}
+		x = 32
+		y = 4
+
+	}
+	focus = {
+		id = FIN_king_Hessen
+		icon = GFX_goal_unknown
+		cost = 1.00
+		prerequisite = {
+			focus = FIN_preperations_for_kingdom
+		}
+		mutually_exclusive = {
+			focus = FIN_king_Fredrik 
+			focus = FIN_king_Vilhelm
+			focus = FIN_king_kekkonen
+		}
+		x = 29
+		y = 5
+\\Make monarchists ruling party with leader "Philipp I"
+	}
+
+	focus = {
+		id = FIN_king_Fredrik 
+		icon = GFX_goal_unknown
+		cost = 1.00
+		prerequisite = {
+			focus = FIN_preperations_for_kingdom
+		}
+		mutually_exclusive = {
+			focus = FIN_king_Hessen
+			focus = FIN_king_Vilhelm
+			focus = FIN_king_kekkonen
+		}
+		x = 31
+		y = 5
+\\Make monarchists ruling party with leader "Aadolf I"
+	}
+	focus = {
+		id = FIN_king_Vilhelm
+		icon = GFX_goal_unknown
+		cost = 1.00
+		prerequisite = {
+			focus = FIN_preperations_for_kingdom
+		}
+		mutually_exclusive = {
+			focus = FIN_king_Hessen
+			focus = FIN_king_Fredrik 
+			focus = FIN_king_kekkonen
+		}
+		x = 33
+		y = 5
+\\Make monarchists ruling party with leader "Fredrik I
+	}
+	focus = {
+		id = FIN_king_kekkonen
+		icon = GFX_goal_unknown
+		cost = 1.00
+		prerequisite = {
+			focus = FIN_preperations_for_kingdom
+		}
+		mutually_exclusive = {
+			focus = FIN_king_Hessen
+			focus = FIN_king_Fredrik 
+			focus = FIN_king_Vilhelm
+		}
+		x = 35
+		y = 5
+\\Make monarchists ruling party with leader "Urho I
+	}
+	focus = {
+		id = FIN_fascism_rises
+		icon = GFX_goal_support_fascism
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_fourth_option
+		}
+		mutually_exclusive = {
+			focus = FIN_nationalistic_waves
+		}
+		x = 45
+		y = 2
+\\Add popularity for fascism
+	}
+	focus = {
+		id = FIN_back_to_30s
+		icon = GFX_goal_generic_demand_territory
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_fascism_rises
+		}
+		x = 45
+		y = 3
+\\Add popularity for fascism
+	}
+	focus = {
+		id = FIN_secret_communist_list
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_back_to_30s
+		}
+		x = 43
+		y = 4
+\\Reduce national unity and communist popularity
+	}
+	focus = {
+		id = FIN_ban_communism
+		icon = GFX_goal_support_fascism
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_secret_communist_list
+		}
+		x = 43
+		y = 5
+\\Reduce communist popularity
+	}
+	focus = {
+		id = FIN_unban_fascist_organizations
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_back_to_30s
+		}
+		x = 47
+		y = 4
+\\Add fascism populairty, reduce relations to Soviet Unions
+	}
+	focus = {
+		id = FIN_fascist_propaganda
+		icon = GFX_goal_generic_demand_territory
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_unban_fascist_organizations
+		}
+		x = 47
+		y = 5
+\\Fascist popularity, add national unity
+	}
+	focus = {
+		id = FIN_fascist_coup
+		icon = GFX_goal_support_fascism
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_ban_communism
+		}
+		prerequisite = {
+			focus = FIN_fascist_propaganda
+		}
+		x = 45
+		y = 6
+\\Change ruling party to fascist
+	}
+	focus = {
+		id = FIN_wood_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_economy_reform
+		}
+		x = 51
+		y = 1
+\\Add civilian factory (2)
+	}
+	focus = {
+		id = FIN_railways
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_economy_reform
+		}
+		x = 54
+		y = 1
+\\Add 1 infrastructure to every province
+	}
+	focus = {
+		id = FIN_helsinki_vantaa
+		icon = GFX_goal_generic_air_bomber
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_wood_industry
+		}
+		prerequisite = {
+			focus = FIN_railways
+		}
+		x = 52
+		y = 2
+\\Build/Improve airfield in Uusimaa
+	}
+	focus = {
+		id = FIN_valmet
+		icon = GFX_goal_generic_production
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_economy_reform
+		}
+		x = 57
+		y = 1
+\\Make guns come faster or something idk
+	}
+	focus = {
+		id = FIN_new_houses
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_valmet
+		}
+		prerequisite = {
+			focus = FIN_railways
+		}
+		x = 56
+		y = 2
+\\Add national unity
+	}
+	focus = {
+		id = FIN_final_train
+		icon = GFX_goal_generic_trade
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_helsinki_vantaa
+		}
+		prerequisite = {
+			focus = FIN_new_houses
+		}
+		x = 54
+		y = 3
+\\News event for final war reparations to soviet union, increase national unity. Not completable before 1952
+	}
+	focus = {
+		id = FIN_alcohol_industry
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_final_train
+		}
+		x = 51
+		y = 4
+\\Civilian factories
+	}
+	focus = {
+		id = FIN_road_paving
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_final_train
+		}
+		x = 57
+		y = 4
+\\Add infrastructure
+	}
+	focus = {
+		id = FIN_1950_con
+		icon = GFX_goal_generic_military_sphere
+		cost = 50.00
+		prerequisite = {
+			focus = FIN_prepare_conscription
+		}
+		x = 67
+		y = 1
+\\Change conscription law to service by requirment
+	}
+	focus = {
+		id = FIN_ground_forces
+		icon = GFX_goal_generic_army_doctrines
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_1950_con
+		}
+		x = 62
+		y = 2
+					completion_reward = {
+					add_political_power = 50
+					army_experience = 10
+				}
+
+	}
+	focus = {
+		id = FIN_new_eq
+		icon = GFX_goal_generic_small_arms
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_ground_forces
+		}
+		x = 61
+		y = 3
+\\1x Research boost for infranty equipment
+	}
+	focus = {
+		id = FIN_motorization
+		icon = GFX_goal_generic_army_motorized
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_ground_forces
+		}
+		x = 63
+		y = 3
+\\1x Research boost for motorized
+	}
+	focus = {
+		id = FIN_tanks
+		icon = GFX_goal_generic_army_tanks
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_motorization
+		}
+		x = 63
+		y = 4
+\\1x Research boost for tanks
+	}
+	focus = {
+		id = FIN_air_force
+		icon = GFX_goal_generic_air_doctrine
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_1950_con
+		}
+		x = 67
+		y = 2
+\\Add air experience
+	}
+	focus = {
+		id = FIN_soviet_planes
+		icon = GFX_goal_generic_build_airforce
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_air_force
+		}
+		mutually_exclusive = {
+			focus = FIN_buy_nato_planes
+		}
+		x = 66
+		y = 3
+\\Add soviet planes, improve soviet relations
+	}
+	focus = {
+		id = FIN_buy_nato_planes
+		icon = GFX_goal_generic_build_airforce
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_air_force
+		}
+		mutually_exclusive = {
+			focus = FIN_soviet_planes
+		}
+		x = 68
+		y = 3
+\\Add american planes, improve american relations
+	}
+	focus = {
+		id = FIN_pilot_training
+		icon = GFX_goal_generic_air_fighter
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_soviet_planes
+			focus = FIN_buy_nato_planes
+		}
+		x = 67
+		y = 4
+\\Add air experience
+	}
+	focus = {
+		id = FIN_navy
+		icon = GFX_goal_generic_navy_battleship
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_1950_con
+		}
+		x = 71
+		y = 2
+\\Add naval experience
+	}
+	focus = {
+		id = FIN_new_ships
+		icon = GFX_goal_generic_navy_battleship
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_navy
+		}
+		x = 71
+		y = 3
+\\3x Research boost for ships
+	}
+	focus = {
+		id = FIN_refund_reva
+		icon = GFX_goal_continuous_suppression
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_com_sta
+		}
+		x = 11
+		y = 8
+\\Lower national unity, add PP
+	}
+	focus = {
+		id = FIN_befriend_west
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_soviet_friends
+		}
+		x = 2
+		y = 4
+\\Improve relations to America, UK etc.
+	}
+	focus = {
+		id = FIN_join_un
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_nordic_council
+		}
+		x = 74
+		y = 1
+\\If possible, add national spirit UN member, if not then whatever you want
+	}
+	focus = {
+		id = FIN_our_gulags
+		icon = GFX_goal_generic_secret_weapon
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_new_red_guard
+		}
+		x = 11
+		y = 10
+\\Reduce manpower by around 50 000 or so, reduce national unity by 5%
+	}
+	focus = {
+		id = FIN_anit_west_propaganda
+		icon = GFX_focus_generic_strike_at_democracy2
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_join_wp
+		}
+		x = 8
+		y = 9
+\\Reduce relations to western countries
+	}
+	focus = {
+		id = FIN_new_red_guard
+		icon = GFX_focus_secret_rearmament
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_refund_reva
+		}
+		x = 11
+		y = 9
+\\Add army experience, national unity by 2%, maybe some manpower if not OP
+	}
+	focus = {
+		id = FIN_best_friends
+		icon = GFX_focus_generic_socialist_science
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_start_five_year_plan
+		}
+		prerequisite = {
+			focus = FIN_our_gulags
+		}
+		prerequisite = {
+			focus = FIN_communist_changes
+		}
+		mutually_exclusive = {
+			focus = FIN_ssr
+		}
+		x = 10
+		y = 11
+\\Add 1 research slot, increase relations to Soviet Union, something about research groups if its thing
+	}
+	focus = {
+		id = FIN_ssr
+		icon = GFX_focus_generic_join_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_communist_changes
+		}
+		prerequisite = {
+			focus = FIN_our_gulags
+		}
+		prerequisite = {
+			focus = FIN_start_five_year_plan
+		}
+		mutually_exclusive = {
+			focus = FIN_best_friends
+		}
+		x = 12
+		y = 11
+\\Event for soviets to make Finland intro SSR, 70-80% chance of accepting
+	}
+	focus = {
+		id = FIN_start_five_year_plan
+		icon = GFX_goal_generic_construction
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_anit_west_propaganda
+		}
+		x = 8
+		y = 10
+\\Build civil factories
+	}
+	focus = {
+		id = FIN_fuhrer
+		icon = GFX_goal_generic_demand_territory
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_purge_opposition
+		}
+		x = 45
+		y = 8
+
+	}
+	focus = {
+		id = FIN_purge_opposition
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_fascist_coup
+		}
+		x = 45
+		y = 7
+\\Reduce manpower by 10 000, reduce communist popularity
+	}
+	focus = {
+		id = FIN_racial_laws
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_german_fascism
+		}
+		x = 37
+		y = 10
+\\Reduce national unity by 10%, reduce manpower by 50 000
+	}
+	focus = {
+		id = FIN_greater_finland
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_german_fascism
+		}
+		x = 40
+		y = 10
+\\Add national unity
+	}
+	focus = {
+		id = FIN_death_camps
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_racial_laws
+		}
+		x = 37
+		y = 11
+\\Reduce manpower by 100 000
+	}
+	focus = {
+		id = FIN_salainen_valtionpoliisi
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_german_fascism
+		}
+		x = 43
+		y = 10
+\\SOmething that fits a secret police
+	}
+	focus = {
+		id = FIN_suojajoukot
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_salainen_valtionpoliisi
+		}
+		x = 43
+		y = 11
+\\Create 5 divisions called 1-5 Suojajoukot, make it into a divison template. Similar to SS troops in other mods.
+	}
+	focus = {
+		id = FIN_german_fascism
+		icon = GFX_goal_generic_attack_allies
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_fuhrer
+		}
+		x = 40
+		y = 9
+\\National unity or something
+	}
+	focus = {
+		id = FIN_our_own_fascism
+		icon = GFX_goal_generic_demand_territory
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_fuhrer
+		}
+		x = 50
+		y = 9
+\\National unity or something
+	}
+	focus = {
+		id = FIN_nordic_relations
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_nordic_cooperation
+		}
+		x = 19
+		y = 7
+\\Improve relations to Sweden, Norway and Denmark
+	}
+	focus = {
+		id = FIN_scandinavian_defence_union
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_nordic_relations
+		}
+		x = 19
+		y = 8
+\\Create faction called "Scandinavian Defence Union" with Sweden, Norway and Denmark
+	}
+	focus = {
+		id = FIN_nordic_union
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_scandinavian_defence_union
+		}
+		mutually_exclusive = {
+			focus = FIN_nordic_friends
+		}
+		x = 18
+		y = 9
+\\Unite Sweden, Norway, Finalnd and Denmark into a country called "Nordic Union"
+	}
+	focus = {
+		id = FIN_nordic_friends
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_scandinavian_defence_union
+		}
+		mutually_exclusive = {
+			focus = FIN_nordic_union
+		}
+		x = 20
+		y = 9
+\\Research group between the countries, add 1 research slot
+	}
+	focus = {
+		id = FIN_claim_former_terrotories
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_greater_finland
+		}
+		x = 40
+		y = 11
+\\Gain cores on Petsamo, Salla, Karjala. War might be too hard, so possibly an event with low chance of succeding?
+	}
+	focus = {
+		id = FIN_even_greater
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_final_solution
+		}
+		prerequisite = {
+			focus = FIN_integrate_old_areas
+		}
+		prerequisite = {
+			focus = FIN_sinimustat
+		}
+		mutually_exclusive = {
+			focus = FIN_enough_is_enough
+		}
+		x = 39
+		y = 13
+\\Gain cores on Murmansk, Onega, Olonets, Harju, Tartu, Luga, Leningrad. War might be too hard, so possibly an event with low chance of succeding?
+	}
+	focus = {
+		id = FIN_enough_is_enough
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_final_solution
+		}
+		prerequisite = {
+			focus = FIN_integrate_old_areas
+		}
+		prerequisite = {
+			focus = FIN_sinimustat
+		}
+		mutually_exclusive = {
+			focus = FIN_even_greater
+		}
+		x = 41
+		y = 13
+\\Gain national unity 30%
+	}
+	focus = {
+		id = FIN_sinimustat
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_suojajoukot
+		}
+		x = 43
+		y = 12
+\\Add 150 000 manpower, add 5% national unity, 100 PP
+	}
+	focus = {
+		id = FIN_integrate_old_areas
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_claim_former_terrotories
+		}
+		x = 40
+		y = 12
+\\Might be useless, since cores were gained in former terrotories claim. Add manpower or something that makes sense.
+	}
+	focus = {
+		id = FIN_final_solution
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_death_camps
+		}
+		x = 37
+		y = 12
+\\Remove 300 000 manpower, reduce national unity 25%, remove 200 PP
+	}
+	focus = {
+		id = FIN_one_language
+		icon = GFX_focus_renounce_the_treaty_of_triannon
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_our_own_fascism
+		}
+		x = 47
+		y = 10
+\\Add 10% national unity, 50 PP
+	}
+	focus = {
+		id = FIN_promote_our_history
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_one_language
+		}
+		x = 47
+		y = 11
+\\Add 5% national unity, 50 PP
+	}
+	focus = {
+		id = FIN_jobs_for_all
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_our_own_fascism
+		}
+		x = 53
+		y = 10
+\\Add 1 civilian and military factory, add national unity 3%
+	}
+	focus = {
+		id = FIN_proud_finns
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_our_own_fascism
+		}
+		x = 50
+		y = 10
+\\More national unity
+	}
+	focus = {
+		id = FIN_condemn_nazis
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_proud_finns
+		}
+		x = 50
+		y = 11
+\\Whatever you think makes sense
+	}
+	focus = {
+		id = FIN_national_corporations
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_jobs_for_all
+		}
+		x = 53
+		y = 11
+\\Whatever you think makes sense
+	}
+	focus = {
+		id = FIN_workers_trade_union
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_national_corporations
+		}
+		x = 53
+		y = 12
+\\Whatever you think makes sense
+	}
+	focus = {
+		id = FIN_trade_back_our_old_areas
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_promote_our_history
+		}
+		x = 47
+		y = 12
+\\Get old areas back and add national spirit which reduces military and civilian factory production to simulate paying the Soviets
+	}
+	focus = {
+		id = FIN_koti_uskonto_isanmaa
+		icon = GFX_goal_generic_demand_territory
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_trade_back_our_old_areas
+		}
+		prerequisite = {
+			focus = FIN_workers_trade_union
+		}
+		prerequisite = {
+			focus = FIN_condemn_nazis
+		}
+		x = 50
+		y = 13
+\\National unity and PP
+	}
+	focus = {
+		id = FIN_paasikivi_kekkonen
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_befriend_west
+		}
+		x = 2
+		y = 5
+\\Don't know yet, for now add 5% communist popularity
+	}
+	focus = {
+		id = FIN_warstila
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_final_train
+		}
+		x = 54
+		y = 4
+\\Upgrade Uusimaa's naval bases, 1x research bonus for ships
+	}
+	focus = {
+		id = FIN_reservist_weapons
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_new_eq
+		}
+		x = 61
+		y = 4
+\\Increase infranty equipment production
+	}
+	focus = {
+		id = FIN_house_nukes
+		icon = GFX_goal_generic_secret_weapon
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_join_nato
+		}
+		x = 29
+		y = 9
+\\Add 5 nukes/ICMB's/explodingnuclearthingy
+	}
+	focus = {
+		id = FIN_operation_bogeyman
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_prepare_nato_soviet_invasion
+		}
+		x = 29
+		y = 11
+\\Gain wargoal against Soviet Union. Requere to be in NATO.
+	}
+	focus = {
+		id = FIN_prepare_nato_soviet_invasion
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_house_nukes
+		}
+		x = 29
+		y = 10
+\\Add manpower, PP and national unity
+	}
+	focus = {
+		id = FIN_foreing_imports
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_alcohol_industry
+			focus = FIN_warstila
+			focus = FIN_road_paving
+		}
+		x = 54
+		y = 5
+\\National unity 1%
+	}
+	focus = {
+		id = FIN_unite_the_people
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_paasikivi_kekkonen
+		}
+		prerequisite = {
+			focus = FIN_moskovan_kortti
+		}
+		x = 4
+		y = 6
+\\National unity 5%
+	}
+	focus = {
+		id = FIN_request_porkkala
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = FIN_join_un
+		}
+		x = 74
+		y = 2
+\\Event to the soviets about gettin Porkkala naval base back, 95% chance of accepting
+	}
+}
