@@ -198,7 +198,7 @@ focus_tree = {
 						}
 					SOV = {
 							add_opinion_modifier = {
-									target = FiN
+									target = FIN
 									modifier = large_increase
 								}
 						}
@@ -252,7 +252,7 @@ focus_tree = {
 						}
 					SOV = {
 							add_opinion_modifier = {
-									target = FiN
+									target = FIN
 									modifier = large_increase
 								}
 						}
@@ -316,6 +316,7 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = pro_soviet_propaganda
 		}
+	}
 
 	focus = {
 		id = FIN_propaganda_com
@@ -826,7 +827,7 @@ focus_tree = {
 		x = 24
 		y = 8
 		completion_reward = {
-			USA = { add_to_faction = FIN {
+			USA = { add_to_faction = FIN }
 		}
 	}
 	focus = {
@@ -2221,7 +2222,7 @@ focus_tree = {
 		x = 40
 		y = 9
 		completion_reward = {
-			add_ideas = add_ideas = military_youth_focus
+			add_ideas = military_youth_focus
 		}
 	}
 	focus = {
@@ -2230,6 +2231,7 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = FIN_fuhrer
+			focus = FIN_preperations_for_kingdom
 		}
 		x = 50
 		y = 9
@@ -2283,6 +2285,7 @@ focus_tree = {
 									modifier = large_increase
 								}
 						}
+					}
 	}
 	focus = {
 		id = FIN_scandinavian_defence_union
@@ -2291,6 +2294,8 @@ focus_tree = {
 		prerequisite = {
 			focus = FIN_nordic_relations
 		}
+		x = 19
+		y = 8
 		completion_reward = {
 			create_faction = "Scandinavian Defence Union"	
 			add_to_faction = NOR
@@ -2353,7 +2358,12 @@ focus_tree = {
 		}
 		x = 40
 		y = 11
-		#NEEDS EVENT
+		completion_reward = {
+			722 = { add_core_of = FIN }
+			147 = { add_core_of = FIN }
+			146 = { add_core_of = FIN }		
+			SOV = { country_event = swfs.7 }
+		}
 ##Gain cores on Petsamo, Salla, Karjala. War might be too hard, so possibly an event with low chance of succeding? (722 147 146)
 	}
 	focus = {
@@ -2374,8 +2384,16 @@ focus_tree = {
 		}
 		x = 39
 		y = 13
-		#NEEDS EVENT
-##Gain cores on Murmansk, Onega, Olonets, Harju, Tartu, Luga, Leningrad. War might be too hard, so possibly an event with low chance of succeding? (213 
+		completion_reward = {
+			FIN = { add_state_claim = 216 }
+			FIN = { add_state_claim = 13 }
+			FIN = { add_state_claim = 191 }
+			FIN = { add_state_claim = 208 }
+			FIN = { add_state_claim = 195 }
+			FIN = { add_state_claim = 215 }
+			FIN = { add_state_claim = 213 }
+			SOV = { country_event = swfs.8 }
+		}
 	}
 	focus = {
 		id = FIN_enough_is_enough
@@ -2424,7 +2442,15 @@ focus_tree = {
 		}
 		x = 40
 		y = 12
-##Might be useless, since cores were gained in former terrotories claim. Add manpower or something that makes sense.
+		completion_reward = {
+			216 = { add_core_of = FIN }
+			13 = { add_core_of = FIN }
+			191 = { add_core_of = FIN }
+			208 = { add_core_of = FIN }
+			195 = { add_core_of = FIN }
+			215 = { add_core_of = FIN }
+			213 = { add_core_of = FIN }
+		}
 	}
 	focus = {
 		id = FIN_final_solution
@@ -2566,7 +2592,19 @@ focus_tree = {
 		x = 50
 		y = 11
 		completion_reward = {
-			add_ideas = fascism_banned
+					FIN = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = small_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = FIN
+									modifier = small_increase
+								}
+						}
+				
 		}
 	}
 	focus = {
@@ -2604,7 +2642,9 @@ focus_tree = {
 		}
 		x = 47
 		y = 12
-##Get old areas back and add national spirit which reduces military and civilian factory production to simulate paying the Soviets
+		completion_reward = {
+			SOV = { country_event = swfs.9 }
+		}
 	}
 	focus = {
 		id = FIN_koti_uskonto_isanmaa
@@ -2635,7 +2675,11 @@ focus_tree = {
 		}
 		x = 2
 		y = 5
-##Don't know yet, for now add 5% communist popularity
+		completion_reward = {
+			add_ideas = neutrality_idea
+			FIN = { give_guarantee = POL }	
+			give_guarantee = SOV	
+		}
 	}
 	focus = {
 		id = FIN_warstila
@@ -2855,6 +2899,9 @@ focus_tree = {
 		}
 		x = 74
 		y = 2
+		completion_reward = {
+			add_national_unity = 0.15
+		}
 ##Event to the soviets about gettin Porkkala naval base back, 95% chance of accepting
 	}
 }
