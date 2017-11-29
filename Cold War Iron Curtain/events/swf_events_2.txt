@@ -384,3 +384,40 @@ country_event = {
 		FIN = { create_wargoal = { type = annex_everything target = SOV } }
 	}
 }
+country_event = {
+	id = swfs.10
+	title = "Western SSR's Demand Freedom"
+	desc = "The Lithuanian, Belarus and Ukranian SSR's demand to secede from the Union"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to the Demands"
+		set_autonomy = { target = LIT autonomy_state = autonomy_free }
+		LIT = {
+			set_politics = { ruling_party = monarchism elections_allowed = yes }	
+			add_ideas = monarchist_influence		
+		}
+		set_autonomy = { target = BEL autonomy_state = autonomy_free }
+		BEL = {
+			set_politics = { ruling_party = monarchism elections_allowed = yes }	
+			add_ideas = monarchist_influence		
+		}
+		set_autonomy = { target = UKR autonomy_state = autonomy_free }
+		UKR = {
+			set_politics = { ruling_party = monarchism elections_allowed = yes }	
+			add_ideas = monarchist_influence		
+		}
+		ai_chance = {
+			factor = 80
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 20
+		}
+		name = "Decline"
+		POL = { create_wargoal = { type = annex_everything target = SOV } }
+	}
+}

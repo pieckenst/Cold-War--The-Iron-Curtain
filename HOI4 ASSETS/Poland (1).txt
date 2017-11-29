@@ -1937,7 +1937,10 @@ focus_tree = {
 		}
 		x = 36
 		y = 7
-
+		completion_reward = {
+			add_national_unity = 0.05
+			add_political_power = 120
+		}
 	}
 	focus = {
 		id = POL_Expansion_of_SB
@@ -1949,7 +1952,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 9
-
+			completion_reward = {
+					add_ideas = one_form_of_government
+				}
 	}
 	focus = {
 		id = POL_Control_the_Church
@@ -1960,7 +1965,13 @@ focus_tree = {
 		}
 		x = 35
 		y = 10
-
+			completion_reward = {
+					add_national_unity = -0.1
+					add_popularity = {
+							ideology = communism
+							popularity = 0.1
+						}
+				}
 	}
 	focus = {
 		id = POL_Stalinist_Poland
@@ -1971,7 +1982,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 11
-
+			completion_reward = {
+					add_ideas = partisan_suppression_focus
+				}
 	}
 	focus = {
 		id = POL_a_new_form_of_communism
@@ -2242,6 +2255,10 @@ focus_tree = {
 		id = POL_NATO_Expansion_in_Eastern_Europe
 		icon = GFX_goal_support_democracy
 		cost = 10,00
+		available = {
+			NOT = { HUN = { has_government = communism } }
+			NOT = { CZE = { has_government = communism } }
+		}
 		prerequisite = {
 			focus = POL_czech_democratic_movement
 			focus = POL_hungarian_democratic_movement
@@ -2251,7 +2268,24 @@ focus_tree = {
 		}
 		x = 44
 		y = 9
-
+		completion_reward = {
+			USA = { add_to_faction = HUN }
+			USA = { add_to_faction = CZE }
+			CZE = {
+				add_ai_strategy = {
+					type = alliance
+					id = "USA"
+					value = 200
+				}
+			}
+			HUN = {
+				add_ai_strategy = {
+					type = alliance
+					id = "USA"
+					value = 200
+				}
+			}
+		}
 	}
 	focus = {
 		id = POL_Form_Intermarium
@@ -2266,7 +2300,9 @@ focus_tree = {
 		}
 		x = 42
 		y = 9
-
+		completion_reward = {
+			create_faction = "The Intermarium"	
+		}
 	}
 	focus = {
 		id = POL_Support_Romania
@@ -2285,6 +2321,13 @@ focus_tree = {
 		y = 11
 		completion_reward = {
 			add_to_faction = ROM
+			ROM = {
+				add_ai_strategy = {
+					type = alliance
+					id = "POL"
+					value = 200
+				}
+			}
 		}
 	}	
 	focus = {
@@ -2300,6 +2343,12 @@ focus_tree = {
 					USA = {
 							add_to_faction = POL
 						}
+				add_ai_strategy = {
+					type = alliance
+					id = "USA"
+					value = 200
+				}
+			
 				}
 
 	}
@@ -2365,7 +2414,10 @@ focus_tree = {
 		}
 		x = 49
 		y = 10
-
+		completion_reward = {
+			add_national_unity = 0.25
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = POL_Rebel_in_Western_SSRs
@@ -2377,7 +2429,7 @@ focus_tree = {
 		x = 49
 		y = 11
 		completion_reward = {
-			#EVENT for soviets/ belarus, ukraine and lithuanian ssr's
+			SOV = { country_event = swfs.10 }
 		}
 	}
 	focus = {
@@ -2391,7 +2443,12 @@ focus_tree = {
 		y = 12
 		
 		completion_reward = {
-			#Event to Annex Belarus, Ukraine and Lithuania
+			annex_country = { target = LIT }	
+			annex_country = { target = BEL }	
+			annex_country = { target = UKR }	
+			LIT = { every_owned_state = { add_core_of = POL } }	
+			BEL = { every_owned_state = { add_core_of = POL } }
+			UKR = { every_owned_state = { add_core_of = POL } }			
 			#Cosmetic Tag Switch to PLC
 		}
 
@@ -2501,7 +2558,9 @@ focus_tree = {
 		}
 		x = 54
 		y = 8
-
+		completion_reward = {
+			188 = { add_core_of = POL }
+		}
 	}
 	focus = {
 		id = POL_Claim_Lithuanian_SSR
@@ -2512,7 +2571,9 @@ focus_tree = {
 		}
 		x = 56
 		y = 8
-
+		completion_reward = {
+			 LIT = { every_owned_state = { add_core_of = POL } }
+		}
 	}
 	focus = {
 		id = POL_prepare_for_invasion
@@ -2729,7 +2790,6 @@ focus_tree = {
 		cost = 10,00
 		prerequisite = {
 			focus = POL_Form_Intermarium
-			focus = POL_NATO_Expansion_in_Eastern_Europe
 		}
 		mutually_exclusive = {
 			focus = POL_Support_Romania
@@ -2749,7 +2809,7 @@ focus_tree = {
 		y = 13
 		completion_reward = {
 			add_national_unity = 0.15
-			#cosmetic tag plc
+			set_cosmetic_tag = PLC_POL	
 		}
 	}
 	focus = {
