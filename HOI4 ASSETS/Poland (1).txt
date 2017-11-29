@@ -2272,8 +2272,10 @@ focus_tree = {
 		id = POL_Support_Romania
 		icon = GFX_focus_rom_preserve_romania
 		cost = 10,00
+		available = {
+			NOT = { ROM = { has_government = communism } }
+		}
 		prerequisite = {
-			focus = POL_NATO_Expansion_in_Eastern_Europe
 			focus = POL_Form_Intermarium
 		}
 		mutually_exclusive = {
@@ -2281,8 +2283,10 @@ focus_tree = {
 		}
 		x = 44
 		y = 11
-
-	}
+		completion_reward = {
+			add_to_faction = ROM
+		}
+	}	
 	focus = {
 		id = POL_join_nato
 		icon = GFX_goal_generic_military_deal
@@ -2789,7 +2793,16 @@ focus_tree = {
 		}
 		x = 58
 		y = 7
-
+		completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = DDR
+						}
+					create_wargoal = {
+							type = annex_everything
+							target = WGR
+						}
+					}
 	}
 	focus = {
 		id = POL_Claim_Lusatia
