@@ -1,0 +1,44 @@
+﻿add_namespace = nato
+# Egypt (France and Britain go to war)
+country_event = {
+	id = nato.1
+	title = nato.1.t
+	desc = nato.1.d
+	picture = GFX_report_event_british_artillery
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		ai_chance = {
+			factor = 100
+		}
+		name = nato.1
+		every_country = {
+			limit = { has_offensive_war_with = ROOT }
+			country_event = nato.2
+		}
+	}
+}
+country_event = {
+	id = nato.2
+	title = nato.2.t
+	desc = nato.2.d
+	picture = GFX_report_event_british_artillery
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		ai_chance = {
+			factor = 100
+		}
+		name = nato.1
+		every_country = {
+			limit = { has_idea = nato_member }
+			add_to_war = { targeted_alliance = ROOT enemy = FROM }	
+		}
+	}
+}
