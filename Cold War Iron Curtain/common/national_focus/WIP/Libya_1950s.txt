@@ -3556,6 +3556,7 @@ focus_tree = {
 	}
 	focus = {
 		id = LBA_Support_Algerian_Independence
+		available = { country_exists = ALG }
 		icon = GFX_focus_generic_support_the_left_right
 		cost = 10.00
 		prerequisite = {
@@ -3564,7 +3565,13 @@ focus_tree = {
 		}
 		x = 54
 		y = 8
-
+			completion_reward = {
+					add_equipment_to_stockpile = {
+							type = assault_rifle_equipment_1
+							amount = 3000
+							producer = SOV
+						}
+			}
 	}
 	focus = {
 		id = LBA_Bigger_Isolation
@@ -3575,7 +3582,10 @@ focus_tree = {
 		}
 		x = 57
 		y = 8
-
+		completion_reward = {
+			add_national_unity = 0.15
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = LBA_Diplomacy_with_the_Major_Powers
@@ -3586,7 +3596,9 @@ focus_tree = {
 		}
 		x = 61
 		y = 6
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = LBA_Ally_United_Kingdom
@@ -3600,7 +3612,25 @@ focus_tree = {
 		}
 		x = 60
 		y = 7
-
+			completion_reward = {
+					LBA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = LBA
+									modifier = large_increase
+								}
+						}
+					add_equipment_to_stockpile = {
+							type = assault_rifle_equipment_1
+							amount = 2000
+							producer = ENG
+						}
+				}
 	}
 	focus = {
 		id = LBA_Allow_British_Assistance
@@ -3611,7 +3641,14 @@ focus_tree = {
 		}
 		x = 60
 		y = 8
-
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = oil
+									amount = 50
+								}
+						}
+				}
 	}
 	focus = {
 		id = LBA_Ally_USA
@@ -3622,7 +3659,25 @@ focus_tree = {
 		}
 		x = 63
 		y = 7
-
+			completion_reward = {
+					LBA = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = LBA
+									modifier = large_increase
+								}
+						}
+					add_equipment_to_stockpile = {
+							type = assault_rifle_equipment_1
+							amount = 3000
+							producer = USA
+						}
+				}
 	}
 	focus = {
 		id = LBA_Wheelus_Air_Base
@@ -3633,7 +3688,15 @@ focus_tree = {
 		}
 		x = 63
 		y = 8
-
+		completion_reward = {
+			448 = {
+							add_building_construction = {
+									type = air_base
+									level = 8
+									instant_build = yes
+								}			
+			}
+		}
 	}
 	focus = {
 		id = LBA_Support_Morrocan_Independence
@@ -3644,10 +3707,15 @@ focus_tree = {
 		}
 		x = 54
 		y = 9
-
+		completion_reward = {
+			MOR = { add_autonomy_ratio = { value = 0.40 localization = Libya }	}
+		}
 	}
 	focus = {
 		id = LBA_Ally_with_Nasser
+		available = {
+			EGY = { is_faction_leader = yes	}
+		}
 		icon = GFX_focus_generic_diplomatic_treaty
 		cost = 10.00
 		prerequisite = {
@@ -3655,7 +3723,11 @@ focus_tree = {
 		}
 		x = 51
 		y = 8
-
+		completion_reward = {
+			EGY = {
+				add_to_faction = LBA
+			}
+		}
 	}
 	focus = {
 		id = LBA_Pan-Arabists_in_Algeria
@@ -3666,7 +3738,9 @@ focus_tree = {
 		}
 		x = 51
 		y = 9
-
+		completion_reward = {
+			ALG = { add_timed_idea = { idea = pan_arab_influence days = 650 } }
+		}
 	}
 	focus = {
 		id = LBA_Isolationist_Policy
@@ -3677,7 +3751,9 @@ focus_tree = {
 		}
 		x = 57
 		y = 9
-
+		completion_reward = {
+			add_ideas = neutrality_idea
+		}
 	}
 	focus = {
 		id = LBA_Join_NATO
@@ -3694,7 +3770,9 @@ focus_tree = {
 		}
 		x = 60
 		y = 9
-
+		completion_reward = {
+			USA = { add_to_faction = LBA }
+		}
 	}
 	focus = {
 		id = LBA_Only_Cooperation
@@ -3711,7 +3789,20 @@ focus_tree = {
 		}
 		x = 63
 		y = 9
-
+			completion_reward = {
+					LBA = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = LBA
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = LBA_North_African_Communist_Faction
