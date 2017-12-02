@@ -601,12 +601,18 @@ focus_tree = {
 			focus = FRA_geneva_conf
 		}
 		available = {
+		has_war_with = VIN
 		NOT = {
 		controls_state = 671
 		}
 		}
 		x = 7
 		y = 5
+		completion_reward = {
+		add_political_power = -100
+		add_national_unity = -0.1
+		add_manpower = 100000
+		}
 
 	}
 	focus = {
@@ -622,10 +628,18 @@ focus_tree = {
 		available = {
 		NOT = {
 		controls_state = 671
+		controls_state = 839
+		controls_state = 286
+		controls_state = 670
 		}
 		}
 		x = 6
 		y = 6
+		completion_reward = {
+		add_national_unity = -0.1
+		add_political_power = -200
+		country_event = { id = vie.5 }
+		}
 
 	}
 	focus = {
@@ -638,8 +652,16 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = FRA_indo_peace
 		}
+		available = {
+		NOT = { country_exists = VIN }
+		}
 		x = 8
 		y = 6
+		completion_reward = {
+		add_national_unity = 0.15
+		add_political_power = 200
+		army_experience = 50
+		}
 
 	}
 	focus = {
@@ -653,12 +675,16 @@ focus_tree = {
 			focus = FRA_indo_contingent
 		}
 		available = {
+		has_war_with = VIN
 		NOT = {
 		controls_state = 671
 		}
 		}
 		x = 10
 		y = 5
+		completion_reward = {
+		country_event = { id = vie.5 }
+		}
 
 	}
 	focus = {
@@ -668,8 +694,29 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_geneva_conf
 		}
+		available = {
+		VIE = { controls_state = 839 }
+		country_exists = VIE
+		}
 		x = 10
 		y = 6
+		completion_reward = {
+		839 = {
+		add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		add_ideas = fra_sviet_profits
+		VIE = { add_ideas = vie_fra_profits }
+		}
 
 	}
 	focus = {

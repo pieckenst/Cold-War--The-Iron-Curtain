@@ -135,13 +135,6 @@ on_actions = {
 					days = 365
 				}
 			}
-			if = {
-				limit = {
-					tag = USA
-					FROM = { NOT = { has_government = communism } }
-				}
-				add_to_faction = USA	
-			}
 		}
 	}
 
@@ -167,6 +160,14 @@ on_actions = {
 	#FROM is war target
 	on_declare_war = {
 		effect = {
+			if = {
+				limit = { 
+					FROM = { 
+						has_idea = nato_member					
+					}
+				}
+				country_event = nato.1
+			}
 		}
 	}
 	
