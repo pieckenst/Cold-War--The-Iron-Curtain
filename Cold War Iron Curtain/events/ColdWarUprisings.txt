@@ -390,6 +390,7 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = cze_become_democratic
 			news_event = cwu.11
+			set_global_flag = prague_spring
 		}
 		ai_chance = { factor = 1 modifier = { is_historical_focus_on = no factor = 80 } }
 	}
@@ -944,4 +945,76 @@ country_event = {
 	immediate = {
 		MAL = { country_event = cwu.28 } #Malaysia gets the event of communist uprisings
 	}
+}
+news_event = {
+	id = cwu.100
+	title = cwu.100.t
+	desc = cwu.100.d
+	picture = GFX_news_event_american_ultimatum
+
+	major = yes
+	is_triggered_only = yes
+
+
+	option = {
+		name = "Agree to Demands"
+		trigger = {
+				tag = SOV
+				
+			}
+			white_peace = CZE
+			news_event = cwu.101
+		}
+	option = {
+		name = "Reject their Ultimatum"
+		trigger = {
+				tag = SOV
+				
+			}
+			USA = { add_to_war = { targeted_alliance = CZE enemy = SOV } }
+			news_event = cwu.102
+		}
+	option = {
+		name = "How will they respond?"
+		trigger = {
+				NOT = { tag = SOV }
+				
+			}
+			white_peace = CZE
+		}
+}
+news_event = {
+	id = cwu.101
+	title = cwu.101.t
+	desc = cwu.101.d
+	picture = GFX_news_event_american_ultimatum
+
+	major = yes
+	is_triggered_only = yes
+
+
+	option = {
+		name = "Peace Prevails"
+	}
+}
+news_event = {
+	id = cwu.102
+	title = cwu.102.t
+	desc = cwu.102.d
+	picture = GFX_news_event_american_ultimatum
+
+	major = yes
+	is_triggered_only = yes
+
+
+	option = {
+		name = "A World War Is Upon Us Once More"
+			every_country = {
+				limit = {
+					has_idea = nato_member
+				}
+				add_to_war = { targeted_alliance = CZE enemy = SOV } 
+			}
+		}
+
 }
