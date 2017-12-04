@@ -17,12 +17,12 @@ country_event = {
 	option = {
 		name = "Agree to The War"
 			set_global_flag = soviet_agreed_prc_proposal
-			country_event = prc_dispute.2
+			USA = { country_event = prc_dispute.2 }
 		}
 	option = {
 		name = "Agree to The War"
 			set_global_flag = soviet_decline_prc_proposal
-			country_event = prc_dispute.3
+			USA = { country_event = prc_dispute.3 }
 		}
 }
 country_event = {
@@ -51,5 +51,67 @@ country_event = {
 
 	option = {
 		name = "This will come back to haunt us all"
+		}
+}
+#Zhenbao Island Ameircan Response
+country_event = {
+	id = prc_dispute.4
+	title = prc_dispute.4.t
+	desc = prc_dispute.4.d
+	picture = GFX_news_event_prc_dispute
+
+	major = yes
+	is_triggered_only = yes
+
+
+	option = {
+		name = "Agree to The War"
+			declare_war_on = { target = PRC type = puppet_wargoal } 
+			add_to_war = { targeted_alliance = USA enemy = PRC } 
+		}
+}
+country_event = {
+	id = prc_dispute.5
+	title = prc_dispute.5.t
+	desc = prc_dispute.5.d
+	picture = GFX_news_event_prc_dispute
+
+	major = yes
+	is_triggered_only = yes
+
+
+	option = {
+		name = "Give Permission to the Soviets"
+			declare_war_on = { target = PRC type = puppet_wargoal } 
+		}
+}
+country_event = {
+	id = prc_dispute.6
+	title = prc_dispute.6.t
+	desc = prc_dispute.6.d
+	picture = GFX_news_event_prc_dispute
+
+	major = yes
+	is_triggered_only = yes
+
+
+	option = {
+		name = "Back Down"
+			if = {
+				limit = {
+					has_war_with = PRC
+				}
+				white_peace = PRC
+			}
+			clr_global_flag = zhenbao_island
+		}
+	option = {
+		name = "World War III then...."
+			if = {
+				limit = {
+					has_war_with = PRC
+				}
+				PRC = { add_to_war = { targeted_alliance = USA enemy = SOV } }
+			}
 		}
 }
