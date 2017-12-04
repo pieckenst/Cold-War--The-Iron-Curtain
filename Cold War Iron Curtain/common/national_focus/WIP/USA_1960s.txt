@@ -2485,10 +2485,10 @@ focus_tree = {
 		icon = GFX_focus_generic_strike_at_democracy1
 		cost = 10.00
 		available = {
-			has_global_flag = The_Soviet_Chinese_Border_Dispute
+			has_global_flag = zhenbao_island
 		}
 		bypass = {
-			has_global_flag = The_Soviet_Chinese_Border_Dispute
+			has_global_flag = zhenbao_island
 		}
 		prerequisite = {
 			focus = USA_Soviet_Decline
@@ -2500,7 +2500,7 @@ focus_tree = {
 	focus = {
 		id = USA_Join_the_war
 		icon = GFX_focus_generic_strike_at_democracy1
-		cost = 10.00
+		cost = 1
 		prerequisite = {
 			focus = USA_The_Soviet_Chinese_Border_Dispute
 		}
@@ -2518,7 +2518,7 @@ focus_tree = {
 	focus = {
 		id = USA_Give_Permission_to_the_Soviets
 		icon = GFX_focus_generic_strike_at_democracy1
-		cost = 10.00
+		cost = 1
 		prerequisite = {
 			focus = USA_The_Soviet_Chinese_Border_Dispute
 		}
@@ -2535,15 +2535,20 @@ focus_tree = {
 	focus = {
 		id = USA_The_War_Against_The_Dragon
 		icon = GFX_focus_generic_strike_at_democracy1
-		cost = 10.00
+		cost = 1
+		available = {
+				has_global_flag = soviet_agreed_prc_proposal
+			}
+		}
 		prerequisite = {
 			focus = USA_Proposal_to_the_Soviets
 		}
 		x = 64
 		y = 3
 		completion_reward = {
-			SOV = { country_event = prc_dispute.3 }
-			country_event = prc_dispute.3
+			add_ideas = chinese_war_draft
+			declare_war_on = { target = PRC type = puppet_wargoal } }
+			PRC = { add_to_war = { targeted_alliance = USA enemy = PRC } 
 		}
 	}
 	focus = {
