@@ -331,3 +331,233 @@ country_event = {
 		set_global_flag = president_eisenhower
 	}
 }
+
+# Election of 1956: Democratic Nomination
+country_event = {
+	id = usa.1956
+	title = "Election of 1956: Democratic Nomination"
+	desc = "Election of 1956: Democratic Nomination"
+	picture = GFX_report_event_usa_election_generic
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = USA
+		date > 1956.7.15
+		date < 1956.8.31
+	}
+
+	mean_time_to_happen = { days = 1 }
+	
+	option = { 
+		name = "Adlai Stevenson III"
+		ai_chance = {
+		trigger = {
+			NOT = { has_global_flag = president_kefauver }
+		}
+			factor = 70
+				modifier = {
+					factor = 1000
+					is_historical_focus_on = yes
+				}
+		}
+		set_global_flag = stevenson_dem_nominee_56
+	}
+	option = { 
+		name = "Estes Kefauver"
+		trigger = {
+			NOT = { has_global_flag = president_stevenson }
+		}
+		ai_chance = {
+			factor = 30
+		}
+		set_global_flag = kefauver_dem_nominee_56
+	}	
+	
+}
+
+
+
+# Election of 1956: Republican Nomination
+country_event = {
+	id = usa.19562
+	title = "Election of 1956: Republican Nomination"
+	desc = "Election of 1956: Republican Nomination"
+	picture = GFX_report_event_usa_election_generic
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = USA
+		date > 1956.7.1
+		date < 1956.8.15
+	}
+
+	mean_time_to_happen = { days = 1 }
+	
+	option = { 
+		name = "Dwight Eisenhower"
+		trigger = {
+			NOT = { has_global_flag = president_macarthur }
+			NOT = { has_global_flag = president_taft }
+		}
+		ai_chance = {
+			factor = 55
+				modifier = {
+					factor = 1000
+					is_historical_focus_on = yes
+				}
+		}
+		set_global_flag = eisenhower_gop_nominee_56
+	}
+
+	option = { 
+		name = "Robert Taft"
+		trigger = {
+			NOT = { has_global_flag = president_macarthur }
+			NOT = { has_global_flag = president_eisenhower }
+		}
+		ai_chance = {
+			factor = 35
+		}
+
+		set_global_flag = taft_gop_nominee_56
+	}
+	option = { 
+		name = "Douglas MacArthur"
+		trigger = {
+			NOT = { has_global_flag = president_taft }
+			NOT = { has_global_flag = president_eisenhower }
+		}
+		ai_chance = {
+			factor = 10
+		}
+		set_global_flag = macarthur_gop_nominee_56
+	}	
+}
+
+# Election of 1956
+country_event = {
+	id = usa.19563
+	title = "Election of 1956"
+	desc = "The Election of 1956"
+	picture = GFX_report_event_usa_election_generic
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = USA
+		date > 1956.1.1
+		date < 1957.1.1
+	}
+
+	option = { 
+		name = "Adlai Stevenson III"
+		ai_chance = {
+			factor = 30
+		}
+		trigger = {
+			has_global_flag = stevenson_dem_nominee_56
+		}
+		set_party_name = { ideology = democratic long_name = USA_democratic_party name = USA_democratic_party }
+		create_country_leader = {
+			name = "Adlai Stevenson III"
+			desc = ""
+			picture = "adlai_stevenson_ii.dds"
+			expire = "1965.1.1"
+			ideology = liberalism
+		}
+		set_global_flag = president_stevenson
+	}
+	
+	option = { 
+		name = "Estes Kefauver"
+		ai_chance = {
+			factor = 35
+		}
+		trigger = {
+			has_global_flag = kefauver_dem_nominee_56
+		}
+		set_party_name = { ideology = democratic long_name = USA_democratic_party name = USA_democratic_party }
+		create_country_leader = {
+			name = "Estes Kefauver"
+			desc = ""
+			picture = "estes_kefauver.dds"
+			expire = "1965.1.1"
+			ideology = liberalism
+		}
+		set_global_flag = president_kefauver
+	}
+	option = { 
+		name = "Douglas MacArthur"
+		trigger = {
+			has_global_flag = macarthur_gop_nominee_56
+		}
+		ai_chance = {
+			factor = 35
+		}
+		set_politics = { ruling_party = fascism elections_allowed = yes }
+		add_popularity = { ideology = fascism popularity = 0.36 }
+		add_popularity = { ideology = liberal popularity = -0.16 }
+		add_popularity = { ideology = conservative popularity = -0.20 }
+		set_party_name = { ideology = fascism long_name = USA_republican_party name = USA_republican_party }
+		create_country_leader = {
+			name = "Douglas MacArthur"
+			desc = "POLITICS_DOUGLAS_MACARTHUR_DESC"
+			picture = "Portrait_USA_Douglas_MacArthur.dds"
+			expire = "1965.1.1"
+			ideology = fascism_ideology
+			traits = {
+				
+			} 
+		}
+		set_global_flag = president_macarthur
+		remove_unit_leader = 57
+	}
+	option = { 
+		name = "Robert Taft"
+		trigger = {
+			has_global_flag = taft_gop_nominee_56
+		}
+		ai_chance = {
+			factor = 35
+		}
+		create_country_leader = {
+			name = "Robert Taft"
+			desc = ""
+			picture = "robert_taft.dds"
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				
+			} 
+		}
+		set_politics = { ruling_party = conservative elections_allowed = yes }
+		set_global_flag = president_taft
+	}
+	option = { 
+		name = "Dwight Eisenhower"
+		trigger = {
+			has_global_flag = eisenhower_gop_nominee_56
+		}
+		ai_chance = {
+			factor = 35
+				modifier = {
+					factor = 1000
+					is_historical_focus_on = yes
+				}
+		}
+		create_country_leader = {
+			name = "Dwight D. Eisenhower"
+			desc = ""
+			picture = "Portrait_USA_Dwight_D_Eisenhower.dds"
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				
+			} 
+		}
+		set_politics = { ruling_party = conservative elections_allowed = yes }
+		set_global_flag = president_eisenhower
+	}
+}
