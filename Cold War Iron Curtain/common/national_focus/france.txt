@@ -18,7 +18,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = industrial_bonus
 				bonus = 0.5
-				uses = 2
+				uses = 3
 				category = industry
 			}
 		}
@@ -53,9 +53,9 @@ focus_tree = {
 		x = 53
 		y = 0
 		completion_reward = {
-		army_experience = 5
-		navy_experience = 5
-		air_experience = 5
+		army_experience = 100
+		navy_experience = 100
+		air_experience = 100
 		}
 
 	}
@@ -69,8 +69,8 @@ focus_tree = {
 		completion_reward = {
 				add_tech_bonus = {
 				name = industrial_bonus
-				bonus = 0.5
-				uses = 2
+				bonus = 0.7
+				uses = 3
 				category = industry
 			}
 		}
@@ -108,7 +108,7 @@ focus_tree = {
 				}
 				add_building_construction = {
 					type = infrastructure
-					level = 1
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -135,7 +135,7 @@ focus_tree = {
 				}
 				add_building_construction = {
 					type = infrastructure
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -162,7 +162,7 @@ focus_tree = {
 				}
 				add_building_construction = {
 					type = infrastructure
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -354,7 +354,7 @@ focus_tree = {
 		y = 1
 		completion_reward = {
 			remove_ideas = fra_rationing
-			add_political_power = 50
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -417,14 +417,15 @@ focus_tree = {
 						}
 					}
 				}
+				add_extra_state_shared_building_slots = 5
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 3
 					instant_build = yes
 				}
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -470,13 +471,15 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 		17 = {
-					add_building_construction = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
 					type = arms_factory
 					level = 2
 					instant_build = yes
 				}
 		}
 		27 = {
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
 					level = 2
@@ -601,18 +604,12 @@ focus_tree = {
 			focus = FRA_geneva_conf
 		}
 		available = {
-		has_war_with = VIN
 		NOT = {
 		controls_state = 671
 		}
 		}
 		x = 7
 		y = 5
-		completion_reward = {
-		add_political_power = -100
-		add_national_unity = -0.1
-		add_manpower = 100000
-		}
 
 	}
 	focus = {
@@ -628,18 +625,10 @@ focus_tree = {
 		available = {
 		NOT = {
 		controls_state = 671
-		controls_state = 839
-		controls_state = 286
-		controls_state = 670
 		}
 		}
 		x = 6
 		y = 6
-		completion_reward = {
-		add_national_unity = -0.1
-		add_political_power = -200
-		country_event = { id = vie.5 }
-		}
 
 	}
 	focus = {
@@ -652,16 +641,8 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = FRA_indo_peace
 		}
-		available = {
-		NOT = { country_exists = VIN }
-		}
 		x = 8
 		y = 6
-		completion_reward = {
-		add_national_unity = 0.15
-		add_political_power = 200
-		army_experience = 50
-		}
 
 	}
 	focus = {
@@ -674,17 +655,8 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = FRA_indo_contingent
 		}
-		available = {
-		has_war_with = VIN
-		NOT = {
-		controls_state = 671
-		}
-		}
 		x = 10
 		y = 5
-		completion_reward = {
-		country_event = { id = vie.5 }
-		}
 
 	}
 	focus = {
@@ -694,29 +666,8 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_geneva_conf
 		}
-		available = {
-		VIE = { controls_state = 839 }
-		country_exists = VIE
-		}
 		x = 10
 		y = 6
-		completion_reward = {
-		839 = {
-		add_extra_state_shared_building_slots = 4
-			add_building_construction = {
-				type = arms_factory
-				level = 2
-				instant_build = yes
-			}
-			add_building_construction = {
-				type = industrial_complex
-				level = 2
-				instant_build = yes
-			}
-		}
-		add_ideas = fra_sviet_profits
-		VIE = { add_ideas = vie_fra_profits }
-		}
 
 	}
 	focus = {
@@ -885,12 +836,6 @@ focus_tree = {
 		}
 		x = 17
 		y = 2
-		ai_will_do = {
-		modifier = {
-		factor = 0
-		is_historical_focus_on = yes
-		}
-		}
 		completion_reward = {
 		add_political_power = 50
 		annex_country = { target = AND transfer_troops = no }
@@ -1217,6 +1162,7 @@ create_country_leader = {
 		y = 7
 		completion_reward = {
 		add_ideas = fra_strong_executive
+		
 		}
 
 	}
@@ -1420,12 +1366,6 @@ create_country_leader = {
 		}
 		x = 31
 		y = 2
-		ai_will_do = {
-		modifier = {
-		factor = 0
-		is_historical_focus_on = yes
-		}
-		}
 		completion_reward = {
 		set_politics = { ruling_party = nationalism }
 		add_popularity = {
@@ -1535,7 +1475,7 @@ create_country_leader = {
 			add_tech_bonus = {
 				name = land_doc_bonus
 				bonus = 0.5
-				uses = 1
+				uses = 3
 				category = land_doctrine
 			}
 		}
@@ -1554,7 +1494,7 @@ create_country_leader = {
 			add_tech_bonus = {
 				name = armor_bonus
 				bonus = 0.5
-				uses = 2
+				uses = 3
 				category = armor
 			}
 		}
@@ -1573,7 +1513,7 @@ create_country_leader = {
 			add_tech_bonus = {
 				name = infantry_artillery_bonus
 				bonus = 0.5
-				uses = 2
+				uses = 3
 				category = artillery
 			}
 		}
@@ -1629,7 +1569,7 @@ create_country_leader = {
 					add_tech_bonus = {
 				name = land_doc_bonus
 				bonus = 0.5
-				uses = 2
+				uses = 3
 				category = land_doctrine
 			}
 		}
@@ -1796,7 +1736,7 @@ create_country_leader = {
 			add_tech_bonus = {
 				name = uk_amphibious_focus
 				bonus = 0.5
-				uses = 2
+				uses = 3
 				technology = paratroopers
 				technology = paratroopers2
 				technology = paratroopers3
@@ -1832,7 +1772,7 @@ create_country_leader = {
 			add_tech_bonus = {
 				name = nav_doc_bonus
 				bonus = 0.5
-				uses = 1
+				uses = 3
 				category = naval_doctrine
 			}
 		}
@@ -1849,7 +1789,7 @@ create_country_leader = {
 		y = 2
 		completion_reward = {
 		21 = {
-			add_extra_state_shared_building_slots = 4
+			add_extra_state_shared_building_slots = 8
 			add_building_construction = {
 				type = dockyard
 				level = 4
@@ -1871,7 +1811,7 @@ create_country_leader = {
 		y = 3
 		completion_reward = {
 		30 = {
-			add_extra_state_shared_building_slots = 4
+			add_extra_state_shared_building_slots = 8
 			add_building_construction = {
 				type = dockyard
 				level = 4
@@ -1895,7 +1835,7 @@ create_country_leader = {
 				name = capital_ships_bonus
 				bonus = 0.5
 				ahead_reduction = 1
-				uses = 1
+				uses = 3
 				technology = battle_cruiser_2
 				
 			}
@@ -1916,7 +1856,7 @@ create_country_leader = {
 				name = capital_ships_bonus
 				bonus = 0.5
 				ahead_reduction = 1
-				uses = 1
+				uses = 3
 				technology = early_carrier
 				technology = basic_carrier
 				technology = improved_carrier
@@ -1940,7 +1880,7 @@ create_country_leader = {
 				name = ss_bonus
 				bonus = 0.5
 				ahead_reduction = 1
-				uses = 2
+				uses = 3
 				technology = early_submarine
 				technology = basic_submarine
 				technology = improved_submarine
@@ -1988,7 +1928,7 @@ create_country_leader = {
 			add_tech_bonus = {
 				name = air_doc_bonus
 				bonus = 0.5
-				uses = 1
+				uses = 3
 				category = air_doctrine
 			}
 		}
@@ -2007,7 +1947,7 @@ create_country_leader = {
 			add_tech_bonus = {
 				name = fighter_bonus
 				bonus = 0.5
-				uses = 2
+				uses = 3
 				technology = early_fighter
 				technology = fighter1
 				technology = fighter2
@@ -2033,7 +1973,7 @@ create_country_leader = {
 				name = CAS_bonus
 				bonus = 0.5
 				ahead_reduction = 1
-				uses = 1
+				uses = 3
 				category = cas_bomber
 			}
 		}
@@ -2052,7 +1992,7 @@ create_country_leader = {
 			add_tech_bonus = {
 				name = bomber_bonus
 				bonus = 0.5
-				uses = 2
+				uses = 3
 				category = tactical_bomber
 			}
 		}
@@ -2114,15 +2054,15 @@ create_country_leader = {
 		y = 1
 		completion_reward = {
 		16 = {
-		add_extra_state_shared_building_slots = 2
+		add_extra_state_shared_building_slots = 8
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 3
 					instant_build = yes
 				}
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 3
 					instant_build = yes
 				}
 		}
@@ -2154,10 +2094,10 @@ create_country_leader = {
 		y = 2
 		completion_reward = {
 		15 = {
-		add_extra_state_shared_building_slots = 2
+		add_extra_state_shared_building_slots = 6
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 4
 					instant_build = yes
 				}
 		}
@@ -2174,10 +2114,10 @@ create_country_leader = {
 		y = 3
 		completion_reward = {
 		17 = {
-		add_extra_state_shared_building_slots = 2
+		add_extra_state_shared_building_slots = 6
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 4
 					instant_build = yes
 				}
 		}
@@ -2195,10 +2135,10 @@ create_country_leader = {
 		y = 2
 		completion_reward = {
 		21 = {
-		add_extra_state_shared_building_slots = 2
+		add_extra_state_shared_building_slots = 6
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 4
 					instant_build = yes
 				}
 		}
@@ -2216,10 +2156,10 @@ create_country_leader = {
 		y = 3
 		completion_reward = {
 		31 = {
-		add_extra_state_shared_building_slots = 2
+		add_extra_state_shared_building_slots = 6
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 4
 					instant_build = yes
 				}
 		}
@@ -2228,7 +2168,7 @@ create_country_leader = {
 	}
 	focus = {
 		id = FRA_ind_reform
-		icon = GFX_goal_generic_production
+		icon = GFX_goal_generic_army_artillery
 		cost = 10
 		prerequisite = {
 			focus = FRA_more_cic
@@ -2238,12 +2178,13 @@ create_country_leader = {
 		}
 		x = 68
 		y = 4
-			completion_reward = {
-				add_tech_bonus = {
-				name = industrial_bonus
+		completion_reward = {
+			add_research_slot  = 2
+			add_tech_bonus = {
+				name = military_bonus
 				bonus = 0.5
-				uses = 3
-				category = industry
+				uses = 4
+				category = armor
 			}
 		}
 
@@ -2259,18 +2200,21 @@ create_country_leader = {
 		y = 2
 		completion_reward = {
 		29 = {
-		add_resource = {
-		type = steel
-		amount = 64
-		}
-		add_resource = {
-		type = aluminium
-		amount = 32
-		}
-		add_resource = {
-		type = tungsten
-		amount = 32
-		}
+			add_resource = { 
+				type = steel 
+				amount = 64
+				state = 29
+			}
+			add_resource = { 
+				type = aluminium 
+				amount = 64
+				state = 29
+			}
+			add_resource = { 
+				type = tungsten 
+				amount = 64
+				state = 29
+			}
 		}
 		}
 
@@ -2286,16 +2230,16 @@ create_country_leader = {
 		y = 1
 		completion_reward = {
 		459 = {
-		add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
+			add_extra_state_shared_building_slots = 8
+			add_building_construction = {
+				type = industrial_complex
+				level = 3
+				instant_build = yes
 				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
+			add_building_construction = {
+				type = arms_factory
+				level = 3
+				instant_build = yes
 				}
 		}
 		}
@@ -2314,12 +2258,13 @@ create_country_leader = {
 		x = 73
 		y = 3
 		completion_reward = {
-		513 = {
-		add_resource = {
-		type = oil
-		amount = 64
-		}
-		}
+			513 = {
+			add_resource = { 
+				type = oil
+				amount = 77
+				state = 513
+				}
+			}
 		}
 
 	}
@@ -2334,24 +2279,24 @@ create_country_leader = {
 		y = 2
 		completion_reward = {
 		459 = {
-						add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
 				}
 		}
 		460 = {
-						add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
 				}
 		}
 		513 = {
-						add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
 				}
 		}
 		}
