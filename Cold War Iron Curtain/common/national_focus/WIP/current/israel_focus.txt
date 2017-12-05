@@ -2292,7 +2292,9 @@ focus_tree = {
 		}
 		x = 33
 		y = 7
-
+		completion_reward = {
+			add_ideas = aliyah_sovieT_bloc
+		}
 	}
 	focus = {
 		id = ISR_Reject_the_Soviets
@@ -2306,7 +2308,20 @@ focus_tree = {
 		}
 		x = 38
 		y = 6
-
+			completion_reward = {
+					ISR = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_decrease
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = ISR
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = ISR_Strengthen_Domestic_MIC
@@ -2324,7 +2339,100 @@ focus_tree = {
 		}
 		x = 38
 		y = 7
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
+			}
 	}
 	focus = {
 		id = ISR_Planned_Industrialization
@@ -2536,7 +2644,10 @@ focus_tree = {
 		}
 		x = 40
 		y = 2
-
+		completion_reward = {
+			add_national_unity = 0.10
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = ISR_Embrace_Traditionalism
@@ -2556,7 +2667,9 @@ focus_tree = {
 		}
 		x = 47
 		y = 2
-
+		completion_reward = {
+			add_ideas = ISR_traditionalist_influence
+		}
 	}
 	focus = {
 		id = ISR_Housing_Subsidies
@@ -2569,7 +2682,11 @@ focus_tree = {
 		}
 		x = 40
 		y = 3
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = ISR_Socialized_Health_Care
@@ -2580,7 +2697,9 @@ focus_tree = {
 		}
 		x = 40
 		y = 4
-
+		completion_reward = {
+			add_ideas = socialized_health_care
+		}
 	}
 	focus = {
 		id = ISR_Strengthened_Welfare_System
@@ -2591,7 +2710,9 @@ focus_tree = {
 		}
 		x = 40
 		y = 5
-
+		completion_reward = {
+			add_ideas = the_american_welfare_state
+		}
 	}
 	focus = {
 		id = ISR_Seek_Closer_Ties_to_the_West
@@ -2602,7 +2723,44 @@ focus_tree = {
 		}
 		x = 40
 		y = 6
-
+			completion_reward = {
+					ISR = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = ISR
+									modifier = large_increase
+								}
+						}
+					ISR = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						}
+					FRA = {
+							add_opinion_modifier = {
+									target = ISR
+									modifier = large_increase
+								}
+						}
+					ISR = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = ISR
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = ISR_Strengthen_The_General_Zionists
@@ -2620,7 +2778,9 @@ focus_tree = {
 		}
 		x = 42
 		y = 2
-
+		completion_reward = {
+			add_ideas = centrist_drift
+		}
 	}
 	focus = {
 		id = ISR_Embrace_the_Free_Market
@@ -2631,7 +2791,33 @@ focus_tree = {
 		}
 		x = 42
 		y = 3
-
+		completion_reward = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}				
+		}
+	}
 	}
 	focus = {
 		id = ISR_Suspend_Support_for_Collectives
@@ -2642,7 +2828,10 @@ focus_tree = {
 		}
 		x = 42
 		y = 4
-
+		completion_reward = {
+			add_political_power = 300
+			add_national_unity = -0.05
+		}
 	}
 	focus = {
 		id = ISR_Seek_Western_Investment
@@ -2653,7 +2842,33 @@ focus_tree = {
 		}
 		x = 42
 		y = 5
-
+		completion_reward = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}				
+		}
+	}
 	}
 	focus = {
 		id = ISR_Embrace_Free_Trade
@@ -2664,7 +2879,33 @@ focus_tree = {
 		}
 		x = 42
 		y = 6
-
+		completion_reward = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}				
+		}
+	}
 	}
 	focus = {
 		id = ISR_Support_Herut
@@ -2682,7 +2923,9 @@ focus_tree = {
 		}
 		x = 44
 		y = 2
-
+		completion_reward = {
+			add_ideas = nationalist_drift
+		}
 	}
 	focus = {
 		id = ISR_american_alignment
@@ -2809,7 +3052,10 @@ focus_tree = {
 		}
 		x = 44
 		y = 3
-
+		completion_reward = {
+			add_ideas = military_youth_focus
+			add_ideas = militarism_focus
+		}
 	}
 	focus = {
 		id = ISR_Deny_the_Legitimacy_of_Jordan
@@ -2820,7 +3066,22 @@ focus_tree = {
 		}
 		x = 44
 		y = 4
-
+			completion_reward = {
+				add_political_power = 300
+				add_national_unity = 0.10
+					ISR = {
+							add_opinion_modifier = {
+									target = JOR
+									modifier = large_decrease
+								}
+						}
+					JOR = {
+							add_opinion_modifier = {
+									target = ISR
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = ISR_Expand_to_the_Jordan_River
@@ -2831,7 +3092,12 @@ focus_tree = {
 		}
 		x = 44
 		y = 5
-
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = JOR
+			} 
+		}
 	}
 	focus = {
 		id = ISR_War_For_The_West_Bank
@@ -2842,7 +3108,12 @@ focus_tree = {
 		}
 		x = 44
 		y = 6
-
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = PAL
+			} 
+		}
 	}
 	focus = {
 		id = ISR_State_Education_Law
@@ -2857,11 +3128,13 @@ focus_tree = {
 			focus = ISR_Support_Makai
 			focus = ISR_Strengthen_Mapam
 			focus = ISR_Embrace_Traditionalism
-			focus = ISR_Strengthen_the_National_Religous_Front_Copy
+			focus = ISR_Strengthen_the_National_Religous_Front
 		}
 		x = 42
 		y = 7
-
+		completion_reward = {
+			add_ideas = ISR_education_reform
+		}
 	}
 	focus = {
 		id = ISR_Enforce_Religous_Curricula
@@ -2872,7 +3145,9 @@ focus_tree = {
 		}
 		x = 47
 		y = 3
-
+		completion_reward = {
+			add_ideas = ISR_education_reform_religous
+		}
 	}
 	focus = {
 		id = ISR_Encourage_Higher_Birthrate
@@ -2883,10 +3158,12 @@ focus_tree = {
 		}
 		x = 47
 		y = 4
-
+		completion_reward = {
+			swap_ideas = { remove_idea = population_growth_rapid add_idea = population_growth_explosion }	
+		}
 	}
 	focus = {
-		id = ISR_Strengthen_the_National_Religous_Front_Copy
+		id = ISR_Strengthen_the_National_Religous_Front
 		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
@@ -2898,7 +3175,10 @@ focus_tree = {
 		}
 		x = 46
 		y = 5
-
+		completion_reward = {
+			set_politics = { ruling_party = fascism elections_allowed = yes }
+			swap_ideas = { remove_idea = ISR_traditionalist_influence add_idea = nationalism }	
+		}
 	}
 	focus = {
 		id = ISR_Encourage_Baal_Teshuva_Movement
@@ -2908,11 +3188,14 @@ focus_tree = {
 			focus = ISR_Encourage_Higher_Birthrate
 		}
 		mutually_exclusive = {
-			focus = ISR_Strengthen_the_National_Religous_Front_Copy
+			focus = ISR_Strengthen_the_National_Religous_Front
 		}
 		x = 48
 		y = 5
-
+		completion_reward = {
+			set_politics = { ruling_party = conservative elections_allowed = yes }
+			swap_ideas = { remove_idea = ISR_traditionalist_influence add_idea = conservativism_drift }	
+		}
 	}
 	focus = {
 		id = ISR_Haredi_Draft_Exclusion
@@ -2923,7 +3206,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 6
-
+		completion_reward = {
+			add_ideas = haredi_draft_exclusion 
+		}
 	}
 	focus = {
 		id = ISR_Two_State_Proposal
@@ -2934,7 +3219,11 @@ focus_tree = {
 		}
 		x = 48
 		y = 7
-
+		completion_reward = {
+			set_autonomy = { target = PAL autonomy_state = autonomy_free }
+			PAL = { transfer_state = 781 }	
+			PAL = { transfer_state = 801 }	
+		}
 	}
 	focus = {
 		id = ISR_hula_valley_reclaimation
@@ -6356,10 +6645,26 @@ focus_tree = {
 		icon = GFX_focus_RAJ_lions_of_the_great_war
 		cost = 10.00
 		prerequisite = {
-			focus = ISR_Strengthen_the_National_Religous_Front_Copy
+			focus = ISR_Strengthen_the_National_Religous_Front
 		}
 		x = 46
 		y = 6
-
+		completion_reward = {
+			SYR = {
+				every_owned_state = {
+					add_core_of = ISR 
+				}
+			}
+			LEB = {
+				every_owned_state = {
+					add_core_of = ISR 
+				}
+			}
+			JOR = {
+				every_owned_state = {
+					add_core_of = ISR 
+				}
+			}
+		}
 	}
 }
