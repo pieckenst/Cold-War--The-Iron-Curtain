@@ -1575,9 +1575,6 @@ focus_tree = {
 		icon = GFX_focus_secret_rearmament
 		cost = 10.00
 		prerequisite = {
-			focus = INO_soviet_armed_divisions
-		}
-		prerequisite = {
 			focus = INO_soviet_army_doctrine
 		}
 		x = 17
@@ -1962,9 +1959,6 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = INO_american_doctrine
-		}
-		prerequisite = {
-			focus = INO_american_armed_divisions
 		}
 		x = 26
 		y = 4
@@ -2590,9 +2584,6 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = INO_soviet_army_doctrine
-		}
-		prerequisite = {
-			focus = INO_soviet_armed_divisions
 		}
 		x = 19
 		y = 4
@@ -3527,7 +3518,6 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = INO_Path_of_Allah
-			focus = INO_Melayu_Indonesia
 		}
 		x = 43
 		y = 2
@@ -3535,21 +3525,6 @@ focus_tree = {
 			swap_ideas = { remove_idea = islamic_traditionalist_influence add_idea = monarchist_influence }	
 			set_politics = { ruling_party = monarchism elections_allowed = no }
 		}
-	}
-	focus = {
-		id = INO_the_Indonesian_Federation
-		icon = GFX_focus_rom_royal_dictatorship
-		cost = 10.00
-		prerequisite = {
-			focus = INO_Path_of_the_Sultans
-		}
-		x = 43
-		y = 3
-		completion_reward = {
-			add_political_power = 300
-			add_national_unity = 0.05
-			annex_country = BRU
-		}		
 	}
 	focus = {
 		id = INO_Path_of_Allah
@@ -3577,7 +3552,7 @@ focus_tree = {
 		x = 45
 		y = 3
 		completion_reward = {
-			annex_country = DAR
+			annex_country = { target = DAR }	
 			set_politics = { ruling_party = islamism elections_allowed = yes }
 		}
 	}
@@ -3608,7 +3583,7 @@ focus_tree = {
 		x = 43
 		y = 5
 		completion_reward = {
-			MEL = { country_event = INO.205 }
+			MAL = { country_event = INO.205 }
 			set_cosmetic_tag = MEL_INO
 		}
 	}
@@ -3939,5 +3914,20 @@ focus_tree = {
 							producer = SOV
 						}
 				}
+	}
+	focus = {
+		id = INO_the_Indonesian_Federation
+		icon = GFX_focus_rom_royal_dictatorship
+		cost = 10.00
+		prerequisite = {
+			focus = INO_Path_of_the_Sultans
+		}
+		x = 43
+		y = 3
+		completion_reward = {
+			add_political_power = 300
+			add_national_unity = 0.05
+			annex_country = { target = BRU }
+		}		
 	}
 }
