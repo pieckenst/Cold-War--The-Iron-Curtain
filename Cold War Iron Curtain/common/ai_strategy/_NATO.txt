@@ -58,3 +58,25 @@ USA_foriegn_policy = {
 		value = 400
 	}	
 }
+stay_in_alliance_NATO = {
+    enable = {
+        AND = {
+            is_in_faction = yes
+            any_allied_country = {
+                tag = USA
+                is_faction_leader = yes
+            }
+        }
+    }
+ 
+    abort = {
+        NOT = { country_exists = USA }
+    }
+   
+    ai_strategy = {
+        type = alliance
+        id = "USA"            
+        value = 500
+    }
+}
+ 
