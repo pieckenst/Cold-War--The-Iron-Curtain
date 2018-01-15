@@ -121,3 +121,24 @@ country_event = {
 		ai_chance = { factor = 20 }
 	}
 }
+
+# After Election 1953
+country_event = {
+	id = wgr.5
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = WGR
+		democratic > 0.2
+		date > 1953.1.1
+		date < 1954.1.1
+	}
+	
+	option = { 
+		name = wgr.5.a
+		WGR = { remove_ideas = democratic_drift_1 }
+	}
+
+}
