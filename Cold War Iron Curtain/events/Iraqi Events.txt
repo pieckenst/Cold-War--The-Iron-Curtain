@@ -1,0 +1,53 @@
+add_namespace = swfs
+country_event = {
+	id = swfs.2
+	title = "14th of July Revolution"
+	desc = "Free Officer Coup Attempt"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Successful Coup"
+		release = JOR
+		drop_cosmetic_tag = yes	
+		set_country_flag = fall_of_the_monarchy
+			set_politics = { ruling_party = socialist elections_allowed = no }
+			add_timed_idea = { idea = IRQ_free_officer_era_drift days = 365 }	
+		ai_chance = {
+			factor = 80
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 20
+		}
+		name = "Support the Monarchy"
+		set_country_flag = stand_with_the_monarchy
+		start_civil_war = { ideology = socialist size = 0.40 }	
+	}
+}
+
+country_event = {
+	id = swfs.5
+	title = "Iraq Requests the Annexation of Kuwait"
+	desc = "Iraq Requests the Annexation of Kuwait"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to the Demands"
+		IRQ = { annex_country = { target = KUW } }
+		ai_chance = {
+			factor = 80
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 20
+		}
+		name = "Decline"
+
+	}
+}

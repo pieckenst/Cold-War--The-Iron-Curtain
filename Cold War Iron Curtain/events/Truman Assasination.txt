@@ -1,0 +1,98 @@
+add_namespace = swf
+# Truman Assasination Attempt Trigger
+country_event = {
+	id = swf.1
+	hidden = yes
+
+	trigger = {
+		tag = USA
+		date > 1950.10.31
+		date < 1950.11.5
+		NOT = { has_global_flag = truman_assasination_attempt }
+		NOT = { has_global_flag = truman_assasinated }
+		has_capitulated = no
+	}
+
+	mean_time_to_happen = { days = 1 }
+	fire_only_once = yes
+
+
+	immediate = {
+		random_list = { 
+			80 = { news_event = { hours = 6 id = swf.2 } } 
+			20 = { news_event = { hours = 6 id = swf.3 } } 
+		}	
+	}
+}
+news_event = {
+	id = swf.2
+	title = "Attempted Assassination on President Truman!"
+	desc = swf.2.d
+	picture = GFX_news_event_truman_assasination_attempt
+
+	fire_only_once = yes
+	
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Thank God for Truman being fine."
+		trigger = { TAG = USA }
+	}
+	
+	option = {
+		name = "A close call for our 'friend'."
+		trigger = { TAG = SOV }
+	}
+	
+	option = {
+		name = "Thank God for Truman being alive."
+		trigger = { 
+			NOT = { TAG = SOV }
+			NOT = { TAG = USA }
+		}
+	}	
+}
+news_event = {
+	id = swf.3
+	title = "President Truman Assassinated!"
+	desc = swf.3.d
+	picture = GFX_news_event_truman_death
+
+	fire_only_once = yes
+	
+	major = yes
+
+	is_triggered_only = yes
+
+#	immediate = {
+#
+#	}
+	option = {
+		name = "President Truman will be missed. President Barkley will lead us now."
+		trigger = { TAG = USA }
+		set_country_flag = truman_assasinated
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Alben W. Barkley"
+			desc = ""
+			picture = "Portrait_Barkley.dds"
+			expire = "1960.1.1"
+			ideology = liberalism
+		}
+	}
+	
+	option = {
+		name = "How will this change for us?"
+		trigger = { TAG = SOV }
+	}
+	
+	option = {
+		name = "President Truman will be missed. What will happen now?"
+		trigger = { 
+			NOT = { TAG = SOV }
+			NOT = { TAG = USA }
+		}
+	}	
+}

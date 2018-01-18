@@ -1,0 +1,22 @@
+﻿##########################
+# Chinese Events
+##########################
+
+add_namespace = swfs
+
+country_event = {
+	id = swfs.17
+	title = "UN Sanctions"
+	desc = "UN Sanctions"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to the Demands"
+		every_country = {
+			#limit = { has_coutnry_flag = UN_member }
+			reverse_add_opinion_modifier = { target = ROOT modifier = UN_under_sanctions }	
+			add_opinion_modifier = { target = ROOT modifier = UN_under_sanctions }	
+		}
+	}
+}
