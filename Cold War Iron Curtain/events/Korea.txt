@@ -31,7 +31,13 @@ country_event = {
 	
 	option = {
 		name = korea.1.o.a
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		create_faction = north_korean_faction
 		declare_war_on = {
 			target = KOR
@@ -47,7 +53,13 @@ country_event = {
 	}
 	option = {
 		name = korea.1.o.b
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 }
 
@@ -118,17 +130,33 @@ country_event = {
 	
 	option = {
 		name = korea.3.o.a
-		ai_chance = { factor = 100 }
-		add_to_war = {
-			targeted_alliance = KOR
-			enemy = KPA
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
 		}
+		add_manpower = -40000
+		KOR = { add_manpower = 40000 }
+		KOR = { load_obb = korean_reinforcements }
+		send_equipment = { target = KOR type = infantry_equipment_1 amount = 20000 }
+		send_equipment = { target = KOR type = lmg_infantry_equipment_1 amount = 10000 }
+		send_equipment = { target = KOR type = anti_tank_infantry_equipment_1 amount = 5000 }
+		send_equipment = { target = KOR type = lt_equipment_1 amount = 1000 }
+		send_equipment = { target = KOR type = motorized_equipment_1 amount = 5000 }
 		set_global_flag = korean_war_usa_enters
 		news_event = { hours = 6 id = korea.4 }
 	}
 	option = {
 		name = korea.3.o.b
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 0 
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 	}
 }
 
@@ -208,7 +236,7 @@ country_event = {
 			NOT = { 748 = { is_controlled_by = KPA } }
 			NOT = { 749 = { is_controlled_by = KPA } }
 			date > 1950.10.20
-			}
+		}
 	}
 
 	mean_time_to_happen = {
@@ -217,18 +245,33 @@ country_event = {
 	
 	option = {
 		name = korea.3.o.a
-		ai_chance = { factor = 100 }
-		KPA = { add_to_faction = PRC }
-		add_to_war = {
-			targeted_alliance = KPA
-			enemy = KOR
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
 		}
+		add_manpower = -50000
+		KPA = { add_manpower = 50000 }
+		KPA = { load_obb = PRC_communist_reinforcements_Korean_War_1 }
+		send_equipment = { target = KPA type = infantry_equipment_1 amount = 10000 }
+		send_equipment = { target = KPA type = lmg_infantry_equipment_1 amount = 5000 }
+		send_equipment = { target = KPA type = anti_tank_infantry_equipment_1 amount = 2500 }
+		send_equipment = { target = KPA type = lt_equipment_1 amount = 500 }
+		send_equipment = { target = KPA type = motorized_equipment_1 amount = 2500 }
 		set_global_flag = korean_war_china_enters
 		news_event = { hours = 6 id = korea.6 }
 	}
 	option = {
 		name = korea.3.o.b
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 }
 
@@ -304,7 +347,7 @@ country_event = {
 		tag = KOR
 		has_global_flag = korean_war_begun
 		has_war_with = KPA
-		surrender_progress > 0.70
+		surrender_progress > 0.85
 	}	
 
 	mean_time_to_happen = {
@@ -313,12 +356,24 @@ country_event = {
 	
 	option = {
 		name = korea.9.o.a
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		KPA = { country_event = { id = korea.7 } }
 	}
 	option = {
 		name = korea.9.o.b
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 }
 
@@ -468,7 +523,7 @@ country_event = {
 		tag = KPA
 		has_global_flag = korean_war_begun
 		has_war_with = KOR
-		surrender_progress > 0.70
+		surrender_progress > 0.85
 	}	
 
 	mean_time_to_happen = {
@@ -477,12 +532,24 @@ country_event = {
 	
 	option = {
 		name = korea.9.o.a
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		KOR = { country_event = { id = korea.11 } }
 	}
 	option = {
 		name = korea.9.o.b
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 }
 
@@ -640,7 +707,7 @@ country_event = {
 		tag = USA
 		country_exists = KOR
 		country_exists = KPA
-		has_war_with = KPA
+		KOR = { has_war_with = KPA }
 		has_global_flag = korean_war_begun
 		has_global_flag = korean_war_usa_enters
 		NOT = { has_global_flag = korean_armistice_china }
@@ -653,13 +720,25 @@ country_event = {
 	
 	option = { 
 		name = korea.13.o.a
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		KOR = { country_event = { days = 1 id = korea.14 } }
 		set_global_flag = korean_armistice_us
 	}
 	option = {
 		name = korea.13.o.b
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			} 
+		}
 	}
 }
 
@@ -676,12 +755,24 @@ country_event = {
 	
 	option = { 
 		name = korea.14.o.a
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		KPA = { country_event = { days = 1 id = korea.15 } }
 	}
 	option = {
 		name = korea.14.o.b
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 }
 
@@ -698,13 +789,25 @@ country_event = {
 	
 	option = { 
 		name = korea.15.o.a
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		set_global_flag = korean_war_peace
 		news_event = { hours = 6 id = korea.20 }
 	}
 	option = {
 		name = korea.14.o.b
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 }
 
@@ -747,7 +850,7 @@ country_event = {
 		tag = PRC
 		country_exists = KOR
 		country_exists = KPA
-		has_war_with = KOR
+		KPA = { has_war_with = KOR }
 		has_global_flag = korean_war_begun
 		has_global_flag = korean_war_china_enters
 		NOT = { has_global_flag = korean_armistice_us }
@@ -760,13 +863,25 @@ country_event = {
 	
 	option = { 
 		name = korea.17.o.a
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		KPA = { country_event = { days = 1 id = korea.18 } }
 		set_global_flag = korean_armistice_china
 	}
 	option = {
 		name = korea.17.o.b
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 }
 
@@ -783,12 +898,24 @@ country_event = {
 	
 	option = { 
 		name = korea.15.o.a
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		KOR = { country_event = { days = 1 id = korea.19 } }
 	}
 	option = {
 		name = korea.14.o.b
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 }
 
@@ -805,13 +932,25 @@ country_event = {
 	
 	option = { 
 		name = korea.14.o.a
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		set_global_flag = korean_war_peace
 		news_event = { hours = 6 id = korea.20 }
 	}
 	option = {
 		name = korea.14.o.b
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 }
 
@@ -911,12 +1050,24 @@ country_event = {
 	
 	option = { 
 		name = korea.15.o.a
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		KOR = { country_event = { days = 1 id = korea.19 } }
 	}
 	option = {
 		name = korea.14.o.b
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 }
 
@@ -933,12 +1084,24 @@ country_event = {
 	
 	option = { 
 		name = korea.14.o.a
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		KPA = { country_event = { days = 1 id = korea.15 } }
 	}
 	option = {
 		name = korea.14.o.b
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 }
 
@@ -963,14 +1126,26 @@ country_event = {
 	
 	option = {
 		name = korea.24.o.a
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		set_global_flag = annexation_of_south_korea
 		
 		news_event = { hours = 6 id = korea.26 }
 	}
 	option = {
 		name = korea.24.o.b
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 		declare_war_on = {
 			target = KPA
 			type = annex_everything
@@ -1005,14 +1180,26 @@ country_event = {
 	
 	option = {
 		name = korea.24.o.a
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		set_global_flag = annexation_of_north_korea
 		
 		news_event = { hours = 6 id = korea.27 }
 	}
 	option = {
 		name = korea.25.o.b
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 		declare_war_on = {
 			target = KOR
 			type = annex_everything
