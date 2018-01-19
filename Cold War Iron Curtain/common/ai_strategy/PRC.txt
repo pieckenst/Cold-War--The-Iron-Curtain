@@ -10,30 +10,36 @@
 # protect
 # influence
 
-CHI_civil_war = {
+PRC_civil_war = {
 	enable = {
-		tag = CHI	
+		tag = PRC
+		
 	}
 	abort = {
-		NOT = { has_war_with = PRC }
+		NOT = { has_war_with = CHI }
 	}
 	
 	ai_strategy = {
 		type = antagonize
-		id = "PRC"
+		id = "CHI"
 		value = 100
 	}
 	ai_strategy = {
 		type = conquer
-		id = "PRC"
+		id = "CHI"
 		value = 100
+	}
+	ai_strategy = {
+		type = invade
+		id = "CHI"
+		value = 200
 	}
 }
 
-CHI_after_civil_war = {
+PRC_after_civil_war = {
 	enable = {
-		tag = CHI
-		NOT = { has_war_with = PRC }
+		tag = PRC
+		NOT = { has_war_with = CHI }
 	}
 	abort = {
 		NOT = { country_exists = PRC }
