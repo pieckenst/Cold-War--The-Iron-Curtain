@@ -420,7 +420,11 @@ focus_tree = {
 		x = 14
 		y = 9
 		completion_reward = {
-			SOV = { set_autonomy = { target = FIN autonomy_state = autonomy_easternbloc } }
+			add_political_power = 50
+			add_popularity = {
+					ideology = communism
+					popularity = 0.03
+				}
 		}
 	}
 	focus = {
@@ -2893,14 +2897,17 @@ focus_tree = {
 	focus = {
 		id = FIN_request_porkkala
 		icon = GFX_goal_generic_improve_relations
-		cost = 10.00
+		cost = 1.00
+		x = 74
+		y = 2
 		prerequisite = {
 			focus = FIN_join_un
 		}
-		x = 74
-		y = 2
-		completion_reward = {
-			add_national_unity = 0.15
+		available = {
+			date > 1955.1.1
+		}
+			completion_reward = {
+			SOV = { country_event = fin.1 }
 		}
 ##Event to the soviets about gettin Porkkala naval base back, 95% chance of accepting
 	}
