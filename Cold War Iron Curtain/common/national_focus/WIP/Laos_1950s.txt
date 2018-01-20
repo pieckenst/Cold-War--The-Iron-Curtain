@@ -2859,7 +2859,10 @@ focus_tree = {
 		cost = 10.00
 		x = 58
 		y = 0
-
+		completion_reward = {
+			add_political_power = 300
+			add_autonomy_ratio = { value = 0.75 localization = Decolonization }
+		}
 	}
 	focus = {
 		id = LOS_Establish_the_Kingdom_of_Laos
@@ -2867,15 +2870,19 @@ focus_tree = {
 		cost = 10.00
 		x = 58
 		y = 4
-
-	}
+		completion_reward = {
+			drop_cosmetic_tag = yes	
+		}
+	}	
 	focus = {
 		id = LOS_PRC_Advisors
 		icon = GFX_goal_support_communism
 		cost = 10.00
 		x = 62
 		y = 6
-
+		completion_reward = {
+			add_ideas = chinese_advisors
+		}
 	}
 	focus = {
 		id = LOS_Dejure_Independence
@@ -2886,7 +2893,9 @@ focus_tree = {
 		}
 		x = 58
 		y = 1
-
+		completion_reward = {
+			set_autonomy = { target = LOS autonomy_state = autonomy_free }	
+		}
 	}
 	focus = {
 		id = LOS_Revitalize_the_Lao_Issara
@@ -2901,7 +2910,9 @@ focus_tree = {
 		}
 		x = 54
 		y = 2
-
+		completion_reward = {
+			add_ideas = Lao_Issara
+		}
 	}
 	focus = {
 		id = LOS_Return_of_Phetsarath_Ratanavongsa
@@ -2912,7 +2923,9 @@ focus_tree = {
 		}
 		x = 54
 		y = 3
-
+		completion_reward = {
+			add_ideas = nationalist_drift
+		}
 	}
 	focus = {
 		id = LOS_Condemn_French_Imperialism
@@ -2923,7 +2936,20 @@ focus_tree = {
 		}
 		x = 54
 		y = 4
-
+		completion_reward = {
+					FRA = {
+							add_opinion_modifier = {
+									target = LOS
+									modifier = large_decrease
+								}
+						}
+					LOS = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_decrease
+								}
+						}		
+		}
 	}
 	focus = {
 		id = LOS_Crown_Phetsarath_Ratanavongsa
@@ -2934,7 +2960,20 @@ focus_tree = {
 		}
 		x = 54
 		y = 5
+		completion_reward = {
+				set_politics = { ruling_party = nationalism elections_allowed = no }
+					create_country_leader = {
+							name = "Phetsarath Ratanavongsa"
+							desc = ""
+							picture = "Ratanavongsa.dds"
+							expire = "1980.1.1"
+							ideology = nationalist_ideology
+							traits = {
 
+								}
+						}
+				
+		}
 	}
 	focus = {
 		id = LOS_Centralize_the_Military
@@ -2945,7 +2984,10 @@ focus_tree = {
 		}
 		x = 54
 		y = 6
-
+		completion_reward = {
+			add_ideas = militarism_focus
+			add_ideas = military_youth_focus
+		}
 	}
 	focus = {
 		id = LOS_Establish_Domestic_Military_Production
@@ -2956,6 +2998,100 @@ focus_tree = {
 		}
 		x = 54
 		y = 7
+		
+		completion_reward = {
+				random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -2967,7 +3103,20 @@ focus_tree = {
 		}
 		x = 54
 		y = 8
-
+			completion_reward = {
+					CHI = {
+							add_opinion_modifier = {
+									target = LOS
+									modifier = large_increase
+								}
+						}
+					LOS = {
+							add_opinion_modifier = {
+									target = CHI
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = LOS_Establish_the_Royal_Lao_Army
@@ -2982,7 +3131,9 @@ focus_tree = {
 		}
 		x = 58
 		y = 2
-
+		completion_reward = {
+			load_oob = laotion_royal_guard
+		}
 	}
 	focus = {
 		id = LOS_Military_Expansion
@@ -2993,7 +3144,9 @@ focus_tree = {
 		}
 		x = 58
 		y = 3
-
+		completion_reward = {
+			add_ideas = military_expansion
+		}
 	}
 	focus = {
 		id = LOS_Economic_Boom
@@ -3004,7 +3157,190 @@ focus_tree = {
 		}
 		x = 58
 		y = 5
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = LOS_Prime_Minister_Souvanna_Phouma
@@ -3026,7 +3362,10 @@ focus_tree = {
 		}
 		x = 58
 		y = 7
-
+		completion_reward = {
+			add_national_unity = 0.25
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = LOS_Phoui_Sananikone
@@ -3053,7 +3392,99 @@ focus_tree = {
 		}
 		x = 55
 		y = 9
-
+		completion_reward = {
+				random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = LOS_Neutralist_Victory
@@ -3132,7 +3563,10 @@ focus_tree = {
 		}
 		x = 62
 		y = 2
-
+		completion_reward = {
+			add_ideas = internationalism 
+			add_ideas = paramilitarism_focus
+		}
 	}
 	focus = {
 		id = LOS_Viet_Minh_Advisors
@@ -3143,7 +3577,21 @@ focus_tree = {
 		}
 		x = 62
 		y = 3
-
+			completion_reward = {
+					army_experience = 50
+					VIE = {
+							add_opinion_modifier = {
+									target = LOS
+									modifier = large_increase
+								}
+						}
+					LOS = {
+							add_opinion_modifier = {
+									target = VIE
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = LOS_Intervention_in_the_First_Indochina_War
@@ -3154,7 +3602,13 @@ focus_tree = {
 		}
 		x = 62
 		y = 4
-
+		available = {
+			country_exists = VIE
+			VIE = { has_war_with = FRA }	
+		}
+		completion_reward = {
+			VIE = { add_to_war = { targeted_alliance = LOS enemy = FRA } }
+		}
 	}
 	focus = {
 		id = LOS_Five_Year_Plan
@@ -3169,7 +3623,190 @@ focus_tree = {
 		}
 		x = 62
 		y = 5
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = LOS_Execute_Communist_Coup
@@ -3180,7 +3817,11 @@ focus_tree = {
 		}
 		x = 62
 		y = 7
-
+		completion_reward = {
+				add_ideas = internationalism
+				set_politics = { ruling_party = communism elections_allowed = no }
+				
+		}
 	}
 	focus = {
 		id = LOS_Curtail_Opposition_Parties
@@ -3192,7 +3833,10 @@ focus_tree = {
 		}
 		x = 62
 		y = 9
-
+		completion_reward = {
+			add_political_power = 300
+			add_popularity = { ideology = communism popularity = 0.20 }	
+		}
 	}
 	focus = {
 		id = LOS_the_Red_King
@@ -3201,12 +3845,20 @@ focus_tree = {
 		prerequisite = {
 			focus = LOS_Curtail_Opposition_Parties
 		}
-		mutually_exclusive = {
-			focus = LOS_Symbolic_Figurehead
-		}
 		x = 61
 		y = 10
+		completion_reward = {
+					create_country_leader = {
+							name = "Prince Souphanouvong"
+							desc = ""
+							picture = "Souphanouvong_communist.dds"
+							expire = "1996.1.1"
+							ideology = marxism
+							traits = {
 
+								}
+						}			
+		}
 	}
 	focus = {
 		id = LOS_Symbolic_Figurehead
@@ -3215,12 +3867,12 @@ focus_tree = {
 		prerequisite = {
 			focus = LOS_Curtail_Opposition_Parties
 		}
-		mutually_exclusive = {
-			focus = LOS_the_Red_King
-		}
 		x = 63
 		y = 10
-
+		completion_reward = {
+			add_political_power = 300
+			add_national_unity = 0.25
+		}
 	}
 	focus = {
 		id = LOS_Rural_Mobilization
@@ -3232,7 +3884,9 @@ focus_tree = {
 		}
 		x = 62
 		y = 11
-
+		complete_tooltip = {
+			add_ideas = agrarian_reform
+		}
 	}
 	focus = {
 		id = LOS_Soviet_Advisors
@@ -3243,7 +3897,101 @@ focus_tree = {
 		}
 		x = 62
 		y = 12
-
+		completion_reward = {
+				add_ideas = militarism_focus
+				add_ideas = soviet_advisors
+				random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = LOS_Laotion_Civil_War_communist
@@ -3254,18 +4002,12 @@ focus_tree = {
 		}
 		x = 62
 		y = 13
-
-	}
-	focus = {
-		id = LOS_Establish_the_Kingdom_of_Laos_Copy
-		icon = GFX_focus_rom_abdicate
-		cost = 10.00
-		prerequisite = {
-			focus = LOS_Military_Expansion
-		}
-		x = 58
-		y = 4
-
+		completion_reward = {
+							start_civil_war = {
+									ideology = monarchism
+									size = 0.5
+								}
+							}
 	}
 	focus = {
 		id = LOS_Purge_Pathet_Lao_Military_Members
@@ -3276,7 +4018,12 @@ focus_tree = {
 		}
 		x = 55
 		y = 10
-
+		completion_reward = {
+			add_manpower = -50000
+			add_national_unity = -0.10
+			add_political_power = 300
+			army_experience = -25
+		}
 	}
 	focus = {
 		id = LOS_Phoumi_Nosavans_Coup
@@ -3290,7 +4037,20 @@ focus_tree = {
 		}
 		x = 56
 		y = 13
+		completion_reward = {
+				set_politics = { ruling_party = neutrality elections_allowed = no }
+					create_country_leader = {
+							name = "Phoumi Nosavans"
+							desc = ""
+							picture = "Nosavans.dds"
+							expire = "1990.1.1"
+							ideology = reactionary
+							traits = {
 
+								}
+						}
+				
+		}
 	}
 	focus = {
 		id = LOS_Committee_for_the_Defence_of_National_Interests 
@@ -3301,7 +4061,12 @@ focus_tree = {
 		}
 		x = 55
 		y = 12
-
+		completion_reward = {
+			add_ideas = militarism_focus
+			add_ideas = military_youth_focus
+			add_ideas = military_expansion
+			add_ideas = leftist_persecution_cam
+		}
 	}
 	focus = {
 		id = LOS_Begin_Arming_the_Hmong
@@ -3312,7 +4077,9 @@ focus_tree = {
 		}
 		x = 55
 		y = 11
-
+		completion_reward = {
+			load_oob = hmong_militias
+		}
 	}
 	focus = {
 		id = LOS_Resumption_of_the_Laotion_Civil_war
@@ -3322,13 +4089,14 @@ focus_tree = {
 			focus = LOS_Phoumi_Nosavans_Coup
 			focus = LOS_Send_Aid_to_South_Vietnam
 		}
-		mutually_exclusive = {
-			focus = LOS_Phoui_Sananikone
-			focus = LOS_Phoui_Sananikone
-		}
 		x = 55
 		y = 14
-
+		completion_reward = {
+							start_civil_war = {
+									ideology = communism
+									size = 0.5
+								}
+							}
 	}
 	focus = {
 		id = LOS_Integrate_Pathet_Lao_Military_Members
@@ -3339,7 +4107,10 @@ focus_tree = {
 		}
 		x = 58
 		y = 11
-
+		completion_reward = {
+			army_experience = 25
+			load_oob = pathet_lao
+		}
 	}
 	focus = {
 		id = LOS_Purge_the_Military
@@ -3350,7 +4121,10 @@ focus_tree = {
 		}
 		x = 58
 		y = 12
-
+		completion_reward = {
+			army_experience = -25
+			add_national_unity = -0.25
+		}
 	}
 	focus = {
 		id = LOS_Economic_Development
@@ -3361,7 +4135,190 @@ focus_tree = {
 		}
 		x = 58
 		y = 13
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = LOS_Send_Aid_to_South_Vietnam
@@ -3375,6 +4332,29 @@ focus_tree = {
 		}
 		x = 54
 		y = 13
-
+			completion_reward = {
+				VIN = {
+					add_equipment_to_stockpile = {
+							type = assault_rifle_equipment_1
+							amount = 2000
+							producer = USA
+						}
+					add_equipment_to_stockpile = {
+							type = main_battle_tanks_2
+							amount = 150
+							producer = USA
+						}
+					add_equipment_to_stockpile = {
+							type = lt_equipment_1
+							amount = 300
+							producer = USA
+						}
+					add_equipment_to_stockpile = {
+							type = ht_equipment_2
+							amount = 100
+							producer = USA
+						}
+				}
+			}
 	}
 }
