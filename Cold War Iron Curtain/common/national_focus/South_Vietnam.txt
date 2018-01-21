@@ -2202,7 +2202,6 @@ focus_tree = {
 				}
 
 	}
-	#Political
 	focus = {
 		id = VIE_Constitutional_Monarchy
 		icon = GFX_goal_generic_neutrality_focus
@@ -2215,10 +2214,11 @@ focus_tree = {
 		}
 		x = 39
 		y = 1
-		completion_reward = {
-			add_political_power = 300
-			add_national_unity = 0.05
-		}
+			completion_reward = {
+					add_political_power = 300
+					add_national_unity = 0.05
+				}
+
 	}
 	focus = {
 		id = VIE_Strengthen_Ties_with_the_KMT
@@ -2227,9 +2227,14 @@ focus_tree = {
 		prerequisite = {
 			focus = VIE_Constitutional_Monarchy
 		}
+		mutually_exclusive = {
+			focus = VIE_Militarism
+			focus = VIE_Appoint_Diem_as_Prime_Minister
+			focus = VIE_Embrace_Caodaism
+		}
 		x = 29
 		y = 2
-		completion_reward = {
+			completion_reward = {
 					VIE = {
 							add_opinion_modifier = {
 									target = CHI
@@ -2241,11 +2246,12 @@ focus_tree = {
 									target = VIE
 									modifier = large_increase
 								}
-						}				
-		}		
+						}
+				}
+
 	}
 	focus = {
-		id = VIE_Rise_of_the_Việt_Quốc
+		id = VIE_Rise_of_the_Viet_Quoc
 		icon = GFX_goal_support_fascism
 		cost = 10.00
 		prerequisite = {
@@ -2253,26 +2259,28 @@ focus_tree = {
 		}
 		x = 29
 		y = 3
-		completion_reward = {
-			add_ideas = viet_quoc_propaganda
-		}
+			completion_reward = {
+					add_ideas = viet_quoc_propaganda
+				}
+
 	}
 	focus = {
 		id = VIE_Infiltrate_the_ARVN
 		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
-			focus = VIE_Rise_of_the_Việt_Quốc
+			focus = VIE_Rise_of_the_Viet_Quoc
 		}
 		x = 29
 		y = 4
-		completion_reward = {
-			add_ideas = paramilitarism_focus
-			add_political_power = 300
-		}
+			completion_reward = {
+					add_ideas = paramilitarism_focus
+					add_political_power = 300
+				}
+
 	}
 	focus = {
-		id = VIE_Việt_Quốc_Coup
+		id = VIE_Viet_Quoc_Coup
 		icon = GFX_goal_support_fascism
 		cost = 10.00
 		prerequisite = {
@@ -2280,23 +2288,28 @@ focus_tree = {
 		}
 		x = 29
 		y = 5
-		completion_reward = {
-			set_politics = { ruling_party = fascism elections_allowed = no }	
-		}
+			completion_reward = {
+					set_politics = {
+							ruling_party = fascism
+							elections_allowed = no
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Abolish_the_Monarchy
 		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
-			focus = VIE_Việt_Quốc_Coup
+			focus = VIE_Viet_Quoc_Coup
 		}
 		x = 29
 		y = 6
-		completion_reward = {
-			add_political_power = 300
-			add_national_unity = -0.05
-		}
+			completion_reward = {
+					add_political_power = 300
+					add_national_unity = -0.05
+				}
+
 	}
 	focus = {
 		id = VIE_Crush_the_Collaborators
@@ -2307,17 +2320,18 @@ focus_tree = {
 		}
 		x = 29
 		y = 7
-		completion_reward = {
-						remove_ideas = viet_cong
-							start_civil_war = {
-									ideology = communism
-									size = 0.30
-								}			
-							start_civil_war = {
-									ideology = monarchism
-									size = 0.30
-								}		
-		}
+			completion_reward = {
+					remove_ideas = viet_cong
+					start_civil_war = {
+							ideology = communism
+							size = 0.30
+						}
+					start_civil_war = {
+							ideology = monarchism
+							size = 0.30
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Form_the_Anti_Communist_League
@@ -2328,10 +2342,11 @@ focus_tree = {
 		}
 		x = 29
 		y = 8
-		completion_reward = {
-			create_faction = "Anti-Communist League"
-			add_to_faction = CHI
-		}
+			completion_reward = {
+					create_faction = "Anti-Communist League"
+					add_to_faction = CHI
+				}
+
 	}
 	focus = {
 		id = VIE_Militarize_Society
@@ -2342,36 +2357,44 @@ focus_tree = {
 		}
 		x = 29
 		y = 9
-		completion_reward = {
-			add_ideas = ideological_fanaticism_focus
-			add_ideas = militarism_focus
-		}
+			completion_reward = {
+					add_ideas = ideological_fanaticism_focus
+					add_ideas = militarism_focus
+				}
+
 	}
 	focus = {
-		id = VIE_Embrace_the_Hòa_Hảo
+		id = VIE_Embrace_the_Hoa_Hao
 		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
 			focus = VIE_Constitutional_Monarchy
 		}
+		mutually_exclusive = {
+			focus = VIE_Militarism
+			focus = VIE_Appoint_Diem_as_Prime_Minister
+			focus = VIE_Embrace_Caodaism
+		}
 		x = 32
 		y = 2
-		completion_reward = {
-			add_ideas = nationalist_drift
-		}
+			completion_reward = {
+					add_ideas = nationalist_drift
+				}
+
 	}
 	focus = {
 		id = VIE_Integrate_Hoa_Hao_Militias
 		icon = GFX_focus_generic_little_entente
 		cost = 10.00
 		prerequisite = {
-			focus = VIE_Embrace_the_Hòa_Hảo
+			focus = VIE_Embrace_the_Hoa_Hao
 		}
 		x = 32
 		y = 3
-		completion_reward = {
-			load_oob = Hoa_Hao_Militias
-		}
+			completion_reward = {
+					load_oob = Hoa_Hao_Militias
+				}
+
 	}
 	focus = {
 		id = VIE_Rally_Behind_Cuong_De
@@ -2382,10 +2405,11 @@ focus_tree = {
 		}
 		x = 32
 		y = 4
-		completion_reward = {
-			add_political_power = 300
-			add_national_unity = 0.05
-		}
+			completion_reward = {
+					add_political_power = 300
+					add_national_unity = 0.05
+				}
+
 	}
 	focus = {
 		id = VIE_Premier_Ba_Cut
@@ -2396,9 +2420,13 @@ focus_tree = {
 		}
 		x = 32
 		y = 5
-		completion_reward = {
-			set_politics = { ruling_party = nationalism elections_allowed = no }	
-		}
+			completion_reward = {
+					set_politics = {
+							ruling_party = nationalism
+							elections_allowed = no
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Embrace_Caodaism
@@ -2407,11 +2435,18 @@ focus_tree = {
 		prerequisite = {
 			focus = VIE_Constitutional_Monarchy
 		}
+		mutually_exclusive = {
+			focus = VIE_Militarism
+			focus = VIE_Appoint_Diem_as_Prime_Minister
+			focus = VIE_Embrace_the_Hoa_Hao
+			focus = VIE_Strengthen_Ties_with_the_KMT
+		}
 		x = 36
 		y = 2
-		completion_reward = {
-			add_ideas = conservativism_drift
-		}
+			completion_reward = {
+					add_ideas = conservativism_drift
+				}
+
 	}
 	focus = {
 		id = VIE_Integrate_Cao_Dai_Militias
@@ -2420,14 +2455,12 @@ focus_tree = {
 		prerequisite = {
 			focus = VIE_Embrace_Caodaism
 		}
-		mutually_exclusive = {
-			focus = VIE_Bình_Xuyên_Consolidates_Power
-		}
 		x = 36
 		y = 3
-		completion_reward = {
-			load_oob = Cao_Dai_Militias
-		}
+			completion_reward = {
+					load_oob = Cao_Dai_Militias
+				}
+
 	}
 	focus = {
 		id = VIE_Negotiate_with_the_French
@@ -2452,9 +2485,10 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
-		id = VIE_Premier_Phạm_Công_Tắc
+		id = VIE_Premier_Pham_Cong_Tac
 		icon = GFX_focus_generic_military_mission
 		cost = 10.00
 		prerequisite = {
@@ -2462,9 +2496,13 @@ focus_tree = {
 		}
 		x = 36
 		y = 5
-		completion_reward = {
-			set_politics = { ruling_party = conservative elections_allowed = no }	
-		}
+			completion_reward = {
+					set_politics = {
+							ruling_party = conservative
+							elections_allowed = no
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Root_out_the_Viet_Cong
@@ -2472,17 +2510,18 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = VIE_Premier_Ba_Cut
-			focus = VIE_Premier_Phạm_Công_Tắc
+			focus = VIE_Premier_Pham_Cong_Tac
 		}
 		x = 34
 		y = 6
-		completion_reward = {
-			remove_ideas = viet_cong
-							start_civil_war = {
-									ideology = communism
-									size = 0.35
-								}			
-		}
+			completion_reward = {
+					remove_ideas = viet_cong
+					start_civil_war = {
+							ideology = communism
+							size = 0.35
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Crush_Binh_Xuyen
@@ -2493,13 +2532,14 @@ focus_tree = {
 		}
 		x = 34
 		y = 7
-		completion_reward = {
-			remove_ideas = organized_crime_problem
-			start_civil_war = {
-				ideology = centrist
-				size = 0.35
-			}		
-		}
+			completion_reward = {
+					remove_ideas = organized_crime_problem
+					start_civil_war = {
+							ideology = centrist
+							size = 0.35
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Crush_the_Hoa_Hao_militias
@@ -2509,17 +2549,18 @@ focus_tree = {
 			focus = VIE_Crush_Binh_Xuyen
 		}
 		prerequisite = {
-			focus = VIE_Premier_Phạm_Công_Tắc
+			focus = VIE_Premier_Pham_Cong_Tac
 		}
 		x = 36
 		y = 8
-		completion_reward = {
-			remove_ideas = Hoa_Hao_militias
-			start_civil_war = {
-				ideology = nationalism
-				size = 0.35
-			}		
-		}
+			completion_reward = {
+					remove_ideas = Hoa_Hao_militias
+					start_civil_war = {
+							ideology = nationalism
+							size = 0.35
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Crush_the_Cao_Dai_Militias
@@ -2533,13 +2574,14 @@ focus_tree = {
 		}
 		x = 32
 		y = 8
-		completion_reward = {
-			remove_ideas = Cao_Dai_militias
-			start_civil_war = {
-				ideology = conservative
-				size = 0.35
-			}		
-		}
+			completion_reward = {
+					remove_ideas = Cao_Dai_militias
+					start_civil_war = {
+							ideology = conservative
+							size = 0.35
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Establish_a_Theocracy
@@ -2550,10 +2592,11 @@ focus_tree = {
 		}
 		x = 36
 		y = 9
-		completion_reward = {
-			add_political_power = 300
-			add_national_unity = 0.25
-		}
+			completion_reward = {
+					add_political_power = 300
+					add_national_unity = 0.25
+				}
+
 	}
 	focus = {
 		id = VIE_Appoint_Diem_as_Prime_Minister
@@ -2562,11 +2605,18 @@ focus_tree = {
 		prerequisite = {
 			focus = VIE_Constitutional_Monarchy
 		}
+		mutually_exclusive = {
+			focus = VIE_Militarism
+			focus = VIE_Embrace_Caodaism
+			focus = VIE_Embrace_the_Hoa_Hao
+			focus = VIE_Strengthen_Ties_with_the_KMT
+		}
 		x = 39
 		y = 2
-		completion_reward = {
-			add_ideas = pm_diem
-		}
+			completion_reward = {
+					add_ideas = pm_diem
+				}
+
 	}
 	focus = {
 		id = VIE_Accepting_the_Geneva_Conference?
@@ -2591,6 +2641,7 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = VIE_French_Alignment
@@ -2618,6 +2669,7 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = VIE_American_Alignment
@@ -2645,6 +2697,7 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = VIE_Operation_Passage_to_Freedom
@@ -2656,16 +2709,17 @@ focus_tree = {
 		}
 		x = 39
 		y = 5
-		completion_reward = {
-			every_owned_state = {
-				add_manpower = 300000
-			}
-			VIN = {
-				every_owned_state = {
-					add_manpower = -300000
-				}			
-			}
-		}
+			completion_reward = {
+					every_owned_state = {
+							add_manpower = 300000
+						}
+					VIN = {
+							every_owned_state = {
+									add_manpower = -300000
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_The_Refferendum
@@ -2676,9 +2730,10 @@ focus_tree = {
 		}
 		x = 39
 		y = 6
-		completion_reward = {
-			add_political_power = 300
-		}
+			completion_reward = {
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = VIE_Establish_the_Republic_of_Vietnam
@@ -2692,11 +2747,15 @@ focus_tree = {
 		}
 		x = 40
 		y = 7
-		completion_reward = {
-			add_ideas = christian_democratic_drift
-			remove_ideas = pm_diem
-			set_politics = { ruling_party = Christian_Democratic elections_allowed = no }
-		}
+			completion_reward = {
+					add_ideas = christian_democratic_drift
+					remove_ideas = pm_diem
+					set_politics = {
+							ruling_party = Christian_Democratic
+							elections_allowed = no
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_To_Cong_Campaign
@@ -2707,9 +2766,10 @@ focus_tree = {
 		}
 		x = 40
 		y = 8
-		completion_reward = {
-			add_ideas = communism_banned
-		}
+			completion_reward = {
+					add_ideas = communism_banned
+				}
+
 	}
 	focus = {
 		id = VIE_Crush_Domestic_Opposition
@@ -2720,24 +2780,24 @@ focus_tree = {
 		}
 		x = 40
 		y = 9
-		completion_reward = {
-			remove_ideas = Hoa_Hao_militias
-			start_civil_war = {
-				ideology = nationalism
-				size = 0.20
-			}		
-	
-			remove_ideas = Cao_Dai_militias
-			start_civil_war = {
-				ideology = conservative
-				size = 0.20
-			}			
-			remove_ideas = organized_crime_problem
-			start_civil_war = {
-				ideology = centrist
-				size = 0.20
-			}	
-		}
+			completion_reward = {
+					remove_ideas = Hoa_Hao_militias
+					start_civil_war = {
+							ideology = nationalism
+							size = 0.20
+						}
+					remove_ideas = Cao_Dai_militias
+					start_civil_war = {
+							ideology = conservative
+							size = 0.20
+						}
+					remove_ideas = organized_crime_problem
+					start_civil_war = {
+							ideology = centrist
+							size = 0.20
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Militarism
@@ -2746,41 +2806,49 @@ focus_tree = {
 		prerequisite = {
 			focus = VIE_Constitutional_Monarchy
 		}
+		mutually_exclusive = {
+			focus = VIE_Appoint_Diem_as_Prime_Minister
+			focus = VIE_Embrace_Caodaism
+			focus = VIE_Embrace_the_Hoa_Hao
+			focus = VIE_Strengthen_Ties_with_the_KMT
+		}
 		x = 43
 		y = 2
-		completion_reward = {
-			add_ideas = militarism_focus
-		}	
+			completion_reward = {
+					add_ideas = militarism_focus
+				}
+
 	}
 	focus = {
-		id = VIE_Bình_Xuyên_Consolidates_Power
+		id = VIE_Bình_Xuyen_Consolidates_Power
 		icon = GFX_focus_generic_little_entente
 		cost = 10.00
 		prerequisite = {
 			focus = VIE_Militarism
 		}
 		mutually_exclusive = {
-			focus = VIE_Integrate_Cao_Dai_Militias
 			focus = VIE_ARVN_Consolidates_Power
 		}
 		x = 42
 		y = 3
-		completion_reward = {
-			add_ideas = centrism_drift
-		}
+			completion_reward = {
+					add_ideas = centrism_drift
+				}
+
 	}
 	focus = {
 		id = VIE_Puppet_Emperor
 		icon = GFX_focus_rom_handle_king
 		cost = 10.00
 		prerequisite = {
-			focus = VIE_Bình_Xuyên_Consolidates_Power
+			focus = VIE_Bình_Xuyen_Consolidates_Power
 		}
 		x = 42
 		y = 4
-		completion_reward = {
-			add_political_power = 300
-		}
+			completion_reward = {
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = VIE_Premier_Le_Van_Vien
@@ -2791,10 +2859,14 @@ focus_tree = {
 		}
 		x = 42
 		y = 5
-		completion_reward = {
-			set_politics = { ruling_party = centrist elections_allowed = no }	
-			add_ideas = Bao_Di
-		}
+			completion_reward = {
+					set_politics = {
+							ruling_party = centrist
+							elections_allowed = no
+						}
+					add_ideas = Bao_Di
+				}
+
 	}
 	focus = {
 		id = VIE_Legitimize_Organized_Crime
@@ -2805,11 +2877,12 @@ focus_tree = {
 		}
 		x = 42
 		y = 6
-		completion_reward = {
-			remove_ideas = organized_crime_problem
-			add_national_unity = -0.05
-			load_oob = Binh_Xuyen
-		}
+			completion_reward = {
+					remove_ideas = organized_crime_problem
+					add_national_unity = -0.05
+					load_oob = Binh_Xuyen
+				}
+
 	}
 	focus = {
 		id = VIE_Repression
@@ -2820,9 +2893,10 @@ focus_tree = {
 		}
 		x = 42
 		y = 7
-		completion_reward = {
-			add_ideas = repression
-		}
+			completion_reward = {
+					add_ideas = repression
+				}
+
 	}
 	focus = {
 		id = VIE_Crush_the_Militiant_Sects
@@ -2833,18 +2907,19 @@ focus_tree = {
 		}
 		x = 42
 		y = 8
-		completion_reward = {
-			remove_ideas = Hoa_Hao_militias
-			start_civil_war = {
-				ideology = nationalism
-				size = 0.25
-			}		
-			remove_ideas = Cao_Dai_militias
-			start_civil_war = {
-				ideology = conservative
-				size = 0.25
-			}					
-		}
+			completion_reward = {
+					remove_ideas = Hoa_Hao_militias
+					start_civil_war = {
+							ideology = nationalism
+							size = 0.25
+						}
+					remove_ideas = Cao_Dai_militias
+					start_civil_war = {
+							ideology = conservative
+							size = 0.25
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Infilitrate_the_Viet_Minh
@@ -2855,10 +2930,11 @@ focus_tree = {
 		}
 		x = 42
 		y = 9
-		completion_reward = {
-			add_political_power = 300
-			add_national_unity = 0.15
-		}
+			completion_reward = {
+					add_political_power = 300
+					add_national_unity = 0.15
+				}
+
 	}
 	focus = {
 		id = VIE_ARVN_Consolidates_Power
@@ -2868,13 +2944,14 @@ focus_tree = {
 			focus = VIE_Militarism
 		}
 		mutually_exclusive = {
-			focus = VIE_Bình_Xuyên_Consolidates_Power
+			focus = VIE_Bình_Xuyen_Consolidates_Power
 		}
 		x = 44
 		y = 3
-		completion_reward = {
-			add_ideas = reactionary_drift
-		}
+			completion_reward = {
+					add_ideas = reactionary_drift
+				}
+
 	}
 	focus = {
 		id = VIE_Religous_Tolerance
@@ -2885,12 +2962,13 @@ focus_tree = {
 		}
 		x = 44
 		y = 4
-		completion_reward = {
-			remove_ideas = Cao_Dai_militias
-			remove_ideas = Hoa_Hao_militias
-			load_oob = Hoa_Hao_Militias
-			load_oob = Cao_Dai_Militias
-		}
+			completion_reward = {
+					remove_ideas = Cao_Dai_militias
+					remove_ideas = Hoa_Hao_militias
+					load_oob = Hoa_Hao_Militias
+					load_oob = Cao_Dai_Militias
+				}
+
 	}
 	focus = {
 		id = VIE_Crush_the_Binh_Xuyen
@@ -2901,13 +2979,14 @@ focus_tree = {
 		}
 		x = 44
 		y = 5
-		completion_reward = {
-			remove_ideas = organized_crime_problem
-			start_civil_war = {
-				ideology = centrist
-				size = 0.35
-			}		
-		}
+			completion_reward = {
+					remove_ideas = organized_crime_problem
+					start_civil_war = {
+							ideology = centrist
+							size = 0.35
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Alliance_with_the_KMT
@@ -2918,7 +2997,7 @@ focus_tree = {
 		}
 		x = 44
 		y = 6
-		completion_reward = {
+			completion_reward = {
 					VIE = {
 							add_opinion_modifier = {
 									target = CHI
@@ -2930,8 +3009,9 @@ focus_tree = {
 									target = VIE
 									modifier = large_increase
 								}
-						}				
-		}	
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Military_Expansion
@@ -2942,9 +3022,10 @@ focus_tree = {
 		}
 		x = 44
 		y = 7
-		completion_reward = {
-			add_ideas = military_expansion
-		}
+			completion_reward = {
+					add_ideas = military_expansion
+				}
+
 	}
 	focus = {
 		id = VIE_Develop_Domestic_Military_Industry
@@ -3047,6 +3128,7 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = VIE_Dismantle_the_Viet_Cong
@@ -3057,13 +3139,14 @@ focus_tree = {
 		}
 		x = 44
 		y = 9
-		completion_reward = {
-			remove_ideas = viet_cong
-							start_civil_war = {
-									ideology = communism
-									size = 0.33
-								}			
-		}
+			completion_reward = {
+					remove_ideas = viet_cong
+					start_civil_war = {
+							ideology = communism
+							size = 0.33
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Trotkyite_Resurgence
@@ -3077,9 +3160,10 @@ focus_tree = {
 		}
 		x = 47
 		y = 1
-		completion_reward = {
-			add_ideas = trotskyism_drift
-		}
+			completion_reward = {
+					add_ideas = trotskyism_drift
+				}
+
 	}
 	focus = {
 		id = VIE_Return_of_Exiled_Trotsykites
@@ -3090,10 +3174,11 @@ focus_tree = {
 		}
 		x = 47
 		y = 2
-		completion_reward = {
-			add_national_unity = 0.10
-			add_political_power = 300
-		}
+			completion_reward = {
+					add_national_unity = 0.10
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = VIE_Trotskyite_Coup
@@ -3104,9 +3189,13 @@ focus_tree = {
 		}
 		x = 47
 		y = 3
-		completion_reward = {
-			set_politics = { ruling_party = trotskyism elections_allowed = no }	
-		}
+			completion_reward = {
+					set_politics = {
+							ruling_party = trotskyism
+							elections_allowed = no
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Condemn_the_French
@@ -3131,6 +3220,7 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = VIE_Condemn_the_Viet_Cong
@@ -3155,6 +3245,7 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = VIE_Mass_Mobilization
@@ -3168,12 +3259,13 @@ focus_tree = {
 		}
 		x = 47
 		y = 5
-		completion_reward = {
-			add_ideas = TUR_mobilization_of_the_masses
-		}
+			completion_reward = {
+					add_ideas = TUR_mobilization_of_the_masses
+				}
+
 	}
 	focus = {
-		id = VIE_Hire_Bình_Xuyên
+		id = VIE_Hire_Bình_Xuyen
 		icon = GFX_focus_generic_little_entente
 		cost = 10.00
 		prerequisite = {
@@ -3181,33 +3273,34 @@ focus_tree = {
 		}
 		x = 47
 		y = 6
-		completion_reward = {
-			remove_ideas = organized_crime_problem 
-			load_oob = Binh_Xuyen
-		}
+			completion_reward = {
+					remove_ideas = organized_crime_problem
+					load_oob = Binh_Xuyen
+				}
+
 	}
 	focus = {
 		id = VIE_Purge_All_Opposition
 		icon = GFX_focus_generic_strike_at_democracy1
 		cost = 10.00
 		prerequisite = {
-			focus = VIE_Hire_Bình_Xuyên
+			focus = VIE_Hire_Bình_Xuyen
 		}
 		x = 47
 		y = 7
-		completion_reward = {
-			remove_ideas = Hoa_Hao_militias
-			start_civil_war = {
-				ideology = nationalism
-				size = 0.20
-			}		
-	
-			remove_ideas = Cao_Dai_militias
-			start_civil_war = {
-				ideology = conservative
-				size = 0.20
-			}			
-		}
+			completion_reward = {
+					remove_ideas = Hoa_Hao_militias
+					start_civil_war = {
+							ideology = nationalism
+							size = 0.20
+						}
+					remove_ideas = Cao_Dai_militias
+					start_civil_war = {
+							ideology = conservative
+							size = 0.20
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Five_Year_Plan
@@ -3249,7 +3342,6 @@ focus_tree = {
 									instant_build = yes
 								}
 						}
-				
 					random_owned_controlled_state = {
 							limit = {
 									free_building_slots = {
@@ -3311,6 +3403,7 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = VIE_Bureacratic_Centralism
@@ -3321,10 +3414,11 @@ focus_tree = {
 		}
 		x = 47
 		y = 9
-		completion_reward = {
-			add_political_power = 120
-			add_national_unity = 0.10
-		}
+			completion_reward = {
+					add_political_power = 120
+					add_national_unity = 0.10
+				}
+
 	}
 	focus = {
 		id = VIE_extra_tech_slot_2
@@ -3483,9 +3577,10 @@ focus_tree = {
 		}
 		x = 38
 		y = 7
-		completion_reward = {
-			remove_ideas = pm_diem
-		}
+			completion_reward = {
+					remove_ideas = pm_diem
+				}
+
 	}
 	focus = {
 		id = VIE_Restore_the_Empire
@@ -3496,9 +3591,10 @@ focus_tree = {
 		}
 		x = 38
 		y = 10
-		completion_reward = {
-			set_cosmetic_tag = VIE_IMP
-		}
+			completion_reward = {
+					set_cosmetic_tag = VIE_IMP
+				}
+
 	}
 	focus = {
 		id = VIE_Establish_a_Royal_Guard
@@ -3509,9 +3605,10 @@ focus_tree = {
 		}
 		x = 38
 		y = 8
-		completion_reward = {
-			load_oob = VIE_Royal_Guard
-		}
+			completion_reward = {
+					load_oob = VIE_Royal_Guard
+				}
+
 	}
 	focus = {
 		id = VIE_Unite_the_Vietnamese_People
@@ -3522,11 +3619,12 @@ focus_tree = {
 		}
 		x = 38
 		y = 9
-		completion_reward = {
-			remove_ideas = Hoa_Hao_militias
-			remove_ideas = Cao_Dai_militias
-			remove_ideas = organized_crime_problem
-		}
+			completion_reward = {
+					remove_ideas = Hoa_Hao_militias
+					remove_ideas = Cao_Dai_militias
+					remove_ideas = organized_crime_problem
+				}
+
 	}
 	focus = {
 		id = VIE_Promote_Catholicism
@@ -3537,10 +3635,11 @@ focus_tree = {
 		}
 		x = 40
 		y = 10
-		completion_reward = {
-			add_political_power = 300
-			add_national_unity = -0.15
-		}
+			completion_reward = {
+					add_political_power = 300
+					add_national_unity = -0.15
+				}
+
 	}
 	focus = {
 		id = VIE_Crush_the_Viet_Cong
@@ -3551,13 +3650,14 @@ focus_tree = {
 		}
 		x = 42
 		y = 10
-		completion_reward = {
-			remove_ideas = viet_cong
-							start_civil_war = {
-									ideology = communism
-									size = 0.15
-								}			
-		}
+			completion_reward = {
+					remove_ideas = viet_cong
+					start_civil_war = {
+							ideology = communism
+							size = 0.15
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Reunify_Vietnam
@@ -3568,12 +3668,13 @@ focus_tree = {
 		}
 		x = 44
 		y = 10
-		completion_reward = {
+			completion_reward = {
 					create_wargoal = {
 							type = annex_everything
 							target = VIN
-						}			
-		}
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Revenge_Against_Ho_Chi_Minh
@@ -3584,12 +3685,13 @@ focus_tree = {
 		}
 		x = 47
 		y = 10
-		completion_reward = {
+			completion_reward = {
 					create_wargoal = {
 							type = annex_everything
 							target = VIN
-						}			
-		}
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Align_with_Japan
@@ -3600,7 +3702,7 @@ focus_tree = {
 		}
 		x = 32
 		y = 9
-		completion_reward = {
+			completion_reward = {
 					VIE = {
 							add_opinion_modifier = {
 									target = JAP
@@ -3612,8 +3714,9 @@ focus_tree = {
 									target = VIE
 									modifier = large_increase
 								}
-						}				
-		}	
+						}
+				}
+
 	}
 	focus = {
 		id = VIE_Millenarian_Fanaticism
@@ -3625,9 +3728,10 @@ focus_tree = {
 		}
 		x = 34
 		y = 10
-		completion_reward = {
-			add_ideas = ideological_fanaticism_focus
-		}
+			completion_reward = {
+					add_ideas = ideological_fanaticism_focus
+				}
+
 	}
 	focus = {
 		id = VIE_Crush_the_North
@@ -3638,11 +3742,12 @@ focus_tree = {
 		}
 		x = 29
 		y = 10
-		completion_reward = {
+			completion_reward = {
 					create_wargoal = {
 							type = annex_everything
 							target = VIN
-						}			
-		}
+						}
+				}
+
 	}
 }

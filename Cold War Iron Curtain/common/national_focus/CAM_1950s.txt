@@ -1,9 +1,27 @@
 focus_tree = {
 	id = CAM_1950s
 	country = {
-		factor = 1
+		factor = 0
+		modifier = {
+			add = 10
+			tag = GXC
+			factor = 0
+			date < 1939.1.1
+			OR = {
+					tag = GXC
+					tag = YUN
+					tag = SHX
+					tag = XSM
+					tag = BEL
+					tag = LUX
+					tag = HOL
+					tag = DEN
+					num_of_controlled_states < 2
+				}
+			
+		}
 	}
-	default = yes
+	default = no
 	focus = {
 		id = CAM_naval_effort
 		icon = GFX_goal_generic_construct_naval_dockyard
@@ -233,20 +251,13 @@ focus_tree = {
 
 	}
 	focus = {
-		id = CAM_equipment_effort
-		icon = GFX_goal_generic_small_arms
+		id = CAM_Political_Dysfunction
+		icon = GFX_goal_anschluss
 		cost = 10.00
-		x = 9
-		y = 2
-			available_if_capitulated = yes
+		x = 39
+		y = 0
 			completion_reward = {
-					add_tech_bonus = {
-							name = infantry_weapons_bonus
-							bonus = 0.5
-							uses = 1
-							category = infantry_weapons
-							category = artillery
-						}
+					add_political_power = 300
 				}
 
 	}
@@ -969,6 +980,48 @@ focus_tree = {
 
 	}
 	focus = {
+		id = CAM_army_effort
+		icon = GFX_goal_generic_allies_build_infantry
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_non_aligned
+		}
+		x = 10
+		y = 1
+			available_if_capitulated = yes
+			completion_reward = {
+					army_experience = 5
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+				}
+
+	}
+	focus = {
+		id = CAM_equipment_effort
+		icon = GFX_goal_generic_small_arms
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_army_effort
+		}
+		x = 9
+		y = 2
+			available_if_capitulated = yes
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_weapons_bonus
+							bonus = 0.5
+							uses = 1
+							category = infantry_weapons
+							category = artillery
+						}
+				}
+
+	}
+	focus = {
 		id = CAM_equipment_effort_2
 		icon = GFX_goal_generic_army_artillery
 		cost = 10.00
@@ -1006,27 +1059,6 @@ focus_tree = {
 							uses = 1
 							category = infantry_weapons
 							category = artillery
-						}
-				}
-
-	}
-	focus = {
-		id = CAM_army_effort
-		icon = GFX_goal_generic_allies_build_infantry
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_non_aligned
-		}
-		x = 10
-		y = 1
-			available_if_capitulated = yes
-			completion_reward = {
-					army_experience = 5
-					add_tech_bonus = {
-							name = land_doc_bonus
-							bonus = 0.5
-							uses = 1
-							category = land_doctrine
 						}
 				}
 
@@ -1474,6 +1506,41 @@ focus_tree = {
 							factor = 0.25
 							always = yes
 						}
+				}
+
+	}
+	focus = {
+		id = CAM_reform_officer_corps_2
+		icon = GFX_goal_generic_special_forces
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_special_forces
+		}
+		prerequisite = {
+			focus = CAM_rocket_effort
+		}
+		prerequisite = {
+			focus = CAM_special_forces
+		}
+		prerequisite = {
+			focus = CAM_rocket_effort
+		}
+		prerequisite = {
+			focus = CAM_special_forces
+		}
+		prerequisite = {
+			focus = CAM_rocket_effort
+		}
+		prerequisite = {
+			focus = CAM_special_forces
+		}
+		prerequisite = {
+			focus = CAM_rocket_effort
+		}
+		x = 12
+		y = 8
+			completion_reward = {
+					remove_ideas = incompetent_officer_corps
 				}
 
 	}
@@ -2485,41 +2552,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = CAM_reform_officer_corps_2
-		icon = GFX_goal_generic_special_forces
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_special_forces
-		}
-		prerequisite = {
-			focus = CAM_rocket_effort
-		}
-		prerequisite = {
-			focus = CAM_special_forces
-		}
-		prerequisite = {
-			focus = CAM_rocket_effort
-		}
-		prerequisite = {
-			focus = CAM_special_forces
-		}
-		prerequisite = {
-			focus = CAM_rocket_effort
-		}
-		prerequisite = {
-			focus = CAM_special_forces
-		}
-		prerequisite = {
-			focus = CAM_rocket_effort
-		}
-		x = 12
-		y = 8
-			completion_reward = {
-					remove_ideas = incompetent_officer_corps
-				}
-
-	}
-	focus = {
 		id = CAM_cruiser_effort
 		icon = GFX_goal_generic_navy_cruiser
 		cost = 10.00
@@ -2592,6 +2624,346 @@ focus_tree = {
 							technology = improved_carrier
 							technology = advanced_carrier
 						}
+				}
+
+	}
+	focus = {
+		id = CAM_Fifty_Percent_Independence
+		icon = GFX_focus_generic_self_management
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Political_Dysfunction
+		}
+		x = 39
+		y = 1
+			completion_reward = {
+					FRA = {
+							set_autonomy = {
+									target = CAM
+									autonomy_state = autonomy_protectorate
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = CAM_release_Son_Ngoc_Thanh
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Fifty_Percent_Independence
+		}
+		x = 39
+		y = 2
+			completion_reward = {
+					add_national_unity = 0.10
+					add_political_power = 300
+				}
+
+	}
+	focus = {
+		id = CAM_Suspend_the_Constitution
+		icon = GFX_focus_generic_self_management
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_release_Son_Ngoc_Thanh
+		}
+		x = 39
+		y = 3
+			completion_reward = {
+					add_ideas = nationalist_drift
+				}
+
+	}
+	focus = {
+		id = CAM_Independence_for_Cambodia
+		icon = GFX_goal_anschluss
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Suspend_the_Constitution
+		}
+		x = 39
+		y = 4
+			completion_reward = {
+					FRA = {
+							set_autonomy = {
+									target = CAM
+									autonomy_state = autonomy_free
+								}
+						}
+					set_politics = {
+							ruling_party = nationalism
+							elections_allowed = no
+						}
+				}
+
+	}
+	focus = {
+		id = CAM_Elections_of_1955
+		icon = GFX_goal_generic_neutrality_focus
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Independence_for_Cambodia
+		}
+		x = 39
+		y = 5
+			available = {
+					date > 1955.1.1
+				}
+			completion_reward = {
+					add_national_unity = 0.05
+					add_political_power = 300
+				}
+
+	}
+	focus = {
+		id = CAM_The_Democratic_Party
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Elections_of_1955
+		}
+		mutually_exclusive = {
+			focus = CAM_The_Khmer_Independence_Party
+			focus = CAM_Establishment_of_Sangkum
+			focus = CAM_Pracheachon
+		}
+		x = 34
+		y = 6
+			completion_reward = {
+					add_political_power = 300
+					add_popularity = {
+							ideology = monarchism
+							popularity = 0.1
+						}
+				}
+
+	}
+	focus = {
+		id = CAM_The_Khmer_Independence_Party
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Elections_of_1955
+		}
+		mutually_exclusive = {
+			focus = CAM_The_Democratic_Party
+			focus = CAM_Establishment_of_Sangkum
+			focus = CAM_Pracheachon
+		}
+		x = 36
+		y = 6
+			completion_reward = {
+					add_ideas = conservativism_drift
+					add_political_power = 150
+				}
+
+	}
+	focus = {
+		id = CAM_Establishment_of_Sangkum
+		icon = GFX_focus_rom_abdicate
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Elections_of_1955
+		}
+		mutually_exclusive = {
+			focus = CAM_The_Democratic_Party
+			focus = CAM_The_Khmer_Independence_Party
+			focus = CAM_Pracheachon
+		}
+		x = 39
+		y = 6
+			completion_reward = {
+					add_political_power = 300
+					add_national_unity = 0.05
+				}
+
+	}
+	focus = {
+		id = CAM_Political_Repression
+		icon = GFX_focus_rom_royal_dictatorship
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Establishment_of_Sangkum
+		}
+		x = 39
+		y = 7
+			completion_reward = {
+					add_ideas = repression
+				}
+
+	}
+	focus = {
+		id = CAM_Align_with_Mao
+		icon = GFX_goal_tripartite_pact
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Political_Repression
+		}
+		x = 39
+		y = 8
+			completion_reward = {
+					PRC = {
+							add_opinion_modifier = {
+									target = CAM
+									modifier = large_increase
+								}
+						}
+					CAM = {
+							add_opinion_modifier = {
+									target = PRC
+									modifier = large_increase
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = CAM_Balancing_Act
+		icon = GFX_goal_generic_neutrality_focus
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Align_with_Mao
+		}
+		x = 39
+		y = 9
+			completion_reward = {
+					add_political_power = 300
+				}
+
+	}
+	focus = {
+		id = CAM_Anti_Serei_Propaganda
+		icon = GFX_goal_generic_propaganda
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Balancing_Act
+		}
+		x = 38
+		y = 10
+			completion_reward = {
+					add_ideas = anti_serei_propaganda
+				}
+
+	}
+	focus = {
+		id = CAM_Anti_Pracheachon_Propaganda
+		icon = GFX_goal_generic_propaganda
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Balancing_Act
+		}
+		x = 40
+		y = 10
+			completion_reward = {
+					add_ideas = leftist_persecution_cam
+				}
+
+	}
+	focus = {
+		id = CAM_Pracheachon
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Elections_of_1955
+		}
+		mutually_exclusive = {
+			focus = CAM_The_Democratic_Party
+			focus = CAM_The_Khmer_Independence_Party
+			focus = CAM_Establishment_of_Sangkum
+		}
+		x = 43
+		y = 6
+			completion_reward = {
+					add_political_power = 300
+					add_ideas = pracheachon_drift
+				}
+
+	}
+	focus = {
+		id = CAM_Seek_Closer_Ties_to_North_Vietnam
+		icon = GFX_goal_tripartite_pact
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Pracheachon
+		}
+		mutually_exclusive = {
+			focus = CAM_Seek_Closer_Ties_to_Mao
+		}
+		x = 42
+		y = 7
+			completion_reward = {
+					add_ideas = soviet_advisors
+					VIN = {
+							add_opinion_modifier = {
+									target = CAM
+									modifier = large_increase
+								}
+						}
+					CAM = {
+							add_opinion_modifier = {
+									target = VIN
+									modifier = large_increase
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = CAM_Kampuchean_Peoples_Revolutionary_Party
+		icon = GFX_focus_generic_join_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Seek_Closer_Ties_to_North_Vietnam
+		}
+		x = 42
+		y = 8
+			completion_reward = {
+					remove_ideas = pracheachon_drift
+					add_ideas = internationalism
+				}
+
+	}
+	focus = {
+		id = CAM_Viet_Minh_Backed_Coup
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Kampuchean_Peoples_Revolutionary_Party
+		}
+		x = 42
+		y = 9
+			completion_reward = {
+					set_politics = {
+							ruling_party = communism
+							elections_allowed = no
+						}
+					start_civil_war = {
+							ideology = monarchism
+							size = 0.35
+						}
+					start_civil_war = {
+							ideology = conservative
+							size = 0.35
+						}
+				}
+
+	}
+	focus = {
+		id = CAM_Expel_the_Royal_Family
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		cost = 10.00
+		prerequisite = {
+			focus = CAM_Viet_Minh_Backed_Coup
+		}
+		x = 42
+		y = 10
+			available = {
+					has_war = no
+				}
+			completion_reward = {
+					add_political_power = 300
+					add_national_unity = -0.15
 				}
 
 	}
@@ -2847,46 +3219,6 @@ focus_tree = {
 				}
 
 	}
-	
-	#Political
-	focus = {
-		id = CAM_Political_Dysfunction
-		icon = GFX_goal_anschluss
-		cost = 10.00
-		x = 101
-		y = 0
-		completion_reward = {
-			add_political_power = 300
-		}
-	}
-	focus = {
-		id = CAM_Elections_of_1955
-		icon = GFX_goal_generic_neutrality_focus
-		cost = 10.00
-		x = 101
-		y = 5
-		available = {
-			date > 1955.1.1
-		}
-		completion_reward = {
-			add_national_unity = 0.05
-			add_political_power = 300
-		}	
-	}
-	focus = {
-		id = CAM_The_Democratic_Party
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Elections_of_1955
-		}
-		x = 96
-		y = 6
-		completion_reward = {
-			add_political_power = 300
-			add_popularity = { ideology = monarchism popularity = 0.1 }	
-		}
-	}
 	focus = {
 		id = CAM_Enforcement_of_the_1947_Constiution
 		icon = GFX_focus_rom_handle_king
@@ -2894,11 +3226,12 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_The_Democratic_Party
 		}
-		x = 96
+		x = 34
 		y = 7
-		completion_reward = {
-			add_political_power = 300
-		}
+			completion_reward = {
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = CAM_Norodom_Phurissara_as_Prime_Minister
@@ -2907,20 +3240,21 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_Enforcement_of_the_1947_Constiution
 		}
-		x = 96
+		x = 34
 		y = 8
-		completion_reward = {
-				create_country_leader = {
-					name = "Norodom Phurissara"
-					desc = ""
-					picture = "Phurissara.dds"
-					expire = "1975.1.1"
-					ideology = royal_democrat
-					traits = {
-						#
-					}
+			completion_reward = {
+					create_country_leader = {
+							name = "Norodom Phurissara"
+							desc = ""
+							picture = "Phurissara.dds"
+							expire = "1975.1.1"
+							ideology = royal_democrat
+							traits = {
+
+}
+						}
 				}
-		}
+
 	}
 	focus = {
 		id = CAM_Condemn_American_Imperialism
@@ -2929,9 +3263,9 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_Norodom_Phurissara_as_Prime_Minister
 		}
-		x = 96
+		x = 34
 		y = 9
-		completion_reward = {
+			completion_reward = {
 					USA = {
 							add_opinion_modifier = {
 									target = CAM
@@ -2943,8 +3277,9 @@ focus_tree = {
 									target = USA
 									modifier = large_decrease
 								}
-						}		
-		}
+						}
+				}
+
 	}
 	focus = {
 		id = CAM_Education_Reform
@@ -2953,25 +3288,12 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_Condemn_American_Imperialism
 		}
-		x = 96
+		x = 34
 		y = 10
-		completion_reward = {
-			add_ideas = KOR_education_reform
-		}
-	}
-	focus = {
-		id = CAM_The_Khmer_Independence_Party
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Elections_of_1955
-		}
-		x = 98
-		y = 6
-		completion_reward = {
-			add_ideas = conservativism_drift
-			add_political_power = 150
-		}
+			completion_reward = {
+					add_ideas = KOR_education_reform
+				}
+
 	}
 	focus = {
 		id = CAM_Expand_the_Khmer_Serei_Paramilitary
@@ -2980,12 +3302,13 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_The_Khmer_Independence_Party
 		}
-		x = 98
+		x = 36
 		y = 7
-		completion_reward = {
-			add_ideas = paramilitarism_focus
-			add_ideas = militarism_focus
-		}
+			completion_reward = {
+					add_ideas = paramilitarism_focus
+					add_ideas = militarism_focus
+				}
+
 	}
 	focus = {
 		id = CAM_Abolish_the_Monarchy
@@ -2994,12 +3317,21 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_Expand_the_Khmer_Serei_Paramilitary
 		}
-		x = 98
+		x = 36
 		y = 8
-		completion_reward = {
-			FRA = { set_autonomy = { target = CAM autonomy_state = autonomy_free } }
-			set_politics = { ruling_party = conservative elections_allowed = yes }	
-		}
+			completion_reward = {
+					FRA = {
+							set_autonomy = {
+									target = CAM
+									autonomy_state = autonomy_free
+								}
+						}
+					set_politics = {
+							ruling_party = conservative
+							elections_allowed = yes
+						}
+				}
+
 	}
 	focus = {
 		id = CAM_Aid_South_Korea
@@ -3008,10 +3340,14 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_Abolish_the_Monarchy
 		}
-		x = 98
+		x = 36
 		y = 9
-		completion_reward = {
-			send_equipment = { target = KOR type = infantry_equipment amount = 1000 }
+			completion_reward = {
+					send_equipment = {
+							target = KOR
+							type = infantry_equipment
+							amount = 1000
+						}
 					KOR = {
 							add_opinion_modifier = {
 									target = CAM
@@ -3023,8 +3359,9 @@ focus_tree = {
 									target = KOR
 									modifier = large_increase
 								}
-						}	
-		}
+						}
+				}
+
 	}
 	focus = {
 		id = CAM_Seek_Closer_Ties_to_America
@@ -3033,9 +3370,9 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_Aid_South_Korea
 		}
-		x = 98
+		x = 36
 		y = 10
-		completion_reward = {
+			completion_reward = {
 					USA = {
 							add_opinion_modifier = {
 									target = CAM
@@ -3047,246 +3384,9 @@ focus_tree = {
 									target = USA
 									modifier = large_increase
 								}
-						}		
-		}
-	}
-	focus = {
-		id = CAM_Fifty_Percent_Independence
-		icon = GFX_focus_generic_self_management
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Political_Dysfunction
-		}
-		x = 101
-		y = 1
-		completion_reward = {
-			FRA = { set_autonomy = { target = CAM autonomy_state = autonomy_protectorate } }		
-		}
-	}
-	focus = {
-		id = CAM_release_Son_Ngoc_Thanh
-		icon = GFX_focus_generic_support_the_left_right
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Fifty_Percent_Independence
-		}
-		x = 101
-		y = 2
-		completion_reward = {
-			add_national_unity = 0.10
-			add_political_power = 300
-		}	
-	}
-	focus = {
-		id = CAM_Suspend_the_Constitution
-		icon = GFX_focus_generic_self_management
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_release_Son_Ngoc_Thanh
-		}
-		x = 101
-		y = 3
-		completion_reward = {
-			add_ideas = nationalist_drift
-		}
-	}
-	focus = {
-		id = CAM_Independence_for_Cambodia
-		icon = GFX_goal_anschluss
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Suspend_the_Constitution
-		}
-		x = 101
-		y = 4
-		completion_reward = {
-			FRA = { set_autonomy = { target = CAM autonomy_state = autonomy_free } }
-			set_politics = { ruling_party = nationalism elections_allowed = no }	
-		}
-	}
-	focus = {
-		id = CAM_Establishment_of_Sangkum
-		icon = GFX_focus_rom_abdicate
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Elections_of_1955
-		}
-		x = 101
-		y = 6
-		completion_reward = {
-			add_political_power = 300
-			add_national_unity = 0.05
-		}
-	}
-	focus = {
-		id = CAM_Political_Repression
-		icon = GFX_focus_rom_royal_dictatorship
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Establishment_of_Sangkum
-		}
-		x = 101
-		y = 7
-		completion_reward = {
-			add_ideas = repression
-		}
-	}
-	focus = {
-		id = CAM_Align_with_Mao
-		icon = GFX_goal_tripartite_pact
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Political_Repression
-		}
-		x = 101
-		y = 8
-		completion_reward = {
-					PRC = {
-							add_opinion_modifier = {
-									target = CAM
-									modifier = large_increase
-								}
 						}
-					CAM = {
-							add_opinion_modifier = {
-									target = PRC
-									modifier = large_increase
-								}
-						}
-		}
-	}
-	focus = {
-		id = CAM_Balancing_Act
-		icon = GFX_goal_generic_neutrality_focus
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Align_with_Mao
-		}
-		x = 101
-		y = 9
-		completion_reward = {
-			add_political_power = 300
-		}	
-	}
-	focus = {
-		id = CAM_Anti_Serei_Propaganda
-		icon = GFX_goal_generic_propaganda
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Balancing_Act
-		}
-		x = 100
-		y = 10
-		completion_reward = {
-			add_ideas = anti_serei_propaganda
-		}
-	}
-	focus = {
-		id = CAM_Anti_Pracheachon_Propaganda
-		icon = GFX_goal_generic_propaganda
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Balancing_Act
-		}
-		x = 102
-		y = 10
-		completion_reward = {
-			add_ideas = leftist_persecution_cam
-		}
-	}
-	focus = {
-		id = CAM_Pracheachon
-		icon = GFX_focus_generic_soviet_politics
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Elections_of_1955
-		}
-		x = 105
-		y = 6
-		completion_reward = {
-			add_political_power = 300
-			add_ideas = pracheachon_drift
-		}
-	}
-	focus = {
-		id = CAM_Seek_Closer_Ties_to_North_Vietnam
-		icon = GFX_goal_tripartite_pact
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Pracheachon
-		}
-		mutually_exclusive = {
-			focus = CAM_Seek_Closer_Ties_to_Mao
-		}
-		x = 104
-		y = 7
-		completion_reward = {
-			add_ideas = soviet_advisors
-					VIN = {
-							add_opinion_modifier = {
-									target = CAM
-									modifier = large_increase
-								}
-						}
-					CAM = {
-							add_opinion_modifier = {
-									target = VIN
-									modifier = large_increase
-								}
-						}
-		}
-	}
-	focus = {
-		id = CAM_Kampuchean_Peoples_Revolutionary_Party
-		icon = GFX_focus_generic_join_comintern
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Seek_Closer_Ties_to_North_Vietnam
-		}
-		x = 104
-		y = 8
-		completion_reward = {
-			remove_ideas = pracheachon_drift
-			add_ideas = internationalism
-		}	
-	}
-	focus = {
-		id = CAM_Viet_Minh_Backed_Coup
-		icon = GFX_goal_generic_forceful_treaty
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Kampuchean_Peoples_Revolutionary_Party
-		}
-		x = 104
-		y = 9
-		completion_reward = {
-			set_politics = { ruling_party = communism elections_allowed = no }
-			start_civil_war = {
-				ideology = monarchism
-				size = 0.35
-			}		
-			start_civil_war = {
-				ideology = conservative
-				size = 0.35
-			}			
-		}
-	}
-	focus = {
-		id = CAM_Expel_the_Royal_Family
-		icon = GFX_goal_tfv_sever_ties_with_uk
-		cost = 10.00
-		prerequisite = {
-			focus = CAM_Viet_Minh_Backed_Coup
-		}
-		x = 104
-		y = 10
-		available = {
-			has_war =  no
-		}
-		completion_reward = {
-			add_political_power = 300
-			add_national_unity = -0.15
-		}
+				}
+
 	}
 	focus = {
 		id = CAM_the_Khmer_Rouge
@@ -3295,11 +3395,12 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_Seek_Closer_Ties_to_Mao
 		}
-		x = 106
+		x = 44
 		y = 8
-		completion_reward = {
-			add_ideas = maoist_drift
-		}
+			completion_reward = {
+					add_ideas = maoist_drift
+				}
+
 	}
 	focus = {
 		id = CAM_Seek_Closer_Ties_to_Mao
@@ -3311,10 +3412,10 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = CAM_Seek_Closer_Ties_to_North_Vietnam
 		}
-		x = 106
+		x = 44
 		y = 7
-		completion_reward = {
-			add_ideas = chinese_advisors
+			completion_reward = {
+					add_ideas = chinese_advisors
 					PRC = {
 							add_opinion_modifier = {
 									target = CAM
@@ -3327,7 +3428,8 @@ focus_tree = {
 									modifier = large_increase
 								}
 						}
-		}
+				}
+
 	}
 	focus = {
 		id = CAM_Military_Expansion
@@ -3336,12 +3438,12 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_Seek_Closer_Ties_to_America
 		}
-		x = 98
+		x = 36
 		y = 11
-		completion_reward = {
-			add_ideas = military_expansion
+			completion_reward = {
+					add_ideas = military_expansion
+				}
 
-		}
 	}
 	focus = {
 		id = CAM_Use_Sihanouk_as_national_figurehead
@@ -3350,12 +3452,13 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_the_Khmer_Rouge
 		}
-		x = 106
+		x = 44
 		y = 9
-		completion_reward = {
-			add_national_unity = 0.15
-			add_political_power = 300
-		}
+			completion_reward = {
+					add_national_unity = 0.15
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = CAM_Agrarian_Communism
@@ -3364,11 +3467,12 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_Use_Sihanouk_as_national_figurehead
 		}
-		x = 106
+		x = 44
 		y = 10
-		completion_reward = {
-			add_ideas = agrarian_reform
-		}
+			completion_reward = {
+					add_ideas = agrarian_reform
+				}
+
 	}
 	focus = {
 		id = CAM_Strike_Vietnam
@@ -3377,12 +3481,19 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_Agrarian_Communism
 		}
-		x = 106
+		x = 44
 		y = 11
-		completion_reward = {
-			create_wargoal = { type = annex_everything target = VIE }
-			create_wargoal = { type = annex_everything target = VIN }
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = VIE
+						}
+					create_wargoal = {
+							type = annex_everything
+							target = VIN
+						}
+				}
+
 	}
 	focus = {
 		id = CAM_Intervene_in_the_Vietnam_War
@@ -3391,14 +3502,20 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_Expel_the_Royal_Family
 		}
-		x = 104
+		x = 42
 		y = 11
-		available = {
-			VIN = { has_war_with = VIE }
-		}
-		completion_reward = {
-			add_to_war = { targeted_alliance = VIN enemy = VIE }	
-		}
+			available = {
+					VIN = {
+							has_war_with = VIE
+						}
+				}
+			completion_reward = {
+					add_to_war = {
+							targeted_alliance = VIN
+							enemy = VIE
+						}
+				}
+
 	}
 	focus = {
 		id = CAM_Nationalization_of_Foriegn_Assets
@@ -3407,7 +3524,7 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_Education_Reform
 		}
-		x = 96
+		x = 34
 		y = 11
 			completion_reward = {
 					random_owned_controlled_state = {
@@ -3440,7 +3557,6 @@ focus_tree = {
 									instant_build = yes
 								}
 						}
-				
 					random_owned_controlled_state = {
 							limit = {
 									free_building_slots = {
@@ -3531,7 +3647,6 @@ focus_tree = {
 									instant_build = yes
 								}
 						}
-				
 					random_owned_controlled_state = {
 							limit = {
 									free_building_slots = {
@@ -3593,6 +3708,7 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = CAM_Suppress_the_Khmer_Serei
@@ -3601,16 +3717,17 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_Anti_Serei_Propaganda
 		}
-		x = 100
+		x = 38
 		y = 11
-		completion_reward ={
-			remove_ideas = khmer_seriei_partisans
-				  start_civil_war = {
-					ruling_party = monarchism
-					ideology = conservative
-					size = 0.30
-				 }
-			}
+			completion_reward = {
+					remove_ideas = khmer_seriei_partisans
+					start_civil_war = {
+							ruling_party = monarchism
+							ideology = conservative
+							size = 0.30
+						}
+				}
+
 	}
 	focus = {
 		id = CAM_Suppress_the_Viet_Minh_Insurgents
@@ -3619,16 +3736,16 @@ focus_tree = {
 		prerequisite = {
 			focus = CAM_Anti_Pracheachon_Propaganda
 		}
-		x = 102
+		x = 40
 		y = 11
-		completion_reward ={
-			remove_ideas = khmer_seriei_partisans
-				  start_civil_war = {
-					ruling_party = monarchism
-					ideology = maoism
-					size = 0.30
-				 }
-			}
-	}
+			completion_reward = {
+					remove_ideas = khmer_seriei_partisans
+					start_civil_war = {
+							ruling_party = monarchism
+							ideology = maoism
+							size = 0.30
+						}
+				}
 
+	}
 }
