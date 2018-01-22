@@ -191,6 +191,19 @@ on_actions = {
 	on_capitulation = {
 		effect = {
 			news_event = { id = country_capitulated.0 days = 0 }
+			if = {
+				limit = {
+					FROM = {
+						or = {
+							tag = USA
+							tag = CHI
+							is_in_faction_with = CHI
+							is_in_faction_with = USA
+						}
+					}
+				}
+				CHI = { annex_country = { target = PRC } }
+			}
 		}
 	}
 
