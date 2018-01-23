@@ -816,8 +816,8 @@ focus_tree = {
 		prerequisite = {
 			focus = WGR_traditionalism
 		}
-		x = 1
-		y = 1
+		x = 22
+		y = 4
 		completion_reward = {
 			add_political_power = 300
 			add_ideas = communism_banned
@@ -879,10 +879,20 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = WGR_Reform_the_Central_Powers
 		}
-		x = 3
+		x = 2
 		y = 3
 		relative_position_id = WGR_traditionalism
-
+			completion_reward = {
+					every_other_country = {
+							limit = {
+									is_in_faction_with = USA
+								}
+							add_opinion_modifier = {
+									target = ROOT
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = WGR_Ties_with_NATO
@@ -898,7 +908,7 @@ focus_tree = {
 			completion_reward = {
 					every_other_country = {
 							limit = {
-									is_in_faction_with = ENG
+									is_in_faction_with = USA
 								}
 							add_opinion_modifier = {
 									target = ROOT
@@ -3265,6 +3275,38 @@ focus_tree = {
 		y = 11
 		completion_reward = {
 			annex_country = { target = DDR }
+		}
+	}
+	focus = {
+	    id = WGR_A_New_Fuhrer
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = WGR_Reunification_of_the_Reich }
+		mutually_exclusive = {
+			focus = WGR_Expedition_to_South_America
+		}
+		x = 18
+		y = 12
+		cost = 4
+		completion_reward = {
+		    WGR = {
+		        country_event = { days = 1 id = ddr.22 } 
+		    }
+		}
+	}
+	focus = {
+	    id = WGR_Expedition_to_South_America
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = WGR_Reunification_of_the_Reich }
+		mutually_exclusive = {
+			focus = WGR_A_New_Fuhrer
+		}
+		x = 18
+		y = 12
+		cost = 4
+		completion_reward = {
+		    WGR = {
+		        country_event = { days = 1 id = hitler.1 } 
+		    }
 		}
 	}
 }
