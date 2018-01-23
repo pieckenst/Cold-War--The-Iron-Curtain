@@ -755,6 +755,7 @@ focus_tree = {
 								}
 						}
 					add_political_power = 140
+					add_ideas = nationalism
 				}
 			ai_will_do = {
 					factor = 0
@@ -774,7 +775,9 @@ focus_tree = {
 		}
 		x = 16
 		y = 10
-
+		completion_reward = {
+			DDR = { country_event = kaiser.1 }
+		}
 	}
 	focus = {
 		id = WGR_traditionalism
@@ -789,7 +792,9 @@ focus_tree = {
 		}
 		x = 21
 		y = 3
-
+		completion_reward = {
+			add_ideas = monarchist_influence
+		}
 	}
 	focus = {
 		id = WGR_Imperial_Legacy
@@ -800,7 +805,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 4
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 	focus = {
 		id = WGR_christianity_not_socialism
@@ -811,7 +818,10 @@ focus_tree = {
 		}
 		x = 1
 		y = 1
-		relative_position_id = WGR_traditionalism
+		completion_reward = {
+			add_political_power = 300
+			add_ideas = communism_banned
+		}
 
 	}
 	focus = {
@@ -826,7 +836,22 @@ focus_tree = {
 		}
 		x = 21
 		y = 5
+		completion_reward = {
+					set_politics = {
+							ruling_party = monarchism
+							elections_allowed = no
+						}
+					create_country_leader = {
+							name = "Kaiser Louis Ferdinand I"
+							desc = ""
+							picture = "Louis_Ferdinand.tga"
+							expire = "1995.1.1"
+							ideology = absolute_monarchist
+							traits = {
 
+}
+						}			
+		}
 	}
 	focus = {
 		id = WGR_Reform_the_Central_Powers
@@ -840,7 +865,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 6
-
+		completion_reward = {
+			create_faction = "The Central Powers"
+		}
 	}
 	focus = {
 		id = WGR_stay_with_NATO
@@ -917,7 +944,12 @@ focus_tree = {
 		}
 		x = 18
 		y = 7
-
+		available = {
+			country_exists = AUS
+		}	
+		completion_reward = {
+			AUS = { add_ideas = monarchist_influence }
+		}
 	}
 	focus = {
 		id = WGR_Encourage_Monarchism_in_Italy
@@ -928,7 +960,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 7
-
+		completion_reward = {
+			ITA = { add_ideas = monarchist_influence }
+		}
 	}
 	focus = {
 		id = WGR_Reform_the_Imperial_German_Army
@@ -939,7 +973,10 @@ focus_tree = {
 		}
 		x = 22
 		y = 7
-
+		completion_reward = {
+			add_ideas = militarism_focus
+			add_ideas = militarized_schools
+		}
 	}
 	focus = {
 		id = WGR_Military_Expansion
@@ -956,7 +993,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 8
-
+		completion_reward = {
+			add_ideas = military_expansion
+		}
 	}
 	focus = {
 		id = WGR_Fund_Insurgeny_in_Occupied_Germany
@@ -967,7 +1006,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 9
-
+		completion_reward = {
+			DDR = { country_event = kaiser.1 }
+		}
 	}
 	focus = {
 		id = WGR_The_New_Kaiserreich
@@ -978,7 +1019,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 10
-
+		completion_reward = {
+			set_cosmetic_tag = GER_IMP
+		}
 	}
 	focus = {
 		id = WGR_Demand_Return_of_land_from_Poland
@@ -989,7 +1032,9 @@ focus_tree = {
 		}
 		x = 19
 		y = 11
-
+		completion_reward = {
+			POL = { country_event = kaiser.2 }
+		}
 	}
 	focus = {
 		id = WGR_Demand_Return_of_Alscae_Lorraine
@@ -1000,7 +1045,9 @@ focus_tree = {
 		}
 		x = 21
 		y = 11
-
+		completion_reward = {
+			FRA = { country_event = kaiser.3 }
+		}
 	}
 	focus = {
 		id = WGR_Konigsberg_or_War
@@ -1014,7 +1061,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 12
-
+		completion_reward = {
+			FRA = { country_event = kaiser.4 }
+		}
 	}
 	focus = {
 		id = WGR_Foreign_Tank_Requests
@@ -1059,7 +1108,9 @@ focus_tree = {
 		}
 		x = 23
 		y = 11
-
+		completion_reward = {
+			ENG = { country_event = kaiser.5 }
+		}
 	}
 	focus = {
 		id = WGR_Foreign_APC_Request
@@ -3196,7 +3247,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 10
-
+		completion_reward = {
+			annex_country = { target = SAR }
+		}
 	}
 	focus = {
 		id = WGR_Reunification_of_the_Reich
@@ -3210,6 +3263,8 @@ focus_tree = {
 		}
 		x = 17
 		y = 11
-
+		completion_reward = {
+			annex_country = { target = DDR }
+		}
 	}
 }

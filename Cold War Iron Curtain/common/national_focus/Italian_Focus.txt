@@ -1008,24 +1008,8 @@ focus_tree = {
 					add_ideas = monarchist_influence
 					set_party_name = {
 							ideology = monarchism
-							long_name = "Italian Social Movement"
-							name = "MSI"
-						}
-					custom_effect_tooltip = ITA_KINGDOM_tt
-					set_cosmetic_tag = ROME_IMP
-					set_politics = {
-							ruling_party = monarchism
-							elections_allowed = no
-						}
-					create_country_leader = {
-							name = "Augusto De Marsanich"
-							desc = ""
-							picture = "Marsanich.tga"
-							expire = "1973.1.1"
-							ideology = absolute_monarchist
-							traits = {
-
-}
+							long_name = ITA_social_party_long
+							name = ITA_social_party
 						}
 				}
 
@@ -1085,20 +1069,19 @@ focus_tree = {
 		}
 		x = 12
 		y = 4
-
+		completion_reward = {
+			add_ideas = militarism_focus
+			add_ideas = military_expansion
+		}
 	}
 	focus = {
 		id = ITA_Crown_A_New_Augustus
 		icon = GFX_focus_rom_royal_dictatorship
 		cost = 10.00
 		prerequisite = {
-			focus = ITA_creation_of_the_imperial_army
-		}
-		prerequisite = {
 			focus = ITA_Look_To_The_Ancient_Pass
 		}
 		mutually_exclusive = {
-			focus = ITA_Look_To_The_Ancient_Pass
 			focus = ITA_a_new_duce
 		}
 		x = 11
@@ -1110,31 +1093,22 @@ focus_tree = {
 						}
 				}
 			completion_reward = {
-					remove_ideas = ITA_path_of_tradition
-					add_ideas = monarchist_influence
-					set_party_name = {
-							ideology = monarchism
-							long_name = ITA_royalist_party_long
-							name = ITA_royalist_party
-						}
-					custom_effect_tooltip = ITA_KINGDOM_tt
-					set_cosmetic_tag = ITA_KINGDOM
+					set_cosmetic_tag = ROME_IMP
 					set_politics = {
 							ruling_party = monarchism
 							elections_allowed = no
 						}
 					create_country_leader = {
-							name = "Umberto II"
+							name = "Augusto De Marsanich"
 							desc = ""
-							picture = "gfx/leaders/ITA/Portrait_ITA_Umberto_II.tga"
-							expire = "1965.1.1"
+							picture = "gfx/leaders/ITA/Portrait_ITA_Augusto_De_Marsanich.tga"
+							expire = "1973.1.1"
 							ideology = absolute_monarchist
 							traits = {
 
-}
+							}
 						}
-				}
-
+					}
 	}
 	focus = {
 		id = ITA_Princie_di_Naples
@@ -1685,7 +1659,6 @@ focus_tree = {
 		x = 20
 		y = 2
 			available = {
-					has_government = democratic
 					ENG = {
 							owns_state = 559
 						}
@@ -1693,6 +1666,9 @@ focus_tree = {
 			bypass = {
 					owns_state = 559
 				}
+			completion_reward = {
+				transfer_state = 559
+			}
 
 	}
 	focus = {
@@ -1715,9 +1691,7 @@ focus_tree = {
 											size > 1
 											include_locked = yes
 										}
-									OR = {
-											state = 559
-										}
+									state = 559
 								}
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
@@ -1749,9 +1723,7 @@ focus_tree = {
 											size > 1
 											include_locked = yes
 										}
-									OR = {
 											state = 559
-										}
 								}
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
@@ -1782,6 +1754,9 @@ focus_tree = {
 					SOR = {
 							owns_state = 559
 						}
+				}
+				completion_reward = {
+					SOR = { transfer_state = 559 }
 				}
 
 	}
@@ -1865,10 +1840,9 @@ focus_tree = {
 		}
 		x = 23
 		y = 3
-			available = {
-					has_government = democratic
-				}
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = ITA_fortify_eastern_border
@@ -1915,9 +1889,6 @@ focus_tree = {
 		}
 		x = 24
 		y = 4
-			available = {
-					has_government = democratic
-				}
 			cancel_if_invalid = yes
 			continue_if_invalid = no
 			completion_reward = {
@@ -1937,9 +1908,6 @@ focus_tree = {
 		}
 		x = 23
 		y = 5
-			available = {
-					has_government = democratic
-				}
 			cancel_if_invalid = yes
 			continue_if_invalid = no
 			completion_reward = {
@@ -2131,7 +2099,10 @@ focus_tree = {
 				}
 			cancel_if_invalid = yes
 			continue_if_invalid = no
-
+		completion_reward = {
+			add_to_tech_sharing_group = mediterrean_tech	
+			YUG = { add_to_tech_sharing_group = mediterrean_tech }
+		}
 	}
 	focus = {
 		id = ITA_befriend_albania
@@ -2214,7 +2185,10 @@ focus_tree = {
 				}
 			cancel_if_invalid = yes
 			continue_if_invalid = no
-
+		completion_reward = {
+			add_to_tech_sharing_group = mediterrean_tech	
+			ALB = { add_to_tech_sharing_group = mediterrean_tech }
+		}
 	}
 	focus = {
 		id = ITA_invest_in_france
@@ -2228,10 +2202,72 @@ focus_tree = {
 			available = {
 					FRA = {
 							exists = yes
-							has_government = democratic
 						}
 				}
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				FRA = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					}
+				}
 	}
 	focus = {
 		id = ITA_improved_trade_with_france
@@ -2245,13 +2281,6 @@ focus_tree = {
 			available = {
 					FRA = {
 							exists = yes
-							OR = {
-									has_government = democratic
-									has_government = socialist
-									has_government = conservative
-									has_government = centrist
-									has_government = liberal
-								}
 						}
 				}
 			completion_reward = {
@@ -2276,12 +2305,74 @@ focus_tree = {
 			available = {
 					FRA = {
 							exists = yes
-							has_government = democratic
 						}
 				}
 			cancel_if_invalid = yes
 			continue_if_invalid = no
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				ENG = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					}
+				}
 	}
 	focus = {
 		id = ITA_invest_in_west_germany
@@ -2295,15 +2386,72 @@ focus_tree = {
 		}
 		x = 30
 		y = 4
-			available = {
-					WGR = {
-							exists = yes
-							has_government = democratic
-						}
-				}
 			cancel_if_invalid = yes
 			continue_if_invalid = no
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				WGR = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					}
+				}
 	}
 	focus = {
 		id = ITA_strengthen_ties_with_america
@@ -2314,15 +2462,22 @@ focus_tree = {
 		}
 		x = 30
 		y = 6
-			available = {
-					USA = {
-							exists = yes
-							has_government = democratic
-						}
-				}
 			cancel_if_invalid = yes
 			continue_if_invalid = no
-
+			completion_reward = {
+					ITA = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = ITA
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = ITA_nuclear_tech_sharing
@@ -2334,7 +2489,6 @@ focus_tree = {
 		x = 29
 		y = 7
 			available = {
-					has_government = democratic
 					is_puppet = no
 					is_in_faction_with = USA
 				}
@@ -2363,13 +2517,6 @@ focus_tree = {
 			available = {
 					ENG = {
 							exists = yes
-							OR = {
-									has_government = democratic
-									has_government = socialist
-									has_government = conservative
-									has_government = centrist
-									has_government = liberal
-								}
 						}
 				}
 			completion_reward = {
@@ -2392,7 +2539,6 @@ focus_tree = {
 		x = 31
 		y = 7
 			available = {
-					has_government = democratic
 					is_puppet = no
 					is_in_faction_with = USA
 				}
@@ -2425,7 +2571,38 @@ focus_tree = {
 		}
 		x = 33
 		y = 5
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				}		
 	}
 	focus = {
 		id = ITA_artillery_focus
