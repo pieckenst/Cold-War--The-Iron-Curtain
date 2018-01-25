@@ -1841,6 +1841,7 @@ country_event = {
 		KPA = { has_war_with = KOR }
 		NOT = { has_war_with = KOR }
 		has_global_flag = korean_war_usa_enters
+		has_global_flag = korean_war_usa_reinforcements_1
 		OR = {
 			750 = { is_controlled_by = KPA }
 			753 = { is_controlled_by = KPA }
@@ -1953,6 +1954,7 @@ country_event = {
 		KPA = { has_war_with = KOR }
 		NOT = { has_war_with = KPA }
 		has_global_flag = korean_war_china_enters
+		has_global_flag = korean_war_chinese_reinforcements_1
 		OR = {
 			746 = { is_controlled_by = KOR }
 			745 = { is_controlled_by = KOR }
@@ -2007,6 +2009,226 @@ news_event = {
 	id = korea.42
 	title = "Even More Chinese Troops in Korea"
 	desc = "The People's Republic of China just sent even more troops to North Korea. Like the United States, they keep sending more volunteers."
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Interesting."
+		trigger = {
+			NOT = {
+				TAG = KPA
+				TAG = PRC
+				TAG = KOR
+				TAG = SOV
+				TAG = USA
+			}
+			has_global_flag = korean_war_usa_enters
+		}
+	}
+	option = {
+		name = "The More the Better"
+		trigger = { 
+			OR = {
+				TAG = KPA
+				TAG = PRC 
+			}
+		}
+	}
+	option = {
+		name = "Shit"
+		trigger = { 
+			OR = {
+				TAG = KOR
+				TAG = USA 
+			}
+		}
+	}
+	option = {
+		name = "Good Move"
+		trigger = { TAG = SOV }
+	}
+}
+
+# Korean War - More US Troops 3
+country_event = {
+	id = korea.43
+	title = "Even More Men needed in Korea"
+	desc = "Those North korean Troops are stronger then we thought. With the help of Chinese forces they have managed to advance deep into South Korea. More men are needed."
+
+	picture = GFX_report_event_soviet_invasion_map
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = USA
+		KPA = { has_war_with = KOR }
+		NOT = { has_war_with = KOR }
+		has_global_flag = korean_war_usa_enters
+		has_global_flag = korean_war_usa_reinforcements_2
+		OR = {
+			AND = {
+				750 = { is_controlled_by = KPA }
+				753 = { is_controlled_by = KPA }
+			}
+			date > 1952.1.1
+		}
+		NOT = { has_global_flag = korean_war_usa_reinforcements_3 }
+	}
+
+	mean_time_to_happen = {
+		days = 60
+	}
+	
+	option = {
+		name = "Send More!"
+		ai_chance = {
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+		add_manpower = -175000
+		KOR = { add_manpower = 175000 }
+		KOR = { load_oob = KOR_American_Troops_3 }
+		KOR = { add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 } }
+		KOR = { add_equipment_to_stockpile = { type = lmg_infantry_equipment_1 amount = 30000 } }
+		KOR = { add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 20000 } }
+		KOR = { add_equipment_to_stockpile = { type = lt_equipment_1 amount = 10000 } }
+		KOR = { add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 } }
+		set_global_flag = korean_war_usa_reinforcements_3
+		news_event = { hours = 6 id = korea.44 }
+	}
+	option = {
+		name = "Keep our guys home"
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+
+# Korean War - More US Troops 3 - News
+news_event = {
+	id = korea.44
+	title = "The Third wave of US Volunteers"
+	desc = "Because of strong northern and chinese resistance, the United States of America just dispatched their third wave of volunteers to support South Korea."
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Interesting."
+		trigger = {
+			NOT = {
+				TAG = KPA
+				TAG = PRC
+				TAG = KOR
+				TAG = SOV
+				TAG = USA
+			}
+			has_global_flag = korean_war_usa_enters
+		}
+	}
+	option = {
+		name = "Shit"
+		trigger = { 
+			OR = {
+				TAG = KPA
+				TAG = PRC 
+			}
+		}
+	}
+	option = {
+		name = "The More the Better"
+		trigger = { 
+			OR = {
+				TAG = KOR
+				TAG = USA 
+			}
+		}
+	}
+	option = {
+		name = "We should do something"
+		trigger = { TAG = SOV }
+	}
+}
+
+# Korean War - More Chinese Troops 3
+country_event = {
+	id = korea.45
+	title = "Even More Men needed in Korea"
+	desc = "Those South korean Troops are stronger then we thought. With the help of American forces they have managed to advance deep into North Korea. More men are needed."
+
+	picture = GFX_report_event_soviet_invasion_map
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = PRC
+		KPA = { has_war_with = KOR }
+		NOT = { has_war_with = KPA }
+		has_global_flag = korean_war_china_enters
+		has_global_flag = korean_war_chinese_reinforcements_2
+		OR = {
+			AND = {
+				746 = { is_controlled_by = KOR }
+				745 = { is_controlled_by = KOR }
+			}
+			date > 1952.1.3
+		}
+		NOT = { has_global_flag = korean_war_chinese_reinforcements_3 }
+	}
+
+	mean_time_to_happen = {
+		days = 60
+	}
+	
+	option = {
+		name = "Send More!"
+		ai_chance = {
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+		add_manpower = -175000
+		KPA = { add_manpower = 175000 }
+		KPA = { load_oob = PRC_Communist_reinforcements_Korean_War_4 }
+		KPA = { add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 } }
+		KPA = { add_equipment_to_stockpile = { type = lmg_infantry_equipment_1 amount = 50000 } }
+		KPA = { add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 50000 } }
+		KPA = { add_equipment_to_stockpile = { type = lt_equipment_1 amount = 15000 } }
+		KPA = { add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 20000 } }
+		set_global_flag = korean_war_chinese_reinforcements_3
+		news_event = { hours = 6 id = korea.46 }
+	}
+	option = {
+		name = "We need them ourself"
+		ai_chance = { 
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+
+# Korean War - More Chinese Troops 3 - News
+news_event = {
+	id = korea.46
+	title = "Third Wave of Chinese Troops in Korea"
+	desc = "As an answer to the recent South Korean advancement into the North, the People's Republic of China just sent another third wave of volunteers down to Korea."
 	picture = GFX_news_event_001
 	
 	major = yes
