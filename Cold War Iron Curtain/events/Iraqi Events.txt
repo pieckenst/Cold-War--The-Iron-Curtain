@@ -1,4 +1,5 @@
 ﻿add_namespace = swfs
+add_namespace = ARF
 country_event = {
 	id = swfs.2
 	title = "14th of July Revolution"
@@ -51,3 +52,31 @@ country_event = {
 
 	}
 }
+country_event = {
+	id = ARF.1
+	title = "The Arab Federation"
+	desc = "The Arab Federation Proposal to Unite Iraq and Jordan"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to the Proposal"
+		FROM = {
+			set_cosmetic_tag = ARF_IRQ
+			annex_country = { target = JOR } 
+			annex_country = { target = IRQ } 
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 0
+		}
+		name = "Decline"
+
+	}
+}
+			
