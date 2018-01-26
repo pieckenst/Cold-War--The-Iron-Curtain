@@ -128,32 +128,59 @@ create_import = {
 }
 
 set_convoys = 400
+	set_politics = {
 
-set_politics = {
+		parties = {
+			American_Democratic = { 
+				popularity = 100
+			}
 
-	parties = {
-		Liberal_Conservatism = { 
-			popularity = 87
-		}
-
-		fascism = {
-			popularity = 13
+			fascism = {
+				popularity = 0
+			}
+			
+			communism = {
+				popularity = 0
+				#banned = no #default is no
+			}
+			pan_arabism = {
+				popularity = 0
+				banned = yes
+			}
 		}
 		
-		communism = {
-			popularity = 0
-			#banned = no #default is no
-		}
-		pan_arabism = {
-			popularity = 0
-			banned = yes
-		}
+		ruling_party = American_Democratic
+		last_election = "1949.1.1"
+		election_frequency = 48
+		elections_allowed = yes
 	}
-	
-	ruling_party = Liberal_Conservatism
-	last_election = "1949.1.1"
-	election_frequency = 48
-	elections_allowed = yes
+1952.1.1 = {
+	set_politics = {
+
+		parties = {
+			Liberal_Conservatism = { 
+				popularity = 87
+			}
+
+			fascism = {
+				popularity = 13
+			}
+			
+			communism = {
+				popularity = 0
+				#banned = no #default is no
+			}
+			pan_arabism = {
+				popularity = 0
+				banned = yes
+			}
+		}
+		
+		ruling_party = Liberal_Conservatism
+		last_election = "1949.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
 }
 1949.1.1 = {
 	add_ideas = {
@@ -185,7 +212,16 @@ create_country_leader = {
 		warrior_code
 	}
 }
-
+		create_country_leader = {
+			name = "Douglas MacArthur"
+			desc = "POLITICS_DOUGLAS_MACARTHUR_DESC"
+			picture = "Portrait_USA_Douglas_MacArthur.dds"
+			expire = "1965.1.1"
+			ideology = democratic_america
+			traits = {
+				
+			} 
+		}
 create_corps_commander = {
 	name = "Tomoyuki Yamashita"
 		picture = "Portrait_Japan_Tomoyuki_Yamashita.dds"
