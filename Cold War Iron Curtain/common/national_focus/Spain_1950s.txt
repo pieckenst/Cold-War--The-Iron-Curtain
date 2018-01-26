@@ -3121,6 +3121,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SPR_Aid_Algerian_Rebels
 		}
+		available = { FRA = { has_war_with = ALG } }
+		bypass = {
+			AND = {
+				ALG = { exists = yes }
+				FRA = { NOT = { has_war_with = ALG } }
+			}
+		}
 		x = 52
 		y = 8
 		completion_reward = {
@@ -3151,6 +3158,7 @@ focus_tree = {
 		x = 52
 		y = 10
 		completion_reward = {
+			USA = { add_to_faction = SPR }
 			add_ideas = nato_member
 		}
 	}
@@ -4289,6 +4297,12 @@ focus_tree = {
 			focus = SPR_Aid_France_in_Algeria
 			focus = SPR_Intervene_in_Algeria
 		}
+		available = {
+			ALG = { exists = yes }
+		}
+		completion_reward = {
+			ALG = { add_ideas = paramilitarism }
+		}
 		x = 46
 		y = 7
 
@@ -4307,7 +4321,7 @@ focus_tree = {
 		x = 48
 		y = 8
 		completion_reward = {
-			add_ideas = internationalism
+			POR = { add_ideas = internationalism }
 		}
 	}
 	focus = {
@@ -4611,6 +4625,7 @@ focus_tree = {
 		x = 38
 		y = 11
 		completion_reward = {
+			USA = { add_to_faction = SPR }
 			add_ideas = nato_member
 		}
 	}
