@@ -2852,10 +2852,10 @@ focus_tree = {
 		icon = GFX_focus_hun_elect_a_king
 		cost = 10.00
 		prerequisite = {
-			focus = SWI_boost_morale
+			focus = SWI_monarchist_propaganda
 		}
 		x = 56
-		y = 7
+		y = 8
 		completion_reward = {
 					create_wargoal = {
 							type = annex_everything
@@ -3310,7 +3310,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SWI_join_nato
-		icon = GFX_goal_unknown
+		icon = GFX_nato
 		cost = 10.00
 		prerequisite = {
 			focus = SWI_friends_in_west
@@ -3434,6 +3434,72 @@ focus_tree = {
 		y = 8
 		completion_reward = {
 			add_national_unity = 0.4
+		}
+	}
+	
+	focus = {
+		id = SWI_friends_in_west_and_east
+		icon = GFX_goal_generic_major_alliance
+		cost = 10.00
+		prerequisite = {
+			focus = SWI_no_war
+		}
+		x = 35
+		y = 7
+		completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = SWI
+									modifier = small_increase
+								}
+						}
+					SWI = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = small_increase
+								}
+						}
+						USA = {
+							add_opinion_modifier = {
+									target = SWI
+									modifier = small_increase
+								}
+						}
+					SWI = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+						}
+		}
+	}
+	
+	focus = {
+		id = SWI_celebrate_neutrality
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = SWI_friends_in_west_and_east
+		}
+		x = 35
+		y = 8
+		completion_reward = {
+			add_national_unity = 0.15
+			add_political_power = 120
+		}
+	}
+	
+	focus = {
+		id = SWI_monarchist_propaganda
+		icon = GFX_focus_hun_elect_a_king
+		cost = 10.00
+		prerequisite = {
+			focus = SWI_boost_morale
+		}
+		x = 56
+		y = 7
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
 		}
 	}
 }
