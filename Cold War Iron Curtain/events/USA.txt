@@ -702,3 +702,136 @@ country_event = {
 		set_global_flag = nixon_60
 	}
 }
+# Election of 1964: American_Democratic Nomination
+country_event = {
+	id = usa.19641
+	title = "Election of 1964: American_Democratic Nomination"
+	desc = "Election of 1964: American_Democratic Nomination"
+	picture = GFX_report_event_usa_election_generic
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = USA
+		date > 1964.7.15
+		date < 1964.8.31
+	}
+
+	mean_time_to_happen = { days = 1 }
+	
+	option = { 
+		name = "Hubert Humphrey"
+		trigger = {
+			NOT = { has_global_flag = lbj_63 }
+		}
+		set_global_flag = humphrey_dem_nominee_60
+	}
+	option = { 
+		name = "Lyndon Johnson"
+		trigger = {
+			has_global_flag = lbj_63
+		}
+		ai_chance = {
+			factor = 30
+		}
+		set_global_flag = lbj_dem_nominee_60
+	}	
+	
+}
+
+
+
+# Election of 1964: Republican Nomination
+country_event = {
+	id = usa.19642
+	title = "Election of 1964: Republican Nomination"
+	desc = "Election of 1964: Republican Nomination"
+	picture = GFX_report_event_usa_election_generic
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = USA
+		date > 1964.7.1
+		date < 1964.8.15
+	}
+
+	mean_time_to_happen = { days = 1 }
+	
+	option = { 
+		name = "Barry Goldwater"
+	}
+
+
+}
+# Election of 1964
+country_event = {
+	id = usa.19643
+	title = "Election of 1964"
+	desc = "The Election of 1964"
+	picture = GFX_report_event_usa_election_generic
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = USA
+		date > 1964.1.1
+		date < 1967.1.1
+	}
+
+	option = { 
+		name = "Hubert Humphrey III"
+		ai_chance = {
+			factor = 30
+		}
+		trigger = {
+			has_global_flag = humphrey_dem_nominee_64
+		}
+		set_party_name = { ideology = American_Democratic long_name = USA_American_Democratic_party name = USA_American_Democratic_party }
+		create_country_leader = {
+			name = "Hubert Humphrey III"
+			desc = ""
+			picture = "humphrey.dds"
+			expire = "1977.1.1"
+			ideology = democratic_america
+		}
+		set_global_flag = humphrey_64
+	}
+	
+	option = { 
+		name = "John F. Kennedy"
+		ai_chance = {
+			factor = 35
+		}
+		trigger = {
+			has_global_flag = jfk_dem_nominee_60
+		}
+		set_party_name = { ideology = American_Democratic long_name = USA_American_Democratic_party name = USA_American_Democratic_party }
+		create_country_leader = {
+			name = "John F. Kennedy"
+			desc = ""
+			picture = "lbj.dds"
+			expire = "1980.1.1"
+			ideology = democratic_america
+		}
+		set_global_flag = lbj_64
+	}
+	option = { 
+		name = "Barry Goldwater"
+		ai_chance = {
+			factor = 35
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+		}
+		create_country_leader = {
+			name = "Barry Goldwater"
+			picture = "Goldwater.dds"
+			expire = "1990.1.1"
+			ideology = republican
+		}
+		set_politics = { ruling_party = Republicanism elections_allowed = yes }
+		set_global_flag = goldwater_1964
+	}
+}
