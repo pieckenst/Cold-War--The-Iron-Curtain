@@ -1,0 +1,143 @@
+﻿###########################
+# 
+###########################
+
+add_namespace = royal
+news_event = {
+	id = royal.3
+	title = "Abdication of the Emperor"
+	desc = royal.1.d
+	picture = GFX_news_event_Japanese_Palace
+
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "Who is pulling the strings here?"
+		trigger = {
+			has_idea = nato_member
+		}
+		
+	}
+
+	option = {
+		name = "They should have shot him"
+		trigger = {
+			OR = {
+				tag = SOV
+				is_in_faction_with = SOV	
+			}
+		}
+	}
+	option = {
+		name = "They should have hanged him"
+		trigger = {
+			OR = {
+				tag = PRC
+				is_in_faction_with = PRC
+			}
+		}
+	}
+	option = {
+		name = "An interesting development"
+		trigger = {
+			NOT = {
+				tag = SOV
+				is_in_faction_with = SOV	
+				has_idea = nato_member
+			}
+		}
+	}
+}
+
+news_event = {
+	id = royal.1
+	title = "Execution of the Royal Family"
+	desc = royal.2.d
+	picture = GFX_news_event_Japanese_Palace
+
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "How Barbaric"
+		trigger = {
+			has_idea = nato_member
+		}
+		
+	}
+
+	option = {
+		name = "Death to the Imperialist Scum"
+		trigger = {
+			OR = {
+				tag = SOV
+				is_in_faction_with = SOV	
+			}
+		}
+	}
+	option = {
+		name = "Death to the Imperialist Scum"
+		trigger = {
+			OR = {
+				tag = PRC
+				is_in_faction_with = PRC
+			}
+		}
+	}
+	option = {
+		name = "How Barbaric"
+		trigger = {
+			NOT = {
+				tag = SOV
+				is_in_faction_with = SOV	
+				has_idea = nato_member
+			}
+		}
+	}
+}
+news_event = {
+	id = royal.2
+	title = "Execution of the Royal Family"
+	desc = royal.3.d
+	picture = GFX_news_event_Forbidden_City
+
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "How Barbaric"
+		trigger = {
+			has_idea = nato_member
+		}
+	}
+
+	option = {
+		name = "They had it coming...."
+		trigger = {
+			OR = {
+				tag = SOV
+				is_in_faction_with = SOV	
+			}
+		}
+	}
+	option = {
+		name = "Death to the Imperialist Scum"
+		trigger = {
+			OR = {
+				tag = PRC
+				is_in_faction_with = PRC
+			}
+		}
+	}
+	option = {
+		name = "How Barbaric"
+		trigger = {
+			NOT = {
+				tag = SOV
+				is_in_faction_with = SOV	
+				has_idea = nato_member
+			}
+		}
+	}
+}
