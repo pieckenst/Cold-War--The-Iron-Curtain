@@ -2281,7 +2281,7 @@ focus_tree = {
 						}
 					set_politics = {
 							ruling_party = socialist
-							elections_allowed = yes
+							elections_allowed = no
 						}
 					add_popularity = {
 							ideology = socialist
@@ -2314,7 +2314,7 @@ focus_tree = {
 
 	}
 	focus = {
-		id = HUN_Kádár_Takes_Control
+		id = HUN_Kadar_Takes_Control
 		icon = GFX_focus_generic_soviet_politics
 		cost = 10.00
 		prerequisite = {
@@ -2322,14 +2322,27 @@ focus_tree = {
 		}
 		x = 42
 		y = 8
+			completion_reward = {
+					add_political_power = 120
+					add_national_unity = -0.15
+					create_country_leader = {
+							name = "Janos Kadar"
+							desc = "POLITICS_MATYAS_RAKOSKI_DESC"
+							picture = "Kadar.dds"
+							expire = "1989.1.1"
+							ideology = stalinism
+							traits = {
 
+}
+						}
+				}
 	}
 	focus = {
 		id = HUN_repression
 		icon = GFX_goal_generic_demand_territory
 		cost = 10.00
 		prerequisite = {
-			focus = HUN_Kádár_Takes_Control
+			focus = HUN_Kadar_Takes_Control
 		}
 		x = 42
 		y = 9
@@ -2351,6 +2364,7 @@ focus_tree = {
 		x = 42
 		y = 10
 			completion_reward = {
+					add_manpower = -100000
 					add_political_power = 120
 				}
 
@@ -2364,7 +2378,10 @@ focus_tree = {
 		}
 		x = 42
 		y = 11
-
+		completion_reward = {
+			add_manpower = -50000
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = HUN_Cultural_Changes
@@ -2374,8 +2391,12 @@ focus_tree = {
 			focus = HUN_Purge_the_Communist_Party
 		}
 		x = 42
-		y = 12
-
+		y = 12	
+		completion_reward = {
+			add_ideas = iron_curtain
+			add_ideas = city_economies
+			add_ideas = urban_planning
+		}
 	}
 	focus = {
 		id = HUN_rally_behind_the_church
@@ -2420,7 +2441,9 @@ focus_tree = {
 		}
 		x = 45
 		y = 8
-
+		completion_reward = {
+			add_ideas = traditional_culture
+		}
 	}
 	focus = {
 		id = HUN_American_Economic_Aid
@@ -2431,7 +2454,101 @@ focus_tree = {
 		}
 		x = 45
 		y = 9
-
+			completion_reward = {
+					every_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = HUN_A_Conservative_Republic
@@ -2445,7 +2562,9 @@ focus_tree = {
 		}
 		x = 44
 		y = 10
-
+		completion_reward = {
+			add_ideas = passion_of_the_right
+		}
 	}
 	focus = {
 		id = HUN_Return_of_the_Habsburg
@@ -2459,7 +2578,9 @@ focus_tree = {
 		}
 		x = 46
 		y = 10
-
+		completion_reward = {
+			add_ideas = monarchist_influence
+		}
 	}
 	focus = {
 		id = HUN_Restoration_of_Austria-Hungary
@@ -2470,7 +2591,29 @@ focus_tree = {
 		}
 		x = 46
 		y = 11
-
+			completion_reward = {
+					set_politics = {
+							ruling_party = monarchism
+							elections_allowed = no
+						}
+					add_popularity = {
+							ideology = monarchism
+							popularity = 0.35
+						}
+					set_cosmetic_tag = HUN_EMPIRE
+					152 = { add_core_of = ROOT }
+					153 = { add_core_of = ROOT }
+					4 = { add_core_of = ROOT }
+					69 = { add_core_of = ROOT }
+					9 = { add_core_of = ROOT }
+					75 = { add_core_of = ROOT }
+					74 = { add_core_of = ROOT }
+					72 = { add_core_of = ROOT }
+					70 = { add_core_of = ROOT }
+					664 = { add_core_of = ROOT }
+					71 = { add_core_of = ROOT }
+					73 = { add_core_of = ROOT }
+		}
 	}
 	focus = {
 		id = HUN_The_Imperial_Army
@@ -2481,7 +2624,11 @@ focus_tree = {
 		}
 		x = 46
 		y = 12
-
+		completion_reward = {
+			add_ideas = imperial_army
+			add_ideas = militarized_schools
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 	focus = {
 		id = HUN_Demand_Transylvania
@@ -2492,7 +2639,13 @@ focus_tree = {
 		}
 		x = 46
 		y = 13
-
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = ROM
+						}
+					ROM = { every_owned_state = { add_core_of = HUN }	}
+			}
 	}
 	focus = {
 		id = HUN_Demand_Galicia
@@ -2503,7 +2656,13 @@ focus_tree = {
 		}
 		x = 45
 		y = 14
-
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = POL
+						}
+					POL = { every_owned_state = { add_core_of = HUN }	}
+			}
 	}
 	focus = {
 		id = HUN_Crush_Yugoslavia
@@ -2514,7 +2673,13 @@ focus_tree = {
 		}
 		x = 47
 		y = 14
-
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = YUG
+						}
+					YUG = { every_owned_state = { add_core_of = HUN }	}
+			}
 	}
 	focus = {
 		id = HUN_Claim_Venetia
@@ -2528,7 +2693,13 @@ focus_tree = {
 		}
 		x = 46
 		y = 15
-
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = YUG
+						}
+					YUG = { every_owned_state = { add_core_of = ITA }	}
+			}
 	}
 	focus = {
 		id = HUN_prepare_for_invasion
@@ -2690,7 +2861,10 @@ focus_tree = {
 		}
 		x = 34
 		y = 8
-
+		completion_reward = {
+			add_ideas = militarized_schools
+			add_ideas = militarism_focus
+		}
 	}
 	focus = {
 		id = HUN_Purge_Communists
@@ -2701,7 +2875,9 @@ focus_tree = {
 		}
 		x = 34
 		y = 9
-
+		completion_reward = {
+			add_ideas = leftist_persecution_cam
+		}
 	}
 	focus = {
 		id = HUN_Social_Welfare
@@ -2715,7 +2891,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 11
-
+			completion_reward = {
+					add_ideas = the_american_welfare_state
+				}
 	}
 	focus = {
 		id = HUN_Embrace_Neutrality
@@ -2726,7 +2904,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 9
-
+		completion_reward = {
+			add_ideas = neutrality_idea
+		}
 	}
 	focus = {
 		id = HUN_Strengthen_Ties_With_Austria
@@ -2737,7 +2917,20 @@ focus_tree = {
 		}
 		x = 36
 		y = 10
-
+			completion_reward = {
+					HUN = {
+							add_opinion_modifier = {
+									target = AUS
+									modifier = large_increase
+								}
+						}
+					AUS = {
+							add_opinion_modifier = {
+									target = HUN
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = HUN_Strengthen_Ties_With_Sweeden
@@ -2748,7 +2941,20 @@ focus_tree = {
 		}
 		x = 38
 		y = 10
-
+			completion_reward = {
+					HUN = {
+							add_opinion_modifier = {
+									target = SWE
+									modifier = large_increase
+								}
+						}
+					SWE = {
+							add_opinion_modifier = {
+									target = HUN
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = HUN_Free_and_Fair_Elections
@@ -2763,7 +2969,16 @@ focus_tree = {
 		x = 37
 		y = 12
 			completion_reward = {
-
+					set_politics = {
+							ruling_party = socialist
+							elections_allowed = yes
+						}
+					add_popularity = {
+							ideology = socialist
+							popularity = 0.25
+						}
+					add_political_power = 200
+					add_national_unity = 0.35
 				}
 
 	}
@@ -2780,7 +2995,8 @@ focus_tree = {
 		x = 44
 		y = 12
 			completion_reward = {
-
+					add_ideas = nato_member
+					USA = { add_to_faction = ROOT }
 
 				}
 
@@ -2795,9 +3011,14 @@ focus_tree = {
 		x = 39
 		y = 9
 
-			completion_reward = {
-
-				}
+		completion_reward = {
+					add_political_power = 100
+					add_popularity = { ideology = Social_Democratic popularity = 0.50 }	
+					set_politics = {
+							ruling_party = Social_Democratic
+							elections_allowed = yes
+					}
+			}
 
 	}
 	focus = {
@@ -2812,9 +3033,98 @@ focus_tree = {
 		}
 		x = 40
 		y = 10
-			completion_reward = {
-
+	completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
 				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -2827,7 +3137,8 @@ focus_tree = {
 		x = 40
 		y = 11
 			completion_reward = {
-
+					army_experience = 25
+					add_ideas = military_expansion
 				}
 
 	}
@@ -2840,7 +3151,98 @@ focus_tree = {
 		}
 		x = 40
 		y = 12
-
+	completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = HUN_Demand_the_Magyar_Plains
@@ -2851,7 +3253,13 @@ focus_tree = {
 		}
 		x = 34
 		y = 10
-
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = ROM
+						}
+					ROM = { every_owned_state = { add_core_of = HUN }	}
+			}
 	}
 	focus = {
 		id = HUN_Strengthen_Ties_With_Franco
@@ -2862,7 +3270,20 @@ focus_tree = {
 		}
 		x = 33
 		y = 11
-
+			completion_reward = {
+					HUN = {
+							add_opinion_modifier = {
+									target = SPR
+									modifier = large_increase
+								}
+						}
+					SPR = {
+							add_opinion_modifier = {
+									target = HUN
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = HUN_Strengthen_Ties_With_Portugal
@@ -2873,7 +3294,20 @@ focus_tree = {
 		}
 		x = 35
 		y = 11
-
+			completion_reward = {
+					HUN = {
+							add_opinion_modifier = {
+									target = POR
+									modifier = large_increase
+								}
+						}
+					POR = {
+							add_opinion_modifier = {
+									target = HUN
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = HUN_Military_Expansion
@@ -2886,8 +3320,10 @@ focus_tree = {
 			focus = HUN_Strengthen_Ties_With_Portugal
 		}
 		x = 34
-		y = 12
-
+		y = 12	
+		completion_reward = {
+			add_ideas = military_expansion
+		}
 	}
 	focus = {
 		id = HUN_American_Military_Aid
@@ -2898,7 +3334,98 @@ focus_tree = {
 		}
 		x = 44
 		y = 11
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = HUN_The_Return_of_the_Empire
@@ -2908,7 +3435,12 @@ focus_tree = {
 			focus = HUN_Claim_Venetia
 		}
 		x = 46
-		y = 16
-
+		y = 16	
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+			add_political_power = 300
+			add_national_unity = 0.10
+			add_research_slot = 1
+		}
 	}
 }
