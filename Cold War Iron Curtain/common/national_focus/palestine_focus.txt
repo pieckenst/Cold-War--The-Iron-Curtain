@@ -16,7 +16,7 @@ focus_tree = {
 		y = 0
 			completion_reward = {
 					set_autonomy = {
-							target = EGY
+							target = PAL
 							autonomy_state = autonomy_free
 						}
 					}
@@ -223,7 +223,71 @@ focus_tree = {
 		cost = 10.00
 		x = 25
 		y = 0
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = PAL_the_1949_palestinian_exodus
@@ -242,7 +306,9 @@ focus_tree = {
 		}
 		x = 1
 		y = 1
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = PAL_expand_military_factory
@@ -253,7 +319,71 @@ focus_tree = {
 		}
 		x = 5
 		y = 1
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = PAL_request_funds_from_other_arab_nations
@@ -265,7 +395,71 @@ focus_tree = {
 		}
 		x = 3
 		y = 2
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = PAL_recruit_a_professional_army
@@ -276,7 +470,10 @@ focus_tree = {
 		}
 		x = 3
 		y = 3
-
+			completion_reward = {
+					remove_ideas = incompetent_officer_corps
+					army_experience = 25
+				}
 	}
 	focus = {
 		id = PAL_research_modern_tanks
@@ -287,7 +484,14 @@ focus_tree = {
 		}
 		x = 1
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = armor_bonus
+							bonus = 0.5
+							uses = 2
+							category = armor
+						}
+				}
 	}
 	focus = {
 		id = PAL_learn_cheap_but_effective_tanks
@@ -298,7 +502,14 @@ focus_tree = {
 		}
 		x = 5
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = armor_bonus
+							bonus = 0.5
+							uses = 2
+							category = armor
+						}
+				}
 	}
 	focus = {
 		id = PAL_expand_naval_dockyards
@@ -309,7 +520,108 @@ focus_tree = {
 		}
 		x = 9
 		y = 1
-
+			completion_reward = {
+					if = {
+							limit = {
+									NOT = {
+											any_owned_state = {
+													dockyard > 0
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+									any_owned_state = {
+											is_coastal = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									any_owned_state = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									NOT = {
+											any_owned_state = {
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+								}
+							random_state = {
+									limit = {
+											controller = {
+													tag = ROOT
+												}
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+				}
 	}
 	focus = {
 		id = PAL_ask_for_british_ships
@@ -320,7 +632,11 @@ focus_tree = {
 		}
 		x = 9
 		y = 2
-
+			completion_reward = {
+					add_equipment_to_stockpile = { type = frigate_1 amount = 10 producer = ENG }	
+					add_equipment_to_stockpile = { type = destroyer_3 amount = 10 producer = ENG					}	
+					add_equipment_to_stockpile = { type = battleship_2 amount = 10 producer = ENG }	
+				}
 	}
 	focus = {
 		id = PAL_carrier_efforts
@@ -331,7 +647,20 @@ focus_tree = {
 		}
 		x = 7
 		y = 3
-
+			completion_reward = {
+					navy_experience = 25
+					add_tech_bonus = {
+							name = capital_ships_bonus
+							bonus = 0.5
+							ahead_reduction = 1
+							uses = 1
+							technology = battle_cruiser_1
+							technology = early_carrier
+							technology = basic_carrier
+							technology = improved_carrier
+							technology = advanced_carrier
+						}
+				}
 	}
 	focus = {
 		id = PAL_submarine_efforts
@@ -342,7 +671,18 @@ focus_tree = {
 		}
 		x = 11
 		y = 3
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = ss_bonus
+							bonus = 0.5
+							ahead_reduction = 1
+							uses = 1
+							technology = early_submarine
+							technology = basic_submarine
+							technology = improved_submarine
+							technology = advanced_submarine
+						}
+				}
 	}
 	focus = {
 		id = PAL_palestines_naval_research_academy
@@ -354,7 +694,10 @@ focus_tree = {
 		}
 		x = 9
 		y = 4
-
+		completion_reward = {
+			navy_experience = 50
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = PAL_expand_airports
@@ -365,7 +708,30 @@ focus_tree = {
 		}
 		x = 15
 		y = 1
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 0
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 0
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							}
+						}
 	}
 	focus = {
 		id = PAL_arial_superiority
@@ -376,7 +742,15 @@ focus_tree = {
 		}
 		x = 13
 		y = 2
-
+			completion_reward = {
+					air_experience = 5
+					add_tech_bonus = {
+							name = jet_technology_bonus
+							bonus = 0.5
+							uses = 1
+							category = jet_technology
+						}
+				}
 	}
 	focus = {
 		id = PAL_nuclear_efforts
@@ -387,7 +761,14 @@ focus_tree = {
 		}
 		x = 13
 		y = 3
-
+		completion_reward = {
+				add_tech_bonus = {
+					name = secret_bonus
+					bonus = 0.5
+					uses = 1
+					category = nuclear
+				}
+			}
 	}
 	focus = {
 		id = PAL_paratroop_efforts
@@ -398,7 +779,16 @@ focus_tree = {
 		}
 		x = 17
 		y = 2
+			completion_reward = {
+					add_tech_bonus = {
+							name = special_forces_bonus
+							bonus = 0.5
+							uses = 1
+							technology = paratroopers
+							technology = paratroopers2
 
+						}
+				}
 	}
 	focus = {
 		id = PAL_new_airplane_models
@@ -409,7 +799,15 @@ focus_tree = {
 		}
 		x = 17
 		y = 3
-
+			completion_reward = {
+					air_experience = 5
+					add_tech_bonus = {
+							name = jet_technology_bonus
+							bonus = 0.5
+							uses = 1
+							category = jet_technology
+						}
+				}
 	}
 	focus = {
 		id = PAL_palestinian_arial_academy
@@ -421,7 +819,10 @@ focus_tree = {
 		}
 		x = 15
 		y = 4
-
+		completion_reward = {
+			air_experience = 50
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = PAL_the_4_year_plan
@@ -435,7 +836,71 @@ focus_tree = {
 		}
 		x = 9
 		y = 5
-
+		completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = PAL_allow_females_in_military
@@ -449,7 +914,9 @@ focus_tree = {
 		}
 		x = 5
 		y = 6
-
+		completion_reward = {
+			add_ideas = egalitarian_beliefs
+		}
 	}
 	focus = {
 		id = PAL_tradional_ways
@@ -476,7 +943,10 @@ focus_tree = {
 		}
 		x = 17
 		y = 6
-
+		completion_reward = {
+			army_experience = 50
+			add_manpower = 50000
+		}
 	}
 	focus = {
 		id = PAL_increase_trade_with_neighbors
@@ -487,7 +957,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 1
-
+		completion_reward = {
+			add_ideas = embrace_free_trade
+		}
 	}
 	focus = {
 		id = PAL_modernize_gaza
@@ -498,7 +970,72 @@ focus_tree = {
 		}
 		x = 25
 		y = 1
-
+			completion_reward = {
+					add_research_slot = 1
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = PAL_chromium_in_gaza
@@ -509,7 +1046,14 @@ focus_tree = {
 		}
 		x = 28
 		y = 1
-
+		completion_reward = {
+			random_owned_state = {
+				add_resource = {
+					type = chromium
+					amount = 50
+				}
+			}
+		}
 	}
 	focus = {
 		id = PAL_new_found_oil
@@ -522,7 +1066,14 @@ focus_tree = {
 		}
 		x = 25
 		y = 2
-
+		completion_reward = {
+			random_owned_state = {
+				add_resource = {
+					type = oil
+					amount = 50
+				}
+			}
+		}
 	}
 	focus = {
 		id = PAL_allow_american_investors_in_gaza
@@ -533,7 +1084,71 @@ focus_tree = {
 		}
 		x = 22
 		y = 3
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = PAL_better_infastructure
@@ -583,7 +1198,16 @@ focus_tree = {
 		}
 		x = 28
 		y = 3
-
+			completion_reward = {
+				add_manpower = 50000
+				army_experience = 50
+			random_owned_state = {
+				add_resource = {
+					type = oil
+					amount = 25
+				}
+			}
+		}
 	}
 	focus = {
 		id = PAL_better_infastructure_ii
@@ -635,7 +1259,11 @@ focus_tree = {
 		}
 		x = 25
 		y = 6
-
+		completion_reward = {
+			capital_scope = {
+				add_manpower = 50000
+			}
+		}
 	}
 	focus = {
 		id = PAL_modernize_steel_industry
@@ -646,7 +1274,14 @@ focus_tree = {
 		}
 		x = 28
 		y = 5
-
+		completion_reward = {
+			random_owned_state = {
+				add_resource = {
+					type = steel
+					amount = 25
+				}
+			}
+		}
 	}
 	focus = {
 		id = PAL_increase_arms_for_military
@@ -657,7 +1292,71 @@ focus_tree = {
 		}
 		x = 28
 		y = 7
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = PAL_arab_cold_war
@@ -668,7 +1367,9 @@ focus_tree = {
 		}
 		x = 51
 		y = 1
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = PAL_socialism
@@ -688,7 +1389,13 @@ focus_tree = {
 		}
 		x = 33
 		y = 2
-
+		completion_reward = {
+					add_ideas = internationalism
+					set_politics = {
+							ruling_party = communism
+							elections_allowed = no
+					}
+			}
 	}
 	focus = {
 		id = PAL_socialist_science
@@ -699,7 +1406,9 @@ focus_tree = {
 		}
 		x = 33
 		y = 3
-
+		completion_reward = {
+			add_ideas = KOR_education_reform
+		}
 	}
 	focus = {
 		id = PAL_on_our_own
@@ -727,7 +1436,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 4
-
+		completion_reward = {
+			SOV = { add_to_faction = ROOT }
+		}
 	}
 	focus = {
 		id = PAL_anti_zionist_sentiment
@@ -739,7 +1450,20 @@ focus_tree = {
 		}
 		x = 35
 		y = 5
-
+			completion_reward = {
+					PAL = {
+							add_opinion_modifier = {
+									target = ISR
+									modifier = large_decrease
+								}
+						}
+					ISR = {
+							add_opinion_modifier = {
+									target = PAL
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = PAL_a_desired_path
@@ -770,7 +1494,10 @@ focus_tree = {
 		}
 		x = 41
 		y = 3
-
+		completion_reward = {
+			set_politics = { ruling_party = democratic elections_allowed = yes }
+			add_ideas = social_democracy_drift
+		}
 	}
 	focus = {
 		id = PAL_rewrite_constitution
@@ -781,7 +1508,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 4
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = PAL_alliance_with_the_british
@@ -792,7 +1521,20 @@ focus_tree = {
 		}
 		x = 41
 		y = 5
-
+			completion_reward = {
+					PAL = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = PAL
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = PAL_british_conference
@@ -803,7 +1545,20 @@ focus_tree = {
 		}
 		x = 41
 		y = 6
-
+			completion_reward = {
+					PAL = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = small_increase
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = PAL
+									modifier = small_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = PAL_bring_up_palestinian_israeli_conflict
@@ -814,7 +1569,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 7
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = PAL_propose_palestine_israeli_union
@@ -828,7 +1585,9 @@ focus_tree = {
 		}
 		x = 38
 		y = 8
-
+		completion_reward = {
+			ISR = { country_event = PAL.2 }
+		}
 	}
 	focus = {
 		id = PAL_all_is_ours
@@ -842,7 +1601,12 @@ focus_tree = {
 		}
 		x = 44
 		y = 8
-
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = ISR
+			} 
+		}
 	}
 	focus = {
 		id = PAL_trust_in_the_militants
@@ -862,7 +1626,9 @@ focus_tree = {
 		}
 		x = 51
 		y = 2
-
+		completion_reward = {
+			add_ideas = militarism_focus
+		}
 	}
 	focus = {
 		id = PAL_plan_the_coup
@@ -873,7 +1639,9 @@ focus_tree = {
 		}
 		x = 51
 		y = 3
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = PAL_pro_propaganda_against_our_oppressor
@@ -884,7 +1652,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 4
-
+		completion_reward = {
+			add_ideas = reactionary_drift
+		}
 	}
 	focus = {
 		id = PAL_assassinate_political_officals
@@ -895,7 +1665,10 @@ focus_tree = {
 		}
 		x = 54
 		y = 4
-
+		completion_reward = {
+			add_political_power = 300
+			add_national_unity = -0.15
+		}
 	}
 	focus = {
 		id = PAL_influence_our_neighbors
@@ -910,7 +1683,15 @@ focus_tree = {
 		}
 		x = 54
 		y = 5
-
+			completion_reward = {
+					EGY = { add_timed_idea = { idea = reactionary_drift days = 365 } }
+					JOR = { add_timed_idea = { idea = reactionary_drift days = 365 } }
+					SYR = { add_timed_idea = { idea = reactionary_drift days = 365 } }
+					SAU = { add_timed_idea = { idea = reactionary_drift days = 365 } }
+					YEM = { add_timed_idea = { idea = reactionary_drift days = 365 } }
+					IRQ = { add_timed_idea = { idea = reactionary_drift days = 365 } }
+					LEB = { add_timed_idea = { idea = reactionary_drift days = 365 } }
+			}
 	}
 	focus = {
 		id = PAL_a_new_idea
@@ -932,7 +1713,7 @@ focus_tree = {
 		x = 62
 		y = 2
 		completion_reward = {
-			add_ideas = nationalist_drift
+			add_political_power = 300
 		}
 	}
 	focus = {
@@ -949,7 +1730,10 @@ focus_tree = {
 		}
 		x = 59
 		y = 3
-
+		completion_reward = {
+			add_ideas = nationalist_drift
+			set_politics = { ruling_party = nationalism elections_allowed = no }
+		}
 	}
 	focus = {
 		id = PAL_cult_of_personality
@@ -960,7 +1744,10 @@ focus_tree = {
 		}
 		x = 59
 		y = 4
-
+			completion_reward = {
+					add_ideas = ideological_fanaticism_focus
+					add_national_unity = 0.15
+				}
 	}
 	focus = {
 		id = PAL_propaganda_to_youngsters
@@ -971,7 +1758,9 @@ focus_tree = {
 		}
 		x = 59
 		y = 5
-
+			completion_reward = {
+					add_ideas = military_youth_focus
+				}
 	}
 	focus = {
 		id = PAL_neo_nazi_society
@@ -987,7 +1776,10 @@ focus_tree = {
 		}
 		x = 62
 		y = 3
-
+		completion_reward = {
+			add_ideas = nationalism
+			set_politics = { ruling_party = fascism elections_allowed = no }
+		}
 	}
 	focus = {
 		id = PAL_the_second_buraq_uprising
@@ -998,7 +1790,12 @@ focus_tree = {
 		}
 		x = 62
 		y = 4
-
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = ISR
+			} 
+		}
 	}
 	focus = {
 		id = PAL_relocate_zionist
@@ -1009,7 +1806,17 @@ focus_tree = {
 		}
 		x = 62
 		y = 5
-
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					NOT = { state = 801 }
+					NOT = { state = 781 }
+					NOT = { state = 332 }
+					 is_core_of = ISR
+				}
+				add_manpower = -50000
+			}
+		}
 	}
 	focus = {
 		id = PAL_pan_arab_movements
@@ -1024,7 +1831,17 @@ focus_tree = {
 		}
 		x = 65
 		y = 3
-
+			completion_reward = {
+					add_timed_idea = { idea = pan_arab_influence days = 365 }
+					add_popularity = {
+							ideology = pan_arabism
+							popularity = 0.2
+						}
+					set_politics = {
+							ruling_party = pan_arabism
+							elections_allowed = no
+						}
+					}
 	}
 	focus = {
 		id = PAL_proclaim_holy_land_as_ours
@@ -1035,7 +1852,10 @@ focus_tree = {
 		}
 		x = 65
 		y = 4
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+			add_ideas = militarism_focus
+		}
 	}
 	focus = {
 		id = PAL_arm_rebels_in_israel
@@ -1046,7 +1866,12 @@ focus_tree = {
 		}
 		x = 65
 		y = 5
-
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = ISR
+			} 
+		}
 	}
 	focus = {
 		id = PAL_tradional_ideals
@@ -1067,7 +1892,9 @@ focus_tree = {
 		}
 		x = 75
 		y = 2
-
+		completion_reward = {
+			add_ideas = monarchist_influence
+		}
 	}
 	focus = {
 		id = PAL_merge_with_jordan
@@ -1078,7 +1905,9 @@ focus_tree = {
 		}
 		x = 75
 		y = 3
-
+		completion_reward = {
+			JOR = { country_event = PAL.1 }
+		}
 	}
 	focus = {
 		id = PAL_royal_guard
@@ -1089,7 +1918,9 @@ focus_tree = {
 		}
 		x = 75
 		y = 4
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 	focus = {
 		id = PAL_royal_pact_with_egypt
@@ -1100,7 +1931,9 @@ focus_tree = {
 		}
 		x = 75
 		y = 5
-
+		completion_reward = {
+			create_faction = "Royal Pact"
+		}
 	}
 	focus = {
 		id = PAL_invite_saudia_arabia
@@ -1111,7 +1944,9 @@ focus_tree = {
 		}
 		x = 73
 		y = 6
-
+		completion_reward = {
+			add_to_faction = SAU
+		}
 	}
 	focus = {
 		id = PAL_invite_iraq
@@ -1122,7 +1957,9 @@ focus_tree = {
 		}
 		x = 77
 		y = 6
-
+		completion_reward = {
+			add_to_faction = IRQ
+		}
 	}
 	focus = {
 		id = PAL_invade_israel
@@ -1134,7 +1971,12 @@ focus_tree = {
 		}
 		x = 75
 		y = 7
-
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = ISR
+			} 
+		}
 	}
 	focus = {
 		id = PAL_faster_production_of_weaponry
@@ -1145,7 +1987,71 @@ focus_tree = {
 		}
 		x = 1
 		y = 6
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = PAL_demand_westbank
@@ -1160,7 +2066,9 @@ focus_tree = {
 		}
 		x = 9
 		y = 7
-
+		completion_reward = {
+			JOR = { country_event = PAL.3 }
+		}
 	}
 	focus = {
 		id = PAL_ask_for_british_doctrine
@@ -1176,7 +2084,15 @@ focus_tree = {
 		}
 		x = 4
 		y = 7
-
+			completion_reward = {
+					army_experience = 10
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+					}
 	}
 	focus = {
 		id = PAL_desert_tactics
@@ -1192,7 +2108,15 @@ focus_tree = {
 		}
 		x = 15
 		y = 7
-
+			completion_reward = {
+					army_experience = 10
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+					}
 	}
 	focus = {
 		id = PAL_demand_referendum_in_sinai
@@ -1205,7 +2129,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 8
-
+		completion_reward = {
+			EGY = { country_event = PAL.4 }
+		}
 	}
 	focus = {
 		id = PAL_efficiency_on_desert
@@ -1218,7 +2144,22 @@ focus_tree = {
 		}
 		x = 12
 		y = 8
-
+			completion_reward = {
+					army_experience = 10
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+					add_tech_bonus = {
+							name = infantry_weapons_bonus
+							bonus = 0.5
+							uses = 2
+							category = infantry_weapons
+							category = artillery
+						}
+				}
 	}
 	focus = {
 		id = PAL_fortification_on_gaza
@@ -1230,7 +2171,16 @@ focus_tree = {
 		}
 		x = 9
 		y = 9
-
+		completion_reward = {
+				801 = {
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 4088
+							instant_build = yes
+						}
+				}
+			}
 	}
 	focus = {
 		id = PAL_increase_civillian_factories
@@ -1242,7 +2192,7 @@ focus_tree = {
 		x = 22
 		y = 5
 			completion_reward = {
-					every_state = {
+					every_owned_state = {
 							add_extra_state_shared_building_slots = 1
 						}
 					random_owned_controlled_state = {
@@ -1316,7 +2266,14 @@ focus_tree = {
 		}
 		x = 22
 		y = 7
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = industrial_bonus
+							bonus = 0.5
+							uses = 1
+							category = industry
+						}
+				}
 	}
 	focus = {
 		id = PAL_break_ties_with_arab_countries
@@ -1331,7 +2288,80 @@ focus_tree = {
 		}
 		x = 48
 		y = 5
-
+		completion_reward = {
+					PAL = {
+							add_opinion_modifier = {
+									target = EGY
+									modifier = large_decrease
+								}
+						}
+					EGY = {
+							add_opinion_modifier = {
+									target = PAL
+									modifier = large_decrease
+								}
+						}
+					PAL = {
+							add_opinion_modifier = {
+									target = LEB
+									modifier = large_decrease
+								}
+						}
+					LEB = {
+							add_opinion_modifier = {
+									target = PAL
+									modifier = large_decrease
+								}
+						}
+					PAL = {
+							add_opinion_modifier = {
+									target = JOR
+									modifier = large_decrease
+								}
+						}
+					JOR = {
+							add_opinion_modifier = {
+									target = PAL
+									modifier = large_decrease
+								}
+						}
+					PAL = {
+							add_opinion_modifier = {
+									target = SYR
+									modifier = large_decrease
+								}
+						}
+					SYR = {
+							add_opinion_modifier = {
+									target = PAL
+									modifier = large_decrease
+								}
+						}
+					PAL = {
+							add_opinion_modifier = {
+									target = IRQ
+									modifier = large_decrease
+								}
+						}
+					IRQ = {
+							add_opinion_modifier = {
+									target = PAL
+									modifier = large_decrease
+								}
+						}
+					PAL = {
+							add_opinion_modifier = {
+									target = YEM
+									modifier = large_decrease
+								}
+						}
+					YEM = {
+							add_opinion_modifier = {
+									target = PAL
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = PAL_the_funding_crisis
@@ -1343,7 +2373,10 @@ focus_tree = {
 		}
 		x = 51
 		y = 6
-
+		completion_reward = {
+			add_political_power = 300
+			add_national_unity = -0.10
+		}
 	}
 	focus = {
 		id = PAL_uncle_sam
@@ -1360,7 +2393,20 @@ focus_tree = {
 		}
 		x = 48
 		y = 7
-
+		completion_reward = {
+					PAL = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = PAL
+									modifier = large_increase
+								}
+						}
+					}
 	}
 	focus = {
 		id = PAL_the_russian_bear
@@ -1377,7 +2423,20 @@ focus_tree = {
 		}
 		x = 54
 		y = 7
-
+		completion_reward = {
+					PAL = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = PAL
+									modifier = large_increase
+								}
+						}
+					}
 	}
 	focus = {
 		id = PAL_plea_to_neighboring_egypt
@@ -1394,7 +2453,20 @@ focus_tree = {
 		}
 		x = 51
 		y = 7
-
+		completion_reward = {
+					PAL = {
+							add_opinion_modifier = {
+									target = EGY
+									modifier = large_increase
+								}
+						}
+					EGY = {
+							add_opinion_modifier = {
+									target = PAL
+									modifier = large_increase
+								}
+						}
+					}
 	}
 	focus = {
 		id = PAL_the_rise_nationalist_armies
@@ -1405,7 +2477,10 @@ focus_tree = {
 		}
 		x = 51
 		y = 8
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+			add_ideas = military_youth_focus
+		}
 	}
 	focus = {
 		id = PAL_pro_capitalist_sentiment
@@ -1416,7 +2491,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 8
-
+		completion_reward = {
+			add_ideas = capitalism
+		}
 	}
 	focus = {
 		id = PAL_invite_a_pro_marxist_legislature
@@ -1427,7 +2504,10 @@ focus_tree = {
 		}
 		x = 54
 		y = 8
-
+		completion_reward = {
+			add_ideas = city_economies
+			add_ideas = urban_planning
+		}
 	}
 	focus = {
 		id = PAL_execute_the_coup
@@ -1440,7 +2520,12 @@ focus_tree = {
 		}
 		x = 51
 		y = 9
-
+		completion_reward = {
+					set_politics = {
+							ruling_party = neutrality
+							elections_allowed = no
+					}
+			}
 	}
 	focus = {
 		id = PAL_spread_influence_amongst_neighbors
@@ -1452,7 +2537,16 @@ focus_tree = {
 		}
 		x = 31
 		y = 5
-
+		completion_reward = {
+			YEM = { add_timed_idea = { idea = internationalism days = 450 } }	
+			SYR = { add_timed_idea = { idea = internationalism days = 450 } }
+			JOR = { add_timed_idea = { idea = internationalism days = 450 } }
+			ISR = { add_timed_idea = { idea = internationalism days = 450 } }
+			SUD = { add_timed_idea = { idea = internationalism days = 450 } }
+			SAU = { add_timed_idea = { idea = internationalism days = 450 } }		
+			LEB = { add_timed_idea = { idea = internationalism days = 450 } }
+			IRQ = { add_timed_idea = { idea = internationalism days = 450 } }				
+		}
 	}
 	focus = {
 		id = PAL_assassinate_monarchs
@@ -1464,7 +2558,12 @@ focus_tree = {
 		}
 		x = 33
 		y = 6
-
+		completion_reward = {
+			JOR = {
+				kill_country_leader = yes	
+			}
+			declare_war_on = { target = JOR type = annex_everything }	
+		}
 	}
 	focus = {
 		id = PAL_5_year_plan
@@ -1476,7 +2575,7 @@ focus_tree = {
 		x = 33
 		y = 7
 			completion_reward = {
-					every_state = {
+					every_owned_state = {
 							add_extra_state_shared_building_slots = 1
 						}
 					random_owned_controlled_state = {
@@ -1550,7 +2649,14 @@ focus_tree = {
 		}
 		x = 35
 		y = 8
-
+		completion_reward = {
+			random_owned_state = {
+				add_resource = {
+					type = steel
+					amount = 25
+				}
+			}
+		}
 	}
 	focus = {
 		id = PAL_welfare_to_all_citizens
@@ -1574,7 +2680,12 @@ focus_tree = {
 		}
 		x = 31
 		y = 8
-
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = ISR
+			} 
+		}
 	}
 	focus = {
 		id = PAL_the_1950_palestinian_exodus
