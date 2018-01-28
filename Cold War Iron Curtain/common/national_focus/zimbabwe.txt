@@ -792,6 +792,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = zim_frn_resist
 		}
+		available = {
+			has_completed_focus = zim_create_faction
+		}
 		x = 31
 		y = 4
 			bypass = {
@@ -2694,6 +2697,7 @@ focus_tree = {
 							remove_from_faction = ROOT
 						}
 					create_faction = "Central African Federation"
+					set_country_flag = zim_made_faction
 					every_country = {
 							limit = {
 									has_country_flag = zim_persuaded
@@ -2830,15 +2834,10 @@ focus_tree = {
 					has_completed_focus = zim_persuade_taz
 				}
 			bypass = {
-					OR = {
-							TAZ = {
-									has_country_flag = zim_persuaded
-								}
-							TAZ = {
-									is_in_faction_with = ZIM
-								}
-						}
+				TAZ = {
+					is_in_faction_with = ZIM
 				}
+			}
 			completion_reward = {
 
 }

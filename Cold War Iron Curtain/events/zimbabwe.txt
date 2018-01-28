@@ -1506,10 +1506,10 @@ country_event = {
 			}
 		}
 		set_country_flag = zim_persuaded
-		ZIM = {country_event = {days = 2 id = zimbabwe.61}}
+		ZIM = {country_event = {days = 1 id = zimbabwe.61}}
 		if = {
-		limit = { ZIM = { is_in_faction = yes } }
-		country_event = { days = 3 id = zimbabwe.6 }
+		limit = { ZIM = { has_country_flag = zim_made_faction } }
+		country_event = {id = zimbabwe.6 }
 		}
 	}
 	option = {
@@ -1522,6 +1522,41 @@ country_event = {
 			}
 		}
 		
+	}
+}
+
+#rhodesia demands faction
+country_event = {
+	id = zimbabwe.51
+	title = zimbabwe.51.t
+	desc = zimbabwe.51.d
+	picture = GFX_report_event_german_speech
+
+	#fire_only_once = no
+	immediate = {
+		save_event_target_as = zim_faction_target
+	}
+	is_triggered_only = yes
+
+	
+	option = {
+		name = zimbabwe.51.a
+		ai_chance = {
+			factor = 0.85
+		}
+		set_country_flag = zim_persuaded
+		ZIM = {country_event = {days = 1 id = zimbabwe.61}}
+		if = {
+		limit = { ZIM = { has_country_flag = zim_made_faction } }
+		country_event = {id = zimbabwe.6 }
+		}
+	}
+	option = {
+		name = zimbabwe.51.b
+		ai_chance = {
+			factor = 0.15
+		}
+		ZIM = {create_wargoal = { type = puppet_focus target = TAZ }}
 	}
 }
 
@@ -1577,10 +1612,10 @@ country_event = {
 	option = {
 		name = zimbabwe.6.a
 		if = {
-		limit = { is_in_faction = yes }
-		remove_from_faction = ROOT
+		limit = { is_in_faction_with = USA }
+		USA = { remove_from_faction = ROOT }
 		}
-		#ZIM = { add_to_faction = ROOT }
+		ZIM = { add_to_faction = ROOT }
 		#add_relation_modifier = { target = ZIM modifier = ZIM_faction_relation }
 		#ZIM = {add_relation_modifier = { target = ROOT modifier = ZIM_faction_relation }}
 	}
