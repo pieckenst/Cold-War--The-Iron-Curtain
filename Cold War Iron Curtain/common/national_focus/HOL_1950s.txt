@@ -240,6 +240,9 @@ focus_tree = {
 		id = HOL_equipment_effort
 		icon = GFX_goal_generic_small_arms
 		cost = 10.00
+		prerequisite = {
+			focus = HOL_army_effort
+		}
 		x = 9
 		y = 2
 			available_if_capitulated = yes
@@ -2893,6 +2896,14 @@ focus_tree = {
 		prerequisite = {
 			focus = HOL_Dutch_Indonesian_Round_Table_Conference
 		}
+		bypass = {
+			INO = {
+				OR = {
+					has_capitulated = yes
+					exists = no
+				}
+			}
+		}
 		x = 39
 		y = 1
 		completion_reward = {
@@ -2924,6 +2935,14 @@ focus_tree = {
 		}
 		ai_will_do = {
 			factor = 1000
+		}
+		bypass = {
+			INO = {
+				OR = {
+					has_capitulated = yes
+					exists = no
+				}
+			}
 		}
 		x = 43
 		y = 1
@@ -3795,12 +3814,13 @@ focus_tree = {
 		}
 		x = 48
 		y = 6
-			completion_reward = {
-					set_politics = {
-							ruling_party = communism
-							elections_allowed = no
-						}
-				}
+		completion_reward = {
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+			add_popularity = { ideology = communism popularity = 0.5 }
+		}
 	}
 	focus = {
 		id = HOL_Communist_Education_Reform
@@ -3826,7 +3846,7 @@ focus_tree = {
 		x = 48
 		y = 7
 		completion_reward = {
-			SOV = { add_to_faction = FRA }
+			SOV = { add_to_faction = HOL }
 		}
 	}	
 	focus = {

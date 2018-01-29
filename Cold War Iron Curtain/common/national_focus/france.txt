@@ -14,7 +14,7 @@ focus_tree = {
 		cost = 10
 		x = 3
 		y = 0
-				completion_reward = {
+		completion_reward = {
 			add_tech_bonus = {
 				name = industrial_bonus
 				bonus = 0.5
@@ -519,18 +519,30 @@ focus_tree = {
 		x = 7
 		y = 1
 		available = {
-		has_war_with = VIN
+			has_war_with = VIN
+		}
+		bypass = {
+			OR = {
+				VIE = {
+					exists = yes
+				}
+				has_global_flag = Geneva_Conference
+			}
 		}
 		completion_reward = {
-		add_political_power = 50
-		VIE = {
-		transfer_state = 839
-		add_state_core = 839
-		transfer_state = 757
-		add_state_core = 757
-		transfer_state = 788
-		add_state_core = 788
-		}
+			add_political_power = 50
+			VIE = {
+				transfer_state = 839
+				add_state_core = 839
+				transfer_state = 757
+				add_state_core = 757
+				transfer_state = 788
+				add_state_core = 788
+				transfer_state = 983
+				add_state_core = 983
+				transfer_state = 982
+				add_state_core = 982
+			}
 		}
 
 	}
@@ -541,20 +553,22 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_indoc_one
 		}
+		bypass = {
+			VIE = { exists = yes }
+			FRA = { NOT = { has_war_with = VIN } }
+		}
 		x = 9
 		y = 1
 		completion_reward = {
-		army_experience = 10
-		create_corps_commander = {
-	name = "Jean de Lattre de Tassigny"
-	picture = "Portrait_France_Jean_de_Lattre_de_Tassigny.dds"
-	traits = { trickster }
-	skill = 6
-	id = 5453
-}
+			army_experience = 10
+			create_corps_commander = {
+				name = "Jean de Lattre de Tassigny"
+				picture = "Portrait_France_Jean_de_Lattre_de_Tassigny.dds"
+				traits = { trickster }
+				skill = 6
+				id = 5453
+			}
 		}
-		
-
 	}
 	focus = {
 		id = FRA_send_salan
@@ -563,19 +577,22 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_send_tassigny
 		}
+		bypass = {
+			VIE = { exists = yes }
+			FRA = { NOT = { has_war_with = VIN } }
+		}
 		x = 9
 		y = 3
 		completion_reward = {
-		remove_unit_leader = 5453
-		army_experience = 5
-	create_corps_commander = {
-	name = "Raoul Salan"
-	picture = "Portrait_France_Salan.dds"
-	traits = { trickster }
-	skill = 3
-}
-}
-
+			remove_unit_leader = 5453
+			army_experience = 5
+			create_corps_commander = {
+				name = "Raoul Salan"
+				picture = "Portrait_France_Salan.dds"
+				traits = { trickster }
+				skill = 3
+			}
+		}
 	}
 	focus = {
 		id = FRA_indo_bigpush
@@ -586,6 +603,10 @@ focus_tree = {
 		}
 		available = {
 		has_war_with = VIN
+		}
+		bypass = {
+			VIE = { exists = yes }
+			FRA = { NOT = { has_war_with = VIN } }
 		}
 		x = 9
 		y = 4
@@ -604,46 +625,23 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = FRA_geneva_conf
 		}
-		available = {
-		NOT = {
-		controls_state = 671
+		bypass = {
+			VIE = { exists = yes }
+			FRA = { NOT = { has_war_with = VIN } }
 		}
+		available = {
+			NOT = {
+			controls_state = 671
+			}
 		}
 		x = 7
 		y = 5
-
-	}
-	focus = {
-		id = FRA_indo_peace
-		icon = GFX_focus_CZE_german_puppet
-		cost = 10
-		prerequisite = {
-			focus = FRA_indo_contingent
+		completion_reward = {
+			custom_effect_tooltip = "Send the Contingent to Indochina"
+			hidden_effect = {
+				load_oob = FRA_Vietnam_Contignent
+			}
 		}
-		mutually_exclusive = {
-			focus = FRA_indo_total_victory
-		}
-		available = {
-		NOT = {
-		controls_state = 671
-		}
-		}
-		x = 6
-		y = 6
-
-	}
-	focus = {
-		id = FRA_indo_total_victory
-		icon = GFX_goal_generic_demand_territory
-		cost = 10
-		prerequisite = {
-			focus = FRA_indo_contingent
-		}
-		mutually_exclusive = {
-			focus = FRA_indo_peace
-		}
-		x = 8
-		y = 6
 
 	}
 	focus = {
@@ -655,6 +653,15 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = FRA_indo_contingent
+		}
+		bypass = {
+			VIE = { exists = yes }
+			FRA = { NOT = { has_war_with = VIN } }
+			has_global_flag = Geneva_Conference
+		}
+		completion_reward = {
+			FRA = { country_event = vie.2 }
+			VIE = { country_event = vie.4 } 
 		}
 		x = 10
 		y = 5
@@ -669,6 +676,10 @@ focus_tree = {
 		}
 		x = 10
 		y = 6
+		completion_reward = {
+			add_opinion_modifier = { target = VIE modifier = FRA_preserve_interests_vietnam }
+			VIE = { add_opinion_modifier = { target = FRA modifier = FRA_preserve_interests_vietnam } }
+		}
 
 	}
 	focus = {
@@ -683,6 +694,10 @@ focus_tree = {
 		available = {
 		has_war_with = VIN
 		controls_state = 786
+		}
+		bypass = {
+			VIE = { exists = yes }
+			FRA = { NOT = { has_war_with = VIN } }
 		}
 		completion_reward = {
 		786 = {
@@ -717,6 +732,10 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = FRA_send_tassigny
+		}
+		bypass = {
+			VIE = { exists = yes }
+			FRA = { NOT = { has_war_with = VIN } }
 		}
 		x = 11
 		y = 2
@@ -778,6 +797,10 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = FRA_send_salan
+		}
+		bypass = {
+			VIE = { exists = yes }
+			FRA = { NOT = { has_war_with = VIN } }
 		}
 		available = {
 		has_war_with = VIN
@@ -865,8 +888,7 @@ focus_tree = {
 		x = 17
 		y = 3
 		completion_reward = {
-		USA = { remove_from_faction = FRA }
-		SOV = { add_to_faction = FRA }
+			SOV = { country_event = sov.2 }
 		}
 
 	}
@@ -880,7 +902,7 @@ focus_tree = {
 		x = 15
 		y = 4
 		available = {
-		has_war_with = VIN
+			NOT = {has_global_flag = Geneva_Conference}
 		}
 		completion_reward = {
 		add_political_power = 50

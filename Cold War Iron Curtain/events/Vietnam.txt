@@ -67,11 +67,11 @@ news_event = {
 	desc = vie.3.d
 	picture = GFX_news_event_geneva_conference
 	
-	fire_only_once = yes
-	
 	trigger = {
 		has_global_flag = VIE_yes_Geneva
 		has_global_flag = FRA_yes_Geneva
+		date < 1952.1.1
+		NOT = { has_global_flag = Geneva_Conference }
 	}
 
 	major = yes
@@ -79,6 +79,7 @@ news_event = {
 	immediate = {
 		hidden_effect = {
 			country_event = vie.5
+			set_global_flag = Geneva_Conference
 		}
 	}
 
@@ -90,6 +91,10 @@ news_event = {
 	option = {
 		name = vie.3.b
 		trigger = { NOT = { tag = VIN } }
+	}
+
+	mean_time_to_happen = {
+		days = 2
 	}
 }
 
@@ -143,7 +148,7 @@ country_event = {
 		VIE = { 
 			transfer_state = 788
 			transfer_state = 757
-                                                transfer_state = 966
+			transfer_state = 966
 			add_state_core = 788
 			add_state_core = 757
 			add_state_core = 671
@@ -161,16 +166,16 @@ country_event = {
 			set_capital = 786
 		}
 		CAM = {
-		transfer_state = 286
-		add_state_core = 286
-		transfer_state = 840
-		add_state_core = 840
+			transfer_state = 286
+			add_state_core = 286
+			transfer_state = 840
+			add_state_core = 840
 		}
 		LOS = {
-		transfer_state = 670
-		add_state_core = 670
-		transfer_state = 841
-		add_state_core = 841
+			transfer_state = 670
+			add_state_core = 670
+			transfer_state = 841
+			add_state_core = 841
 		}
 		787 = {
 			set_demilitarized_zone = yes
@@ -178,13 +183,13 @@ country_event = {
 		788 = {
 			set_demilitarized_zone = yes
 		}
-		#news_event = vie.3
+		country_event = { id = vie.6 days = 1 }
 	}
 
 	option = { }
 
 }
-# 17th North DMZ failsafe event
+# 17th North / South DMZ failsafe event
 country_event = {
 	id = vie.6
 	title = vie.6.t
@@ -196,14 +201,18 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-	if = {
-	limit = { 787 = { is_demilitarized_zone = no }}
-		787 = {
-			set_demilitarized_zone = yes
+		if = {
+			limit = { 787 = { is_demilitarized_zone = no }}
+			787 = {
+				set_demilitarized_zone = yes
+			}
 		}
-	
-	}
-	
+		if = {
+			limit = { 788 = { is_demilitarized_zone = no }}
+			788 = {
+				set_demilitarized_zone = yes
+			}
+		}
 	}
 
 	option = { }
@@ -218,15 +227,15 @@ country_event = {
 
 	trigger = {
 		VIN = {
-		NOT = {
-		controls_state = 881
-		}
-		has_war_with = FRA
+			NOT = {
+				controls_state = 881
+			}
+			has_war_with = FRA
 		}
 	}
 	
 	immediate = {
-			FRA = { 
+		FRA = { 
 			white_peace = VIN
 			annex_country = { target = VIN transfer_troops = no }
 		}
