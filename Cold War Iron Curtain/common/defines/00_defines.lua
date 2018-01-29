@@ -219,7 +219,7 @@ NCountry = {
 	MIN_FOCUSES_FOR_CONTINUOUS = 10,				-- Focuses needed to unlock continuous focuses
 	AUTONOMOUS_TOTAL_SCORE = 4000,					-- Total score for autonomous scale
 	AUTONOMOUS_SPILLOVER = 0.025,					-- Total score that can be saved to reach next level
-	CIVIL_WAR_INVOLVEMENT_MIN_TENSION = 1.0,		-- base value of world tension to involve other sides to the civil war
+	CIVIL_WAR_INVOLVEMENT_MIN_TENSION = 0.0,		-- base value of world tension to involve other sides to the civil war
 	UNCAPITULATE_LEVEL = 0.1,                       -- if we reclaim this much and our capital we reset capitulate status
 },
 
