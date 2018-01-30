@@ -335,3 +335,73 @@ country_event = {
 		add_political_power = -125
 	}
 }
+
+# Join the Pleven Plan
+country_event = {
+	id = fra.12
+	title = fra.12.t
+	desc = fra.12.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Yes, let's join"
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+		add_ideas = Pleven_Plan
+		hidden_effect = {
+			FROM = { country_event = { id = fra.13 hours = 12 } }
+		}
+	}
+
+	option = {
+		name = "No thanks"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# [From.GetName] joined the Pleven Plan
+country_event = {
+	id = fra.13
+	title = fra.13.t
+	desc = fra.13.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Great!"
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Pleven Plan signed
+news_event = {
+	id = fra.14
+	title = fra.14.t
+	desc = fra.14.d
+
+	picture = GFX_news_event_Pleven_Plan_Signed
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = "Interesting."
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
