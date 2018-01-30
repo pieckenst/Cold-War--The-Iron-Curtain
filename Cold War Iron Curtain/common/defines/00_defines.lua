@@ -1282,6 +1282,3 @@ NFocus = {
 	MAX_SAVED_FOCUS_PROGRESS = 10,				-- This much progress can be saved while not having a focus selected
 	},
 }
-
-
-
