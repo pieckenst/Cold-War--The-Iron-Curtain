@@ -2157,7 +2157,6 @@ focus_tree = {
 		y = 13
 		completion_reward = {
 			create_wargoal = { type = annex_everything target = BRA }
-			BRA = { every_owned_state = { add_core_of = SPR }	}
 		}
 	}
 	focus = {
@@ -2201,20 +2200,20 @@ focus_tree = {
 		x = 43
 		y = 15
 		completion_reward = {
-			MEX = { add_ideas = fascist_influence }
-			ELS = { add_ideas = fascist_influence }
-			PRU = { add_ideas = fascist_influence }
-			COL = { add_ideas = fascist_influence }
-			HON = { add_ideas = fascist_influence }
-			NIC = { add_ideas = fascist_influence }
-			ARG = { add_ideas = fascist_influence }
-			URG = { add_ideas = fascist_influence }
-			PAR = { add_ideas = fascist_influence }
-			"PAN" = { add_ideas = fascist_influence }
-			GUA = { add_ideas = fascist_influence }
-			CHL = { add_ideas = fascist_influence }
-			COS = { add_ideas = fascist_influence }
-			COL = { add_ideas = fascist_influence }
+			MEX = { add_timed_idea = { idea = fascist_influence days = 365 } }
+			ELS = { add_timed_idea = { idea = fascist_influence days = 365 } }
+			PRU = { add_timed_idea = { idea = fascist_influence days = 365 } }
+			COL = { add_timed_idea = { idea = fascist_influence days = 365 } }
+			HON = { add_timed_idea = { idea = fascist_influence days = 365 } }
+			NIC = { add_timed_idea = { idea = fascist_influence days = 365 } }
+			ARG = { add_timed_idea = { idea = fascist_influence days = 365 } }
+			URG = { add_timed_idea = { idea = fascist_influence days = 365 } }
+			PAR = { add_timed_idea = { idea = fascist_influence days = 365 } }
+			"PAN" = { add_timed_idea = { idea = fascist_influence days = 365 } }
+			GUA = { add_timed_idea = { idea = fascist_influence days = 365 } }
+			CHL = { add_timed_idea = { idea = fascist_influence days = 365 } }
+			COS = { add_timed_idea = { idea = fascist_influence days = 365 } }
+			COL = { add_timed_idea = { idea = fascist_influence days = 365 } }
 		}
 	}
 	focus = {
@@ -2227,20 +2226,20 @@ focus_tree = {
 		x = 43
 		y = 16
 		completion_reward = {
-			annex_country = { target = MEX }	
-			annex_country = { target = ELS }
-			annex_country = { target = PRU }
-			annex_country = { target = COL }
-			annex_country = { target = HON }
-			annex_country = { target = NIC }
-			annex_country = { target = ARG }
-			annex_country = { target = URG }
-			annex_country = { target = PAR }
-			annex_country = { target = PAN }
-			annex_country = { target = GUA }
-			annex_country = { target = COS }
-			annex_country = { target = CHL }
-			annex_country = { target = COL }
+			MEX = { country_event = spr.2 }
+			ELS = { country_event = spr.2 }
+			PRU = { country_event = spr.2 }
+			COL = { country_event = spr.2 }
+			HON = { country_event = spr.2 }
+			NIC = { country_event = spr.2 }
+			ARG = { country_event = spr.2 }
+			URG = { country_event = spr.2 }
+			PAR = { country_event = spr.2 }
+			"PAN" = { country_event = spr.2 }
+			GUA = { country_event = spr.2 }
+			CHL = { country_event = spr.2 }
+			COS = { country_event = spr.2 }
+			COL = { country_event = spr.2 }
 		}
 	}
 	focus = {
@@ -2288,6 +2287,7 @@ focus_tree = {
 		x = 45
 		y = 3
 		completion_reward = {
+			add_popularity = { ideology = maoism popularity = 0.5 }
 			set_politics = { ruling_party = maoism elections_allowed = no }	
 		}
 	}
@@ -2323,7 +2323,7 @@ focus_tree = {
 		completion_reward = {
 			remove_ideas = internationalism 
 			add_ideas = trotskyism_drift
-					TUR = {
+					SPR = {
 							add_opinion_modifier = {
 									target = SOV
 									modifier = large_decrease
@@ -2331,7 +2331,7 @@ focus_tree = {
 						}
 					SOV = {
 							add_opinion_modifier = {
-									target = TUR
+									target = SPR
 									modifier = large_decrease
 								}
 						}				
@@ -2595,12 +2595,12 @@ focus_tree = {
 		x = 47
 		y = 3
 		completion_reward = {
-							start_civil_war = {
-									ruling_party = trotskyism
-									ideology = fascism
-									size = 0.45
-								}
-							}
+			start_civil_war = {
+				ruling_party = trotskyism
+				ideology = fascism
+				size = 0.45
+			}
+		}
 	}
 	focus = {
 		id = SPR_Intervene_in_Algeria
