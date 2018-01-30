@@ -140,5 +140,79 @@ country_event = {
 		name = wgr.5.a
 		WGR = { remove_ideas = democratic_drift_1 }
 	}
+}
 
+# Join the EDC
+country_event = {
+	id = wgr.6
+	title = wgr.6.t
+	desc = wgr.6.d
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = "Yes, sure!"
+		add_opinion_modifier = {
+			target = FROM
+			modifier = WGR_Joining_the_EDC_opinion
+		}
+		remove_ideas = Pleven_Plan
+		add_ideas = Member_of_European_Defense_Community
+		ai_chance = { 
+			factor = 80
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+		hidden_effect = {
+			FROM = { country_event = { id = wgr.7 hours = 12 } }
+		}
+	}
+
+	option = {
+		name = "No thanks"
+		ai_chance = { 
+			factor = 20
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# [From.GetName] joined the EDC
+country_event = {
+	id = wgr.7
+	title = wgr.7.t
+	desc = wgr.7.d
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = "Nice!"
+		ai_chance = { 
+			factor = 1
+		}
+	}
+}
+
+# [From.GetName] created the EDC
+news_event = {
+	id = wgr.8
+	title = wgr.8.t
+	desc = wgr.8.d
+	
+	is_triggered_only = yes
+	major = yes
+
+	picture = GFX_news_event_EDC_created
+	
+	option = { 
+		name = "Interesting."
+		ai_chance = { 
+			factor = 1
+		}
+	}
 }
