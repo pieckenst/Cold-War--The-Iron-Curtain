@@ -176,6 +176,7 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = CAM_soviet_alignment
+			focus = CAM_american_alignment
 		}
 		x = 12
 		y = 0
@@ -217,6 +218,7 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = CAM_soviet_alignment
+			focus = CAM_non_aligned
 		}
 		x = 28
 		y = 0
@@ -981,7 +983,14 @@ focus_tree = {
 		}
 		x = 6
 		y = 4
-
+		completion_reward = {
+			random_owned_state = {
+				add_resource = {
+					type = chromium
+					amount = 25
+				}
+			}
+		}
 	}
 	focus = {
 		id = CAM_army_effort
@@ -2691,14 +2700,19 @@ focus_tree = {
 			completion_reward = {
 					FRA = {
 							set_autonomy = {
-									target = CAM
-									autonomy_state = autonomy_free
-								}
+								target = CAM
+								autonomy_state = autonomy_free
+							}
+							release = CAM
 						}
 					set_politics = {
-							ruling_party = nationalism
-							elections_allowed = no
-						}
+						ruling_party = nationalism
+						elections_allowed = no
+					}
+					add_popularity = {
+						ideology = nationalism
+						popularity = 0.5
+					}
 				}
 
 	}
@@ -3104,9 +3118,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 7
-			completion_reward = {
-					remove_ideas = incompetent_officer_corps
-				}
+		completion_reward = {
+			add_ideas = Competent_officers
+		}
 
 	}
 	focus = {
