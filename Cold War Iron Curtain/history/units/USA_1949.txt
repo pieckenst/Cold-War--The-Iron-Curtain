@@ -1,7 +1,7 @@
 ﻿start_equipment_factor = 0.1
 ##### Division Templates #####
 division_template = {
-	name = "Infantry Division"  	# Standard formation for frontline divisions
+	name = "Infantry Brigade"
 
 	regiments = {
 		infantry = { x = 0 y = 0 }
@@ -9,8 +9,28 @@ division_template = {
 		infantry = { x = 0 y = 2 }
 	}
 	support = {
-		artillery = { x = 0 y = 0 }  # US Hvy Field Arty consisted of 2 Bns, 155mm howitzers
-		engineer = { x = 0 y = 1 }   # US Eng Rgt consisted of 2 Bns
+		recon = { x = 0 y = 0 }	
+		engineer = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 }		
+	}
+}
+division_template = {
+	name = "Infantry Division"
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		artillery_brigade = { x = 0 y = 3 }		
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }	
+		artillery_brigade = { x = 1 y = 3 }		
+	}
+	support = {
+		recon = { x = 0 y = 0 }	
+		engineer = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 }		
 	}
 }
 division_template = {
@@ -36,33 +56,15 @@ division_template = {
 	}
 }
 division_template = {
-	name = "Cavalry Division"  	# 1st Cavalry Division only
-
-	regiments = {
-		cavalry = { x = 0 y = 0 }
-		cavalry = { x = 0 y = 1 }
-		cavalry = { x = 0 y = 2 }
-		cavalry = { x = 0 y = 3 }
-		cavalry = { x = 1 y = 0 }
-		cavalry = { x = 1 y = 1 }
-		cavalry = { x = 1 y = 2 }
-		cavalry = { x = 1 y = 3 }
-	}
-	support = {
-		recon = { x = 0 y = 0 }      # US Cav Recon consisted of 52 ACs, 13 L Arm
-		engineer = { x = 0 y = 1 }   # US Eng Bn
-	}
-}
-division_template = {
-	name = "Mechanized Cavalry"  	# 7th Cavalry (Mech.) Brigade, precursor to 1st Armored Div.
+	name = "Mechanized Cavalry"  	# 1st Cavalry Division
 
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
 		infantry = { x = 0 y = 2 }
-		medium_armor = { x = 1 y = 0}
-		light_armor = { x = 1 y = 1 }
-		light_armor = { x = 1 y = 2}
+		mechanized = { x = 1 y = 0}
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2}		
 	}
 	support = {
 		recon = { x = 0 y = 0 }      
@@ -109,36 +111,21 @@ division_template = {
 		paratrooper = { x = 1 y = 0 }
 		paratrooper = { x = 1 y = 1 }
         paratrooper = { x = 1 y = 2 }
-		light_armor = { x = 2 y = 0 }
 	}
 }
 division_template = {
-	name = "Light Armored Division"
-
-	regiments = {
-		light_armor = { x = 0 y = 0 }
-		light_armor = { x = 0 y = 1 }
-        light_armor = { x = 0 y = 2 }
-		motorized = { x = 1 y = 0 }
-       	motorized = { x = 1 y = 1 }
-	}
-	support = {
-        recon = { x = 0 y = 0 }
-        engineer = { x = 0 y = 1 }
-        artillery = { x = 0 y = 2 }
-	}
-}
-division_template = {
-	name = "Medium Armored Division"
+	name = "Armored Division"
 
 	regiments = {
 		medium_armor = { x = 0 y = 0 }
 		medium_armor = { x = 0 y = 1 }
         medium_armor = { x = 0 y = 2 }
-		light_armor = { x = 1 y = 0 }
-		light_armor = { x = 1 y = 1}
-		mechanized = { x = 1 y = 2}
-       	mechanized = { x = 2 y = 0 }
+       	light_armor = { x = 2 y = 0 }
+		medium_sp_artillery_brigade = { x = 1 y = 1 }
+		sp_anti-air_brigade = { x = 1 y = 2 }	
+		mechanized = { x = 2 y = 0 }
+		mechanized = { x = 2 y = 1 }
+		motorized = { x = 2 y = 2 }		
 	}
 	support = {
         recon = { x = 0 y = 0 }
@@ -154,10 +141,11 @@ division_template = {
 		heavy_armor = { x = 0 y = 1 }
         heavy_armor = { x = 0 y = 2}
 		medium_armor = { x = 1 y = 0 }
-		medium_armor = { x = 1 y = 1 }
-		light_armor = { x = 1 y = 2 }
+		medium_sp_artillery_brigade = { x = 1 y = 1 }
+		sp_anti-air_brigade = { x = 1 y = 2 }	
 		mechanized = { x = 2 y = 0 }
        	mechanized = { x = 2 y = 1 }
+		motorized = { x = 2 y = 2 }		
 	}
 	support = {
         recon = { x = 0 y = 0 }
@@ -176,6 +164,10 @@ division_template = {
 		motorized = { x = 1 y = 1 }
         motorized = { x = 1 y = 2 }
 	}
+	support = {
+	 	engineer = { x = 0 y = 0 }
+	    recon = { x = 0 y = 1 }
+	}	
 }
 division_template = {
 	name = "Light Mechanized Infantry Division"
@@ -200,9 +192,10 @@ division_template = {
 		mechanized = { x = 0 y = 0 }
 		mechanized = { x = 0 y = 1 }
 		mechanized = { x = 0 y = 2 }
-		light_armor = { x = 0 y = 0 }
-		light_armor = { x = 0 y = 1}
-		light_armor = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+		light_armor = { x = 2 y = 0 }		
 	}
 	support = {
 	 	engineer = { x = 0 y = 0 }
@@ -474,12 +467,10 @@ units = {
 	division= {
         name = "1st Berlin Brigade"
         location = 6521
-        division_template = "Infantry Division"
+        division_template = "Infantry Brigade"
         start_experience_factor = 0.8
 		start_equipment_factor = 1
-    }
-
-	 
+    }	 
 	division= {
         name = "11th Angels Division"
         location = 6994
@@ -540,7 +531,7 @@ units = {
 	division= {
         name = "2nd Hell on Wheels Division"
         location = 5022
-        division_template = "Medium Armored Division"
+        division_template = "Armored Division"
         start_experience_factor = 0.8
 		start_equipment_factor = 1
     }
@@ -554,28 +545,28 @@ units = {
 	division= {
         name = "4th Breakthrough Division"
         location = 6594
-        division_template = "Medium Armored Division"
+        division_template = "Armored Division"
         start_experience_factor = 0.6
 		start_equipment_factor = 1
     }
 	division= {
         name = "13th Black Cats Division"
         location = 9814
-        division_template = "Medium Armored Division"
+        division_template = "Armored Division"
         start_experience_factor = 0.7
 		start_equipment_factor = 1
     }
 	division= {
         name = "49th Lone Star Division"
         location = 3960
-        division_template = "Medium Armored Division"
+        division_template = "Armored Division"
         start_experience_factor = 0.6
 		start_equipment_factor = 1
     }
 	division= {
         name = "50th Jersey Blues Division"
         location = 9801
-        division_template = "Medium Armored Division"
+        division_template = "Armored Division"
         start_experience_factor = 0.5
 		start_equipment_factor = 1
     }
