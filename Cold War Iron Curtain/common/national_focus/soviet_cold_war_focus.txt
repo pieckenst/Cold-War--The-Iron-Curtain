@@ -1209,8 +1209,20 @@ focus_tree = {
 		x = 6
 		y = 9
 			completion_reward = {
-					remove_ideas = gulag_politic
-					add_national_unity = 0.05
+					if = {
+						limit = {
+							has_idea = gulag_politic
+						}
+						remove_ideas = gulag_politic
+					}
+				if = {
+						limit = {
+							has_idea = gulag_politic_expanded
+						}
+						remove_ideas = gulag_politic_expanded
+					}
+					add_political_power = 300
+					
 				}
 
 	}
