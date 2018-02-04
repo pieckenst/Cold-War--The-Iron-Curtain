@@ -39,12 +39,17 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = FRA_Elections_of_1955
+		id = FRA_Elections_of_1965
 		icon = GFX_goal_unknown
 		cost = 10.00
 		x = 16
 		y = 10
-
+			available = {
+					 has_country_flag = french_elections_1965
+				}
+			bypass = {
+					 has_country_flag = french_elections_1965
+				}
 	}
 	focus = {
 		id = FRA_Elections_of_1969
@@ -52,7 +57,12 @@ focus_tree = {
 		cost = 10.00
 		x = 16
 		y = 18
-
+				available = {
+					 has_country_flag = french_elections_1969
+				}
+				bypass = {
+					 has_country_flag = french_elections_1969
+				}
 	}
 	focus = {
 		id = FRA_Increase_Relations_With_America
@@ -213,7 +223,16 @@ focus_tree = {
 		}
 		x = 1
 		y = 2
-
+		completion_reward = {
+				every_owned_state = {
+					add_extra_state_shared_building_slots = 1
+								add_building_construction = {
+										type = infrastructure
+										level = 2
+										instant_build = yes
+									}										
+				}		
+			}
 	}
 	focus = {
 		id = FRA_Heavy_Industry_Investments
@@ -327,7 +346,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Develop_Motorways
 		}
-		x = -1
+		x = 0
 		y = 3
 			completion_reward = {
 					every_owned_state = {
@@ -437,7 +456,16 @@ focus_tree = {
 		}
 		x = 1
 		y = 4
-
+		completion_reward = {
+				every_owned_state = {
+					add_extra_state_shared_building_slots = 1
+								add_building_construction = {
+										type = infrastructure
+										level = 2
+										instant_build = yes
+									}										
+				}		
+			}
 	}
 	focus = {
 		id = FRA_Cosolidate_Military_Stituation
@@ -459,7 +487,101 @@ focus_tree = {
 		}
 		x = 1
 		y = 12
-
+		completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = FRA_Militarism
@@ -819,7 +941,9 @@ focus_tree = {
 		}
 		x = 5
 		y = 3
-
+		completion_reward = {
+			add_resource = { type = oil amount = 50 state = 16 }	
+		}
 	}
 	focus = {
 		id = FRA_Increased_Standards_of_Living
@@ -830,7 +954,13 @@ focus_tree = {
 		}
 		x = 5
 		y = 4
-
+		completion_reward = {
+			add_political_power = 300
+			add_national_unity = 0.15
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = FRA_Development_of_Paris
@@ -847,7 +977,21 @@ focus_tree = {
 		}
 		x = 2
 		y = 5
-
+		completion_reward = {
+			16 = {
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+							add_extra_state_shared_building_slots = 5
+							add_building_construction = {
+									type = industrial_complex
+									level = 5
+									instant_build = yes
+					}
+			}
+		}	
 	}
 	focus = {
 		id = FRA_Increased_Consumer_Consumption
@@ -858,7 +1002,9 @@ focus_tree = {
 		}
 		x = 5
 		y = 5
-
+		completion_reward = {
+			add_ideas = Increased_Consumer_Consumption
+		}
 	}
 	focus = {
 		id = FRA_Domestic_Policy
@@ -882,7 +1028,10 @@ focus_tree = {
 		}
 		x = 7
 		y = 12
-
+		completion_reward = {
+			add_political_power = 300
+			add_national_unity = -0.10
+		}
 	}
 	focus = {
 		id = FRA_Increased_Wages
@@ -893,7 +1042,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 13
-
+		completion_reward = {
+			add_ideas = increase_the_wages
+		}
 	}
 	focus = {
 		id = FRA_The_Fouchet_Plan
@@ -904,7 +1055,33 @@ focus_tree = {
 		}
 		x = 8
 		y = 1
-
+		completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						}
+					FRA = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						}
+					FRA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+					
+				}
 	}
 	focus = {
 		id = FRA_Dassault_Aviation
@@ -915,7 +1092,101 @@ focus_tree = {
 		}
 		x = 7
 		y = 2
-
+		completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = FRA_DCNS_Naval_Contracts
@@ -926,7 +1197,108 @@ focus_tree = {
 		}
 		x = 7
 		y = 4
-
+		completion_reward = {
+					if = {
+							limit = {
+									NOT = {
+											any_owned_state = {
+													dockyard > 0
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+									any_owned_state = {
+											is_coastal = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									any_owned_state = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									NOT = {
+											any_owned_state = {
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+								}
+							random_state = {
+									limit = {
+											controller = {
+													tag = ROOT
+												}
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+				}
 	}
 	focus = {
 		id = FRA_Better_Housing
@@ -968,7 +1340,13 @@ focus_tree = {
 		}
 		x = 6
 		y = 15
-
+		completion_reward = {
+			add_political_power = 300
+			add_national_unity = 0.15
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = FRA_Domestic_Air_Industry
@@ -979,7 +1357,101 @@ focus_tree = {
 		}
 		x = 9
 		y = 2
-
+		completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = FRA_Promote_Caravelle_Jetliners
@@ -990,7 +1462,101 @@ focus_tree = {
 		}
 		x = 8
 		y = 3
-
+completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = FRA_Concorde_Project
@@ -1001,7 +1567,101 @@ focus_tree = {
 		}
 		x = 10
 		y = 3
-
+		completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = FRA_Develop_Urban_Areas
@@ -1338,11 +1998,16 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = FRA_Elections_of_1955
+			focus = FRA_Elections_of_1965
 		}
 		x = 12
 		y = 11
-
+			available = {
+					 has_country_flag = de_galle_1965
+				}
+			bypass = {
+					 has_country_flag = de_galle_1965
+				}
 	}
 	focus = {
 		id = FRA_May_1968
@@ -1353,12 +2018,17 @@ focus_tree = {
 		}
 		x = 13
 		y = 14
-
+			available = {
+					 has_country_flag = FRA_MAY_68
+				}
+			bypass = {
+					 has_country_flag = FRA_MAY_68
+				}
 	}
 	focus = {
 		id = FRA_Deploy_the_Military
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 1.00
 		prerequisite = {
 			focus = FRA_May_1968
 		}
@@ -1375,7 +2045,12 @@ focus_tree = {
 		}
 		x = 11
 		y = 16
-
+			available = {
+					 has_country_flag = french_civil_war
+				}
+			bypass = {
+					 has_country_flag = french_civil_war
+				}
 	}
 	focus = {
 		id = FRA_Salvation_of_France
@@ -1408,7 +2083,12 @@ focus_tree = {
 		}
 		x = 13
 		y = 19
-
+				available = {
+					 has_country_flag = pompidou_1969
+				}
+				bypass = {
+					 has_country_flag = pompidou_1969
+				}
 	}
 	focus = {
 		id = FRA_Algerian_Refferendum
@@ -1489,7 +2169,12 @@ focus_tree = {
 		}
 		x = 10
 		y = 5
-
+				available = {
+					 has_country_flag = coup_fail
+				}
+				bypass = {
+					 has_country_flag = coup_fail
+				}
 	}
 	focus = {
 		id = FRA_Fall_of_the_Fifth_Republic
@@ -1500,7 +2185,12 @@ focus_tree = {
 		}
 		x = 17
 		y = 5
-
+			available = {
+					 has_country_flag = coup_success
+				}
+				bypass = {
+					 has_country_flag = coup_success
+				}
 	}
 	focus = {
 		id = FRA_French_Civil_War
@@ -1511,7 +2201,12 @@ focus_tree = {
 		}
 		x = 15
 		y = 6
-
+				available = {
+					 has_country_flag = french_civil_war
+				}
+				bypass = {
+					 has_country_flag = french_civil_war
+				}
 	}
 	focus = {
 		id = FRA_Communists_Seize_Power
@@ -1533,7 +2228,10 @@ focus_tree = {
 		}
 		x = 15
 		y = 15
-
+		completion_reward = {
+			add_political_power = 300
+			add_national_unity = 0.05
+		}
 	}
 	focus = {
 		id = FRA_New_Elections
@@ -1544,7 +2242,9 @@ focus_tree = {
 		}
 		x = 15
 		y = 16
-
+		completion_reward = {
+			country_event = De_Galle.9
+		}
 	}
 	focus = {
 		id = FRA_Resignation_of_De_Galle
@@ -1555,7 +2255,9 @@ focus_tree = {
 		}
 		x = 15
 		y = 17
-
+		completion_reward = {
+			country_event = De_Galle.10
+		}
 	}
 	focus = {
 		id = FRA_OAS_Consolidates_Power
@@ -1573,11 +2275,16 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = FRA_Elections_of_1955
+			focus = FRA_Elections_of_1965
 		}
 		x = 20
 		y = 11
-
+				available = {
+					 has_country_flag = mitterand_1965
+				}
+				bypass = {
+					 has_country_flag = mitterand_1965
+				}
 	}
 	focus = {
 		id = FRA_Recognize_the_PRC
@@ -1589,7 +2296,20 @@ focus_tree = {
 		}
 		x = 16
 		y = 12
-
+		completion_reward = {
+					FRA = {
+							add_opinion_modifier = {
+									target = PRC
+									modifier = large_increase
+								}
+						}
+					PRC = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = FRA_Enforce_Profit_Sharing
@@ -1613,7 +2333,12 @@ focus_tree = {
 		}
 		x = 19
 		y = 19
-
+				available = {
+					 has_country_flag = alain_poher_1969
+				}
+				bypass = {
+					 has_country_flag = alain_poher_1969
+				}
 	}
 	focus = {
 		id = FRA_Arianespace
@@ -1625,7 +2350,9 @@ focus_tree = {
 		}
 		x = 16
 		y = 20
-
+		completion_reward = {
+			add_ideas = Arianespace #Space Research Bonus
+		}
 	}
 	focus = {
 		id = FRA_TGV_Project
@@ -1636,7 +2363,16 @@ focus_tree = {
 		}
 		x = 16
 		y = 21
-
+		completion_reward = {
+				every_owned_state = {
+					add_extra_state_shared_building_slots = 1
+								add_building_construction = {
+										type = infrastructure
+										level = 2
+										instant_build = yes
+									}										
+				}		
+			}
 	}
 	focus = {
 		id = FRA_The_French_Air_Force
@@ -1685,7 +2421,16 @@ focus_tree = {
 		}
 		x = 21
 		y = 2
-
+		completion_reward = {
+					air_experience = 5
+					add_tech_bonus = {
+							name = air_doctrine_bonus
+							bonus = 0.35
+							uses = 1
+							category = air_doctrine 
+						}
+				}
+		
 	}
 	focus = {
 		id = FRA_Mirage_Jets
@@ -1783,7 +2528,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 13
-
+		completion_reward = {
+			add_ideas = increased_pensions
+		}
 	}
 	focus = {
 		id = FRA_Keynesian_Economics
@@ -1899,7 +2646,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 13
-
+		completion_reward = {
+			add_ideas = the_american_welfare_state
+		}
 	}
 	focus = {
 		id = FRA_Social_Capitalism
@@ -1910,7 +2659,101 @@ focus_tree = {
 		}
 		x = 22
 		y = 20
-
+		completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = FRA_Social_Pluralism
@@ -1921,7 +2764,10 @@ focus_tree = {
 		}
 		x = 22
 		y = 21
-
+		completion_reward = {
+			add_political_power = 300
+			add_national_unity = 0.10
+		}
 	}
 	focus = {
 		id = FRA_The_French_Army
@@ -1932,7 +2778,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 1
-
+		completion_reward = {
+			army_experience = 50
+		}
 	}
 	focus = {
 		id = FRA_Mechanized_Development
@@ -1943,7 +2791,16 @@ focus_tree = {
 		}
 		x = 23
 		y = 2
+		completion_reward = {
 
+					add_tech_bonus = {
+							name = motorized_equipment_bonus
+							bonus = 0.35
+							uses = 1
+							category = motorized_equipment
+						}
+					
+		}
 	}
 	focus = {
 		id = FRA_Assault_Rifle_Developmet
@@ -1954,7 +2811,14 @@ focus_tree = {
 		}
 		x = 25
 		y = 2
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_artillery_bonus
+							bonus = 0.35
+							uses = 1
+							category = infantry_weapons
+						}
+				}
 	}
 	focus = {
 		id = FRA_Develop_the_AMX_30
@@ -1968,7 +2832,16 @@ focus_tree = {
 		}
 		x = 24
 		y = 3
+		completion_reward = {
 
+					add_tech_bonus = {
+							name = french_armor_bonus
+							bonus = 0.35
+							uses = 1
+							category = armor
+						}
+					
+		}
 	}
 	focus = {
 		id = FRA_Refine_Special_Forces
@@ -1979,7 +2852,19 @@ focus_tree = {
 		}
 		x = 23
 		y = 4
-
+		completion_reward = {
+					add_tech_bonus = {
+							name = special_forces_bonus
+							bonus = 0.5
+							uses = 1
+							technology = paratroopers
+							technology = paratroopers2
+							technology = marines
+							technology = marines2
+							technology = tech_mountaineers
+							technology = tech_mountaineers2
+						}
+				}
 	}
 	focus = {
 		id = FRA_Airborne_Assault_Development
@@ -1990,7 +2875,16 @@ focus_tree = {
 		}
 		x = 25
 		y = 4
-
+		completion_reward = {
+					add_tech_bonus = {
+							name = special_forces_bonus
+							bonus = 0.5
+							uses = 1
+							technology = paratroopers
+							technology = paratroopers2
+							technology = paratroopers3
+						}
+				}
 	}
 	focus = {
 		id = FRA_Lessons_of_Algeria
@@ -2003,8 +2897,10 @@ focus_tree = {
 			focus = FRA_Refine_Special_Forces
 		}
 		x = 24
-		y = 5
-
+		y = 5	
+		completion_reward = {
+			army_experience = 50
+		}
 	}
 	focus = {
 		id = FRA_Nationalism
@@ -2202,7 +3098,15 @@ focus_tree = {
 		}
 		x = 29
 		y = 2
-
+		completion_reward = {
+					navy_experience = 5
+					add_tech_bonus = {
+							name = naval_doctrine_bonus
+							bonus = 0.35
+							uses = 1
+							category = naval_doctrine 
+						}
+				}
 	}
 	focus = {
 		id = FRA_French_Marines
@@ -2216,7 +3120,16 @@ focus_tree = {
 		}
 		x = 28
 		y = 3
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = special_forces_bonus
+							bonus = 0.5
+							uses = 1
+							technology = marines
+							technology = marines2
+							technology = marines3
+						}
+				}
 	}
 	focus = {
 		id = FRA_Carriers
@@ -2252,7 +3165,15 @@ focus_tree = {
 		}
 		x = 28
 		y = 5
-
+		completion_reward = {
+					navy_experience = 5
+					add_tech_bonus = {
+							name = submarine_tech_bonus
+							bonus = 0.5
+							uses = 1
+							category = ss_tech 
+						}
+				}	
 	}
 	focus = {
 		id = FRA_Ban_Communism
@@ -2547,7 +3468,10 @@ focus_tree = {
 		}
 		x = 36
 		y = 13
-
+		completion_reward = {
+			set_politics = { ruling_party = Social_Democratic elections_allowed = yes }	
+			add_national_unity = 0.05
+		}
 	}
 	focus = {
 		id = FRA_Non_Aligned_Movement
@@ -2558,7 +3482,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 14
-
+		completion_reward = {
+			YUG = { add_to_faction = FRA }
+		}
 	}
 	focus = {
 		id = FRA_Market_Socialism
@@ -2569,7 +3495,101 @@ focus_tree = {
 		}
 		x = 37
 		y = 14
-
+		completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = FRA_Cultural_Freedom
@@ -2583,7 +3603,10 @@ focus_tree = {
 		}
 		x = 36
 		y = 15
-
+		completion_reward = {
+			add_political_power = 300
+			add_national_unity = 0.05
+		}
 	}
 	focus = {
 		id = FRA_Social_Dividends
@@ -2594,7 +3617,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 16
-
+		completion_reward = {
+			add_ideas = Social_Dividends
+		}
 	}
 	focus = {
 		id = FRA_Rehabilitate_Gramisici
@@ -2633,7 +3658,101 @@ focus_tree = {
 		}
 		x = 36
 		y = 17
-
+		completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = FRA_Stalinist_Faction
@@ -2833,7 +3952,105 @@ focus_tree = {
 		}
 		x = 39
 		y = 16
-
+		completion_reward = {
+			VIN = {
+				completion_reward = {
+						every_owned_state = {
+								add_extra_state_shared_building_slots = 1
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = industrial_complex
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = industrial_complex
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = industrial_complex
+										level = 2
+										instant_build = yes
+									}
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = arms_factory
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = arms_factory
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = arms_factory
+										level = 2
+										instant_build = yes
+									}
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = arms_factory
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = arms_factory
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = arms_factory
+										level = 2
+										instant_build = yes
+									}
+							}
+					}		
+			}
+		}
 	}
 	focus = {
 		id = FRA_Aid_to_Cuba
@@ -2844,7 +4061,105 @@ focus_tree = {
 		}
 		x = 41
 		y = 16
-
+		completion_reward = {
+			CUB = {
+				completion_reward = {
+						every_owned_state = {
+								add_extra_state_shared_building_slots = 1
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = industrial_complex
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = industrial_complex
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = industrial_complex
+										level = 2
+										instant_build = yes
+									}
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = arms_factory
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = arms_factory
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = arms_factory
+										level = 2
+										instant_build = yes
+									}
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = arms_factory
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = arms_factory
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = arms_factory
+										level = 2
+										instant_build = yes
+									}
+							}
+					}		
+			}
+		}
 	}
 	focus = {
 		id = FRA_Close_the_Border
@@ -3043,7 +4358,24 @@ focus_tree = {
 		}
 		x = 4
 		y = 15
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = nuclear_reactor
+					level = 2
+					instant_build = yes
+				}
+			}	
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = nuclear_reactor
+					level = 2
+					instant_build = yes
+				}
+			}		
+		}
 	}
 	focus = {
 		id = FRA_Increased_Weapons_Production
@@ -3135,7 +4467,105 @@ focus_tree = {
 		}
 		x = 3
 		y = 16
-
+		completion_reward = {
+			WGR = {
+				completion_reward = {
+						every_owned_state = {
+								add_extra_state_shared_building_slots = 1
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = industrial_complex
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = industrial_complex
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = industrial_complex
+										level = 2
+										instant_build = yes
+									}
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = arms_factory
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = arms_factory
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = arms_factory
+										level = 2
+										instant_build = yes
+									}
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = arms_factory
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = arms_factory
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = arms_factory
+										level = 2
+										instant_build = yes
+									}
+							}
+					}		
+			}
+		}
 	}
 	focus = {
 		id = FRA_Lift_Martial_Law
@@ -3297,7 +4727,16 @@ focus_tree = {
 		}
 		x = 12
 		y = 8
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = nuclear_reactor
+					level = 2
+					instant_build = yes
+				}
+			}			
+		}
 	}
 	focus = {
 		id = FRA_Assert_French_Independence
@@ -3322,7 +4761,12 @@ focus_tree = {
 		}
 		x = 19
 		y = 6
-
+			available = {
+					 has_country_flag = generals_seize_power_alg
+				}
+			bypass = {
+					 has_country_flag = generals_seize_power_alg
+				}
 	}
 	focus = {
 		id = FRA_Stay_in_Algeria
@@ -3369,17 +4813,20 @@ focus_tree = {
 		}
 		x = 19
 		y = 9
-
+		completion_reward = {
+			add_political_power = -240
+			add_national_unity = -0.05
+			16 = {
+				add_manpower = 350000
+			}
+		}
 	}
 	focus = {
-		id = FRA_Consolidate_Power
+		id = FRA_Consolidate_Power_alg
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = FRA_Execute_De_Galle
-		}
-		prerequisite = {
-			focus = FRA_Execute_Communist_Leadership
+			focus = FRA_Communists_Seize_Power
 		}
 		x = 14
 		y = 8
@@ -3392,11 +4839,14 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = FRA_Consolidate_Power
+			focus = FRA_Consolidate_Power_alg
 		}
 		x = 14
 		y = 9
-
+		completion_reward = {
+			release = ALG
+			set_autonomy = { target = ALG autonomy_state = autonomy_free }	
+		}
 	}
 	focus = {
 		id = FRA_Trente_Gloroeuses
@@ -3643,7 +5093,9 @@ focus_tree = {
 		}
 		x = 10
 		y = 12
-
+		completion_reward = {
+			USA = { remove_from_faction = FRA }
+		}
 	}
 	focus = {
 		id = FRA_Continue_Dirigisme_Economics
@@ -3912,7 +5364,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 12
-
+		completion_reward = {
+			add_ideas = KOR_education_reform
+		}
 	}
 	focus = {
 		id = FRA_Funding_for_the_Arts
@@ -3923,7 +5377,10 @@ focus_tree = {
 		}
 		x = 18
 		y = 13
-
+		completion_reward = {
+			add_political_power = 300
+			add_national_unity = 0.15
+		}
 	}
 	focus = {
 		id = FRA_Support_Regional_Identities
@@ -3940,7 +5397,10 @@ focus_tree = {
 		}
 		x = 21
 		y = 14
-
+		completion_reward = {
+			add_political_power = 300
+			add_national_unity = 0.15
+		}
 	}
 	focus = {
 		id = FRA_Social_Housing
@@ -4138,9 +5598,18 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Georges_Pompidou_1969
 		}
-		x = -1
-		y = 1
-
+		x = 12
+		y = 20
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = nuclear_reactor
+					level = 2
+					instant_build = yes
+				}
+			}			
+		}
 	}
 	focus = {
 		id = FRA_Relations_With_Former_French_Colonies
@@ -4164,15 +5633,20 @@ focus_tree = {
 		y = 20
 		completion_reward = {
 			16 = {
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
 							add_extra_state_shared_building_slots = 5
 							add_building_construction = {
 									type = industrial_complex
 									level = 5
 									instant_build = yes
-								}
-						}
-				}			
+					}
 			}
+		}			
+	}
 	focus = {
 		id = FRA_Modernization_of_Paris
 		icon = GFX_goal_unknown
@@ -4184,14 +5658,19 @@ focus_tree = {
 		y = 21
 		completion_reward = {
 			16 = {
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
 							add_extra_state_shared_building_slots = 5
 							add_building_construction = {
 									type = industrial_complex
 									level = 5
 									instant_build = yes
-								}
-						}
-				}
+					}
+			}
+		}	
 	}
 	focus = {
 		id = FRA_Relax_Media_Restrictions
@@ -4221,7 +5700,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 15
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 	focus = {
 		id = FRA_The_Concordat
@@ -4251,7 +5732,105 @@ focus_tree = {
 		}
 		x = 28
 		y = 17
-
+		completion_reward = {
+			VIE = {
+				completion_reward = {
+						every_owned_state = {
+								add_extra_state_shared_building_slots = 1
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = industrial_complex
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = industrial_complex
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = industrial_complex
+										level = 2
+										instant_build = yes
+									}
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = arms_factory
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = arms_factory
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = arms_factory
+										level = 2
+										instant_build = yes
+									}
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = arms_factory
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = arms_factory
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = arms_factory
+										level = 2
+										instant_build = yes
+									}
+							}
+					}		
+			}
+		}
 	}
 	focus = {
 		id = FRA_Join_the_Vietnam_War
@@ -4262,7 +5841,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 18
-
+		completion_reward = {
+			add_to_war = { targeted_alliance = VIE enemy = VIN }	
+		}
 	}
 	focus = {
 		id = FRA_American_Rappoachment
@@ -4279,7 +5860,20 @@ focus_tree = {
 		}
 		x = 28
 		y = 19
-
+		completion_reward = {
+					FRA = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = FRA_South_Africa_Joins
@@ -4320,7 +5914,105 @@ focus_tree = {
 		}
 		x = 30
 		y = 17
-
+		completion_reward = {
+			ZIM = {
+				completion_reward = {
+						every_owned_state = {
+								add_extra_state_shared_building_slots = 1
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = industrial_complex
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = industrial_complex
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = industrial_complex
+										level = 2
+										instant_build = yes
+									}
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = arms_factory
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = arms_factory
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = arms_factory
+										level = 2
+										instant_build = yes
+									}
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = arms_factory
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = arms_factory
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = arms_factory
+										level = 2
+										instant_build = yes
+									}
+							}
+					}		
+			}
+		}
 	}
 	focus = {
 		id = FRA_Aid_to_South_Africa
@@ -4331,7 +6023,105 @@ focus_tree = {
 		}
 		x = 26
 		y = 17
-
+		completion_reward = {
+			SAF = {
+				completion_reward = {
+						every_owned_state = {
+								add_extra_state_shared_building_slots = 1
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = industrial_complex
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = industrial_complex
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = industrial_complex
+										level = 2
+										instant_build = yes
+									}
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = arms_factory
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = arms_factory
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = arms_factory
+										level = 2
+										instant_build = yes
+									}
+							}
+						random_owned_controlled_state = {
+								limit = {
+										free_building_slots = {
+												building = arms_factory
+												size > 0
+												include_locked = yes
+											}
+										OR = {
+												is_in_home_area = yes
+												NOT = {
+														owner = {
+																any_owned_state = {
+																		free_building_slots = {
+																				building = arms_factory
+																				size > 0
+																				include_locked = yes
+																			}
+																		is_in_home_area = yes
+																	}
+															}
+													}
+											}
+									}
+								add_extra_state_shared_building_slots = 2
+								add_building_construction = {
+										type = arms_factory
+										level = 2
+										instant_build = yes
+									}
+							}
+					}		
+			}
+		}
 	}
 	focus = {
 		id = FRA_Legacy_of_the_French_Commune
@@ -4342,7 +6132,9 @@ focus_tree = {
 		}
 		x = 40
 		y = 19
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 	focus = {
 		id = FRA_Social_Welfare_com
