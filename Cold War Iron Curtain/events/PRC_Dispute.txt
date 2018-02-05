@@ -15,14 +15,28 @@ country_event = {
 
 	option = {
 		name = "Agree to The War"
-			set_global_flag = soviet_agreed_prc_proposal
-			USA = { country_event = prc_dispute.2 }
+		set_global_flag = soviet_agreed_prc_proposal
+		USA = { country_event = prc_dispute.2 }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
 		}
+	}
 	option = {
-		name = "Agree to The War"
-			set_global_flag = soviet_decline_prc_proposal
-			USA = { country_event = prc_dispute.3 }
+		name = "Disagree to The War"
+		set_global_flag = soviet_decline_prc_proposal
+		USA = { country_event = prc_dispute.3 }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
 		}
+	}
 }
 country_event = {
 	id = prc_dispute.2
@@ -35,7 +49,7 @@ country_event = {
 
 	option = {
 		name = "Let us begin preperations for the war"
-		}
+	}
 }
 country_event = {
 	id = prc_dispute.3
@@ -91,21 +105,35 @@ country_event = {
 
 	option = {
 		name = "Back Down"
-			if = {
-				limit = {
-					has_war_with = PRC
-				}
-				white_peace = PRC
+		if = {
+			limit = {
+				has_war_with = PRC
 			}
-			clr_global_flag = zhenbao_island
+			white_peace = PRC
 		}
+		clr_global_flag = zhenbao_island
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
 	option = {
 		name = "World War III then...."
-			if = {
-				limit = {
-					has_war_with = PRC
-				}
-				PRC = { add_to_war = { targeted_alliance = USA enemy = SOV } }
+		if = {
+			limit = {
+				has_war_with = PRC
+			}
+			PRC = { add_to_war = { targeted_alliance = USA enemy = SOV } }
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
 			}
 		}
+	}
 }
