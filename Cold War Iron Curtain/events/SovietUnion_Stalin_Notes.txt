@@ -1,4 +1,712 @@
-﻿# Finnish - Soviet Note Crisis event chain
+﻿###STALINOTES EVENTS###
+add_namespace = cw_stalinotes
+
+
+#Stalin Note from USSR 
+
+country_event = {
+	id = cw_stalinotes.1
+	title = cw_stalinotes.1.t
+	desc = cw_stalinotes.1.d
+	picture = GFX
+	
+	is_triggered_only = yes # Stalinotes Focus
+	fire_only_once = yes
+	
+	option = { #Send Note to WGR
+		name = cw_stalinotes.1.a
+		WGR = { country_event = cw_stalinotes.6 }
+		ai_chance = { 
+			factor = 40 
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+		option = { #Refusenote
+		name = cw_stalinotes.1.b
+		SOV = { country_event = cw_stalinotes.2 } #NATO says no to Stalin Note
+		ai_chance = { 
+			factor = 60 
+			modifier = {
+				factor = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+#NATO says no to Stalin Note
+country_event = {
+	id = cw_stalinotes.2
+	title = cw_stalinotes.2.t
+	desc = cw_stalinotes.2.d
+	picture = GFX
+	
+	is_triggered_only = yes # Event 1
+	fire_only_once = yes
+	
+	option = { #Send a Revised Note
+		name = cw_stalinotes.2.a
+		USA = { country_event = cw_stalinotes.3 }
+		ai_chance = { 
+			factor = 40 
+			modifier = {
+				factor = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+		option = { #Remove Note
+		name = cw_stalinotes.2.b
+		ai_chance = { 
+			factor = 40 
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		news_event = cw_stalinotes.16 
+	}
+
+			option = { #Military pressure
+		name = cw_stalinotes.2.c
+		ai_chance = { 
+			factor = 20 
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		USA = { country_event = cw_stalinotes.9 }
+		news_event = cw_stalinotes.12 
+	}
+}
+#Second Stalinote
+country_event = {
+	id = cw_stalinotes.3
+	title = cw_stalinotes.3.t
+	desc = cw_stalinotes.3.d
+	picture = GFX
+	
+	is_triggered_only = yes # Event 2
+	fire_only_once = yes
+	
+	option = { #Send Note to WGR
+		name = cw_stalinotes.3.a
+		WGR = { country_event = cw_stalinotes.6 }
+		ai_chance = { 
+			factor = 40 
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+		option = { #Refusenote
+		name = cw_stalinotes.3.b
+		SOV = { country_event = cw_stalinotes.4 } #NATO says no to Stalin Note 
+		ai_chance = { 
+			factor = 60 
+			modifier = {
+				factor = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+#NATO says no to Stalin Note 2
+country_event = {
+	id = cw_stalinotes.4
+	title = cw_stalinotes.4.t
+	desc = cw_stalinotes.4.d
+	picture = GFX
+	
+	is_triggered_only = yes # Event 3
+	fire_only_once = yes
+	
+	option = { #Send a Final Note
+		name = cw_stalinotes.4.a
+		USA = { country_event = cw_stalinotes.5 }
+		ai_chance = { 
+			factor = 40 
+			modifier = {
+				factor = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+		option = { #Remove Note
+		name = cw_stalinotes.4.b
+		ai_chance = { 
+			factor = 40 
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		news_event = { id = cw_stalinotes.16 }
+	}
+			option = { #Military pressure
+		name = cw_stalinotes.4.c
+		ai_chance = { 
+			factor = 20 
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		USA = { country_event = cw_stalinotes.9 }
+		news_event = { id = cw_stalinotes.12 }
+	}
+}
+#Final Stalinote
+country_event = {
+	id = cw_stalinotes.5
+	title = cw_stalinotes.5.t
+	desc = cw_stalinotes.5.d
+	picture = GFX
+	
+	is_triggered_only = yes # Event 4
+	fire_only_once = yes
+	
+	option = { #Send Note to WGR
+		name = cw_stalinotes.5.a
+		WGR = { country_event = cw_stalinotes.6 }
+		ai_chance = { 
+			factor = 40 
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+		option = { #Refusenote
+		name = cw_stalinotes.5.b #NATO says no to Stalin Note 
+		ai_chance = { 
+			factor = 60 
+			modifier = {
+				factor = 10
+				is_historical_focus_on = yes
+			}
+		}
+		news_event = { id = cw_stalinotes.16 }
+	}
+}
+#First Stalinote sent to WGR
+country_event = {
+	id = cw_stalinotes.6
+	title = cw_stalinotes.6.t
+	desc = cw_stalinotes.6.d
+	picture = GFX
+	
+	is_triggered_only = yes # Event 1
+	fire_only_once = yes
+	
+	option = { #Accept
+		name = cw_stalinotes.6.a
+		DDR = { country_event = cw_stalinotes.7 }
+		ai_chance = { 
+			factor = 20 
+		}
+	}
+		option = { #Negociate
+		name = cw_stalinotes.6.b
+		ai_chance = { 
+			factor = 20 
+		}
+		DDR = { country_event = cw_stalinotes.8 }
+	}
+			option = { #Refusenote
+		name = cw_stalinotes.6.c
+		ai_chance = { 
+			factor = 60 
+
+		}
+		SOV = { country_event = cw_stalinotes.2 }
+	}
+}
+
+#German Peace Treaty
+country_event = {
+	id = cw_stalinotes.7
+	title = cw_stalinotes.7.t
+	desc = cw_stalinotes.7.d
+	picture = GFX
+	
+	is_triggered_only = yes # Event 6
+	fire_only_once = yes
+	
+	option = { #Accept
+		name = cw_stalinotes.7.a
+		news_event = { id = cw_stalinotes.11 }
+		WGR = { annex_country = { target = DDR transfer_troops = no } }
+		every_state = { limit = { is_core_of = DDR } remove_core_of = DDR }
+	}
+}
+#Negociations
+country_event = {
+	id = cw_stalinotes.8
+	title = cw_stalinotes.8.t
+	desc = cw_stalinotes.8.d
+	picture = GFX
+	
+	is_triggered_only = yes # Event 6
+	fire_only_once = yes
+	
+	option = { #1937 border + alliance
+		name = cw_stalinotes.8.a
+		ai_chance = { 
+			factor = 40 
+		}
+		WGR = { annex_country = { target = DDR transfer_troops = no } }
+		every_state = { limit = { is_core_of = DDR } remove_core_of = DDR }
+		WGR = {
+		transfer_state = 63
+		transfer_state = 741
+		transfer_state = 66
+		transfer_state = 795
+		transfer_state = 67
+		}
+		news_event = cw_stalinotes.11 
+	}
+		option = { #1937 + neutrality
+		name = cw_stalinotes.8.b
+		ai_chance = { 
+			factor = 40 
+		}
+		WGR = { annex_country = { target = DDR transfer_troops = no } }
+		every_state = { limit = { is_core_of = DDR } remove_core_of = DDR }
+		WGR = {
+		transfer_state = 63
+		transfer_state = 741
+		transfer_state = 66
+		transfer_state = 795
+		transfer_state = 67
+		set_politics = { ruling_party = centrist elections_allowed = yes }
+		add_popularity = {
+		ideology = centrist
+		popularity = 1
+		}
+		}
+		news_event = cw_stalinotes.15 
+	}
+			option = { #Refusenote
+		name = cw_stalinotes.8.c
+		ai_chance = { 
+			factor = 20 
+		#Nothing
+		}
+		news_event = cw_stalinotes.16 
+	}
+}
+
+#Soviet Military Pressure
+country_event = {
+	id = cw_stalinotes.9
+	title = cw_stalinotes.9.t
+	desc = cw_stalinotes.9.d
+	picture = GFX
+	
+	is_triggered_only = yes # Event 2 or 4
+	fire_only_once = yes
+	
+	option = { #Deploy troops
+		name = cw_stalinotes.9.a
+		SOV = { country_event = cw_stalinotes.10 }
+		
+		ai_chance = { 
+			factor = 45 
+		}
+	}
+		option = { #ignore them
+		name = cw_stalinotes.9.b
+		ai_chance = { 
+			factor = 55 
+		}
+		news_event = cw_stalinotes.13 
+	}
+}
+#NATO deploys troops
+country_event = {
+	id = cw_stalinotes.10
+	title = cw_stalinotes.10.t
+	desc = cw_stalinotes.10.desc
+	picture = GFX
+	
+	is_triggered_only = yes # Event 9
+	fire_only_once = yes
+	
+	option = { #Send a Final Note
+		name = cw_stalinotes.10.a
+		USA = { country_event = cw_stalinotes.5 }
+		ai_chance = { 
+			factor = 60 
+		}
+	}
+		option = { #Remove Note
+		name = cw_stalinotes.10.b
+		ai_chance = { 
+			factor = 20 
+		}
+		news_event = cw_stalinotes.16 
+	}
+			option = { #Coup WGR
+		name = cw_stalinotes.10.c
+		ai_chance = { 
+			factor = 15 
+		}
+		WGR = {
+		create_country_leader = {
+	name = "Kurt Schumacher"
+	picture = "Portrait_WestGermany_Kurt_Schumacher.tga"
+	ideology = centrism
+}
+		start_civil_war = {
+			ruling_party = democratic
+			ideology = centrist
+			size = 0.5
+			states = { 56 58 59 }
+		}
+		}
+		news_event = cw_stalinotes.17 
+		
+	}
+	option = { #WAAAAAAAR
+		name = cw_stalinotes.10.d
+		ai_chance = { 
+			factor = 5 
+		}
+	declare_war_on = {
+		target = USA
+		type = annex_everything
+	}
+		declare_war_on = {
+		target = WGR
+		type = annex_everything
+	}
+	news_event = cw_stalinotes.14 
+	}
+}
+
+# Stalin Note Grants Unification!
+news_event = {
+	id = cw_stalinotes.11
+	title = cw_stalinotes.11.t
+	desc = cw_stalinotes.11.desc
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = cw_stalinotes.11.a
+		trigger = {
+			NOT = {
+			OR = {
+			tag = WGR
+			tag = USA
+			tag = SOV
+			}
+			}
+		}
+	}
+	option = {
+		name = cw_stalinotes.11.b
+		trigger = { 
+		TAG = WGR
+		}
+	}
+		option = {
+		name = cw_stalinotes.11.c
+		trigger = { 
+		TAG = USA
+		}
+	}
+		option = {
+		name = cw_stalinotes.11.d
+		trigger = { 
+		TAG = SOV
+		}
+	}
+
+}
+
+# Standoff in Germany!
+news_event = {
+	id = cw_stalinotes.12
+	title = cw_stalinotes.12.t
+	desc = cw_stalinotes.12.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = cw_stalinotes.12.a
+		trigger = {
+			NOT = {
+			OR = {
+			tag = USA
+			tag = SOV
+			}
+			}
+		}
+	}
+	option = {
+		name = cw_stalinotes.12.b
+		trigger = { 
+		TAG = USA
+		}
+	}
+		option = {
+		name = cw_stalinotes.12.c
+		trigger = { 
+		TAG = SOV
+		}
+	}
+
+}
+
+# Standoff Ends in Germany!
+news_event = {
+	id = cw_stalinotes.13
+	title = cw_stalinotes.13.t
+	desc = cw_stalinotes.13.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = cw_stalinotes.13.a
+		trigger = {
+			NOT = {
+			OR = {
+			tag = USA
+			tag = SOV
+			}
+			}
+		}
+	}
+	option = {
+		name = cw_stalinotes.13.b
+		trigger = { 
+		TAG = USA
+		}
+	}
+		option = {
+		name = cw_stalinotes.13.c
+		trigger = { 
+		TAG = SOV
+		}
+	}
+
+}
+
+#War Breaks out in Germany!
+news_event = {
+	id = cw_stalinotes.14
+	title = cw_stalinotes.14.t
+	desc = cw_stalinotes.14.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = cw_stalinotes.14.a
+		trigger = {
+			NOT = {
+			OR = {
+			tag = USA
+			tag = SOV
+			}
+			}
+		}
+	}
+	option = {
+		name = cw_stalinotes.14.b
+		trigger = { 
+		TAG = USA
+		}
+	}
+		option = {
+		name = cw_stalinotes.14.c
+		trigger = { 
+		TAG = SOV
+		}
+	}
+
+}
+
+# Neutral Germany united under 1937 border!
+news_event = {
+	id = cw_stalinotes.15
+	title = cw_stalinotes.15.t
+	desc = cw_stalinotes.15.desc
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = cw_stalinotes.15.a
+		trigger = {
+			NOT = {
+			OR = {
+			tag = WGR
+			tag = USA
+			tag = SOV
+			}
+			}
+		}
+	}
+	option = {
+		name = cw_stalinotes.15.b
+		trigger = { 
+		TAG = WGR
+		}
+	}
+		option = {
+		name = cw_stalinotes.15.c
+		trigger = { 
+		TAG = USA
+		}
+	}
+		option = {
+		name = cw_stalinotes.15.d
+		trigger = { 
+		TAG = SOV
+		}
+	}
+
+}
+
+# End of the Stalin Note. 
+news_event = {
+	id = cw_stalinotes.16
+	title = cw_stalinotes.16.t
+	desc = cw_stalinotes.16.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = cw_stalinotes.16.a
+		trigger = {
+			NOT = {
+			OR = {
+			tag = USA
+			tag = SOV
+			}
+			}
+		}
+	}
+	option = {
+		name = cw_stalinotes.16.b
+		trigger = { 
+		TAG = USA
+		}
+	}
+		option = {
+		name = cw_stalinotes.16.c
+		trigger = { 
+		TAG = SOV
+		}
+	}
+
+}
+
+# Civil War in WGR
+news_event = {
+	id = cw_stalinotes.17
+	title = cw_stalinotes.17.t
+	desc = cw_stalinotes.17.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = cw_stalinotes.17.a
+		trigger = {
+			NOT = {
+			OR = {
+			tag = USA
+			tag = SOV
+			}
+			}
+		}
+	}
+	option = {
+		name = cw_stalinotes.17.b
+		trigger = { 
+		TAG = USA
+		}
+	}
+		option = {
+		name = cw_stalinotes.17.c
+		trigger = { 
+		TAG = SOV
+		}
+	}
+
+}
+
+###################################################
+
+add_namespace = notecrisisnews
+
+news_event = {
+	id = notecrisisnews.1
+	title = notecrisisnews.1.t
+	desc = notecrisisnews.1.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = notecrisisnews.1.a
+		trigger = { TAG = USA }
+	}
+	
+	option = {
+		name = notecrisisnews.1.b
+		trigger = { TAG = SOV }
+	}
+	
+	option = {
+		name = notecrisisnews.1.c
+		trigger = { TAG = FIN }
+	}
+	
+	option = {
+		name = notecrisisnews.1.e
+		
+		trigger = {
+			NOT = {
+				TAG = USA
+				TAG = SOV
+				TAG = FIN
+			}
+		}
+	}
+}
+
+###################################################
+
+# Finnish - Soviet Note Crisis event chain
 
 add_namespace = notecrisis
 
@@ -60,7 +768,7 @@ country_event = {
 	}
 }
 
-############################################################################################
+
 
 country_event = {
 	id = notecrisis.2
@@ -128,7 +836,7 @@ country_event = {
 	}
 }
 
-############################################################################################
+
 
 country_event = {
 	id = notecrisis.3
@@ -192,7 +900,7 @@ country_event = {
 	}
 }
 
-############################################################################################
+
 
 country_event = {
 	id = notecrisis.4
@@ -249,7 +957,7 @@ country_event = {
 	}
 }
 
-############################################################################################
+
 
 country_event = {
 	id = notecrisis.5
@@ -357,7 +1065,7 @@ country_event = {
 	}
 }
 
-############################################################################################
+
 
 country_event = {
 	id = notecrisis.6
@@ -408,7 +1116,7 @@ country_event = {
 	}
 }
 
-############################################################################################
+
 
 country_event = {
 	id = notecrisis.7
@@ -477,7 +1185,7 @@ country_event = {
 	}
 }
 
-############################################################################################
+
 
 country_event = {
 	id = notecrisis.8
@@ -543,7 +1251,7 @@ country_event = {
 	}
 }
 
-############################################################################################
+
 
 country_event = {
 	id = notecrisis.9
@@ -601,7 +1309,7 @@ country_event = {
 	}
 }
 
-############################################################################################
+
 
 country_event = {
 	id = notecrisis.10
@@ -673,7 +1381,7 @@ country_event = {
 	}
 }
 
-############################################################################################
+
 
 country_event = {                                      # SSR yes/no
 	id = notecrisis.11
@@ -731,7 +1439,7 @@ country_event = {                                      # SSR yes/no
 	}
 }
 
-############################################################################################
+
 
 country_event = {
 	id = notecrisis.12
@@ -803,7 +1511,7 @@ country_event = {
 	}
 }
 
-############################################################################################
+
 
 country_event = {                                      # Annex yes/no
 	id = notecrisis.13
@@ -855,7 +1563,7 @@ country_event = {                                      # Annex yes/no
 	}
 }
 
-############################################################################################
+
 
 country_event = {
 	id = notecrisis.14
