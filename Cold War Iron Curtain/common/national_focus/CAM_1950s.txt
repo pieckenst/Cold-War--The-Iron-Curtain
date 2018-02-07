@@ -176,6 +176,7 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = CAM_soviet_alignment
+			focus = CAM_american_alignment
 		}
 		x = 12
 		y = 0
@@ -217,6 +218,7 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = CAM_soviet_alignment
+			focus = CAM_non_aligned
 		}
 		x = 28
 		y = 0
@@ -981,7 +983,14 @@ focus_tree = {
 		}
 		x = 6
 		y = 4
-
+		completion_reward = {
+			random_owned_state = {
+				add_resource = {
+					type = chromium
+					amount = 25
+				}
+			}
+		}
 	}
 	focus = {
 		id = CAM_army_effort
@@ -1604,9 +1613,12 @@ focus_tree = {
 		}
 		x = 17
 		y = 3
-			completion_reward = {
-					load_oob = CAM_soviet_armed_division
-				}
+		completion_reward = {
+			hidden_effect = {
+				load_oob = CAM_soviet_armed_division
+			}
+			custom_effect_tooltip = "10 Soviet Armed Divions are send to us"
+		}
 
 	}
 	focus = {
@@ -2691,14 +2703,20 @@ focus_tree = {
 			completion_reward = {
 					FRA = {
 							set_autonomy = {
-									target = CAM
-									autonomy_state = autonomy_free
-								}
+								target = CAM
+								autonomy_state = autonomy_free
+							}
+							end_puppet = CAM
 						}
+						USA = { remove_from_faction = ROOT }
 					set_politics = {
-							ruling_party = nationalism
-							elections_allowed = no
-						}
+						ruling_party = nationalism
+						elections_allowed = no
+					}
+					add_popularity = {
+						ideology = nationalism
+						popularity = 0.5
+					}
 				}
 
 	}
@@ -2798,7 +2816,7 @@ focus_tree = {
 		x = 39
 		y = 7
 			completion_reward = {
-					add_ideas = repression
+					add_timed_idea = { idea = repression days = 730 }
 				}
 
 	}
@@ -3104,9 +3122,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 7
-			completion_reward = {
-					remove_ideas = incompetent_officer_corps
-				}
+		completion_reward = {
+			add_ideas = Competent_officers
+		}
 
 	}
 	focus = {
@@ -3334,7 +3352,9 @@ focus_tree = {
 									target = CAM
 									autonomy_state = autonomy_free
 								}
+								end_puppet = CAM
 						}
+						USA = { remove_from_faction = ROOT }
 					set_politics = {
 							ruling_party = conservative
 							elections_allowed = yes

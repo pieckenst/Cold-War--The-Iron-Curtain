@@ -267,14 +267,14 @@ focus_tree = {
 		cost = 10.00
 		x = 46
 		y = 0
-			available = {
-					JAP = {
-							num_of_factories > 100
-						}
-				}
-			completion_reward = {
-					remove_ideas = firebombing
-				}
+		available = {
+			JAP = {
+				num_of_factories > 50
+			}
+		}
+		completion_reward = {
+			remove_ideas = firebombing
+		}
 
 	}
 	focus = {
@@ -1016,7 +1016,7 @@ focus_tree = {
 											instant_build = yes
 										}
 								}
-							set_country_flag = naval_effort_built
+							
 						}
 					if = {
 							limit = {
@@ -1048,7 +1048,7 @@ focus_tree = {
 											instant_build = yes
 										}
 								}
-							set_country_flag = naval_effort_built
+							
 						}
 					if = {
 							limit = {
@@ -1607,9 +1607,16 @@ focus_tree = {
 		}
 		x = 22
 		y = 1
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		completion_reward = {
 			add_national_unity = 0.15
-			add_ideas = social_democracy_drift
+			add_timed_idea = { idea = social_democracy_drift days = 365 }
 		}
 	}
 	focus = {
@@ -1722,6 +1729,13 @@ focus_tree = {
 		prerequisite = {
 			focus = JAP_General_Strike
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 		x = 8
 		y = 6
 		completion_reward = {
@@ -1735,8 +1749,18 @@ focus_tree = {
 		prerequisite = {
 			focus = JAP_General_Strike
 		}
+		mutually_exclusive = {
+			focus = JAP_Ultrantionalist_Plot
+		}
 		x = 22
 		y = 6
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		completion_reward = {
 			add_political_power = 300
 		}
@@ -1752,6 +1776,13 @@ focus_tree = {
 			focus = JAP_Socialist_Victory
 			focus = JAP_Japanese_Communist_Victory
 			focus = JAP_Leftist_Socialist_Party_Victory
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
 		}
 		x = 19
 		y = 7
@@ -1774,6 +1805,13 @@ focus_tree = {
 			focus = JAP_Socialist_Victory
 			focus = JAP_Japanese_Communist_Victory
 			focus = JAP_Workers_and_Farmers_Party
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
 		}
 		x = 25
 		y = 7
@@ -2245,6 +2283,13 @@ focus_tree = {
 			focus = JAP_Leftist_Socialist_Party_Victory
 			focus = JAP_Workers_and_Farmers_Party
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 		x = 31
 		y = 7
 		completion_reward = {
@@ -2417,6 +2462,13 @@ focus_tree = {
 			focus = JAP_Leftist_Socialist_Party_Victory
 			focus = JAP_Workers_and_Farmers_Party
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		x = 34
 		y = 7
 		completion_reward = {
@@ -2432,6 +2484,13 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = JAP_Continue_Democratic_Reforms
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
 		}
 		x = 36
 		y = 1
@@ -4483,8 +4542,6 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = JAP_Procurement_Boom
-			focus = JAP_Socialist_Victory
-			focus = JAP_Combat_Inflation
 		}
 		x = 35
 		y = 11
@@ -6257,12 +6314,7 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = JAP_Socialist_Health_Care
-		}
-		prerequisite = {
 			focus = JAP_Social_Welfare
-		}
-		prerequisite = {
-			focus = JAP_Japanese_Communist_Victory
 		}
 		x = 31
 		y = 12

@@ -242,6 +242,9 @@ focus_tree = {
 		cost = 10.00
 		x = 9
 		y = 2
+		prerequisite = {
+			focus = JOR_army_effort
+		}
 			available_if_capitulated = yes
 			completion_reward = {
 					add_tech_bonus = {
@@ -3026,6 +3029,17 @@ focus_tree = {
 		}
 		x = 42
 		y = 4
+		mutually_exclusive = {
+			focus = JOR_Sultan_Abdullah
+			focus = JOR_Communist_Activists
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 			completion_reward = {
 					add_political_power = 300
 					add_national_unity = 0.15
@@ -3041,9 +3055,17 @@ focus_tree = {
 		}
 		x = 52
 		y = 4
-			ai_will_do = {
-					factor = 10
-				}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+		mutually_exclusive = {
+			focus = JOR_Communist_Activists
+			focus = JOR_Create_a_Liberal_Constitution
+		}
 			completion_reward = {
 					create_country_leader = {
 							name = "Hussein bin Talal"
@@ -3271,6 +3293,17 @@ focus_tree = {
 		}
 		x = 60
 		y = 4
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		mutually_exclusive = {
+			focus = JOR_Sultan_Abdullah
+			focus = JOR_Create_a_Liberal_Constitution
+		}
 			completion_reward = {
 					add_timed_idea = {
 							idea = internationalism

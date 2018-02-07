@@ -242,6 +242,9 @@ focus_tree = {
 		cost = 10.00
 		x = 9
 		y = 2
+		prerequisite = {
+			focus = SYR_army_effort
+		}
 			available_if_capitulated = yes
 			completion_reward = {
 					add_tech_bonus = {
@@ -977,7 +980,7 @@ focus_tree = {
 			completion_reward = {
 					random_owned_state = {
 							add_resource = {
-									type = oil
+									type = chromium
 									amount = 50
 								}
 						}
@@ -2475,29 +2478,11 @@ focus_tree = {
 		prerequisite = {
 			focus = SYR_rocket_effort
 		}
-		prerequisite = {
-			focus = SYR_special_forces
-		}
-		prerequisite = {
-			focus = SYR_rocket_effort
-		}
-		prerequisite = {
-			focus = SYR_special_forces
-		}
-		prerequisite = {
-			focus = SYR_rocket_effort
-		}
-		prerequisite = {
-			focus = SYR_special_forces
-		}
-		prerequisite = {
-			focus = SYR_rocket_effort
-		}
 		x = 12
 		y = 8
-			completion_reward = {
-					remove_ideas = incompetent_officer_corps
-				}
+		completion_reward = {
+			remove_ideas = incompetent_officer_corps
+		}
 
 	}
 	focus = {
@@ -2842,6 +2827,9 @@ focus_tree = {
 		prerequisite = {
 			focus = SYR_the_israeli_question
 		}
+		mutually_exclusive = {
+			focus = SYR_recognize_israel
+		}
 		x = 37
 		y = 1
 
@@ -3004,6 +2992,13 @@ focus_tree = {
 		y = 1
 		completion_reward = {
 			add_ideas = nationalism
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
 		}
 	}
 	focus = {
@@ -3184,6 +3179,13 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = internationalism
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = SYR_Soviet_Backed_Revolution
@@ -3358,6 +3360,13 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = social_democracy_drift 
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = SYR_Annex_Lebanon
@@ -3448,6 +3457,13 @@ focus_tree = {
 		y = 6
 		completion_reward = {
 			add_political_power = 300
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 5
+			}
 		}
 	}
 	focus = {

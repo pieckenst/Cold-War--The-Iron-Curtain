@@ -2775,6 +2775,13 @@ focus_tree = {
 		bypass = { 
 			tag = UAR
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
 		x = 41
 		y = 1
 			ai_will_do = {
@@ -3338,6 +3345,9 @@ focus_tree = {
 							add_claim_by = EGY
 						}
 				}
+				available = {
+					SYR = { has_completed_focus = SYR_Pro_UAR_Sentiments }
+				}
 			completion_reward = {
 						set_cosmetic_tag = UAR_EGY
 						SYR = {
@@ -3801,6 +3811,13 @@ focus_tree = {
 		}
 		x = 50
 		y = 1
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 			completion_reward = {
 					set_political_power = 300
 				}
@@ -4720,13 +4737,27 @@ focus_tree = {
 			focus = EGY_czech_arms_deal
 			focus = EGY_american_military_tech
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				date < 1956.10.1
+				factor = 0
+			}
+			modifier = {
+				date > 1956.10.1
+				factor = 100
+			}
+		}
 		x = 39
 		y = 8
-			completion_reward = {
-					EGY = {
-							transfer_state = 743
-						}
-				}
+		completion_reward = {
+			EGY = {
+				transfer_state = 743
+			}
+			hidden_effect = {
+				ENG = { country_event = { id = egypt.60 days = 1 } }
+			}
+		}
 
 	}
 	focus = {
