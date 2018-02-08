@@ -1,0 +1,165 @@
+###########################
+# Brazil Events
+###########################
+
+add_namespace = french_elections
+
+# Brazil Election 1965
+country_event = {
+	id = french_elections.2
+	title = "1965 Presidential Elections"
+	desc = french_elections.2.d
+	picture = GFX_report_event_brazil_election_1955
+	
+	trigger = {
+		tag = FRA
+		has_civil_war = no
+		date > 1965.12.3
+		date < 1966.10.15
+		NOT = { has_country_flag = french_elections_1965 }
+	}
+
+	mean_time_to_happen = { days = 2 }
+
+	immediate = {
+		set_country_flag = french_elections_1965
+	}
+
+	# Charles de Gaulle
+	option = {
+		name = "Charles de Gaulle"
+		create_country_leader = {
+			name = "Charles de Gaulle"
+			picture = "Portrait_France_Charles_de_Gaulle.dds"
+			expire = "1970.11.9"
+			ideology = gaullist
+		}
+		set_global_flag = de_galle_1965
+		set_politics = {
+			ruling_party = conservative
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 70
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+	}
+	# François Mitterrand
+	option = {
+		name = "François Mitterrand"
+	create_country_leader = {
+		name = "François Mitterrand"
+		picture = "Portrait_France_Francois_Mitterrand.dds"
+		expire = "1996.1.8"
+		ideology = socialism
+	}
+				set_global_flag = mitterand_1965
+		set_politics = {
+			ruling_party = socialist
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+
+# Brazil Election 1969
+country_event = {
+	id = french_elections.3
+	title = "1969 Presidential Elections"
+	desc = french_elections.3.d
+	picture = GFX_report_event_brazil_election_1960
+	
+	trigger = {
+		tag = FRA
+		has_civil_war = no
+		date > 1969.6.13
+		date < 1969.10.15
+		NOT = { has_country_flag = french_elections_1969 }
+	}
+
+	mean_time_to_happen = { days = 2 }
+
+	immediate = {
+		set_country_flag = french_elections_1969
+	}
+
+	# Georges Pompidou
+	option = {
+		name = "Georges Pompidou"
+		create_country_leader = {
+			name = "Georges Pompidou"
+			picture = Portrait_France_Georges_Pompidou.dds
+			ideology = gaullist
+		}
+		set_politics = {
+			ruling_party = conservative
+			elections_allowed = yes
+		}
+		set_global_flag = pompidou_1969
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 100
+			}
+		}
+	}
+	# Alain Poher
+	option = {
+		name = "Alain Poher"
+		create_country_leader = {
+			name = "Alain Poher"
+			picture = Protrait_Alain_Poher.dds
+			ideology = christian_democracy
+		}
+		set_global_flag = alain_poher_1969
+		set_politics = {
+			ruling_party = Christian_Democratic
+			elections_allowed = yes
+		}
+
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+country_event = {
+	id = De_Galle.10 
+	title = "Resignation of De Galle"
+	desc = "Resignation of De Galle"
+	picture = GFX_report_event_brazil_election_1950
+	
+	trigger = {
+		tag = FRA
+	}
+
+	is_triggered_only = yes
+
+
+	option = {
+		name = "Resignation of De Galle"
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Alain Poher"
+			picture = Protrait_Alain_Poher.dds
+			ideology = christian_democracy
+		}
+		set_politics = {
+			ruling_party = Christian_Democratic
+			elections_allowed = yes
+		}
+	}
+}
