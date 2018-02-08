@@ -4,6 +4,12 @@
 
 add_namespace = french_elections
 add_namespace = De_Galle
+add_namespace = Concordat
+add_namespace = FRA_CIVIL_WAR
+add_namespace = Evain_Accords
+add_namespace = france_junta
+add_namespace = algeirs
+add_namespace = may_68
 
 # Brazil Election 1965
 country_event = {
@@ -181,5 +187,224 @@ country_event = {
 			ruling_party = Christian_Democratic
 			elections_allowed = yes
 		}
+	}
+}
+country_event = {
+	id = Concordat.1
+	title = "Invitation to the Concordat"
+	desc = "Invitation to the Concordat"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree"
+		FRA = { add_to_faction = ROOT }
+		ai_chance = {
+			factor = 99
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 1
+		}
+		name = "Decline"
+
+	}
+}
+news_event = {
+	id = france_junta.1
+	title = "Execution of De Galle"
+	desc = royal.2.d
+	picture = GFX_news_event_Japanese_Palace #Change
+
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "How Barbaric"
+		trigger = {
+			has_idea = nato_member
+		}
+		
+	}
+
+	option = {
+		name = "Death to the Imperialist Scum"
+		trigger = {
+			OR = {
+				tag = SOV
+				is_in_faction_with = SOV	
+			}
+		}
+	}
+	option = {
+		name = "Death to the Imperialist Scum"
+		trigger = {
+			OR = {
+				tag = PRC
+				is_in_faction_with = PRC
+			}
+		}
+	}
+	option = {
+		name = "How Barbaric"
+		trigger = {
+			NOT = {
+				tag = SOV
+				is_in_faction_with = SOV	
+				has_idea = nato_member
+			}
+		}
+	}
+}
+news_event = {
+	id = france_junta.2
+	title = "Execution of the French Communist Leadership"
+	desc = royal.2.d
+	picture = GFX_news_event_Japanese_Palace #Change
+
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "How Barbaric"
+		trigger = {
+			has_idea = nato_member
+		}
+		
+	}
+
+	option = {
+		name = "Death to the Imperialist Scum"
+		trigger = {
+			OR = {
+				tag = SOV
+				is_in_faction_with = SOV	
+			}
+		}
+	}
+	option = {
+		name = "Death to the Imperialist Scum"
+		trigger = {
+			OR = {
+				tag = PRC
+				is_in_faction_with = PRC
+			}
+		}
+	}
+	option = {
+		name = "How Barbaric"
+		trigger = {
+			NOT = {
+				tag = SOV
+				is_in_faction_with = SOV	
+				has_idea = nato_member
+			}
+		}
+	}
+}
+country_event = {
+	id = Evain_Accords.1
+	title = "Evain Accords"
+	desc = "Evain Accords"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Sign the Accords"
+		release = ALG
+		set_autonomy = { target = ALG autonomy_state = autonomy_free }	
+	}
+}
+country_event = {
+	id = algeirs.1
+	title = "Algeirs Putsch"
+	desc = "Algeirs Putsch"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Failure of the Putsch"
+		add_political_power = 300
+		set_country_flag = coup_fail
+	}
+	option = {
+		name = "Success of the Putsch"
+		add_political_power = 300
+		set_politics = { ruling_party = neutrality elections_allowed = no }	
+		set_country_flag = coup_success
+	}
+	option = {
+		name = "Civil War (Back Communists)"
+		add_political_power = 300
+		set_politics = { ruling_party = communism elections_allowed = no }
+		start_civil_war = { ideology = fascism size = 0.45 }			
+		set_country_flag = coup_success
+		set_country_flag = french_civil_war
+	}	
+	option = {
+		name = "Civil War (Back OAS)"
+		add_political_power = 300
+		set_politics = { ruling_party = fascism elections_allowed = no }
+		start_civil_war = { ideology = communism size = 0.45 }			
+		set_country_flag = coup_success
+		set_country_flag = french_civil_war
+	}	
+}
+
+	immediate ={
+		set_country_flag = FRA_MAY_68
+	}
+country_event = {
+	id = FRA_CIVIL_WAR.5 
+	title = "French Civil War"
+	desc = "French Civil War"
+
+	is_triggered_only = yes
+	option = {
+		name = "Civil War (Back Military)"
+		add_political_power = 300
+		set_politics = { ruling_party = neutrality elections_allowed = no }	
+	}
+	option = {
+		name = "Civil War (Back Communists)"
+		add_political_power = 300
+		set_politics = { ruling_party = communism elections_allowed = no }
+		start_civil_war = { ideology = fascism size = 0.45 }			
+		set_country_flag = coup_success
+	}	
+	option = {
+		name = "Civil War (Back OAS)"
+		add_political_power = 300
+		set_politics = { ruling_party = fascism elections_allowed = no }
+		start_civil_war = { ideology = communism size = 0.45 }			
+		set_country_flag = coup_success
+	}	
+}
+
+country_event = {
+	id = may_68.1
+	title = "May 1968"
+	desc = "May 1968"
+	picture = GFX_report_event_brazil_election_1955
+	
+	trigger = {
+		tag = FRA
+		has_country_flag = de_galle_1965
+		date > 1968.4.30
+		date < 1969.10.15
+		NOT = { has_country_flag = FRA_MAY_68 }
+	}
+
+	mean_time_to_happen = { days = 2 }
+
+	immediate = {
+		set_country_flag = FRA_MAY_68
+	}
+
+	# Charles de Gaulle
+	option = {
+		name = "Concerning Development"
 	}
 }
