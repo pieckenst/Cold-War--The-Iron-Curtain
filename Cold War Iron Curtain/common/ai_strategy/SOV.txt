@@ -10,6 +10,8 @@
 # protect
 # influence
 # alliance
+# ignore
+# invade
 
 ETR_civil_war = {
 	enable = {
@@ -82,5 +84,53 @@ SOV_europe_strategy = {
 		id = "YUG"
 		value = 100
 	}
+}
+
+SOV_europe_strategy2 = {
+	enable = {
+		tag = SOV
+		NOT = { is_in_faction_with = ALB }			
+	}
+	abort = {
+		is_in_faction_with = ALB	
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "ALB"
+		value = 100
+	}
+}
+
+SOV_europe_strategy3 = {
+	enable = {
+		tag = SOV
+		is_in_faction_with = CZE		
+	}
+	abort = {
+		NOT = { country_exists = CZE }	
+	}
+	
+	ai_strategy = {
+		type = protect
+		id = "CZE"
+		value = 150
+	}
+}
+
+SOV_american_policy = {
+    enable = {
+	tag = SOV
+    }
+ 
+    abort = {
+        NOT = { country_exists = USA }
+    }
+   
+    ai_strategy = {
+        type = antagonize
+        id = "USA"            
+        value = 800
+    }
 }
 
