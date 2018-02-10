@@ -18,13 +18,12 @@
 default_unit_production = {
 	enable = {
 		always = yes
-		NOT = { original_tag = GER } NOT = { original_tag = FRA } NOT = { original_tag = CHI  } NOT = { original_tag = ENG  }
 	}
 	
 	ai_strategy = {
 		type = role_ratio
 		id = paratroopers
-		value = 0
+		value = 4
 	}
 
 	ai_strategy = {
@@ -36,19 +35,25 @@ default_unit_production = {
 	ai_strategy = {
 		type = role_ratio
 		id = marines
-		value = 0
+		value = 4
 	}
 
 	ai_strategy = {
 		type = role_ratio
 		id = armor
-		value = 2
+		value = 10
 	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = mechanized
+		value = 20
+	}	
 
 	ai_strategy = {
 		type = role_ratio
 		id = infantry
-		value = 80
+		value = 40
 	}
 	
 	#Air unit factors
@@ -209,7 +214,6 @@ default_marines_production = {
 
 default_mobile_production = {
 	enable = {
-		NOT = { original_tag = GER }
 		ai_wants_divisions > 11
 		has_tech = motorised_infantry
 	}
@@ -395,7 +399,7 @@ default_stockpile_management = {
 	}
 
 	abort = {
-		num_divisions < 130
+		num_divisions < 50
 	}
 
 	ai_strategy = {
@@ -459,7 +463,6 @@ DEFAULT_template_design = {
 
 DEFAULT_template_design = {
 	enable = {
-		NOT = { OR = { tag = GER tag = ENG tag = SOV tag = ITA tag = JAP tag = USA tag = POL } }
 		date > 1940.1.1				
 	}
 

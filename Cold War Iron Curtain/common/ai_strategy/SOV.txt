@@ -1,3 +1,16 @@
+# befriend
+# conquer
+# antagonize
+# build_ship
+# build_army
+# unit_ratio
+# build_building
+# research_tech
+# garrison
+# protect
+# influence
+# alliance
+
 ETR_civil_war = {
 	enable = {
 		tag = ETR
@@ -26,47 +39,48 @@ ETR_civil_war2 = {
 	}
 }
 
-SOV_area_priorities = {
+SOV_asia_strategy = {
 	enable = {
-		original_tag = SOV
+		tag = SOV
 	}
-
-	ai_strategy = { type = area_priority 	    id = british_isles 			    value = 0 }
-	ai_strategy = { type = area_priority 	    id = italy 					    value = 0 }
-	ai_strategy = { type = area_priority 	    id = france 					value = 0 }
-	ai_strategy = { type = area_priority 	    id = spain 					    value = 0 }
-	ai_strategy = { type = area_priority 	    id = germany 					value = 1000 }
-	ai_strategy = { type = area_priority 	    id = benelux 					value = 0 }
-	ai_strategy = { type = area_priority 	    id = north_europe 				value = 0 }
-	ai_strategy = { type = area_priority 	    id = balkans 					value = 10 }
-	ai_strategy = { type = area_priority 	    id = turkey 					value = 0 }
-	ai_strategy = { type = area_priority 	    id = east_europe 				value = 1000 }
-	ai_strategy = { type = area_priority 	    id = west_russia 				value = 1000 }
-
-	ai_strategy = { type = area_priority 	    id = north_africa 				value = 0 }
-	ai_strategy = { type = area_priority 	    id = south_africa 				value = 0 }
-
-	ai_strategy = { type = area_priority 	    id = north_america 			    value = 0 }
-	ai_strategy = { type = area_priority 	    id = south_america 			    value = 0 }
-
-	ai_strategy = { type = area_priority 	    id = middle_east 			    value = 100 }
-
-	ai_strategy = { type = area_priority 	    id = mediterranean 			    value = 10 }
-	ai_strategy = { type = area_priority 	    id = atlantic 					value = 100 }
-
-	ai_strategy = { type = area_priority 	    id = asia 						value = 100 }
-	ai_strategy = { type = area_priority 	    id = west_china 				value = 0 }
-	ai_strategy = { type = area_priority 	    id = east_china 				value = 0 }
-
-	ai_strategy = { type = area_priority 	    id = australia 				    value = 0 }
-	ai_strategy = { type = area_priority 	    id = newzealand 				value = 0 }
-	ai_strategy = { type = area_priority 	    id = newguinea 				    value = 0 }
-	ai_strategy = { type = area_priority 	    id = borneo 					value = 0 }
-	ai_strategy = { type = area_priority 	    id = sunda 					    value = 0 }
-	ai_strategy = { type = area_priority 	    id = singapore 				    value = 0 }
-	ai_strategy = { type = area_priority 	    id = philippines 				value = 0 }
-	ai_strategy = { type = area_priority 	    id = india 					    value = 0 }
-	ai_strategy = { type = area_priority 	    id = japan 					    value = 0 }
-	ai_strategy = { type = area_priority 	    id = pacific 					value = 100 }
-	ai_strategy = { type = area_priority 	    id = oceania 					value = 0 }
+	abort = {
+		NOT = { country_exists = VIN }	
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "VIN"
+		value = 100
+	}
 }
+
+SOV_asia_strategy2 = {
+	enable = {
+		tag = SOV
+	}
+	abort = {
+		NOT = { country_exists = KPA }	
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "KPA"
+		value = 100
+	}
+}
+
+SOV_europe_strategy = {
+	enable = {
+		tag = SOV
+	}
+	abort = {
+		NOT = { country_exists = YUG }	
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "YUG"
+		value = 100
+	}
+}
+
