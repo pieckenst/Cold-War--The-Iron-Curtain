@@ -1147,12 +1147,20 @@ country_event = {
 	picture = GFX_report_event_bruder1
 	
 	fire_only_once = yes
-	is_triggered_only = yes
+	
+	trigger = {
+		tag = DDR
+		date > 1972.8.15
+	}	
+
+	mean_time_to_happen = {
+		days = 1
+	}
 	
 	option = {
 		name = ddr.39.a
-		WGR	= { country_event = wgr.10 }
-		WGR	= { news_event = ddr.40 }
+		WGR  = { country_event = { id = wgr.10 hours = 6 } }
+		WGR  = { country_event = { id = ddr.40 days = 1 } }
 	}
 	option = {
 		name = ddr.39.b
@@ -1186,8 +1194,7 @@ country_event = {
 	
 	fire_only_once = yes
 	is_triggered_only = yes
-	
-	mean_time_to_happen = { days = 1 }
+
 	
 	option = {
 		name = ddr.41.a
