@@ -18,6 +18,11 @@ country_event = {
 		tag = KPA
 		has_government = communism
 		country_exists = KOR
+		OR = { 
+			has_completed_focus = KPA_Ready_for_War
+			has_completed_focus = KPA_Unify_the_Peninsula
+			has_completed_focus = KPA_War_of_Liberation
+		}
 		NOT = { KOR = { has_government = communism } }
 		NOT = { KPA = { is_in_faction_with = KOR } }
 		NOT = { has_war_with = KOR }
@@ -230,6 +235,7 @@ country_event = {
 		tag = PRC
 		KPA = { has_war_with = KOR }
 		NOT = { has_war_with = KOR }
+		KPA = { has_ideas = chinese_advisors }
 		has_global_flag = korean_war_begun
 		OR = {
 			NOT = { 745 = { is_controlled_by = KPA } }
@@ -1511,7 +1517,9 @@ country_event = {
 		KPA = { has_war_with = KOR }
 		NOT = { has_war_with = KOR }
 		has_global_flag = korean_war_begun
+		KPA = { has_ideas = soviet_advisors }
 		OR = {
+			has_completed_focus = KPA_Unify_the_Peninsula
 			NOT = { 745 = { is_controlled_by = KPA } }
 			NOT = { 746 = { is_controlled_by = KPA } }
 			NOT = { 747 = { is_controlled_by = KPA } }
@@ -1534,7 +1542,6 @@ country_event = {
 				factor = 1
 			}
 		}
-		KPA = { add_ideas = soviet_advisors }
 		send_equipment = { target = KPA type = infantry_equipment_1 amount = 10000 }
 		send_equipment = { target = KPA type = fighter_equipment_1 amount = 400 }
 		set_global_flag = korean_war_soviets_enter
