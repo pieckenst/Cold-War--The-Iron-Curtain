@@ -21,7 +21,11 @@ country_event = {
 		NOT = { KOR = { has_government = communism } }
 		NOT = { KPA = { is_in_faction_with = KOR } }
 		NOT = { has_war_with = KOR }
-		date > 1950.6.10
+		OR = { 
+			has_completed_focus = KPA_Ready_for_War
+			has_completed_focus = KPA_Unify_the_Peninsula
+			has_completed_focus = KPA_War_of_Liberation
+		}
 		date < 1953.6.10
 	}	
 
@@ -233,6 +237,7 @@ country_event = {
 		KPA = { has_ideas = chinese_advisors }
 		has_global_flag = korean_war_begun
 		OR = {
+			KPA = { has_completed_focus = KPA_War_of_Liberation }
 			NOT = { 745 = { is_controlled_by = KPA } }
 			NOT = { 746 = { is_controlled_by = KPA } }
 			NOT = { 747 = { is_controlled_by = KPA } }
