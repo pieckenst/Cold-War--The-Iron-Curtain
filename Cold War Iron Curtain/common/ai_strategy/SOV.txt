@@ -13,34 +13,6 @@
 # ignore
 # invade
 
-ETR_civil_war = {
-	enable = {
-		tag = ETR
-	}
-	abort = {
-	}
-	
-	ai_strategy = {
-		type = alliance
-		id = "SOV"
-		value = -5000
-	}
-}
-
-ETR_civil_war2 = {
-	enable = {
-		tag = SOV
-	}
-	abort = {
-	}
-	
-	ai_strategy = {
-		type = alliance
-		id = "ETR"
-		value = -5000
-	}
-}
-
 SOV_asia_strategy = {
 	enable = {
 		tag = SOV
@@ -142,4 +114,26 @@ SOV_template_design_1 = {
 	}
 }
 
+SOV_garrison = {
+	
+	enable = {		
+		tag = SOV
+		country_exists = DDR
+	}
+	
+	abort = {
+		NOT = { country_exists = DDR }
+	}
+	
+	ai_strategy = {
+		type = protect
+		id = "DDR"			
+		value = 800
+	}
+	ai_strategy = {
+		type = garrison
+		id = "DDR"			
+		value = 800
+	}	
+}
 
