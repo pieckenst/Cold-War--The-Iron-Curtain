@@ -14,7 +14,9 @@ focus_tree = {
 		cost = 10.00
 		x = 2
 		y = 0
-
+         completion_reward = {
+            army_experience = 30
+        } 
 	}
 	focus = {
 		id = PRU_Navy_Begin
@@ -49,16 +51,22 @@ focus_tree = {
 
 	}
 	focus = {
-		id = PRU_Ecuadorian_Peruvian_War_Lessons
-		icon = GFX_goal_generic_army_doctrines
-		cost = 10.00
-		prerequisite = {
-			focus = PRU_Army_Begin
-		}
-		x = 2
-		y = 1
-
-	}
+        id = PRU_Ecuadorian_Peruvian_War_Lessons
+        icon = GFX_goal_generic_army_doctrines
+        cost = 10.00
+        prerequisite = {
+            focus = PRU_Army_Begin
+        }
+        x = 2
+        y = 1
+        completion_reward = {
+             add_tech_bonus = {
+                            name = land_doc_bonus
+                            bonus = 0.3
+                            uses = 1
+                            category = land_doctrine
+        }
+    }
 	focus = {
 		id = PRU_Weapons_Factories
 		icon = GFX_goal_generic_small_arms
@@ -148,7 +156,14 @@ focus_tree = {
 		}
 		x = 3
 		y = 4
-
+        completion_reward = {
+                    add_tech_bonus = {
+                            name = land_doc_bonus
+                            bonus = 0.6
+                            uses = 1
+                            category = land_doctrine
+			}
+		}
 	}
 	focus = {
 		id = PRU_Build_Radar_Stations
@@ -170,8 +185,15 @@ focus_tree = {
 		}
 		x = 3
 		y = 6
-
-	}
+        completion_reward = {
+            add_tech_bonus = {
+                name = armor_bonus
+                bonus = 0.4
+                uses = 1
+                category = armor
+            }
+        }
+	}	
 	focus = {
 		id = PRU_Bolognesi_Memories
 		icon = GFX_goal_generic_national_unity
@@ -182,8 +204,10 @@ focus_tree = {
 		}
 		x = 2
 		y = 7
-
-	}
+        completion_reward = {
+		    add_national_unity = 0.1
+	    }
+	}	
 	focus = {
 		id = PRU_World_War_two_Naval_Lessons
 		icon = GFX_goal_generic_navy_doctrines_tactics
