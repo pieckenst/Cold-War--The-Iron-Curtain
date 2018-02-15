@@ -67,7 +67,12 @@
       subsequently incorporated within the Work.
       
       "Cold War Iron Curtain Team" shall refer to the integrity of the 
-      original creators of this work.
+      active creators of this work. The whole list can be found on the
+      Discord Server or by asking a lead developer who's part of it.
+      The list on the Workshop page does not apply to it.
+      
+      "Workshop Page" refers to this link:
+      https://steamcommunity.com/sharedfiles/filedetails/?id=1138310824
 
    2. Grant of Copyright License. Subject to the terms and conditions of
       this License, each Contributor hereby grants to You a perpetual,
@@ -141,7 +146,9 @@
       this License, without any additional terms or conditions.
       Notwithstanding the above, nothing herein shall supersede or modify
       the terms of any separate license agreement you may have executed
-      with Licensor regarding such Contributions.
+      with Licensor regarding such Contributions. By contributing to this
+      repository, you acknowledge that any of your content now belongs
+      to the Cold War Iron Curtain Dev Team.
 
    6. Trademarks. This License does not grant permission to use the trade
       names, trademarks, service marks, or product names of the Licensor,
