@@ -1,72 +1,139 @@
-ETR_civil_war = {
-	enable = {
-		tag = ETR
-	}
-	abort = {
-	}
-	
-	ai_strategy = {
-		type = alliance
-		id = "SOV"
-		value = -5000
-	}
-}
+# befriend
+# conquer
+# antagonize
+# build_ship
+# build_army
+# unit_ratio
+# build_building
+# research_tech
+# garrison
+# protect
+# influence
+# alliance
+# ignore
+# invade
 
-ETR_civil_war2 = {
+SOV_asia_strategy = {
 	enable = {
 		tag = SOV
 	}
 	abort = {
+		NOT = { country_exists = VIN }	
 	}
 	
 	ai_strategy = {
-		type = alliance
-		id = "ETR"
-		value = -5000
+		type = befriend
+		id = "VIN"
+		value = 100
 	}
 }
 
-SOV_area_priorities = {
+SOV_asia_strategy2 = {
 	enable = {
-		original_tag = SOV
+		tag = SOV
+	}
+	abort = {
+		NOT = { country_exists = KPA }	
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "KPA"
+		value = 100
+	}
+}
+
+SOV_europe_strategy = {
+	enable = {
+		tag = SOV
+	}
+	abort = {
+		NOT = { country_exists = YUG }	
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "YUG"
+		value = 100
+	}
+}
+
+SOV_europe_strategy2 = {
+	enable = {
+		tag = SOV
+		NOT = { is_in_faction_with = ALB }			
+	}
+	abort = {
+		is_in_faction_with = ALB	
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "ALB"
+		value = 100
+	}
+}
+
+SOV_american_policy = {
+    enable = {
+	tag = SOV
+    }
+ 
+    abort = {
+        NOT = { country_exists = USA }
+    }
+   
+    ai_strategy = {
+        type = antagonize
+        id = "USA"            
+        value = 800
+    }
+}
+
+SOV_template_design_1 = {
+	enable = {
+		original_tag = SOV			
+	}
+	
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 50
 	}
 
-	ai_strategy = { type = area_priority 	    id = british_isles 			    value = 0 }
-	ai_strategy = { type = area_priority 	    id = italy 					    value = 0 }
-	ai_strategy = { type = area_priority 	    id = france 					value = 0 }
-	ai_strategy = { type = area_priority 	    id = spain 					    value = 0 }
-	ai_strategy = { type = area_priority 	    id = germany 					value = 1000 }
-	ai_strategy = { type = area_priority 	    id = benelux 					value = 0 }
-	ai_strategy = { type = area_priority 	    id = north_europe 				value = 0 }
-	ai_strategy = { type = area_priority 	    id = balkans 					value = 10 }
-	ai_strategy = { type = area_priority 	    id = turkey 					value = 0 }
-	ai_strategy = { type = area_priority 	    id = east_europe 				value = 1000 }
-	ai_strategy = { type = area_priority 	    id = west_russia 				value = 1000 }
-
-	ai_strategy = { type = area_priority 	    id = north_africa 				value = 0 }
-	ai_strategy = { type = area_priority 	    id = south_africa 				value = 0 }
-
-	ai_strategy = { type = area_priority 	    id = north_america 			    value = 0 }
-	ai_strategy = { type = area_priority 	    id = south_america 			    value = 0 }
-
-	ai_strategy = { type = area_priority 	    id = middle_east 			    value = 100 }
-
-	ai_strategy = { type = area_priority 	    id = mediterranean 			    value = 10 }
-	ai_strategy = { type = area_priority 	    id = atlantic 					value = 100 }
-
-	ai_strategy = { type = area_priority 	    id = asia 						value = 100 }
-	ai_strategy = { type = area_priority 	    id = west_china 				value = 0 }
-	ai_strategy = { type = area_priority 	    id = east_china 				value = 0 }
-
-	ai_strategy = { type = area_priority 	    id = australia 				    value = 0 }
-	ai_strategy = { type = area_priority 	    id = newzealand 				value = 0 }
-	ai_strategy = { type = area_priority 	    id = newguinea 				    value = 0 }
-	ai_strategy = { type = area_priority 	    id = borneo 					value = 0 }
-	ai_strategy = { type = area_priority 	    id = sunda 					    value = 0 }
-	ai_strategy = { type = area_priority 	    id = singapore 				    value = 0 }
-	ai_strategy = { type = area_priority 	    id = philippines 				value = 0 }
-	ai_strategy = { type = area_priority 	    id = india 					    value = 0 }
-	ai_strategy = { type = area_priority 	    id = japan 					    value = 0 }
-	ai_strategy = { type = area_priority 	    id = pacific 					value = 100 }
-	ai_strategy = { type = area_priority 	    id = oceania 					value = 0 }
+	ai_strategy = {
+		type = template_prio
+		id = mechanized
+		value = 80
+	}
+	
+	ai_strategy = {
+		type = template_prio
+		id = infantry
+		value = 20
+	}
 }
+
+SOV_garrison = {
+	
+	enable = {		
+		tag = SOV
+		country_exists = DDR
+	}
+	
+	abort = {
+		NOT = { country_exists = DDR }
+	}
+	
+	ai_strategy = {
+		type = protect
+		id = "DDR"			
+		value = 800
+	}
+	ai_strategy = {
+		type = garrison
+		id = "DDR"			
+		value = 800
+	}	
+}
+

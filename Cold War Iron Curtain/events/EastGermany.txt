@@ -216,7 +216,9 @@ country_event = {
 		transfer_state = 741
 		transfer_state = 63
 		transfer_state = 66
-		transfer_state = 67
+		transfer_state = 795
+                                transfer_state = 951
+                                transfer_state = 950
 	}
 }
 
@@ -647,7 +649,7 @@ country_event = {
 	option = { #Donitz
 	    name = ddr.22.o1
 		ai_chance = {
-			factor = 90
+			factor = 80
 		}
         create_country_leader = {
 			name = "Karl Donitz"
@@ -671,6 +673,23 @@ country_event = {
 			name = "Albert Speer"
 			desc = ""
 			picture = "Portrait_DDR_Albert_Speer.dds"
+			expire = "1992.1.1"
+			ideology = nazism
+			traits = {
+				
+			}
+		}
+		remove_ideas = ddr_idea_lack_of_leadership
+	}
+	option = { #von Krosigk
+	    name = ddr.22.o3
+		ai_chance = {
+			factor = 10
+		}
+        create_country_leader = {
+			name = "Lutz von Krosigk"
+			desc = ""
+			picture = "Portrait_DDR_Krosigk.dds"
 			expire = "1992.1.1"
 			ideology = nazism
 			traits = {
@@ -789,7 +808,9 @@ country_event = {
 		transfer_state = 741
 		transfer_state = 63
 		transfer_state = 66
-		transfer_state = 67
+		transfer_state = 795
+                                transfer_state = 951
+                                transfer_state = 950
 	}
 }
 
@@ -865,7 +886,9 @@ country_event = {
 		transfer_state = 741
 		transfer_state = 63
 		transfer_state = 66
-		transfer_state = 67
+		transfer_state = 795
+                                transfer_state = 951
+                                transfer_state = 950
 	}
 }
 
@@ -1115,6 +1138,69 @@ country_event = {
 	    name = ddr.38.o1
 		add_political_power = -30
 	}
+}
+
+country_event = {
+	id = ddr.39
+	title = ddr.39.t
+	desc = ddr.39.d
+	picture = GFX_report_event_bruder1
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = DDR
+		date > 1972.8.15
+	}	
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = ddr.39.a
+		WGR  = { country_event = { id = wgr.10 hours = 6 } }
+		WGR  = { country_event = { id = ddr.40 days = 1 } }
+	}
+	option = {
+		name = ddr.39.b
+	}
+
+}
+
+news_event = {
+	id = ddr.40
+	title = ddr.40.t
+	desc = ddr.40.d
+	picture = news_event_bruder2
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = "Dear god"
+	}
+}
+
+country_event = {
+	id = ddr.41
+	title = ddr.41.t
+	desc = ddr.41.d
+	picture = GFX_report_event_bruder1
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	
+	option = {
+		name = ddr.41.a
+	}
+	option = {
+		name = ddr.41.b
+		WGR	= { country_event = wgr.11 }
+		WGR	= { news_event = ddr.42 }
+	}
+
 }
 
 
