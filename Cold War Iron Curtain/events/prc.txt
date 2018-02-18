@@ -111,29 +111,6 @@ country_event = {
 	}
 }
 
-# After the civil war, the Republic of China exists in Taiwan
-country_event = {
-	id = prc.4
-	hidden = yes
-	
-	fire_only_once = yes
-	
-	is_triggered_only = yes
-
-	immediate = {
-		PRC = { annex_country = { target = CHI } }
-		CHI = {
-			transfer_state = 524
-            transfer_state = 1006
-            transfer_state = 1024
-			country_event = chi.2
-
-		}
-		set_global_flag = PRC_mainland
-		news_event = news.1009
-	}
-
-}
 
 # 7 division because of Focus Tree
 country_event = {
@@ -302,6 +279,28 @@ country_event = {
 			factor = 50
 		}
 	}
+}
+
+# Annexation of ETR
+country_event = {
+	id = prc.12
+	title = prc.12.t
+	desc = prc.12.d
+
+	trigger = {
+		PRC = { NOT = { has_war_with = CHI } }
+		country_exists = ETR
+	}
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.12.a
+		ETR = { country_event = prc.13 }
+	}
+
+
 }
 
 # Annexation of ETR to ETR
