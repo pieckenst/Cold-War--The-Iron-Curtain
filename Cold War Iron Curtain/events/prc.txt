@@ -111,47 +111,6 @@ country_event = {
 	}
 }
 
-# After the civil war, the Republic of China exists in Taiwan
-country_event = {
-	id = prc.4
-	hidden = yes
-	
-	fire_only_once = yes
-	
-	trigger = {
-		PRC = {
-			owns_state = 524
-			owns_state = 604
-			owns_state = 601
-			controls_state = 524
-			controls_state = 604
-			controls_state = 601
-		}
-	}
-
-	immediate = {
-		CHI = {
-			transfer_state = 524
-                                                transfer_state = 1006
-                                                transfer_state = 1024
-			country_event = chi.2
-                                                if = {
-			limit = {
-			              CHI = { owns_state = 618 }
-			}
-			PRC = { transfer_state = 618 }
-		}
-		}
-		set_global_flag = PRC_mainland
-		news_event = news.1009
-	}
-
-	option = {}
-
-	mean_time_to_happen = {
-		days = 7
-	}
-}
 
 # 7 division because of Focus Tree
 country_event = {
@@ -334,13 +293,13 @@ country_event = {
 	}
 	
 	fire_only_once = yes
-
+	is_triggered_only = yes
+	
 	option = {
 		name = prc.12.a
 		ETR = { country_event = prc.13 }
 	}
 
-	mean_time_to_happen = { days = 7 }
 
 }
 
@@ -358,7 +317,7 @@ country_event = {
 		name = prc.13.a
 		PRC = { annex_country = { target = ETR } }
 		ai_chance = {
-			factor = 50
+			factor = 90
 		}
 	}
 
@@ -371,7 +330,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 50
+			factor = 10
 		}
 	}
 }

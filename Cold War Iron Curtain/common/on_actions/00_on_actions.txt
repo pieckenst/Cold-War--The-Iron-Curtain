@@ -93,9 +93,16 @@ on_actions = {
 	}
 
 	# country random events
-	#on_bi_yearly_pulse = {
-	#
-	#}
+	on_bi_yearly_pulse = {
+		effect = {
+			country_event = { id = nato.50 }
+			country_event = { id = nato.51 }
+			country_event = { id = eng.5 }
+			country_event = { id = eng.6 }
+			country_event = { id = eng.7 }
+			country_event = { id = eng.8 }
+		}
+	}
 
 	#on_five_year_pulse = {
 	#
@@ -191,18 +198,13 @@ on_actions = {
 	on_capitulation = {
 		effect = {
 			news_event = { id = country_capitulated.0 days = 0 }
+			
 			if = {
 				limit = {
-					FROM = {
-						or = {
-							tag = USA
-							tag = CHI
-							is_in_faction_with = CHI
-							is_in_faction_with = USA
-						}
-					}
+					FROM = { TAG = MLA }
+					ROOT = { TAG = MAL }
 				}
-				CHI = { annex_country = { target = PRC } }
+				FROM = { country_event = { id = mal.1 days = 0 } }
 			}
 		}
 	}
@@ -330,7 +332,70 @@ on_actions = {
 	#ROOT is winner #FROM gets annexed - For civil wars on_civil_war_end is also fired
 	on_annex = {
 		effect = {
+
+			if = {
+				limit = {
+					ROOT = { tag = GRE }
+					FROM = {
+						tag = PDG
+					}
+				}
+				news_event = news.1025
+			}
+			if = {
+				limit = {
+					ROOT = { tag = RAJ }
+					FROM = {
+						tag = CPI
+					}
+				}
+				country_event = india.6
+			}			
+			if = {
+				limit = {
+					ROOT = { tag = CPI }
+					FROM = {
+						tag = RAJ
+					}
+				}
+				country_event = india.9
+			}				
+			if = {
+				limit = {
+					OR = {
+						ROOT = { tag = MAL }
+						ROOT = { tag = ENG }
+					}
+					FROM = {
+						tag = MLA
+					}
+				}
+				news_event = news.1026
+			}			
 			
+			if = {
+				limit = {
+					FROM = { tag = CHI }
+					ROOT = { tag = PRC }
+					not = { has_global_flag = PRC_mainland }
+				}
+				CHI = {
+					transfer_state = 524
+					transfer_state = 1006
+					transfer_state = 1024
+                                                                                transfer_state = 1055
+					country_event = { id = chi.2 days = 2 } 
+					remove_ideas = CHI_communist_uprisings
+					remove_ideas = CHI_disorganized_military	
+					news_event = { id = news.1009 days = 0 }
+				}
+
+				PRC = {
+					remove_ideas = PRC_peoples_army
+					country_event = { id = prc.12 days = 0 } 
+				}
+				set_global_flag = PRC_mainland
+			}
 		}
 	}
 
@@ -350,6 +415,8 @@ on_actions = {
 					is_ai = no
 				}
 				news_event = news.1032
+				news_event = tutorial.1000
+				
 			}
 			every_country = {
 				limit = {
