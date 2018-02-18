@@ -198,21 +198,6 @@ on_actions = {
 	on_capitulation = {
 		effect = {
 			news_event = { id = country_capitulated.0 days = 0 }
-			if = {
-				limit = {
-					ROOT = { tag = PRC }
-					FROM = {
-						or = {
-							tag = USA
-							tag = CHI
-							is_in_faction_with = CHI
-							is_in_faction_with = USA
-						}
-					}
-				}
-				CHI = { annex_country = { target = PRC } }
-			}
-
 		}
 	}
 
@@ -348,7 +333,22 @@ on_actions = {
 					}
 				}
 				news_event = news.1025
-			}				
+			}
+			if = {
+				limit = {
+					FROM = { tag = CHI }
+					ROOT = { tag = PRC }
+					not = { has_global_flag = PRC_mainland }
+				}
+				CHI = {
+					transfer_state = 524
+					transfer_state = 1006
+					transfer_state = 1024
+					country_event = chi.2
+
+				}
+				set_global_flag = PRC_mainland
+			}
 		}
 	}
 
