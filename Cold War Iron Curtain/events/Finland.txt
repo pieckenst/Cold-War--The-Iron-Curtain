@@ -60,8 +60,10 @@ country_event = {
 	id = fin.3
 	title = fin.3.t
 	desc = fin.3.d
-	picture = GFX_report_event_political_deal
+	picture = report_event_paasikiviv_ded
 	
+	mean_time_to_happen = { days = 1 }
+
 	fire_only_once = yes
 	
 	trigger = {
@@ -71,7 +73,7 @@ country_event = {
 	}
 	
 	option = {
-		name = finland.1.a
+		name = "A Sad Day"
 		create_country_leader = {
 			name = "Jussi Saukkonen"
 			picture = "Saukkonen.dds"
@@ -100,7 +102,6 @@ country_event = {
 	desc = fin.5.de
 	picture = GFX_report_event_political_deal
 	
-	fire_only_once = yes
 	is_triggered_only = yes
 	
 	option = {
@@ -124,8 +125,22 @@ country_event = {
 			ideology = fascism_ideology
 		}
 	}
+	
 	option = {
-		name = fin.5.d
+		name = "Other Options"
+		FIN = { country_event = { id = fin.6 } }
+}
+}
+	
+	country_event = {
+	id = fin.6
+	title = "Other Options"
+	desc = "Other leaders we can choose. Hilja Riipinen, Kekkonen or Mannerheim"
+	picture = GFX_report_event_political_deal
+	
+	
+	option = {
+		name = "Riipinen"
 		retire_country_leader = yes 
 		create_country_leader = {
 			name = "Hilja Riipinen"
@@ -134,13 +149,42 @@ country_event = {
 		}
 	}
 	option = {
-		name = fin.5.e
+		name = "Popular Kekkonen"
 		retire_country_leader = yes 
 		create_country_leader = {
 			name = "Urho Kekkonen"
 			picture = "kekkonen.dds"
 			ideology = fascism_ideology
 		}
+	}
+	
+	option = {
+		name = "Old Favorite Mannerheim"
+		retire_country_leader = yes 
+		create_country_leader = {
+			name = "Carl Gustaf Emil Mannerheim"
+			picture = "mannerheim.dds"
+			ideology = fascism_ideology
+			set_country_flag = mannerheim_back
+		}
+	}
+		option = {
+		name = "Other Options"
+		FIN = { country_event = { id = fin.5 } }
+	}
+}
+
+news_event = {
+	id = fin.7
+	title = fin.7.t
+	desc = fin.7.d
+	picture = news_event_FIN_mannerheim_funeral
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = finland.7.a
 	}
 }
 
