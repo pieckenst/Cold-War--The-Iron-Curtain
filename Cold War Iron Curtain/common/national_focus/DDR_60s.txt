@@ -914,7 +914,18 @@ focus_tree = {
 		}
 		x = 18
 		y = 1
-
+			completion_reward = {
+					add_equipment_to_stockpile = {
+							type = CAS_equipment_5
+							amount = 200
+							producer = SOV
+						}
+					add_equipment_to_stockpile = {
+							type = jet_fighter_equipment_3
+							amount = 800
+							producer = SOV
+						}
+				}
 	}
 	focus = {
 		id = DDR_Modern_Soviet_Jet_Fighters
@@ -925,7 +936,18 @@ focus_tree = {
 		}
 		x = 17
 		y = 2
-
+			completion_reward = {
+					add_equipment_to_stockpile = {
+							type = CAS_equipment_5
+							amount = 200
+							producer = SOV
+						}
+					add_equipment_to_stockpile = {
+							type = jet_fighter_equipment_3
+							amount = 800
+							producer = SOV
+						}
+				}
 	}
 	focus = {
 		id = DDR_Modern_Soviet_Bombers
@@ -936,7 +958,18 @@ focus_tree = {
 		}
 		x = 19
 		y = 2
-
+			completion_reward = {
+					add_equipment_to_stockpile = {
+							type = jet_strat_bomber_equipment_3
+							amount = 200
+							producer = SOV
+						}
+					add_equipment_to_stockpile = {
+							type = jet_tac_bomber_equipment_3
+							amount = 800
+							producer = SOV
+						}
+				}
 	}
 	focus = {
 		id = DDR_Paratrooper_Developments
@@ -950,7 +983,16 @@ focus_tree = {
 		}
 		x = 18
 		y = 3
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = special_forces_bonus
+							bonus = 0.5
+							uses = 1
+							technology = paratroopers
+							technology = paratroopers2
+							technology = paratroopers3
+						}
+				}
 	}
 	focus = {
 		id = DDR_Anti_Aircraft_Defenses
@@ -961,7 +1003,53 @@ focus_tree = {
 		}
 		x = 17
 		y = 4
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = { 
+					free_building_slots = {
+						building = anti_air_building
+						size > 2
+					}
+					state_population > 1000000
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_improve_railway_3Inf
+			}
+			random_owned_controlled_state = {
+				limit = { 
+					free_building_slots = {
+						building = anti_air_building
+						size > 2
+					}
+					state_population > 1000000
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_improve_railway_3Inf
+			}
+			random_owned_controlled_state = {
+				limit = { 
+					free_building_slots = {
+						building = anti_air_building
+						size > 2
+					}
+					state_population > 1000000
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = SOV_improve_railway_3Inf
+			}
+		}
 	}
 	focus = {
 		id = DDR_Soviet_Air_Doctrine
@@ -972,7 +1060,63 @@ focus_tree = {
 		}
 		x = 19
 		y = 4
-
+			completion_reward = {
+					air_experience = 25
+					if = {
+							limit = {
+									capital_scope = {
+											NOT = {
+													free_building_slots = {
+															building = air_base
+															size > 1
+														}
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					if = {
+							limit = {
+									capital_scope = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+								}
+							capital_scope = {
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					add_tech_bonus = {
+							name = air_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = air_doctrine
+						}
+				}
 	}
 	focus = {
 		id = DDR_MIG_23s
@@ -986,7 +1130,13 @@ focus_tree = {
 		}
 		x = 18
 		y = 5
-
+			completion_reward = {
+					add_equipment_to_stockpile = {
+							type = jet_fighter_equipment_3
+							amount = 800
+							producer = SOV
+						}
+				}
 	}
 	focus = {
 		id = DDR_Purge_Anti_Communists_From_The_Military
@@ -1062,7 +1212,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 3
-
+		completion_reward = {
+			add_ideas = political_commissars_focus
+		}
 	}
 	focus = {
 		id = DDR_Defenses_Against_NATO
@@ -1073,7 +1225,9 @@ focus_tree = {
 		}
 		x = 21
 		y = 4
-
+		completion_reward = {
+			add_ideas = defensive_posturing
+		}
 	}
 	focus = {
 		id = DDR_East_German_Frontline_Concept
@@ -1106,7 +1260,10 @@ focus_tree = {
 		}
 		x = 22
 		y = 5
-
+		completion_reward = {
+			army_experience = 50
+			add_manpower = 50000
+		}
 	}
 	focus = {
 		id = DDR_Introduce_Conscription
@@ -1117,7 +1274,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 1
-
+		completion_reward = {
+			add_ideas = limited_conscription
+		}
 	}
 	focus = {
 		id = DDR_Construction_Soldiers
@@ -1154,7 +1313,109 @@ focus_tree = {
 		}
 		x = 26
 		y = 4
-
+			completion_reward = {
+				navy_experience = 50
+					if = {
+							limit = {
+									NOT = {
+											any_owned_state = {
+													dockyard > 0
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+									any_owned_state = {
+											is_coastal = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									any_owned_state = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									NOT = {
+											any_owned_state = {
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+								}
+							random_state = {
+									limit = {
+											controller = {
+													tag = ROOT
+												}
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+				}
 	}
 	focus = {
 		id = DDR_Deny_Soviet_Control
@@ -1199,7 +1460,9 @@ focus_tree = {
 		}
 		x = 29
 		y = 2
-
+		completion_reward = {
+			add_ideas = Prussian_Legacy
+		}
 	}
 	focus = {
 		id = DDR_Disciplined_Army
@@ -1210,7 +1473,9 @@ focus_tree = {
 		}
 		x = 31
 		y = 2
-
+		completion_reward = {
+			add_ideas = military_expansion
+		}
 	}
 	focus = {
 		id = DDR_Professional_Officer_Corp
@@ -2236,7 +2501,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 14
-
+		completion_reward = {
+			add_ideas = militarism_focus
+		}
 	}
 	focus = {
 		id = DDR_Imperial_Army
