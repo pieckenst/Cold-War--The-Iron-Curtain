@@ -180,10 +180,15 @@ country_event = {
 			factor = 15
 		}
 		DDR = {
-		    country_event = { days = 3 id = ddr.8 } 
+			country_event = { days = 3 id = ddr.8 } 
 		}
-		POL = {
-		    country_event = { days = 3 id = ddr.9 } 
+		if = {
+			limit = {
+				tag = SOV
+			}
+			POL = {
+				country_event = { days = 3 id = ddr.9 } 
+			}
 		}
 	}
 	
@@ -192,13 +197,23 @@ country_event = {
 		ai_chance = {
 			factor = 85
 		}
-		POL = {
-		    country_event = { days = 1 id = ddr.10 } 
+		if = {
+			limit = {
+				tag = SOV
+			}
+			POL = {
+				country_event = { days = 1 id = ddr.10 } 
+			}
+			DDR = {
+				country_event = { days = 1 id = ddr.11 } 
+			}
 		}
-		DDR = {
-		    country_event = { days = 1 id = ddr.11 } 
+		if = {
+			limit = {
+				tag = SOV
+			}
+			remove_from_faction = DDR
 		}
-		remove_from_faction = DDR
 	}
 }
 
