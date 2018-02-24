@@ -4,13 +4,10 @@ country_event = {
 	title = britainempire.24.t
 	desc = britainempire.24.d
 	picture = GFX_report_event_physics_lab_01
-	hidden = yes
 	trigger = { 
 		has_idea = integration_1
 	}
-	mean_time_to_happen = {
-		days = 70
-	}
+	is_triggered_only = yes
 	immediate = {
 		random_owned_state = { 
 			limit = { 
@@ -23,21 +20,16 @@ country_event = {
 	}
 	option = { 
 		name = britainempire.24a
-		event_target:core_vote = {
 			random_list = {
 				75 = {
-					add_core_of = root 					
-					root = {
-						country_event = britainempire.25
-					}
+					event_target:core_vote = { add_core_of = root }					
+					country_event = britainempire.25
 				}
 				25 = {
-					root = {
-						country_event = britainempire.26						
-					}
+					country_event = britainempire.26						
 				}
 			}			
-		}
+		
 	}
 }
 
