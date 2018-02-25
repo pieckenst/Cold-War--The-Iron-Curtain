@@ -18,6 +18,13 @@ add_namespace = researchboost
 add_namespace = resourcegain
 add_namespace = buildingslot
 add_namespace = britainempire
+add_namespace = cuba
+add_namespace = swf
+add_namespace = chernobyl
+add_namespace = fin
+add_namespace = INO
+add_namespace = zhenbao_island
+add_namespace = aus
 
 
 country_event = {
@@ -401,7 +408,127 @@ country_event = {
 				85 = {
 				}
 			}			
-		}			
+		}
+		if = {
+			limit = {
+				tag = SOV
+				date > 1955.5.1	#14
+				date < 1955.8.20
+			}
+			country_event = { id = swf.7 days = 10 random = 1 }
+		}
+		if = {
+			limit = {		
+			tag = UKR
+			owns_state = 925
+			NOT = { has_global_flag = chernobyl_built }
+			date > 1972.8.1
+			}
+			country_event = { id = chernobyl.1 days = 11 random = 1 }
+		}
+		if = {
+			limit = {				
+			tag = UKR
+			owns_state = 925
+			has_global_flag = chernobyl_built 
+			NOT = { has_global_flag = chernobyl_not_built }
+			date > 1986.4.1
+			}
+			country_event = { id = chernobyl.2 days = 22 random = 1 }
+		}
+		if = {
+			limit = {			
+				tag = CUB
+				CUB = {
+					has_government = communism
+				}
+				date > 1960.10.1
+			}
+			country_event = { id = cuba.12 days = 17 random = 1 }
+		}
+		if = {
+			limit = {			
+				tag = CUB
+				DDR = {
+					exists = yes
+					has_government = communism
+				}
+				owns_state = 1023
+				has_government = communism
+				NOT = { has_global_flag = ddr_cuba_state_visit }
+				date > 1972.6.1
+			}
+			country_event = { id = cuba.12 days = 17 random = 1 }
+		}
+		if = {
+			limit = {
+				tag = FIN
+				date > 1956.6.1
+				date < 1956.7.30
+			}
+			country_event = fin.3
+		}
+		if = {
+			limit = {
+				INS = {
+					exists = yes
+					has_war_with = INO
+					surrender_progress > 0.60
+				}
+			}
+			country_event = INO.1
+		}
+		if = {
+			limit = {
+				INO = {
+					exists = yes
+					has_war_with = INS
+					surrender_progress > 0.75
+				}
+			}
+			country_event = INO.2
+		}	
+		if = {
+			limit = {		
+				tag = SOV
+				date > 1969.2.1 #15 so 15 day delay
+				date < 1974.6.10
+			}
+			country_event = { id = zhenbao_island.1 days = 15 random = 1 }
+		}
+		if = {
+			limit = {	
+				date > 1955.7.1
+				NOT = { has_global_flag = aus_questions_over }
+				date < 1955.9.30
+			}
+			country_event = { id = aus.18 days = 10 random = 1 }
+		}		
+		if = {
+			limit = {	
+				OR = {
+					has_global_flag = eng_yes_austria
+					has_global_flag = fra_yes_austria
+					has_global_flag = sov_yes_austria
+					has_global_flag = usa_yes_austria
+					NOT = { has_global_flag = aus_austria_united }
+				}
+				NOT = { has_global_flag = aus_austria_not_united }
+			}
+			country_event = aus.2
+		}
+		if = {
+			limit = {	
+				OR = {
+					has_global_flag = eng_no_austria
+					has_global_flag = fra_no_austria
+					has_global_flag = sov_no_austria
+					has_global_flag = usa_no_austria
+				}
+				NOT = { has_global_flag = aus_austria_not_united }
+			}
+			country_event = aus.3
+		}		
 	}
 }
 
