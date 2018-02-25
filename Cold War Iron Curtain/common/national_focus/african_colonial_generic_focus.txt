@@ -74,6 +74,10 @@ focus_tree = {
 			add = 10
 			tag = CHA
 		}
+                                modifier = {
+			add = 10
+			tag = BCM
+		}
 	}
 	default = yes
 	focus = {
@@ -2164,7 +2168,13 @@ focus_tree = {
 			completion_reward = {
 				add_ideas = liberty_ethos_focus
 				country_event = AFR.201
-		}
+                if = {
+						limit = { tag = BCM }
+						NIA = { transfer_state = 1106 add_state_core = 1106 }	
+                        CMR = { add_state_core = 1105 }	
+                        BCM = { remove_state_core = 1106 }							
+						}
+		    }
 	}
 	focus = {
 		id = AFR_emulate_overlord_government
@@ -2712,9 +2722,13 @@ focus_tree = {
 			completion_reward = {
 					add_ideas = collectivist_ethos_focus
 					country_event = AFR.201
-		
-				}
-
+		            if = {
+						limit = { tag = BCM }
+						NIA = { transfer_state = 1106 add_state_core = 1106 }	
+                        CMR = { add_state_core = 1105 }	
+                        BCM = { remove_state_core = 1106 }								
+						}
+		    }
 	}
 	focus = {
 		id = AFR_nationalism_focus
