@@ -416,6 +416,13 @@ on_actions = {
 	#Not run on a specific country.
 	on_startup = {
 		effect = {
+			if = {
+				limit = {
+					date < 1949.6.1
+					NOT = { has_global_flag = nuremberg_trials_over }
+				}
+				news_event = { id = news.1000 days = 2 random = 1 }
+			}
 			every_country = {
 				country_event = ic_pulse.14
 			}
