@@ -95,12 +95,8 @@ on_actions = {
 	# country random events
 	on_bi_yearly_pulse = {
 		effect = {
-			country_event = { id = nato.50 }
-			country_event = { id = nato.51 }
-			country_event = { id = eng.5 }
-			country_event = { id = eng.6 }
-			country_event = { id = eng.7 }
-			country_event = { id = eng.8 }
+
+			
 		}
 	}
 
@@ -396,12 +392,33 @@ on_actions = {
 				}
 				set_global_flag = PRC_mainland
 			}
+			if = {
+				limit = {
+					ROOT = { tag = PHI }
+					FROM = {
+						tag = CPH
+					}
+				}
+				news_event = philippines.2
+			}
+			if = {
+				limit = {
+					ROOT = { tag = CPH }
+					FROM = {
+						tag = PHI
+					}
+				}
+				news_event = philippines.3
+			}
 		}
 	}
 
 	#Not run on a specific country.
 	on_startup = {
 		effect = {
+			every_country = {
+				country_event = ic_pulse.14
+			}
 			SOV = { add_threat = 15 }
 			random_other_country = {
 				limit = {
@@ -463,6 +480,9 @@ on_actions = {
 					targeted_alliance = MAL
 					enemy = MLA
 				}
+			}
+			COL = {
+				country_event = { id = COL_pol.1 }
 			}
 		}
 	}
