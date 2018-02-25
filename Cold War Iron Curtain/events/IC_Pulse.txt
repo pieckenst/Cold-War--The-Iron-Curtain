@@ -25,6 +25,7 @@ add_namespace = fin
 add_namespace = INO
 add_namespace = zhenbao_island
 add_namespace = aus
+add_namespace = news
 
 
 country_event = {
@@ -528,7 +529,44 @@ country_event = {
 				NOT = { has_global_flag = aus_austria_not_united }
 			}
 			country_event = aus.3
+		}
+
+		
+		if = {
+			limit = {
+				date > 1949.9.25
+				date < 1949.10.31
+				NOT = { has_global_flag = berlin_airlift_over}	
+			}
+			news_event = news.1002
+		}
+		if = {
+			limit = {
+				tag = KPA
+				has_war_with = KOR
+				NOT = { has_global_flag = first_korean_war}
+				date > 1950.1.1
+				date < 1951.1.1	
+			}
+			news_event = news.1003
 		}		
+		if = {
+			limit = {
+				MLA = { NOT = { has_war_with = MAL } }
+				has_global_flag = malayan_uprising_67
+			}
+			news_event = news.1027
+		}		
+		if = {
+			limit = {
+				tag = KPA
+				has_war_with = KOR
+				NOT = { has_global_flag = first_korean_war}
+				date > 1950.1.1
+				date < 1951.1.1	
+			}
+			news_event = news.1003
+		}				
 	}
 }
 
