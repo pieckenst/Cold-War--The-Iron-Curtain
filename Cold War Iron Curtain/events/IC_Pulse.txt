@@ -1,0 +1,433 @@
+add_namespace = ic_pulse
+add_namespace = COL_pol
+add_namespace = nato
+add_namespace = ita
+add_namespace = yug
+add_namespace = tri
+add_namespace = nato
+add_namespace = eng
+add_namespace = lebanon
+add_namespace = syria
+add_namespace = iraq
+add_namespace = jordania
+add_namespace = egypte
+add_namespace = pakistan
+add_namespace = india
+add_namespace = tri
+add_namespace = researchboost
+add_namespace = resourcegain
+add_namespace = buildingslot
+add_namespace = britainempire
+
+
+country_event = {
+	id = ic_pulse.1
+	hidden = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				date > 1964.1.1
+				tag = COL
+				is_a_democracy = yes		
+			}
+			country_event = COL_pol.2
+		}
+		if = {
+			limit = {
+				has_idea = nato_member
+				NOT = { is_in_faction_with = USA }
+			}
+			country_event = nato.50
+		}
+		if = {
+			limit = {
+				is_in_faction_with = USA 
+				NOT = { has_idea = nato_member }
+			}
+			country_event = nato.51
+			
+		}
+		if = {
+			limit = {
+				tag = ENG
+				UGA = { is_subject_of = ENG }	
+				date > 1962.10.1
+				date < 1963.8.1
+			}
+			country_event = eng.5
+		}
+		if = {
+			limit = {
+				tag = ENG
+				NIA = { is_subject_of = ENG }	
+				date > 1961.5.31
+				date < 1962.6.1
+			}
+			country_event = eng.6
+		}
+		if = {
+			limit = {
+				tag = ENG
+				KNA = { is_subject_of = ENG }	
+				  date > 1963.12.1
+					date < 1964.12.13
+			}
+			country_event = eng.7
+		}
+		if = {
+			limit = {
+				tag = ENG
+				SUD = { is_subject_of = ENG }	
+				 date > 1955.12.31
+				date < 1956.5.2
+			}
+			country_event = eng.8
+		}
+		if = {
+			limit = {
+				original_tag = USA
+				has_global_flag = president_taft
+			}
+			country_event = nato.9
+		}			
+		if = {
+			limit = {
+				original_tag = USA
+				has_global_flag = nato_disbanded
+				NOT = {has_global_flag = edc_formed}
+				NOT = {has_global_flag = president_taft}
+			}
+			country_event = nato.14
+		}		
+		if = {
+			limit = {
+				original_tag = USA
+				has_global_flag = nato_disbanded
+				has_global_flag = edc_formed
+				NOT = {has_global_flag = president_taft}
+			}
+			country_event = nato.16
+		}		
+		if = {
+			limit = {
+				original_tag = USA
+				has_global_flag = nato_disbanded
+				has_global_flag = english_nato
+				NOT = {has_global_flag = president_taft}
+			}
+			country_event = nato.18
+		}
+		if = {
+			limit = {
+				tag = LEB
+				has_war_with = ISR
+				surrender_progress > 0.25
+				has_civil_war = no
+				ISR = { has_completed_focus = ISR_pre_emptive_strike }
+			}
+			country_event = lebanon.1
+		}
+		if = {
+			limit = {
+				tag = SYR
+				has_war_with = ISR
+				surrender_progress > 0.25
+				has_civil_war = no
+				ISR = { has_completed_focus = ISR_pre_emptive_strike }
+			}
+			country_event = syria.1
+		}
+		if = {
+			limit = {
+				tag = IRQ
+				has_war_with = ISR
+				surrender_progress > 0.25
+				has_civil_war = no
+				ISR = { has_completed_focus = ISR_pre_emptive_strike }
+			}
+			country_event = iraq.1
+		}
+		if = {
+			limit = {
+				tag = JOR
+				has_war_with = ISR
+				surrender_progress > 0.25
+				has_civil_war = no
+				ISR = { has_completed_focus = ISR_pre_emptive_strike }
+			}
+			country_event = jordania.1
+		}
+		if = {
+			limit = {
+				tag = EGY
+				has_war_with = ISR
+				surrender_progress > 0.25
+				has_civil_war = no
+				ISR = { has_completed_focus = ISR_pre_emptive_strike }
+			}
+			country_event = egypte.4
+		}
+		if = {
+			limit = {
+				tag = EGY
+				has_war_with = ENG
+				surrender_progress > 0.20
+				has_civil_war = no
+				EGY = { has_completed_focus = EGY_nationalize_suez_canal}
+			}
+			country_event = egypte.6
+		}
+		if = {
+			limit = {
+				tag = EGY
+				has_war_with = ISR
+				surrender_progress > 0.25
+				has_civil_war = no
+				ISR = { has_completed_focus = ISR_claim_all_of_the_holy_city }
+			}
+			country_event = egypte.8
+		}
+		if = {
+			limit = {
+				tag = RAJ
+				has_war_with = PAK
+				surrender_progress > 0.25
+				has_civil_war = no
+				is_in_faction = no
+				has_global_flag = indo_pakistani_war_1965
+			}
+			country_event = pakistan.1
+		}
+		if = {
+			limit = {
+				tag = RAJ
+				has_war_with = PAK
+				surrender_progress > 0.25
+				has_civil_war = no
+				is_in_faction = no
+				has_global_flag = indo_pakistani_war_1972
+			}
+			country_event = pakistan.3
+		}
+		if = {
+			limit = {
+				date > 1965.9.23 #data begin war
+				NOT = { date > 1965.12.31 }
+				NOT = { has_global_flag = indo_pakistani_war_1965 }
+				tag = RAJ
+				NOR = { 
+					has_civil_war = no
+					is_in_faction = no		
+				}
+			}
+			country_event = india.1
+		}
+		if = {
+			limit = {
+					date > 1971.12.3 #data begin war
+					tag = RAJ
+					NOT = { has_global_flag = indo_pakistani_war_1971 }
+					tag = RAJ
+					NOR = { 
+						has_civil_war = no
+						is_in_faction = no		
+					}
+			}
+			country_event = india.2
+		}
+		if = {
+			limit = {
+				tag = PAK
+				has_war_with = RAJ
+				surrender_progress > 0.25
+				has_civil_war = no
+				is_in_faction = no
+				has_global_flag = indo_pakistani_war_1965
+			}
+			country_event = india.3
+		}
+		if = {
+			limit = {
+				tag = PAK
+				has_war_with = RAJ
+				surrender_progress > 0.25
+				has_civil_war = no
+				is_in_faction = no
+				has_global_flag = indo_pakistani_war_1971
+			}
+			country_event = india.5
+		}
+		if = {
+			limit = {
+				date > 1954.10.1
+				NOT = { has_global_flag = tri_questions_over }
+				country_exists = TRI
+			}
+			country_event = tri.1
+		}
+		if = {
+			limit = {
+				has_global_flag = ita_yes_Trieste
+				has_global_flag = yug_yes_Trieste
+				NOT = { has_global_flag = tri_Trieste_united }
+			}
+			country_event = tri.2
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = ita_no_Trieste
+					has_global_flag = yug_no_Trieste
+				}
+				NOT = { has_global_flag = tri_Trieste_not_united }
+			}
+			country_event = tri.3
+		}
+		if = {
+			limit = {
+				has_global_flag = yug_back_down_trieste
+				NOT = { has_global_flag = tri_yug_back_down }
+			}
+			country_event = tri.4
+		}
+		if = {
+			limit = {
+				has_global_flag = yug_not_back_down_trieste
+				NOT = { has_global_flag = tri_war }
+			}
+			country_event = tri.5
+		}
+		if = {
+			limit = {
+				or = {
+					has_idea = research_land_1
+					has_idea = research_land_2
+					has_idea = research_land_3
+				}
+			}
+			random_list = { 
+				15 = {
+					country_event = researchboost.1
+				}
+				85 = {
+				}
+			}			
+		}
+		if = {
+			limit = {
+				or = {
+					has_idea = research_sea_1
+					has_idea = research_sea_2
+					has_idea = research_sea_3
+				}
+			}
+			random_list = { 
+				15 = {
+					country_event = researchboost.2
+				}
+				85 = {
+				}
+			}			
+		}
+		if = {
+			limit = {
+				or = {
+					has_idea = research_air_1
+					has_idea = research_air_2
+					has_idea = research_air_3
+				}
+			}
+			random_list = { 
+				15 = {
+					country_event = researchboost.3
+				}
+				85 = {
+				}
+			}			
+		}
+		if = {
+			limit = {
+				or = {
+					has_idea = research_industry_1
+					has_idea = research_industry_2
+					has_idea = research_industry_3
+				}
+			}
+			random_list = { 
+				15 = {
+					country_event = researchboost.4
+				}
+				85 = {
+				}
+			}			
+		}
+		if = {
+			limit = {
+				has_idea = resource_1
+			}
+			random_list = { 
+				15 = {
+					country_event = resourcegain.50
+				}
+				85 = {
+				}
+			}			
+		}
+		
+		if = {
+			limit = {
+				has_idea = industry_1
+			}
+			random_list = { 
+				15 = {
+					country_event = buildingslot.50
+				}
+				85 = {
+				}
+			}			
+		}
+		
+		if = {
+			limit = {
+				has_idea = integration_1
+			}
+			random_list = { 
+				15 = {
+					country_event = britainempire.24
+				}
+				85 = {
+				}
+			}			
+		}			
+	}
+}
+
+country_event = {
+        id = ic_pulse.14
+
+        hidden = yes
+
+        is_triggered_only = yes
+
+
+        immediate = {
+            country_event = { id = ic_pulse.1 days = 1 random = 4 } #January
+            country_event = { id = ic_pulse.1 days = 32 random = 4 } #February
+            country_event = { id = ic_pulse.1 days = 61 random = 4 } #March
+            country_event = { id = ic_pulse.1 days = 92 random = 4 } #April
+            country_event = { id = ic_pulse.1 days = 122 random = 4 } #May
+            country_event = { id = ic_pulse.1 days = 153 random = 4 } #June
+            country_event = { id = ic_pulse.1 days = 183 random = 4 } #July
+            country_event = { id = ic_pulse.1 days = 214 random = 4 } #August
+            country_event = { id = ic_pulse.1 days = 245 random = 4 } #September
+            country_event = { id = ic_pulse.1 days = 275 random = 4 } #October
+            country_event = { id = ic_pulse.1 days = 306 random = 4 } #November
+            country_event = { id = ic_pulse.1 days = 336 random = 4 } #December
+			country_event = { id = ic_pulse.14 days = 365 random = 4 } #Yearly
+			
+        }
+		
+}

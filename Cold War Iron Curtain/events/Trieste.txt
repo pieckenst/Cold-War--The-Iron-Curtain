@@ -146,15 +146,7 @@ country_event = {
 
 	fire_only_once = yes
 
-	trigger = {
-		date > 1954.10.1
-		NOT = { has_global_flag = tri_questions_over }
-		date < 1954.10.6
-	}
-
-	mean_time_to_happen = {
-		days = 7
-	}
+	is_triggered_only = yes
 
 	immediate = {
 		ITA = {
@@ -173,15 +165,7 @@ country_event = {
 	hidden = yes
 
 	fire_only_once = yes
-
-	trigger = {
-		has_global_flag = ita_yes_Trieste
-		has_global_flag = yug_yes_Trieste
-		NOT = { has_global_flag = tri_Trieste_united }
-	}
-	mean_time_to_happen = {
-		days = 7
-	}
+	is_triggered_only = yes
 	immediate = {
 		ITA = {
 			transfer_state = 756
@@ -195,19 +179,9 @@ country_event = {
 country_event = {
 	id = tri.3
 	hidden = yes
-
+	is_triggered_only = yes
 	fire_only_once = yes
 
-	trigger = {
-		OR = {
-			has_global_flag = ita_no_Trieste
-			has_global_flag = yug_no_Trieste
-		}
-		NOT = { has_global_flag = tri_Trieste_not_united }
-	}
-	mean_time_to_happen = {
-		days = 7
-	}
 	immediate = {
 		ITA = { news_event = news.1019 }
 		YUG = { news_event = news.1019 }
@@ -221,13 +195,8 @@ country_event = {
 country_event = {
 	id = tri.4
 	hidden = yes
-
+	is_triggered_only = yes
 	fire_only_once = yes
-
-	trigger = {
-		has_global_flag = yug_back_down_trieste
-		NOT = { has_global_flag = tri_yug_back_down }
-	}
 
 	immediate = {
 		ITA = {
@@ -237,26 +206,15 @@ country_event = {
 		set_global_flag = tri_yug_back_down
 	}
 
-	mean_time_to_happen = {
-		days = 7
-	}
-
 }
 
 # The unification of Trieste, Yugoslavia does not backs down
 country_event = {
 	id = tri.5
 	hidden = yes
-
+	is_triggered_only = yes
 	fire_only_once = yes
 
-	trigger = {
-		has_global_flag = yug_not_back_down_trieste
-		NOT = { has_global_flag = tri_war }
-	}
-	mean_time_to_happen = {
-		days = 7
-	}
 	immediate = {
 		YUG = { 
 			declare_war_on = {
