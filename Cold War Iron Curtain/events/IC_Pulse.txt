@@ -28,6 +28,8 @@ add_namespace = aus
 add_namespace = news
 add_namespace = korea
 add_namespace = fra
+add_namespace = dmz_conflict
+add_namespace = ddr
 
 country_event = {
 	id = ic_pulse.1
@@ -887,7 +889,32 @@ country_event = {
 				date < 1960.10.1
 			}
 			country_event = fra.11
-		}		
+		}
+		if = {
+			limit = {
+				NOT = { country_exists = CMB }
+				country_exists = CAM
+				NOT = { CAM = { has_government = communism } }
+				date > 1967.2.28	#add days to fire 25
+				date < 1970.6.1
+			}
+			country_event = { id = cambodia.1 days = 10 random = 1 }
+		}
+		if = {
+			limit = {
+				tag = DDR
+				date > 1972.7.31
+			}
+			country_event = { id = ddr.39 days = 14 random = 1 }
+		}	
+		if = {
+			limit = {
+				tag = USA
+				date > 1966.10.1
+				date < 1970.6.10
+			}
+			country_event = { id = dmz_conflict.1 days = 14 random = 1 }
+		}			
 	}
 }
 
