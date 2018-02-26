@@ -88,45 +88,6 @@ news_event = {
 	}
 }	
 
-# Take core (Oman&Jemen)
-country_event = {
-	id = arabia.5
-	title = arabia.5.t
-	desc = arabia.5.d
-	picture = GFX_report_event_war3
-
-	fire_only_once = yes
-	trigger = {
-		tag = SAU
-		controls_state = 294
-		controls_state = 293
-		 	has_political_power > 50 
-	}
-
-	mean_time_to_happen = {
-		days = 2
-	}
-	
-	option = {
-		name = arabia.5.a
-		add_political_power = -50
-		294 = {
-			if = {
-				limit = { is_owned_by = SAU }
-				add_core_of = SAU
-			}
-		}
-		293 = {
-			if = {
-				limit = { is_owned_by = SAU }
-				add_core_of = SAU
-			}
-		}
-	}
-	option = {
-		name = arabia.5.b
-	}
-}
 
 # Invitation to Umajid Pact
 country_event = {
@@ -136,10 +97,6 @@ country_event = {
 	picture = GFX_report_event_worried_french
 	
 	is_triggered_only = yes
-
-	mean_time_to_happen = {
-		days = 1
-	}
 	
 	option = {
 		name = arabia.6.a
@@ -269,10 +226,6 @@ country_event = {
 	picture = GFX_report_event_turkey_alliance
 	
 	is_triggered_only = yes
-
-	mean_time_to_happen = {
-			days = 1
-		}
 	
 	option = {
 		name = arabia.11.a
@@ -332,41 +285,6 @@ country_event = {
 	}
 }
 
-# The Fall of Cairo (Arabia)
-news_event = {
-	id = arabia.14
-	title = arabia.14.t
-	desc = arabia.14.d
-	picture = GFX_news_event_042
-	
-	major = yes
-
-	fire_only_once = yes
-	
-	trigger = {
-		446 = { is_controlled_by = SAU }
-		446 = { is_owned_by = ENG }
-		SAU = { has_war_with = ENG }
-	}
-	
-	mean_time_to_happen = {
-		days = 2
-	}
-	
-	option = {
-		name = news.145.a
-		trigger = {
-			NOT = {
-				TAG = SAU
-			}
-		}
-	}
-	
-	option = {
-		name = arabia.14.a
-		trigger = { TAG = SAU }
-	}
-}
 
 # The Fall of Ankara (Arabia)
 news_event = {
@@ -379,15 +297,8 @@ news_event = {
 
 	fire_only_once = yes
 	
-	trigger = {
-		49 = { is_controlled_by = SAU }
-		49 = { is_owned_by = TUR }
-		SAU = { has_war_with = TUR }
-	}
+	is_triggered_only = yes
 	
-	mean_time_to_happen = {
-		days = 2
-	}
 	
 	option = {
 		name = news.145.a
@@ -404,7 +315,7 @@ news_event = {
 	}
 }
 
-# The Fall of Baghdaad (Arabia)
+# The Fall of Baghdad (Arabia)
 news_event = {
 	id = arabia.16
 	title = arabia.16.t
@@ -414,16 +325,9 @@ news_event = {
 	major = yes
 
 	fire_only_once = yes
+	is_triggered_only = yes
 	
-	trigger = {
-		291 = { is_controlled_by = SAU }
-		291 = { is_owned_by = IRQ }
-		SAU = { has_war_with = IRQ }
-	}
-	
-	mean_time_to_happen = {
-		days = 2
-	}
+
 	
 	option = {
 		name = news.145.a
