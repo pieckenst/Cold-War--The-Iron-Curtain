@@ -18,7 +18,18 @@ add_namespace = researchboost
 add_namespace = resourcegain
 add_namespace = buildingslot
 add_namespace = britainempire
-
+add_namespace = cuba
+add_namespace = swf
+add_namespace = chernobyl
+add_namespace = fin
+add_namespace = INO
+add_namespace = zhenbao_island
+add_namespace = aus
+add_namespace = news
+add_namespace = korea
+add_namespace = fra
+add_namespace = dmz_conflict
+add_namespace = ddr
 
 country_event = {
 	id = ic_pulse.1
@@ -401,6 +412,508 @@ country_event = {
 				85 = {
 				}
 			}			
+		}
+		if = {
+			limit = {
+				tag = SOV
+				date > 1955.5.1	#14
+				date < 1955.8.20
+			}
+			country_event = { id = swf.7 days = 10 random = 1 }
+		}
+		if = {
+			limit = {		
+			tag = UKR
+			owns_state = 925
+			NOT = { has_global_flag = chernobyl_built }
+			date > 1972.8.1
+			}
+			country_event = { id = chernobyl.1 days = 11 random = 1 }
+		}
+		if = {
+			limit = {				
+			tag = UKR
+			owns_state = 925
+			has_global_flag = chernobyl_built 
+			NOT = { has_global_flag = chernobyl_not_built }
+			date > 1986.4.1
+			}
+			country_event = { id = chernobyl.2 days = 22 random = 1 }
+		}
+		if = {
+			limit = {			
+				tag = CUB
+				CUB = {
+					has_government = communism
+				}
+				date > 1960.10.1
+			}
+			country_event = { id = cuba.12 days = 17 random = 1 }
+		}
+		if = {
+			limit = {			
+				tag = CUB
+				DDR = {
+					exists = yes
+					has_government = communism
+				}
+				owns_state = 1023
+				has_government = communism
+				NOT = { has_global_flag = ddr_cuba_state_visit }
+				date > 1972.6.1
+			}
+			country_event = { id = cuba.12 days = 17 random = 1 }
+		}
+		if = {
+			limit = {
+				tag = FIN
+				date > 1956.6.1
+				date < 1956.7.30
+			}
+			country_event = fin.3
+		}
+		if = {
+			limit = {
+				INS = {
+					exists = yes
+					has_war_with = INO
+					surrender_progress > 0.60
+				}
+			}
+			country_event = INO.1
+		}
+		if = {
+			limit = {
+				INO = {
+					exists = yes
+					has_war_with = INS
+					surrender_progress > 0.75
+				}
+			}
+			country_event = INO.2
+		}	
+		if = {
+			limit = {		
+				tag = SOV
+				date > 1969.2.1 #15 so 15 day delay
+				date < 1974.6.10
+			}
+			country_event = { id = zhenbao_island.1 days = 15 random = 1 }
+		}
+		if = {
+			limit = {	
+				date > 1955.7.1
+				NOT = { has_global_flag = aus_questions_over }
+				date < 1955.9.30
+			}
+			country_event = { id = aus.1 days = 10 random = 1 }
+		}		
+		if = {
+			limit = {	
+				OR = {
+					AND = {
+						has_global_flag = eng_yes_austria
+						has_global_flag = fra_yes_austria
+						has_global_flag = sov_yes_austria
+						has_global_flag = usa_yes_austria
+					}
+				}
+				NOT = { has_global_flag = aus_austria_not_united }
+			}
+			country_event = aus.2
+		}
+		if = {
+			limit = {	
+				OR = {
+					has_global_flag = eng_no_austria
+					has_global_flag = fra_no_austria
+					has_global_flag = sov_no_austria
+					has_global_flag = usa_no_austria
+				}
+				NOT = { has_global_flag = aus_austria_not_united }
+			}
+			country_event = aus.3
+		}
+
+		
+		if = {
+			limit = {
+				date > 1949.9.25
+				date < 1949.10.31
+				NOT = { has_global_flag = berlin_airlift_over}	
+			}
+			news_event = news.1002
+		}
+		if = {
+			limit = {
+				tag = KPA
+				has_war_with = KOR
+				NOT = { has_global_flag = first_korean_war}
+				date > 1950.1.1
+				date < 1951.1.1	
+			}
+			news_event = news.1003
+		}		
+		if = {
+			limit = {
+				MLA = { NOT = { has_war_with = MAL } }
+				has_global_flag = malayan_uprising_67
+			}
+			news_event = news.1027
+		}		
+		if = {
+			limit = {
+				date < 1949.7.1
+				NOT = { has_global_flag = nuremberg_trials_over }
+			}
+			news_event = { id = news.1000 days = 2 random = 1 }
+		}
+		if = {
+			limit = {
+				tag = KPA
+				has_war_with = KOR
+				NOT = { has_global_flag = first_korean_war}
+				date > 1950.1.1
+				date < 1951.1.1	
+			}
+			news_event = news.1003
+		}
+
+		if = {
+			limit = {	
+				tag = KPA
+				or = {
+					has_government = communism
+					has_government = maoism
+				}
+				country_exists = KOR
+				NOT = { KOR = { has_government = communism } }
+				NOT = { KPA = { is_in_faction_with = KOR } }
+				NOT = { has_war_with = KOR }
+				OR = { 
+					has_completed_focus = KPA_Ready_for_War
+					has_completed_focus = KPA_Unify_the_Peninsula
+					has_completed_focus = KPA_War_of_Liberation
+					date > 1950.6.25
+				}
+				date < 1953.5.31
+			}
+			country_event = { id = korea.1 days = 12 random = 1 } 
+		}
+		if = {
+			limit = {	
+				tag = USA
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KPA }
+				has_global_flag = korean_war_begun
+				date > 1950.6.31
+			}
+			country_event = korea.3
+		}
+		if = {
+			limit = {	
+				tag = PRC
+				country_exists = PRC
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KOR }
+				has_global_flag = korean_war_begun
+				OR = {
+					NOT = { 745 = { is_controlled_by = KPA } }
+					NOT = { 746 = { is_controlled_by = KPA } }
+					NOT = { 747 = { is_controlled_by = KPA } }
+					NOT = { 748 = { is_controlled_by = KPA } }
+					NOT = { 749 = { is_controlled_by = KPA } }
+					NOT = { 866 = { is_controlled_by = KPA } }
+					NOT = { 919 = { is_controlled_by = KPA } }
+					NOT = { 920 = { is_controlled_by = KPA } }
+					date > 1950.10.20
+				}
+			}
+			country_event = korea.5
+		}
+	if = {
+			limit = {	
+				tag = KPA
+				has_global_flag = korean_war_begun
+				has_war_with = KOR
+				surrender_progress > 0.85
+			}
+			country_event = korea.9
+		}
+
+	if = {
+			limit = {	
+				tag = KOR
+				has_global_flag = korean_war_begun
+				has_war_with = KPA
+				surrender_progress > 0.85
+			}
+			country_event = korea.10
+		}
+	if = {
+			limit = {	
+				tag = USA
+				country_exists = KOR
+				country_exists = KPA
+				KOR = { has_war_with = KPA }
+				has_global_flag = korean_war_begun
+				has_global_flag = korean_war_usa_enters
+				NOT = { has_global_flag = korean_armistice_china }
+				date > 1953.1.1    			
+			}
+			country_event = korea.13
+		}	
+	if = {
+			limit = {	
+				country_exists = KOR
+				country_exists = KPA
+				KPA = { has_war_with = KOR }
+				has_global_flag = korean_war_begun
+				NOT = {
+					has_global_flag = korean_war_china_enters
+					has_global_flag = korean_war_usa_enters
+				}
+				date > 1953.2.1  
+			}
+			country_event = korea.21
+		}
+		if = {
+				limit = {	
+					tag = USA
+					has_global_flag = korean_war_usa_enters
+					has_global_flag = korean_war_north_victory
+				}
+				country_event = korea.24
+			}
+			
+		if = {
+			limit = {	
+				tag = PRC
+				country_exists = PRC
+				has_global_flag = korean_war_china_enters
+				has_global_flag = korean_war_south_victory
+			}
+			country_event = korea.25
+		}
+		if = {
+			limit = {	
+				tag = ENG
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KPA }
+				has_global_flag = korean_war_begun
+				date > 1950.6.31
+			}
+			country_event = korea.31
+		}
+		if = {
+			limit = {	
+				tag = SOV
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KOR }
+				has_global_flag = korean_war_begun
+				OR = {
+					NOT = { 745 = { is_controlled_by = KPA } }
+					NOT = { 746 = { is_controlled_by = KPA } }
+					NOT = { 747 = { is_controlled_by = KPA } }
+					NOT = { 748 = { is_controlled_by = KPA } }
+					NOT = { 749 = { is_controlled_by = KPA } }
+					date > 1950.9.31
+				}
+			}
+			country_event = korea.33
+		}
+		if = {
+			limit = {	
+				tag = USA
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KOR }
+				has_global_flag = korean_war_usa_enters
+				OR = {
+					750 = { is_controlled_by = KPA }
+					753 = { is_controlled_by = KPA }
+					date > 1950.8.31
+				}
+				NOT = { has_global_flag = korean_war_usa_reinforcements_1 }
+			}
+			country_event = korea.35
+		}
+		if = {
+			limit = {	
+				tag = PRC
+				country_exists = PRC
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KPA }
+				has_global_flag = korean_war_china_enters
+				OR = {
+					920 = { is_controlled_by = KOR }
+					746 = { is_controlled_by = KOR }
+					745 = { is_controlled_by = KOR }
+					date > 1950.8.31
+				}
+				NOT = { has_global_flag = korean_war_chinese_reinforcements_1 }
+			}
+			country_event = korea.37
+		}
+		if = {
+			limit = {	
+				tag = USA
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KOR }
+				has_global_flag = korean_war_usa_enters
+				has_global_flag = korean_war_usa_reinforcements_1
+				OR = {
+					750 = { is_controlled_by = KPA }
+					753 = { is_controlled_by = KPA }
+					date > 1951.1.1
+				}
+				NOT = { has_global_flag = korean_war_usa_reinforcements_2 }
+			}
+			country_event = korea.39
+		}
+		if = {
+			limit = {	
+				tag = PRC
+				country_exists = PRC
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KPA }
+				has_global_flag = korean_war_china_enters
+				has_global_flag = korean_war_chinese_reinforcements_1
+				OR = {
+					746 = { is_controlled_by = KOR }
+					745 = { is_controlled_by = KOR }
+					date > 1951.1.3
+				}
+				NOT = { has_global_flag = korean_war_chinese_reinforcements_2 }
+			}
+			country_event = korea.41
+		}
+		if = {
+			limit = {	
+				tag = USA
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KOR }
+				has_global_flag = korean_war_usa_enters
+				has_global_flag = korean_war_usa_reinforcements_2
+				OR = {
+					AND = {
+						750 = { is_controlled_by = KPA }
+						753 = { is_controlled_by = KPA }
+					}
+					date > 1951.4.1
+				}
+				NOT = { has_global_flag = korean_war_usa_reinforcements_3 }
+			}
+			country_event = korea.43
+		}
+		if = {
+			limit = {	
+				tag = PRC
+				country_exists = PRC
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KPA }
+				has_global_flag = korean_war_china_enters
+				has_global_flag = korean_war_chinese_reinforcements_2
+				OR = {
+					AND = {
+						746 = { is_controlled_by = KOR }
+						745 = { is_controlled_by = KOR }
+					}
+					date > 1951.4.3
+				}
+				NOT = { has_global_flag = korean_war_chinese_reinforcements_3 }
+			}
+			country_event = korea.45
+		}
+		if = {
+			limit = {
+				tag = KOR
+				country_exists = KOR
+				KPA = { has_war_with = KOR }
+				has_global_flag = korean_war_begun
+				AND = {
+					866 = { is_controlled_by = KOR }
+					919 = { is_controlled_by = KOR }
+					918 = { is_controlled_by = KOR }
+					750 = { is_controlled_by = KOR }
+					753 = { is_controlled_by = KOR }
+				}
+				NOT = { has_global_flag = korean_war_southern_forts }
+			}
+			country_event = korea.47
+		}
+		if = {
+			limit = {
+				tag = KPA
+				country_exists = KPA
+				KPA = { has_war_with = KOR }
+				has_global_flag = korean_war_begun
+				AND = {
+					920 = { is_controlled_by = KPA }
+					918 = { is_controlled_by = KPA }
+					525 = { is_controlled_by = KPA }
+					746 = { is_controlled_by = KPA }
+					745 = { is_controlled_by = KPA }
+				}
+				NOT = { has_global_flag = korean_war_northern_forts }
+			}
+			country_event = korea.48
+		}
+		if = {
+			limit = {
+				tag = FRA
+				date > 1958.7.31
+				date < 1958.10.3	
+			}
+			country_event = fra.8
+		}
+		if = {
+			limit = {
+				tag = FRA
+				date > 1960.7.31
+				date < 1960.10.1
+			}
+			country_event = fra.9
+		}
+		if = {
+			limit = {
+				tag = FRA
+				date > 1960.7.31
+				date < 1960.10.1
+			}
+			country_event = fra.10
+		}
+		if = {
+			limit = {
+				tag = FRA
+				date > 1960.7.31
+				date < 1960.10.1
+			}
+			country_event = fra.11
+		}
+		if = {
+			limit = {
+				NOT = { country_exists = CMB }
+				country_exists = CAM
+				NOT = { CAM = { has_government = communism } }
+				date > 1967.2.28	#add days to fire 25
+				date < 1970.6.1
+			}
+			country_event = { id = cambodia.1 days = 10 random = 1 }
+		}
+		if = {
+			limit = {
+				tag = DDR
+				date > 1972.7.31
+			}
+			country_event = { id = ddr.39 days = 14 random = 1 }
+		}	
+		if = {
+			limit = {
+				tag = USA
+				date > 1966.10.1
+				date < 1970.6.10
+			}
+			country_event = { id = dmz_conflict.1 days = 14 random = 1 }
 		}			
 	}
 }
