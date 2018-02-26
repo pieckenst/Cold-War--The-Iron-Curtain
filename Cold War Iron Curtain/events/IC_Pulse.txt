@@ -563,7 +563,7 @@ country_event = {
 		}		
 		if = {
 			limit = {
-				date < 1949.7.1
+				date < 1949.10.1
 				NOT = { has_global_flag = nuremberg_trials_over }
 			}
 			news_event = { id = news.1000 days = 2 random = 1 }
@@ -929,12 +929,10 @@ country_event = {
         immediate = {
 			if = {
 				limit = { 
-					AND = { 
-						date < 1949.11.1	
-						NOT = { has_global_flag = setup_49_pulse }
-					}
+					date < 1949.11.1	
 				}
 				set_global_flag = setup_49_pulse
+				country_event = { id = ic_pulse.1 days = 1 random = 1 } #June
 				country_event = { id = ic_pulse.1 days = 8 random = 1 } #June
 				country_event = { id = ic_pulse.1 days = 39 random = 1 } #July
 				country_event = { id = ic_pulse.1 days = 71 random = 1 } #August
@@ -946,10 +944,7 @@ country_event = {
 			}
 			if = {
 				limit = { 
-					OR = { 
-						date > 1949.11.1	
-						has_global_flag = setup_49_pulse
-					}
+					date > 1949.11.1	
 				}
 				country_event = { id = ic_pulse.1 days = 1 random = 1 } #January
 				country_event = { id = ic_pulse.1 days = 32 random = 1 } #February
