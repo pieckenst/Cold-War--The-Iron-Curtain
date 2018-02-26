@@ -20,6 +20,7 @@ add_namespace = buildingslot
 add_namespace = britainempire
 add_namespace = cuba
 add_namespace = swf
+add_namespace = tonkin
 add_namespace = chernobyl
 add_namespace = fin
 add_namespace = INO
@@ -31,7 +32,10 @@ add_namespace = fra
 add_namespace = dmz_conflict
 add_namespace = ddr
 add_namespace = ger
-add_namespace = yug
+add_namespace = persia
+add_namespace = vie
+add_namespace = arabia
+add_namespace = soviet
 
 country_event = {
 	id = ic_pulse.1
@@ -407,7 +411,6 @@ country_event = {
 			limit = {
 				has_idea = integration_1
 			}
-			country_event = britainempire.24
 			random_list = { 
 				15 = {
 					country_event = britainempire.24
@@ -972,7 +975,326 @@ country_event = {
 			}
 			country_event = yug.3
 		}
+	
+		if = {
+			limit = {
+				tag = PER
+				has_completed_focus = PER_gulf_claims
+				fascism > 0.5 
+				PER = { 
+					controls_state = 292
+					controls_state = 679
+					controls_state = 678 
+				}
+				NOT = { 
+					PER = { 
+					controls_state = 293
+					controls_state = 294
+					}
+				}	
+			}
+			country_event = persia.12
+		}
+	
+		if = {
+			limit = {
+				tag = PER
+				352 = { is_owned_by = PER } 
+				350 = { is_owned_by = PER } 
+				353 = { is_owned_by = PER } 	
+			}
+			country_event = persia.14
+		}
+	
+		if = {
+			limit = {
+				tag = PER
+				229 = { is_controlled_by = PER } 
+			}
+			country_event = persia.17
+		}	
+	
+		if = {
+			limit = {
+				tag = PER
+				732 = { is_controlled_by = PER } 
+				405 = { is_controlled_by = PER } 
+				586 = { is_controlled_by = PER } 
+				584 = { is_controlled_by = PER } 
+			}
+			country_event = persia.18
+		}	
+	
+		if = {
+			limit = {
+				tag = PER
+				230 = { is_controlled_by = PER } 
+				231 = { is_controlled_by = PER } 
+				233 = { is_controlled_by = PER } 
+				232 = { is_controlled_by = PER } 
+	
+			}
+			country_event = persia.19
+		}	
+	
+		if = {
+			limit = {
+				has_country_flag = iranian_civil_war
+				PER = { has_civil_war = no }
+			}
+			news_event = news.503
+		}	
+	
+		if = {
+			limit = {
+				291 = { is_controlled_by = PER }
+				NOT = { has_global_flag = conquest_of_karbala }
+			}
+			news_event = news.504
+		}	
+	
+		if = {
+			limit = {
+				679 = { is_controlled_by = PER }
+				NOT = { has_global_flag = conquest_of_mecca }
+			}
+			news_event = news.505
+		}	
+	
+		if = {
+			limit = {
+				229 = { is_controlled_by = PER }
+				229 = { is_owned_by = SOV }
+				PER = { has_war_with = SOV }
+				NOT = { has_global_flag = fall_of_baku }
+			}
+			news_event = news.509
+		}	
+	
+		if = {
+			limit = {
+				446 = { is_controlled_by = PER }
+				446 = { is_owned_by = EGY }
+				PER = { has_war_with = EGY }
+				NOT = { has_global_flag = fall_of_cairo }
+			}
+			news_event = news.510
+		}	
+	
+		if = {
+			limit = {
+				361 = { is_controlled_by = PER }
+				361 = { is_owned_by = USA }
+				PER = { has_war_with = USA }
+				NOT = { has_global_flag = fall_of_washington }
+			}
+			news_event = news.511
+		}	
+	
+		if = {
+			limit = {
+				358 = { is_controlled_by = PER }
+				358 = { is_owned_by = USA }
+				PER = { has_war_with = USA }
+				NOT = { has_global_flag = fall_of_new_york }
+			}
+			news_event = news.512
+		}	
+	
+		if = {
+			limit = {
+				49 = { is_controlled_by = PER }
+				49 = { is_owned_by = TUR }
+				PER = { has_war_with = TUR }
+				NOT = { has_global_flag = fall_of_ankara }
+			}
+			news_event = news.515
+		}	
+	
+		if = {
+			limit = {
+				341 = { is_controlled_by = PER }
+				341 = { is_owned_by = TUR }
+				PER = { has_war_with = TUR }
+				NOT = { has_global_flag = crossing_bosphorus }
+			}
+			news_event = news.516
+		}	
+	
+		if = {
+			limit = {
+				202 = { is_controlled_by = PER }
+				202 = { is_owned_by = SOV }
+				PER = { has_war_with = SOV }
+				NOT = { has_global_flag = fall_of_kiev }
+			}
+			news_event = news.517
+		}	
+	
+		if = {
+			limit = {
+				137 = { is_controlled_by = PER }
+				137 = { is_owned_by = SOV }
+				PER = { has_war_with = SOV }
+				NOT = { has_global_flag = fall_of_sevastopol }
+			}
+			news_event = news.520
+		}	
+	
+		if = {
+			limit = {
+				219 = { is_controlled_by = PER }
+				219 = { is_owned_by = SOV }
+				PER = { has_war_with = SOV }
+				NOT = { has_global_flag = fall_of_moscow }
+			}
+			news_event = news.519
+		}	
+	
+		if = {
+			limit = {
+				217 = { is_controlled_by = PER }
+				217 = { is_owned_by = SOV }
+				PER = { has_war_with = SOV }
+				NOT = { has_global_flag = fall_of_stalingrad }
+			}
+			news_event = news.518
+		}	
+		if = {
+			limit = {
+				tag = PER
+				has_government = fascism
+	
+			}
+			country_event = persia.6
+		}			
 
+		if = {
+			limit = {
+				118 = { is_controlled_by = PER }
+				118 = { is_owned_by = ENG }
+				PER = { has_war_with = ENG }
+				NOT = { has_global_flag = fall_of_gibraltar_ger }
+			}
+			news_event = news.513
+		}	
+	
+		if = {
+			limit = {
+				336 = { is_controlled_by = PER }
+				336 = { is_owned_by = ENG }
+				PER = { has_war_with = ENG }
+				NOT = { has_global_flag = fall_of_singapore }
+			}
+			news_event = news.514
+		}	
+		if = {
+			limit = {
+				tag = PER
+				has_completed_focus = PER_revive_the_empire
+				NOT = { has_completed_focus = PER_claim_afghanistan } 
+				fascism > 0.5 
+				NOT = { 
+					415 = { is_owned_by = PER } 
+					267 = { is_owned_by = PER } 
+				}
+			}
+			country_event = persia.13
+		}			
+		if = {
+			limit = {
+				VIN = {
+					#has_war_with = FRA
+					controls_state = 786
+					controls_state = 787
+					controls_state = 788
+					controls_state = 838
+					controls_state = 881
+				}
+			}
+			country_event = vie.1
+		}			
+		if = {
+			limit = {
+				has_global_flag = VIE_yes_Geneva
+				has_global_flag = FRA_yes_Geneva
+				date < 1952.1.1
+				NOT = { has_global_flag = Geneva_Conference }
+			}
+			country_event = vie.3
+		}		
+		if = {
+			limit = {
+				VIN = {
+					NOT = {
+						controls_state = 881
+					}
+					has_war_with = FRA
+				}
+			}
+			country_event = vie.7
+		}
+		if = {
+			limit = {
+				tag = USA
+				date > 1964.7.31	#delay by 12
+				date < 1970.6.10
+				country_exists = VIN
+				country_exists = VIE
+			}
+			country_event = { id = tonkin.1 days = 12 random = 1 }
+		}
+		if = {
+			limit = {
+				tag = USA
+				date > 1950.10.31
+				date < 1950.12.5
+				NOT = { has_global_flag = truman_assasination_attempt }
+				NOT = { has_global_flag = truman_assasinated }
+				has_capitulated = no
+			}
+			country_event = swf.1
+		}
+		if = {
+			limit = {
+				291 = { is_controlled_by = SAU }
+				291 = { is_owned_by = IRQ }
+				SAU = { has_war_with = IRQ }
+			}
+			news_event = arabia.16
+		}	
+		if = {
+			limit = {
+				49 = { is_controlled_by = SAU }
+				49 = { is_owned_by = TUR }
+				SAU = { has_war_with = TUR }
+			}
+			news_event = arabia.15
+		}
+		if = {
+			limit = {
+				tag = SOV
+				country_exists = UKR
+				date > 1954.1.31
+				date < 1954.5.1
+			}
+			country_event = soviet.1
+		}
+		if = {
+			limit = {
+				has_country_flag = corruption_scandals 
+			}
+			country_event = yug.6
+		}
+		if = {
+			limit = {
+				tag = SOV
+				country_exists = KRL
+				date > 1956.6.30
+				date < 1956.8.31
+			}
+			country_event = soviet.3
+		}		
 	}
 }
 
