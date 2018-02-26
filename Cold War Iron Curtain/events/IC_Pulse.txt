@@ -1,4 +1,4 @@
-add_namespace = ic_pulse
+﻿add_namespace = ic_pulse
 add_namespace = COL_pol
 add_namespace = nato
 add_namespace = ita
@@ -30,6 +30,8 @@ add_namespace = korea
 add_namespace = fra
 add_namespace = dmz_conflict
 add_namespace = ddr
+add_namespace = ger
+add_namespace = yug
 
 country_event = {
 	id = ic_pulse.1
@@ -405,6 +407,7 @@ country_event = {
 			limit = {
 				has_idea = integration_1
 			}
+			country_event = britainempire.24
 			random_list = { 
 				15 = {
 					country_event = britainempire.24
@@ -563,7 +566,7 @@ country_event = {
 		}		
 		if = {
 			limit = {
-				date < 1949.7.1
+				date < 1949.10.1
 				NOT = { has_global_flag = nuremberg_trials_over }
 			}
 			news_event = { id = news.1000 days = 2 random = 1 }
@@ -914,33 +917,62 @@ country_event = {
 				date < 1970.6.10
 			}
 			country_event = { id = dmz_conflict.1 days = 14 random = 1 }
-		}			
+		}
+		if = {
+			limit = {
+				tag = WGR
+				NOT = { has_war = yes }
+				WGR = {
+					controls_state = 50
+					controls_state = 51
+					controls_state = 52
+					controls_state = 53
+					controls_state = 54
+					controls_state = 55
+					controls_state = 56
+					controls_state = 57
+					controls_state = 58
+					controls_state = 59
+					controls_state = 60
+					controls_state = 61
+					controls_state = 64
+					controls_state = 65
+				}				
+			}
+			country_event = ger.1
+		}
+		if = {
+			limit = {
+				tag = DDR	
+				NOT = { has_war = yes }
+				DDR = {
+					controls_state = 50
+					controls_state = 51
+					controls_state = 52
+					controls_state = 53
+					controls_state = 54
+					controls_state = 55
+					controls_state = 56
+					controls_state = 57
+					controls_state = 58
+					controls_state = 59
+					controls_state = 60
+					controls_state = 61
+					controls_state = 64
+					controls_state = 65
+				}
+			}
+			country_event = ger.2
+		}
+		if = {
+			limit = {
+				date > 1980.4.28
+				date < 1980.6.15
+				NOT = { YUG = { has_country_flag = tito_dead } }
+			}
+			country_event = yug.3
+		}
+
 	}
 }
 
-country_event = {
-        id = ic_pulse.14
-
-        hidden = yes
-
-        is_triggered_only = yes
-
-
-        immediate = {
-            country_event = { id = ic_pulse.1 days = 1 random = 1 } #January
-            country_event = { id = ic_pulse.1 days = 32 random = 1 } #February
-            country_event = { id = ic_pulse.1 days = 61 random = 1 } #March
-            country_event = { id = ic_pulse.1 days = 92 random = 1 } #April
-            country_event = { id = ic_pulse.1 days = 122 random = 1 } #May
-            country_event = { id = ic_pulse.1 days = 153 random = 1 } #June
-            country_event = { id = ic_pulse.1 days = 183 random = 1 } #July
-            country_event = { id = ic_pulse.1 days = 214 random = 1 } #August
-            country_event = { id = ic_pulse.1 days = 245 random = 1 } #September
-            country_event = { id = ic_pulse.1 days = 275 random = 1 } #October
-            country_event = { id = ic_pulse.1 days = 306 random = 1 } #November
-            country_event = { id = ic_pulse.1 days = 336 random = 1 } #December
-			country_event = { id = ic_pulse.14 days = 365 random = 1 } #Yearly
-			
-        }
-		
-}
