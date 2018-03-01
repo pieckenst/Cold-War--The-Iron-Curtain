@@ -195,8 +195,15 @@ country_event = {
 
 		name = cuba.9.a
 		add_political_power = 50
-		SOV = { give_guarantee = CUB }
-		USA = { diplomatic_relation = { country = CUB relation = military_access active = no } }
+		if = {
+			limit = {
+				country_exists = SOV
+				country_exists = USA
+				country_exists = CUB
+			}
+			SOV = { give_guarantee = CUB }
+			USA = { diplomatic_relation = { country = CUB relation = military_access active = no } }
+		}
 	}
 }
 
