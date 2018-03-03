@@ -14,12 +14,12 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			PRC = { country_event = { id = china.18 } }
+			RAJ = { country_event = { id = goa.18 } }
 		}
 	}
 	
 	option = {
-		name = china.13.a
+		name = goa.13.a
 		321 = {
 			set_border_war = yes
 		}
@@ -32,17 +32,17 @@ country_event = {
 	}
 }
 
-# CHI loses Border War
+# POR loses Border War
 country_event = {
-	id = china.14
-	title = china.14.t
-	desc = china.14.d
+	id = goa.14
+	title = goa.14.t
+	desc = goa.14.d
 	picture = GFX_report_event_chinese_soldiers_fighting
 	
 	is_triggered_only = yes
 
 	trigger = {
-		tag = CHI
+		tag = POR
 	}
 
 	immediate = {
@@ -60,90 +60,78 @@ country_event = {
 	}
 	
 	option = {
-		name = china.14.a
+		name = goa.14.a
 		add_political_power = -100
 		add_national_unity = -0.05
-		PRC = { country_event = { id = china.15 } }
+		RAJ = { country_event = { id = goa.15 } }
 	}
 }
 
-# PRC wins Border War
+# RAJ wins Border War
 country_event = {
-	id = china.15
-	title = china.15.t
-	desc = china.15.d
+	id = goa.15
+	title = goa.15.t
+	desc = goa.15.d
 	picture = GFX_report_event_chinese_soldiers_fighting
 	
 	is_triggered_only = yes
 
 	option = {
-		name = china.15.a
+		name = goa.15.a
 		add_political_power = 100
 		add_national_unity = 0.05
+		RAJ = { transfer_state = 321 }	
+		RAJ = { transfer_state = 879 }	
+		RAJ = { transfer_state = 880 }	
 	}
 }
 
-# PRC loses Border War
+# RAJ loses Border War
 country_event = {
-	id = china.16
-	title = china.16.t
-	desc = china.16.d
+	id = goa.16
+	title = goa.16.t
+	desc = goa.16.d
 	picture = GFX_report_event_chinese_soldiers_fighting
 	
 	is_triggered_only = yes
 
 	trigger = {
-		tag = PRC
+		tag = RAJ
 	}
 
 	immediate = {
 		hidden_effect = {
-			605 = {
-				if = {
-					limit = { is_border_conflict = yes }
-					set_border_war = no
-				}
+			321 = {
+				set_border_war = no
 			}
-			620 = {
-				if = {
-					limit = { is_border_conflict = yes }
-					set_border_war = no
-				}
+			879 = {
+				set_border_war = no
 			}
-			607 = {
-				if = {
-					limit = { is_border_conflict = yes }
-					set_border_war = no
-				}
-			}
-			622 = {
-				if = {
-					limit = { is_border_conflict = yes }
-					set_border_war = no
-				}
+			880 = {
+				set_border_war = no
 			}
 		}
 	}
 	
 	option = {
-		name = china.16.a
+		name = goa.16.a
 		add_political_power = -100
 		add_national_unity = -0.05
-		CHI = { country_event = { id = china.17 } }
+		POR = { country_event = { id = goa.17 } }
 	}
 }
 
-# CHI wins Border War
+# POR wins Border War
 country_event = {
-	id = china.17
-	title = china.17.t
-	desc = china.17.d
+	id = goa.17
+	title = goa.17.t
+	desc = goa.17.d
 	picture = GFX_report_event_chinese_soldiers_fighting
 	
 	is_triggered_only = yes
 
 	option = {
-		name = china.17.a
+		name = goa.17.a
 		add_political_power = 100
 		add_national_unity = 0.05
 	}
