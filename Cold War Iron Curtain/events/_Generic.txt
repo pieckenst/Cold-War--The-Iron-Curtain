@@ -1,8 +1,8 @@
-﻿# 
+﻿# Generic Events
 
 add_namespace = generic
 
-# Get Annexed or War
+# Get Annexed or War, 50/50 chance
 country_event = {
   id = generic.1
 	title = generic.1.t
@@ -19,11 +19,12 @@ country_event = {
 		}
 	}
 
+# War
 	option = {
+		name = generic.1.b
+		FROM = { declare_war_on = { target = ROOT type = annex_everything } }
 	  ai_chance = {
 		  factor = 50
 		}
-		name = eng.5.b
-		add_political_power = -125
 	}
 }

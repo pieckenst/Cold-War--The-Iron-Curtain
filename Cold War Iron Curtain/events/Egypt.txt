@@ -280,3 +280,49 @@ country_event = {
 
 	}
 }
+
+#Invitation to the United Arab Republic
+country_event = {
+	id = egypte.10
+	title = egypte.10.t
+	desc = egypte.10.d
+	
+	is_triggered_only = yes
+	
+	option = {	#We accept
+		name = egypte.10.a
+		EGY = { set_cosmetic_tag = UAR_EGY }
+		SYR = {
+			every_owned_state = {
+				add_core_of = EGY 
+			}
+		}
+		EGY = {
+			annex_country = { target = SYR transfer_troops = yes } 
+			create_faction = "The United Arab Republics"
+			country_event = diplomatic_response.1 
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				has_government = pan_arabism
+				has_government = islamism
+				has_government = nationalism
+				add = 50
+			}
+
+			modifier = {
+				factor = 0
+				has_government = neutrality
+			}
+		}
+	}
+	
+	option = {	#We reject
+		name = egypte.10.b
+		EGY = { country_event = diplomatic_response.2 }
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
