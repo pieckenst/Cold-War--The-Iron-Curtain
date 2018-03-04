@@ -1,52 +1,54 @@
 ﻿##### Division Templates #####
 division_template = {
 	name = "Divisione di Fanteria"		
+	# Represents regular all infantry divisions
+	# In later years, CCNN Brigade added to Inf Division (1x2 militia/inf regiment)
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
 		infantry = { x = 0 y = 2 }
-		infantry = { x = 0 y = 3 }		
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }	
-		infantry = { x = 1 y = 3 }
-		artillery_brigade = { x = 2 y = 0 }
-		artillery_brigade = { x = 2 y = 1 }
-		artillery_brigade = { x = 2 y = 2 }	
-		anti_tank_brigade = { x = 2 y = 3 }			
+		infantry = { x = 1 y = 2 }
 	}
 	support = {
-	 	engineer = { x = 0 y = 0 }
-	    recon = { x = 0 y = 1 }
-		artillery = { x = 0 y = 2 }	
-	    logistics_company = { x = 0 y = 3 }
-		field_hospital = { x = 0 y = 4 }		
+		engineer = { x = 0 y = 0 } 
 	}
 }
 division_template = {
 	name = "Divisione Alpina"				# Divisione Alpina (high experience, best equipment)
 	
 	regiments = {
-		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 0 }		# Elite Alpina Regiments
 		mountaineers = { x = 0 y = 1 }
-      	mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 0 y = 2 }	
 		mountaineers = { x = 1 y = 0 }
 		mountaineers = { x = 1 y = 1 }
-        mountaineers = { x = 1 y = 2 }
-		mountaineers = { x = 2 y = 0 }
-		mountaineers = { x = 2 y = 1 }
-        mountaineers = { x = 2 y = 2 }
-		artillery_brigade = { x = 3 y = 0 }
-		artillery_brigade = { x = 3 y = 1 }
-		artillery_brigade = { x = 3 y = 2 }		
+		mountaineers = { x = 1 y = 2 }
 	}
 	support = {
-	 	engineer = { x = 0 y = 0 }
-	    recon = { x = 0 y = 1 }
-		artillery = { x = 0 y = 2 }	
-	    logistics_company = { x = 0 y = 3 }
-		field_hospital = { x = 0 y = 4 }	
+		engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
 	}
+	priority = 2
+}
+division_template = {
+	name = "Divisione Autotrasportabile"		# Divisione Autotrasportabile (North Africa)
+	# Note: semi-motorized regular infantry in North Africa
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		light_armor = { x = 2 y = 0 }		# L3/35 tankettes
+		motorized = { x = 2 y = 1 }
+		motorized = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+	}	
 }
 division_template = {
 	name = "Divisione Marina" 		
@@ -58,13 +60,15 @@ division_template = {
 		marine = { x = 1 y = 0 }
 		marine = { x = 1 y = 1 }
 		marine = { x = 1 y = 2 }
+		light_armor = { x = 2 y = 0 }
 	}
 	support = {
 		engineer = { x = 0 y = 0 }   
 	}
+	priority = 0
 }
 division_template = {
-	name = "Divisione Aerotrasportato"
+	name = "Divisione Aerotrasportata"
 
 	regiments = {
 		paratrooper = { x = 0 y = 0 }
@@ -73,133 +77,89 @@ division_template = {
 		paratrooper = { x = 1 y = 0 }
 		paratrooper = { x = 1 y = 1 }
         paratrooper = { x = 1 y = 2 }
-		paratrooper = { x = 2 y = 0 }
-		paratrooper = { x = 2 y = 1 }
-        paratrooper = { x = 2 y = 2 }
+		light_armor = { x = 2 y = 0 }
 	}
-	support = {
-		engineer = { x = 0 y = 0 } 
-	    recon = { x = 0 y = 1 }
-	    logistics_company = { x = 0 y = 2 }		
-	}	
 }
 division_template = {
 	name = "Divisione Motorizzata"			# Divisione Motorizzata, first raised in 1939
 
 	regiments = {
-		mechanized = { x = 0 y = 0 }
-		mechanized = { x = 0 y = 1 }
-       	motorized = { x = 0 y = 2 }
-        motorized = { x = 0 y = 3 }		
-       	mechanized = { x = 1 y = 0 }
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
 		motorized = { x = 1 y = 1 }
-        motorized = { x = 1 y = 2 }
-        motorized = { x = 1 y = 3 }
-		artillery_brigade = { x = 2 y = 0 }
-		artillery_brigade = { x = 2 y = 1 }
-		artillery_brigade = { x = 2 y = 2 }	
-		anti_tank_brigade = { x = 2 y = 3 }	
+		motorized = { x = 2 y = 0 }		# 3rd Rgt = (elite) Bersaglieri
+		motorized = { x = 2 y = 1 }
+		motorized = { x = 2 y = 2 }
 	}
 	support = {
-	 	engineer = { x = 0 y = 0 }
-	    recon = { x = 0 y = 1 }
-	    maintenance_company = { x = 0 y = 2 }
-	    logistics_company = { x = 0 y = 3 }
-		field_hospital = { x = 0 y = 4 }
+		engineer = { x = 0 y = 0 }
 	}
 }
 division_template = {
-	name = "Divisione Fanteria Meccanizzata Leggero"
+	name = "Divisione Fanteria Meccanizzata Leggera"
 
 	regiments = {
-		mechanized = { x = 0 y = 0 }
-		mechanized = { x = 0 y = 1 }
-		mechanized = { x = 0 y = 2 }
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
 		motorized = { x = 1 y = 0 }
 		motorized = { x = 1 y = 1 }
-		motorized = { x = 1 y = 2 }
-		medium_armor = { x = 2 y = 0 }
-		medium_armor = { x = 2 y = 1 }	
-		light_armor = { x = 2 y = 2 }	
-		medium_sp_artillery_brigade = { x = 3 y = 0 }
-		medium_sp_artillery_brigade = { x = 3 y = 1 }
-		medium_sp_artillery_brigade = { x = 3 y = 2 }
+		light_armor = { x = 0 y = 0 }
 	}
 	support = {
 	 	engineer = { x = 0 y = 0 }
 	    recon = { x = 0 y = 1 }
-	    maintenance_company = { x = 0 y = 2 }
-	    logistics_company = { x = 0 y = 3 }
-		field_hospital = { x = 0 y = 4 }
 	}
 }
 division_template = {
 	name = "Divisione Fanteria Meccanizzata Pesante"
 
 	regiments = {
-		mechanized = { x = 0 y = 0 }
-		mechanized = { x = 0 y = 1 }
-		mechanized = { x = 0 y = 2 }
-		mechanized = { x = 1 y = 0 }
-		mechanized = { x = 1 y = 1 }
-		mechanized = { x = 1 y = 2 }
-		medium_armor = { x = 2 y = 0 }
-		medium_armor = { x = 2 y = 1 }	
-		medium_armor = { x = 2 y = 2 }	
-		medium_sp_artillery_brigade = { x = 3 y = 0 }
-		medium_sp_artillery_brigade = { x = 3 y = 1 }
-		medium_sp_artillery_brigade = { x = 3 y = 2 }
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1}
+		light_armor = { x = 0 y = 2 }
 	}
 	support = {
 	 	engineer = { x = 0 y = 0 }
 	    recon = { x = 0 y = 1 }
-	    maintenance_company = { x = 0 y = 2 }
-	    logistics_company = { x = 0 y = 3 }
-		field_hospital = { x = 0 y = 4 }
 	}
 }
 division_template = {
-	name =  "Divisione Blindata Leggero"
+	name =  "Divisione Blindata Leggera"
 
 	regiments = {
-		medium_armor = { x = 0 y = 0 }
-		medium_armor = { x = 0 y = 1 }
-        medium_armor = { x = 0 y = 2 }	
-		light_armor = { x = 1 y = 0 }
-		light_armor = { x = 1 y = 1 }
-        light_armor = { x = 1 y = 2 }
-		motorized = { x = 2 y = 0 }
-       	motorized = { x = 2 y = 1 }
-       	motorized = { x = 2 y = 2 }		
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+        light_armor = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+       	motorized = { x = 1 y = 1 }
 	}
 	support = {
-	 	engineer = { x = 0 y = 0 }
-	    recon = { x = 0 y = 1 }
-	    maintenance_company = { x = 0 y = 2 }
-	    logistics_company = { x = 0 y = 3 }
-		field_hospital = { x = 0 y = 4 }
+        recon = { x = 0 y = 0 }
+        engineer = { x = 0 y = 1 }
+        artillery = { x = 0 y = 2 }
 	}
 }
 division_template = {
-	name = "Divisione Blindata Medio"
+	name = "Divisione Blindata Media"
 
 	regiments = {
 		medium_armor = { x = 0 y = 0 }
 		medium_armor = { x = 0 y = 1 }
         medium_armor = { x = 0 y = 2 }
-		medium_armor = { x = 1 y = 0 }
-		medium_armor = { x = 1 y = 1 }
-        medium_armor = { x = 1 y = 2 }
-		mechanized = { x = 2 y = 0 }		
-		motorized = { x = 2 y = 1 }
-       	motorized = { x = 2 y = 2 }
+		light_armor = { x = 1 y = 0 }
+		light_armor = { x = 1 y = 1}
+		motorized = { x = 1 y = 2}
+       	motorized = { x = 2 y = 0 }
 	}
 	support = {
-	 	engineer = { x = 0 y = 0 }
-	    recon = { x = 0 y = 1 }
-	    maintenance_company = { x = 0 y = 2 }
-	    logistics_company = { x = 0 y = 3 }
-		field_hospital = { x = 0 y = 4 }
+        recon = { x = 0 y = 0 }
+        engineer = { x = 0 y = 1 }
+        artillery = { x = 0 y = 2 }
 	}
 }
 division_template = {
@@ -212,16 +172,13 @@ division_template = {
 		medium_armor = { x = 1 y = 0 }
 		medium_armor = { x = 1 y = 1 }
 		light_armor = { x = 1 y = 2 }
-		mechanized = { x = 2 y = 0 }
-       	mechanized = { x = 2 y = 1 }
-       	mechanized = { x = 2 y = 2 }		
+		motorized = { x = 2 y = 0 }
+       	motorized = { x = 2 y = 1 }
 	}
 	support = {
-	 	engineer = { x = 0 y = 0 }
-	    recon = { x = 0 y = 1 }
-	    maintenance_company = { x = 0 y = 2 }
-	    logistics_company = { x = 0 y = 3 }
-		field_hospital = { x = 0 y = 4 }
+        recon = { x = 0 y = 0 }
+        engineer = { x = 0 y = 1 }
+        artillery = { x = 0 y = 2 }
 	}
 }
 division_template = {
@@ -246,37 +203,123 @@ units = {
 	####### Commando Superiore Metropolitana (CO: Grazioni) #######
 	##### Gruppo d'Armata Ovest (CO: Umberto di Savoia) #####
 	division= {	
-		name = "'1st Divisione Venice"
+		name = "Divisione di Fanteria 'Cremona'"
+		location = 6788
+		division_template = "Divisione di Fanteria"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		name = "Divisione di Fanteria Motorizzata 'Legnano'"
+		location = 6661
+		division_template = "Divisione Motorizzata"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		name = "Divisione di Fanteria Motorizzata 'Folgore'"
 		location = 11584
+		division_template = "Divisione Motorizzata"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		name = "Divisione di Fanteria 'Mantova'"
+		location = 3657
 		division_template = "Divisione di Fanteria"
 		start_experience_factor = 0.3
 	}
 	division= {	
-		name = "'1st Divisione Milan"
-		location = 3780
+		name = "Brigata Corazzata 'Ariete'"
+		location = 3657
+		division_template = "Divisione Blindata Leggera"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		name = "Brigata Alpina 'Julia'"
+		location = 3657
+		division_template = "Divisione Alpina"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		name = "Divisione di Fanteria Motorizzata 'Trieste'"
+		location = 6606
+		division_template = "Divisione Motorizzata"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		name = "Divisione di Fanteria 'Firenze'"
+		location = 9907
 		division_template = "Divisione di Fanteria"
 		start_experience_factor = 0.3
 	}
 	division= {	
-		name = "'1st Divisione Rome"
+		name = "Divisione di Fanteria 'Granatieri di Sardegna'"
 		location = 9904
 		division_template = "Divisione di Fanteria"
 		start_experience_factor = 0.3
 	}
 	division= {	
-		name = "'1st Divisione Naples"
+		name = "Divisione di Fanteria 'Avellino'"
 		location = 819
 		division_template = "Divisione di Fanteria"
 		start_experience_factor = 0.3
 	}
 	division= {	
-		name = "'1st Divisione Palermo"
-		location = 10074
+		name = "Divisione di Fanteria 'Pinerolo'"
+		location = 11998
+		division_template = "Divisione di Fanteria"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		name = "Divisione di Fanteria 'Aosta'"
+		location = 4159
 		division_template = "Divisione di Fanteria"
 		start_experience_factor = 0.3
 	}
 	##### NAVAL UNITS #####
-						
+	navy = {					
+		name = "1st Gruppo di Scorta"				# CO: Brivonesi				
+		base = 11837
+		location = 11837 # Taranto			
+		ship = { name = "MM Caio Duilio" definition = battleship equipment = { battleship_2 = { amount = 1 owner = ITA } } }
+		ship = { name = "MM Giuseppe Garibaldi" definition = light_cruiser equipment = { light_cruiser_2 = { amount = 1 owner = ITA } } }
+		ship = { name = "MM Duca degli Abruzzi" definition = light_cruiser equipment = { light_cruiser_2 = { amount = 1 owner = ITA } } }								
+		ship = { name = "MM Cassiopea" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Libra" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Aretusa" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Gabbiano" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		# 8a Squadriglia Cacciatorpedindiere
+		ship = { name = "MM Cormorano" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Pellicano" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Pomona" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Driade" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Danaide" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Minerva" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Flora" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Baionetta" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM V 1" definition = submarine equipment = { submarine_1 = { amount = 1 owner = ITA version_name = "Flutto Class" } } }
+	}	
+	navy = {					
+		name = "2nd Gruppo di Scorta"				# CO: Bergamini				
+		base = 819
+		location = 819 # Naples			
+		ship = { name = "MM Andrea Doria" definition = battleship equipment = { battleship_2 = { amount = 1 owner = ITA } } }
+		ship = { name = "MM Raimondo Montecuccoli" definition = light_cruiser equipment = { light_cruiser_2 = { amount = 1 owner = ITA } } }
+		ship = { name = "MM Duca degli Abruzzi" definition = light_cruiser equipment = { light_cruiser_2 = { amount = 1 owner = ITA } } }									
+		ship = { name = "MM Clio" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Calliope" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Sirio" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Sagittario" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		# 8a Squadriglia Cacciatorpedindiere
+		ship = { name = "MM Folaga" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Gru" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Ibis" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Sibilla" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Urania" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Chimera" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Sfinge" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Fenice" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM Scimitarra" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ITA version_name = "Navigatori Class" } } }
+		ship = { name = "MM V 2" definition = submarine equipment = { submarine_1 = { amount = 1 owner = ITA version_name = "Flutto Class" } } }
+	}					
 }
 
 
