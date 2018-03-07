@@ -1546,7 +1546,7 @@ focus_tree = {
 		prerequisite = {
 			focus = USA_recognize_prc
 		}
-                                available = {
+        available = {
 			country_exists = PRC
 		}	
 		allow_branch = { date < 1959.12.31 }
@@ -1928,6 +1928,11 @@ focus_tree = {
 		prerequisite = {
 			focus = USA_the_chinese_civil_war
 		}
+		available = {
+			country_exists = PRC
+			country_exists = CHI
+			NOT = { has_global_flag = PRC_mainland }
+		}	
 		mutually_exclusive = {
 			focus = USA_cut_off_roc
 			focus = USA_aid_roc
@@ -1936,7 +1941,10 @@ focus_tree = {
 		x = 16
 		y = 1
 		completion_reward = {
-			#EVENT
+		  CHI = { add_opinion_modifier = { target = USA modifier = marshall_mission } }
+		  PRC = { add_opinion_modifier = { target = USA modifier = marshall_mission } }
+		  USA = { add_opinion_modifier = { target = CHI modifier = marshall_mission } }
+		  USA = { add_opinion_modifier = { target = PRC modifier = marshall_mission } }
 		}
 	}
 	focus = {
@@ -1946,11 +1954,17 @@ focus_tree = {
 		prerequisite = {
 			focus = USA_restart_marshall_mission
 		}
+		available = {
+			country_exists = PRC
+			country_exists = CHI
+			NOT = { has_global_flag = PRC_mainland }
+		}
 		allow_branch = { date < 1959.12.31 }
 		x = 16
 		y = 2
 		completion_reward = {
-			#EVENT
+			CHI = { country_event = chinapeace.1 }
+			PRC = { country_event = chinapeace.2 }
 		}
 	}
 	focus = {
@@ -1959,6 +1973,12 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = USA_press_for_peace
+		}
+		available = {
+			country_exists = PRC
+			country_exists = CHI
+			has_global_flag = chinapeace_roc_accept
+			has_global_flag = chinapeace_prc_accept
 		}
 		allow_branch = { date < 1959.12.31 }
 		x = 16
