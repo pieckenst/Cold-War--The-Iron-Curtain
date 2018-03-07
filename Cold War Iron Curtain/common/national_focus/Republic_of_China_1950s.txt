@@ -14,7 +14,7 @@ focus_tree = {
 		cost = 1.00
 		x = 31
 		y = 0
-                                available = {
+        available = {
 			NOT= { has_global_flag = PRC_mainland }
 		}
 		completion_reward = {
@@ -2914,6 +2914,9 @@ focus_tree = {
 		prerequisite = {
 			focus = CHI_land_reform
 		}
+		available = {
+			OR = { has_global_flag = PRC_mainland NOT = { country_exists = PRC } }
+		}
 		mutually_exclusive = {
 			focus = CHI_white_terror
 			focus = CHI_crown_a_new_emperor
@@ -3047,6 +3050,9 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = CHI_land_reform
+		}
+		available = {
+			OR = { has_global_flag = PRC_mainland NOT = { country_exists = PRC } }
 		}
 		mutually_exclusive = {
 			focus = CHI_end_martial_law
@@ -3308,6 +3314,9 @@ focus_tree = {
 		prerequisite = {
 			focus = CHI_land_reform
 		}
+		available = {
+			OR = { has_global_flag = PRC_mainland NOT = { country_exists = PRC } }
+		}
 		mutually_exclusive = {
 			focus = CHI_end_martial_law
 			focus = CHI_white_terror
@@ -3435,9 +3444,10 @@ focus_tree = {
 		id = CHI_formosan_re_emancipation_movement
 		icon = GFX_focus_RAJ_indian_gurkhas
 		cost = 10.00
-			available = {
+		available = {
 				has_global_flag = PRC_mainland
-			}
+				country_exists = PRC
+		}
 		prerequisite = {
 			focus = CHI_land_reform
 		}
