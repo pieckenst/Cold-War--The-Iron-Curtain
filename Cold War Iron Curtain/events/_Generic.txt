@@ -2,15 +2,15 @@
 
 add_namespace = generic
 
-# Get Annexed or War, 50/50 chance
+# WAR: Get Annexed or War, 50/50 chance
 country_event = {
-  id = generic.2
+  id = generic.1
 	title = generic.1.t
 	desc = generic.1.d
 
 	is_triggered_only = yes
 
-# Get Annexed
+	# Get Annexed
 	option = {
 		name = generic.1.a
 		FROM = { annex_country = { target = ROOT } }
@@ -19,12 +19,205 @@ country_event = {
 		}
 	}
 
-# War
+	# War
 	option = {
 		name = generic.1.b
 		FROM = { declare_war_on = { target = ROOT type = annex_everything } }
 	  ai_chance = {
 		  factor = 50
+		}
+	}
+}
+
+# FACTION: Wanna join my faction?, 70/30 chance
+country_event = {
+  id = generic.2
+	title = generic.2.t
+	desc = generic.2.d
+
+	is_triggered_only = yes
+
+	# Join
+	option = {
+		name = generic.2.a
+		FROM = { add_to_faction = { target = ROOT } }
+		FROM = { country_event = { id = generic.3 hours = 6 } }
+	  ai_chance = {
+			factor = 70
+		}
+	}
+
+	# Nope
+	option = {
+		name = generic.2.b
+		FROM = { country_event = { id = generic.4 hours = 6 } }
+	  ai_chance = {
+		  factor = 30
+		}
+	}
+}
+
+# FACTION: Yes, I want to join
+country_event = {
+  id = generic.3
+	title = generic.3.t
+	desc = generic.3.d
+
+	is_triggered_only = yes
+
+	# Nice
+	option = {
+		name = generic.3.a
+	  ai_chance = {
+			factor = 50
+		}
+	}
+}
+
+# FACTION: No, I'm staying out
+country_event = {
+  id = generic.4
+	title = generic.4.t
+	desc = generic.4.d
+
+	is_triggered_only = yes
+
+	# That's sad
+	option = {
+		name = generic.4.a
+	  ai_chance = {
+			factor = 50
+		}
+	}
+}
+
+# UNIFICATION: Wanna unite countries?, 50/50 chance
+country_event = {
+  id = generic.5
+	title = generic.5.t
+	desc = generic.5.d
+
+	is_triggered_only = yes
+
+	# Join
+	option = {
+		name = generic.5.a
+		FROM = { annex_country = { target = ROOT } }
+		ROOT = { any_owned_state = { add_core_of = FROM } }
+		FROM = { country_event = { id = generic.6 hours = 6 } }
+	  ai_chance = {
+			factor = 50
+		}
+	}
+
+	# Nope
+	option = {
+		name = generic.5.b
+		FROM = { country_event = { id = generic.7 hours = 6 } }
+	  ai_chance = {
+		  factor = 50
+		}
+	}
+}
+
+# UNIFICATION: Yes, let's unite
+country_event = {
+  id = generic.6
+	title = generic.6.t
+	desc = generic.6.d
+
+	is_triggered_only = yes
+
+	# Great
+	option = {
+		name = generic.6.a
+	  ai_chance = {
+			factor = 50
+		}
+	}
+}
+
+# UNIFICATION: No thanks
+country_event = {
+  id = generic.7
+	title = generic.7.t
+	desc = generic.7.d
+
+	is_triggered_only = yes
+
+	# Great
+	option = {
+		name = generic.7.a
+	  ai_chance = {
+			factor = 50
+		}
+	}
+}
+
+# FACTION: Can I join your faction?, 80/20 chance
+country_event = {
+  id = generic.8
+	title = generic.8.t
+	desc = generic.8.d
+
+	is_triggered_only = yes
+
+	# Yes
+	option = {
+		name = generic.8.a
+		ROOT = { add_to_faction = { target = FROM } }
+		FROM = { country_event = { id = generic.9 hours = 6 } }
+	  ai_chance = {
+			factor = 80
+		}
+		if = {
+			limit = {
+				ROOT = { original_tag = USA }
+			}
+			FROM = { add_ideas = nato_member }
+		}
+	}
+
+	# No
+	option = {
+		name = generic.8.b
+		FROM = { country_event = { id = generic.10 hours = 6 } }
+	  ai_chance = {
+		  factor = 20
+		}
+	}
+}
+
+# FACTION: Yes, you can
+country_event = {
+  id = generic.9
+	title = generic.9.t
+	desc = generic.9.d
+
+	is_triggered_only = yes
+
+	# Nice
+	option = {
+		name = generic.9.a
+	  ai_chance = {
+			factor = 50
+		}
+	}
+}
+
+# FACTION: No, I don't want you
+country_event = {
+  id = generic.10
+	title = generic.10.t
+	desc = generic.10.d
+
+	is_triggered_only = yes
+
+	# That's sad
+	option = {
+		name = generic.10.a
+	  ai_chance = {
+			factor = 50
 		}
 	}
 }

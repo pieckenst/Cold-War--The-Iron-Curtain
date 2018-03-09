@@ -915,6 +915,13 @@ focus_tree = {
 				target = SOV
 			} 			
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = FIN_fourth_option
@@ -2598,9 +2605,9 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 			create_faction = "Scandinavian Defence Union"
-			add_to_faction = NOR
-			add_to_faction = DEN
-			add_to_faction = SWE
+			NOR = { country_event = generic.2 }
+			DEN = { country_event = generic.2 }
+			SWE = { country_event = generic.2 }
 		}
 	}
 	focus = {
@@ -2616,24 +2623,9 @@ focus_tree = {
 		x = 18
 		y = 10
 		completion_reward = {
-			NOR = {
-				every_owned_state = {
-					add_core_of = FIN 
-				}
-			}
-			DEN = {
-				every_owned_state = {
-					add_core_of = FIN 
-				}
-			}
-			SWE = {
-				every_owned_state = {
-					add_core_of = FIN
-				}
-			}
-			annex_country = { target = NOR }	
-			annex_country = { target = DEN }	
-			annex_country = { target = SWE }	
+			NOR = { country_event = generic.5 }
+			DEN = { country_event = generic.5 }
+			SWE = { country_event = generic.5 }
 			set_cosmetic_tag = FIN_Nordic_Union
 		}
 	}

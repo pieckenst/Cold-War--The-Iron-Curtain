@@ -874,16 +874,22 @@ focus_tree = {
 		x = 17
 		y = 2
 		completion_reward = {
-		add_political_power = 50
-		annex_country = { target = AND transfer_troops = no }
-		annex_country = { target = SAR transfer_troops = no }
-		add_popularity = {
-		ideology = communism
-		popularity = 0.3
+			add_political_power = 50
+			AND = { country_event = generic.1 }
+			SAR = { country_event = generic.1 }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.3
+			}
+			set_politics = { ruling_party = communism }
 		}
-		set_politics = { ruling_party = communism }
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
 		}
-
 	}
 	focus = {
 		id = FRA_join_war
@@ -1021,7 +1027,13 @@ focus_tree = {
 				type = annex_everything
 			}
 		}
-
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = FRA_send_advi_cuba
