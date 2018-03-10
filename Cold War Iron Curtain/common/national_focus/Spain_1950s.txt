@@ -182,29 +182,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SPR_Sattelite_Morrocco
-		icon = GFX_goal_generic_demand_territory
-		cost = 10.00
-		x = 48
-		y = 5
-		completion_reward = { 
-			puppet = MOR 
-		}
-	}
-	focus = {
-		id = SPR_Annex_Morrocco
-		icon = GFX_goal_generic_attack_allies
-		cost = 10.00
-		mutually_exclusive = {
-			focus = SPR_End_of_the_Algerian_War
-		}
-		x = 46
-		y = 5
-		completion_reward = { 
-			annex_country = { target = MOR }	
-		}
-	}
-	focus = {
 		id = SPR_construction_effort
 		icon = GFX_goal_generic_construct_civ_factory
 		cost = 10.00
@@ -1980,7 +1957,6 @@ focus_tree = {
 			focus = SPR_Algerian_War_Opportunity
 		}
 		mutually_exclusive = {
-			focus = SPR_Annex_Morrocco
 			focus = SPR_Intervene_in_Algeria1
 		}
 		x = 41
@@ -2337,9 +2313,6 @@ focus_tree = {
 		id = SPR_Cultural_Revolution
 		icon = GFX_focus_generic_soviet_politics
 		cost = 10.00
-		prerequisite = {
-			focus = SPR_Annex_Morrocco
-		}
 		prerequisite = {
 			focus = SPR_Maoist_Backed_Coup
 		}
@@ -2909,9 +2882,6 @@ focus_tree = {
 		id = SPR_Subvert_the_Spanish_Church
 		icon = GFX_focus_generic_soviet_politics
 		cost = 10.00
-		prerequisite = {
-			focus = SPR_Sattelite_Morrocco
-		}
 		prerequisite = {
 			focus = SPR_Soviet_Backed_Coup
 		}
@@ -4153,7 +4123,7 @@ focus_tree = {
 	focus = {
 		id = SPR_the_Ifni_War
 		icon = GFX_focus_RAJ_lions_of_the_great_war
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = SPR_Reliance_on_Opus_Dei
 			focus = SPR_Declare_a_Constiutional_Monarchy
@@ -4164,13 +4134,14 @@ focus_tree = {
 			has_war_with = MOR
 		}
 		completion_reward = {
-			add_political_power = 300
+			white_peace = MOR
+			MOR = { transfer_state = 1003 }	
 		}
 	}
 	focus = {
 		id = SPR_Peace_With_Morrocco
 		icon = GFX_goal_generic_major_alliance
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = SPR_the_Ifni_War
 			focus = SPR_Begin_Decolonization
@@ -4181,8 +4152,8 @@ focus_tree = {
 			has_war_with = MOR
 		}
 		completion_reward = {
-			add_stability = -0.10
-			MOR = { transfer_state = 699 }	
+			white_peace = MOR
+			MOR = { transfer_state = 699 transfer_state = 1001 transfer_state = 1002 }	
 		}
 	}
 	focus = {
