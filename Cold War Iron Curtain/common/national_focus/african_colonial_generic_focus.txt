@@ -62,21 +62,25 @@ focus_tree = {
 			add = 10
 			tag = UGA
 		}
-                                modifier = {
+        modifier = {
 			add = 10
 			tag = SUD
 		}
-                                modifier = {
+        modifier = {
 			add = 10
 			tag = BSL
 		}
-                                modifier = {
+        modifier = {
 			add = 10
 			tag = CHA
 		}
-                                modifier = {
+        modifier = {
 			add = 10
 			tag = BCM
+		}
+		modifier = {
+			add = 10
+			tag = LES
 		}
 	}
 	default = yes
@@ -2140,6 +2144,7 @@ focus_tree = {
 					OR = {
 							has_government = democratic
 							has_government = neutrality
+							has_government = conservative
 						}
 				}
 			available_if_capitulated = yes
@@ -2173,13 +2178,23 @@ focus_tree = {
 						NIA = { transfer_state = 1106 add_state_core = 1106 }	
                         CMR = { add_state_core = 1105 }	
                         BCM = { remove_state_core = 1106 }							
-						}
+				}
 				if = {
 						limit = { tag = CHA }
 						release = CAR
                         release = ROC
                         release = GAB				
-						}
+				}
+				if = {
+						limit = { tag = LES }
+						add_popularity ={
+		                     ideology = democratic
+		                     popularity = 0.20
+		                }
+						set_politics = {
+	                        ruling_party = democratic
+                        }	
+				}
 		    }
 	}
 	focus = {
