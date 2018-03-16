@@ -614,8 +614,11 @@ country_event = {
 				NOT = { KOR = { has_government = communism } }
 				NOT = { KPA = { is_in_faction_with = KOR } }
 				NOT = { has_war_with = KOR }
-				OR = { 
-					has_completed_focus = KPA_Ready_for_War
+				OR = {
+					AND = {
+						date > 1950.6.25
+						has_completed_focus = KPA_Ready_for_War
+					}
 					has_completed_focus = KPA_Unify_the_Peninsula
 					has_completed_focus = KPA_War_of_Liberation
 					date > 1950.6.25
@@ -1204,12 +1207,8 @@ country_event = {
 		if = {
 			limit = {
 				VIN = {
-					#has_war_with = FRA
-					controls_state = 786
-					controls_state = 787
-					controls_state = 788
-					controls_state = 838
-					controls_state = 881
+					has_war_with = FRA
+					date > 1949.9.30
 				}
 			}
 			country_event = vie.1
