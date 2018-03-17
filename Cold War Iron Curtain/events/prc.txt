@@ -3,6 +3,8 @@
 ##############
 
 add_namespace = prc
+add_namespace = peng
+add_namespace = prc_collapse
 
 # 5 base division because of Focus Tree
 country_event = {
@@ -547,4 +549,130 @@ trigger = {
 		name = prc.20.do
 	}
 
+}
+
+country_event = {
+  id = prc.21
+	title = "PRC Demands Macau"
+	desc = generic.1.d
+
+	is_triggered_only = yes
+
+	# Get Annexed
+	option = {
+		name = generic.1.a
+		PRC = {
+			transfer_state = 729
+		}
+	  ai_chance = {
+			factor = 50
+		}
+	}
+
+	# War
+	option = {
+		name = generic.1.b
+		PRC = {
+				create_wargoal = {
+							type = annex_everything
+							target = POR
+						}		
+		}
+	  ai_chance = {
+		  factor = 50
+		}
+	}
+}
+country_event = {
+  id = prc.22
+	title = "PRC Demands Hong Kong"
+	desc = generic.1.d
+
+	is_triggered_only = yes
+
+	# Get Annexed
+	option = {
+		name = generic.1.a
+		PRC = {
+			transfer_state = 326
+		}
+	  ai_chance = {
+			factor = 50
+		}
+	}
+
+	# War
+	option = {
+		name = generic.1.b
+		PRC = {
+				create_wargoal = {
+							type = annex_everything
+							target = ENG
+						}		
+		}
+	  ai_chance = {
+		  factor = 50
+		}
+	}
+}
+country_event = {
+    id = peng.1
+    title = "Military Coup in the PRC"
+    Desc = ddr.20.d
+    picture = news_event_india_troops
+   
+    is_triggered_only = yes
+	
+	option = { 
+	    name = "Execute the Coup"
+		set_politics = { ruling_party = communism elections_allowed = no }	
+		add_popularity = { ideology = communism popularity = 0.5 }	
+        create_country_leader = {
+			name = "Peng Dehuai"
+			desc = ""
+			picture = "Portrait_PRC_Peng_Dehuai"
+			expire = "1992.1.1"
+			ideology = stalinism
+			traits = {
+				
+			}
+		}
+	}
+}
+country_event = {
+    id = prc_collapse.1
+    title = "Soviet Union Intervenes in the Chinese Civil War"
+    Desc = ddr.20.d
+    picture = news_event_india_troops
+
+	is_triggered_only = yes
+	
+	option = { 
+	    name = "Execute the Coup"
+		#news_event = prc_collapse.2
+		ETR = {
+			set_state_owner = 287
+			set_state_owner = 617
+			set_state_owner = 618
+			set_state_owner = 619
+		}
+		MON = {
+			set_state_owner = 611
+			set_state_owner = 612
+		}
+		PRC = {
+			every_owned_state = {
+				limit = {
+					NOT = { is_core_of = MAN }
+				}
+				CHI = {
+					set_state_owner = PREV
+				}
+			}
+		}
+		white_peace = CHI
+		ETR = {
+			white_peace = CHI
+		}
+	}
 }
