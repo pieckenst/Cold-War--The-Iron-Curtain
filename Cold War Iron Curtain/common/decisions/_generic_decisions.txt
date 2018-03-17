@@ -707,6 +707,85 @@ special_projects = {
 }
 
 war_measures = {
+   hire_paladin_group = {
+
+        icon = generic_political_discourse
+
+        available = {
+            has_war = yes
+			 not = { has_global_flag = hired_paladin }
+			or = { 
+				has_government = nationalism
+				has_government = fascism
+				has_government = National_Socialism
+			}
+        }
+
+        cost = 1000
+
+        fire_only_once = no
+        complete_effect = {
+			set_global_flag = hired_paladin
+			set_country_flag  = paladin_sponsor
+			custom_effect_tooltip = hire_paladin_group
+			hidden_effect = {
+				division_template = {
+					name = "Paladin"
+					priority = 2
+
+					regiments = {
+						pmc = { x = 0 y = 0 }
+						pmc = { x = 0 y = 1 }
+						pmc = { x = 0 y = 2 }
+
+						pmc = { x = 1 y = 0 }
+						pmc = { x = 1 y = 1 }
+						pmc = { x = 1 y = 2 }
+
+					}
+				}
+				capital_scope = {
+					limit = { ROOT = { has_full_control_of_state = PREV } }
+					create_unit = {
+						division = "name = \"Paladin\" division_template = \"Paladin\" start_experience_factor = 4.0"
+						owner = ROOT
+					}
+					create_unit = {
+						division = "name = \"Paladin\" division_template = \"Paladin\" start_experience_factor = 4.0"
+						owner = ROOT
+					}
+					create_unit = {
+						division = "name = \"Paladin\" division_template = \"Paladin\" start_experience_factor = 4.0"
+						owner = ROOT
+					}
+					create_unit = {
+						division = "name = \"Paladin\" division_template = \"Paladin\" start_experience_factor = 4.0"
+						owner = ROOT
+					}
+				}
+				set_division_template_lock = { division_template = "Paladin" is_locked = yes }	 
+				create_corps_commander = { 
+					name = "Otto Skorzeny" 
+					picture = "gfx/leaders/PMC/Skorzeny.dds" 
+					id = 9001
+					traits = { 
+						infantry_leader
+						ambusher
+						war_hero
+						commando
+						legacy_of_the_reich
+						trickster
+						guerilla_fighter
+					} 
+					skill = 5
+				}	
+			}
+        }
+
+        ai_will_do = {
+            factor = 0 #Gotta allow the Americans to help
+        }
+    }
 	
 	emergency_factory_conversion_defensive = {
 
