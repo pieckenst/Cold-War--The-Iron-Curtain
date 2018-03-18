@@ -1,5 +1,200 @@
 political_actions = {
+
+	invade_pakistan_1 = {
+
+		icon = generic_industry
+
+		available = {
+				has_civil_war = no
+				is_in_faction = no
+		}
+		visible = {
+				date > 1965.9.23 #data begin war
+				NOT = { date > 1965.12.31 }
+				NOT = { has_global_flag = indo_pakistani_war_1965 }
+				tag = RAJ
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = india.1
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	usa_leave_nato = {
+
+		icon = generic_industry
+
+		available = {
+				original_tag = USA
+				has_global_flag = president_taft
+		}
+		visible = {
+				original_tag = USA
+				has_global_flag = president_taft
+
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = nato.9
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	usa_rejoin_nato_1 = {
+
+		icon = generic_industry
+
+		visible = {
+				original_tag = USA
+				has_global_flag = nato_disbanded
+				NOT = {has_global_flag = edc_formed}
+				NOT = {has_global_flag = president_taft}
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = nato.14
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	usa_rejoin_nato_2 = {
+
+		icon = generic_industry
+
+		visible = {
+				original_tag = USA
+				has_global_flag = nato_disbanded
+				has_global_flag = edc_formed
+				NOT = {has_global_flag = president_taft}
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = nato.16
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	usa_rejoin_nato_3 = {
+
+		icon = generic_industry
+
+		visible = {
+				original_tag = USA
+				has_global_flag = nato_disbanded
+				has_global_flag = english_nato
+				NOT = {has_global_flag = president_taft}
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = nato.18
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	unify_korea = {
+
+		icon = generic_industry
+
+		available = {
+				OR = {
+					has_completed_focus = KPA_Ready_for_War
+					has_completed_focus = KPA_Unify_the_Peninsula
+					has_completed_focus = KPA_War_of_Liberation
+				}
+				date < 1953.5.31
+		}
+		visible = {
+				tag = KPA
+				or = {
+					has_government = communism
+					has_government = maoism
+				}
+				country_exists = KOR
+				NOT = { KOR = { has_government = communism } }
+				NOT = { KPA = { is_in_faction_with = KOR } }
+				NOT = { has_war_with = KOR }
+				date > 1960.1.1
+
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = korea.1
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
 	
+		
+	invade_pakistan_2 = {
+
+		icon = generic_industry
+
+		available = {
+				has_civil_war = no
+				is_in_faction = no
+		}
+		visible = {
+			date > 1971.12.3 #data begin war
+			tag = RAJ
+			NOT = { has_global_flag = indo_pakistani_war_1971 }
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = india.2
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
 	targeted_race_for_the_bomb = {
 
 		icon = generic_research
@@ -54,6 +249,34 @@ political_actions = {
 			}
 		}
 	}
+	propose_austrian_unification = {
+
+		icon = generic_industry
+
+		visible = {
+				tag = SOV
+				NOT = { has_global_flag = aus_questions_over }
+				date < 1955.9.30
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = aus.1
+
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1955.7.1
+			}
+		}
+	}	
+
 
 	improved_worker_conditions = {
 
@@ -1668,6 +1891,382 @@ war_measures = {
             factor = 0 #Gotta allow the Americans to help
         }
     }
+	negotiate_peace_with_israel_leb = {
+
+		icon = generic_industry
+
+		available = {
+				tag = LEB
+
+		}
+		visible = {
+				has_war_with = ISR
+				surrender_progress > 0.25
+				has_civil_war = no	
+		}
+
+		fire_only_once = no
+
+		days_re_enable = 90
+
+		cost = 100
+
+		complete_effect = {
+			country_event = lebanon.1
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	negotiate_peace_with_israel_syr = {
+
+		icon = generic_industry
+
+		available = {
+
+				surrender_progress > 0.25
+				has_civil_war = no
+		}
+		visible = {
+				tag = SYR
+				has_war_with = ISR
+		}
+
+		fire_only_once = no
+
+		days_re_enable = 90
+
+		cost = 100
+
+		complete_effect = {
+			country_event = syria.1
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	negotiate_peace_with_israel_irq = {
+
+		icon = generic_industry
+
+		available = {
+				surrender_progress > 0.25
+				has_civil_war = no
+		}
+		visible = {
+				tag = IRQ
+				has_war_with = ISR
+		}
+
+		fire_only_once = no
+
+		days_re_enable = 90
+
+		cost = 100
+
+		complete_effect = {
+			country_event = iraq.1
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	negotiate_peace_with_israel_jor = {
+
+		icon = generic_industry
+
+		available = {
+				surrender_progress > 0.25
+				has_civil_war = no
+		}
+		visible = {
+				tag = JOR
+				has_war_with = ISR
+		}
+
+		fire_only_once = no
+
+		days_re_enable = 90
+
+		cost = 100
+
+		complete_effect = {
+			country_event = jordania.1
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	negotiate_peace_with_israel_egy = {
+
+		icon = generic_industry
+
+		available = {
+				surrender_progress > 0.25
+				has_civil_war = no
+		}
+		visible = {
+				tag = EGY
+				has_war_with = ISR
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = egypte.4
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	negotiate_peace_with_england_egy = {
+
+		icon = generic_industry
+
+		available = {
+				surrender_progress > 0.20
+				has_civil_war = no
+		}
+		visible = {
+				tag = EGY
+				EGY = { has_completed_focus = EGY_nationalize_suez_canal}
+				has_war_with = ENG
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = egypte.6
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	negotiate_peace_with_israel_egy_2 = {
+
+		icon = generic_industry
+
+		available = {
+				surrender_progress > 0.25
+				has_civil_war = no
+
+		}
+		visible = {
+				tag = EGY
+				has_war_with = ISR
+				ISR = { has_completed_focus = ISR_claim_all_of_the_holy_city }
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = egypte.8
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	end_the_indonesian_war_ino = {
+
+		icon = generic_industry
+
+		available = {
+			surrender_progress > 0.60
+		}
+		visible = {
+				tag = INO
+				INS = {
+					exists = yes
+					has_war_with = INO
+				}
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = INO.2
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	end_the_indonesian_war_hol = {
+
+		icon = generic_industry
+
+		available = {
+			surrender_progress > 0.60
+		}
+		visible = {
+				tag = HOL
+				INS = {
+					exists = yes
+					has_war_with = INO
+				}
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = INO.1
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	negotiate_peace_with_pakistan_65 = {
+
+		icon = generic_industry
+
+		available = {
+				surrender_progress > 0.25
+				has_civil_war = no
+
+		}
+		visible = {
+				tag = RAJ
+				has_war_with = PAK
+				has_civil_war = no
+				is_in_faction = no
+				has_global_flag = indo_pakistani_war_1965
+
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = pakistan.1
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+		
+	negotiate_peace_with_pakistan_72 = {
+
+		icon = generic_industry
+
+		available = {
+				surrender_progress > 0.25
+				has_civil_war = no
+
+		}
+		visible = {
+				tag = RAJ
+				has_war_with = PAK
+				has_civil_war = no
+				is_in_faction = no
+				has_global_flag = indo_pakistani_war_1972
+
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = pakistan.3
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+				
+	negotiate_peace_with_india_65 = {
+
+		icon = generic_industry
+
+		available = {
+				surrender_progress > 0.25
+				has_civil_war = no
+
+		}
+		visible = {
+				tag = PAK
+				has_war_with = RAJ
+				has_civil_war = no
+				is_in_faction = no
+				has_global_flag = indo_pakistani_war_1965
+
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = india.3
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+		
+	negotiate_peace_with_india_72 = {
+
+		icon = generic_industry
+
+		available = {
+				surrender_progress > 0.25
+				has_civil_war = no
+
+		}
+		visible = {
+				tag = PAK
+				has_war_with = RAJ
+				has_civil_war = no
+				is_in_faction = no
+				has_global_flag = indo_pakistani_war_1972
+
+		}
+
+		fire_only_once = yes
+
+
+		cost = 100
+
+		complete_effect = {
+			country_event = india.5
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
 	emergency_factory_conversion_defensive = {
 
 		icon = generic_industry

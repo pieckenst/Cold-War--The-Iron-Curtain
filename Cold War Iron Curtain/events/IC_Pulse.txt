@@ -142,415 +142,7 @@ country_event = {
 			}
 			country_event = eng.8
 		}
-		if = {
-			limit = {
-				original_tag = USA
-				has_global_flag = president_taft
-			}
-			country_event = nato.9
-		}			
-		if = {
-			limit = {
-				original_tag = USA
-				has_global_flag = nato_disbanded
-				NOT = {has_global_flag = edc_formed}
-				NOT = {has_global_flag = president_taft}
-			}
-			country_event = nato.14
-		}		
-		if = {
-			limit = {
-				original_tag = USA
-				has_global_flag = nato_disbanded
-				has_global_flag = edc_formed
-				NOT = {has_global_flag = president_taft}
-			}
-			country_event = nato.16
-		}		
-		if = {
-			limit = {
-				original_tag = USA
-				has_global_flag = nato_disbanded
-				has_global_flag = english_nato
-				NOT = {has_global_flag = president_taft}
-			}
-			country_event = nato.18
-		}
-		if = {
-			limit = {
-				tag = LEB
-				has_war_with = ISR
-				surrender_progress > 0.25
-				has_civil_war = no
-				}
-			country_event = lebanon.1
-		}
-		if = {
-			limit = {
-				tag = SYR
-				has_war_with = ISR
-				surrender_progress > 0.25
-				has_civil_war = no
-				}
-			country_event = syria.1
-		}
-		if = {
-			limit = {
-				tag = IRQ
-				has_war_with = ISR
-				surrender_progress > 0.25
-				has_civil_war = no
-				
-			}
-			country_event = iraq.1
-		}
-		if = {
-			limit = {
-				tag = JOR
-				has_war_with = ISR
-				surrender_progress > 0.25
-				has_civil_war = no
-				
-			}
-			country_event = jordania.1
-		}
-		if = {
-			limit = {
-				tag = EGY
-				has_war_with = ISR
-				surrender_progress > 0.25
-				has_civil_war = no
-				
-			}
-			country_event = egypte.4
-		}
-		if = {
-			limit = {
-				tag = EGY
-				has_war_with = ENG
-				surrender_progress > 0.20
-				has_civil_war = no
-				EGY = { has_completed_focus = EGY_nationalize_suez_canal}
-			}
-			country_event = egypte.6
-		}
-		if = {
-			limit = {
-				tag = EGY
-				has_war_with = ISR
-				surrender_progress > 0.25
-				has_civil_war = no
-				ISR = { has_completed_focus = ISR_claim_all_of_the_holy_city }
-			}
-			country_event = egypte.8
-		}
-		if = {
-			limit = {
-				tag = RAJ
-				has_war_with = PAK
-				surrender_progress > 0.25
-				has_civil_war = no
-				is_in_faction = no
-				has_global_flag = indo_pakistani_war_1965
-			}
-			country_event = pakistan.1
-		}
-		if = {
-			limit = {
-				tag = RAJ
-				has_war_with = PAK
-				surrender_progress > 0.25
-				has_civil_war = no
-				is_in_faction = no
-				has_global_flag = indo_pakistani_war_1972
-			}
-			country_event = pakistan.3
-		}
-		if = {
-			limit = {
-				date > 1965.9.23 #data begin war
-				NOT = { date > 1965.12.31 }
-				NOT = { has_global_flag = indo_pakistani_war_1965 }
-				tag = RAJ
-				NOR = { 
-					has_civil_war = no
-					is_in_faction = no		
-				}
-			}
-			country_event = india.1
-		}
-		if = {
-			limit = {
-					date > 1971.12.3 #data begin war
-					tag = RAJ
-					NOT = { has_global_flag = indo_pakistani_war_1971 }
-					tag = RAJ
-					NOR = { 
-						has_civil_war = no
-						is_in_faction = no		
-					}
-			}
-			country_event = india.2
-		}
-		if = {
-			limit = {
-				tag = PAK
-				has_war_with = RAJ
-				surrender_progress > 0.25
-				has_civil_war = no
-				is_in_faction = no
-				has_global_flag = indo_pakistani_war_1965
-			}
-			country_event = india.3
-		}
-		if = {
-			limit = {
-				tag = PAK
-				has_war_with = RAJ
-				surrender_progress > 0.25
-				has_civil_war = no
-				is_in_faction = no
-				has_global_flag = indo_pakistani_war_1971
-			}
-			country_event = india.5
-		}
-		if = {
-			limit = {
-				date > 1954.10.1
-				NOT = { has_global_flag = tri_questions_over }
-				country_exists = TRI
-			}
-			country_event = tri.1
-		}
-		if = {
-			limit = {
-				has_global_flag = ita_yes_Trieste
-				has_global_flag = yug_yes_Trieste
-				NOT = { has_global_flag = tri_Trieste_united }
-			}
-			country_event = tri.2
-		}
-		if = {
-			limit = {
-				OR = {
-					has_global_flag = ita_no_Trieste
-					has_global_flag = yug_no_Trieste
-				}
-				NOT = { has_global_flag = tri_Trieste_not_united }
-			}
-			country_event = tri.3
-		}
-		if = {
-			limit = {
-				has_global_flag = yug_back_down_trieste
-				NOT = { has_global_flag = tri_yug_back_down }
-			}
-			country_event = tri.4
-		}
-		if = {
-			limit = {
-				has_global_flag = yug_not_back_down_trieste
-				NOT = { has_global_flag = tri_war }
-			}
-			country_event = tri.5
-		}
-		if = {
-			limit = {
-				or = {
-					has_idea = research_land_1
-					has_idea = research_land_2
-					has_idea = research_land_3
-				}
-			}
-			random_list = { 
-				15 = {
-					country_event = researchboost.1
-				}
-				85 = {
-				}
-			}			
-		}
-		if = {
-			limit = {
-				or = {
-					has_idea = research_sea_1
-					has_idea = research_sea_2
-					has_idea = research_sea_3
-				}
-			}
-			random_list = { 
-				15 = {
-					country_event = researchboost.2
-				}
-				85 = {
-				}
-			}			
-		}
-		if = {
-			limit = {
-				or = {
-					has_idea = research_air_1
-					has_idea = research_air_2
-					has_idea = research_air_3
-				}
-			}
-			random_list = { 
-				15 = {
-					country_event = researchboost.3
-				}
-				85 = {
-				}
-			}			
-		}
-		if = {
-			limit = {
-				or = {
-					has_idea = research_industry_1
-					has_idea = research_industry_2
-					has_idea = research_industry_3
-				}
-			}
-			random_list = { 
-				15 = {
-					country_event = researchboost.4
-				}
-				85 = {
-				}
-			}			
-		}
-		if = {
-			limit = {
-				has_idea = resource_1
-			}
-			random_list = { 
-				15 = {
-					country_event = resourcegain.50
-				}
-				85 = {
-				}
-			}			
-		}
-		
-		if = {
-			limit = {
-				has_idea = industry_1
-			}
-			random_list = { 
-				15 = {
-					country_event = buildingslot.50
-				}
-				85 = {
-				}
-			}			
-		}
-		
-		if = {
-			limit = {
-				has_idea = integration_1
-			}
-			random_list = { 
-				15 = {
-					country_event = britainempire.24
-				}
-				85 = {
-				}
-			}			
-		}
-		if = {
-			limit = {
-				tag = SOV
-				date > 1955.5.1	#14
-				date < 1955.8.20
-			}
-			country_event = { id = swf.7 days = 10 random = 1 }
-		}
-		if = {
-			limit = {		
-			tag = UKR
-			owns_state = 925
-			NOT = { has_global_flag = chernobyl_built }
-			date > 1972.8.1
-			}
-			country_event = { id = chernobyl.1 days = 11 random = 1 }
-		}
-		if = {
-			limit = {				
-			tag = UKR
-			owns_state = 925
-			has_global_flag = chernobyl_built 
-			NOT = { has_global_flag = chernobyl_not_built }
-			date > 1986.4.1
-			}
-			country_event = { id = chernobyl.2 days = 22 random = 1 }
-		}
-		if = {
-			limit = {			
-				tag = CUB
-				CUB = {
-					has_government = communism
-				}
-				date > 1960.10.1
-			}
-			country_event = { id = cuba.12 days = 17 random = 1 }
-		}
-		if = {
-			limit = {			
-				tag = CUB
-				DDR = {
-					exists = yes
-					has_government = communism
-				}
-				owns_state = 1023
-				has_government = communism
-				NOT = { has_global_flag = ddr_cuba_state_visit }
-				date > 1972.6.1
-			}
-			country_event = { id = cuba.12 days = 17 random = 1 }
-		}
-		if = {
-			limit = {
-				tag = FIN
-				date > 1956.6.1
-				date < 1956.7.30
-			}
-			country_event = fin.3
-		}
-		if = {
-			limit = {
-				INS = {
-					exists = yes
-					has_war_with = INO
-					surrender_progress > 0.60
-				}
-			}
-			country_event = INO.1
-		}
-		if = {
-			limit = {
-				INO = {
-					exists = yes
-					has_war_with = INS
-					surrender_progress > 0.75
-				}
-			}
-			country_event = INO.2
-		}	
-		if = {
-			limit = {		
-				tag = SOV
-				date > 1969.2.1 #15 so 15 day delay
-				date < 1974.6.10
-			}
-			country_event = { id = zhenbao_island.1 days = 15 random = 1 }
-		}
-		if = {
-			limit = {	
-				date > 1955.7.1
-				NOT = { has_global_flag = aus_questions_over }
-				date < 1955.9.30
-			}
-			country_event = { id = aus.1 days = 10 random = 1 }
-		}		
+		#Austria Begin
 		if = {
 			limit = {	
 				OR = {
@@ -577,69 +169,8 @@ country_event = {
 			}
 			country_event = aus.3
 		}
-
-		
-		if = {
-			limit = {
-				date > 1949.9.25
-				date < 1949.10.31
-				NOT = { has_global_flag = berlin_airlift_over}	
-			}
-			news_event = news.1002
-		}
-		if = {
-			limit = {
-				tag = KPA
-				has_war_with = KOR
-				NOT = { has_global_flag = first_korean_war}
-				date > 1950.1.1
-				date < 1951.1.1	
-			}
-			news_event = news.1003
-		}		
-		if = {
-			limit = {
-				MLA = { NOT = { has_war_with = MAL } }
-				has_global_flag = malayan_uprising_67
-			}
-			news_event = news.1027
-		}		
-
-		if = {
-			limit = {
-				tag = KPA
-				has_war_with = KOR
-				NOT = { has_global_flag = first_korean_war}
-				date > 1950.1.1
-				date < 1951.1.1	
-			}
-			news_event = news.1003
-		}
-
-		if = {
-			limit = {	
-				tag = KPA
-				or = {
-					has_government = communism
-					has_government = maoism
-				}
-				country_exists = KOR
-				NOT = { KOR = { has_government = communism } }
-				NOT = { KPA = { is_in_faction_with = KOR } }
-				NOT = { has_war_with = KOR }
-				OR = {
-					AND = {
-						date > 1950.6.25
-						has_completed_focus = KPA_Ready_for_War
-					}
-					has_completed_focus = KPA_Unify_the_Peninsula
-					has_completed_focus = KPA_War_of_Liberation
-					date > 1950.6.25
-				}
-				date < 1953.5.31
-			}
-			country_event = { id = korea.1 days = 12 random = 1 } 
-		}
+		#Austria End
+		#Korea Begin
 		if = {
 			limit = {	
 				tag = USA
@@ -880,6 +411,257 @@ country_event = {
 			}
 			country_event = korea.48
 		}
+		#Korea End
+
+		if = {
+			limit = {
+				date > 1954.10.1
+				NOT = { has_global_flag = tri_questions_over }
+				country_exists = TRI
+			}
+			country_event = tri.1
+		}
+		if = {
+			limit = {
+				has_global_flag = ita_yes_Trieste
+				has_global_flag = yug_yes_Trieste
+				NOT = { has_global_flag = tri_Trieste_united }
+			}
+			country_event = tri.2
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = ita_no_Trieste
+					has_global_flag = yug_no_Trieste
+				}
+				NOT = { has_global_flag = tri_Trieste_not_united }
+			}
+			country_event = tri.3
+		}
+		if = {
+			limit = {
+				has_global_flag = yug_back_down_trieste
+				NOT = { has_global_flag = tri_yug_back_down }
+			}
+			country_event = tri.4
+		}
+		if = {
+			limit = {
+				has_global_flag = yug_not_back_down_trieste
+				NOT = { has_global_flag = tri_war }
+			}
+			country_event = tri.5
+		}
+		if = {
+			limit = {
+				or = {
+					has_idea = research_land_1
+					has_idea = research_land_2
+					has_idea = research_land_3
+				}
+			}
+			random_list = { 
+				15 = {
+					country_event = researchboost.1
+				}
+				85 = {
+				}
+			}			
+		}
+		if = {
+			limit = {
+				or = {
+					has_idea = research_sea_1
+					has_idea = research_sea_2
+					has_idea = research_sea_3
+				}
+			}
+			random_list = { 
+				15 = {
+					country_event = researchboost.2
+				}
+				85 = {
+				}
+			}			
+		}
+		if = {
+			limit = {
+				or = {
+					has_idea = research_air_1
+					has_idea = research_air_2
+					has_idea = research_air_3
+				}
+			}
+			random_list = { 
+				15 = {
+					country_event = researchboost.3
+				}
+				85 = {
+				}
+			}			
+		}
+		if = {
+			limit = {
+				or = {
+					has_idea = research_industry_1
+					has_idea = research_industry_2
+					has_idea = research_industry_3
+				}
+			}
+			random_list = { 
+				15 = {
+					country_event = researchboost.4
+				}
+				85 = {
+				}
+			}			
+		}
+		if = {
+			limit = {
+				has_idea = resource_1
+			}
+			random_list = { 
+				15 = {
+					country_event = resourcegain.50
+				}
+				85 = {
+				}
+			}			
+		}
+		
+		if = {
+			limit = {
+				has_idea = industry_1
+			}
+			random_list = { 
+				15 = {
+					country_event = buildingslot.50
+				}
+				85 = {
+				}
+			}			
+		}
+		
+		if = {
+			limit = {
+				has_idea = integration_1
+			}
+			random_list = { 
+				15 = {
+					country_event = britainempire.24
+				}
+				85 = {
+				}
+			}			
+		}
+		if = {
+			limit = {
+				tag = SOV
+				date > 1955.5.1	#14
+				date < 1955.8.20
+			}
+			country_event = { id = swf.7 days = 10 random = 1 }
+		}
+		if = {
+			limit = {		
+			tag = UKR
+			owns_state = 925
+			NOT = { has_global_flag = chernobyl_built }
+			date > 1972.8.1
+			}
+			country_event = { id = chernobyl.1 days = 11 random = 1 }
+		}
+		if = {
+			limit = {				
+			tag = UKR
+			owns_state = 925
+			has_global_flag = chernobyl_built 
+			NOT = { has_global_flag = chernobyl_not_built }
+			date > 1986.4.1
+			}
+			country_event = { id = chernobyl.2 days = 22 random = 1 }
+		}
+		if = {
+			limit = {			
+				tag = CUB
+				CUB = {
+					has_government = communism
+				}
+				date > 1960.10.1
+			}
+			country_event = { id = cuba.12 days = 17 random = 1 }
+		}
+		if = {
+			limit = {			
+				tag = CUB
+				DDR = {
+					exists = yes
+					has_government = communism
+				}
+				owns_state = 1023
+				has_government = communism
+				NOT = { has_global_flag = ddr_cuba_state_visit }
+				date > 1972.6.1
+			}
+			country_event = { id = cuba.12 days = 17 random = 1 }
+		}
+		if = {
+			limit = {
+				tag = FIN
+				date > 1956.6.1
+				date < 1956.7.30
+			}
+			country_event = fin.3
+		}
+		if = {
+			limit = {		
+				tag = SOV
+				date > 1969.2.1 #15 so 15 day delay
+				date < 1974.6.10
+			}
+			country_event = { id = zhenbao_island.1 days = 15 random = 1 }
+		}
+
+		
+		if = {
+			limit = {
+				date > 1949.9.25
+				date < 1949.10.31
+				NOT = { has_global_flag = berlin_airlift_over}	
+			}
+			news_event = news.1002
+		}
+		if = {
+			limit = {
+				tag = KPA
+				has_war_with = KOR
+				NOT = { has_global_flag = first_korean_war}
+				date > 1950.1.1
+				date < 1951.1.1	
+			}
+			news_event = news.1003
+		}		
+		if = {
+			limit = {
+				MLA = { NOT = { has_war_with = MAL } }
+				has_global_flag = malayan_uprising_67
+			}
+			news_event = news.1027
+		}		
+
+		if = {
+			limit = {
+				tag = KPA
+				has_war_with = KOR
+				NOT = { has_global_flag = first_korean_war}
+				date > 1950.1.1
+				date < 1951.1.1	
+			}
+			news_event = news.1003
+		}
+
+
 		if = {
 			limit = {
 				tag = FRA
@@ -987,6 +769,7 @@ country_event = {
 			limit = {
 				date > 1980.4.28
 				date < 1980.6.15
+				tag = YUG
 				NOT = { YUG = { has_country_flag = tito_dead } }
 			}
 			country_event = yug.3
