@@ -1,0 +1,35 @@
+﻿add_namespace = space_race
+
+# Space Race initiated
+country_event = {
+	id = space_race.1
+	title = space_race.1.t
+	desc = {
+		trigger = { USA = { has_country_flag = space_race_started_usa } }
+		text = space_race.1.usa
+	}
+	desc = {
+		trigger = { SOV = { has_country_flag = space_race_started_sov } }
+		text = space_race.1.sov
+	}
+	picture = GFX_news_event_space_race_initiated
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = space_race.1.a
+		trigger = {
+			tag = USA
+			tag = SOV
+		}
+	}
+
+	option = {
+		name = space_race.1.b
+		trigger = {
+			NOT = { tag = USA tag = SOV }
+		}
+	}
+}
