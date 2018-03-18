@@ -37,7 +37,15 @@ focus_tree = {
 		cost = 10.00
 		x = 29
 		y = 0
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = secret_bonus
+							bonus = 0.25
+							uses = 1
+							category = electronics
+							category = nuclear
+						}
+				}
 	}
 	focus = {
 		id = PRC_PLA
@@ -272,12 +280,17 @@ focus_tree = {
 		}
 		x = 3
 		y = 4
-
+		bypass = {
+			has_global_flag = zhenbao_island
+		}
+		availible = {
+			has_global_flag = zhenbao_island		
+		}
 	}
 	focus = {
 		id = PRC_Escalate_Conflict
 		icon = GFX_goal_generic_more_territorial_claims
-		cost = 10.00
+		cost = 1
 		prerequisite = {
 			focus = PRC_Zhenbao_Island_Incident
 		}
@@ -286,7 +299,9 @@ focus_tree = {
 		}
 		x = 2
 		y = 5
-
+		completion_reward = {
+			declare_war_on = { target = SOV type = annex_everything }	
+		}
 	}
 	focus = {
 		id = prc_jap_relation
@@ -336,7 +351,12 @@ focus_tree = {
 		}
 		x = 5
 		y = 1
-
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = RAJ
+						}
+				}
 	}
 	focus = {
 		id = PRC_Sino_Pakistan_Agreement
@@ -347,7 +367,20 @@ focus_tree = {
 		}
 		x = 4
 		y = 2
-
+			completion_reward = {
+					PRC = {
+							add_opinion_modifier = {
+									target = PAK
+									modifier = large_increase
+								}
+						}
+					PAK = {
+							add_opinion_modifier = {
+									target = PRC
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = PRC_De_Escalate_Conflict
@@ -361,7 +394,10 @@ focus_tree = {
 		}
 		x = 4
 		y = 5
-
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = PRC_Nathu_La_and_Cho_La_Clashes
@@ -372,7 +408,13 @@ focus_tree = {
 		}
 		x = 6
 		y = 2
-
+		completion_reward = {
+			start_border_war = { 
+				change_state_after_war = yes 
+				attacker = { state = 322 num_provinces = 2 } 
+				defender = { state = 868 num_provinces = 1 } 
+			}			
+		}
 	}
 	focus = {
 		id = prc_Africa
@@ -384,8 +426,8 @@ focus_tree = {
 		x = 8
 		y = 3
 			completion_reward = {
-
-				}
+				add_political_power = 300
+			}
 
 	}
 	focus = {
@@ -400,7 +442,17 @@ focus_tree = {
 		}
 		x = 6
 		y = 4
-
+		availible = {
+			country_exists = ANG
+		}
+		completion_reward = {
+			ANG = {
+				add_timed_idea = { idea = maoist_drift days = 800 }
+			}
+			POR = {
+				add_war_support = -0.10
+			}
+		}
 	}
 	focus = {
 		id = prc_indochina
@@ -436,7 +488,11 @@ focus_tree = {
 		}
 		x = 8
 		y = 2
-
+		completion_reward = {
+			CAM = {
+				add_timed_idea = { idea = maoist_drift days = 800 }
+			}
+		}
 	}
 	focus = {
 		id = PRC_Support_ZANU
@@ -450,7 +506,11 @@ focus_tree = {
 		}
 		x = 8
 		y = 4
-
+		completion_reward = {
+			ZIM = {
+				add_timed_idea = { idea = maoist_drift days = 800 }
+			}
+		}
 	}
 	focus = {
 		id = PRC_Arm_FRELiMO
@@ -461,7 +521,14 @@ focus_tree = {
 		}
 		x = 8
 		y = 5
-
+		completion_reward = {
+			MZB = {
+				add_timed_idea = { idea = maoist_drift days = 800 }
+			}
+			POR = {
+				add_war_support = -0.10
+			}
+		}
 	}
 	focus = {
 		id = PRC_Aid_Laotion_Communists
@@ -475,7 +542,11 @@ focus_tree = {
 		}
 		x = 10
 		y = 2
-
+		completion_reward = {
+			LOS = {
+				add_timed_idea = { idea = maoist_drift days = 800 }
+			}
+		}
 	}
 	focus = {
 		id = PRC_Arm_PLAN
@@ -486,7 +557,11 @@ focus_tree = {
 		}
 		x = 10
 		y = 4
-
+		completion_reward = {
+			SAF = {
+				add_timed_idea = { idea = maoist_drift days = 500 }
+			}
+		}
 	}
 	focus = {
 		id = prc_vietnam_war
@@ -539,7 +614,9 @@ focus_tree = {
 		}
 		x = 11
 		y = 3
-
+		completion_reward = {
+			send_equipment = { target = VIN type = infantry_equipment_1 amount = 3000 }	
+		}
 	}
 	focus = {
 		id = PRC_Enter_the_Vietnam_War
@@ -553,7 +630,12 @@ focus_tree = {
 		}
 		x = 13
 		y = 3
-
+		availible = {
+			VIN = {
+				has_war_with = VIE
+			}
+			add_to_war = { targeted_alliance = VIN enemy = VIE }	
+		}
 	}
 	focus = {
 		id = prc_Disband_Communes
@@ -730,7 +812,158 @@ focus_tree = {
 		}
 		x = 15
 		y = 2
-
+			completion_reward = {
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = PRC_Market_Based_Reforms
@@ -741,7 +974,9 @@ focus_tree = {
 		}
 		x = 15
 		y = 3
-
+		completion_reward = {
+			add_timed_idea = { idea = capitalism days = 1200 }
+		}
 	}
 	focus = {
 		id = PRC_Mao_as_a_Figurehead
@@ -752,7 +987,10 @@ focus_tree = {
 		}
 		x = 17
 		y = 2
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = PRC_Public_Criticism_of_Mao
@@ -763,7 +1001,10 @@ focus_tree = {
 		}
 		x = 17
 		y = 3
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = PRC_Agriculture_First
@@ -774,7 +1015,13 @@ focus_tree = {
 		}
 		x = 19
 		y = 1
-
+		completion_reward = {
+			add_tech_bonus = {
+					name = agri_tech_bonus
+					ahead_reduction = 1
+					category = agri_tech
+				}
+			}
 	}
 	focus = {
 		id = PRC_readjustment_and_recovery_period
@@ -785,7 +1032,158 @@ focus_tree = {
 		}
 		x = 19
 		y = 2
-
+			completion_reward = {
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = prc_Restore_Economic_Stabiltiy
@@ -979,7 +1377,9 @@ focus_tree = {
 		}
 		x = 16
 		y = 5
-
+		completion_reward = {
+			news_event = prc.50
+		}
 	}
 	focus = {
 		id = PRC_Mao_Reasserts_Authority
@@ -993,7 +1393,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 5
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = PRC_Lessons_of_the_Korean_War
@@ -1004,7 +1406,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 1
-
+		completion_reward = {
+			army_experience = 50
+		}
 	}
 	focus = {
 		id = prc_expanded_arms_production
@@ -1178,7 +1582,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 3
-
+		completion_reward = {
+			add_ideas = fortification_build_up
+		}
 	}
 	focus = {
 		id = PRC_cultural_revolution
@@ -1276,7 +1682,9 @@ focus_tree = {
 		}
 		x = 21
 		y = 8
-
+		completion_reward = {
+			add_ideas = 863_program
+		}
 	}
 	focus = {
 		id = PRC_Develop_River_Infrastructure
@@ -1417,7 +1825,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 1
-
+		completion_reward = {
+			add_ideas = military_expansion
+		}
 	}
 	focus = {
 		id = PRC_Deal_With_the_National_Salvation_Army
@@ -1428,7 +1838,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 2
-
+		completion_reward = {
+			add_timed_idea = { days = 700 idea = repression }
+		}
 	}
 	focus = {
 		id = PRC_Fortify_the_Coast
@@ -1439,7 +1851,30 @@ focus_tree = {
 		}
 		x = 24
 		y = 3
-
+		completion_reward = {
+			595 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = 7071
+					level = 4
+					instant_build = yes
+				}		
+				add_building_construction = {
+					type = coastal_bunker
+					province = 4196
+					level = 4
+					instant_build = yes
+				}	
+			}
+			593 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = 9938
+					level = 4
+					instant_build = yes
+				}		
+			}		
+		}
 	}
 	focus = {
 		id = PRC_Enforce_Land_Reform_in_Tibet
@@ -1450,7 +1885,10 @@ focus_tree = {
 		}
 		x = 25
 		y = 8
-
+		completion_reward = {
+			add_political_power = 400
+			add_stability = -0.15
+		}
 	}
 	focus = {
 		id = PRC_Reimpose_Land_Reform_in_Peripheal_Regions
@@ -1461,8 +1899,11 @@ focus_tree = {
 		}
 		x = 25
 		y = 9
-
-	}
+		completion_reward = {
+			add_political_power = 400
+			add_stability = -0.15
+		}
+	}	
 	focus = {
 		id = PRC_Rampant_Xenophobia
 		icon = GFX_focus_generic_soviet_politics
@@ -1478,7 +1919,9 @@ focus_tree = {
 		}
 		x = 23
 		y = 10
-
+		completion_reward = {
+			add_ideas = Xenophobia
+		}
 	}
 	focus = {
 		id = PRC_PLAN
@@ -1489,7 +1932,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 1
-
+		completion_reward = {
+			navy_experience = 50
+		}
 	}
 	focus = {
 		id = PRC_Expanded_Dockyards
@@ -1500,6 +1945,42 @@ focus_tree = {
 		}
 		x = 26
 		y = 2
+			completion_reward = {
+					navy_experience = 25
+					random_owned_controlled_state = {
+							limit = {
+									is_in_home_area = yes
+									free_building_slots = {
+											building = dockyard
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = dockyard
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									is_in_home_area = yes
+									free_building_slots = {
+											building = dockyard
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = dockyard
+									level = 2
+									instant_build = yes
+								}
+						}
+
+				}
 
 	}
 	focus = {
@@ -1511,7 +1992,16 @@ focus_tree = {
 		}
 		x = 26
 		y = 3
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = special_forces_bonus
+							bonus = 0.5
+							uses = 1
+							technology = marines
+							technology = marines2
+							technology = marines3
+						}
+				}
 	}
 	focus = {
 		id = PRC_Refinement_of_Peoples_War
@@ -1645,7 +2135,14 @@ focus_tree = {
 		}
 		x = 30
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = secret_bonus
+							bonus = 0.25
+							uses = 1
+							category = rocketry
+						}
+				}
 	}
 	focus = {
 		id = prc_NPT
@@ -1660,7 +2157,8 @@ focus_tree = {
 		x = 29
 		y = 5
 		completion_reward = {
-			add_ideas = NPT_Signed
+			add_political_power = 300
+			add_threat = -10
 		}
 	}
 	focus = {
@@ -1753,7 +2251,9 @@ focus_tree = {
 		}
 		x = 21
 		y = 14
-
+		completion_reward = {
+			country_event = prc.70
+		}
 	}
 	focus = {
 		id = prc_student_movement
@@ -2233,7 +2733,9 @@ focus_tree = {
 		}
 		x = 10
 		y = 11
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = prc_shuguang
@@ -2244,7 +2746,14 @@ focus_tree = {
 		}
 		x = 12
 		y = 11
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = secret_bonus
+							bonus = 0.25
+							uses = 1
+							category = rocketry
+						}
+				}
 	}
 	focus = {
 		id = prc_shenzhou
@@ -2258,7 +2767,14 @@ focus_tree = {
 		}
 		x = 11
 		y = 12
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = secret_bonus
+							bonus = 0.25
+							uses = 1
+							category = rocketry
+						}
+				}
 	}
 	focus = {
 		id = prc_tiangong
@@ -2269,7 +2785,14 @@ focus_tree = {
 		}
 		x = 10
 		y = 13
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = secret_bonus
+							bonus = 0.25
+							uses = 1
+							category = rocketry
+						}
+				}
 	}
 	focus = {
 		id = prc_64
@@ -2630,7 +3153,14 @@ focus_tree = {
 		}
 		x = 12
 		y = 13
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = secret_bonus
+							bonus = 0.25
+							uses = 1
+							category = rocketry
+						}
+				}
 	}
 	focus = {
 		id = prc_non_ratify
@@ -2644,7 +3174,10 @@ focus_tree = {
 		}
 		x = 31
 		y = 5
-
+		completion_reward = {
+			add_political_power = 300
+			PRC = { add_threat = 20 }
+		}
 	}
 	focus = {
 		id = prc_disarm_nuke
@@ -2655,7 +3188,10 @@ focus_tree = {
 		}
 		x = 29
 		y = 6
-
+		completion_reward = {
+			add_political_power = -150
+			PRC = { add_threat = -20 }
+		}
 	}
 	focus = {
 		id = PRC_Deng_Xiaoping_Theory
@@ -2667,7 +3203,10 @@ focus_tree = {
 		}
 		x = 10
 		y = 6
-
+		completion_reward = {
+			set_politics = { ruling_party = Social_Democratic elections_allowed = no }	
+			set_political_party = { ideology = Social_Democratic popularity = 0.5 }	
+		}
 	}
 	focus = {
 		id = PRC_Begin_the_Purges
@@ -2681,7 +3220,9 @@ focus_tree = {
 		}
 		x = 17
 		y = 8
-
+		completion_reward = {
+			add_stability = -0.15
+		}
 	}
 	focus = {
 		id = PRC_Personality_Cult_of_Mao
@@ -2692,7 +3233,9 @@ focus_tree = {
 		}
 		x = 15
 		y = 10
-
+		completion_reward = {
+			add_ideas = total_loyalty
+		}
 	}
 	focus = {
 		id = PRC_Purge_Deng
@@ -2703,7 +3246,9 @@ focus_tree = {
 		}
 		x = 19
 		y = 9
-
+		completion_reward = {
+			news_event = prc.85
+		}
 	}
 	focus = {
 		id = PRC_Purge_Shaoqi
@@ -2714,7 +3259,9 @@ focus_tree = {
 		}
 		x = 17
 		y = 9
-
+		completion_reward = {
+			news_event = prc.86
+		}
 	}
 	focus = {
 		id = PRC_Rise_of_Lin_Biao
@@ -2728,7 +3275,10 @@ focus_tree = {
 		}
 		x = 18
 		y = 10
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = PRC_Anarchy
@@ -2742,7 +3292,10 @@ focus_tree = {
 		}
 		x = 17
 		y = 11
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = -0.40
+		}
 	}
 	focus = {
 		id = PRC_Deploy_the_PLA
@@ -2756,7 +3309,11 @@ focus_tree = {
 		}
 		x = 19
 		y = 12
-
+		completion_reward = {
+			add_timed_idea = { idea = repression days = 300 }
+			add_manpower = -50000
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = PRC_Biao_Consolidates_Power
@@ -2767,7 +3324,10 @@ focus_tree = {
 		}
 		x = 19
 		y = 13
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = PRC_Lin_Biao_Incident
@@ -2781,7 +3341,9 @@ focus_tree = {
 		}
 		x = 16
 		y = 14
-
+		completion_reward = {
+			news_event = prc.75
+		}
 	}
 	focus = {
 		id = PRC_Purge_Biao_Loyalists
@@ -2792,8 +3354,12 @@ focus_tree = {
 		}
 		x = 16
 		y = 15
-
-	}
+		completion_reward = {
+			army_experience = -25
+			add_stability = -0.15
+			add_political_power = 300
+		}
+	}	
 	focus = {
 		id = PRC_Tone_Down_the_Excesses_of_the_Revolution
 		icon = GFX_focus_generic_self_management
@@ -2806,7 +3372,10 @@ focus_tree = {
 		}
 		x = 18
 		y = 16
-
+		completion_reward = {
+			add_stability = 0.25
+			add_political_power = -150
+		}
 	}
 	focus = {
 		id = PRC_Mainstream_Maoism
@@ -2821,7 +3390,10 @@ focus_tree = {
 		}
 		x = 17
 		y = 17
-
+		completion_reward = {
+			add_stability = 0.10
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = PRC_Empower_Market_Socialist_Faction
@@ -2835,7 +3407,10 @@ focus_tree = {
 		}
 		x = 19
 		y = 17
-
+		completion_reward = {
+			set_politics = { ruling_party = Social_Democratic elections_allowed = no }	
+			set_political_party = { ideology = Social_Democratic popularity = 0.5 }	
+		}
 	}
 	focus = {
 		id = PRC_Gang_of_Four_Consolidates_Power
@@ -2849,7 +3424,10 @@ focus_tree = {
 		}
 		x = 14
 		y = 16
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = PRC_Continue_the_Revolution
@@ -2860,7 +3438,10 @@ focus_tree = {
 		}
 		x = 14
 		y = 17
-
+		completion_reward = {
+			add_political_power = 300
+			add_war_support = 0.15
+		}
 	}
 	focus = {
 		id = PRC_The_Four_Modernizations
@@ -2871,7 +3452,158 @@ focus_tree = {
 		}
 		x = 10
 		y = 8
-
+			completion_reward = {
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = prc_Seek_Truth_From_Facts
@@ -2882,7 +3614,9 @@ focus_tree = {
 		}
 		x = 10
 		y = 9
-
+		completion_reward = {
+			add_ideas = capitalism
+		}
 	}
 	focus = {
 		id = PRC_Empower_the_Guard
@@ -2897,7 +3631,11 @@ focus_tree = {
 		}
 		x = 14
 		y = 12
-
+		completion_reward = {
+			add_political_power = 300
+			add_manpower = -50000
+			add_stability = -0.1
+		}
 	}
 	focus = {
 		id = PRC_Double_Down_on_Forced_Assimilation
@@ -2908,7 +3646,10 @@ focus_tree = {
 		}
 		x = 14
 		y = 13
-
+		completion_reward = {
+			add_stability = -0.15
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = PRC_Begin_More_Purges
@@ -2922,7 +3663,11 @@ focus_tree = {
 		}
 		x = 12
 		y = 14
-
+		completion_reward = {
+			army_experience = -50
+			add_stability = -0.10
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = PRC_Purge_the_PLA
@@ -2933,7 +3678,11 @@ focus_tree = {
 		}
 		x = 11
 		y = 15
-
+		completion_reward = {
+			army_experience = -50
+			add_stability = -0.10
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = PRC_Repress_Ethnic_Minorities
@@ -2944,7 +3693,12 @@ focus_tree = {
 		}
 		x = 13
 		y = 15
-
+		completion_reward = {
+			release = TIB
+			release = ETR
+			declare_war_on = { target = TIB type = annex_everything }	
+			declare_war_on = { target = ETR type = annex_everything }	
+		}
 	}
 	focus = {
 		id = PRC_Shadian_Massacre
@@ -2958,7 +3712,10 @@ focus_tree = {
 		}
 		x = 12
 		y = 16
-
+		completion_reward = {
+			release = XSM
+			declare_war_on = { target = XSM type = annex_everything }	
+		}
 	}
 	focus = {
 		id = PRC_The_New_Warring_States_Period
@@ -2969,6 +3726,23 @@ focus_tree = {
 		}
 		x = 12
 		y = 17
-
+		completion_reward = {
+			start_civil_war = { ideology = Social_Democratic size = 0.50 }	
+			CHI = {
+				declare_war_on = { target = PRC type = annex_everything }
+				declare_war_on = { target = ETR type = annex_everything }
+				declare_war_on = { target = XSM type = annex_everything }
+				declare_war_on = { target = TIB type = annex_everything }
+			}
+			every_country = {
+				limit = {
+					original_tag = PRC
+					has_government = Social_Democratic
+				}
+				CHI = {
+					declare_war_on = { target = PREV type = annex_everything }
+				}
+			}
+		}
 	}
 }
