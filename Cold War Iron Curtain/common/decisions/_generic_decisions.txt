@@ -1581,6 +1581,63 @@ war_measures = {
             factor = 0 #Gotta allow the Americans to help
         }
     }
+   hire_generic_mercenaries = {
+
+        icon = generic_political_discourse
+
+        available = {
+            has_war = yes
+			nor = { 
+				has_government = communism
+				has_government = Social_Democratic
+				has_government = maoism
+			}
+        }
+
+        cost = 300
+		
+		days_re_enable = 180
+
+        fire_only_once = no
+        complete_effect = {
+			set_country_flag  = hired_generic_mercs
+			custom_effect_tooltip = hire_mercs
+			hidden_effect = {
+				division_template = {
+					name = "Private Military Contractor"
+					priority = 2
+
+					regiments = {
+						pmc = { x = 0 y = 0 }
+						pmc = { x = 0 y = 1 }
+						pmc = { x = 0 y = 2 }
+
+						pmc = { x = 1 y = 0 }
+						pmc = { x = 1 y = 1 }
+						pmc = { x = 1 y = 2 }
+
+					}
+				}
+				capital_scope = {
+					limit = { ROOT = { has_full_control_of_state = PREV } }
+					create_unit = {
+						division = "name = \"Les Affreux\" division_template = \"Private Military Contractor\" start_experience_factor = 2.0"
+						owner = ROOT
+					}
+					create_unit = {
+						division = "name = \"Les Affreux\" division_template = \"Private Military Contractor\" start_experience_factor = 2.0"
+						owner = ROOT
+					}
+				}
+				set_division_template_lock = { division_template = "Private Military Contractor" is_locked = yes }	 
+
+			}
+        }
+
+        ai_will_do = {
+            factor = 0 #Gotta allow the Americans to help
+        }
+    }
 	emergency_factory_conversion_defensive = {
 
 		icon = generic_industry
