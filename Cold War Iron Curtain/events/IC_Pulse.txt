@@ -37,6 +37,7 @@ add_namespace = persia
 add_namespace = vie
 add_namespace = arabia
 add_namespace = soviet
+add_namespace = ffl
 
 country_event = {
 	id = ic_pulse.1
@@ -1097,6 +1098,66 @@ country_event = {
 			}
 			country_event = chinapeace.3
 		}		
+		if = {
+			limit = {
+				tag = FRA
+				check_variable = { var = oas_power value = 20 compare = greater_than_or_equals }
+				NOT = {
+					has_government = fascism
+				}
+				NOT = {
+					has_government = National_Socialism
+				}
+				NOT = {
+					has_government = nationalism
+				}				
+			}
+			random_list = { 
+				10 = {
+					country_event = ffl.30
+				}
+				90 = {
+				}
+			}			
+		}
+		if = {
+			limit = {
+				tag = FRA
+				check_variable = { var = oas_power value = 30 compare = greater_than_or_equals }
+				NOT = {
+					has_government = fascism
+				}
+				NOT = {
+					has_government = National_Socialism
+				}
+				NOT = {
+					has_government = nationalism
+				}				
+			}
+			random_list = { 
+				25 = {
+					country_event = ffl.30
+				}
+				75 = {
+				}
+			}			
+		}
+		if = {
+			limit = {
+				check_variable = { var = oas_power value = 40 compare = greater_than_or_equals }
+				tag = FRA
+				NOT = {
+					has_government = fascism
+				}
+				NOT = {
+					has_government = National_Socialism
+				}
+				NOT = {
+					has_government = nationalism
+				}
+			}
+			country_event = ffl.30		
+		}
         if = {
 			limit = {
 				has_war = no
