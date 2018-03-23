@@ -1,6 +1,6 @@
 ﻿add_namespace = space_race
 
-# Space Race initiated
+# Space Race announced
 news_event = {
 	id = space_race.1
 	title = space_race.1.t
@@ -15,7 +15,7 @@ news_event = {
 	picture = GFX_news_event_space_race_initiated
 	
 	fire_only_once = yes
-	
+	major = yes
 	is_triggered_only = yes
 	
 	option = {
@@ -31,5 +31,292 @@ news_event = {
 		trigger = {
 			NOT = { tag = USA tag = SOV }
 		}
+	}
+}
+
+# USA Atlas Program started
+news_event = {
+	id = space_race.2
+	title = space_race.2.t
+	desc = space_race.2.d
+	picture = GFX_news_event_space_race_atlas_program
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = space_race.2.a
+		trigger = {
+			tag = USA
+		}
+	}
+
+	option = {
+		name = space_race.2.b
+		trigger = {
+			tag = SOV
+		}
+	}
+
+	option = {
+		name = space_race.2.c
+		trigger = {
+			NOT = { tag = USA tag = SOV }
+		}
+	}
+}
+
+# USA Atlas SM-65A testing (successfull = random)
+country_event = {
+	id = space_race.3
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			50 = { 
+				country_event = { hours = 6 id = space_race.4 } 
+				set_country_flag = atlas_sm65a_test1_successful
+			} # Test Successful
+			25 = { 
+				country_event = { hours = 6 id = space_race.4 } 
+				set_country_flag = atlas_sm65a_test2_failed_start
+			} # Test failed at start
+			25 = { 
+				country_event = { hours = 6 id = space_race.4 } 
+				set_country_flag = atlas_sm65a_test1_failed_air
+			} # Blew up in the air
+		}
+	}
+
+	option = {}
+}
+
+# USA Atlas SM-65A testing
+country_event = {
+	id = space_race.4
+	title = space_race.4.t
+	desc = {
+		trigger = { USA = { has_country_flag = atlas_sm65a_test1_successful } }
+		text = space_race.4.sucess
+	}
+	desc = {
+		trigger = { SOV = { has_country_flag = atlas_sm65a_test1_failed_start } }
+		text = space_race.4.failed_start
+	}
+	desc = {
+		trigger = { SOV = { has_country_flag = atlas_sm65a_test1_failed_air } }
+		text = space_race.4.failed_air
+	}
+	picture = GFX_report_event_space_race_atlas_rocket
+	
+	is_triggered_only = yes
+	
+	option = {
+		trigger = {
+			has_country_flag = atlas_sm65a_test1_successful
+		}
+		name = space_race.4.a
+		add_to_variable = { var = USA_atlas_level value = 10 }
+	}
+
+	option = {
+		trigger = {
+			has_country_flag = atlas_sm65a_test1_failed_start
+		}
+		name = space_race.4.b
+		add_to_variable = { var = USA_atlas_level value = 0 }
+	}
+
+	option = {
+		trigger = {
+			has_country_flag = atlas_sm65a_test1_failed_air
+		}
+		name = space_race.4.c
+		add_to_variable = { var = USA_atlas_level value = 5 }
+	}
+}
+
+# USA Atlas SM-65A testing 2 (successfull = random)
+country_event = {
+	id = space_race.5
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			70 = { 
+				country_event = { hours = 6 id = space_race.6 } 
+				set_country_flag = atlas_sm65a_test1_successful
+			} # Test Successful
+			20 = { 
+				country_event = { hours = 6 id = space_race.6 } 
+				set_country_flag = atlas_sm65a_test1_failed_start
+			} # Test failed at start
+			10 = { 
+				country_event = { hours = 6 id = space_race.4 } 
+				set_country_flag = atlas_sm65a_test1_failed_air
+			} # Blew up in the air
+		}
+	}
+
+	option = {}
+}
+
+# USA Atlas SM-65A testing 2
+country_event = {
+	id = space_race.6
+	title = space_race.6.t
+	desc = {
+		trigger = { USA = { has_country_flag = atlas_sm65a_test2_successful } }
+		text = space_race.6.sucess
+	}
+	desc = {
+		trigger = { SOV = { has_country_flag = atlas_sm65a_test2_failed_start } }
+		text = space_race.6.failed_start
+	}
+	desc = {
+		trigger = { SOV = { has_country_flag = atlas_sm65a_test2_failed_air } }
+		text = space_race.6.failed_air
+	}
+	picture = GFX_report_event_space_race_atlas_rocket
+	
+	is_triggered_only = yes
+	
+	option = {
+		trigger = {
+			has_country_flag = atlas_sm65a_test2_successful
+		}
+		name = space_race.6.a
+		add_to_variable = { var = USA_atlas_level value = 10 }
+	}
+
+	option = {
+		trigger = {
+			has_country_flag = atlas_sm65a_test2_failed_start
+		}
+		name = space_race.6.b
+		add_to_variable = { var = USA_atlas_level value = 0 }
+	}
+
+	option = {
+		trigger = {
+			has_country_flag = atlas_sm65a_test2_failed_air
+		}
+		name = space_race.6.c
+		add_to_variable = { var = USA_atlas_level value = 5 }
+	}
+}
+
+# USA Atlas SM-65A testing 3 (successfull = random)
+country_event = {
+	id = space_race.7
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			90 = { 
+				country_event = { hours = 6 id = space_race.8 } 
+				set_country_flag = atlas_sm65a_test3_successful
+			} # Test Successful
+			10 = { 
+				country_event = { hours = 6 id = space_race.8 } 
+				set_country_flag = atlas_sm65a_test3_failed_air
+			} # Blew up in the air
+		}
+	}
+
+	option = {}
+}
+
+# USA Atlas SM-65A testing 3
+country_event = {
+	id = space_race.8
+	title = space_race.8.t
+	desc = {
+		trigger = { USA = { has_country_flag = atlas_sm65a_test3_successful } }
+		text = space_race.8.sucess
+	}
+	desc = {
+		trigger = { SOV = { has_country_flag = atlas_sm65a_test3_failed_air } }
+		text = space_race.8.failed_air
+	}
+	picture = GFX_report_event_space_race_atlas_rocket
+	
+	is_triggered_only = yes
+	
+	option = {
+		trigger = {
+			has_country_flag = atlas_sm65a_test3_successful
+		}
+		name = space_race.8.a
+		add_to_variable = { var = USA_atlas_level value = 10 }
+	}
+
+	option = {
+		trigger = {
+			has_country_flag = atlas_sm65a_test3_failed_air
+		}
+		name = space_race.8.b
+		add_to_variable = { var = USA_atlas_level value = 5 }
+	}
+}
+
+# USA Project Vanguard started
+news_event = {
+	id = space_race.10
+	title = space_race.10.t
+	desc = space_race.10.d
+	picture = GFX_news_event_space_race_project_vanguard
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = space_race.10.a
+		trigger = {
+			tag = USA
+		}
+	}
+
+	option = {
+		name = space_race.10.b
+		trigger = {
+			tag = SOV
+		}
+	}
+
+	option = {
+		name = space_race.10.c
+		trigger = {
+			NOT = { tag = USA tag = SOV }
+		}
+	}
+}
+
+# Vanguard: Which Proposal, Air Force or Navy?
+news_event = {
+	id = space_race.11
+	title = space_race.11.t
+	desc = space_race.11.d
+	picture = GFX_report_event_space_race_project_vanguard_tv4
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = space_race.11.a
+		set_country_flag = usa_project_vanguard_navy
+		add_to_variable = { var = USA_vanguard_level value = 5 }
+	}
+
+	option = {
+		name = space_race.11.b
+		set_country_flag = usa_atlas_program
+		add_to_variable = { var = USA_atlas_level value = 5 }
 	}
 }
