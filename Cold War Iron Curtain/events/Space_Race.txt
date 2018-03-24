@@ -99,7 +99,7 @@ country_event = {
 	title = space_race.4.t
 	desc = {
 		trigger = { USA = { has_country_flag = atlas_sm65a_test1_successful } }
-		text = space_race.4.sucess
+		text = space_race.4.success
 	}
 	desc = {
 		trigger = { SOV = { has_country_flag = atlas_sm65a_test1_failed_start } }
@@ -171,7 +171,7 @@ country_event = {
 	title = space_race.6.t
 	desc = {
 		trigger = { USA = { has_country_flag = atlas_sm65a_test2_successful } }
-		text = space_race.6.sucess
+		text = space_race.6.success
 	}
 	desc = {
 		trigger = { SOV = { has_country_flag = atlas_sm65a_test2_failed_start } }
@@ -239,7 +239,7 @@ country_event = {
 	title = space_race.8.t
 	desc = {
 		trigger = { USA = { has_country_flag = atlas_sm65a_test3_successful } }
-		text = space_race.8.sucess
+		text = space_race.8.success
 	}
 	desc = {
 		trigger = { SOV = { has_country_flag = atlas_sm65a_test3_failed_air } }
@@ -299,7 +299,7 @@ news_event = {
 }
 
 # Vanguard: Which Proposal, Air Force or Navy?
-news_event = {
+country_event = {
 	id = space_race.11
 	title = space_race.11.t
 	desc = space_race.11.d
@@ -310,13 +310,136 @@ news_event = {
 	
 	option = {
 		name = space_race.11.a
-		set_country_flag = usa_project_vanguard_navy
+		USA = { set_country_flag = usa_project_vanguard_navy }
 		add_to_variable = { var = USA_vanguard_level value = 5 }
 	}
 
 	option = {
 		name = space_race.11.b
-		set_country_flag = usa_atlas_program
+		USA = { set_country_flag = usa_project_vanguard_airforce }
 		add_to_variable = { var = USA_atlas_level value = 5 }
+	}
+}
+
+# USA Vanguard launch test
+country_event = {
+	id = space_race.12
+	title = {
+		if = {
+			limit = {
+				check_variable = { var = USA_vanguard_level value = 20 compare = equals }
+			}
+			text = space_race.12.start_failedt
+		}
+		if = {
+			limit = {
+				check_variable = { var = USA_vanguard_level value = 25 compare = equals }
+			}
+			text = space_race.12.explodedt
+		}
+		if = {
+			limit = {
+				check_variable = { var = USA_vanguard_level value = 30 compare = equals }
+			}
+			text = space_race.12.exploded_airt
+		}
+		if = {
+			limit = {
+				check_variable = { var = USA_vanguard_level value = 35 compare = greater_than_or_equals }
+			}
+			text = space_race.12.successt
+		}
+	}
+	desc = {
+		if = {
+			limit = {
+				check_variable = { var = USA_vanguard_level value = 20 compare = equals }
+			}
+			text = space_race.12.start_failedd
+		}
+		if = {
+			limit = {
+				check_variable = { var = USA_vanguard_level value = 25 compare = equals }
+			}
+			text = space_race.12.explodedd
+		}
+		if = {
+			limit = {
+				check_variable = { var = USA_vanguard_level value = 30 compare = equals }
+			}
+			text = space_race.12.exploded_aird
+		}
+		if = {
+			limit = {
+				check_variable = { var = USA_vanguard_level value = 35 compare = greater_than_or_equals }
+			}
+			text = space_race.12.successd
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = {
+			check_variable = { var = USA_vanguard_level value = 20 compare = equals }
+		}
+		name = space_race.12.a
+		set_country_flag = usa_project_vanguard_rework_needed
+	}
+
+	option = {
+		trigger = {
+			check_variable = { var = USA_vanguard_level value = 25 compare = equals }
+		}
+		name = space_race.12.b
+		set_country_flag = usa_project_vanguard_rework_needed
+	}
+
+	option = {
+		trigger = {
+			check_variable = { var = USA_vanguard_level value = 30 compare = equals }
+		}
+		name = space_race.12.c
+		set_country_flag = usa_project_vanguard_rework_needed
+	}
+
+	option = {
+		trigger = {
+			check_variable = { var = USA_vanguard_level value = 35 compare = greater_than_or_equals }
+		}
+		name = space_race.12.d
+		set_country_flag = usa_project_vanguard_success
+	}
+}
+
+# USA Project Vanguard Satellite launched
+news_event = {
+	id = space_race.13
+	title = space_race.13.t
+	desc = space_race.13.d
+	picture = GFX_news_event_space_race_project_vanguard
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = space_race.13.a
+		trigger = {
+			tag = USA
+		}
+	}
+
+	option = {
+		name = space_race.13.b
+		trigger = {
+			tag = SOV
+		}
+	}
+
+	option = {
+		name = space_race.13.c
+		trigger = {
+			NOT = { tag = USA tag = SOV }
+		}
 	}
 }

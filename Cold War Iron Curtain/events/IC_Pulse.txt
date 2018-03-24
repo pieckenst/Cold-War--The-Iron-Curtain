@@ -1003,8 +1003,15 @@ country_event = {
 		if = {
 			limit = {
 				VIN = {
-					has_war_with = FRA
-					date > 1949.9.30
+					OR = {
+						AND = {
+							has_war_with = FRA
+							date > 1949.9.30
+						}
+						VIE = { exists = no }
+						CAM = { exists = no }
+					}
+
 				}
 			}
 			country_event = vie.1
