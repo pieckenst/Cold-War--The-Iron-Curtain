@@ -1,4 +1,6 @@
 ﻿add_namespace = swfs
+add_namespace = por_decolonial.1
+add_namespace = Carnation_Revolution
 country_event = {
 	id = swfs.16
 	title = "Portugal Wants Reunification"
@@ -20,5 +22,92 @@ country_event = {
 		}
 		name = "Decline"
 
+	}
+}
+country_event = {
+	id = por_decolonial.1
+	title = "Portugese Decolonialization"
+	desc = "Portugese Decolonialization"
+
+	is_triggered_only = yes
+
+	option = {
+		name = ""Ok"
+		release_puppet = ANG
+		release_puppet = MZB
+		release_puppet = GEQ
+	}
+}
+country_event = {
+	id = por_decolonial.2
+	title = "Portugese Decolonialization"
+	desc = "Portugese Decolonialization"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Ok"
+		end_puppet  = ANG
+		end_puppet  = MZB
+		end_puppet  = GEQ
+	}
+}
+country_event = {
+	id = por_decolonial.10
+	title = "Portugese Colonial Liberation"
+	desc = "Portugese Colonial Liberation"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Ok"
+		release = ANG
+		release = MZB
+		release = GEQ
+	}
+}
+country_event = {
+	id = por_decolonial.20
+	title = "Portugese Colonial Wars"
+	desc = "Portugese Colonial Wars"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Ok"
+		release = ANG
+		release = MZB
+		release = GEQ
+		declare_war_on = { target = GEQ type = annex_everything }	
+		declare_war_on = { target = MZB type = annex_everything }	
+		declare_war_on = { target = ANG type = annex_everything }	
+	}
+}
+
+country_event = {
+	id = Carnation_Revolution.1
+	title = Carnation_Revolution.1.t
+	desc = Carnation_Revolution.1.d
+
+	is_triggered_only = yes
+
+	option = { # Fight them
+		name = "Accept Demands"
+		set_politics = {
+			ruling_party = socialist
+			elections_allowed = yes
+		}
+	}
+
+	option = { # Give in to their demands + civil war
+		name = "Crush the Protestors"
+		start_civil_war = {
+			ruling_party = fascism
+			ideology = socialist
+			size = 0.65
+		}
+		hidden_effect = {
+			set_country_flag = suppress_carnation_revolution
+		}
 	}
 }
