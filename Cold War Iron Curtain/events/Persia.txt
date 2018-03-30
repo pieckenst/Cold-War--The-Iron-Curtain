@@ -3,6 +3,7 @@
 ###########################
 
 add_namespace = persia
+add_namespace = six_day_war
 
 # Persians Demand (Syria)
 country_event = {
@@ -1196,5 +1197,169 @@ news_event = {
 				TAG = PER
 			}
 		}
+	}
+}
+#
+# Persians Demand Azeribajain
+country_event = {
+	id = persia.1000
+	title = "Iran Demands Azeribajain"
+	desc = persia.1.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = { # Accept demands
+		name = "Accept Demands"
+		ai_chance = { 
+			factor = 90 
+		}
+
+		PER = { 
+			transfer_state = 229
+			229 = { add_core_of = PER }
+		}
+	}
+	
+	option = { # Refuse demands
+		name = "Refuse Demands"
+		ai_chance = { 
+			factor = 10 
+		}
+		effect_tooltip = {
+			PER = {
+				create_wargoal = {
+				type = take_state_focus
+				target = SOV
+				generator = { 229 }
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = persia.4000 
+	title = "The May 23rd Revolution"
+	desc = "The May 23rd Revolution"
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = { # 
+		name = "Flee The Country"
+		ai_chance = { 
+			factor = 30
+		}
+		news_event = persia.4002
+		complete_national_focus = PER_Republic_of_Iran
+	}
+	
+	option = { # Refuse demands
+		name = "Refuse Demands"
+		ai_chance = { 
+			factor = 70 
+		}
+		news_event = persia.4001 
+		complete_national_focus = PER_Failure_of_the_Revolution
+	}
+}
+news_event = {
+	id = persia.4001 
+	title = "Iranian Revolution Suppressed"
+	desc = "Iranian Revolution Suppressed"
+	picture = GFX_news_event_023
+
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Death to the Traitors"
+		trigger = { TAG = PER }
+	}
+	
+	option = {
+		name = "An Interesting Development"
+		trigger = { NOT = { TAG = PER } }
+	}
+}
+news_event = {
+	id = persia.4002
+	title = "Fall of the Shah"
+	desc = "Fall of the Shah"
+	picture = GFX_news_event_023
+
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Long Live the Republic of Iran"
+		trigger = { TAG = PER }
+	}
+	
+	option = {
+		name = "An Interesting Development"
+		trigger = { NOT = { TAG = PER } }
+	}
+}
+news_event = {
+	id = persia.9000
+	title = "Khomeini Expelled from Iran"
+	desc = "Khomeini Expelled from Iran"
+	picture = GFX_news_event_023
+
+	major = yes
+	
+	is_triggered_only = yes
+
+	
+	option = {
+		name = "An Interesting Development"
+	}
+}
+news_event = {
+	id = six_day_war.150 
+	title = "Iran Enters the War Against Israel"
+	desc = "Iran Enters the War Against Israel"
+	picture = GFX_news_event_023
+
+	major = yes
+	
+	is_triggered_only = yes
+
+	
+	option = {
+		name = "An Interesting Development"
+	}
+}
+news_event = {
+	id = six_day_war.160
+	title = "Iran Enters the War Against the UAR"
+	desc = "Iran Enters the War Against the UAR"
+	picture = GFX_news_event_023
+
+	major = yes
+	
+	is_triggered_only = yes
+
+	
+	option = {
+		name = "An Interesting Development"
+	}
+}
+news_event = {
+	id = persia.8750
+	title = "Anti Democracy Rallies in Tabriz"
+	desc = "Anti Democracy Rallies in Tabriz"
+	picture = GFX_news_event_023
+
+	major = yes
+	
+	is_triggered_only = yes
+
+	
+	option = {
+		name = "An Interesting Development"
 	}
 }
