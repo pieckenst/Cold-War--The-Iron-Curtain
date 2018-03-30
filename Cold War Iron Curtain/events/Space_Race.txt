@@ -81,7 +81,7 @@ country_event = {
 			} # Test Successful
 			25 = { 
 				country_event = { hours = 6 id = space_race.4 } 
-				set_country_flag = atlas_sm65a_test2_failed_start
+				set_country_flag = atlas_sm65a_test1_failed_start
 			} # Test failed at start
 			25 = { 
 				country_event = { hours = 6 id = space_race.4 } 
@@ -99,15 +99,15 @@ country_event = {
 	title = space_race.4.t
 	desc = {
 		trigger = { USA = { has_country_flag = atlas_sm65a_test1_successful } }
-		text = space_race.4.success
+		text = space_race.4.aa
 	}
 	desc = {
-		trigger = { SOV = { has_country_flag = atlas_sm65a_test1_failed_start } }
-		text = space_race.4.failed_start
+		trigger = { USA = { has_country_flag = atlas_sm65a_test1_failed_start } }
+		text = space_race.4.bb
 	}
 	desc = {
-		trigger = { SOV = { has_country_flag = atlas_sm65a_test1_failed_air } }
-		text = space_race.4.failed_air
+		trigger = { USA = { has_country_flag = atlas_sm65a_test1_failed_air } }
+		text = space_race.4.cc
 	}
 	picture = GFX_report_event_space_race_atlas_rocket
 	
@@ -171,15 +171,15 @@ country_event = {
 	title = space_race.6.t
 	desc = {
 		trigger = { USA = { has_country_flag = atlas_sm65a_test2_successful } }
-		text = space_race.6.success
+		text = space_race.6.aa
 	}
 	desc = {
-		trigger = { SOV = { has_country_flag = atlas_sm65a_test2_failed_start } }
-		text = space_race.6.failed_start
+		trigger = { USA = { has_country_flag = atlas_sm65a_test2_failed_start } }
+		text = space_race.6.bb
 	}
 	desc = {
-		trigger = { SOV = { has_country_flag = atlas_sm65a_test2_failed_air } }
-		text = space_race.6.failed_air
+		trigger = { USA = { has_country_flag = atlas_sm65a_test2_failed_air } }
+		text = space_race.6.cc
 	}
 	picture = GFX_report_event_space_race_atlas_rocket
 	
@@ -239,11 +239,11 @@ country_event = {
 	title = space_race.8.t
 	desc = {
 		trigger = { USA = { has_country_flag = atlas_sm65a_test3_successful } }
-		text = space_race.8.success
+		text = space_race.8.aa
 	}
 	desc = {
-		trigger = { SOV = { has_country_flag = atlas_sm65a_test3_failed_air } }
-		text = space_race.8.failed_air
+		trigger = { USA = { has_country_flag = atlas_sm65a_test3_failed_air } }
+		text = space_race.8.cc
 	}
 	picture = GFX_report_event_space_race_atlas_rocket
 	
@@ -330,25 +330,25 @@ country_event = {
 			limit = {
 				check_variable = { var = USA_vanguard_level value = 20 compare = equals }
 			}
-			text = space_race.12.start_failedd
+			text = space_race.12.aa
 		}
 		if = {
 			limit = {
 				check_variable = { var = USA_vanguard_level value = 25 compare = equals }
 			}
-			text = space_race.12.explodedd
+			text = space_race.12.bb
 		}
 		if = {
 			limit = {
 				check_variable = { var = USA_vanguard_level value = 30 compare = equals }
 			}
-			text = space_race.12.exploded_aird
+			text = space_race.12.cc
 		}
 		if = {
 			limit = {
 				check_variable = { var = USA_vanguard_level value = 35 compare = greater_than_or_equals }
 			}
-			text = space_race.12.successd
+			text = space_race.12.dd
 		}
 	}
 
@@ -416,5 +416,51 @@ news_event = {
 		trigger = {
 			NOT = { tag = USA tag = SOV }
 		}
+	}
+}
+
+# USA Score satellite launched
+news_event = {
+	id = space_race.14
+	title = space_race.14.t
+	desc = space_race.14.d
+	picture = GFX_news_event_space_race_score_satellite
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = space_race.14.a
+		trigger = {
+			tag = USA
+		}
+	}
+
+	option = {
+		name = space_race.14.b
+		trigger = {
+			tag = SOV
+		}
+	}
+
+	option = {
+		name = space_race.14.c
+		trigger = {
+			NOT = { tag = USA tag = SOV }
+		}
+	}
+}
+
+# USA SM65-B Tested successfully
+news_event = {
+	id = space_race.15
+	title = space_race.15.t
+	desc = space_race.15.d
+	picture = GFX_report_event_space_race_sm65b
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = space_race.15.a
 	}
 }

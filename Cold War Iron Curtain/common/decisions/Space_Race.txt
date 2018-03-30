@@ -1,7 +1,7 @@
 #################################
 # TO DO LIST:
 #
-# - Finish Project Vanguard (satellite news event, Russians with first satellite, etc.) and Atlas (launching SCOORE)
+# - Finish Project Vanguard (satellite news event, Russians with first satellite, etc.) and Atlas (launching SCORE)
 #################################
 
 
@@ -72,7 +72,7 @@ SPACE_RACE_USA = {
 		fire_only_once = yes
 		selectable_mission = yes
 
-		days_remove = 1440
+		days_remove = 1
 
 		remove_trigger = {
 			has_tech = icbm1
@@ -108,6 +108,47 @@ SPACE_RACE_USA = {
 		}
 	}
 
+	atlas_project_progress = {
+
+		icon = generic_research
+
+		allowed = {
+			AND = {
+				original_tag = USA
+				has_global_flag = usa_atlas_program
+			}
+		}
+
+		available = {
+			USA = { has_country_flag = not_selectable }
+		}
+
+		cost = 200
+
+		fire_only_once = yes
+		selectable_mission = yes
+
+		days_remove = 14
+
+		visible = {
+			AND = {
+				original_tag = USA
+				has_global_flag = usa_atlas_program
+			}
+		}
+
+		remove_effect = {
+		}
+
+		remove_trigger = {
+			USA = { has_country_flag = usa_SCORE_satellite }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
 	test_sm65A_atlas_missile1 = {
 
 		icon = generic_research
@@ -116,6 +157,7 @@ SPACE_RACE_USA = {
 			AND = {
 				original_tag = USA
 				has_global_flag = usa_atlas_program
+				NOT = { has_global_flag = usa_sm65A_atlas_missile }
 			}
 		}
 
@@ -162,6 +204,7 @@ SPACE_RACE_USA = {
 			AND = {
 				original_tag = USA
 				has_global_flag = usa_atlas_program
+				NOT = { USA = { has_country_flag = usa_sm65A_atlas_missile_test2 } }
 			}
 		}
 
@@ -184,6 +227,7 @@ SPACE_RACE_USA = {
 		}
 
 		remove_effect = {
+			set_country_flag = usa_sm65A_atlas_missile_test2
 			custom_effect_tooltip = atlas_missile_level_up
 			hidden_effect = {
 				country_event = space_race.5
@@ -207,13 +251,14 @@ SPACE_RACE_USA = {
 			AND = {
 				original_tag = USA
 				has_global_flag = usa_atlas_program
+				NOT = { USA = { has_country_flag = usa_sm65A_atlas_missile_test3 } }
 			}
 		}
 
 		available = {
 			OR = {
-				has_country_flag = atlas_sm65a_test2_failed_start
-				has_country_flag = atlas_sm65a_test2_failed_air
+				USA = { has_country_flag = atlas_sm65a_test2_failed_start }
+				USA = { has_country_flag = atlas_sm65a_test2_failed_air }
 			}
 		}
 
@@ -236,6 +281,7 @@ SPACE_RACE_USA = {
 		}
 
 		remove_effect = {
+			set_country_flag = usa_sm65A_atlas_missile_test3
 			custom_effect_tooltip = atlas_missile_level_up
 			hidden_effect = {
 				country_event = space_race.7
@@ -262,7 +308,7 @@ SPACE_RACE_USA = {
 			AND = {
 				original_tag = USA
 				check_variable = { var = USA_atlas_level value = 10 compare = greater_than_or_equals }
-				NOT = { check_variable = { var = USA_atlas_level value = 50 compare = greater_than_or_equals } }
+				NOT = { check_variable = { var = USA_atlas_level value = 30 compare = greater_than_or_equals } }
 			}
 		}
 
@@ -299,6 +345,52 @@ SPACE_RACE_USA = {
 		}
 	}
 
+	build_SCORE_satellite = {
+
+		icon = generic_research
+
+		allowed = {
+			AND = {
+				original_tag = USA
+				check_variable = { var = USA_atlas_level value = 10 compare = greater_than_or_equals }
+				NOT = { check_variable = { var = USA_atlas_level value = 50 compare = greater_than_or_equals } }
+				NOT = { USA = { has_country_flag = usa_atlas_score_built } }
+			}
+		}
+
+		available = {
+			check_variable = { var = USA_atlas_level value = 10 compare = greater_than_or_equals }
+		}
+
+		cost = 150
+
+		fire_only_once = yes
+		selectable_mission = yes
+
+		days_remove = 31
+
+		visible = {
+			AND = {
+				original_tag = USA
+				check_variable = { var = USA_atlas_level value = 10 compare = greater_than_or_equals }
+				NOT = { check_variable = { var = USA_atlas_level value = 50 compare = greater_than_or_equals } }
+			}
+		}
+
+		remove_effect = {
+			set_country_flag = usa_atlas_score_built
+			custom_effect_tooltip = "A Communication Satellite called 'SCORE'"
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 10
+				check_variable = { var = USA_atlas_level value = 10 compare = greater_than_or_equals }
+			}
+		}
+	}
+
 	assemble_sm65b_atlas = {
 
 		icon = generic_research
@@ -308,6 +400,7 @@ SPACE_RACE_USA = {
 				original_tag = USA
 				check_variable = { var = USA_atlas_level value = 20 compare = greater_than_or_equals }
 				NOT = { check_variable = { var = USA_atlas_level value = 50 compare = greater_than_or_equals } }
+				NOT = { has_country_flag = usa_sm65B_atlas_missile }
 			}
 		}
 
@@ -333,6 +426,100 @@ SPACE_RACE_USA = {
 		remove_effect = {
 			set_country_flag = usa_sm65B_atlas_missile
 			add_to_variable = { var = USA_atlas_level value = 10 }
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 10
+				check_variable = { var = USA_atlas_level value = 10 compare = greater_than_or_equals }
+			}
+		}
+	}
+
+	test_sm65b_atlas = {
+
+		icon = generic_research
+
+		allowed = {
+			AND = {
+				original_tag = USA
+				check_variable = { var = USA_atlas_level value = 20 compare = greater_than_or_equals }
+				USA = { has_country_flag = usa_sm65B_atlas_missile }
+				NOT = { USA = { has_country_flag = usa_sm65B_atlas_missile_tested } }
+			}
+		}
+
+		available = {
+			check_variable = { var = USA_atlas_level value = 20 compare = greater_than_or_equals }
+		}
+
+		cost = 150
+
+		fire_only_once = yes
+		selectable_mission = yes
+
+		days_remove = 4
+
+		visible = {
+			AND = {
+				original_tag = USA
+				check_variable = { var = USA_atlas_level value = 20 compare = greater_than_or_equals }
+				USA = { has_country_flag = usa_sm65B_atlas_missile }
+			}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = "A rocket capable of launching the SCORE satellite"
+			set_country_flag = usa_sm65B_atlas_missile_tested
+			country_event = { id = space_race.15 hours = 6 }
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 10
+				check_variable = { var = USA_atlas_level value = 10 compare = greater_than_or_equals }
+			}
+		}
+	}
+
+	launch_SCORE_satellite = {
+
+		icon = generic_research
+
+		allowed = {
+			AND = {
+				original_tag = USA
+				check_variable = { var = USA_atlas_level value = 20 compare = greater_than_or_equals }
+				USA = { has_country_flag = usa_sm65B_atlas_missile_tested }
+				NOT = { USA = { has_country_flag = usa_SCORE_satellite } }
+			}
+		}
+
+		available = {
+			check_variable = { var = USA_atlas_level value = 20 compare = greater_than_or_equals }
+		}
+
+		cost = 150
+
+		fire_only_once = yes
+		selectable_mission = no
+
+		days_remove = 7
+
+		visible = {
+			AND = {
+				original_tag = USA
+				check_variable = { var = USA_atlas_level value = 20 compare = greater_than_or_equals }
+				USA = { has_country_flag = usa_sm65B_atlas_missile_tested }
+			}
+		}
+
+		complete_effect = {
+			set_country_flag = usa_SCORE_satellite
+			add_to_variable = { var = USA_atlas_level value = 10 }
+			news_event = { id = space_race.14 }
 		}
 
 		ai_will_do = {
