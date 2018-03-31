@@ -38,5 +38,43 @@ decolonization_decisions = {
 			}
 		}
 	}
+	end_class_b_mandate_eng = {
+
+		icon = generic_research
+
+		allowed = {
+			original_tag = ENG
+		}
+
+		available = {
+			date > 1961.12.9
+			has_global_flag = eng_class_b_mandate_available
+			TAZ = { is_subject_of = ROOT}
+			TAZ = { owns_state = 546 }
+			TAZ = { owns_state = 1201 }
+		}
+		
+		cost = 0
+
+		fire_only_once = yes
+
+		visible = {
+			original_tag = ENG
+			has_global_flag = eng_class_b_mandate_available
+		}
+
+		complete_effect = {
+			clr_global_flag = eng_class_b_mandate_available
+			TAZ = { country_event = { id = britishdecolonization.11 hours = 5 } }
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 100
+				date > 1961.12.9
+			}
+		}
+	}
 
 }
