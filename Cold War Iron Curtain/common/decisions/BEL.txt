@@ -1,0 +1,52 @@
+decolonization_decisions = {
+
+	end_class_b_mandate_bel = {
+
+		icon = generic_research
+
+		allowed = {
+			original_tag = BEL
+		}
+
+		available = {
+			#date > 1962.7.1
+			has_global_flag = bel_class_b_mandate_available
+			OR = {
+				AND = {
+					RUR = { is_subject_of = ROOT}
+					RUR = { owns_state = 825 }
+					RUR = { owns_state = 907 }
+				}
+				AND = {
+					BEL = { owns_state = 825 }
+					BEL = { owns_state = 907 }
+				}
+			}
+
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+
+		visible = {
+			original_tag = BEL
+			#date > 1962.7.1
+			has_global_flag = bel_class_b_mandate_available
+		}
+
+		complete_effect = {
+			clr_global_flag = bel_class_b_mandate_available
+			RUR = { country_event = { id = belgiandecolonization.11 hours = 5 } }
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 10
+				date > 1962.7.1
+			}
+		}
+	}
+
+}
