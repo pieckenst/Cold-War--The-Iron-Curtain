@@ -49,7 +49,7 @@ set_technology = {
 	fighter3 = 1
 	frigate_1 = 1
 	frigate_2 = 1
-	great_war_infantry_equipment = 1
+	infantry_equip_1 = 1
 	gw_artillery = 1
 	selfpropart1 = 1
 	sp_aa1 = 1
@@ -57,8 +57,8 @@ set_technology = {
 	heavy_fighter1 = 1
 	heavy_fighter2 = 1
 	heavy_fighter3 = 1
-	heavy_infantry_weapons1 = 1
-	heavy_infantry_weapons2 = 1
+	team_weapons_1 = 1
+	team_weapons_2 = 1
 	heavy_tanks_1 = 1
 	heavy_tanks_2 = 1
 	improved_destroyer = 1
@@ -83,8 +83,6 @@ set_technology = {
 	mechanized_heavy_infantry = 1
 	mechanized_infantry = 1
 	mechanized_infantry2 = 1
-	mortar_infantry_weapons_1 = 1
-	mortar_infantry_weapons_2 = 1
 	motorised_infantry = 1
 	naval_bomber1 = 1
 	naval_bomber2 = 1
@@ -120,15 +118,15 @@ set_politics = {
 
 	parties = {
 		democratic = { 
-			popularity = 33
+			popularity = 03
 		}
 
 		socialist = {
-			popularity = 34
+			popularity = 04
 		}
 		
 		communism = {
-			popularity = 33
+			popularity = 03
 			#banned = no #default is no
 		}
 		
@@ -141,21 +139,42 @@ set_politics = {
 		}
 	}
 	
-	ruling_party = socialist
-	last_election = "1960.1.1"
+	ruling_party = Christian_Democratic
+	last_election = "1949.1.1"
 	election_frequency = 48
 	elections_allowed = yes
 }
 
+set_cosmetic_tag = DOC_BEL
+
 create_country_leader = {
 	name = "Patrice Lumumba"
-	desc = ""
 	picture = "Lumumba.dds"
 	ideology = socialism
-	traits = {
-		#
-	}
 }
+
+create_country_leader = {
+	name = "Eugène Jungers"
+	picture = "Jungers.dds"
+	ideology = christian_democracy
+}
+
+create_country_leader = {
+	name = "Mobutu Sese Seko"
+	picture = "Mobutu_Sese_Seko.dds"
+	ideology = african_nationalism
+}
+
+create_country_leader = {
+	name = "Joseph Kasa-Vubu"
+	picture = "Joseph_Kasa_Vubu.dds"
+	ideology = Liberal_Conservatism
+}
+
+1960.1.1 = {
+        drop_cosmetic_tag = yes
+}
+
 1965.1.1 = {
 	set_politics = {
 
@@ -179,19 +198,16 @@ create_country_leader = {
 		}
 		
 		ruling_party = nationalism
-		last_election = "1936.1.1"
+		last_election = "1965.1.1"
 		election_frequency = 48
 		elections_allowed = no
 	}
+}
 
-	create_country_leader = {
-		name = "Mobutu Sese Seko"
-		desc = "POLITICS_JAMPHEL_YESHE_GYALTSEN_DESC"
-		picture = "gfx/leaders/COG/Seko.dds"
-		expire = "1997.9.7"
-		ideology = patriotism
-		traits = {
-			#
-		}
-	}
+1971.1.1 = {
+    set_cosmetic_tag = DOC_ZAIRE
+}
+
+1997.1.1 = {
+    drop_cosmetic_tag = yes
 }

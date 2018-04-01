@@ -82,6 +82,14 @@ focus_tree = {
 			add = 10
 			tag = LES
 		}
+		modifier = {
+			add = 10
+			tag = DOC
+		}
+		modifier = {
+			add = 10
+			tag = GAM
+		}
 	}
 	default = yes
 	focus = {
@@ -2145,6 +2153,7 @@ focus_tree = {
 							has_government = democratic
 							has_government = neutrality
 							has_government = conservative
+							has_government = Christian_Democratic
 						}
 				}
 			available_if_capitulated = yes
@@ -2193,6 +2202,16 @@ focus_tree = {
 		                }
 						set_politics = {
 	                        ruling_party = democratic
+                        }	
+				}
+			    if = {
+						limit = { tag = GAM }
+						add_popularity ={
+		                     ideology = centrist
+		                     popularity = 1.0
+		                }
+						set_politics = {
+	                        ruling_party = centrist
                         }	
 				}
 		    }
@@ -2743,18 +2762,38 @@ focus_tree = {
 			completion_reward = {
 					add_ideas = collectivist_ethos_focus
 					country_event = AFR.201
-		            if = {
+		        if = {
 						limit = { tag = BCM }
 						NIA = { transfer_state = 1106 add_state_core = 1106 }	
                         CMR = { add_state_core = 1105 }	
-                        BCM = { remove_state_core = 1106 }								
-						}
-					if = {
+                        BCM = { remove_state_core = 1106 }							
+				}
+				if = {
 						limit = { tag = CHA }
 						release = CAR
                         release = ROC
                         release = GAB				
-						}
+				}
+				if = {
+						limit = { tag = LES }
+						add_popularity ={
+		                     ideology = democratic
+		                     popularity = 0.20
+		                }
+						set_politics = {
+	                        ruling_party = democratic
+                        }	
+				}
+				if = {
+						limit = { tag = GAM }
+						add_popularity ={
+		                     ideology = centrist
+		                     popularity = 1.0
+		                }
+						set_politics = {
+	                        ruling_party = centrist
+                        }	
+				}
 		    }
 	}
 	focus = {

@@ -16,7 +16,7 @@ set_technology = {
 	advanced_rocket_engines = 1
 	amphibious1 = 1
 	antiair1 = 1
-	anti_tank_1 = 1
+	antitank_1 = 1
 	basic_carrier = 1
 	basic_destroyer = 1
 	basic_light_cruiser = 1
@@ -54,7 +54,7 @@ set_technology = {
 	fighter3 = 1
 	frigate_1 = 1
 	frigate_2 = 1
-	great_war_infantry_equipment = 1
+	infantry_equip_1 = 1
 	gw_artillery = 1
 	selfpropart1 = 1
 	sp_aa1 = 1
@@ -62,8 +62,8 @@ set_technology = {
 	heavy_fighter1 = 1
 	heavy_fighter2 = 1
 	heavy_fighter3 = 1
-	heavy_infantry_weapons1 = 1
-	heavy_infantry_weapons2 = 1
+	team_weapons_1 = 1
+	team_weapons_2 = 1
 	heavy_tanks_2 = 1
 	heavy_tanks_3 = 1
 	improved_destroyer = 1
@@ -71,7 +71,7 @@ set_technology = {
 	improved_rocket_engines = 1
 	
 	interwar_antiair = 1
-	infantry_equip_1 = 1
+	infantry_equip_2 = 1
 	jet_CAS1 = 1
 	jet_engines = 1
 	jet_fighter1 = 1
@@ -89,8 +89,8 @@ set_technology = {
 	mechanized_heavy_infantry = 1
 	mechanized_infantry = 1
 	mechanized_infantry2 = 1
-	mortar_infantry_weapons_1 = 1
-	mortar_infantry_weapons_2 = 1
+	 
+	 
 	motorised_infantry = 1
 	naval_bomber1 = 1
 	naval_bomber2 = 1
@@ -114,6 +114,9 @@ set_technology = {
 	tank_landing_craft = 1
 	tech_support = 1
 	transport = 1
+	super_heavy_tanks_1 = 1
+	super_heavy_tanks_2 = 1
+	super_heavy_tanks_3 = 1
 }
 
 
@@ -127,6 +130,11 @@ if = {
 	}
 	set_autonomy = {
 		target = OMA
+		autonomous_state = autonomy_protectorate
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = UAE
 		autonomous_state = autonomy_protectorate
 		freedom_level = 0.4
 	}
@@ -201,6 +209,11 @@ if = {
 		freedom_level = 0.6
 	}
 	set_autonomy = {
+		target = TAZ
+		autonomous_state = autonomy_protectorate
+		freedom_level = 0.6
+	}
+	set_autonomy = {
 		target = LBA
 		autonomous_state = autonomy_protectorate
 		freedom_level = 0.6
@@ -260,19 +273,20 @@ if = {
 		autonomous_state = autonomy_protectorate
 		freedom_level = 0.6
 	}
+	set_autonomy = {
+		target = GAM
+		autonomous_state = autonomy_protectorate
+		freedom_level = 0.6
+	}
     set_autonomy = {
 		target = BCM
 		autonomous_state = autonomy_protectorate
 		freedom_level = 0.6
 	}
-	set_autonomy = {
-		target = TAG
-		autonomous_state = autonomy_protectorate
-		freedom_level = 0.6
-	}	
 	
 	else = {
 		puppet = KUW
+		puppet = UAE
 		puppet = OMA
 		puppet = CYP
 		puppet = SUD
@@ -299,7 +313,8 @@ if = {
 		puppet = BSL
         puppet = BCM
 		puppet = LES
-		puppet = TAG
+		puppet = TAZ
+		puppet = GAM
 	}
 }
 
@@ -327,6 +342,13 @@ add_ai_strategy = {
 	set_autonomy = { target = NIA autonomy_state = autonomy_free }
     set_autonomy = { target = CYP autonomy_state = autonomy_free }		
 }
+1961.1.1 = {
+    set_autonomy = { target = BCM autonomy_state = autonomy_free } 
+	set_autonomy = { target = TAZ autonomy_state = autonomy_free }	
+}
+1965.1.1 = {
+    set_autonomy = { target = GAM autonomy_state = autonomy_free } 
+}
 1966.1.1 = {
 	set_autonomy = { target = ZIM autonomy_state = autonomy_free }	
 	set_autonomy = { target = ZAM autonomy_state = autonomy_free }	
@@ -340,18 +362,11 @@ add_ai_strategy = {
 	set_autonomy = { target = DRY autonomy_state = autonomy_free }	
 }
 1971.1.1 = {
-	set_autonomy = { target = OMA autonomy_state = autonomy_free }	
+	set_autonomy = { target = OMA autonomy_state = autonomy_free }
+    set_autonomy = { target = UAE autonomy_state = autonomy_free }		
 }
 1975.12.12 = {
     set_autonomy = { target = KNA autonomy_state = autonomy_free }    
-}
-
-1961.2.11 = {
-    set_autonomy = { target = BCM autonomy_state = autonomy_free }        
-}
-
-1961.12.9 = {
-    set_autonomy = { target = TAG autonomy_state = autonomy_free }        
 }
 
 set_politics = {
@@ -1042,112 +1057,3 @@ create_equipment_variant = {
 		ideology = conservatism
   	}
  }
-2000.1.1 = {
-	set_politics = {
-
-		parties = {
-			socialist = {			
-				popularity = 45.7
-			}
-			conservative = {			
-				popularity = 31.0
-			}
-			Social_Liberalism = {		
-				popularity = 16.2
-			}
-			neutrality = {				
-				popularity = 3.2
-			}
-			Social_Democratic = {	
-				popularity = 0.7
-			}
-			democratic = {				
-				popularity = 0.8
-			}
-			liberal = {			
-				popularity = 0.2
-			}
-			fascism = {					
-				popularity = 0.1
-			}
-			nationalism = {				
-				popularity = 0.1
-			}
-			communism = {			
-				popularity = 0.1
-			}
-		}
-		
-		ruling_party = socialist
-		last_election = "1997.5.1"
-		election_frequency = 60
-		elections_allowed = yes
-	}
-
-	create_country_leader = {
-		name = "Nick Griffin"
-		picture = "Portrait_Nick_Griffin.dds"
-		ideology = fascism_ideology
-	}
-
-	create_country_leader = {
-		name = "Tom Holmes"
-		picture = "Portrait_Tom_Holmes.dds"
-		ideology = nationalist_ideology
-	}
-
-	create_country_leader = {
-		name = "Elizabeth II"
-		picture = "Portrait_Elizabeth.dds"
-		ideology = absolute_monarchist
-	}
-
-	create_country_leader = {
-		name = "Michael Holmes"
-		picture = "Portrait_Michael_Holmes.dds"
-		ideology = reactionary
-	}
-
-	create_country_leader = {
-		name = "William Hague"
-		picture = "Portrait_William_Hague.dds"
-		ideology = market_liberal
-	}
-
-	create_country_leader = {
-		name = "Tony Blair"
-		picture = "Portrait_Tony_Blair.dds"
-		ideology = democratic_ideology
-	}
-
-	create_country_leader = {
-		name = "Anjem Choudary"
-		picture = "Portrait_Anjem_Choudary.dds"
-		ideology = sunni_islamism
-	}
-		
-	create_country_leader = {
-		name = "Charles Kennedy"
-		picture = "Portrait_Charles_Kennedy.dds"
-		ideology = centrism
-	}
-		
-	create_country_leader = {
-		name = "Natalie Bennett"
-		picture = "Portrait_Natalie_Bennett.dds"
-		ideology = green
-	}
-		
-	create_country_leader = {
-		name = "Peter Taaffe"
-		picture = "Portrait_Peter_Taaffey.dds"
-		ideology = social_democracy
-	}
-		
-	create_country_leader = {
-		name = "Robert Griffiths"
-		picture = "Portrait_Robert_Griffiths.dds"
-		ideology = leninism
-	}
- 
-}
