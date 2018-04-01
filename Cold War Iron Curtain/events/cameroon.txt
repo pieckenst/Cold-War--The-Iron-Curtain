@@ -2,14 +2,21 @@
 
 country_event = {
 	id = cameroon.1
-	#title = cameroon.1.t
-	#desc = cameroon.1.d
-	#picture = GFX_report_event_chinese_army_training
 	hidden = yes
+	
 	is_triggered_only = yes
+	
 	mean_time_to_happen = {
 		days = 1
 	}
+	
+	immediate = {
+		hidden_effect = {
+			BCM = { drop_cosmetic_tag = yes }
+			ENG = { end_puppet = BCM }
+		}
+	}
+	
 	#HISTORICAL
 	option = {
 		name = cameroon.1.a
@@ -17,19 +24,20 @@ country_event = {
 			is_historical_focus_on = yes
 		}
 		NIA = { transfer_state = 1106 }
+		1106 = { add_core_of = NIA remove_core_of = BCM }
 	}
-		#AHISTORICAL
+	#AHISTORICAL
 	option = {
 		name = cameroon.1.b
 		trigger = {
 			is_historical_focus_on = no
 		}
 		random_list = {
-			50 = {
+			85 = {
 				NIA = { transfer_state = 1106 }
-				1106 = { add_core_of = NIA }
+				1106 = { add_core_of = NIA remove_core_of = BCM }
 			}
-			50 = {
+			15 = {
 				CMR = { transfer_state = 1106 }
 				1106 = { add_core_of = CMR }
 			}
@@ -38,18 +46,18 @@ country_event = {
 }
 country_event = {
 	id = cameroon.2
-	#title = cameroon.2.t
-	#desc = cameroon.2.d
-	#picture = GFX_report_event_chinese_army_training
 	hidden = yes
+	
 	is_triggered_only = yes
+	
 	mean_time_to_happen = {
 		days = 1
 	}
 	
 	immediate = {
 		hidden_effect = {
-			1105 = {remove_core_of = BCM}
+			BCM = { drop_cosmetic_tag = yes }
+			ENG = { end_puppet = BCM }
 		}
 	}
 	
@@ -60,6 +68,7 @@ country_event = {
 			is_historical_focus_on = yes
 		}
 		CMR = { transfer_state = 1105 }
+		1105 = { add_core_of = CMR }
 	}
 		#AHISTORICAL
 	option = {
@@ -68,39 +77,53 @@ country_event = {
 			is_historical_focus_on = no
 		}
 		random_list = {
-			50 = {
+			15 = {
 				NIA = { transfer_state = 1105 }
-				1105 = { add_core_of = NIA }
+				1105 = { add_core_of = NIA remove_core_of = BCM }
 			}
-			50 = {
+			85 = {
 				CMR = { transfer_state = 1105 }
 				1105 = { add_core_of = CMR }
 			}
 		}
 	}
 }
-# Amelia Earhart Trigger (HIDDEN)
-#news_event = {
-#	id = news.54
-#	hidden = yes
-#	
-#	fire_only_once = yes
-#	
-#	trigger = {
-#		date > 1937.7.1
-#		NOT = { has_global_flag = earhart_disappeared}
-#		country_exists = USA
-#		USA = { has_war = no }
-#		NOT = { has_country_flag = amelia_active_ace }
-#	}
-#	
-#	immediate = {
-#		random_list = {
-#			50 = { ENG = { news_event = { id = news.48 } } }
-#			50 = { ENG = { news_event = { id = news.49 } } }
-#		}
-#	}
-#	option = {
-#		name = news.54.a
-#	}
-#}
+
+country_event = {
+    id = cameroon.3
+    title = cameroon.3.t
+    desc = cameroon.3.d
+    picture = GFX_report_event_german_volunteers
+
+    fire_only_once = yes
+
+    trigger = {
+        original_tag = ENG
+        date > 1961.12.9
+		BCM = { is_subject_of = ROOT}
+		BCM = { owns_state = 1105 owns_state = 1106 }
+    }
+	
+    option = {
+        name = cameroon.3.a
+        ai_chance = {
+            factor = 100
+        }
+        custom_effect_tooltip = cameroon.3.a.tt
+        hidden_effect = {
+		    country_event = { id = cameroon.1 hours = 9 }
+			country_event = { id = cameroon.2 hours = 9 }
+		}
+    }
+    option = {
+        name = cameroon.3.b
+        ai_chance = {
+            factor = 0
+        }
+        custom_effect_tooltip = cameroon.3.b.tt
+        hidden_effect = {
+            set_global_flag = eng_partition_south_cameroon_available
+			set_global_flag = eng_partition_north_cameroon_available
+        }
+    }
+}
