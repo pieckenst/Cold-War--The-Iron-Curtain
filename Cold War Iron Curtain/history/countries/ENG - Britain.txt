@@ -6,7 +6,6 @@ set_research_slots = 4
 
 set_stability = 0.6
 
-# Starting tech
 set_technology = {
 	CAS1 = 1
 	CAS2 = 1
@@ -69,7 +68,6 @@ set_technology = {
 	improved_destroyer = 1
 	improved_light_cruiser = 1
 	improved_rocket_engines = 1
-	
 	interwar_antiair = 1
 	infantry_equip_2 = 1
 	jet_CAS1 = 1
@@ -89,8 +87,6 @@ set_technology = {
 	mechanized_heavy_infantry = 1
 	mechanized_infantry = 1
 	mechanized_infantry2 = 1
-	 
-	 
 	motorised_infantry = 1
 	naval_bomber1 = 1
 	naval_bomber2 = 1
@@ -118,7 +114,6 @@ set_technology = {
 	super_heavy_tanks_2 = 1
 	super_heavy_tanks_3 = 1
 }
-
 
 set_convoys = 800
 give_guarantee = WGR
@@ -283,6 +278,11 @@ if = {
 		autonomous_state = autonomy_protectorate
 		freedom_level = 0.6
 	}
+	set_autonomy = {
+		target = MLT
+		autonomous_state = autonomy_protectorate
+		freedom_level = 0.6
+	}
 	
 	else = {
 		puppet = KUW
@@ -315,6 +315,7 @@ if = {
 		puppet = LES
 		puppet = TAZ
 		puppet = GAM
+		puppet = MLT
 	}
 }
 
@@ -345,6 +346,9 @@ add_ai_strategy = {
 1961.1.1 = {
     set_autonomy = { target = BCM autonomy_state = autonomy_free } 
 	set_autonomy = { target = TAZ autonomy_state = autonomy_free }	
+}
+1964.1.1 = {
+    set_autonomy = { target = MLT autonomy_state = autonomy_free } 
 }
 1965.1.1 = {
     set_autonomy = { target = GAM autonomy_state = autonomy_free } 
@@ -400,43 +404,31 @@ set_politics = {
 	election_frequency = 48
 	elections_allowed = no
 }
-# DIPLOMACY
 
 create_country_leader = {
 	name = "Clement Attlee"
 	picture = "Portrait_Britain_Clement_Attlee.dds"
-	expire = "1967.10.8"
 	ideology = socialism
-	traits = {
-		
-	}
 }
 
 create_country_leader = {
 	name = "Oswald Mosley"
-	desc = "POLITICS_OSWALD_MOSLEY_DESC"
 	picture = "Portrait_Britain_Oswald_Mosley.dds"
-	expire = "1965.1.1"
 	ideology = fascism_ideology
-	traits = {
-		
-	}
 }
 
 create_country_leader = {
 	name = "Rajani Palme Dutt"
-	desc = "POLITICS_PALME_DUTT_DESC"
 	picture = "Portrait_Britain_Palme_Dutt.dds"
-	expire = "1965.1.1"
 	ideology = leninism
 }
+
 create_country_leader = {
 	name = "Winston Churchill"
-	desc = "POLITICS_WINSTON_CHURCHILL_DESC"
 	picture = "Portrait_Britain_Winston_Churchill.dds"
-	expire = "1965.1.1"
 	ideology = conservatism
 }
+
 create_field_marshal = {
 	name = "Alan Brooke"
 	picture = "Portrait_Britain_Alan_Brooke.dds"
@@ -873,7 +865,6 @@ create_equipment_variant = {
   	create_country_leader = {
   		name = "Anthony Eden"
   		picture = "Portrait_Britain_Anthony_Eden.dds"
-  		expire = "1977.1.14"
   		ideology = conservatism
 	}
 }
@@ -882,7 +873,6 @@ create_equipment_variant = {
 	create_country_leader = {
 		name = "Harold Macmillan"
 		picture = "Portrait_Britain_Harold_Macmillan.dds"
-		expire = "1986.12.29"
 		ideology = conservatism
 	}
 }
@@ -891,7 +881,6 @@ create_equipment_variant = {
 	create_country_leader = {
 		name = "Sir Alec Douglas-Home"
 		picture = "Portrait_Britain_Alec_Douglas_Home.dds"
-		expire = "1995.10.9"
 		ideology = conservatism
 	}
 }
@@ -929,7 +918,6 @@ create_equipment_variant = {
 	create_country_leader = {
 		name = "Harold Wilson"
 		picture = "Portrait_Britain_Alec_Harold_Wilson.dds"
-		expire = "1995.10.9"
 		ideology = socialism
 	}
 }
@@ -966,7 +954,6 @@ create_equipment_variant = {
 	create_country_leader = {
 		name = "Edward Heath"
 		picture = "Portrait_Britain_Edward_Heath.dds"
-		expire = "2005.6.16"
 		ideology = conservatism
 	}
 }
@@ -1003,7 +990,6 @@ create_equipment_variant = {
 	create_country_leader = {
 		name = "Harold Wilson"
 		picture = "Portrait_Britain_Harold_Wilson.dds"
-		expire = "1995.5.24"
 		ideology = socialism
 	}
 }
@@ -1012,7 +998,6 @@ create_equipment_variant = {
 	create_country_leader = {
 		name = "James Callaghan"
 		picture = "Portrait_Britain_James_Callaghan.dds"
-		expire = "2005.3.26"
 		ideology = socialism
 	}
 }
@@ -1049,7 +1034,6 @@ create_equipment_variant = {
 	create_country_leader = {
 		name = "Margaret Thatcher"
 		picture = "Portrait_Britain_Margaret_Thatcher.dds"
-		expire = "2013.4.8"
 		ideology = conservatism
 	}
 }
