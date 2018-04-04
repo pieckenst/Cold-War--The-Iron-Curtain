@@ -122,23 +122,214 @@ country_event = {
 	}
 }
 
-# After Election 1953
+# WGR HISTORICAL IDEOLOGY MOVING
 country_event = {
 	id = wgr.5
 	hidden = yes
 	
 	is_triggered_only = yes
 
-	trigger = {
-		tag = WGR
-		democratic > 0.2
-		date > 1953.1.1
-		date < 1954.1.1
-	}
-	
-	option = { 
-		name = wgr.5.a
-		WGR = { remove_ideas = democratic_drift_1 }
+	immediate = {
+		if = {
+			limit = {
+				tag = WGR
+				date > 1953.1.1
+				date < 1954.1.1
+			}
+			WGR = { 
+				remove_ideas = fascism_drift_1
+				remove_ideas = centrist_drift_1
+				swap_ideas = { remove_idea = liberal_drift_3 add_idea = liberal_drift_2 }
+
+				# WGR now has:
+				#
+				# Christian_Democratic_drift_5
+				# socialist_drift_4
+				# liberal_drift_2
+				# democratic_drift_1
+			}
+		}
+		if = {
+			limit = {
+				tag = WGR
+				date > 1957.1.1
+				date < 1958.1.1
+			}
+			WGR = { 
+				remove_ideas = democratic_drift_1
+				swap_ideas = { remove_idea = liberal_drift_2 add_idea = liberal_drift_3 }
+
+				# WGR now has:
+				#
+				# Christian_Democratic_drift_5
+				# socialist_drift_4
+				# liberal_drift_3
+			}
+		}
+		if = {
+			limit = {
+				tag = WGR
+				date > 1961.1.1
+				date < 1962.1.1
+			}
+			WGR = { 
+				swap_ideas = { remove_idea = liberal_drift_3 add_idea = liberal_drift_2 }
+
+				# WGR now has:
+				#
+				# Christian_Democratic_drift_5
+				# socialist_drift_4
+				# liberal_drift_2
+			}
+		}
+		if = {
+			limit = {
+				tag = WGR
+				date > 1965.1.1
+				date < 1966.1.1
+			}
+			WGR = {
+				# SPD actually has no absolute majority but rules with the FPD. For Hearts of Iron no to fuck up we need an absolute majority though
+				swap_ideas = { remove_idea = socialist_drift_4 add_idea = socialist_drift_5 }
+				swap_ideas = { remove_idea = Christian_Democratic_drift_5 add_idea = Christian_Democratic_drift_4 }
+				swap_ideas = { remove_idea = liberal_drift_2 add_idea = liberal_drift_1 }
+
+				# WGR now has:
+				#
+				# socialist_drift_5
+				# Christian_Democratic_drift_4
+				# liberal_drift_1
+			}
+		}
+		if = {
+			limit = {
+				tag = WGR
+				date > 1969.1.1
+				date < 1970.1.1
+			}
+			WGR = { 
+				
+				# Nothing to change, SPD stays in power. This time they have an absolute majority
+
+				# WGR now has:
+				#
+				# socialist_drift_5
+				# Christian_Democratic_drift_4
+				# liberal_drift_1
+			}
+		}
+		if = {
+			limit = {
+				tag = WGR
+				date > 1972.1.1
+				date < 1973.1.1
+			}
+			WGR = { 
+				swap_ideas = { remove_idea = socialist_drift_5 add_idea = socialist_drift_4 }
+				swap_ideas = { remove_idea = Christian_Democratic_drift_4 add_idea = Christian_Democratic_drift_5 }
+
+				# WGR now has:
+				#
+				# socialist_drift_4
+				# Christian_Democratic_drift_5
+				# liberal_drift_1
+			}
+		}
+		if = {
+			limit = {
+				tag = WGR
+				date > 1976.1.1
+				date < 1977.1.1
+			}
+			WGR = {
+				# SPD ruling with FDP again
+				swap_ideas = { remove_idea = socialist_drift_4 add_idea = socialist_drift_5 }
+				swap_ideas = { remove_idea = Christian_Democratic_drift_5 add_idea = Christian_Democratic_drift_4 }
+
+				# WGR now has:
+				#
+				# socialist_drift_5
+				# Christian_Democratic_drift_4
+				# liberal_drift_1
+			}
+		}
+		if = {
+			limit = {
+				tag = WGR
+				date > 1980.1.1
+				date < 1981.1.1
+			}
+			WGR = {
+				swap_ideas = { remove_idea = socialist_drift_5 add_idea = socialist_drift_4 }
+				swap_ideas = { remove_idea = Christian_Democratic_drift_4 add_idea = Christian_Democratic_drift_5 }
+				add_ideas = progressive_green_drift_1
+
+				# WGR now has:
+				#
+				# socialist_drift_4
+				# Christian_Democratic_drift_5
+				# liberal_drift_1
+				# progressive_green_drift_1
+
+			}
+		}
+		if = {
+			limit = {
+				tag = WGR
+				date > 1983.1.1
+				date < 1984.1.1
+			}
+			WGR = {
+				add_ideas = progressive_green_drift_1
+
+				# WGR now has:
+				#
+				# socialist_drift_4
+				# Christian_Democratic_drift_5
+				# liberal_drift_1
+				# progressive_green_drift_1
+				
+			}
+		}
+		if = {
+			limit = {
+				tag = WGR
+				date > 1987.1.1
+				date < 1988.1.1
+			}
+			WGR = {
+				swap_ideas = { remove_idea = liberal_drift_1 add_idea = liberal_drift_2 }
+				add_ideas = Social_Democratic_drift_1
+
+				# WGR now has:
+				#
+				# socialist_drift_4
+				# Christian_Democratic_drift_5
+				# liberal_drift_2
+				# progressive_green_drift_1
+				# Social_Democratic_drift_1
+				
+			}
+		}
+		if = {
+			limit = {
+				tag = WGR
+				date > 1990.1.1
+				date < 1991.1.1
+			}
+			WGR = {
+				swap_ideas = { remove_idea = liberal_drift_2 add_idea = liberal_drift_1 }
+
+				# WGR now has:
+				#
+				# socialist_drift_4
+				# Christian_Democratic_drift_5
+				# liberal_drift_1
+				# progressive_green_drift_1
+				# Social_Democratic_drift_1
+				
+			}
+		}
 	}
 }
 
