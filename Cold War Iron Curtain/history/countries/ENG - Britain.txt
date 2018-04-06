@@ -6,7 +6,6 @@ set_research_slots = 4
 
 set_stability = 0.6
 
-# Starting tech
 set_technology = {
 	CAS1 = 1
 	CAS2 = 1
@@ -16,16 +15,16 @@ set_technology = {
 	advanced_rocket_engines = 1
 	amphibious1 = 1
 	antiair1 = 1
-	anti_tank_1 = 1
+	antitank_1 = 1
 	basic_carrier = 1
 	basic_destroyer = 1
 	basic_light_cruiser = 1
-	basic_machine_tools = 1
+	ww_production = 1
 	basic_submarine = 1
 	battle_cruiser_1 = 1
 	battleship_2 = 1
 	battleship_3 = 1
-	construction1 = 1
+	ww_construction = 1
 	cv_CAS1 = 1
 	cv_CAS2 = 1
 	cv_CAS3 = 1
@@ -54,7 +53,7 @@ set_technology = {
 	fighter3 = 1
 	frigate_1 = 1
 	frigate_2 = 1
-	great_war_infantry_equipment = 1
+	infantry_equip_1 = 1
 	gw_artillery = 1
 	selfpropart1 = 1
 	sp_aa1 = 1
@@ -62,16 +61,15 @@ set_technology = {
 	heavy_fighter1 = 1
 	heavy_fighter2 = 1
 	heavy_fighter3 = 1
-	heavy_infantry_weapons1 = 1
-	heavy_infantry_weapons2 = 1
+	team_weapons_1 = 1
+	team_weapons_2 = 1
 	heavy_tanks_2 = 1
 	heavy_tanks_3 = 1
 	improved_destroyer = 1
 	improved_light_cruiser = 1
 	improved_rocket_engines = 1
-	
 	interwar_antiair = 1
-	infantry_equip_1 = 1
+	infantry_equip_2 = 1
 	jet_CAS1 = 1
 	jet_engines = 1
 	jet_fighter1 = 1
@@ -89,8 +87,6 @@ set_technology = {
 	mechanized_heavy_infantry = 1
 	mechanized_infantry = 1
 	mechanized_infantry2 = 1
-	mortar_infantry_weapons_1 = 1
-	mortar_infantry_weapons_2 = 1
 	motorised_infantry = 1
 	naval_bomber1 = 1
 	naval_bomber2 = 1
@@ -107,7 +103,7 @@ set_technology = {
 	strategic_bomber2 = 1
 	strategic_bomber3 = 1
 	suicide_craft = 1
-	synth_oil_experiments = 1
+	ww_oil = 1
 	tactical_bomber1 = 1
 	tactical_bomber2 = 1
 	tactical_bomber3 = 1
@@ -119,10 +115,10 @@ set_technology = {
 	super_heavy_tanks_3 = 1
 }
 
-
 set_convoys = 800
 give_guarantee = WGR
 give_guarantee = TNG
+give_guarantee = TRI
 
 if = {
 	limit = {
@@ -273,8 +269,18 @@ if = {
 		autonomous_state = autonomy_protectorate
 		freedom_level = 0.6
 	}
+	set_autonomy = {
+		target = GAM
+		autonomous_state = autonomy_protectorate
+		freedom_level = 0.6
+	}
     set_autonomy = {
 		target = BCM
+		autonomous_state = autonomy_protectorate
+		freedom_level = 0.6
+	}
+	set_autonomy = {
+		target = MLT
 		autonomous_state = autonomy_protectorate
 		freedom_level = 0.6
 	}
@@ -309,6 +315,8 @@ if = {
         puppet = BCM
 		puppet = LES
 		puppet = TAZ
+		puppet = GAM
+		puppet = MLT
 	}
 }
 
@@ -340,6 +348,12 @@ add_ai_strategy = {
     set_autonomy = { target = BCM autonomy_state = autonomy_free } 
 	set_autonomy = { target = TAZ autonomy_state = autonomy_free }	
 }
+1964.1.1 = {
+    set_autonomy = { target = MLT autonomy_state = autonomy_free } 
+}
+1965.1.1 = {
+    set_autonomy = { target = GAM autonomy_state = autonomy_free } 
+}
 1966.1.1 = {
 	set_autonomy = { target = ZIM autonomy_state = autonomy_free }	
 	set_autonomy = { target = ZAM autonomy_state = autonomy_free }	
@@ -358,6 +372,10 @@ add_ai_strategy = {
 }
 1975.12.12 = {
     set_autonomy = { target = KNA autonomy_state = autonomy_free }    
+}
+
+1986.1.1 = {
+    set_autonomy = { target = AST autonomy_state = autonomy_free }    
 }
 
 set_politics = {
@@ -387,43 +405,31 @@ set_politics = {
 	election_frequency = 48
 	elections_allowed = no
 }
-# DIPLOMACY
 
 create_country_leader = {
 	name = "Clement Attlee"
 	picture = "Portrait_Britain_Clement_Attlee.dds"
-	expire = "1967.10.8"
 	ideology = socialism
-	traits = {
-		
-	}
 }
 
 create_country_leader = {
 	name = "Oswald Mosley"
-	desc = "POLITICS_OSWALD_MOSLEY_DESC"
 	picture = "Portrait_Britain_Oswald_Mosley.dds"
-	expire = "1965.1.1"
 	ideology = fascism_ideology
-	traits = {
-		
-	}
 }
 
 create_country_leader = {
 	name = "Rajani Palme Dutt"
-	desc = "POLITICS_PALME_DUTT_DESC"
 	picture = "Portrait_Britain_Palme_Dutt.dds"
-	expire = "1965.1.1"
 	ideology = leninism
 }
+
 create_country_leader = {
 	name = "Winston Churchill"
-	desc = "POLITICS_WINSTON_CHURCHILL_DESC"
 	picture = "Portrait_Britain_Winston_Churchill.dds"
-	expire = "1965.1.1"
 	ideology = conservatism
 }
+
 create_field_marshal = {
 	name = "Alan Brooke"
 	picture = "Portrait_Britain_Alan_Brooke.dds"
@@ -860,7 +866,6 @@ create_equipment_variant = {
   	create_country_leader = {
   		name = "Anthony Eden"
   		picture = "Portrait_Britain_Anthony_Eden.dds"
-  		expire = "1977.1.14"
   		ideology = conservatism
 	}
 }
@@ -869,7 +874,6 @@ create_equipment_variant = {
 	create_country_leader = {
 		name = "Harold Macmillan"
 		picture = "Portrait_Britain_Harold_Macmillan.dds"
-		expire = "1986.12.29"
 		ideology = conservatism
 	}
 }
@@ -878,7 +882,6 @@ create_equipment_variant = {
 	create_country_leader = {
 		name = "Sir Alec Douglas-Home"
 		picture = "Portrait_Britain_Alec_Douglas_Home.dds"
-		expire = "1995.10.9"
 		ideology = conservatism
 	}
 }
@@ -916,7 +919,6 @@ create_equipment_variant = {
 	create_country_leader = {
 		name = "Harold Wilson"
 		picture = "Portrait_Britain_Alec_Harold_Wilson.dds"
-		expire = "1995.10.9"
 		ideology = socialism
 	}
 }
@@ -953,7 +955,6 @@ create_equipment_variant = {
 	create_country_leader = {
 		name = "Edward Heath"
 		picture = "Portrait_Britain_Edward_Heath.dds"
-		expire = "2005.6.16"
 		ideology = conservatism
 	}
 }
@@ -990,7 +991,6 @@ create_equipment_variant = {
 	create_country_leader = {
 		name = "Harold Wilson"
 		picture = "Portrait_Britain_Harold_Wilson.dds"
-		expire = "1995.5.24"
 		ideology = socialism
 	}
 }
@@ -999,7 +999,6 @@ create_equipment_variant = {
 	create_country_leader = {
 		name = "James Callaghan"
 		picture = "Portrait_Britain_James_Callaghan.dds"
-		expire = "2005.3.26"
 		ideology = socialism
 	}
 }
@@ -1036,7 +1035,6 @@ create_equipment_variant = {
 	create_country_leader = {
 		name = "Margaret Thatcher"
 		picture = "Portrait_Britain_Margaret_Thatcher.dds"
-		expire = "2013.4.8"
 		ideology = conservatism
 	}
 }

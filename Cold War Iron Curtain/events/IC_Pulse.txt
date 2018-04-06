@@ -147,6 +147,16 @@ country_event = {
 		#Austria Begin
 		if = {
 			limit = {	
+				AND = {
+					date > 1955.4.30
+					date < 1955.6.2
+				}
+				NOT = { has_global_flag = aus_questions_over }
+			}
+			country_event = aus.1
+		}
+		if = {
+			limit = {	
 				OR = {
 					AND = {
 						has_global_flag = eng_yes_austria
@@ -1189,6 +1199,42 @@ country_event = {
 				date > 1957.3.2
 			}
 			news_event = eurovision.2
+		}
+		if = {
+			limit = {
+				date > 1961.2.1
+			}
+			#news_event = por_colonial_news.1
+			POR = {
+				release = ANG
+				ANG = { set_politics = { ruling_party = communism elections_allowed = no } }
+				declare_war_on = { target = ANG type = annex_everything }	
+			}
+			set_global_flag = angolan_ind_war
+		}
+		if = {
+			limit = {
+				date > 1964.9.1
+			}
+			#news_event = por_colonial_news.2
+			POR = {
+				release = MZB
+				ANG = { set_politics = { ruling_party = communism elections_allowed = no } }
+				declare_war_on = { target = MZB type = annex_everything }	
+			}
+			set_global_flag = Mozambiquan_War
+		}
+		if = {
+			limit = {
+				date > 1963.1.1
+			}
+			#news_event = por_colonial_news.2
+			POR = {
+				release = GEQ
+				GEQ = { set_politics = { ruling_party = communism elections_allowed = no } }
+				declare_war_on = { target = GEQ type = annex_everything }	
+			}
+			set_global_flag = Guinea_Bissau_War
 		}
 	}
 }

@@ -1,0 +1,199 @@
+﻿add_namespace = cameroon
+
+country_event = {
+	id = cameroon.1
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			BCM = { drop_cosmetic_tag = yes }
+			ENG = { end_puppet = BCM }
+		}
+	}
+	
+	#HISTORICAL
+	option = {
+		name = cameroon.1.a
+		trigger = {
+			is_historical_focus_on = yes
+		}
+		NIA = { transfer_state = 1106 }
+		1106 = { add_core_of = NIA remove_core_of = BCM }
+	}
+	#AHISTORICAL
+	option = {
+		name = cameroon.1.b
+		trigger = {
+			is_historical_focus_on = no
+		}
+		random_list = {
+			85 = {
+				NIA = { transfer_state = 1106 }
+				1106 = { add_core_of = NIA remove_core_of = BCM }
+			}
+			15 = {
+				CMR = { transfer_state = 1106 }
+				1106 = { add_core_of = CMR }
+			}
+		}
+	}
+}
+country_event = {
+	id = cameroon.2
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			BCM = { drop_cosmetic_tag = yes }
+			ENG = { end_puppet = BCM }
+		}
+	}
+	
+	#HISTORICAL
+	option = {
+		name = cameroon.2.a
+		trigger = {
+			is_historical_focus_on = yes
+		}
+		CMR = { transfer_state = 1105 }
+		1105 = { add_core_of = CMR }
+	}
+		#AHISTORICAL
+	option = {
+		name = cameroon.2.b
+		trigger = {
+			is_historical_focus_on = no
+		}
+		random_list = {
+			15 = {
+				NIA = { transfer_state = 1105 }
+				1105 = { add_core_of = NIA remove_core_of = BCM }
+			}
+			85 = {
+				CMR = { transfer_state = 1105 }
+				1105 = { add_core_of = CMR }
+			}
+		}
+	}
+}
+
+country_event = {
+    id = cameroon.3
+    title = cameroon.3.t
+    desc = cameroon.3.d
+    picture = GFX_report_event_german_volunteers
+
+    fire_only_once = yes
+
+    trigger = {
+        original_tag = ENG
+        date > 1961.12.9
+		BCM = { is_subject_of = ROOT}
+		BCM = { owns_state = 1105 owns_state = 1106 }
+    }
+	
+    option = {
+        name = cameroon.3.a
+        ai_chance = {
+            factor = 100
+        }
+        custom_effect_tooltip = cameroon.3.a.tt
+        hidden_effect = {
+		    country_event = { id = cameroon.1 hours = 9 }
+			country_event = { id = cameroon.2 hours = 9 }
+		}
+    }
+    option = {
+        name = cameroon.3.b
+        ai_chance = {
+            factor = 0
+        }
+        custom_effect_tooltip = cameroon.3.b.tt
+        hidden_effect = {
+            #set_global_flag = eng_partition_south_cameroon_available
+			#set_global_flag = eng_partition_north_cameroon_available
+			set_global_flag = eng_partition_cameroon_available
+        }
+    }
+}
+
+#France: Make Cameroon independent Now or Later?
+country_event = {
+	id = cameroon.4
+	title = cameroon.4.t	
+	desc = cameroon.4.d
+	picture = GFX_report_event_german_volunteers
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = FRA
+		date > 1960.1.1
+		CMR = { exists = yes }
+		CMR = { is_subject_of = FRA }
+	}
+	#Now
+	option = {
+		name = cameroon.4.a
+		ai_chance = {
+			factor = 100
+		}
+		custom_effect_tooltip = cameroon.4.a.tt
+		hidden_effect = {
+			CMR = { country_event = { id = cameroon.41 hours = 5 } }
+		}
+	}
+	#Later
+	option = {
+		name = cameroon.4.b
+		ai_chance = {
+			factor = 0
+		}
+		custom_effect_tooltip = cameroon.4.b.tt
+		hidden_effect = {
+			set_global_flag = fra_class_b_mandate_available
+		}
+	}
+}
+#Cameroon Now Independent
+country_event = {
+	id = cameroon.41
+	title = cameroon.41.t	
+	desc = cameroon.41.d
+	picture = GFX_report_event_german_volunteers
+	immediate = { 
+		hidden_effect = {
+			ROOT = { OVERLORD = { set_autonomy = { target = CMR autonomy_state = autonomy_free } } } 
+			ROOT = { drop_cosmetic_tag = yes }
+			news_event = cameroon.411
+		}
+	}
+	is_triggered_only = yes
+	option = {
+		name = cameroon.41.a
+	}
+}
+#Cameroon Independence News
+news_event = {
+	id = cameroon.411
+	title = cameroon.411.t	
+	desc = cameroon.411.d
+	major = yes
+	picture = GFX_news_event_019
+	is_triggered_only = yes
+	option = {
+		name = cameroon.411.a
+	}
+}

@@ -74,10 +74,6 @@ focus_tree = {
 			add = 10
 			tag = CHA
 		}
-        modifier = {
-			add = 10
-			tag = BCM
-		}
 		modifier = {
 			add = 10
 			tag = LES
@@ -88,7 +84,11 @@ focus_tree = {
 		}
 		modifier = {
 			add = 10
-			tag = TAZ
+			tag = GAM
+		}
+		modifier = {
+			add = 10
+			tag = MAD
 		}
 	}
 	default = yes
@@ -2182,12 +2182,6 @@ focus_tree = {
 			completion_reward = {
 				add_ideas = liberty_ethos_focus
 				country_event = AFR.201
-                if = {
-						limit = { tag = BCM }
-						NIA = { transfer_state = 1106 add_state_core = 1106 }	
-                        CMR = { add_state_core = 1105 }	
-                        BCM = { remove_state_core = 1106 }							
-				}
 				if = {
 						limit = { tag = CHA }
 						release = CAR
@@ -2204,14 +2198,38 @@ focus_tree = {
 	                        ruling_party = democratic
                         }	
 				}
-				if = {
-						limit = { tag = TAZ }
+			    if = {
+						limit = { tag = GAM }
 						add_popularity ={
-		                     ideology = democratic
+		                     ideology = centrist
+		                     popularity = 1.0
+		                }
+						set_politics = {
+	                        ruling_party = centrist
+                        }	
+				}
+		        if = {
+						limit = { tag = MAD }
+						add_popularity ={
+		                     ideology = socialist
+		                     popularity = 1.0
+		                }
+						set_politics = {
+	                        ruling_party = socialist
+                        }	
+				}
+				if = {
+						limit = { tag = DOC }
+						add_popularity ={
+		                     ideology = Liberal_Conservatism
+		                     popularity = 0.80
+		                }
+						add_popularity ={
+		                     ideology = nationalism
 		                     popularity = 0.20
 		                }
 						set_politics = {
-	                        ruling_party = democratic
+	                        ruling_party = Liberal_Conservatism
                         }	
 				}
 		    }
@@ -2762,12 +2780,6 @@ focus_tree = {
 			completion_reward = {
 					add_ideas = collectivist_ethos_focus
 					country_event = AFR.201
-		        if = {
-						limit = { tag = BCM }
-						NIA = { transfer_state = 1106 add_state_core = 1106 }	
-                        CMR = { add_state_core = 1105 }	
-                        BCM = { remove_state_core = 1106 }							
-				}
 				if = {
 						limit = { tag = CHA }
 						release = CAR
@@ -2785,13 +2797,37 @@ focus_tree = {
                         }	
 				}
 				if = {
-						limit = { tag = TAZ }
+						limit = { tag = GAM }
 						add_popularity ={
-		                     ideology = democratic
+		                     ideology = centrist
+		                     popularity = 1.0
+		                }
+						set_politics = {
+	                        ruling_party = centrist
+                        }	
+				}
+				if = {
+						limit = { tag = MAD }
+						add_popularity ={
+		                     ideology = socialist
+		                     popularity = 1.0
+		                }
+						set_politics = {
+	                        ruling_party = socialist
+                        }	
+				}
+				if = {
+						limit = { tag = DOC }
+						add_popularity ={
+		                     ideology = Liberal_Conservatism
+		                     popularity = 0.80
+		                }
+						add_popularity ={
+		                     ideology = nationalism
 		                     popularity = 0.20
 		                }
 						set_politics = {
-	                        ruling_party = democratic
+	                        ruling_party = Liberal_Conservatism
                         }	
 				}
 		    }
