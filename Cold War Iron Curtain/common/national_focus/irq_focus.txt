@@ -181,7 +181,7 @@ focus_tree = {
 		y = 0
 		completion_reward = {
 			add_political_power = 120
-			add_national_unity = 0.10
+			add_stability = 0.10
 		}
 	}
 	focus = {
@@ -1560,7 +1560,7 @@ focus_tree = {
 		x = 17
 		y = 2
 		completion_reward = {
-			add_equipment_to_stockpile = { type = assault_rifle_equipment_1 amount = 2000 producer = SOV }	
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 2000 producer = SOV }	
 			add_equipment_to_stockpile = { type = main_battle_tanks_2 amount = 150 producer = SOV }	
 			add_equipment_to_stockpile = { type = lt_equipment_1 amount = 300 producer = SOV }	
 			add_equipment_to_stockpile = { type = ht_equipment_2 amount = 100 producer = SOV }	
@@ -1644,7 +1644,7 @@ focus_tree = {
 		x = 17
 		y = 4
 		completion_reward = {
-			add_equipment_to_stockpile = { type = assault_rifle_equipment_1 amount = 2000 producer = SOV }	
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 2000 producer = SOV }	
 			add_equipment_to_stockpile = { type = main_battle_tanks_2 amount = 150 producer = SOV }	
 			add_equipment_to_stockpile = { type = lt_equipment_1 amount = 300 producer = SOV }	
 			add_equipment_to_stockpile = { type = ht_equipment_2 amount = 100 producer = SOV }	
@@ -1885,7 +1885,7 @@ focus_tree = {
 		x = 25
 		y = 2
 		completion_reward = {
-			add_equipment_to_stockpile = { type = assault_rifle_equipment_1 amount = 2000 producer = USA }	
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 2000 producer = USA }	
 			add_equipment_to_stockpile = { type = main_battle_tanks_2 amount = 150 producer = USA }	
 			add_equipment_to_stockpile = { type = lt_equipment_1 amount = 300 producer = USA }	
 			add_equipment_to_stockpile = { type = ht_equipment_2 amount = 100 producer = USA }	
@@ -1933,7 +1933,7 @@ focus_tree = {
 		x = 28
 		y = 2
 		completion_reward = {
-			add_equipment_to_stockpile = { type = assault_rifle_equipment_1 amount = 2000 producer = USA }	
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 2000 producer = USA }	
 			add_equipment_to_stockpile = { type = main_battle_tanks_2 amount = 150 producer = USA }	
 			add_equipment_to_stockpile = { type = lt_equipment_1 amount = 300 producer = USA }	
 			add_equipment_to_stockpile = { type = ht_equipment_2 amount = 100 producer = USA }	
@@ -2002,7 +2002,7 @@ focus_tree = {
 		x = 28
 		y = 4
 		completion_reward = {
-			add_equipment_to_stockpile = { type = assault_rifle_equipment_1 amount = 2000 producer = USA }	
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 2000 producer = USA }	
 			add_equipment_to_stockpile = { type = main_battle_tanks_2 amount = 150 producer = USA }	
 			add_equipment_to_stockpile = { type = lt_equipment_1 amount = 300 producer = USA }	
 			add_equipment_to_stockpile = { type = ht_equipment_2 amount = 100 producer = USA }	
@@ -2018,7 +2018,7 @@ focus_tree = {
 		x = 28
 		y = 6
 		completion_reward = {
-			add_equipment_to_stockpile = { type = assault_rifle_equipment_1 amount = 2000 producer = USA }	
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 2000 producer = USA }	
 			add_equipment_to_stockpile = { type = main_battle_tanks_2 amount = 150 producer = USA }	
 			add_equipment_to_stockpile = { type = lt_equipment_1 amount = 300 producer = USA }	
 			add_equipment_to_stockpile = { type = ht_equipment_2 amount = 100 producer = USA }	
@@ -2625,7 +2625,7 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 			set_politics = { ruling_party = democratic elections_allowed = yes }
-			add_national_unity = 0.10
+			add_stability = 0.10
 		}
 	}
 	focus = {
@@ -2775,7 +2775,7 @@ focus_tree = {
 		x = 41
 		y = 4
 		completion_reward = {
-			add_national_unity = 0.15
+			add_stability = 0.15
 		}
 	}
 	focus = {
@@ -2794,6 +2794,13 @@ focus_tree = {
 						}
 						SYR = { every_owned_state = { add_core_of = IRQ }	}
 				}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = IRQ_rise_of_the_baathist_party
@@ -2894,6 +2901,13 @@ focus_tree = {
 				generator = { 413 }
 			}
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = IRQ_pan_arabist_coup
@@ -2947,8 +2961,13 @@ focus_tree = {
 		}
 		x = 46
 		y = 4
+		available = {
+			EGY = { 
+				has_completed_focus = EGY_united_arab_republic
+			}
+		}
 		completion_reward = {
-			UAR = { annex_country = { target = IRQ } }
+			EGY = { annex_country = { target = IRQ } }
 		}
 	}
 	focus = {
@@ -3047,7 +3066,7 @@ focus_tree = {
 		completion_reward = {
 			set_politics = { ruling_party = communism elections_allowed = no }
 			add_timed_idea = { idea = internationalism days = 365 }	
-			add_national_unity = -0.10
+			add_stability = -0.10
 		}
 	}
 	focus = {
@@ -3295,6 +3314,13 @@ focus_tree = {
 						}
 						YEM = { every_owned_state = { add_core_of = IRQ }	}
 				}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = IRQ_export_the_revolution
@@ -3338,6 +3364,13 @@ focus_tree = {
 						}
 						JOR = { every_owned_state = { add_core_of = IRQ }	}
 				}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = irq_extra_tech_slot_2
@@ -3482,7 +3515,7 @@ focus_tree = {
 			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = main_battle_tanks_2 version = 0 }	}
 			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = lt_equipment_1 version = 0 }	}
 			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = ht_equipment_2 version = 0 }	}
-			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = assault_rifle_equipment_1 version = 0 }	}
+			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = infantry_equipment_1 version = 0 }	}
 			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = CAS_equipment_4 version = 0 }	}
 			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = jet_fighter_equipment_2 version = 0 }		}
 			create_production_license = { target = USA	cost_factor = 1.0 equipment = {	type = jet_tac_bomber_equipment_2 version = 0 }	}
@@ -3904,6 +3937,13 @@ focus_tree = {
 		completion_reward = {
 			create_wargoal = { type = annex_everything target = TUR }
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = IRQ_nationalize_british_assets
@@ -3977,6 +4017,13 @@ focus_tree = {
 						}
 						SYR = { every_owned_state = { add_core_of = IRQ }	}
 				}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = IRQ_liberate_khuzestan
@@ -3993,6 +4040,13 @@ focus_tree = {
 				type = take_state_focus
 				target = PER
 				generator = { 413 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
 			}
 		}
 	}

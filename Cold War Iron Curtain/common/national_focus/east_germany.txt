@@ -192,7 +192,7 @@ focus_tree = {
 		y = 7
 		cost = 10
 		completion_reward = {
-		    add_national_unity = 0.1
+		    add_stability = 0.1
 			add_popularity = {
 			    ideology = communism
 			    popularity = 0.05
@@ -634,7 +634,7 @@ focus_tree = {
 			    popularity = 0.05
 		    }
 			add_political_power = -100
-			add_national_unity = -0.03
+			add_stability = -0.03
 		}
 		ai_will_do = {
 			factor = 10
@@ -658,7 +658,7 @@ focus_tree = {
 			    ideology = communism
 			    popularity = -0.05
 		    }
-			add_national_unity = 0.03
+			add_stability = 0.03
 		}
 		ai_will_do = {
 			factor = 10
@@ -990,7 +990,7 @@ focus_tree = {
 			66 = { remove_core_of = DDR } 
 			67 = { remove_core_of = DDR } 
 			add_political_power = 100
-			add_national_unity = 0.1
+			add_stability = 0.1
 		}
 		ai_will_do = {
 			factor = 10
@@ -1043,8 +1043,8 @@ focus_tree = {
 		completion_reward = {
 		    add_political_power = -200
 			add_manpower = -5000
-			ETH = {
-			    add_ideas = east_german_influence
+			ETH = { 
+			    add_timed_idea = { idea = east_german_influence days = 700 }
 			}
 		}
 	}
@@ -1060,7 +1060,7 @@ focus_tree = {
 		    add_political_power = -200
 			add_manpower = -5000
 		    SYR = {
-			    add_ideas = east_german_influence
+			    add_timed_idea = { idea = east_german_influence days = 700 }
 			}
 		}
 	}
@@ -1076,7 +1076,7 @@ focus_tree = {
 		    add_political_power = -350
 			add_manpower = -15000
 		    SAF = {
-			    add_ideas = east_german_influence
+			    add_timed_idea = { idea = east_german_influence days = 700 }
 			}
 		}
 	}
@@ -1092,7 +1092,7 @@ focus_tree = {
 		    add_political_power = -350
 			add_manpower = -30000
 		    PER = {
-			    add_ideas = east_german_influence
+			   add_timed_idea = { idea = east_german_influence days = 700 }
 			}
 		}
 	}
@@ -1105,7 +1105,7 @@ focus_tree = {
 		y = 12
 		cost = 10
 		completion_reward = {
-		    add_national_unity = 0.05
+		    add_stability = 0.05
 			add_popularity = {
 			    ideology = communism
 			    popularity = 0.3
@@ -1148,6 +1148,13 @@ focus_tree = {
 			    target = WGR
 		    }
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	
 	focus = {
@@ -1182,7 +1189,7 @@ focus_tree = {
 		y = 13
 		cost = 10
 		completion_reward = {
-		    add_national_unity = 0.05
+		    add_stability = 0.05
 			add_political_power = 200
 		}
 	}
@@ -1465,7 +1472,7 @@ focus_tree = {
 			    ideology = neutrality
 			    popularity = 0.05
 		    }
-			add_national_unity = 0.1
+			add_stability = 0.1
 		}
 	}
 	
@@ -1693,6 +1700,13 @@ focus_tree = {
 			    target = WGR
 		    }
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	
 	focus = {
@@ -1873,7 +1887,6 @@ focus_tree = {
 						has_government = nationalism
 						has_government = Social_Democratic
 						has_government = Social_Liberalism
-						has_government = Libertanian
 					}
 			    }
 			    DDR = {
@@ -1888,7 +1901,6 @@ focus_tree = {
 						has_government = nationalism
 						has_government = Social_Democratic
 						has_government = Social_Liberalism
-						has_government = Libertanian
 					}
 			    }
 			}
@@ -2033,8 +2045,7 @@ focus_tree = {
 		y = 11
 		cost = 10
 			completion_reward = {
-					USA = { add_to_faction = ROOT }
-					add_ideas = nato_member
+					USA = { country_event = generic.8 }
 				}
 	}
 	

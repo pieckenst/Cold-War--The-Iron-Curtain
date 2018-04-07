@@ -14,14 +14,37 @@ country_event = {
 		name = cambodia.1.o.a
 		ai_chance = { factor = 100 }
 		set_global_flag = cambodian_civil_war
-		CMB = { transfer_state = 840 }	
-		CMB = { set_politics = { ruling_party = communism elections_allowed = no } }
-		CMB = { load_oob = CMB_1967	
+		CMB = { transfer_state = 985 }	
+		CMB = { set_politics = { ruling_party = maoism elections_allowed = no } }
+		CMB = { 
+			load_oob = CMB_1967	
 			declare_war_on = {
 				target = CMB
 				type = annex_everything
 			}
 		}
+	}
+}
+country_event = {
+	id = cambodia.1
+	title = cambodia.1.t
+	desc = cambodia.1.d
+	picture = GFX_report_event_soviet_invasion_map
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "The Royalist Faction Ascendant"
+		ai_chance = { factor = 50 }
+		complete_national_focus = CAM_Royalist_Partisan_Faction
+		news_event = cambodia.4001
+	}
+	option = {
+		name = "The Hanoi Faction Ascendant"
+		ai_chance = { factor = 50 }
+		complete_national_focus = CAM_Viet_Minh_Backed_Faction
+		news_event = cambodia.4002
 	}
 }
 
@@ -89,12 +112,126 @@ country_event = {
 
 	option = {
 		name = Lon_Nol_coup.1.a
-		set_politics = { ruling_party = democratic elections_allowed = no } 
+		news_event = cambodia.6000
+		set_politics = { ruling_party = nationalism elections_allowed = no } 
 		create_country_leader = {
 			name = "Lon Nol"
 			picture = Nol.dds
-			ideology = progressive
+			ideology = nationalist_ideology
 		}		
 		
+	}
+}
+news_event = {
+	id = cambodia.4001
+	title = "Royalist Faction Victorius in Cambodia"
+	desc = cambodia.4001.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "An Interesting Development"
+	}
+
+}
+news_event = {
+	id = cambodia.4002
+	title = "Pro Hanoi Faction Victorius"
+	desc = cambodia.4002.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "An Interesting Development"
+	}
+}
+news_event = {
+	id = cambodia.4010
+	title = "Election of Lon Nol"
+	desc = cambodia.4010.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "An Interesting Development"
+	}
+}
+news_event = {
+	id = cambodia.6000
+	title = "The Khmer Republic"
+	desc = cambodia.6000.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "An Interesting Development"
+	}
+}
+news_event = {
+	id = cambodia.4020
+	title = "The Removal of Sirik Matak"
+	desc = cambodia.4020.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "An Interesting Development"
+	}
+}
+news_event = {
+	id = cambodia.3500
+	title = "Pracheachon Forced Into the Countryside"
+	desc = cambodia.3500.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "An Interesting Development"
+	}
+}
+news_event = {
+	id = cambodia.3501
+	title = "Execution of Tou Samouth"
+	desc = cambodia.3501.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "An Interesting Development"
+	}
+}
+news_event = {
+	id = cambodia.3502
+	title = "The List"
+	desc = cambodia.3502.d
+	picture = GFX_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "An Interesting Development"
 	}
 }
