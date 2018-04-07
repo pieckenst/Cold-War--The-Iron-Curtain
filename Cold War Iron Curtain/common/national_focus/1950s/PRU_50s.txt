@@ -1,0 +1,380 @@
+focus_tree = {
+	id = PRU_50s
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = PRU
+		}
+	}
+	default = no
+	focus = {
+		id = PRU_Army_Begin
+		icon = GFX_goal_generic_axis_build_infantry
+		cost = 5.00
+		x = 2
+		y = 0
+         completion_reward = {
+            army_experience = 30
+        } 
+	}
+	focus = {
+        id = PRU_Ecuadorian_Peruvian_War_Lessons
+        icon = GFX_goal_generic_army_doctrines
+        cost = 10.00
+        prerequisite = {
+            focus = PRU_Army_Begin
+        }
+        x = 2
+        y = 1
+        completion_reward = {
+             add_tech_bonus = {
+                            name = land_doc_bonus
+                            bonus = 0.3
+                            uses = 1
+                            category = land_doctrine
+			}
+        }
+    }
+	focus = {
+		id = PRU_Weapons_Factories
+		icon = GFX_goal_generic_small_arms
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Ecuadorian_Peruvian_War_Lessons
+		}
+		x = 0
+		y = 2
+		completion_reward = {	
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+	
+                    }
+	}	
+	focus = {
+		id = PRU_Modernize_The_Calvary
+		icon = GFX_goal_generic_army_motorized
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Ecuadorian_Peruvian_War_Lessons
+		}
+		x = 4
+		y = 2
+        completion_reward = {
+                    add_tech_bonus = {
+                            name = motorized_bonus
+                            ahead_reduction = 0.4
+                            uses = 1
+                            category = motorized_equipment
+                        }
+				    }
+	}
+    focus = {
+		id = PRU_Artillery_Factories
+		icon = GFX_goal_generic_army_artillery2
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Ecuadorian_Peruvian_War_Lessons
+		}
+		x = 2
+		y = 3
+        completion_reward = {	
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+	
+                    }
+	}
+    focus = {
+		id = PRU_Focus_on_Factories
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 20.00
+		prerequisite = {
+			focus = PRU_Weapons_Factories
+		}
+		prerequisite = {
+			focus = PRU_Artillery_Factories
+		}
+		mutually_exclusive = {
+			focus = PRU_Focus_on_Doctrines
+		}
+		x = 1
+		y = 4	
+        completion_reward = {	
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+							}
+							random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}	
+	                        }
+	
+	                    }
+	            }
+	}
+    focus = {
+		id = PRU_Focus_on_Doctrines
+		icon = GFX_goal_generic_army_doctrines
+		cost = 20.00
+		prerequisite = {
+			focus = PRU_Modernize_The_Calvary
+		}
+		prerequisite = {
+			focus = PRU_Artillery_Factories
+		}
+		mutually_exclusive = {
+			focus = PRU_Focus_on_Factories
+			focus = PRU_Focus_on_Factories
+		}
+		x = 3
+		y = 4
+        completion_reward = {
+                    add_tech_bonus = {
+                            name = land_doc_bonus
+                            bonus = 0.5
+                            uses = 1
+                            category = land_doctrine
+			}
+		}
+	}
+    focus = {
+		id = PRU_Continue_Building_More_Factories
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Focus_on_Factories
+		}
+		x = 0
+		y = 5
+        completion_reward = {	
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+	
+                    }
+	}
+    focus = {
+		id = PRU_Build_Radar_Stations
+		icon = GFX_goal_generic_radar
+		cost = 13.00
+		prerequisite = {
+			focus = PRU_Focus_on_Doctrines
+		}
+		x = 4
+		y = 5
+        completion_reward = {
+            492 = {
+                add_building_construction = {
+                    type = radar_station
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            303  = {
+                add_building_construction = {
+                    type = radar_station
+                    level = 1
+                    instant_build = yes
+                }
+            }
+			1133  = {
+                add_building_construction = {
+                    type = radar_station
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+	}
+    focus = {
+		id = PRU_Upgrade_Tanks
+		icon = GFX_goal_generic_army_tanks
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Build_Radar_Stations
+		}
+		x = 3
+		y = 6
+        completion_reward = {
+            add_tech_bonus = {
+                name = armor_bonus
+                bonus = 0.3
+                uses = 1
+                category = armor
+            }
+        }
+	}
+    focus = {
+		id = PRU_Improve_the_production
+		icon = GFX_goal_generic_production
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Continue_Building_More_Factories
+		}
+		x = 1
+		y = 6
+		completion_reward = {
+		    add_timed_idea = { days = 360 idea = improve_peruvian_production }
+			}
+    }
+    focus = {
+		id = PRU_Bolognesi_Memories
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Improve_the_production
+			focus = PRU_Upgrade_Tanks
+		}
+		x = 2
+		y = 7
+        completion_reward = {
+		    add_timed_idea = { days = 930 idea = bolognesi_memories }
+	    }
+	}	
+	focus = {
+		id = PRU_A_new_Ejercito
+		icon = GFX_focus_generic_little_entente
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Bolognesi_Memories
+		}
+		x = 2
+		y = 8
+        completion_reward = {
+		    add_timed_idea = { days = 720 idea = A_New_Peruvian_Ejercito}
+        }	
+	}

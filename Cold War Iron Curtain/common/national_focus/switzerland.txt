@@ -31,12 +31,13 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = SWI_soviet_alignment
+			focus = SWI_american_alignment
 		}
 		x = 12
 		y = 0
 			completion_reward = {
 					add_political_power = 120
-					add_national_unity = 0.10
+					add_stability = 0.10
 				}
 
 	}
@@ -72,6 +73,7 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = SWI_soviet_alignment
+			focus = SWI_non_aligned
 		}
 		x = 28
 		y = 0
@@ -1420,7 +1422,7 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = SOV
 						}
@@ -1525,7 +1527,7 @@ focus_tree = {
 		y = 4
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = SOV
 						}
@@ -1802,7 +1804,7 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = USA
 						}
@@ -1866,7 +1868,7 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = USA
 						}
@@ -1967,7 +1969,7 @@ focus_tree = {
 		y = 4
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = USA
 						}
@@ -2000,7 +2002,7 @@ focus_tree = {
 		y = 6
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = USA
 						}
@@ -2330,7 +2332,7 @@ focus_tree = {
 		x = 35
 		y = 4
 		completion_reward = {
-			add_national_unity = 0.10
+			add_stability = 0.10
 			
 		}
 	}
@@ -2356,7 +2358,10 @@ focus_tree = {
 		}
 		x = 35
 		y = 6
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = SWI_new_course
@@ -2436,7 +2441,7 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 					add_political_power = 100
-					add_national_unity = 0.05
+					add_stability = 0.05
 					set_politics = {
 							ruling_party = communism
 							elections_allowed = no
@@ -2458,7 +2463,7 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 					add_political_power = 100
-					add_national_unity = 0.05
+					add_stability = 0.05
 					set_politics = {
 							ruling_party = trotskyism
 							elections_allowed = no
@@ -2480,7 +2485,7 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 					add_political_power = 100
-					add_national_unity = 0.05
+					add_stability = 0.05
 					set_politics = {
 							ruling_party = maoism
 							elections_allowed = no
@@ -2648,7 +2653,7 @@ focus_tree = {
 		x = 45
 		y = 8
 		completion_reward = {
-			PRC = { add_to_faction = SWI }
+			PRC = { country_event = generic.8 }
 		}
 	}
 	focus = {
@@ -2691,7 +2696,7 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 					add_political_power = 100
-					add_national_unity = 0.05
+					add_stability = 0.05
 					set_politics = {
 							ruling_party = National_Socialism
 							elections_allowed = no
@@ -2712,7 +2717,7 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 					add_political_power = 100
-					add_national_unity = 0.05
+					add_stability = 0.05
 					set_politics = {
 							ruling_party = fascism
 							elections_allowed = no
@@ -2782,7 +2787,7 @@ focus_tree = {
 		x = 49
 		y = 8
 		completion_reward = {
-			add_national_unity = -0.03
+			add_stability = -0.03
 			add_ideas = leftist_persecution
 		}
 	}
@@ -2860,7 +2865,7 @@ focus_tree = {
 		y = 6
 		completion_reward = {
 					add_political_power = 100
-					add_national_unity = 0.2
+					add_stability = 0.2
 			}
 	}
 	focus = {
@@ -2879,6 +2884,13 @@ focus_tree = {
 						}
 					FRA = { every_owned_state = { add_core_of = SWI }	}
 			}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = SWI_reform_officer_corps_usa
@@ -3113,7 +3125,7 @@ focus_tree = {
 							target = USA
 							cost_factor = 1.0
 							equipment = {
-									type = assault_rifle_equipment_1
+									type = infantry_equipment_1
 									version = 0
 								}
 						}
@@ -3163,7 +3175,7 @@ focus_tree = {
 		y = 5
 		completion_reward = {
 			add_political_power = 150
-			add_national_unity = 0.15
+			add_stability = 0.15
 		}
 	}
 	focus = {
@@ -3189,7 +3201,7 @@ focus_tree = {
 		x = 39
 		y = 7
 		completion_reward = {
-			SOV = { add_to_faction = SWI }
+			SOV = { country_event = generic.8 }
 		}
 	}
 	focus = {
@@ -3249,7 +3261,7 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			add_political_power = 100
-			add_national_unity = 0.1
+			add_stability = 0.1
 			add_popularity = {
 				ideology = conservative
 				popularity = 0.05
@@ -3274,7 +3286,7 @@ focus_tree = {
 		x = 63
 		y = 3
 		completion_reward = {
-			add_national_unity = -0.10
+			add_stability = -0.10
 			remove_ideas = neutrality_idea
 		}
 	}
@@ -3336,8 +3348,7 @@ focus_tree = {
 		x = 63
 		y = 5
 			completion_reward = {
-					USA = { add_to_faction = ROOT }
-					add_ideas = nato_member
+					USA = { country_event = generic.8 }
 				}
 	}
 	focus = {
@@ -3451,7 +3462,7 @@ focus_tree = {
 		x = 63
 		y = 8
 		completion_reward = {
-			add_national_unity = 0.4
+			add_stability = 0.4
 		}
 	}
 	
@@ -3502,7 +3513,7 @@ focus_tree = {
 		x = 35
 		y = 8
 		completion_reward = {
-			add_national_unity = 0.15
+			add_stability = 0.15
 			add_political_power = 120
 		}
 	}

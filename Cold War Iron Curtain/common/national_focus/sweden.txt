@@ -894,7 +894,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SWE_armament_efforts_iv
-		icon = GFX_goal_generic_construct_mil_factory
+		icon = GFX_saab
 		cost = 10.00
 		prerequisite = {
 			focus = SWE_production_efforts
@@ -967,7 +967,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SWE_armament_effort_iii
-		icon = GFX_goal_generic_construct_mil_factory
+		icon = GFX_bofors
 		cost = 10.00
 		prerequisite = {
 			focus = SWE_production_efforts
@@ -1040,7 +1040,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SWE_production_efforts_ii
-		icon = GFX_goal_generic_construct_mil_factory
+		icon = GFX_husqvarna
 		cost = 10.00
 		prerequisite = {
 			focus = SWE_production_efforts
@@ -1443,7 +1443,7 @@ focus_tree = {
 		y = 5
 		completion_reward = {
 					add_political_power = 20
-					add_national_unity = -0.1
+					add_stability = -0.1
 					add_popularity = {
 							ideology = communism
 							popularity = 0.3
@@ -1485,7 +1485,7 @@ focus_tree = {
 		y = 5
 		completion_reward = {
 					add_political_power = 50
-					add_national_unity = -0.2
+					add_stability = -0.2
 					add_popularity = {
 							ideology = communism
 							popularity = 0.1
@@ -1531,7 +1531,7 @@ focus_tree = {
 		y = 8
 		completion_reward = {
 					add_political_power = 100
-					add_national_unity = 0.3
+					add_stability = 0.3
 					set_politics = {
 							ruling_party = communism
 							elections_allowed = no
@@ -1562,7 +1562,7 @@ focus_tree = {
 		y = 10
 	completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = SOV
 						}
@@ -1675,7 +1675,7 @@ focus_tree = {
 		y = 8
 		completion_reward = {
 					add_political_power = 100
-					add_national_unity = 0.3
+					add_stability = 0.3
 					set_politics = {
 							ruling_party = maoism
 							elections_allowed = no
@@ -1697,7 +1697,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SWE_pla
-		icon = GFX_goal_unknown
+		icon = GFX_Liberation_Army
 		cost = 10.00
 		prerequisite = {
 			focus = SWE_maoist
@@ -1745,7 +1745,7 @@ focus_tree = {
 		y = 10
 		completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = PRC
 						}
@@ -1811,7 +1811,7 @@ focus_tree = {
 		y = 8
 		completion_reward = {
 					add_political_power = 100
-					add_national_unity = 0.3
+					add_stability = 0.3
 					set_politics = {
 							ruling_party = trotskyism
 							elections_allowed = no
@@ -2321,8 +2321,7 @@ focus_tree = {
 		x = 41
 		y = 5
 			completion_reward = {
-					USA = { add_to_faction = ROOT }
-					add_ideas = nato_member
+					USA = { country_event = generic.8 }
 				}
 	}
 	focus = {
@@ -2362,7 +2361,7 @@ focus_tree = {
 		y = 7
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = USA
 						}
@@ -2407,7 +2406,7 @@ focus_tree = {
 		y = 6
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = USA
 						}
@@ -2692,7 +2691,7 @@ focus_tree = {
 		y = 6
 		completion_reward = {
 			add_political_power = 150
-			add_national_unity = 0.05
+			add_stability = 0.05
 			add_ideas = KOR_education_reform
 			add_research_slot = 1
 		}
@@ -2763,7 +2762,7 @@ focus_tree = {
 		y = 5
 		completion_reward = {
 			add_political_power = 300
-			add_national_unity = 0.15
+			add_stability = 0.15
 		}
 	}
 	focus = {
@@ -2832,7 +2831,7 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 			add_political_power = 300
-			add_national_unity = 0.1
+			add_stability = 0.1
 		}
 	}
 	focus = {
@@ -2996,6 +2995,13 @@ focus_tree = {
 						}
 						TUR = { every_owned_state = { add_core_of = SWE }	}		
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = SWE_crusade_arabia
@@ -3015,6 +3021,13 @@ focus_tree = {
 							target = SAU
 						}
 						SAU = { every_owned_state = { add_core_of = SWE }	}		
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
 		}
 	}
 	focus = {
@@ -3132,6 +3145,13 @@ focus_tree = {
 						}
 						FIN = { every_owned_state = { add_core_of = SWE }	}		
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = SWE_annex_norway_fas
@@ -3149,6 +3169,13 @@ focus_tree = {
 						}
 						NOR = { every_owned_state = { add_core_of = SWE }	}		
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = SWE_annex_denmark
@@ -3165,6 +3192,13 @@ focus_tree = {
 							target = DEN
 						}
 						DEN = { every_owned_state = { add_core_of = SWE }	}		
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
 		}
 	}
 	focus = {
@@ -3265,7 +3299,7 @@ focus_tree = {
 		y = 5
 			completion_reward = {
 					add_political_power = 300
-					add_national_unity = 0.15
+					add_stability = 0.15
 					set_politics = {
 							ruling_party = monarchism
 							elections_allowed = yes
@@ -3347,7 +3381,7 @@ focus_tree = {
 		y = 5
 			completion_reward = {
 					add_political_power = -300
-					add_national_unity = -0.15
+					add_stability = -0.15
 					set_politics = {
 							ruling_party = monarchism
 							elections_allowed = no
@@ -3844,7 +3878,7 @@ focus_tree = {
 		y = 1
 		completion_reward = {
 			add_political_power = -300
-			add_national_unity = -0.15
+			add_stability = -0.15
 		}
 	}
 	focus = {
@@ -3890,12 +3924,12 @@ focus_tree = {
 		x = 15
 		y = 15
 		completion_reward = {
-			SOV = { add_to_faction = SWE }
+			SOV = { country_event = generic.8 }
 		}
 	}
 	focus = {
 		id = SWE_seize_all_companies
-		icon = GFX_goal_unknown
+		icon = GFX_fist
 		cost = 10.00
 		prerequisite = {
 			focus = SWE_five_year_plan
@@ -3916,7 +3950,7 @@ focus_tree = {
 		x = 21
 		y = 17
 		completion_reward = {
-			add_national_unity = -0.25
+			add_stability = -0.25
 		}
 	}
 	focus = {
@@ -3929,7 +3963,7 @@ focus_tree = {
 		x = 18
 		y = 17
 		completion_reward = {
-			add_national_unity = -0.25
+			add_stability = -0.25
 			add_ideas = iron_curtain
 			add_ideas = city_economies
 			add_ideas = urban_planning
@@ -4027,12 +4061,12 @@ focus_tree = {
 		x = 18
 		y = 19
 		completion_reward = {
-			add_national_unity = 0.4
+			add_stability = 0.4
 		}
 	}
 	focus = {
 		id = SWE_purge_enemies_Communism
-		icon = GFX_goal_unknown
+		icon = GFX_purge
 		cost = 10.00
 		prerequisite = {
 			focus = SWE_exile_the_royality
@@ -4041,13 +4075,13 @@ focus_tree = {
 		y = 18
 		completion_reward = {
 			add_manpower  = -300000
-			add_national_unity = -0.25
+			add_stability = -0.25
 			add_political_power = -200
 		}
 	}
 	focus = {
 		id = SWE_our_kgb
-		icon = GFX_goal_generic_secret_weapon
+		icon = GFX_kgb
 		cost = 10.00
 		prerequisite = {
 			focus = SWE_adopt_communist_culture
@@ -4218,7 +4252,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SWE_visit_china
-		icon = GFX_goal_generic_major_alliance
+		icon = GFX_meet_china
 		cost = 10.00
 		prerequisite = {
 			focus = SWE_maoist
@@ -4551,6 +4585,13 @@ focus_tree = {
 						}
 						IRQ = { every_owned_state = { add_core_of = SWE }	}		
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = SWE_crusade_israel
@@ -4570,6 +4611,13 @@ focus_tree = {
 							target = ISR
 						}
 						ISR = { every_owned_state = { add_core_of = SWE }	}		
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
 		}
 	}
 	focus = {
@@ -4598,7 +4646,7 @@ focus_tree = {
 		x = 123
 		y = 2
 		completion_reward = {
-			add_national_unity = -0.25
+			add_stability = -0.25
 			add_ideas = iron_curtain
 			add_ideas = city_economies
 			add_ideas = urban_planning

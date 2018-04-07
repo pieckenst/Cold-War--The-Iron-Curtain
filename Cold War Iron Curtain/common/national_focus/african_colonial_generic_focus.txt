@@ -62,21 +62,33 @@ focus_tree = {
 			add = 10
 			tag = UGA
 		}
-                                modifier = {
+        modifier = {
 			add = 10
 			tag = SUD
 		}
-                                modifier = {
+        modifier = {
 			add = 10
 			tag = BSL
 		}
-                                modifier = {
+        modifier = {
 			add = 10
 			tag = CHA
 		}
-                                modifier = {
+		modifier = {
 			add = 10
-			tag = BCM
+			tag = LES
+		}
+		modifier = {
+			add = 10
+			tag = DOC
+		}
+		modifier = {
+			add = 10
+			tag = GAM
+		}
+		modifier = {
+			add = 10
+			tag = MAD
 		}
 	}
 	default = yes
@@ -2140,6 +2152,8 @@ focus_tree = {
 					OR = {
 							has_government = democratic
 							has_government = neutrality
+							has_government = conservative
+							has_government = Christian_Democratic
 						}
 				}
 			available_if_capitulated = yes
@@ -2168,18 +2182,56 @@ focus_tree = {
 			completion_reward = {
 				add_ideas = liberty_ethos_focus
 				country_event = AFR.201
-                if = {
-						limit = { tag = BCM }
-						NIA = { transfer_state = 1106 add_state_core = 1106 }	
-                        CMR = { add_state_core = 1105 }	
-                        BCM = { remove_state_core = 1106 }							
-						}
 				if = {
 						limit = { tag = CHA }
 						release = CAR
                         release = ROC
                         release = GAB				
-						}
+				}
+				if = {
+						limit = { tag = LES }
+						add_popularity ={
+		                     ideology = democratic
+		                     popularity = 0.20
+		                }
+						set_politics = {
+	                        ruling_party = democratic
+                        }	
+				}
+			    if = {
+						limit = { tag = GAM }
+						add_popularity ={
+		                     ideology = centrist
+		                     popularity = 1.0
+		                }
+						set_politics = {
+	                        ruling_party = centrist
+                        }	
+				}
+		        if = {
+						limit = { tag = MAD }
+						add_popularity ={
+		                     ideology = socialist
+		                     popularity = 1.0
+		                }
+						set_politics = {
+	                        ruling_party = socialist
+                        }	
+				}
+				if = {
+						limit = { tag = DOC }
+						add_popularity ={
+		                     ideology = Liberal_Conservatism
+		                     popularity = 0.80
+		                }
+						add_popularity ={
+		                     ideology = nationalism
+		                     popularity = 0.20
+		                }
+						set_politics = {
+	                        ruling_party = Liberal_Conservatism
+                        }	
+				}
 		    }
 	}
 	focus = {
@@ -2352,7 +2404,7 @@ focus_tree = {
 						}
 				}
 			completion_reward = {
-					add_national_unity = 0.15
+					add_stability = 0.15
 					random_owned_controlled_state = {
 							limit = {
 									free_building_slots = {
@@ -2728,18 +2780,56 @@ focus_tree = {
 			completion_reward = {
 					add_ideas = collectivist_ethos_focus
 					country_event = AFR.201
-		            if = {
-						limit = { tag = BCM }
-						NIA = { transfer_state = 1106 add_state_core = 1106 }	
-                        CMR = { add_state_core = 1105 }	
-                        BCM = { remove_state_core = 1106 }								
-						}
-					if = {
+				if = {
 						limit = { tag = CHA }
 						release = CAR
                         release = ROC
                         release = GAB				
-						}
+				}
+				if = {
+						limit = { tag = LES }
+						add_popularity ={
+		                     ideology = democratic
+		                     popularity = 0.20
+		                }
+						set_politics = {
+	                        ruling_party = democratic
+                        }	
+				}
+				if = {
+						limit = { tag = GAM }
+						add_popularity ={
+		                     ideology = centrist
+		                     popularity = 1.0
+		                }
+						set_politics = {
+	                        ruling_party = centrist
+                        }	
+				}
+				if = {
+						limit = { tag = MAD }
+						add_popularity ={
+		                     ideology = socialist
+		                     popularity = 1.0
+		                }
+						set_politics = {
+	                        ruling_party = socialist
+                        }	
+				}
+				if = {
+						limit = { tag = DOC }
+						add_popularity ={
+		                     ideology = Liberal_Conservatism
+		                     popularity = 0.80
+		                }
+						add_popularity ={
+		                     ideology = nationalism
+		                     popularity = 0.20
+		                }
+						set_politics = {
+	                        ruling_party = Liberal_Conservatism
+                        }	
+				}
 		    }
 	}
 	focus = {
@@ -2999,7 +3089,7 @@ focus_tree = {
 						}
 				}
 			completion_reward = {
-					add_national_unity = 0.15
+					add_stability = 0.15
 					random_owned_controlled_state = {
 							limit = {
 									free_building_slots = {
@@ -3325,7 +3415,7 @@ focus_tree = {
 		y = 8
 			available_if_capitulated = yes
 			completion_reward = {
-					add_national_unity = 0.15
+					add_stability = 0.15
 				}
 
 	}
@@ -3384,7 +3474,7 @@ focus_tree = {
 		y = 8
 			available_if_capitulated = yes
 			completion_reward = {
-					add_national_unity = -0.10
+					add_stability = -0.10
 					add_political_power = 300
 					add_tech_bonus = {
 							name = infantry_weapons_bonus
@@ -3407,7 +3497,7 @@ focus_tree = {
 		y = 9
 			available_if_capitulated = yes
 			completion_reward = {
-					add_national_unity = 0.15
+					add_stability = 0.15
 				}
 
 	}
@@ -3485,7 +3575,7 @@ focus_tree = {
 						}
 				}
 			completion_reward = {
-					add_national_unity = 0.15
+					add_stability = 0.15
 					random_owned_controlled_state = {
 							limit = {
 									free_building_slots = {

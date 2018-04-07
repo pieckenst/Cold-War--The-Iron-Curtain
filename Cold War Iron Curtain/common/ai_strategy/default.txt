@@ -390,23 +390,29 @@ default_stockpile_management = {
 	}
 
 	ai_strategy = {
-		type = equipment_stockpile
+		type = equipment_stockpile_surplus_ratio
 		value = 35 # double base stockpile #from 25 to 35
 	}
 }
 
-PP_admiral_prio = {
+save_admiral_pp_for_later = {
 	enable = {
-		has_political_power < 200
+		has_war = no
+		threat < 0.3
+		has_political_power < 200		
 	}
 	abort = {
-		NOT = { has_political_power < 200 }
+		OR = {
+			has_war = yes	
+			threat > 0.3
+			has_political_power > 200
+		}
 	}
 
-	ai_strategy = {
+	ai_strategy = { # dont burn PP on admirals (can still get free ones)
 		type = pp_spend_priority
 		id = admiral
-		value = -9999
+		value = -100
 	}
 }
 
@@ -422,5 +428,49 @@ PP_relation_prio = {
 		type = pp_spend_priority
 		id = relation
 		value = -9999
+	}
+}
+
+do_not_waste_pp_if_saving_for_manpower_laws = {
+
+	enable = {
+		manpower_per_military_factory < 500
+		has_war = yes
+	}
+	abort = {
+		OR = {
+			manpower_per_military_factory > 500
+			has_war = no
+		}
+	}
+
+	ai_strategy = {
+		type = pp_spend_priority
+		id = relation
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = pp_spend_priority
+		id = guarantee
+		value = -9999
+	}
+}
+
+default_pp_spend_amount = {
+	enable = {
+		always = yes
+	}
+	
+	ai_strategy = {
+		type = pp_spend_amount
+		id = idea
+		value = 150
+	}
+	
+	ai_strategy = {
+		type = pp_spend_amount
+		id = decision
+		value = 150
 	}
 }

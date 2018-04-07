@@ -1,0 +1,1 @@
+NDefines_Graphics.NGraphics.VICTORY_POINT_MAP_ICON_AFTER = {0, 10} -- After this amount of VP the map icon becomes bigger dot.

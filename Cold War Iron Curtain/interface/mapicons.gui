@@ -163,13 +163,15 @@ guiTypes = {
 			frame = 1
 		}
 		
-		#iconType ={
-		#	name ="group_marker"
-		#	spriteType = "GFX_UV_group_marker"
-		#	position = { x=55 y=2 }
-		#	allwaystransparent = yes
-		#}
-		#
+		iconType ={
+			name ="group_marker"
+			spriteType = "GFX_UV_group_marker"
+			position = { x=55 y=2 }
+			allwaystransparent = yes
+		}
+		
+
+
 		#iconType = {
 		#	name = "counter_ideology"
 		#	spriteType = "GFX_onmap_unit_counter_ideology"
@@ -529,6 +531,26 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 		
+		iconType ={
+			name ="permission_wings_bg"
+			spriteType = "GFX_generic_box_smallest"
+			position = { x=32 y=20 }
+			Orientation = "UPPER_LEFT"
+			scale = 0.7
+			pdx_tooltip = "AIR_VOLUNTEERS_LIMIT"
+		}
+		
+		instantTextboxType = {
+			name = "permission_wings_count"
+			position = { x=32 y=21 }
+			font = "hoi_16mbs"
+			text = "100/2000"
+			maxWidth = 49
+			maxHeight = 20
+			alwaystransparent = yes
+			format = centre
+		}
+		
 		gridboxtype = {
 			name = "wings_box"
 			position = { x = -26 y = 35 }
@@ -616,6 +638,7 @@ guiTypes = {
 			name ="bg_btn"
 			quadTextureSprite = "GFX_mapicon_naval_combat"
 			position = { x=-25 y=0 }
+			frame = 1
 		}
 		
 		instantTextBoxType = 
@@ -677,6 +700,7 @@ guiTypes = {
 			spriteType = "GFX_mapicon_land_combat_frame"
 			position = { x=-2 y = -2 }
 			alwaystransparent = yes
+			frame = 1
 		}
 		
 		instantTextboxType = {
@@ -708,10 +732,21 @@ guiTypes = {
 
 		OverlappingElementsBoxType = {
 			name = "missions_list"
-			position = { x = 0 y = 0 }
+			position = { x = 42 y = 0 }
 			size = { x = 400 y = 64 }
 			format = left
 			spacing = 1.0
+		}
+		
+		iconType = {
+			name ="more_ground_crews_bg"
+			spriteType = "GFX_mapicon_air_mission_bg_more_ground_crews"
+			position = { x=0 y=0 }
+		}
+		buttonType = {
+			name ="more_ground_crews_icon"
+			quadTextureSprite = "GFX_mapicon_air_mission_icon_more_ground_crews"
+			position = { x=0 y=0 }
 		}
 	}
 	
@@ -723,10 +758,29 @@ guiTypes = {
 		orientation = upper_left
 
 		iconType = {
+			name = "supply_icon"
+			spriteType = "GFX_mapicon_air_supply"
+			position = { x=2 y=-21 }
+			frame = 1
+		}
+		
+		iconType = {
 			name ="bg"
 			spriteType = "GFX_mapicon_air_mission_bg"
 			position = { x=0 y=0 }
 		}
+		
+		instantTextboxType = {
+			name = "supply_count"
+			position = { x=-7 y=-6 }
+			font = "hoi_16mbs"
+			maxWidth = 60
+			maxHeight = 14
+			format = center	
+			text = "555/555"
+			alwaystransparent = yes
+		}
+		
 		buttonType = {
 			name ="button"
 			quadTextureSprite = "GFX_strategicair_mission_types"
@@ -738,8 +792,19 @@ guiTypes = {
 			font = "hoi_16mbs"
 			maxWidth = 45
 			maxHeight = 14
-			format = center	
+			format = center
 			alwaystransparent = yes
+		}
+		
+		instantTextboxType = {
+			name = "supply_count_small"
+			position = { x=-7 y=-6 }
+			font = "Main_14_grey"
+			maxWidth = 60
+			maxHeight = 14
+			format = center	
+			text = "555/555"
+
 		}
 	}
 	containerWindowType = {
@@ -982,6 +1047,13 @@ guiTypes = {
 				format = center
 				alwaystransparent = yes
 			}
+			
+			iconType = {
+				name = "air_mission_icon"
+				position = { x=-54 y=9 }	
+				spriteType = "GFX_mapicon_air_supply_active"
+				scale = 0.8
+			}
 		}
 
 		containerWindowType = {
@@ -1070,4 +1142,34 @@ guiTypes = {
 		}	
 	}
 	
+	containerWindowType = {
+		name = "ping_mapicon"
+		position = { x=0 y=0 }
+		size = { width=56 height=54 }
+		orientation = upper_left
+		
+		iconType = {
+			name = "circle"
+			position = {x=28 y=27}
+			quadTextureSprite = "GFX_worldmap_ping_circle"
+			scale = 2
+			
+			centerPosition = yes
+			alwaystransparent = yes
+		}
+		
+		iconType = {
+			name = "ping_mapicon_offensive"
+			position = { x = 28 y = 27 }
+			spriteType = "GFX_worldmap_ping_offensive"
+			centerPosition = yes
+		}	
+		
+		iconType = {
+			name = "ping_mapicon_defensive"
+			position = { x = 28 y = 27 }
+			spriteType = "GFX_worldmap_ping_defensive"
+			centerPosition = yes
+		}
+	}
 }

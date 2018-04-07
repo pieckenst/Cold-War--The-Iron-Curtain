@@ -12,9 +12,10 @@ on_actions = {
 		random_events = {
 			100 = election.1
 		}
-		#random_events = {
-		#	100 = wgr.5
-		#}
+		random_events = {
+			100 = wgr.5
+			100 = wgr.11
+		}
 	}
 
 	# Ace pilots
@@ -106,7 +107,11 @@ on_actions = {
 
 	on_border_war_lost = {
 		effect = {
-		}
+			owner = {
+				country_event = { id = goa.14 }
+				country_event = { id = goa.16 }
+			}
+		}	
 	}
 	
 	on_leave_faction = {
@@ -436,7 +441,10 @@ on_actions = {
 		effect = {
 			every_country = {
 				country_event = ic_pulse.14
-			}				
+			}		
+			FRA = {
+				set_division_template_lock = { division_template = "Légion étrangère Française" is_locked = yes }	
+			}
 			SOV = { add_threat = 15 }
 			random_other_country = {
 				limit = {

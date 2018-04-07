@@ -182,29 +182,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SPR_Sattelite_Morrocco
-		icon = GFX_goal_generic_demand_territory
-		cost = 10.00
-		x = 48
-		y = 5
-		completion_reward = { 
-			puppet = MOR 
-		}
-	}
-	focus = {
-		id = SPR_Annex_Morrocco
-		icon = GFX_goal_generic_attack_allies
-		cost = 10.00
-		mutually_exclusive = {
-			focus = SPR_End_of_the_Algerian_War
-		}
-		x = 46
-		y = 5
-		completion_reward = { 
-			annex_country = { target = MOR }	
-		}
-	}
-	focus = {
 		id = SPR_construction_effort
 		icon = GFX_goal_generic_construct_civ_factory
 		cost = 10.00
@@ -1290,7 +1267,7 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = USA
 						}
@@ -1340,7 +1317,7 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = USA
 						}
@@ -1373,7 +1350,7 @@ focus_tree = {
 		y = 4
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = USA
 						}
@@ -1406,7 +1383,7 @@ focus_tree = {
 		y = 6
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = USA
 						}
@@ -1980,7 +1957,6 @@ focus_tree = {
 			focus = SPR_Algerian_War_Opportunity
 		}
 		mutually_exclusive = {
-			focus = SPR_Annex_Morrocco
 			focus = SPR_Intervene_in_Algeria1
 		}
 		x = 41
@@ -2084,6 +2060,13 @@ focus_tree = {
 		completion_reward = {
 			create_wargoal = { type = annex_everything target = MOR }
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = SPR_Invade_Libya
@@ -2096,6 +2079,13 @@ focus_tree = {
 		y = 10
 		completion_reward = {
 			create_wargoal = { type = annex_everything target = LBA }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
 		}
 	}
 	focus = {
@@ -2149,8 +2139,8 @@ focus_tree = {
 		y = 12
 		completion_reward = {
 			create_faction = "The Concordat"
-			add_to_faction = POR
-			add_to_faction = FRA
+			POR = { country_event = generic.2 }
+			FRA = { country_event = generic.2 }
 		}
 	}
 	focus = {
@@ -2165,6 +2155,13 @@ focus_tree = {
 		completion_reward = {
 			create_wargoal = { type = annex_everything target = BRA }
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = SPR_Reclaim_Venezuela
@@ -2178,6 +2175,13 @@ focus_tree = {
 		completion_reward = {
 			create_wargoal = { type = annex_everything target = VEN }
 			VEN = { every_owned_state = { add_core_of = SPR }	}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
 		}
 	}
 	focus = {
@@ -2310,9 +2314,6 @@ focus_tree = {
 		icon = GFX_focus_generic_soviet_politics
 		cost = 10.00
 		prerequisite = {
-			focus = SPR_Annex_Morrocco
-		}
-		prerequisite = {
 			focus = SPR_Maoist_Backed_Coup
 		}
 		x = 45
@@ -2362,7 +2363,7 @@ focus_tree = {
 		y = 0
 			completion_reward = {
 					add_political_power = 120
-					add_national_unity = 0.10
+					add_stability = 0.10
 				}
 
 	}
@@ -2700,7 +2701,7 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = SOV
 						}
@@ -2882,15 +2883,12 @@ focus_tree = {
 		icon = GFX_focus_generic_soviet_politics
 		cost = 10.00
 		prerequisite = {
-			focus = SPR_Sattelite_Morrocco
-		}
-		prerequisite = {
 			focus = SPR_Soviet_Backed_Coup
 		}
 		x = 49
 		y = 6
 		completion_reward = {
-			add_national_unity = -0.1
+			add_stability = -0.1
 			add_popularity = { ideology = communism popularity = 0.1 }	
 		}
 	}
@@ -2963,7 +2961,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_political_power = 300
-			add_national_unity = 0.25
+			add_stability = 0.25
 			set_politics = {
 					ruling_party = democratic
 					elections_allowed = yes
@@ -3175,8 +3173,7 @@ focus_tree = {
 		x = 52
 		y = 10
 		completion_reward = {
-			USA = { add_to_faction = SPR }
-			add_ideas = nato_member
+			USA = { country_event = generic.8 }
 		}
 	}
 	focus = {
@@ -3554,7 +3551,7 @@ focus_tree = {
 		y = 4
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = SOV
 						}
@@ -4067,7 +4064,7 @@ focus_tree = {
 							target = USA
 							cost_factor = 1.0
 							equipment = {
-									type = assault_rifle_equipment_1
+									type = infantry_equipment_1
 									version = 0
 								}
 						}
@@ -4126,7 +4123,7 @@ focus_tree = {
 	focus = {
 		id = SPR_the_Ifni_War
 		icon = GFX_focus_RAJ_lions_of_the_great_war
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = SPR_Reliance_on_Opus_Dei
 			focus = SPR_Declare_a_Constiutional_Monarchy
@@ -4137,13 +4134,14 @@ focus_tree = {
 			has_war_with = MOR
 		}
 		completion_reward = {
-			add_political_power = 300
+			white_peace = MOR
+			MOR = { transfer_state = 1003 }	
 		}
 	}
 	focus = {
 		id = SPR_Peace_With_Morrocco
 		icon = GFX_goal_generic_major_alliance
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = SPR_the_Ifni_War
 			focus = SPR_Begin_Decolonization
@@ -4154,8 +4152,8 @@ focus_tree = {
 			has_war_with = MOR
 		}
 		completion_reward = {
-			add_national_unity = -0.10
-			MOR = { transfer_state = 699 }	
+			white_peace = MOR
+			MOR = { transfer_state = 699 transfer_state = 1001 transfer_state = 1002 }	
 		}
 	}
 	focus = {
@@ -4298,7 +4296,7 @@ focus_tree = {
 		y = 6
 		completion_reward = {
 			add_political_power = 120
-			add_national_unity = 0.10
+			add_stability = 0.10
 		}
 	}
 	focus = {
@@ -4376,7 +4374,7 @@ focus_tree = {
 		x = 48
 		y = 10
 		completion_reward = {
-			SOV = { add_to_faction = SPR }
+			SOV = { country_event = generic.8 }
 		}
 	}
 	focus = {
@@ -4526,7 +4524,7 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 			set_politics = { ruling_party = conservative elections_allowed = yes }	
-			add_national_unity = 0.15
+			add_stability = 0.15
 		}
 	}
 	focus = {
@@ -4642,8 +4640,7 @@ focus_tree = {
 		x = 38
 		y = 11
 		completion_reward = {
-			USA = { add_to_faction = SPR }
-			add_ideas = nato_member
+			USA = { country_event = generic.8 }
 		}
 	}
 	focus = {
