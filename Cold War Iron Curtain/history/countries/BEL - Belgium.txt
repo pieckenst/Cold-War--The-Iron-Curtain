@@ -18,12 +18,12 @@ set_technology = {
 	basic_carrier = 1
 	basic_destroyer = 1
 	basic_light_cruiser = 1
-	basic_machine_tools = 1
+	ww_production = 1
 	basic_submarine = 1
 	battle_cruiser_1 = 1
 	battleship_2 = 1
 	battleship_3 = 1
-	construction1 = 1
+	ww_construction = 1
 	cv_CAS1 = 1
 	cv_CAS2 = 1
 	cv_CAS3 = 1
@@ -52,7 +52,7 @@ set_technology = {
 	fighter3 = 1
 	frigate_1 = 1
 	frigate_2 = 1
-	great_war_infantry_equipment = 1
+	infantry_equip_1 = 1
 	gw_artillery = 1
 	selfpropart1 = 1
 	sp_aa1 = 1
@@ -60,15 +60,15 @@ set_technology = {
 	heavy_fighter1 = 1
 	heavy_fighter2 = 1
 	heavy_fighter3 = 1
-	heavy_infantry_weapons1 = 1
-	heavy_infantry_weapons2 = 1
+	team_weapons_1 = 1
+	team_weapons_2 = 1
 	heavy_tanks_1 = 1
 	heavy_tanks_2 = 1
 	improved_destroyer = 1
 	improved_light_cruiser = 1
 	improved_rocket_engines = 1
 	interwar_antiair = 1
-	infantry_equip_1 = 1
+	infantry_equip_2 = 1
 	jet_CAS1 = 1
 	jet_engines = 1
 	jet_fighter1 = 1
@@ -86,8 +86,8 @@ set_technology = {
 	mechanized_heavy_infantry = 1
 	mechanized_infantry = 1
 	mechanized_infantry2 = 1
-	mortar_infantry_weapons_1 = 1
-	mortar_infantry_weapons_2 = 1
+	 
+	 
 	motorised_infantry = 1
 	naval_bomber1 = 1
 	naval_bomber2 = 1
@@ -103,7 +103,7 @@ set_technology = {
 	strategic_bomber2 = 1
 	strategic_bomber3 = 1
 	suicide_craft = 1
-	synth_oil_experiments = 1
+	ww_oil = 1
 	tactical_bomber1 = 1
 	tactical_bomber2 = 1
 	tactical_bomber3 = 1
@@ -115,7 +115,6 @@ set_technology = {
 
 add_ideas = {
 	population_growth_steady
-	european_foriegn_policy
 	nato_member
 }
 
@@ -157,7 +156,7 @@ set_politics = {
 }
 
 set_convoys = 200
-set_national_unity = 0.75
+set_stability = 0.75
 
 if = {
 	limit = {
@@ -167,10 +166,15 @@ if = {
 		target = DOC
 		autonomous_state = autonomy_protectorate
 		freedom_level = 0.4
-	}	
+	}
+    set_autonomy = {
+		target = BUR
+		autonomous_state = autonomy_protectorate
+		freedom_level = 0.4
+	}		
 	else = {
 		puppet = DOC
-		
+		puppet = BUR
 	}
 }
 
@@ -305,12 +309,20 @@ create_navy_leader = {
 	}
 }
 
+1960.1.1 = {
+	set_autonomy = { target = DOC autonomy_state = autonomy_free }
+}
+
 1961.4.25 = {
 	create_country_leader = {
 		name = "Théo Lefèvre"
 		picture = "Portrait_BEL_Theo_Lefevre.dds"
 		ideology = christian_democracy
 	}
+}
+
+1962.1.1 = {
+	set_autonomy = { target = BUR autonomy_state = autonomy_free }
 }
 
 1965.6.28 = {

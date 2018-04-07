@@ -329,7 +329,7 @@ focus_tree = {
 			add_manpower = 175000
 		}
 		add_ideas = SAU_foreign_workers
-		add_national_unity = -0.1
+		add_stability = -0.1
 		}
 	}
 	focus = {
@@ -1144,8 +1144,8 @@ focus_tree = {
 		cost = 10
 		available = {
 			SAU = {
-				has_national_unity > 65
-				}
+				has_stability > 0.65
+			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -1220,6 +1220,13 @@ focus_tree = {
 				target = OMA
 			}
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = SAU_umajid_pact
@@ -1242,7 +1249,7 @@ focus_tree = {
 			factor = 0.5
 		}
 		completion_reward = {
-			add_national_unity = 0.05
+			add_stability = 0.05
 			set_rule = { can_create_factions = yes }
 			create_faction = "umajid_pact"
 		}
@@ -1411,6 +1418,13 @@ focus_tree = {
 				target = PER
 			}
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = SAU_attack_turkey
@@ -1434,6 +1448,13 @@ focus_tree = {
 			create_wargoal = {
 				type = annex_everything
 				target = TUR
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
 			}
 		}
 	}
@@ -1518,7 +1539,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		
 		completion_reward = {
-			annex_country = { target = JOR transfer_troops = yes }
+			JOR = { country_event = generic.1 }
 		}
 	}
 	focus = {
@@ -1542,7 +1563,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		
 		completion_reward = {
-			annex_country = { target = ISR transfer_troops = yes }
+			ISR = { country_event = generic.1 }
 		}
 	}
 	focus = {

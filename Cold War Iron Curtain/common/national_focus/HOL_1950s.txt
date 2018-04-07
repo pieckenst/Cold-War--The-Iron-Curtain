@@ -181,7 +181,7 @@ focus_tree = {
 		y = 0
 			completion_reward = {
 					add_political_power = 120
-					add_national_unity = 0.10
+					add_stability = 0.10
 				}
 
 	}
@@ -1527,7 +1527,7 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = SOV
 						}
@@ -1632,7 +1632,7 @@ focus_tree = {
 		y = 4
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = SOV
 						}
@@ -1909,7 +1909,7 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = USA
 						}
@@ -1973,7 +1973,7 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = USA
 						}
@@ -2074,7 +2074,7 @@ focus_tree = {
 		y = 4
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = USA
 						}
@@ -2107,7 +2107,7 @@ focus_tree = {
 		y = 6
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_1
+							type = infantry_equipment_1
 							amount = 2000
 							producer = USA
 						}
@@ -2833,7 +2833,7 @@ focus_tree = {
 							target = USA
 							cost_factor = 1.0
 							equipment = {
-									type = assault_rifle_equipment_1
+									type = infantry_equipment_1
 									version = 0
 								}
 						}
@@ -2913,15 +2913,22 @@ focus_tree = {
 	focus = {
 		id = HOL_Annex_Former_German_Land
 		icon = GFX_focus_generic_strike_at_democracy2
-		cost = 10.00
+		cost = 10.00 
 		prerequisite = {
 			focus = HOL_Dutch_Indonesian_Round_Table_Conference
 		}
+        available = {
+                   NOT = {
+			              WGR = { has_completed_focus = WGR_Founding_the_Bundeswhr }
+		           }
+        }
+		bypass = {
+			     WGR = { has_completed_focus = WGR_Founding_the_Bundeswhr }
+        }
 		x = 37
 		y = 1
 		completion_reward = {
 			add_state_core = 964
-			transfer_state = 964
 		}
 	}
 	focus = {
@@ -3011,7 +3018,7 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 			add_political_power = 300
-			add_national_unity = 0.15
+			add_stability = 0.15
 		}
 	}
 	focus = {
@@ -3025,7 +3032,7 @@ focus_tree = {
 		y = 4
 		completion_reward = {
 			add_political_power = 300
-			add_national_unity = 0.15
+			add_stability = 0.15
 		}
 	}
 	focus = {
@@ -3039,7 +3046,7 @@ focus_tree = {
 		y = 4
 		completion_reward = {
 			add_political_power = 500
-			add_national_unity = 0.25
+			add_stability = 0.25
 		}
 	}
 	focus = {
@@ -3438,7 +3445,7 @@ focus_tree = {
 		x = 44
 		y = 8
 		completion_reward = {
-			add_national_unity = -0.15
+			add_stability = -0.15
 			add_political_power = 300
 		}
 	}
@@ -3447,10 +3454,8 @@ focus_tree = {
 		icon = GFX_focus_generic_soviet_politics
 		cost = 10.00
 		prerequisite = {
-			focus = HOL_Loss_of_Indonesia
-		}
-		prerequisite = {
 			focus = HOL_Crush_Indonesia
+			focus = HOL_Loss_of_Indonesia
 		}
 		mutually_exclusive = {
 			focus = HOL_Accept_the_Marshall_Plan
@@ -3517,7 +3522,7 @@ focus_tree = {
 		x = 46
 		y = 8
 		completion_reward = {
-			add_national_unity = 0.15
+			add_stability = 0.15
 			add_political_power = 300
 			every_owned_state = {
 				add_extra_state_shared_building_slots = 1
@@ -3958,7 +3963,7 @@ focus_tree = {
 		y = 12
 		completion_reward = {
 			add_political_power = 300
-			add_national_unity = 0.15
+			add_stability = 0.15
 		}
 	}
 	focus = {
@@ -4043,7 +4048,7 @@ focus_tree = {
 		x = 40
 		y = 10
 		completion_reward = {
-			add_national_unity = 0.15
+			add_stability = 0.15
 			add_political_power = 500
 		}
 	}
@@ -4060,7 +4065,7 @@ focus_tree = {
 		x = 42
 		y = 10
 		completion_reward = {
-			add_national_unity = 0.05
+			add_stability = 0.05
 			add_political_power = 150
 			add_ideas = ideological_fanaticism_focus
 		}

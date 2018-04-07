@@ -1,33 +1,5 @@
 leader_traits = {
 
-	pan_arabist_revolutionary = {
-		random = no
-		pan_arabism_drift = 0.05
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	monarchist_advisor = {
-		random = no
-		monarchism_drift = 0.05
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	shia_islamist_advisor = {
-		random = no
-		radical_shiaism_drift = 0.05
-		ai_will_do = {
-			factor = 1
-		}
-	}	
-	islamist_advisor = {
-		random = no
-		islamism_drift = 0.05
-		ai_will_do = {
-			factor = 1
-		}
-	}	
 	Experienced_Redneck = {
 		cavalry_attack_factor = 10
 		cavalry_defence_factor = 10
@@ -87,7 +59,7 @@ leader_traits = {
 	inexperienced_imperialist = {
 		random = no
 		political_power_factor = -0.3
-		unity_factor = 0.05
+		stability_factor = 0.05
 		justify_war_goal_time = -0.25
 		
 		ai_will_do = {
@@ -239,66 +211,11 @@ leader_traits = {
 		}
 	}
 	
-	market_socialist_activist = {
-		random = no
-		# Boosts Communism
-		sprite = 13
-		Social_Democratic_drift = 0.1
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	
 	democratic_reformer = {
 		random = no
 		# Boosts Democracy
 		sprite = 13
 		democratic_drift = 0.1
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-
-	conservative_reformer = {
-		random = no
-		# Boosts Democracy
-		sprite = 13
-		conservative_drift = 0.1
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-
-	socialist_reformer = {
-		random = no
-		# Boosts Democracy
-		sprite = 13
-		socialist_drift = 0.1
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-
-	liberal_reformer = {
-		random = no
-		# Boosts Democracy
-		sprite = 13
-		liberal_drift = 0.1
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-
-	centrist_reformer = {
-		random = no
-		# Boosts Democracy
-		sprite = 13
-		centrist_drift = 0.1
 		
 		ai_will_do = {
 			factor = 0
@@ -318,7 +235,7 @@ leader_traits = {
 	
 	popular_figurehead = {
 		sprite = 13
-		unity_factor = 0.15 
+		stability_factor = 0.15 
 		
 		ai_will_do = {
 			factor = 1
@@ -328,6 +245,7 @@ leader_traits = {
 	foreign_int_rel_specialist = {
 		sprite = 13
 		political_power_factor = 0.1
+		trade_opinion_factor = 0.8
 		
 		ai_will_do = {
 			factor = 1
@@ -629,34 +547,26 @@ leader_traits = {
 			cv_fighter_equipment = {
 				air_agility = 0.1 maximum_speed = 0.1
 			}
-
-# Cold War IC SkyCrystalStar's Fix1 new light_aircraft models start
-
-			jet_fighter_equipment = {
-				air_agility = 0.1 maximum_speed = 0.1
-			}
-			cv_jet_fighter_equipment = {
-				air_agility = 0.1 maximum_speed = 0.1
-			}
-			stealth_fighter_equipment = {
-				air_agility = 0.1 maximum_speed = 0.1
-			}
-			cv_stealth_fighter_equipment = {
-				air_agility = 0.1 maximum_speed = 0.1
-			}
-			jump_jet_equipment = {
-				air_agility = 0.1 maximum_speed = 0.1
-			}
-			jet_interceptor_equipment = {
-				air_agility = 0.1 maximum_speed = 0.1
-			}
-
-# Cold War IC SkyCrystalStar's Fix1 new light_aircraft models end
-
 		}
 		
 		ai_will_do = {
 			factor = 1
+		}
+	}
+
+	light_aircraft_manufacturer_2 = { #TODO_WTT_CD come up with better name
+		random = no
+		equipment_bonus = {
+			fighter_equipment = {
+				air_agility = 0.2 maximum_speed = 0.1
+			}
+			cv_fighter_equipment = {
+				air_agility = 0.2 maximum_speed = 0.1
+			}
+		}
+		
+		ai_will_do = {
+			factor = 2
 		}
 	}
 	
@@ -670,18 +580,6 @@ leader_traits = {
 			cv_CAS_equipment = {
 				air_ground_attack = 0.1 reliability = 0.1
 			}		
-
-# Cold War IC SkyCrystalStar's Fix1 new CAS_manufacturer models start
-
-			jet_CAS_equipment = {
-				air_ground_attack = 0.1 reliability = 0.1
-			}
-			cv_jet_CAS_equipment = {
-				air_ground_attack = 0.1 reliability = 0.1
-			}
-
-# Cold War IC SkyCrystalStar's Fix1 new CAS_manufacturer models end
-
 		}
 		
 		ai_will_do = {
@@ -698,18 +596,26 @@ leader_traits = {
 			tac_bomber_equipment = {
 				reliability = 0.2
 			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
 
-# Cold War IC SkyCrystalStar's Fix1 new medium_aircraft start
-
-			jet_tac_bomber_equipment = {
+	fuel_efficient_aircraft_manufacturer = { 
+		random = no
+		equipment_bonus = {
+			fighter_equipment = {
+				air_range = 0.1
+			}
+			heavy_fighter_equipment = {
+				air_range = 0.1
 				reliability = 0.2
 			}
-			stealth_tactical_bomber_equipment = {
+			tac_bomber_equipment = {
 				reliability = 0.2
 			}
-
-# Cold War IC SkyCrystalStar's Fix1 new medium_aircraft models end
-
 		}
 		
 		ai_will_do = {
@@ -724,31 +630,47 @@ leader_traits = {
 			strat_bomber_equipment = {
 				air_bombing = 0.1
 			}
-
-# Cold War IC SkyCrystalStar's Fix1 new heavy_aircraft models start
-
-			jet_strat_bomber_equipment = {
-				air_bombing = 0.1
-			}
-			mach2stratbomber_equipment = {
-				air_bombing = 0.1
-			}
-			mach3stratbomber_equipment = {
-				air_bombing = 0.1
-			}
-			stealth_strategic_bomber_equipment = {
-				air_bombing = 0.1
-			}
-
-# Cold War IC SkyCrystalStar's Fix1 new heavy_aircraft models end
-
 		}
 		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
+	aircraft_manufacturer = {
+		random = no
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	VTOL_aircraft_manufacturer = {
+		random = no
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	space_center = {
+		random = no
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	nuclear_submarine_manufacturer = {
+		random = no
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	icbm_manufacturer = {
+		random = no
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
 	naval_aircraft_manufacturer = {
 		random = no
 		equipment_bonus = {
@@ -804,15 +726,22 @@ leader_traits = {
 			factor = 1
 		}
 	}
-	
+	ballistic_submarine_manufacturer = {
+		random = no
+		#generic
+
+		equipment_bonus = {
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
 	tank_manufacturer = {
 		random = no
 		#generic
 
 		equipment_bonus = {
-			armor = {
-				reliability = 0.05
-			}
 		}
 		
 		ai_will_do = {
@@ -857,6 +786,24 @@ leader_traits = {
 			#submarine = {
 			#	
 			#}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+		
+	battlefleet_designer = { #armored carriers, slightly buffed cap ships
+		random = no
+		equipment_bonus = {
+			capital_ship = {
+				armor_value = 0.15 
+				attack = 0.15
+			}
+			screen_ship = {
+				torpedo_attack = 0.25
+				sub_detection = -0.25
+			}
 		}
 		
 		ai_will_do = {
@@ -945,6 +892,27 @@ leader_traits = {
 			factor = 1
 		}
 	}
+	naval_equipment_manufacturer = {
+		random = no
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	helicoptor_manufacturer = {
+		random = no
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	support_equipment_manufacturer = {
+		random = no
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
 	
 	motorized_equipment_manufacturer = {
 		random = no
@@ -961,6 +929,16 @@ leader_traits = {
 			factor = 1
 		}
 	}
+
+	construction_company = {
+		random = no
+
+		production_speed_infrastructure_factor = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
 	
 	refinery_concern = {
 		random = no
@@ -971,6 +949,14 @@ leader_traits = {
 	}
 	
 	electronics_concern = {
+		random = no
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	electronics_developer = {
 		random = no
 		
 		ai_will_do = {

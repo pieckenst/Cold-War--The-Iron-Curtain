@@ -1092,7 +1092,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_naval_dockyard
 		cost = 10.00
 		prerequisite = {
-			focus = JAP_jsdf
+			focus = JAP_rebuild_navyI
 		}
 		x = 19
 		y = 2
@@ -1219,7 +1219,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_naval_dockyard
 		cost = 10.00
 		prerequisite = {
-			focus = JAP_jsdf
+			focus = JAP_rebuild_navyII
 		}
 		x = 19
 		y = 3
@@ -1346,7 +1346,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_naval_dockyard
 		cost = 10.00
 		prerequisite = {
-			focus = JAP_jsdf
+			focus = JAP_rebuild_navyIII
 		}
 		x = 19
 		y = 4
@@ -1473,7 +1473,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_naval_dockyard
 		cost = 10.00
 		prerequisite = {
-			focus = JAP_jsdf
+			focus = JAP_rebuild_navyIV
 		}
 		x = 19
 		y = 5
@@ -1615,7 +1615,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_national_unity = 0.15
+			add_stability = 0.15
 			add_timed_idea = { idea = social_democracy_drift days = 365 }
 		}
 	}
@@ -1643,7 +1643,7 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 			add_political_power = 300
-			add_national_unity = 0.15
+			add_stability = 0.15
 		}
 	}
 	focus = {
@@ -1723,7 +1723,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = JAP_Ultrantionalist_Plot
+		id = JAP_Ultranationalist_Plot
 		icon = GFX_focus_generic_japanese_imperial_glory
 		cost = 10.00
 		prerequisite = {
@@ -1750,7 +1750,7 @@ focus_tree = {
 			focus = JAP_General_Strike
 		}
 		mutually_exclusive = {
-			focus = JAP_Ultrantionalist_Plot
+			focus = JAP_Ultranationalist_Plot
 		}
 		x = 22
 		y = 6
@@ -2302,7 +2302,7 @@ focus_tree = {
 			}
 	}
 	focus = {
-		id = JAP_Emperor_Akhito
+		id = JAP_Emperor_Hirohito
 		icon = GFX_focus_rom_abdicate
 		cost = 10.00
 		prerequisite = {
@@ -2319,13 +2319,13 @@ focus_tree = {
 		icon = GFX_goal_support_democracy
 		cost = 10.00
 		prerequisite = {
-			focus = JAP_Emperor_Akhito
+			focus = JAP_Emperor_Hirohito
 		}
 		x = 30
 		y = 9
 		completion_reward = {
 			add_political_power = 500
-			add_national_unity = 0.25
+			add_stability = 0.25
 		}
 	}
 	focus = {
@@ -2333,7 +2333,7 @@ focus_tree = {
 		icon = GFX_focus_generic_soviet_politics
 		cost = 10.00
 		prerequisite = {
-			focus = JAP_Emperor_Akhito
+			focus = JAP_Emperor_Hirohito
 		}
 		x = 32
 		y = 9
@@ -2573,7 +2573,7 @@ focus_tree = {
 		y = 5
 		completion_reward = {
 			add_political_power = -300
-			add_national_unity = -0.15
+			add_stability = -0.15
 		}	
 	}
 	focus = {
@@ -3404,7 +3404,7 @@ focus_tree = {
 						}
 				}
 			completion_reward = {
-					add_national_unity = 0.10
+					add_stability = 0.10
 				}
 
 	}
@@ -3563,7 +3563,13 @@ focus_tree = {
 							target = KPA
 						}
 				}
-
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = JAP_subchi
@@ -3580,7 +3586,13 @@ focus_tree = {
 							target = PRC
 						}
 				}
-
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = JAP_supremacy
@@ -4159,7 +4171,13 @@ focus_tree = {
 							target = CHI
 						}
 				}
-
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = JAP_axis
@@ -4428,7 +4446,7 @@ focus_tree = {
 		y = 8
 		completion_reward = {
 			add_political_power = 300
-			add_national_unity = 0.15
+			add_stability = 0.15
 		}
 	}
 	focus = {
@@ -4691,7 +4709,7 @@ focus_tree = {
 		y = 13
 		completion_reward = {
 			add_political_power = 300
-			add_national_unity = 0.15
+			add_stability = 0.15
 		}
 	}
 	focus = {
@@ -4707,7 +4725,7 @@ focus_tree = {
 		x = 38
 		y = 14
 		completion_reward = {
-			add_national_unity = 0.05
+			add_stability = 0.05
 			add_political_power = 200
 		}
 	}
@@ -5332,7 +5350,7 @@ focus_tree = {
 		icon = GFX_focus_generic_military_mission
 		cost = 10.00
 		prerequisite = {
-			focus = JAP_Ultrantionalist_Plot
+			focus = JAP_Ultranationalist_Plot
 		}
 		x = 8
 		y = 7
@@ -6285,7 +6303,6 @@ focus_tree = {
 			focus = JAP_Dissolution_of_the_Zaibatsu
 			focus = JAP_The_Eastern_Curtain
 			focus = JAP_Cultural_Revolution
-			focus = JAP_Cultural_Revolution
 		}
 		x = 30
 		y = 11
@@ -6321,7 +6338,7 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = neutrality_idea
 			add_political_power = 300
-			add_national_unity = 0.15
+			add_stability = 0.15
 		}
 	}
 	focus = {
@@ -6380,7 +6397,7 @@ focus_tree = {
 		y = 10
 		completion_reward = {
 			add_manpower = -50000
-			add_national_unity = -0.15
+			add_stability = -0.15
 			add_political_power = 400
 			random_owned_controlled_state = {
 				limit = {
@@ -6455,7 +6472,7 @@ focus_tree = {
 		y = 12
 		completion_reward = {
 			add_manpower = -50000
-			add_national_unity = -0.15
+			add_stability = -0.15
 			add_political_power = 400
 			random_owned_controlled_state = {
 				limit = {

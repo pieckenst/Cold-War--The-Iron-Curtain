@@ -874,16 +874,22 @@ focus_tree = {
 		x = 17
 		y = 2
 		completion_reward = {
-		add_political_power = 50
-		annex_country = { target = AND transfer_troops = no }
-		annex_country = { target = SAR transfer_troops = no }
-		add_popularity = {
-		ideology = communism
-		popularity = 0.3
+			add_political_power = 50
+			"AND" = { country_event = generic.1 }
+			SAR = { country_event = generic.1 }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.3
+			}
+			set_politics = { ruling_party = communism }
 		}
-		set_politics = { ruling_party = communism }
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
 		}
-
 	}
 	focus = {
 		id = FRA_join_war
@@ -958,7 +964,7 @@ focus_tree = {
 		x = 17
 		y = 4
 		completion_reward = {
-		add_national_unity = 0.1
+		add_stability = 0.1
 		add_popularity = {
 		ideology = communism
 		popularity = 0.25
@@ -1021,7 +1027,13 @@ focus_tree = {
 				type = annex_everything
 			}
 		}
-
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = FRA_send_advi_cuba
@@ -1071,7 +1083,7 @@ focus_tree = {
 		ROC = { transfer_state = 769 transfer_state = 819 }
 		CAR = { transfer_state = 515 transfer_state = 818 }
 		MAD = { transfer_state = 543 transfer_state = 828 }
-		ALG = { transfer_state = 514 transfer_state = 513 transfer_state = 459 transfer_state = 460 }
+		FRA = { release = ALG }
 		}
 
 	}
@@ -1117,7 +1129,7 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 		add_political_power = 100
-		add_national_unity = 0.1
+		add_stability = 0.1
 		add_popularity = {
 		ideology = conservative
 		popularity = 0.05
@@ -1231,7 +1243,7 @@ create_country_leader = {
 		x = 24
 		y = 7
 		completion_reward = {
-		add_national_unity = 0.05
+		add_stability = 0.05
 		}
 
 	}
@@ -1490,7 +1502,7 @@ create_country_leader = {
 		y = 3
 		completion_reward = {
 		add_political_power = 50
-		add_national_unity = 0.1
+		add_stability = 0.1
 		}
 
 	}
@@ -2459,7 +2471,7 @@ create_country_leader = {
 		x = 24
 		y = 9
 		completion_reward = {
-		ALG = { transfer_state = 514 transfer_state = 513 transfer_state = 459 transfer_state = 460 }
+		FRA = { release = ALG }
 		}
 
 	}
