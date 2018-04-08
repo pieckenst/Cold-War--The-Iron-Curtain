@@ -1,4 +1,4 @@
-
+﻿
 add_namespace = easter_egg_posadism
 add_namespace = alien_sightings
 	
@@ -10,20 +10,20 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = { ### Right now this event chain will only be fired through console commands
-			tag = SOV
-			has_global_flag = stalin_dead
-			is_ai = no
-			is_ironman = no 
-			is_historical_focus_on = no
-			date > 1957.3.1
-			date < 1960.1.1
-			has_country_flag = vladivostok_ufotwo
+		tag = SOV
+		has_global_flag = stalin_dead
+		is_ai = no
+		is_ironman = no 
+		is_historical_focus_on = no
+		date > 1957.3.1
+		date < 1960.1.1
+		has_country_flag = vladivostok_ufotwo
+		has_country_flag = luhansk_ufo_ufotwo
+		has_country_flag = denounce_UFO
+		NOT = {
+			has_country_flag = vladivostok_ufo
 			has_country_flag = luhansk_ufo_ufotwo
-			has_country_flag = denounce_UFO
-			NOT = {
-				has_country_flag = vladivostok_ufo
-				has_country_flag = luhansk_ufo_ufotwo
-			}
+		}
 	}
 	is_triggered_only = yes
 	
@@ -50,24 +50,9 @@ country_event = {
 		set_equipment_fraction = 1
 		set_stability = 1
 		set_war_support = 1
-		defence = 1 
-		offence = 1
-		global_building_slots_factor = 1
-		consumer_goods_factor = -1
-		research_time_factor = -0.95
-		MONTHLY_POPULATION = 0.5
 		country_event = { days = 7 id = easter_egg_posadism.3 }
-		create_faction = "Alien Socialists" 
-		production_speed_arms_factory_factor = 1 
-		production_speed_industrial_complex_factor = 1 
-		production_speed_bunker_factor = 1
-		production_speed_coastal_bunker_factor = 1
-
-		production_speed_radar_station_factor = 1 
- 
-		production_speed_infrastructure_factor = 0.96  
-		production_speed_nuclear_reactor_factor = 0.99  
-		production_speed_synthetic_refinery_factor = 1
+		create_faction = "Alien Socialists"
+		add_ideas = Alien_Socialists
 		DDR = { 
 			create_faction = "People's Democratic Front"
 			add_to_faction = POL
@@ -80,7 +65,6 @@ country_event = {
 		}
 		ROM = {
 			create_faction = "National Worker's Front"
-			defence = 0.7
 		}
     }
 	
@@ -88,8 +72,7 @@ country_event = {
 	    ai_chance = { factor = 55 } 
 		name = "Fight off the Alien Invaders!"
 		country_event = { days = 7 id = easter_egg_posadism.2 }
-		add_political_power = 100		 
-		defence = 0.86 
+		add_political_power = 500
 	}
 }
 country_event = {
@@ -156,25 +139,10 @@ country_event = {
 				set_equipment_fraction = 1
 				set_stability = 1
 				set_war_support = 1
-				defence = 1 
-				offence = 1
-				global_building_slots_factor = 1
-				consumer_goods_factor = -1
-				research_time_factor = -0.95
-				MONTHLY_POPULATION = 0.5
+				add_ideas = Alien_Socialists
 				country_event = { days = 7 id = easter_egg_posadism.3 }
 				set_country_flag = SOV_POSADISM
 				create_faction = "Alien Socialists" 
-				production_speed_arms_factory_factor = 1 
-				production_speed_industrial_complex_factor = 1 
-				production_speed_bunker_factor = 1
-				production_speed_coastal_bunker_factor = 1
-
-				production_speed_radar_station_factor = 1 
- 
-				production_speed_infrastructure_factor = 0.96  
-				production_speed_nuclear_reactor_factor = 0.99  
-				production_speed_synthetic_refinery_factor = 1
 			}
 		}
 	}
@@ -182,7 +150,7 @@ country_event = {
 country_event = {
 	id = easter_egg_posadism.3
 	title = "Alien Volunteers Come"
-	desc = "The Intergalactic Socialist Admin. has provided with Alien Volunteers to help stabilise the country"
+	desc = "The Intergalactic Socialist Admin has provided us with Alien Volunteers to help stabilise the country"
 	
 	trigger = {
 		has_country_flag = SOV_POSADISM
@@ -190,17 +158,16 @@ country_event = {
 	mean_time_to_happen = { days = 15 }
 	
 	option = {
-		name = "Send the Volunteers. ayy lmao"
+		name = "Send the Volunteers"
 		load_oob = "ALI_1952"
 		set_equipment_fraction = 1
 		set_stability = 1
 		set_war_support = 1
-		defence = 1 
-		offence = 1
-		MONTHLY_POPULATION = 0.03
 		add_manpower = 7000
+		add_ideas = Alien_Volunteers
 	}
 }
+
 country_event = {
 	id = alien_sightings.1
 	title = "UFO spotted in Vladivostok"
@@ -261,7 +228,7 @@ country_event = {
 	id = easter_egg_posadism.5
 	title = "UFO sightings in Eastern Ukraine"
 	desc = "A UFO was spotted in Luhansk, Ukraine, earlier this morning."
-		is_triggered_only = yes
+	is_triggered_only = yes
 
 	option = {
 		name = "UFOs don't exist, they are only our weather balloons"
