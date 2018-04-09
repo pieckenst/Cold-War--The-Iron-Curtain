@@ -2,14 +2,14 @@
 add_namespace = easter_egg_posadism
 add_namespace = alien_sightings
 	
-#Croatian Elections
+
 country_event = { 
 	id = easter_egg_posadism.1
 	title = "Alien Takeover of Government Buildings"
 	desc = "Aliens have taken over the Politburo building in Leningrad, they demand one of their own will be the new heir to Stalin!" 
 	fire_only_once = yes
 	
-	trigger = { ### Right now this event chain will only be fired through console commands
+	trigger = {
 		tag = SOV
 		has_global_flag = stalin_dead
 		is_ai = no
@@ -27,7 +27,7 @@ country_event = {
 	}
 	is_triggered_only = yes
 	
-	#mean_time_to_happen = { days = 70 }
+	mean_time_to_happen = { days = 70 }
 	
 	option = {
 	     ai_chance = { factor = 45 } 
@@ -109,6 +109,13 @@ country_event = {
 		add_to_faction = UKR
 		add_to_faction = KAZ
 		add_to_faction = BLR
+		release_puppet = DDR
+		release_puppet = HUN
+		release_puppet = BUL
+		release_puppet = LIT
+		release_puppet = LAT
+		release_puppet = KAZ
+		release_puppet = UKR
 		set_politics = { ruling_party = neutrality elections_allowed = no } 
 		DDR = { 
 			create_faction = "People's Front"
@@ -143,6 +150,7 @@ country_event = {
 				country_event = { days = 7 id = easter_egg_posadism.3 }
 				set_country_flag = SOV_POSADISM
 				create_faction = "Alien Socialists" 
+				195 = { add_extra_state_shared_building_slots = 10 } 
 			}
 		}
 	}
@@ -151,7 +159,7 @@ country_event = {
 	id = easter_egg_posadism.3
 	title = "Alien Volunteers Come"
 	desc = "The Intergalactic Socialist Admin has provided us with Alien Volunteers to help stabilise the country"
-	
+	is_triggered_only = yes
 	trigger = {
 		has_country_flag = SOV_POSADISM
 	}
@@ -244,13 +252,14 @@ country_event = {
 	option = {
 		ai_chance = { factor = 70 }
 		name = "Surrender!"
+		retire_country_leader = yes 
 		set_politics = { ruling_party = neutrality elections_allowed = no } 
 		set_party_name = { ideology = neutrality long_name = "KGB/NKVD Military Dictatorship" name = "Military Dictatorship" }
 		random_other_country = {
 			limit = { original_tag = SOV }
 			load_oob = "ALI_1952"
 		}
-		create_navy_leader = { name = "Mr. Anti Ayy Lmao" traits = { panzer_leader } skill = 1 } 
+		create_field_marshal = { name = "Mr. Anti Ayy Lmao" traits = { panzer_leader } skill = 1 } 
 	}
 	option = {
 		ai_chance = { factor = 30 }
@@ -260,6 +269,21 @@ country_event = {
 		random_other_country = {
 			limit = { original_tag = SOV }
 			load_oob = "ALI_1952"
+		}
+		if = {
+			limit = {
+				has_country_flag = premier_malenkov
+				OR = {
+					has_country_flag = premier_beria
+					AND = { 
+						country_exists = random_other_country = { limit = { original_tag = SOV ideology = trotskyism } } 
+					}
+				}
+				AND = { 
+					country_exists = random_other_country = { limit = { original_tag = SOV ideology = trotskyism } } 
+				}
+			}
+			add_ace = { name = "Vladimir" surname = "Rovosky" callsign = "Revenant" type = fighter_genius is_female = no } 
 		}
 	}
 }

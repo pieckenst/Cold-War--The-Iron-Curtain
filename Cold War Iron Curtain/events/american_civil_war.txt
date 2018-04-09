@@ -1,0 +1,29 @@
+add_namespace = americancivilwar
+
+country_event = {
+	id = americancivilwar.1
+	title = "Socialists recruit unionized workers"
+	desc = "The IWW in New England have recruited some workers to join their communistic union"
+	
+	trigger = {
+		date > 1970.1.1
+		date < 1970.2.2
+		has_country_event = communist_america_rising
+	}
+	is_triggered_only = yes
+	
+	option = {
+		name = "It is only only localised recruitments, the Second Amendment must be enforced at all times"
+		set_country_flag = allowed_communist_recruitments
+		add_popularity = { ideology = trotskyism popularity = 0.01 }
+		add_popularity = { ideology = communism popularity = 0.05 }
+		set_party_name = { ideology = trotskyism long_name = "International Workers of the World - Left Communist Faction" = "IWW - LC Faction" }
+		
+	}
+	option = {
+		name = "McCarthyism! At once!"
+		add_popularity = { ideology = communism popularity = -0.30 }
+		set_country_flag = communism_banned
+		set_country_flag = mccarthyism_enforced
+	}
+}
