@@ -8454,4 +8454,30 @@ completion_reward = {
 			}
 		}
 	}
+	focus = { #### America Civil War Tree
+		id = SOV_support_commuist_americans
+		icon = GFX_focus_generic_soviet_politics
+		cost = 7.50
+		prerequisite = {
+			focus = SOV_invite_china_warsaw_pact
+			focus = SOV_invite_north_korea_warsaw
+		}
+		x = 120
+		y = 1
+		available = {
+			date > 1970.1.1
+			date < 1990.1.1
+			country_exists = USA
+			USA = { has_stability < 0.5 }
+			has_stability > 0.5
+			NOT = { USA = { has_government = communism } }
+			has_government = communism
+			has_manpower > 10000 
+		}
+		completion_reward = {
+			add_manpower = -10000
+			USA = { set_country_flag = communist_america_rising }
+			custom_effect_tooltip = "Will take 10000 men from your army and supply American communists for a paramilitary struggle against the USA"
+		}
+	}
 }
