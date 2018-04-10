@@ -1347,8 +1347,114 @@ country_event = {
 						infrastructure > 0	
 					}
 					random_list  = {
-						25 = { remove_building = { type = infrastructure level = 1 } }
-						75 = { }
+						30 = { remove_building = { type = infrastructure level = 1 } }
+						55 = { }
+						5 = {
+							if = { 
+								limit = { 
+									has_state_category = megalopolis
+								}
+								set_state_category = metropolis
+							}
+							if = { 
+								limit = { 
+									has_state_category = metropolis 
+								}
+								set_state_category =  large_city
+							}
+							if = { 
+								limit = { 
+									has_state_category = large_city
+								}
+								set_state_category = city
+							}
+							if = { 
+								limit = { 
+									has_state_category = city
+								}
+								set_state_category = large_town
+							}
+							if = { 
+								limit = { 
+									has_state_category = large_town
+								}
+								set_state_category = town
+							}
+							if = { 
+								limit = { 
+									has_state_category = town
+								}
+								set_state_category = rural  
+							}
+							if = { 
+								limit = { 
+									has_state_category = rural
+								}
+								set_state_category = pastoral
+							}
+							if = { 
+								limit = { 
+									has_state_category = pastoral 
+								}
+								set_state_category = wasteland
+							}
+							if = { 
+								limit = { 
+									has_state_category = small_island
+								}
+								set_state_category = tiny_island 
+							}
+							if = { 
+								limit = { 
+									has_state_category = tiny_island
+								}
+								set_state_category = wasteland 
+							}
+							if = { 
+								limit = { 
+									has_state_category = enclave
+								}
+								set_state_category = wasteland 
+							}						
+						}
+						10 = { 
+							if = {
+								limit = {
+									has_resources_amount = { resource = chromium amount > 0 }	
+								}
+								add_resource = { type = chromium amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = oil amount > 0 }	
+								}
+								add_resource = { type = oil amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = aluminium amount > 0 }	
+								}
+								add_resource = { type = aluminium amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = rubber amount > 0 }	
+								}
+								add_resource = { type = rubber amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = tungsten amount > 0 }	
+								}
+								add_resource = { type = tungsten amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = steel amount > 0 }	
+								}
+								add_resource = { type = steel amount = -1 }	
+							}
+						}
 					}
 				}
 			}
