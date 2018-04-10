@@ -1236,6 +1236,229 @@ country_event = {
 			}
 			set_global_flag = Guinea_Bissau_War
 		}
+		if = {
+			limit = {
+				any_owned_state = {
+					check_variable = { radiation > 0 }	
+				}
+			} 
+			every_owned_state = {
+				limit = {
+					any_owned_state = {
+						check_variable = { radiation > 0 }
+						state_population > 50000	
+						NOT = { state_population > 100000 }						
+					}
+				}
+				add_manpower = -500
+				subtract_from_variable = { var = radiation value = 1 }	
+				if = {
+					limit = {
+						infrastructure > 0	
+					}
+					random_list  = {
+						25 = { remove_building = { type = infrastructure level = 1 } }
+						75 = { }
+					}
+				}
+			}
+			every_owned_state = {
+				limit = {
+					any_owned_state = {
+						check_variable = { radiation > 0 }
+						state_population > 100000	
+						NOT = { state_population > 500000 }						
+					}
+					add_manpower = -5000
+					subtract_from_variable = { var = radiation value = 1 }	
+				}
+			}
+			every_owned_state = {
+				limit = {
+					any_owned_state = {
+						check_variable = { radiation > 0 }
+						state_population > 100000	
+						NOT = { state_population > 2000000 }						
+					}	
+				}
+				add_manpower = -10000
+				subtract_from_variable = { var = radiation value = 1 }	
+				if = {
+					limit = {
+						infrastructure > 0	
+					}
+					random_list  = {
+						25 = { remove_building = { type = infrastructure level = 1 } }
+						75 = { }
+					}
+				}
+			}
+			every_owned_state = {
+				limit = {
+					any_owned_state = {
+						check_variable = { radiation > 0 }
+						state_population > 200000	
+						NOT = { state_population > 5000000 }						
+					}
+				}
+				add_manpower = -20000
+				subtract_from_variable = { var = radiation value = 1 }	
+				if = {
+					limit = {
+						infrastructure > 0	
+					}
+					random_list  = {
+						25 = { remove_building = { type = infrastructure level = 1 } }
+						75 = { }
+					}
+				}
+			}
+			every_owned_state = {
+				limit = {
+					any_owned_state = {
+						check_variable = { radiation > 0 }
+						state_population > 5000000	
+						NOT = { state_population > 10000000 }						
+					}
+				}
+				add_manpower = -35000
+				subtract_from_variable = { var = radiation value = 1 }	
+				if = {
+					limit = {
+						infrastructure > 0	
+					}
+					random_list  = {
+						25 = { remove_building = { type = infrastructure level = 1 } }
+						75 = { }
+					}
+				}
+			}
+			every_owned_state = {
+				limit = {
+					any_owned_state = {
+						check_variable = { radiation > 0 }
+						state_population > 10000000	
+					}
+				}
+				add_manpower = -50000
+				subtract_from_variable = { var = radiation value = 1 }	
+				if = {
+					limit = {
+						infrastructure > 0	
+					}
+					random_list  = {
+						30 = { remove_building = { type = infrastructure level = 1 } }
+						55 = { }
+						5 = {
+							if = { 
+								limit = { 
+									has_state_category = megalopolis
+								}
+								set_state_category = metropolis
+							}
+							if = { 
+								limit = { 
+									has_state_category = metropolis 
+								}
+								set_state_category =  large_city
+							}
+							if = { 
+								limit = { 
+									has_state_category = large_city
+								}
+								set_state_category = city
+							}
+							if = { 
+								limit = { 
+									has_state_category = city
+								}
+								set_state_category = large_town
+							}
+							if = { 
+								limit = { 
+									has_state_category = large_town
+								}
+								set_state_category = town
+							}
+							if = { 
+								limit = { 
+									has_state_category = town
+								}
+								set_state_category = rural  
+							}
+							if = { 
+								limit = { 
+									has_state_category = rural
+								}
+								set_state_category = pastoral
+							}
+							if = { 
+								limit = { 
+									has_state_category = pastoral 
+								}
+								set_state_category = wasteland
+							}
+							if = { 
+								limit = { 
+									has_state_category = small_island
+								}
+								set_state_category = tiny_island 
+							}
+							if = { 
+								limit = { 
+									has_state_category = tiny_island
+								}
+								set_state_category = wasteland 
+							}
+							if = { 
+								limit = { 
+									has_state_category = enclave
+								}
+								set_state_category = wasteland 
+							}						
+						}
+						10 = { 
+							if = {
+								limit = {
+									has_resources_amount = { resource = chromium amount > 0 }	
+								}
+								add_resource = { type = chromium amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = oil amount > 0 }	
+								}
+								add_resource = { type = oil amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = aluminium amount > 0 }	
+								}
+								add_resource = { type = aluminium amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = rubber amount > 0 }	
+								}
+								add_resource = { type = rubber amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = tungsten amount > 0 }	
+								}
+								add_resource = { type = tungsten amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = steel amount > 0 }	
+								}
+								add_resource = { type = steel amount = -1 }	
+							}
+						}
+					}
+				}
+			}
+		}
         if = {
 			limit = {
 				has_war = no
@@ -1249,7 +1472,47 @@ country_event = {
 			remove_unit_leader = 9002
 			delete_unit_template_and_units = { division_template = "Private Military Contractors" }	
 			
-		}	
+		}
+        if = {
+			limit = {
+			    is_subject = no
+				OR = {
+					has_cosmetic_tag = GUY_ENG
+					has_cosmetic_tag = DOC_BEL
+					has_cosmetic_tag = BUR_BEl
+					has_cosmetic_tag = TAZ_ENG
+					has_cosmetic_tag = PAP_AST
+					has_cosmetic_tag = KNA_ENG
+					has_cosmetic_tag = UGA_ENG
+					has_cosmetic_tag = SUD_ENG
+					has_cosmetic_tag = BSL_ENG
+					has_cosmetic_tag = BCM_ENG
+					has_cosmetic_tag = TOG_FRA
+					has_cosmetic_tag = SEN_FRA
+					has_cosmetic_tag = NIG_FRA
+					has_cosmetic_tag = MLI_FRA
+					has_cosmetic_tag = MAU_FRA
+					has_cosmetic_tag = MAD_FRA
+					has_cosmetic_tag = GUI_FRA
+					has_cosmetic_tag = CMR_FRA
+					has_cosmetic_tag = CHA_FRA
+					has_cosmetic_tag = BRK_FRA
+					has_cosmetic_tag = BEN_FRA
+					has_cosmetic_tag = YEM_ENG
+					has_cosmetic_tag = CYP_ENG
+					has_cosmetic_tag = BOT_ENG
+					has_cosmetic_tag = CTD_FRA
+					has_cosmetic_tag = GAM_ENG
+					has_cosmetic_tag = NIA_ENG
+					has_cosmetic_tag = UAE_ENG
+					has_cosmetic_tag = NRH
+					has_cosmetic_tag = MLT_ENG
+					has_cosmetic_tag = NYA_ENG
+					has_cosmetic_tag = LES_ENG
+				}
+			}
+           drop_cosmetic_tag = yes
+		}			
 	}
 }
 
