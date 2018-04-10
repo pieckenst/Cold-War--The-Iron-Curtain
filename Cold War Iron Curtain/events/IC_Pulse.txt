@@ -1236,6 +1236,22 @@ country_event = {
 			}
 			set_global_flag = Guinea_Bissau_War
 		}
+		if = {
+			limit = {
+				any_owned_state = {
+					check_variable = { radiation > 0 }	
+				}
+			} 
+			every_owned_state = {
+				limit = {
+					any_owned_state = {
+						check_variable = { radiation > 0 }
+						state_population > 50000	
+						NOT = { state_population > 100000 }						
+					}
+				}
+			}
+		}
         if = {
 			limit = {
 				has_war = no
