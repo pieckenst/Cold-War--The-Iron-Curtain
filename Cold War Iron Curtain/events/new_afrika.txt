@@ -1,0 +1,126 @@
+add_namespace = new_afrika_revolt
+country_event = {
+	id = new_afrika_revolt.0
+	title = "Riots in Alabama!"
+	picture = GFX_report_event_chinese_army_training	### placeholder
+	trigger = {
+		has_country_flag = mlk_dead
+	}
+	is_triggered_only = yes
+	fire_only_once = yes
+	desc = "A riot has started in Alabama, the Government has called for Federalization of the National Guard however military advisors have suggested to wait it out."
+	option = {
+		ai_chance = { factor = 75 }
+		name = "Federalize the National Guard"
+		add_stability = -0.1
+		set_country_flag = federalize_national_guard
+		country_event = { id = new_afrika_revolt.1 hours = 12 }
+	}
+	option = {
+		ai_chance = { factor = 25 }
+		name = "Wait it out"
+		add_stability = 0.03
+	}
+
+
+}
+country_event = {
+	id = new_afrika_revolt.1
+	title = "The Federalization of the National Guard"
+	desc = "The Government has announced a successful federalization of the National Guard in response to the riots in Alabama"
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		add_manpower = 12000
+		set_country_flag = success_fng
+	}
+	option = {
+		name = "Great!"
+	}
+}
+country_event = {
+	id = new_afrika_revolt.2
+	title = "New Afrika issues negative response to the Federalization"
+	desc = "The 'New Afrikan Republic' has issued a negative response towards the federalization of the National Guard, some say these are empty threats, other say revolt maybe under way."
+	trigger = {
+		has_country_flag = success_fng
+		has_country_flag = federalize_national_guard
+	}
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		ai_chance = { factor = 33 }
+		name = "They are just empty threats, we have more important things to do."
+		set_country_flag = ignore_new_afrika
+		add_stability = -0.16
+	}
+	option = {
+		ai_chance = { factor = 33 }
+		name = "We must act now!"
+		add_manpower = -600
+		add_stability = -0.09
+		set_country_flag = angry_new_afrika
+	}
+	option = {
+		ai_chance = { factor = 34 }
+		name = "Seek dialogue"
+		add_stability = 0.09
+	}
+}
+country_event = {
+	id = new_afrika_revolt.3
+	title = "Battle of New Orleans!"
+	desc = "Several military dispatchments in the south have fought the militant Black Panthers paramilitary organization, after police illegally searched homes of black residents"
+	is_triggered_only = yes
+	fire_only_once = yes	
+	trigger = {
+		has_country_flag = angry_new_afrika
+		OR = {
+			has_country_flag = ignore_new_afrika
+		}
+	}
+	option = {
+		name = "We should be worried!"
+		add_stability = -0.20
+	}
+	option = {
+		name = "Institute Martial Law of the South!"
+		country_event = { id = new_afrika_revolt.4 hours = 4 }
+	}
+}
+country_event = {
+	id = new_afrika_revolt.4
+	title = "The New Afrikan Government is proclaimed!"
+	desc = "The proclaimation of independence was signed by members of Martin Luther's family, claiming most of the south, except Texas, Oklahoma and Georgia"
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "We must free the black race from American tyranny!"
+		change_tag_from = RNA 
+		RNA = {
+			transfer_state = 371
+			transfer_state = 370
+			transfer_state = 365
+			transfer_state = 372
+			load_oob = "RNA_1949"
+		}
+		declare_war_on = {
+			target = RNA
+			type = civil_war
+		}
+	}
+	option = {
+		name = "Fight the Black Supremacists!"
+		RNA = {
+			transfer_state = 371
+			transfer_state = 370
+			transfer_state = 365
+			transfer_state = 372
+			load_oob = "RNA_1949"
+		}
+		declare_war_on = {
+			target = RNA
+			type = civil_war
+		}
+	}
+}
