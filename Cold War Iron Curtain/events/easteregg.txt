@@ -90,7 +90,7 @@ country_event = {
 			ideology = trotskyism
 			size = 0.1
 			capital = 195
-		`	states = { 195 582 }
+			states = { 195 582 }
 		}
 		create_country_leader = {
 			name = "KGB/NKVD Military Dictatorship"
@@ -99,7 +99,6 @@ country_event = {
 			expire = "1990.1.1"
 			ideology = putinism
 			traits = {
-				council
 				dictator
 			}
 		}
@@ -127,9 +126,9 @@ country_event = {
 			puppet = LIT
 			puppet = LAT
 		}
-		ENG = { transfer_ship = { prefer_name = "HMS Achilles" type = light_cruiser target = SOV } 
+		ENG = { transfer_ship = { prefer_name = "HMS Achilles" type = light_cruiser target = SOV } }
 		hidden_effect = {
-			country_event = { id = easter_egg_posadism.6 days 120 }
+			country_event = { id = easter_egg_posadism.6 days = 120 }
 			random_other_country = {
 				limit = {
 					original_tag = SOV
@@ -276,11 +275,17 @@ country_event = {
 				OR = {
 					has_country_flag = premier_beria
 					AND = { 
-						country_exists = random_other_country = { limit = { original_tag = SOV ideology = trotskyism } } 
+						SOV = {
+							has_government = trotskyism
+							exists = yes
+						}
 					}
 				}
 				AND = { 
-					country_exists = random_other_country = { limit = { original_tag = SOV ideology = trotskyism } } 
+					SOV = {
+						has_government = trotskyism
+						exists = yes
+					}
 				}
 			}
 			add_ace = { name = "Vladimir" surname = "Rovosky" callsign = "Revenant" type = fighter_genius is_female = no } 
