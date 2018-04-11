@@ -1244,11 +1244,9 @@ country_event = {
 			} 
 			every_owned_state = {
 				limit = {
-					any_owned_state = {
-						check_variable = { radiation > 0 }
-						state_population > 50000	
-						NOT = { state_population > 100000 }						
-					}
+					check_variable = { radiation > 0 }
+					state_population > 50000	
+					NOT = { state_population > 100000 }						
 				}
 				add_manpower = -500
 				subtract_from_variable = { var = radiation value = 1 }	
@@ -1256,147 +1254,21 @@ country_event = {
 					limit = {
 						infrastructure > 0	
 					}
-					random_list  = {
-						25 = { remove_building = { type = infrastructure level = 1 } }
-						75 = { }
-					}
-				}
-			}
-			every_owned_state = {
-				limit = {
-					any_owned_state = {
-						check_variable = { radiation > 0 }
-						state_population > 100000	
-						NOT = { state_population > 500000 }						
-					}
-					add_manpower = -5000
-					subtract_from_variable = { var = radiation value = 1 }	
-				}
-			}
-			every_owned_state = {
-				limit = {
-					any_owned_state = {
-						check_variable = { radiation > 0 }
-						state_population > 100000	
-						NOT = { state_population > 2000000 }						
-					}	
-				}
-				add_manpower = -10000
-				subtract_from_variable = { var = radiation value = 1 }	
-				if = {
-					limit = {
-						infrastructure > 0	
-					}
-					random_list  = {
-						25 = { remove_building = { type = infrastructure level = 1 } }
-						75 = { }
-					}
-				}
-			}
-			every_owned_state = {
-				limit = {
-					any_owned_state = {
-						check_variable = { radiation > 0 }
-						state_population > 200000	
-						NOT = { state_population > 5000000 }						
-					}
-				}
-				add_manpower = -20000
-				subtract_from_variable = { var = radiation value = 1 }	
-				if = {
-					limit = {
-						infrastructure > 0	
-					}
-					random_list  = {
-						25 = { remove_building = { type = infrastructure level = 1 } }
-						75 = { }
-					}
-				}
-			}
-			every_owned_state = {
-				limit = {
-					any_owned_state = {
-						check_variable = { radiation > 0 }
-						state_population > 5000000	
-						NOT = { state_population > 10000000 }						
-					}
-				}
-				add_manpower = -35000
-				subtract_from_variable = { var = radiation value = 1 }	
-				if = {
-					limit = {
-						infrastructure > 0	
-					}
-					random_list  = {
-						25 = { remove_building = { type = infrastructure level = 1 } }
-						75 = { }
-					}
-				}
-			}
-			every_owned_state = {
-				limit = {
-					any_owned_state = {
-						check_variable = { radiation > 0 }
-						state_population > 10000000	
-					}
-				}
-				add_manpower = -50000
-				subtract_from_variable = { var = radiation value = 1 }	
-				if = {
-					limit = {
-						infrastructure > 0	
-					}
-					random_list  = {
+					random_list = {
 						30 = { remove_building = { type = infrastructure level = 1 } }
 						55 = { }
 						5 = {
 							if = { 
 								limit = { 
-									has_state_category = megalopolis
+									has_state_category = enclave
 								}
-								set_state_category = metropolis
-							}
+								set_state_category = wasteland 
+							}		
 							if = { 
 								limit = { 
-									has_state_category = metropolis 
+									has_state_category = tiny_island
 								}
-								set_state_category =  large_city
-							}
-							if = { 
-								limit = { 
-									has_state_category = large_city
-								}
-								set_state_category = city
-							}
-							if = { 
-								limit = { 
-									has_state_category = city
-								}
-								set_state_category = large_town
-							}
-							if = { 
-								limit = { 
-									has_state_category = large_town
-								}
-								set_state_category = town
-							}
-							if = { 
-								limit = { 
-									has_state_category = town
-								}
-								set_state_category = rural  
-							}
-							if = { 
-								limit = { 
-									has_state_category = rural
-								}
-								set_state_category = pastoral
-							}
-							if = { 
-								limit = { 
-									has_state_category = pastoral 
-								}
-								set_state_category = wasteland
+								set_state_category = wasteland 
 							}
 							if = { 
 								limit = { 
@@ -1406,16 +1278,531 @@ country_event = {
 							}
 							if = { 
 								limit = { 
+									has_state_category = rural
+								}
+								set_state_category = pastoral
+							}
+							if = { 
+								limit = { 
+									has_state_category = town
+								}
+								set_state_category = rural  
+							}
+							if = { 
+								limit = { 
+									has_state_category = large_town
+								}
+								set_state_category = town
+							}
+							if = { 
+								limit = { 
+									has_state_category = city
+								}
+								set_state_category = large_town
+							}	
+							if = { 
+								limit = { 
+									has_state_category = large_city
+								}
+								set_state_category = city
+							}
+							if = { 
+								limit = { 
+									has_state_category = metropolis 
+								}
+								set_state_category =  large_city
+							}
+							##
+							if = { 
+								limit = { 
+									has_state_category = megalopolis
+								}
+								set_state_category = metropolis
+							}
+						}
+						10 = { 
+							if = {
+								limit = {
+									has_resources_amount = { resource = chromium amount > 0 }	
+								}
+								add_resource = { type = chromium amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = oil amount > 0 }	
+								}
+								add_resource = { type = oil amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = aluminium amount > 0 }	
+								}
+								add_resource = { type = aluminium amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = rubber amount > 0 }	
+								}
+								add_resource = { type = rubber amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = tungsten amount > 0 }	
+								}
+								add_resource = { type = tungsten amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = steel amount > 0 }	
+								}
+								add_resource = { type = steel amount = -1 }	
+							}
+						}
+					}
+				}
+			}
+			every_owned_state = {
+				limit = {
+					check_variable = { radiation > 0 }
+					state_population > 100000	
+					NOT = { state_population > 500000 }						
+				}
+				add_manpower = -5000
+				subtract_from_variable = { var = radiation value = 1 }	
+			}
+			every_owned_state = {
+				limit = {
+					check_variable = { radiation > 0 }
+					state_population > 100000	
+					NOT = { state_population > 2000000 }						
+				}
+				add_manpower = -10000
+				subtract_from_variable = { var = radiation value = 1 }	
+				if = {
+					limit = {
+						infrastructure > 0	
+					}
+					random_list = {
+						30 = { remove_building = { type = infrastructure level = 1 } }
+						55 = { }
+						5 = {
+							if = { 
+								limit = { 
+									has_state_category = enclave
+								}
+								set_state_category = wasteland 
+							}		
+							if = { 
+								limit = { 
 									has_state_category = tiny_island
 								}
 								set_state_category = wasteland 
 							}
 							if = { 
 								limit = { 
+									has_state_category = small_island
+								}
+								set_state_category = tiny_island 
+							}
+							if = { 
+								limit = { 
+									has_state_category = rural
+								}
+								set_state_category = pastoral
+							}
+							if = { 
+								limit = { 
+									has_state_category = town
+								}
+								set_state_category = rural  
+							}
+							if = { 
+								limit = { 
+									has_state_category = large_town
+								}
+								set_state_category = town
+							}
+							if = { 
+								limit = { 
+									has_state_category = city
+								}
+								set_state_category = large_town
+							}	
+							if = { 
+								limit = { 
+									has_state_category = large_city
+								}
+								set_state_category = city
+							}
+							if = { 
+								limit = { 
+									has_state_category = metropolis 
+								}
+								set_state_category =  large_city
+							}
+							##
+							if = { 
+								limit = { 
+									has_state_category = megalopolis
+								}
+								set_state_category = metropolis
+							}
+						}
+						10 = { 
+							if = {
+								limit = {
+									has_resources_amount = { resource = chromium amount > 0 }	
+								}
+								add_resource = { type = chromium amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = oil amount > 0 }	
+								}
+								add_resource = { type = oil amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = aluminium amount > 0 }	
+								}
+								add_resource = { type = aluminium amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = rubber amount > 0 }	
+								}
+								add_resource = { type = rubber amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = tungsten amount > 0 }	
+								}
+								add_resource = { type = tungsten amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = steel amount > 0 }	
+								}
+								add_resource = { type = steel amount = -1 }	
+							}
+						}
+					}
+				}
+			}
+			every_owned_state = {
+				limit = {
+					check_variable = { radiation > 0 }
+					state_population > 200000	
+					NOT = { state_population > 5000000 }						
+				}
+				add_manpower = -20000
+				subtract_from_variable = { var = radiation value = 1 }	
+				if = {
+					limit = {
+						infrastructure > 0	
+					}
+					random_list = {
+						30 = { remove_building = { type = infrastructure level = 1 } }
+						55 = { }
+						5 = {
+							if = { 
+								limit = { 
 									has_state_category = enclave
 								}
 								set_state_category = wasteland 
-							}						
+							}		
+							if = { 
+								limit = { 
+									has_state_category = tiny_island
+								}
+								set_state_category = wasteland 
+							}
+							if = { 
+								limit = { 
+									has_state_category = small_island
+								}
+								set_state_category = tiny_island 
+							}
+							if = { 
+								limit = { 
+									has_state_category = rural
+								}
+								set_state_category = pastoral
+							}
+							if = { 
+								limit = { 
+									has_state_category = town
+								}
+								set_state_category = rural  
+							}
+							if = { 
+								limit = { 
+									has_state_category = large_town
+								}
+								set_state_category = town
+							}
+							if = { 
+								limit = { 
+									has_state_category = city
+								}
+								set_state_category = large_town
+							}	
+							if = { 
+								limit = { 
+									has_state_category = large_city
+								}
+								set_state_category = city
+							}
+							if = { 
+								limit = { 
+									has_state_category = metropolis 
+								}
+								set_state_category =  large_city
+							}
+							##
+							if = { 
+								limit = { 
+									has_state_category = megalopolis
+								}
+								set_state_category = metropolis
+							}
+						}
+						10 = { 
+							if = {
+								limit = {
+									has_resources_amount = { resource = chromium amount > 0 }	
+								}
+								add_resource = { type = chromium amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = oil amount > 0 }	
+								}
+								add_resource = { type = oil amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = aluminium amount > 0 }	
+								}
+								add_resource = { type = aluminium amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = rubber amount > 0 }	
+								}
+								add_resource = { type = rubber amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = tungsten amount > 0 }	
+								}
+								add_resource = { type = tungsten amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = steel amount > 0 }	
+								}
+								add_resource = { type = steel amount = -1 }	
+							}
+						}
+					}
+				}
+			}
+			every_owned_state = {
+				limit = {
+					check_variable = { radiation > 0 }
+					state_population > 5000000	
+					NOT = { state_population > 10000000 }						
+				}
+				add_manpower = -35000
+				subtract_from_variable = { var = radiation value = 1 }	
+				if = {
+					limit = {
+						infrastructure > 0	
+					}
+					random_list = {
+						30 = { remove_building = { type = infrastructure level = 1 } }
+						55 = { }
+						5 = {
+							if = { 
+								limit = { 
+									has_state_category = enclave
+								}
+								set_state_category = wasteland 
+							}		
+							if = { 
+								limit = { 
+									has_state_category = tiny_island
+								}
+								set_state_category = wasteland 
+							}
+							if = { 
+								limit = { 
+									has_state_category = small_island
+								}
+								set_state_category = tiny_island 
+							}
+							if = { 
+								limit = { 
+									has_state_category = rural
+								}
+								set_state_category = pastoral
+							}
+							if = { 
+								limit = { 
+									has_state_category = town
+								}
+								set_state_category = rural  
+							}
+							if = { 
+								limit = { 
+									has_state_category = large_town
+								}
+								set_state_category = town
+							}
+							if = { 
+								limit = { 
+									has_state_category = city
+								}
+								set_state_category = large_town
+							}	
+							if = { 
+								limit = { 
+									has_state_category = large_city
+								}
+								set_state_category = city
+							}
+							if = { 
+								limit = { 
+									has_state_category = metropolis 
+								}
+								set_state_category =  large_city
+							}
+							##
+							if = { 
+								limit = { 
+									has_state_category = megalopolis
+								}
+								set_state_category = metropolis
+							}
+						}
+						10 = { 
+							if = {
+								limit = {
+									has_resources_amount = { resource = chromium amount > 0 }	
+								}
+								add_resource = { type = chromium amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = oil amount > 0 }	
+								}
+								add_resource = { type = oil amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = aluminium amount > 0 }	
+								}
+								add_resource = { type = aluminium amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = rubber amount > 0 }	
+								}
+								add_resource = { type = rubber amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = tungsten amount > 0 }	
+								}
+								add_resource = { type = tungsten amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = steel amount > 0 }	
+								}
+								add_resource = { type = steel amount = -1 }	
+							}
+						}
+					}
+				}
+			}
+			every_owned_state = {
+				limit = {
+					check_variable = { radiation > 0 }
+					state_population > 10000000	
+				}
+				add_manpower = -50000
+				subtract_from_variable = { var = radiation value = 1 }	
+				if = {
+					limit = {
+						infrastructure > 0	
+					}
+					random_list = {
+						30 = { remove_building = { type = infrastructure level = 1 } }
+						55 = { }
+						5 = {
+							if = { 
+								limit = { 
+									has_state_category = enclave
+								}
+								set_state_category = wasteland 
+							}		
+							if = { 
+								limit = { 
+									has_state_category = tiny_island
+								}
+								set_state_category = wasteland 
+							}
+							if = { 
+								limit = { 
+									has_state_category = small_island
+								}
+								set_state_category = tiny_island 
+							}
+							if = { 
+								limit = { 
+									has_state_category = rural
+								}
+								set_state_category = pastoral
+							}
+							if = { 
+								limit = { 
+									has_state_category = town
+								}
+								set_state_category = rural  
+							}
+							if = { 
+								limit = { 
+									has_state_category = large_town
+								}
+								set_state_category = town
+							}
+							if = { 
+								limit = { 
+									has_state_category = city
+								}
+								set_state_category = large_town
+							}	
+							if = { 
+								limit = { 
+									has_state_category = large_city
+								}
+								set_state_category = city
+							}
+							if = { 
+								limit = { 
+									has_state_category = metropolis 
+								}
+								set_state_category =  large_city
+							}
+							##
+							if = { 
+								limit = { 
+									has_state_category = megalopolis
+								}
+								set_state_category = metropolis
+							}
 						}
 						10 = { 
 							if = {
