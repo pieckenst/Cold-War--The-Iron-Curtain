@@ -43,6 +43,8 @@ add_namespace = ARG
 add_namespace = brazil
 add_namespace = bra
 add_namespace = CWelect
+add_namespace = cameroon
+add_namespace = cwu
 
 country_event = {
 	id = ic_pulse.1
@@ -51,6 +53,110 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+				if = {
+					limit = {
+						original_tag = MAL
+						NOT = { has_global_flag = malayan_uprising_67 }
+						date > 1967.6.1 
+						date < 1967.9.24 
+					}
+					country_event = cwu.27
+				}
+				if = {
+					limit = {
+						original_tag = YUG
+						NOT = { has_global_flag = slovene_uprising_87 }
+						date > 1987.12.6
+						date < 1988.5.15
+					}
+					country_event = cwu.24
+				}
+				if = {
+					limit = {
+						original_tag = YUG
+						NOT = { has_global_flag = kosovan_uprising_81 }
+						date > 1981.3.11
+						date < 1981.8.20
+					}
+					country_event = cwu.21
+				}
+				if = {
+					limit = {
+						original_tag = YUG
+						NOT = { has_global_flag = croatian_uprising_1971 }
+						date > 1971.9.1
+						date < 1972.1.31
+					}
+					country_event = cwu.18
+				}
+				if = {
+					limit = {
+						original_tag = POL
+						NOT = { has_global_flag = polish_uprising_1970 }
+						date > 1970.12.1
+						date < 1971.7.31
+					}
+					country_event = cwu.15
+				}
+				if = {
+					limit = {
+						original_tag = CZE
+						NOT = { has_global_flag = czech_uprising_1968 }
+						date > 1968.1.5
+						date < 1968.7.31
+					}
+					country_event = cwu.12
+				}
+				if = {
+					limit = {
+						original_tag = HUN
+						NOT = { has_global_flag = hungarian_uprising_1956 }		
+						date > 1956.10.15
+						date < 1956.12.31
+					}
+					country_event = cwu.9
+				}
+				if = {
+					limit = {
+						original_tag = POL
+						date > 1956.6.15
+						date < 1956.8.31
+						NOT = { has_global_flag = poznan_uprising_1956 }				
+					}
+					country_event = cwu.6
+				}
+				if = {
+					limit = {
+						original_tag = DDR
+						date > 1953.6.15
+						date < 1953.9.1
+						NOT = { has_global_flag = berlin_uprising_1952 }
+						has_capitulated = no					
+					}
+					country_event = cwu.1
+				}
+				if = {
+					limit = {
+						original_tag = ENG
+						date > 1961.12.9
+						BCM = { 
+							is_subject_of = ROOT
+							owns_state = 1105 owns_state = 1106
+						}
+					}
+					country_event = cameroon.3
+				}
+				if = {
+					limit = {
+						original_tag = FRA
+						date > 1960.1.1
+						CMR = { 
+							exists = yes 
+							is_subject_of = FRA
+						}
+					}
+					country_event = cameroon.4
+				}
 				if = {
 					limit = {
 						tag = ENG 
