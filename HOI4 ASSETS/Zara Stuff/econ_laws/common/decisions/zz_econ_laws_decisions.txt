@@ -1,260 +1,9 @@
-HEAD_OF_GOVERNMENT = {
-
-	make_churchill_pm = {
-
-		icon = generic_political_discourse
-
-		allowed = {
-			tag = ENG
-		}
-
-		available = {
-			not = {
-				has_country_leader = { ruling_only = yes name = "Winston Churchill" }
-			}
-		}
-
-		cost = 50
-
-		fire_only_once = no
-
-		visible = {
-			tag = ENG
-			not = {
-				has_country_leader = { ruling_only = yes name = "Winston Churchill" }
-			}
-		}
-
-		complete_effect = {
-			add_stability = 0.05
-			add_war_support = 0.10
-			#load_focus_tree = zz_british_focus
-			set_country_flag = chamberlain_died		
-			set_country_flag = chamberlain_resigned
-			set_country_flag = baldwin_resigned
-			retire_country_leader = yes
-			create_country_leader = {
-				name = "Winston Churchill"
-				desc = "POLITICS_WINSTON_CHURCHILL_DESC"
-				picture = "Portrait_Britain_Winston_Churchill.dds"
-				expire = "1965.1.1"
-				ideology = conservatism
-				traits = {
-					ardent_imperialist 
-				}
-			}
-		}
-
-		ai_will_do = {
-			factor = 0 #Gotta allow the Americans to help
-		}
-	}
-	recruit_master_alchemist = {
-
-		icon = generic_political_discourse
-
-		allowed = {
-			tag = ENG
-		}
-
-		available = {
-		}
-
-		cost = 50
-
-		fire_only_once = yes
-
-		visible = {
-			tag = ENG
-		}
-
-		complete_effect = {
-			add_stability = 0.05
-			add_war_support = 0.10
-			create_field_marshal = {
-				name = "Roy Mustang"
-				picture = "Portrait_Britain_Oliver_Leese.dds"
-				traits = { alchemist organizer logistics_wizard }  
-				skill = 1
-				attack_skill = 6
-				defense_skill = 6
-				planning_skill = 5
-				logistics_skill = 7
-			}
-		}
-
-		ai_will_do = {
-			factor = 0 #Gotta allow the Americans to help
-		}
-	}
-	recruit_alchemist = {
-
-		icon = generic_political_discourse
-
-		allowed = {
-			tag = ENG
-		}
-
-		available = {
-
-		}
-
-		cost = 50
-
-		fire_only_once = no
-
-		visible = {
-			tag = ENG
-		}
-
-		complete_effect = {
-			create_corps_commander = {
-				traits = { alchemist }
-				skill = 1
-				attack_skill = 2
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 3
-			}
-		}
-
-		ai_will_do = {
-			factor = 0 #Gotta allow the Americans to help
-		}
-	}	
-}
-
-
-POLITICAL_POLICIES = { 
-	zz_franco_british_union = { 
-		icon = generic_construction
-
-        allowed = {
-            tag = ENG
-        }
-
-        cost = 100
-        fire_only_once = yes
-
-        #days_re_enable = 1
-
-        available = {
-        	FRA = {
-				is_in_faction_with = ENG
-				surrender_progress > 0.7
-			}
-        }
-
-        visible = {
-
-		}
-
-        complete_effect = {
-			ENG ={
-				country_event = franceunion.11
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	zz_seize_persian_oil = { 
-		icon = generic_construction
-
-        allowed = {
-            tag = ENG
-        }
-
-        cost = 100
-        fire_only_once = yes
-
-        #days_re_enable = 1
-
-        available = {
-        }
-
-        visible = {
-
-		}
-
-        complete_effect = {
-			ENG ={
-				declare_war_on = { target = PER type = annex_everything }
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	zz_seize_iraq = { 
-		icon = generic_construction
-
-        allowed = {
-            tag = ENG
-        }
-
-        cost = 100
-        fire_only_once = yes
-
-        #days_re_enable = 1
-
-        available = {
-        }
-
-        visible = {
-
-		}
-
-        complete_effect = {
-			ENG ={
-				declare_war_on = { target = IRQ type = annex_everything }
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}	
-	exploit_persian_oil = { 
-		icon = generic_construction
-
-        allowed = {
-            tag = ENG
-        }
-
-        cost = 100
-        fire_only_once = yes
-
-        #days_re_enable = 1
-
-        available = {
-        	413 = { is_controlled_by = ENG }
-        }
-
-        visible = {
-
-		}
-		modifier = {
-			civilian_factory_use = 3
-		}
-		days_remove = 120
-
-        remove_effect = {
-			ENG ={
-				413 = { add_resource = { type = oil amount = 500 } }
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-}
-
 RESEARCH_POWERS = {
 	zz_RESEARCH_TEAMS_1 = {
 		icon = generic_construction
 
         allowed = {
-            tag = ENG
+            
         }
 
         cost = 20000
@@ -279,7 +28,7 @@ RESEARCH_POWERS = {
 		icon = generic_construction
 
         allowed = {
-            tag = ENG
+            
         }
 
         cost = 20000
@@ -305,7 +54,7 @@ RESEARCH_POWERS = {
 		icon = generic_construction
 
         allowed = {
-            tag = ENG
+            
         }
 
         cost = 500
@@ -338,7 +87,7 @@ RESEARCH_POWERS = {
 		icon = generic_construction
 
         allowed = {
-            tag = ENG
+            
         }
 
         cost = 500
@@ -369,7 +118,7 @@ RESEARCH_POWERS = {
 		icon = generic_construction
 
         allowed = {
-            tag = ENG
+            
         }
 
         cost = 500
@@ -401,7 +150,7 @@ RESEARCH_POWERS = {
 		icon = generic_construction
 
         allowed = {
-            tag = ENG
+            
         }
 
         cost = 500
@@ -431,7 +180,7 @@ RESEARCH_POWERS = {
 		icon = generic_construction
 
         allowed = {
-            tag = ENG
+            
         }
 
         cost = 500
@@ -461,7 +210,7 @@ RESEARCH_POWERS = {
 		icon = generic_construction
 
         allowed = {
-            tag = ENG
+            
         }
 
         cost = 500
@@ -491,7 +240,7 @@ RESEARCH_POWERS = {
 		icon = generic_construction
 
         allowed = {
-            tag = ENG
+            
         }
 
         cost = 500
@@ -521,7 +270,7 @@ RESEARCH_POWERS = {
 		icon = generic_construction
 
         allowed = {
-            tag = ENG
+            
         }
 
         cost = 500
@@ -554,7 +303,7 @@ RESEARCH_POWERS = {
 		icon = generic_construction
 
         allowed = {
-            tag = ENG
+            
         }
 
         cost = 500
@@ -588,7 +337,7 @@ WAR_PLANNING_POLICIES = {
 		icon = generic_industry
 		
 		allowed = {
-            tag = ENG
+            
         }
 		available = {
 			
@@ -621,7 +370,7 @@ WAR_PLANNING_POLICIES = {
 		icon = generic_industry
 		
 		allowed = {
-            tag = ENG
+            
         }
 		available = {
 			
@@ -653,7 +402,7 @@ WAR_PLANNING_POLICIES = {
 		icon = generic_industry
 		
 		allowed = {
-            tag = ENG
+            
         }
 		available = {
 			
@@ -685,7 +434,7 @@ WAR_PLANNING_POLICIES = {
 		icon = generic_industry
 		
 		allowed = {
-            tag = ENG
+            
         }
 		available = {
 			
@@ -718,7 +467,7 @@ WAR_PLANNING_POLICIES = {
 		icon = generic_industry
 		
 		allowed = {
-            tag = ENG
+            
         }
 		available = {
 			
@@ -751,7 +500,7 @@ WAR_PLANNING_POLICIES = {
 		icon = generic_industry
 		
 		allowed = {
-            tag = ENG
+            
         }
 		available = {
 			
@@ -784,7 +533,7 @@ WAR_PLANNING_POLICIES = {
 		icon = generic_industry
 		
 		allowed = {
-            tag = ENG
+            
         }
 		available = {
 			
@@ -816,7 +565,7 @@ WAR_PLANNING_POLICIES = {
 		icon = generic_industry
 		
 		allowed = {
-            tag = ENG
+            
         }
 		available = {
 			
@@ -849,7 +598,7 @@ WAR_PLANNING_POLICIES = {
 		icon = generic_industry
 		
 		allowed = {
-            tag = ENG
+            
         }
 		available = {
 			
@@ -882,7 +631,7 @@ WAR_PLANNING_POLICIES = {
 		icon = generic_industry
 		
 		allowed = {
-            tag = ENG
+            
         }
 		available = {
 			
@@ -915,7 +664,7 @@ WAR_PLANNING_POLICIES = {
 		icon = generic_industry
 		
 		allowed = {
-            tag = ENG
+            
         }
 		available = {
 			
@@ -951,7 +700,7 @@ WAR_PLANNING_POLICIES = {
 		icon = generic_industry
 		
 		allowed = {
-            tag = ENG
+            
         }
 		available = {
 			
