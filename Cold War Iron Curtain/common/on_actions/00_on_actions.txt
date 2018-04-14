@@ -543,9 +543,21 @@ on_actions = {
 	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
 	on_state_control_changed = {
 		effect = {
-
+			if = {
+				limit = {
+					tag  = SOV
+					NOT = { has_global_flag = conquest_helsinki_ussr }
+					111 = { 
+						is_controlled_by = USSR 
+						is_owned_by = FIN 
+					}
+					SOV = { has_war_with = FIN }
+				}
+				news_event = conquest.1
+			}
 		}
 	}
+
 	on_nuke_drop = {
 
 		effect = {
