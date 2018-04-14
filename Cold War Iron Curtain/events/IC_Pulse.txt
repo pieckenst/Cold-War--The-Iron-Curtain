@@ -1074,39 +1074,38 @@ country_event = {
 					}
 				}
 			}
-		}
-		if = {
-			limit = {
-				tag = ARG
-				has_civil_war = no
-				date > 1951.11.1
-				date < 1951.12.21
-				NOT = { has_global_flag = Argentina_Election_1951 }			
-			}
-			country_event = ARG.1
-		}
-		if = {
-			limit = {
-				tag = ARG
-				has_civil_war = no
-				date > 1958.10.1
-				date < 1958.10.15
-				NOT = { has_global_flag = Argentina_Election_1958 }
-				has_global_flag = Argentina_Election_1958
-				OR = {
-					NOT = { has_completed_focus = ARG_Revolucion_Libertadora }
-					has_completed_focus = ARG_Restoration_of_Democracy
+			if = {
+				limit = {
+					tag = ARG
+					has_civil_war = no
+					date > 1951.11.1
+					date < 1951.12.21
+					NOT = { has_global_flag = Argentina_Election_1951 }			
 				}
+				country_event = ARG.1
 			}
-			country_event = ARG.2
-		}
-		if = {
-			limit = {
-				date < 1949.6.1
-			#	NOT = { has_global_flag = nuremberg_trials_over }
+			if = {
+				limit = {
+					tag = ARG
+					has_civil_war = no
+					date > 1958.10.1
+					date < 1958.10.15
+					NOT = { has_global_flag = Argentina_Election_1958 }
+					has_global_flag = Argentina_Election_1958
+					OR = {
+						NOT = { has_completed_focus = ARG_Revolucion_Libertadora }
+						has_completed_focus = ARG_Restoration_of_Democracy
+					}
+				}
+				country_event = ARG.2
 			}
-			news_event = news.1000 
-		}
+			if = {
+				limit = {
+					date < 1949.6.1
+				#	NOT = { has_global_flag = nuremberg_trials_over }
+				}
+				news_event = news.1000 
+			}
 			if = {
 				limit = {	
 					NOT = { has_global_flag = aus_questions_over }
