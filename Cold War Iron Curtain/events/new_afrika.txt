@@ -1,6 +1,7 @@
 ﻿add_namespace = new_afrika_revolt
+add_namespace - alabama
 country_event = {
-	id = new_afrika_revolt.0
+	id = alabama.1
 	title = "Riots in Alabama!"
 	picture = GFX_report_event_chinese_army_training	### placeholder
 	trigger = {
@@ -31,7 +32,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	immediate = {
-		add_manpower = 12000
+		add_manpower = 1200
 		set_country_flag = success_fng
 	}
 	option = {
@@ -80,10 +81,12 @@ country_event = {
 		}
 	}
 	option = {
+		ai_chance = { factor = 1 }
 		name = "We should be worried!"
 		add_stability = -0.20
 	}
 	option = {
+		ai_chance = { factor = 99 }
 		name = "Institute Martial Law of the South!"
 		country_event = { id = new_afrika_revolt.4 hours = 4 }
 	}
@@ -95,6 +98,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	option = {
+		ai_chance = { factor = 0 }
 		name = "We must free the black race from American tyranny!"
 		change_tag_from = RNA 
 		RNA = {
@@ -103,14 +107,27 @@ country_event = {
 			transfer_state = 365
 			transfer_state = 372
 			load_oob = "RNA_1949"
+			add_manpower = 100000
+			add_stability = 0.8
+			add_war_support = 0.5
+			set_party_name = { ideology = socialist long_name = "Socialist Party of New Afrika" name = "SPNA" }
+			set_party_name = { ideology = nationalist long_name = "Nationalist Party of New Afrika" = "The Nationalists" }
+			set_party_name = { ideology = communism long_name = "Communist Equality Party for the Democratic Rights of Colored People" = "CEPDRCP" }
+			set_political_party = { ideology = nationalist popularity = 0.5 }
+			set_political_party = { ideology = socialist popularity = 0.4 } 
+			set_political_party = { ideology = socialist popularity = 0.1 } 
+			set_politics = { ruling_party = nationalist elections_allowed = yes } 
+			add_named_threat = { threat = 15 name = "Second American Civil War" } 
 		}
 		declare_war_on = {
 			target = RNA
 			type = civil_war
 		}
 		# add_ideas = na_guerilla_warfare
+		set_country_flag = second_us_civil_war_new_afrika
 	}
 	option = {
+		ai_chance = { factor = 100 }
 		name = "Fight the Black Supremacists!"
 		RNA = {
 			transfer_state = 371
@@ -118,10 +135,214 @@ country_event = {
 			transfer_state = 365
 			transfer_state = 372
 			load_oob = "RNA_1949"
+			add_manpower = 100000
+			add_stability = 0.8
+			add_war_support = 0.5
+			set_party_name = { ideology = socialist long_name = "Socialist Party of New Afrika" name = "SPNA" }
+			set_party_name = { ideology = nationalist long_name = "Nationalist Party of New Afrika" = "The Nationalists" }
+			set_party_name = { ideology = communism long_name = "Communist Equality Party for the Democratic Rights of Colored People" = "CEPDRCP" }
+			set_political_party = { ideology = nationalist popularity = 0.5 }
+			set_political_party = { ideology = socialist popularity = 0.4 } 
+			set_political_party = { ideology = socialist popularity = 0.1 } 
+			set_politics = { ruling_party = nationalist elections_allowed = yes } 
 		}
 		declare_war_on = {
 			target = RNA
 			type = civil_war
 		}
+		set_country_flag = second_us_civil_war_new_afrika
 	}
 }
+### 1st Congress ###
+country_event = {
+	id = new_afrika_revolt.5
+	title = "1st New Afrikan Congress"
+	desc = "The 1st NAC has been convened in Alabama, some say that the war needs to be fought before politics, other say that without politics, wars cannot be won."
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		U8A = { has_country_flag = second_us_civil_war_new_afrika }
+		tag = RNA
+	}
+	mean_time_to_happen = { days = 29 }
+	immediate = {
+		clr_country_flag = second_us_civil_war_new_afrika
+		set_country_flag = new_afrika_congress_first
+		add_stability = 0.03
+		country_event = { id = new_afrika_revolt.5 hours = 72 }
+	}
+	option = {
+		name = "Let the congress continue!"
+	}
+}
+country_event = {
+	id = new_afrika_revolt.6
+	title = "Status of White Americans - First Debate"
+	desc = "Some people in the NAC have stated that we shall deport all white americans, however some state that racism shall not be inflicted on the whites, and equality shall be made"
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		ai_chance = { factor = 91 }
+		name = "White Americans shall have as much equal rights as Black Americans"
+		add_stability = 0.2
+		hidden_effect = {
+			country_event = { id = new_afrika_revolt.7 hours = 12 }
+		}
+	}
+	option = {
+		ai_chance = { factor = 9 }
+		name = "Black Supremacism shall reign! All actions have consequences!"
+		add_stability = -0.3
+		add_manpower = -10000
+		hidden_effect = {
+			country_event = { id = new_afrika_revolt.7 hours = 12 }
+		}
+	}
+}
+country_event = {
+	id = new_afrika_revolt.7
+	title = "Socialist and Communist Reforms - Second Debate"
+	desc = "The Socialist Party has demanded reforms that create economic and political equality, whilst the Nationalists say that we should focus on Racial equality. However some communists have also called for communist reforms"
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		country_event = { id = new_afrika_revolt.8 hours = 100 }
+	}
+	option = {
+		ai_chance = { factor = 33 }
+		name = "Implement some socialist reforms"
+		set_political_party = { ideology = socialist popularity = 0.09 }
+		# add_ideas = socialist_reforms_minor
+	}
+	option = {
+		ai_chance = { factor = 7 }
+		name = "Implement major socialist reforms"
+		set_political_party = { ideology = socialist popularity = 0.18 }
+		set_political_party = { ideology = communism popularity = 0.03 }
+		add_stability = 0.03
+		# add_ideas = socialist_reforms_major
+	}
+	option = {
+		ai_chance = { factor = 10 }
+		name = "Implement communist reforms"
+		set_political_party = { ideology = communism popularity = 0.15 }
+		# add_ideas = communism_reforms
+		# add_ideas = black_panther_happy
+		set_country_flag = black_panther_happy
+	}
+	option = {
+		ai_chance = { factor = 30 }
+		name = "We shouldn't listen to the socialists or communists!"
+		add_stability = -0.3
+		# add_ideas = black_panther_angry
+		set_country_flag = black_panther_angry
+	}
+}
+country_event = {
+	id = new_afrika_revolt.8
+	title = "Status of Black Panther - Third Debate"
+	desc = "[RNA.GetCommunistParty] has called for the centralization of Black Panther, or some kind of control from government, however the Nationalists have called for decentralization and paramilitarism"
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		country_event = { id = new_afrika_revolt.9 hours = 125 }
+		any_enemy_country = { add_stability = -0.3 }
+		any_enemy_country = { add_war_support = -0.3 } 
+		all_country = { 
+			add_war_support = 0.1
+			add_manpower = 100000
+		}
+	}
+	option = {
+		ai_chance = {
+			limit = {
+				has_country_flag = black_panther_happy
+			}
+			factor = 75
+		}
+		if = {
+			limit = {
+				has_country_flag = black_panther_happy
+				tag = RNA
+			}
+			name = "Centralize the Black Panther paramilitary"
+			add_manpower = 10000
+			add_temporary_buff_to_units = { combat_offense = 0.55 combat_breakthrough = 0.25 org_damage_multiplier = -1.0 str_damage_multiplier = 0.25 war_support_reduction_on_damage = 0.2 cannot_retreat_while_attacking = 1.0 days = 365 } 
+		}
+	}
+	option = {
+		ai_chance = {
+			limit = {
+				has_country_flag = black_panther_angry
+			}
+			factor = 75 
+		}
+		name = "Keep it under check"
+		add_manpower = 5000
+	}
+	option = {
+		ai_chance = {
+			factor = 1000
+			NOT = {
+				has_country_flag = black_panther_angry
+				has_country_flag = black_panther_happy
+			}
+		}
+		name = "Keep the status quo"
+	}
+}
+country_event = {
+	id = new_afrika_revolt.9
+	title = "End of the 1st New Afrikan Congress"
+	desc = "It is the end of the 1st Afrikan Congress, the ministers and the politicians have been chosen to form and run a government."
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = "And run them we shall!"
+		if = {
+			limit = {
+				communism > 0.5
+			}
+			set_politics = { ruling_party = communism elections_allowed = yes }
+			create_country_leader = {
+				name = "National Council"
+				desc = ""
+				# picture = "Portrait_Beria.dds"
+				expire = "1990.1.1"
+				ideology = trotskyism_ideology
+			}
+		}
+		if = {
+			limit = {	
+				nationalist > 0.5
+			}
+			add_stability = 0.1
+			create_country_leader = {
+				name = "National Council"
+				desc = ""
+				# picture = "Portrait_Beria.dds"
+				expire = "1990.1.1"
+				ideology = trotskyism_ideology
+			}
+		}
+		if = {
+			limit = {
+				socialist > 0.5
+			}
+			set_politics = { ruling_party socialist elections_allowed = yes }
+			create_country_leader = {
+				name = "National Council"
+				desc = ""
+				# picture = "Portrait_Beria.dds"
+				expire = "1990.1.1"
+				ideology = trotskyism_ideology
+			}
+		}
+		hold_election = ROOT
+		set_major = yes 
+		# add_country_leader_trait = council 
+	}
+}
+    
+	#######################################
