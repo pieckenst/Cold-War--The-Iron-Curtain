@@ -248,39 +248,27 @@ country_event = {
 		country_event = { id = new_afrika_revolt.9 hours = 125 }
 	}
 	option = {
-		ai_chance = {
-			limit = {
-				has_country_flag = black_panther_happy
-			}
+		trigger = {
+			has_country_flag = black_panther_happy
+			tag = RNA
+		}		
+		ai_chance = { 
 			factor = 75
 		}
-		if = {
-			limit = {
-				has_country_flag = black_panther_happy
-				tag = RNA
-			}
-			name = "Centralize the Black Panther paramilitary"
-			add_manpower = 10000
-			add_temporary_buff_to_units = { combat_offense = 0.55 combat_breakthrough = 0.25 org_damage_multiplier = -1.0 str_damage_multiplier = 0.25 war_support_reduction_on_damage = 0.2 cannot_retreat_while_attacking = 1.0 days = 365 } 
-		}
+		name = "Centralize the Black Panther paramilitary"
+		add_manpower = 10000
+		add_temporary_buff_to_units = { combat_offense = 0.55 combat_breakthrough = 0.25 org_damage_multiplier = -1.0 str_damage_multiplier = 0.25 war_support_reduction_on_damage = 0.2 cannot_retreat_while_attacking = 1.0 days = 365 } 
 	}
 	option = {
-		ai_chance = {
-			limit = {
-				has_country_flag = black_panther_angry
-			}
-			factor = 75 
+		trigger = {
+			has_country_flag = black_panther_angry
 		}
 		name = "Keep it under check"
 		add_manpower = 5000
 	}
 	option = {
 		ai_chance = {
-			factor = 1000
-			NOT = {
-				has_country_flag = black_panther_angry
-				has_country_flag = black_panther_happy
-			}
+			factor = 25
 		}
 		name = "Keep the status quo"
 	}
