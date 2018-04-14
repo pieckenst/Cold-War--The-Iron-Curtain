@@ -39,6 +39,15 @@ add_namespace = arabia
 add_namespace = soviet
 add_namespace = ffl
 add_namespace = eurovision
+add_namespace = ARG
+add_namespace = brazil
+add_namespace = bra
+add_namespace = CWelect
+add_namespace = cameroon
+add_namespace = cwu
+add_namespace = political
+add_namespace = prc
+add_namespace = usa
 
 country_event = {
 	id = ic_pulse.1
@@ -47,13 +56,1385 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+				if = {
+					limit = {
+						has_idea_with_trait = communist_revolutionary
+						NOT = { has_government = communism }
+						NOT = { has_country_flag = communism_government_support }
+					}
+					random_list = {
+						25 = {
+							country_event = political.2
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = communist_revolutionary
+						NOT = { has_government = communism }
+						communism > 0.2
+					}
+					random_list = {
+						25 = {
+							country_event = political.4
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = communist_revolutionary
+						NOT = { has_government = communism }
+						has_country_flag = communism_government_support
+						communism > 0.4
+						is_major = no
+						is_puppet = no
+					}
+					random_list = {
+						25 = {
+							country_event = political.3
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = communist_revolutionary
+						NOT = { has_government = communism }
+						communism > 0.3
+						NOT = { has_idea = communist_partisans_recruiting }
+					}
+					random_list = {
+						25 = {
+							country_event = political.5
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = communist_revolutionary
+						NOT = { has_government = communism }
+						communism > 0.5
+					}
+					random_list = {
+						25 = {
+							country_event = political.6
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = fascist_demagogue
+						NOT = { has_government = fascism }
+						NOT = { has_country_flag = fascism_government_support }
+					}
+					random_list = {
+						25 = {
+							country_event = political.8
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = fascist_demagogue
+						NOT = { has_government = fascism }
+						has_country_flag = fascism_government_support
+						fascism > 0.3
+						is_major = no
+						is_puppet = no
+					}
+					random_list = {
+						25 = {
+							country_event = political.9
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = fascist_demagogue
+						NOT = { has_government = fascism }
+						fascism > 0.25
+					}
+					random_list = {
+						25 = {
+							country_event = political.10
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = fascist_demagogue
+						NOT = { has_government = fascism }
+						fascism > 0.3
+						NOT = { has_idea = fascist_assault_divisions }
+					}
+					random_list = {
+						25 = {
+							country_event = political.11
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = fascist_demagogue
+						NOT = { has_government = fascism }
+						fascism > 0.25
+						any_neighbor_country = {
+							has_government = communism
+						}
+					}
+					random_list = {
+						25 = {
+							country_event = political.12
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = democratic_reformer
+						NOT = { has_government = democratic }
+						NOT = { has_country_flag = democracy_government_support }
+					}
+					random_list = {
+						25 = {
+							country_event = political.14
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = democratic_reformer
+						NOT = { has_government = democratic }
+						NOT = { has_country_flag = democracy_opposition_formed }
+					}
+					random_list = {
+						25 = {
+							country_event = political.15
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = democratic_reformer
+						NOT = { has_government = democratic }
+						has_country_flag = democracy_opposition_formed
+						NOT = { has_idea = democratic_opposition_voicing_protests }
+					}
+					random_list = {
+						25 = {
+							country_event = political.16
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = democratic_reformer
+						NOT = { has_government = democratic }
+						democratic > 0.5
+						has_country_flag = democracy_government_support
+						is_puppet = no
+					}
+					random_list = {
+						25 = {
+							country_event = political.17
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						fascism > 0.5
+						NOT = { has_government = fascism }
+						NOT = { has_idea = fascist_revolutionaries }
+						NOT = { has_idea = reign_of_terror }
+						is_puppet = no
+					}
+					random_list = {
+						75 = {
+							country_event = political.18
+						}
+						25 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						communism > 0.5
+						NOT = { has_government = communism }
+						NOT = { has_idea = communist_revolutionaries }
+						NOT = { has_idea = reign_of_terror }
+						is_puppet = no
+					}
+					random_list = {
+						75 = {
+							country_event = political.19
+						}
+						25 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						democratic > 0.5
+						NOT = { has_government = democratic }
+						NOT = { has_idea = democratic_revolutionaries }
+						NOT = { has_idea = reign_of_terror }
+						is_puppet = no
+					}
+					random_list = {
+						75 = {
+							country_event = political.20
+						}
+						25 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						fascism > 0.7
+						has_idea = fascist_revolutionaries
+					}
+					country_event = political.21
+				}
+				if = {
+					limit = {
+						communism > 0.7
+						has_idea = communist_revolutionaries
+					}
+					country_event = political.22
+				}
+				if = {
+					limit = {
+						democratic > 0.7
+						has_idea = democratic_revolutionaries
+					}
+					country_event = political.23
+				}
+				if = {
+					limit = {
+						fascism < 0.3
+						has_idea = fascist_revolutionaries
+					}
+					country_event = political.24
+				}
+				if = {
+					limit = {
+						communism < 0.3
+						has_idea = communist_revolutionaries
+					}
+					country_event = political.25
+				}
+				if = {
+					limit = {
+						democratic < 0.3
+						has_idea = democratic_revolutionaries
+					}
+					country_event = political.26
+				}
+				if = {
+					limit = {
+						NOT = { has_government = pan_arabism }
+						pan_arabism > 0.45
+						is_major = no
+						is_puppet = no
+					}
+					random_list = {
+						25 = {
+							country_event = political.30
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_government = pan_arabism }
+						pan_arabism > 0.40
+					}
+					random_list = {
+						25 = {
+							country_event = political.31
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						original_tag = MAL
+						NOT = { has_global_flag = malayan_uprising_67 }
+						date > 1967.6.1 
+						date < 1967.9.24 
+					}
+					country_event = cwu.27
+				}
+				if = {
+					limit = {
+						tag = SOV
+						has_global_flag = stalin_dead
+						is_ai = no
+						is_ironman = no 
+						is_historical_focus_on = no
+						date > 1957.3.1
+						date < 1960.1.1
+						has_country_flag = vladivostok_ufotwo
+						has_country_flag = luhansk_ufo_ufotwo
+						has_country_flag = denounce_UFO
+						NOT = {
+							has_country_flag = vladivostok_ufo
+							has_country_flag = luhansk_ufo_ufotwo
+						}					
+					}
+					country_event = easter_egg_posadism.1
+				}
+				if = {
+					limit = {
+						original_tag = YUG
+						NOT = { has_global_flag = slovene_uprising_87 }
+						date > 1987.12.6
+						date < 1988.5.15
+					}
+					country_event = cwu.24
+				}
+				if = {
+					limit = {
+						original_tag = YUG
+						NOT = { has_global_flag = kosovan_uprising_81 }
+						date > 1981.3.11
+						date < 1981.8.20
+					}
+					country_event = cwu.21
+				}
+				if = {
+					limit = {
+						original_tag = YUG
+						NOT = { has_global_flag = croatian_uprising_1971 }
+						date > 1971.9.1
+						date < 1972.1.31
+					}
+					country_event = cwu.18
+				}
+				if = {
+					limit = {
+						original_tag = POL
+						NOT = { has_global_flag = polish_uprising_1970 }
+						date > 1970.12.1
+						date < 1971.7.31
+					}
+					country_event = cwu.15
+				}
+				if = {
+					limit = {
+						original_tag = CZE
+						NOT = { has_global_flag = czech_uprising_1968 }
+						date > 1968.1.5
+						date < 1968.7.31
+					}
+					country_event = cwu.12
+				}
+				if = {
+					limit = {
+						original_tag = HUN
+						NOT = { has_global_flag = hungarian_uprising_1956 }		
+						date > 1956.10.15
+						date < 1956.12.31
+					}
+					country_event = cwu.9
+				}
+				if = {
+					limit = {
+						original_tag = POL
+						date > 1956.6.15
+						date < 1956.8.31
+						NOT = { has_global_flag = poznan_uprising_1956 }				
+					}
+					country_event = cwu.6
+				}
+				if = {
+					limit = {
+						original_tag = DDR
+						date > 1953.6.15
+						date < 1953.9.1
+						NOT = { has_global_flag = berlin_uprising_1952 }
+						has_capitulated = no					
+					}
+					country_event = cwu.1
+				}
+				if = {
+					limit = {
+						original_tag = ENG
+						date > 1961.12.9
+						BCM = { 
+							is_subject_of = ROOT
+							owns_state = 1105 owns_state = 1106
+						}
+					}
+					country_event = cameroon.3
+				}
+				if = {
+					limit = {
+						original_tag = FRA
+						date > 1960.1.1
+						CMR = { 
+							exists = yes 
+							is_subject_of = FRA
+						}
+					}
+					country_event = cameroon.4
+				}
+				if = {
+					limit = {
+						tag = ENG 
+								OR = {
+									has_government = conservative
+									has_government = socialist
+									has_government = democratic
+									has_government = centrist
+									has_government = liberal
+									has_government = progressive_green
+									has_government = Liberal_Conservatism
+									has_government = Republicanism
+									has_government = Christian_Democratic
+									has_government = Social_Liberalism
+									has_government = American_Democratic
+								}	
+						
+						date > 1950.2.1
+						date < 1951.4.1
+					}
+					country_event = CWelect.1
+				}
+				if = {
+					limit = {
+						tag = ENG 
+								OR = {
+									has_government = conservative
+									has_government = socialist
+									has_government = democratic
+									has_government = centrist
+									has_government = liberal
+									has_government = progressive_green
+									has_government = Liberal_Conservatism
+									has_government = Republicanism
+									has_government = Christian_Democratic
+									has_government = Social_Liberalism
+									has_government = American_Democratic
+								}	
+						
+						date > 1955.10.1
+						date < 1951.12.1
+					}
+					country_event = CWelect.2
+				}
+				if = {
+					limit = {
+						tag = ENG 
+								OR = {
+									has_government = conservative
+									has_government = socialist
+									has_government = democratic
+									has_government = centrist
+									has_government = liberal
+									has_government = progressive_green
+									has_government = Liberal_Conservatism
+									has_government = Republicanism
+									has_government = Christian_Democratic
+									has_government = Social_Liberalism
+									has_government = American_Democratic
+								}	
+						
+						date > 1955.5.1
+						date < 1955.12.1
+					}
+					country_event = CWelect.3
+				}
+				if = {
+					limit = {
+						tag = ENG 
+						has_country_flag = Anthony_Eden_flag 
+								OR = {
+									has_government = conservative
+									has_government = socialist
+									has_government = democratic
+									has_government = centrist
+									has_government = liberal
+									has_government = progressive_green
+									has_government = Liberal_Conservatism
+									has_government = Republicanism
+									has_government = Christian_Democratic
+									has_government = Social_Liberalism
+									has_government = American_Democratic
+								}	
+						
+						date > 1957.5.1
+						date < 1958.12.1
+					}
+					country_event = CWelect.4
+				}
+				if = {
+					limit = {
+						tag = ENG 
+								OR = {
+									has_government = conservative
+									has_government = socialist
+									has_government = democratic
+									has_government = centrist
+									has_government = liberal
+									has_government = progressive_green
+									has_government = Liberal_Conservatism
+									has_government = Republicanism
+									has_government = Christian_Democratic
+									has_government = Social_Liberalism
+									has_government = American_Democratic
+								}			
+						date > 1959.1.1
+						date < 1960.1.1
+					}
+					country_event = CWelect.5
+				}		
+				if = {
+					limit = {
+					tag = ENG 
+							OR = {
+								has_government = conservative
+								has_government = socialist
+								has_government = democratic
+								has_government = centrist
+								has_government = liberal
+								has_government = progressive_green
+								has_government = Liberal_Conservatism
+								has_government = Republicanism
+								has_government = Christian_Democratic
+								has_government = Social_Liberalism
+								has_government = American_Democratic
+							}			
+					date > 1963.1.1
+					date < 1964.1.1
+					has_country_flag = Harold_Macmillian_flag
+					}
+					country_event = CWelect.6
+				}		
+				if = {
+					limit = {
+						tag = ENG 
+								OR = {
+									has_government = conservative
+									has_government = socialist
+									has_government = democratic
+									has_government = centrist
+									has_government = liberal
+									has_government = progressive_green
+									has_government = Liberal_Conservatism
+									has_government = Republicanism
+									has_government = Christian_Democratic
+									has_government = Social_Liberalism
+									has_government = American_Democratic
+								}			
+						date > 1963.1.1
+						date < 1964.1.1
+						has_country_flag = Hugh_Gaitskell_flag
+					}
+					country_event = CWelect.7
+				}		
+				if = {
+					limit = {
+						tag = ENG 
+							OR = {
+								has_government = conservative
+								has_government = socialist
+								has_government = democratic
+								has_government = centrist
+								has_government = liberal
+								has_government = progressive_green
+								has_government = Liberal_Conservatism
+								has_government = Republicanism
+								has_government = Christian_Democratic
+								has_government = Social_Liberalism
+								has_government = American_Democratic
+							}			
+						date > 1964.1.1
+						date < 1965.1.1
+					}
+					country_event = CWelect.8
+				}		
+				if = {
+					limit = {
+						tag = ENG 
+							OR = {
+								has_government = conservative
+								has_government = socialist
+								has_government = democratic
+								has_government = centrist
+								has_government = liberal
+								has_government = progressive_green
+								has_government = Liberal_Conservatism
+								has_government = Republicanism
+								has_government = Christian_Democratic
+								has_government = Social_Liberalism
+								has_government = American_Democratic
+							}			
+						date > 1966.1.1
+						date < 1967.1.1
+					}
+					country_event = CWelect.9
+				}	
+				if = {
+					limit = {
+						tag = ENG 
+							OR = {
+								has_government = conservative
+								has_government = socialist
+								has_government = democratic
+								has_government = centrist
+								has_government = liberal
+								has_government = progressive_green
+								has_government = Liberal_Conservatism
+								has_government = Republicanism
+								has_government = Christian_Democratic
+								has_government = Social_Liberalism
+								has_government = American_Democratic
+							}			
+						date > 1970.1.1
+						date < 1971.1.1
+					}
+					country_event = CWelect.10
+				}	
+				if = {
+					limit = {
+						tag = ENG 
+							OR = {
+								has_government = conservative
+								has_government = socialist
+								has_government = democratic
+								has_government = centrist
+								has_government = liberal
+								has_government = progressive_green
+								has_government = Liberal_Conservatism
+								has_government = Republicanism
+								has_government = Christian_Democratic
+								has_government = Social_Liberalism
+								has_government = American_Democratic
+							}			
+						date > 1974.1.1
+						date < 1975.1.1
+					}
+					country_event = CWelect.11
+				}	
+				if = {
+					limit = {
+						tag = ENG 
+							OR = {
+								has_government = conservative
+								has_government = socialist
+								has_government = democratic
+								has_government = centrist
+								has_government = liberal
+								has_government = progressive_green
+								has_government = Liberal_Conservatism
+								has_government = Republicanism
+								has_government = Christian_Democratic
+								has_government = Social_Liberalism
+								has_government = American_Democratic
+							}			
+						date > 1976.1.1
+						date < 1977.1.1
+					}
+					country_event = CWelect.12
+				}	
+				if = {
+					limit = {
+						tag = ENG 
+							OR = {
+								has_government = conservative
+								has_government = socialist
+								has_government = democratic
+								has_government = centrist
+								has_government = liberal
+								has_government = progressive_green
+								has_government = Liberal_Conservatism
+								has_government = Republicanism
+								has_government = Christian_Democratic
+								has_government = Social_Liberalism
+								has_government = American_Democratic
+							}			
+						date > 1975.1.1
+						date < 1976.1.1
+					}
+					country_event = CWelect.13
+				}	
+				if = {
+					limit = {
+						tag = ENG 
+							OR = {
+								has_government = conservative
+								has_government = socialist
+								has_government = democratic
+								has_government = centrist
+								has_government = liberal
+								has_government = progressive_green
+								has_government = Liberal_Conservatism
+								has_government = Republicanism
+								has_government = Christian_Democratic
+								has_government = Social_Liberalism
+								has_government = American_Democratic
+							}			
+						date > 1974.1.1
+						date < 1975.1.1
+					}
+					country_event = CWelect.14
+				}	
+				if = {
+					limit = {
+						tag = ENG 
+							OR = {
+								has_government = conservative
+								has_government = socialist
+								has_government = democratic
+								has_government = centrist
+								has_government = liberal
+								has_government = progressive_green
+								has_government = Liberal_Conservatism
+								has_government = Republicanism
+								has_government = Christian_Democratic
+								has_government = Social_Liberalism
+								has_government = American_Democratic
+							}			
+						date > 1983.1.1
+						date < 1984.1.1
+					}
+					country_event = CWelect.15
+				}	
+				if = {
+					limit = {
+						tag = ENG 
+							OR = {
+								has_government = conservative
+								has_government = socialist
+								has_government = democratic
+								has_government = centrist
+								has_government = liberal
+								has_government = progressive_green
+								has_government = Liberal_Conservatism
+								has_government = Republicanism
+								has_government = Christian_Democratic
+								has_government = Social_Liberalism
+								has_government = American_Democratic
+							}			
+						date > 1987.1.1
+						date < 1988.1.1
+					}
+					country_event = CWelect.16
+				}	
+				if = {
+					limit = {
+						tag = ENG 
+							OR = {
+								has_government = conservative
+								has_government = socialist
+								has_government = democratic
+								has_government = centrist
+								has_government = liberal
+								has_government = progressive_green
+								has_government = Liberal_Conservatism
+								has_government = Republicanism
+								has_government = Christian_Democratic
+								has_government = Social_Liberalism
+								has_government = American_Democratic
+							}			
+						date > 1990.1.1
+						date < 1991.1.1
+						has_country_flag = Margret_Thatcher_flag 		
+					}
+					country_event = CWelect.17
+				}
+				if = {
+					limit = {
+						tag = ENG 
+							OR = {
+								has_government = conservative
+								has_government = socialist
+								has_government = democratic
+								has_government = centrist
+								has_government = liberal
+								has_government = progressive_green
+								has_government = Liberal_Conservatism
+								has_government = Republicanism
+								has_government = Christian_Democratic
+								has_government = Social_Liberalism
+								has_government = American_Democratic
+							}			
+						date > 1992.1.1
+						date < 1993.1.1
+					}
+					country_event = CWelect.18
+				}								
+				if = {
+					limit = {
+						tag = ENG 
+							OR = {
+								has_government = conservative
+								has_government = socialist
+								has_government = democratic
+								has_government = centrist
+								has_government = liberal
+								has_government = progressive_green
+								has_government = Liberal_Conservatism
+								has_government = Republicanism
+								has_government = Christian_Democratic
+								has_government = Social_Liberalism
+								has_government = American_Democratic
+							}			
+						date > 1993.1.1
+						date < 1994.1.1
+						has_country_flag = Neil_Kinnock_flag
+					}
+					country_event = CWelect.19
+				}			
+				if = {
+					limit = {
+						tag = ENG 
+							OR = {
+								has_government = conservative
+								has_government = socialist
+								has_government = democratic
+								has_government = centrist
+								has_government = liberal
+								has_government = progressive_green
+								has_government = Liberal_Conservatism
+								has_government = Republicanism
+								has_government = Christian_Democratic
+								has_government = Social_Liberalism
+								has_government = American_Democratic
+							}			
+						date > 1997.1.1
+						date < 1998.1.1
+						has_country_flag = Neil_Kinnock_flag
+					}
+					country_event = CWelect.20
+				}	
+				if = {
+					limit = {
+						original_tag = PRC
+						has_global_flag = eng_yes_prc_un_recognition
+						has_global_flag = usa_yes_prc_un_recognition
+						has_global_flag = sov_yes_prc_un_recognition
+						has_global_flag = fra_yes_prc_un_recognition
+						NOT = { has_global_flag = prc_un_recognized }
+					}
+					country_event = prc.9
+				}		
+				if = {
+					limit = {
+						original_tag = PRC
+						OR = {
+							has_global_flag = eng_no_prc_un_recognition
+							has_global_flag = usa_no_prc_un_recognition
+							has_global_flag = sov_no_prc_un_recognition
+							has_global_flag = fra_no_prc_un_recognition
+						}
+						NOT = { has_global_flag = prc_un_not_recognized }
+					}
+					country_event = prc.10
+				}			
+				if = {
+					limit = {
+						tag = USA
+						date > 1952.7.15
+						date < 1952.9.31
+					}
+					country_event = usa.1000
+					country_event = usa.1001
+				}		
+				if = {
+					limit = {
+						tag = USA
+						date > 1956.7.15
+						date < 1956.9.31
+					}
+					country_event = usa.1956
+					country_event = usa.19562
+				}		
+				if = {
+					limit = {
+						tag = USA
+						date > 1960.7.15
+						date < 1960.9.31
+					}
+					country_event = usa.19601
+					country_event = usa.19602
+				}			
+				if = {
+					limit = {
+						tag = USA
+						date > 1964.7.15
+						date < 1964.9.31
+					}
+					country_event = usa.19641
+					country_event = usa.19642
+				}						
+				if = {
+					limit = {
+						tag = USA
+						date > 1968.7.15
+						date < 1968.9.31
+					}
+					country_event = usa.19681
+					country_event = usa.19682
+				}				
+				if = {
+					limit = {
+						tag = USA
+						date > 1972.7.15
+						date < 1972.9.31
+					}
+					country_event = usa.19721
+					country_event = usa.19722
+				}						
+				if = {
+					limit = {
+						tag = BRA
+						has_civil_war = no
+						date > 1950.10.1
+						date < 1950.10.15
+						NOT = { has_country_flag = brazil_elections_1950 }	
+					}
+					country_event = brazil.1
+				}
+				if = {
+					limit = {
+						tag = BRA
+						has_civil_war = no
+						date > 1955.10.1
+						date < 1955.10.15
+						NOT = { has_country_flag = brazil_elections_1955 }
+					}
+					country_event = brazil.2
+				}
+				if = {
+					limit = {
+						tag = BRA
+						has_civil_war = no
+						date > 1960.10.1
+						date < 1960.10.15
+						NOT = { has_country_flag = brazil_elections_1960 }
+					}
+					country_event = brazil.3
+				}
+				if = {
+					limit = {
+						has_war = yes
+						has_civil_war = no
+						OR = {
+							has_stability < 0.5
+							has_war_support < 0.5
+						}
+					NOT = {
+						AND = {
+							is_major = yes
+							all_enemy_country = {
+								is_major = no
+							}
+						}
+					}
+					NOT = { 
+						has_country_flag = crisis_in_progress
+					}			
+				}
+				random_list = {
+					15 = {
+						country_event = stability.3
+					}
+					85 = {
+					
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = ARG
+					has_civil_war = no
+					date > 1951.11.1
+					date < 1951.12.21
+					NOT = { has_global_flag = Argentina_Election_1951 }			
+				}
+				country_event = ARG.1
+			}
+			if = {
+				limit = {
+					tag = ARG
+					has_civil_war = no
+					date > 1958.10.1
+					date < 1958.10.15
+					NOT = { has_global_flag = Argentina_Election_1958 }
+					has_global_flag = Argentina_Election_1958
+					OR = {
+						NOT = { has_completed_focus = ARG_Revolucion_Libertadora }
+						has_completed_focus = ARG_Restoration_of_Democracy
+					}
+				}
+				country_event = ARG.2
+			}
+			if = {
+				limit = {
+					date < 1949.6.1
+				#	NOT = { has_global_flag = nuremberg_trials_over }
+				}
+				news_event = news.1000 
+			}
+			if = {
+				limit = {	
+					NOT = { has_global_flag = aus_questions_over }
+					AND = {
+						date > 1955.4.30
+						date < 1955.6.2
+					}
+				}
+				country_event = aus.1
+			}
+			if = {
+				limit = {	
+					OR = {
+						AND = {
+							has_global_flag = eng_yes_austria
+							has_global_flag = fra_yes_austria
+							has_global_flag = sov_yes_austria
+							has_global_flag = usa_yes_austria
+						}
+					}
+					NOT = { has_global_flag = aus_austria_not_united }
+				}
+				country_event = aus.2
+			}
+			if = {
+				limit = {	
+					OR = {
+						has_global_flag = eng_no_austria
+						has_global_flag = fra_no_austria
+						has_global_flag = sov_no_austria
+						has_global_flag = usa_no_austria
+					}
+					NOT = { has_global_flag = aus_austria_not_united }
+				}
+				country_event = aus.3
+			}
+			#Austria End
+			#Korea Begin
+			if = {
+				limit = {	
+					tag = USA
+					KPA = { has_war_with = KOR }
+					NOT = { has_war_with = KPA }
+					has_global_flag = korean_war_begun
+				}
+				country_event = korea.3
+			}
+			if = {
+				limit = {	
+					tag = PRC
+					country_exists = PRC
+					KPA = { has_war_with = KOR }
+					NOT = { has_war_with = KOR }
+					has_global_flag = korean_war_begun
+					OR = {
+						NOT = { 745 = { is_controlled_by = KPA } }
+						NOT = { 746 = { is_controlled_by = KPA } }
+						NOT = { 747 = { is_controlled_by = KPA } }
+						NOT = { 748 = { is_controlled_by = KPA } }
+						NOT = { 749 = { is_controlled_by = KPA } }
+						NOT = { 866 = { is_controlled_by = KPA } }
+						NOT = { 919 = { is_controlled_by = KPA } }
+						NOT = { 920 = { is_controlled_by = KPA } }
+						date > 1950.10.20
+					}
+				}
+				country_event = korea.5
+			}
+
+		if = {
+				limit = {	
+					tag = USA
+					country_exists = KOR
+					country_exists = KPA
+					KOR = { has_war_with = KPA }
+					has_global_flag = korean_war_begun
+					has_global_flag = korean_war_usa_enters
+					NOT = { has_global_flag = korean_armistice_china }
+					date > 1953.1.1    			
+				}
+				country_event = korea.13
+			}	
+		if = {
+				limit = {	
+					country_exists = KOR
+					country_exists = KPA
+					KPA = { has_war_with = KOR }
+					has_global_flag = korean_war_begun
+					NOT = {
+						has_global_flag = korean_war_china_enters
+						has_global_flag = korean_war_usa_enters
+					}
+					date > 1953.2.1  
+				}
+				country_event = korea.21
+			}
+			if = {
+					limit = {	
+						tag = USA
+						has_global_flag = korean_war_usa_enters
+						has_global_flag = korean_war_north_victory
+					}
+					country_event = korea.24
+				}
+				
+			if = {
+				limit = {	
+					tag = PRC
+					country_exists = PRC
+					has_global_flag = korean_war_china_enters
+					has_global_flag = korean_war_south_victory
+				}
+				country_event = korea.25
+			}
+			if = {
+				limit = {	
+					tag = ENG
+					KPA = { has_war_with = KOR }
+					NOT = { has_war_with = KPA }
+					has_global_flag = korean_war_begun
+					date > 1950.6.31
+				}
+				country_event = korea.31
+			}
+			if = {
+				limit = {	
+					tag = SOV
+					KPA = { has_war_with = KOR }
+					NOT = { has_war_with = KOR }
+					has_global_flag = korean_war_begun
+					OR = {
+						NOT = { 745 = { is_controlled_by = KPA } }
+						NOT = { 746 = { is_controlled_by = KPA } }
+						NOT = { 747 = { is_controlled_by = KPA } }
+						NOT = { 748 = { is_controlled_by = KPA } }
+						NOT = { 749 = { is_controlled_by = KPA } }
+						date > 1950.9.31
+					}
+				}
+				country_event = korea.33
+			}
+			if = {
+				limit = {	
+					tag = USA
+					KPA = { has_war_with = KOR }
+					NOT = { has_war_with = KOR }
+					has_global_flag = korean_war_usa_enters
+					OR = {
+						750 = { is_controlled_by = KPA }
+						753 = { is_controlled_by = KPA }
+						date > 1950.8.31
+					}
+					NOT = { has_global_flag = korean_war_usa_reinforcements_1 }
+				}
+				country_event = korea.35
+			}
+			if = {
+				limit = {	
+					tag = PRC
+					country_exists = PRC
+					KPA = { has_war_with = KOR }
+					NOT = { has_war_with = KPA }
+					has_global_flag = korean_war_china_enters
+					OR = {
+						920 = { is_controlled_by = KOR }
+						746 = { is_controlled_by = KOR }
+						745 = { is_controlled_by = KOR }
+						date > 1950.8.31
+					}
+					NOT = { has_global_flag = korean_war_chinese_reinforcements_1 }
+				}
+				country_event = korea.37
+			}
+			if = {
+				limit = {	
+					tag = USA
+					KPA = { has_war_with = KOR }
+					NOT = { has_war_with = KOR }
+					has_global_flag = korean_war_usa_enters
+					has_global_flag = korean_war_usa_reinforcements_1
+					OR = {
+						750 = { is_controlled_by = KPA }
+						753 = { is_controlled_by = KPA }
+						date > 1951.1.1
+					}
+					NOT = { has_global_flag = korean_war_usa_reinforcements_2 }
+				}
+				country_event = korea.39
+			}
+			if = {
+				limit = {	
+					tag = PRC
+					country_exists = PRC
+					KPA = { has_war_with = KOR }
+					NOT = { has_war_with = KPA }
+					has_global_flag = korean_war_china_enters
+					has_global_flag = korean_war_chinese_reinforcements_1
+					OR = {
+						746 = { is_controlled_by = KOR }
+						745 = { is_controlled_by = KOR }
+						date > 1951.1.3
+					}
+					NOT = { has_global_flag = korean_war_chinese_reinforcements_2 }
+				}
+				country_event = korea.41
+			}
+			if = {
+				limit = {	
+					tag = USA
+					KPA = { has_war_with = KOR }
+					NOT = { has_war_with = KOR }
+					has_global_flag = korean_war_usa_enters
+					has_global_flag = korean_war_usa_reinforcements_2
+					OR = {
+						AND = {
+							750 = { is_controlled_by = KPA }
+							753 = { is_controlled_by = KPA }
+						}
+						date > 1951.4.1
+					}
+					NOT = { has_global_flag = korean_war_usa_reinforcements_3 }
+				}
+				country_event = korea.43
+			}
+			if = {
+				limit = {	
+					tag = PRC
+					country_exists = PRC
+					KPA = { has_war_with = KOR }
+					NOT = { has_war_with = KPA }
+					has_global_flag = korean_war_china_enters
+					has_global_flag = korean_war_chinese_reinforcements_2
+					OR = {
+						AND = {
+							746 = { is_controlled_by = KOR }
+							745 = { is_controlled_by = KOR }
+						}
+						date > 1951.4.3
+					}
+					NOT = { has_global_flag = korean_war_chinese_reinforcements_3 }
+				}
+				country_event = korea.45
+			}
+			if = {
+				limit = {
+					tag = KOR
+					country_exists = KOR
+					KPA = { has_war_with = KOR }
+					has_global_flag = korean_war_begun
+					AND = {
+						866 = { is_controlled_by = KOR }
+						919 = { is_controlled_by = KOR }
+						918 = { is_controlled_by = KOR }
+						750 = { is_controlled_by = KOR }
+						753 = { is_controlled_by = KOR }
+					}
+					NOT = { has_global_flag = korean_war_southern_forts }
+				}
+				country_event = korea.47
+			}
+			if = {
+				limit = {
+					tag = KPA
+					country_exists = KPA
+					KPA = { has_war_with = KOR }
+					has_global_flag = korean_war_begun
+					AND = {
+						920 = { is_controlled_by = KPA }
+						918 = { is_controlled_by = KPA }
+						525 = { is_controlled_by = KPA }
+						746 = { is_controlled_by = KPA }
+						745 = { is_controlled_by = KPA }
+					}
+					NOT = { has_global_flag = korean_war_northern_forts }
+				}
+				country_event = korea.48
+			}
+			#Korea End
+
+			if = {
+				limit = {
+					date > 1954.10.1
+					NOT = { has_global_flag = tri_questions_over }
+					country_exists = TRI
+				}
+				country_event = tri.1
+			}
+			if = {
+				limit = {
+					has_global_flag = ita_yes_Trieste
+					has_global_flag = yug_yes_Trieste
+					NOT = { has_global_flag = tri_Trieste_united }
+				}
+				country_event = tri.2
+			}
+			if = {
+				limit = {
+					OR = {
+						has_global_flag = ita_no_Trieste
+						has_global_flag = yug_no_Trieste
+					}
+					NOT = { has_global_flag = tri_Trieste_not_united }
+				}
+				country_event = tri.3
+			}
+			if = {
+				limit = {
+					has_global_flag = yug_back_down_trieste
+					NOT = { has_global_flag = tri_yug_back_down }
+				}
+				country_event = tri.4
+			}
 		if = {
 			limit = {
-				date < 1949.6.1
-			#	NOT = { has_global_flag = nuremberg_trials_over }
+				NOT = { has_global_flag = first_korean_war}
+				tag = KPA
+				has_war_with = KOR
+				date > 1950.1.1
+				date < 1951.1.1	
 			}
-			news_event = news.1000 
+			news_event = news.1003
 		}
+			if = {
+				limit = {
+					has_global_flag = yug_not_back_down_trieste
+					NOT = { has_global_flag = tri_war }
+				}
+				country_event = tri.5
+			}
 		if = {
 			limit = {
 				date > 1964.1.1
@@ -76,23 +1457,23 @@ country_event = {
 		}
 		if = {
 			limit = {
-				date > 1961.11.30
 				tag = POR
+				date > 1961.11.30
 				POR = { owns_state = 321 }	
 				POR = { owns_state = 879 }	
 				POR = { owns_state = 880 }	
 			}
 			country_event = goa.1
 		}
-		#if = {
-		#	limit = {
-		#		date > 1959.12.30
-		#		tag = FRA
-		#		not = { has_global_flag = FRA_60_loaded }
-		#	}
-		#	load_focus_tree = FRA_60s
-		#	set_global_flag = FRA_60_loaded
-		#}
+		if = {
+			limit = {
+				tag = FRA
+				date > 1959.12.30
+				not = { has_global_flag = FRA_60_loaded }
+			}
+			load_focus_tree = FRA_60s
+			set_global_flag = FRA_60_loaded
+		}
 		if = {
 			limit = {
 				has_idea = nato_member
@@ -145,325 +1526,7 @@ country_event = {
 			country_event = eng.8
 		}
 		#Austria Begin
-		if = {
-			limit = {	
-				AND = {
-					date > 1955.4.30
-					date < 1955.6.2
-				}
-				NOT = { has_global_flag = aus_questions_over }
-			}
-			country_event = aus.1
-		}
-		if = {
-			limit = {	
-				OR = {
-					AND = {
-						has_global_flag = eng_yes_austria
-						has_global_flag = fra_yes_austria
-						has_global_flag = sov_yes_austria
-						has_global_flag = usa_yes_austria
-					}
-				}
-				NOT = { has_global_flag = aus_austria_not_united }
-			}
-			country_event = aus.2
-		}
-		if = {
-			limit = {	
-				OR = {
-					has_global_flag = eng_no_austria
-					has_global_flag = fra_no_austria
-					has_global_flag = sov_no_austria
-					has_global_flag = usa_no_austria
-				}
-				NOT = { has_global_flag = aus_austria_not_united }
-			}
-			country_event = aus.3
-		}
-		#Austria End
-		#Korea Begin
-		if = {
-			limit = {	
-				tag = USA
-				KPA = { has_war_with = KOR }
-				NOT = { has_war_with = KPA }
-				has_global_flag = korean_war_begun
-			}
-			country_event = korea.3
-		}
-		if = {
-			limit = {	
-				tag = PRC
-				country_exists = PRC
-				KPA = { has_war_with = KOR }
-				NOT = { has_war_with = KOR }
-				has_global_flag = korean_war_begun
-				OR = {
-					NOT = { 745 = { is_controlled_by = KPA } }
-					NOT = { 746 = { is_controlled_by = KPA } }
-					NOT = { 747 = { is_controlled_by = KPA } }
-					NOT = { 748 = { is_controlled_by = KPA } }
-					NOT = { 749 = { is_controlled_by = KPA } }
-					NOT = { 866 = { is_controlled_by = KPA } }
-					NOT = { 919 = { is_controlled_by = KPA } }
-					NOT = { 920 = { is_controlled_by = KPA } }
-					date > 1950.10.20
-				}
-			}
-			country_event = korea.5
-		}
 
-	if = {
-			limit = {	
-				tag = USA
-				country_exists = KOR
-				country_exists = KPA
-				KOR = { has_war_with = KPA }
-				has_global_flag = korean_war_begun
-				has_global_flag = korean_war_usa_enters
-				NOT = { has_global_flag = korean_armistice_china }
-				date > 1953.1.1    			
-			}
-			country_event = korea.13
-		}	
-	if = {
-			limit = {	
-				country_exists = KOR
-				country_exists = KPA
-				KPA = { has_war_with = KOR }
-				has_global_flag = korean_war_begun
-				NOT = {
-					has_global_flag = korean_war_china_enters
-					has_global_flag = korean_war_usa_enters
-				}
-				date > 1953.2.1  
-			}
-			country_event = korea.21
-		}
-		if = {
-				limit = {	
-					tag = USA
-					has_global_flag = korean_war_usa_enters
-					has_global_flag = korean_war_north_victory
-				}
-				country_event = korea.24
-			}
-			
-		if = {
-			limit = {	
-				tag = PRC
-				country_exists = PRC
-				has_global_flag = korean_war_china_enters
-				has_global_flag = korean_war_south_victory
-			}
-			country_event = korea.25
-		}
-		if = {
-			limit = {	
-				tag = ENG
-				KPA = { has_war_with = KOR }
-				NOT = { has_war_with = KPA }
-				has_global_flag = korean_war_begun
-				date > 1950.6.31
-			}
-			country_event = korea.31
-		}
-		if = {
-			limit = {	
-				tag = SOV
-				KPA = { has_war_with = KOR }
-				NOT = { has_war_with = KOR }
-				has_global_flag = korean_war_begun
-				OR = {
-					NOT = { 745 = { is_controlled_by = KPA } }
-					NOT = { 746 = { is_controlled_by = KPA } }
-					NOT = { 747 = { is_controlled_by = KPA } }
-					NOT = { 748 = { is_controlled_by = KPA } }
-					NOT = { 749 = { is_controlled_by = KPA } }
-					date > 1950.9.31
-				}
-			}
-			country_event = korea.33
-		}
-		if = {
-			limit = {	
-				tag = USA
-				KPA = { has_war_with = KOR }
-				NOT = { has_war_with = KOR }
-				has_global_flag = korean_war_usa_enters
-				OR = {
-					750 = { is_controlled_by = KPA }
-					753 = { is_controlled_by = KPA }
-					date > 1950.8.31
-				}
-				NOT = { has_global_flag = korean_war_usa_reinforcements_1 }
-			}
-			country_event = korea.35
-		}
-		if = {
-			limit = {	
-				tag = PRC
-				country_exists = PRC
-				KPA = { has_war_with = KOR }
-				NOT = { has_war_with = KPA }
-				has_global_flag = korean_war_china_enters
-				OR = {
-					920 = { is_controlled_by = KOR }
-					746 = { is_controlled_by = KOR }
-					745 = { is_controlled_by = KOR }
-					date > 1950.8.31
-				}
-				NOT = { has_global_flag = korean_war_chinese_reinforcements_1 }
-			}
-			country_event = korea.37
-		}
-		if = {
-			limit = {	
-				tag = USA
-				KPA = { has_war_with = KOR }
-				NOT = { has_war_with = KOR }
-				has_global_flag = korean_war_usa_enters
-				has_global_flag = korean_war_usa_reinforcements_1
-				OR = {
-					750 = { is_controlled_by = KPA }
-					753 = { is_controlled_by = KPA }
-					date > 1951.1.1
-				}
-				NOT = { has_global_flag = korean_war_usa_reinforcements_2 }
-			}
-			country_event = korea.39
-		}
-		if = {
-			limit = {	
-				tag = PRC
-				country_exists = PRC
-				KPA = { has_war_with = KOR }
-				NOT = { has_war_with = KPA }
-				has_global_flag = korean_war_china_enters
-				has_global_flag = korean_war_chinese_reinforcements_1
-				OR = {
-					746 = { is_controlled_by = KOR }
-					745 = { is_controlled_by = KOR }
-					date > 1951.1.3
-				}
-				NOT = { has_global_flag = korean_war_chinese_reinforcements_2 }
-			}
-			country_event = korea.41
-		}
-		if = {
-			limit = {	
-				tag = USA
-				KPA = { has_war_with = KOR }
-				NOT = { has_war_with = KOR }
-				has_global_flag = korean_war_usa_enters
-				has_global_flag = korean_war_usa_reinforcements_2
-				OR = {
-					AND = {
-						750 = { is_controlled_by = KPA }
-						753 = { is_controlled_by = KPA }
-					}
-					date > 1951.4.1
-				}
-				NOT = { has_global_flag = korean_war_usa_reinforcements_3 }
-			}
-			country_event = korea.43
-		}
-		if = {
-			limit = {	
-				tag = PRC
-				country_exists = PRC
-				KPA = { has_war_with = KOR }
-				NOT = { has_war_with = KPA }
-				has_global_flag = korean_war_china_enters
-				has_global_flag = korean_war_chinese_reinforcements_2
-				OR = {
-					AND = {
-						746 = { is_controlled_by = KOR }
-						745 = { is_controlled_by = KOR }
-					}
-					date > 1951.4.3
-				}
-				NOT = { has_global_flag = korean_war_chinese_reinforcements_3 }
-			}
-			country_event = korea.45
-		}
-		if = {
-			limit = {
-				tag = KOR
-				country_exists = KOR
-				KPA = { has_war_with = KOR }
-				has_global_flag = korean_war_begun
-				AND = {
-					866 = { is_controlled_by = KOR }
-					919 = { is_controlled_by = KOR }
-					918 = { is_controlled_by = KOR }
-					750 = { is_controlled_by = KOR }
-					753 = { is_controlled_by = KOR }
-				}
-				NOT = { has_global_flag = korean_war_southern_forts }
-			}
-			country_event = korea.47
-		}
-		if = {
-			limit = {
-				tag = KPA
-				country_exists = KPA
-				KPA = { has_war_with = KOR }
-				has_global_flag = korean_war_begun
-				AND = {
-					920 = { is_controlled_by = KPA }
-					918 = { is_controlled_by = KPA }
-					525 = { is_controlled_by = KPA }
-					746 = { is_controlled_by = KPA }
-					745 = { is_controlled_by = KPA }
-				}
-				NOT = { has_global_flag = korean_war_northern_forts }
-			}
-			country_event = korea.48
-		}
-		#Korea End
-
-		if = {
-			limit = {
-				date > 1954.10.1
-				NOT = { has_global_flag = tri_questions_over }
-				country_exists = TRI
-			}
-			country_event = tri.1
-		}
-		if = {
-			limit = {
-				has_global_flag = ita_yes_Trieste
-				has_global_flag = yug_yes_Trieste
-				NOT = { has_global_flag = tri_Trieste_united }
-			}
-			country_event = tri.2
-		}
-		if = {
-			limit = {
-				OR = {
-					has_global_flag = ita_no_Trieste
-					has_global_flag = yug_no_Trieste
-				}
-				NOT = { has_global_flag = tri_Trieste_not_united }
-			}
-			country_event = tri.3
-		}
-		if = {
-			limit = {
-				has_global_flag = yug_back_down_trieste
-				NOT = { has_global_flag = tri_yug_back_down }
-			}
-			country_event = tri.4
-		}
-		if = {
-			limit = {
-				has_global_flag = yug_not_back_down_trieste
-				NOT = { has_global_flag = tri_war }
-			}
-			country_event = tri.5
-		}
 		if = {
 			limit = {
 				or = {
@@ -661,16 +1724,7 @@ country_event = {
 			news_event = news.1027
 		}		
 
-		if = {
-			limit = {
-				tag = KPA
-				has_war_with = KOR
-				NOT = { has_global_flag = first_korean_war}
-				date > 1950.1.1
-				date < 1951.1.1	
-			}
-			news_event = news.1003
-		}
+
 
 
 		if = {
@@ -1368,7 +2422,117 @@ country_event = {
 					NOT = { state_population > 500000 }						
 				}
 				add_manpower = -5000
-				subtract_from_variable = { var = radiation value = 1 }	
+				subtract_from_variable = { var = radiation value = 1 }
+				if = {
+					limit = {
+						infrastructure > 0	
+					}
+					random_list = {
+						30 = { remove_building = { type = infrastructure level = 1 } }
+						55 = { }
+						5 = {
+							if = { 
+								limit = { 
+									has_state_category = enclave
+								}
+								set_state_category = wasteland 
+							}		
+							if = { 
+								limit = { 
+									has_state_category = tiny_island
+								}
+								set_state_category = wasteland 
+							}
+							if = { 
+								limit = { 
+									has_state_category = small_island
+								}
+								set_state_category = tiny_island 
+							}
+							if = { 
+								limit = { 
+									has_state_category = rural
+								}
+								set_state_category = pastoral
+							}
+							if = { 
+								limit = { 
+									has_state_category = town
+								}
+								set_state_category = rural  
+							}
+							if = { 
+								limit = { 
+									has_state_category = large_town
+								}
+								set_state_category = town
+							}
+							if = { 
+								limit = { 
+									has_state_category = city
+								}
+								set_state_category = large_town
+							}	
+							if = { 
+								limit = { 
+									has_state_category = large_city
+								}
+								set_state_category = city
+							}
+							if = { 
+								limit = { 
+									has_state_category = metropolis 
+								}
+								set_state_category =  large_city
+							}
+							##
+							if = { 
+								limit = { 
+									has_state_category = megalopolis
+								}
+								set_state_category = metropolis
+							}
+						}
+						10 = { 
+							if = {
+								limit = {
+									has_resources_amount = { resource = chromium amount > 0 }	
+								}
+								add_resource = { type = chromium amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = oil amount > 0 }	
+								}
+								add_resource = { type = oil amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = aluminium amount > 0 }	
+								}
+								add_resource = { type = aluminium amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = rubber amount > 0 }	
+								}
+								add_resource = { type = rubber amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = tungsten amount > 0 }	
+								}
+								add_resource = { type = tungsten amount = -1 }	
+							}
+							if = {
+								limit = {
+									has_resources_amount = { resource = steel amount > 0 }	
+								}
+								add_resource = { type = steel amount = -1 }	
+							}
+						}
+					}
+				}				
 			}
 			every_owned_state = {
 				limit = {
@@ -1896,6 +3060,20 @@ country_event = {
 					has_cosmetic_tag = MLT_ENG
 					has_cosmetic_tag = NYA_ENG
 					has_cosmetic_tag = LES_ENG
+					has_cosmetic_tag = KAZ_SSR
+					has_cosmetic_tag = UZB_SSR
+					has_cosmetic_tag = TJK_SSR
+					has_cosmetic_tag = TRK_SSR
+					has_cosmetic_tag = EST_SSR
+					has_cosmetic_tag = LAT_SSR
+					has_cosmetic_tag = LIT_SSR
+					has_cosmetic_tag = KRG_SSR
+					has_cosmetic_tag = AZR_SSR
+					has_cosmetic_tag = ARM_SSR
+					has_cosmetic_tag = KRL_SSR
+					has_cosmetic_tag = UKR_SSR
+					has_cosmetic_tag = BLR_SSR
+					has_cosmetic_tag = MLD_SSR
 				}
 			}
            drop_cosmetic_tag = yes

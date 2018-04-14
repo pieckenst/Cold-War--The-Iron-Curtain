@@ -27,7 +27,6 @@ NDefines.NDiplomacy.CIVIL_WAR_INVOLVEMENT_MIN_TENSION = 0.0		-- base value of wo
 NDefines.NTechnology.BASE_RESEARCH_POINTS_SAVED = 50.0		-- Base amount of research points a country can save per slot.	
 NDefines.NTechnology.BASE_YEAR_AHEAD_PENALTY_FACTOR = 7		-- Base year ahead penalty
 NDefines.NBuildings.RADAR_RANGE_MAX = 220				-- Range is interpolated between building levels 1-15.
-NDefines.NBuildings.MAX_SHARED_SLOTS = 50				-- Max slots shared by factories
 NDefines.NBuildings.INFRA_TO_SUPPLY = 6
 NDefines.NBuildings.INFRA_TO_SUPPLY_COEFF = 2
 NDefines.NMilitary.MAX_DIVISION_SUPPORT_WIDTH = 2			-- Max width of support in division designer.
