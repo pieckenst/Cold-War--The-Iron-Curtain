@@ -52,5 +52,6 @@ NDefines.NAI.DEPLOY_MIN_EQUIPMENT_WAR_FACTOR = 0.75		-- Required percentage of e
 NDefines.NProduction.INFRA_MAX_CONSTRUCTION_COST_EFFECT = 5
 NDefines.NBuildings.INFRASTRUCTURE_RESOURCE_BONUS= 0.2
 NDefines.NCountry.POLITICAL_POWER_CAP = 2000000.0
+NDefines.NCountry.EVENT_PROCESS_OFFSET = 20000000						-- Events are checked every X day per country or state (1 is ideal, but CPU heavy)
 NDefines.NBuildings.MAX_SHARED_SLOTS = 200
 NDefines.NBuildings.MAX_BUILDING_LEVELS = 50
