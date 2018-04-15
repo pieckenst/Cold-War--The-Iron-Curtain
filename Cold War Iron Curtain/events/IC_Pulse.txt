@@ -52,6 +52,8 @@ add_namespace = sov
 add_namespace = islamist
 add_namespace = shia_islamist
 add_namespace = zimbabwe
+add_namespace = french_elections
+add_namespace = may_68
 
 country_event = {
 	id = ic_pulse.1
@@ -61,6 +63,35 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+				if = {
+					limit = {
+						tag = USA
+						date > 1963.11.21
+						date < 1964.3.6
+						NOT = { has_global_flag = november_1963 }
+						has_global_flag = nixon_60
+					}
+					country_event = swf.100
+				}
+				if = {
+					limit = {
+						tag = USA
+						date > 1963.11.21
+						date < 1964.3.6
+						NOT = { has_global_flag = november_1963 }
+						has_global_flag = jfk_60
+					}
+					country_event = swf.101
+				}
+				if = {
+					limit = {
+						tag = USA
+						date > 1966.12.12
+						date < 1968.1.1
+					}
+					country_event = swf.102
+				}				
+
 				if = {
 					limit = {
 						original_tag = ZIM
@@ -180,6 +211,36 @@ country_event = {
 						original_tag = ZIM
 					}
 					country_event = zimbabwe.65
+				}
+				if = {
+					limit = {
+						tag = FRA
+						has_civil_war = no
+						date > 1965.12.3
+						date < 1966.10.15
+						NOT = { has_country_flag = french_elections_1965 }
+					}
+					country_event = french_elections.2
+				}
+				if = {
+					limit = {
+						tag = FRA
+						has_civil_war = no
+						date > 1969.6.13
+						date < 1969.10.15
+						NOT = { has_country_flag = french_elections_1969 }
+					}
+					country_event = french_elections.3
+				}
+				if = {
+					limit = {
+						tag = FRA
+						has_country_flag = de_galle_1965
+						date > 1968.4.30
+						date < 1969.10.15
+						NOT = { has_country_flag = FRA_MAY_68 }
+					}
+					country_event = may_68.1
 				}
 				if = {
 					limit = {
