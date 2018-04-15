@@ -48,14 +48,413 @@ add_namespace = cwu
 add_namespace = political
 add_namespace = prc
 add_namespace = usa
+add_namespace = sov
+add_namespace = islamist
+add_namespace = shia_islamist
+add_namespace = zimbabwe
+add_namespace = french_elections
+add_namespace = may_68
 
 country_event = {
 	id = ic_pulse.1
 	hidden = yes
 
+	
 	is_triggered_only = yes
 	
 	immediate = {
+				if = {
+					limit = {
+						tag = USA
+						date > 1963.11.21
+						date < 1964.3.6
+						NOT = { has_global_flag = november_1963 }
+						has_global_flag = nixon_60
+					}
+					country_event = swf.100
+				}
+				if = {
+					limit = {
+						tag = USA
+						date > 1963.11.21
+						date < 1964.3.6
+						NOT = { has_global_flag = november_1963 }
+						has_global_flag = jfk_60
+					}
+					country_event = swf.101
+				}
+				if = {
+					limit = {
+						tag = USA
+						date > 1966.12.12
+						date < 1968.1.1
+					}
+					country_event = swf.102
+				}				
+
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_country_flag = zimbabwe
+						owns_state = 545
+					}
+					country_event = zimbabwe.69
+				}	
+				if = {
+					limit = {
+						has_country_flag = rhodesia
+						original_tag = ZIM	
+						OR = {
+							has_idea = zim_zanu_1
+							has_idea = zim_zanu_2
+							has_idea = zim_zanu_3
+							has_idea = zim_zanu_4
+							has_idea = zim_zanu_5
+							has_idea = zim_zanu_6
+							has_idea = zim_zanu_7
+							has_idea = zim_zanu_8
+							has_idea = zim_zanu_9
+							has_idea = zim_zanu_10
+							has_idea = zim_zapu_1
+							has_idea = zim_zapu_2
+							has_idea = zim_zapu_3
+							has_idea = zim_zapu_4
+							has_idea = zim_zapu_5
+							has_idea = zim_zapu_6
+							has_idea = zim_zapu_7
+							has_idea = zim_zapu_8
+							has_idea = zim_zapu_9
+							has_idea = zim_zapu_10
+						}
+					
+						has_government = nationalism
+					}
+					country_event = zimbabwe.70
+				}		
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_country_flag = rhodesia
+
+						date > 1961.12.17
+						date < 1965.1.1
+					}
+					country_event = zimbabwe.111
+				}		
+				if = {
+					limit = {
+						has_country_flag = zapu_enabled
+						original_tag = ZIM
+						date > 1963.8.8
+						date < 1965.1.1
+						has_country_flag = rhodesia
+					}
+					country_event = zimbabwe.112
+				}		
+				if = {
+					limit = {
+						tag = SOV
+						date > 1953.3.1
+						date < 1953.10.6
+						NOT = { has_global_flag = stalin_dead }
+					}
+					country_event = swf.4
+				}
+				if = {
+					limit = {
+						tag = SOV
+						date > 1964.10.1
+						date < 1964.12.31
+					}
+					country_event = sov.6
+				}
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_country_flag = rhodesia
+						has_country_flag = zanu_enabled
+						OR = {
+							has_country_flag = ZIM_mugabe_killed
+							has_country_flag = zanu_defeated
+						}
+					}
+					country_event = zimbabwe.2
+				}
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_country_flag = rhodesia
+						has_country_flag = zapu_enabled
+						OR = {
+							has_country_flag = ZIM_nkomo_killed
+							has_country_flag = zapu_defeated
+						}
+					}
+					country_event = zimbabwe.4
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = frn }
+						has_country_flag = rhodesia
+						OR = {
+							has_idea = zim_zanu_10
+							has_idea = zim_zapu_10
+							nationalism > 0.7
+						}
+					}
+					country_event = zimbabwe.13
+				}
+				if = {
+					limit = {
+						has_country_flag = zim_cw
+						has_war = no
+						original_tag = ZIM
+					}
+					country_event = zimbabwe.65
+				}
+				if = {
+					limit = {
+						tag = FRA
+						has_civil_war = no
+						date > 1965.12.3
+						date < 1966.10.15
+						NOT = { has_country_flag = french_elections_1965 }
+					}
+					country_event = french_elections.2
+				}
+				if = {
+					limit = {
+						tag = FRA
+						has_civil_war = no
+						date > 1969.6.13
+						date < 1969.10.15
+						NOT = { has_country_flag = french_elections_1969 }
+					}
+					country_event = french_elections.3
+				}
+				if = {
+					limit = {
+						tag = FRA
+						has_country_flag = de_galle_1965
+						date > 1968.4.30
+						date < 1969.10.15
+						NOT = { has_country_flag = FRA_MAY_68 }
+					}
+					country_event = may_68.1
+				}
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_country_flag = zim_cw
+						has_country_flag = rhodesia
+						has_civil_war = yes
+					}
+					country_event = zimbabwe.66
+				}
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_country_flag = rhodesia
+						has_country_flag = zanu_enabled
+						NOT = { has_country_flag = ZIM_mugabe_killed }
+					}
+					random_list = {
+						25 = {
+							country_event = zimbabwe.1
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_country_flag = zapu_enabled
+						has_country_flag = rhodesia
+						NOT = { has_country_flag = ZIM_nkomo_killed }
+					}
+					random_list = {
+						25 = {
+							country_event = zimbabwe.3
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_idea = zim_suppress_rebels
+						has_country_flag = rhodesia
+					}
+					random_list = {
+						25 = {
+							country_event = zimbabwe.35
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						radical_shiaism > 0.5
+						NOT = { has_government = radical_shiaism }
+						NOT = { has_idea = reign_of_terror }
+						is_puppet = no
+					}
+					random_list = {
+						25 = {
+							country_event = shia_islamist.40
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = shia_islamist_advisor
+						NOT = { has_government = radical_shiaism }
+					}
+					random_list = {
+						25 = {
+							country_event = shia_islamist.41
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = shia_islamist_advisor
+						NOT = { has_government = radical_shiaism }
+					}
+					random_list = {
+						25 = {
+							country_event = shia_islamist.32
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = shia_islamist_advisor
+						NOT = { has_government = radical_shiaism }
+					}
+					random_list = {
+						25 = {
+							country_event = shia_islamist.33
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = shia_islamist_advisor
+						NOT = { has_government = radical_shiaism }
+					}
+					random_list = {
+						25 = {
+							country_event = shia_islamist.34
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = shia_islamist_advisor
+						NOT = { has_government = radical_shiaism }
+					}
+					random_list = {
+						25 = {
+							country_event = shia_islamist.35
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						islamism > 0.5
+						NOT = { has_government = islamism }
+						NOT = { has_idea = reign_of_terror }
+						is_puppet = no
+					}
+					random_list = {
+						25 = {
+							country_event = islamist.40
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = islamist_advisor
+						NOT = { has_government = islamism }
+					}
+					random_list = {
+						25 = {
+							country_event = islamist.41
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = islamist_advisor
+						NOT = { has_government = islamism }
+					}
+					random_list = {
+						25 = {
+							country_event = islamist.32
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = islamist_advisor
+						NOT = { has_government = islamism }
+					}
+					random_list = {
+						25 = {
+							country_event = islamist.33
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = islamist_advisor
+						NOT = { has_government = islamism }
+					}
+					random_list = {
+						25 = {
+							country_event = islamist.34
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = islamist_advisor
+						NOT = { has_government = islamism }
+					}
+					random_list = {
+						25 = {
+							country_event = islamist.35
+						}
+						75 = {
+						}
+					}
+				}
 				if = {
 					limit = {
 						has_idea_with_trait = communist_revolutionary
@@ -65,6 +464,86 @@ country_event = {
 					random_list = {
 						25 = {
 							country_event = political.2
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						monarchism > 0.5
+						NOT = { has_government = monarchism }
+						NOT = { has_idea = reign_of_terror }
+						is_puppet = no
+					}
+					random_list = {
+						25 = {
+							country_event = political.40
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = monarchist_advisor
+						NOT = { has_government = monarchism }
+					}
+					random_list = {
+						25 = {
+							country_event = political.41
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = monarchist_advisor
+						NOT = { has_government = monarchism }
+					}
+					random_list = {
+						25 = {
+							country_event = political.32
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = monarchist_advisor
+						NOT = { has_government = monarchism }
+					}
+					random_list = {
+						25 = {
+							country_event = political.33
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = monarchist_advisor
+						NOT = { has_government = monarchism }
+					}
+					random_list = {
+						25 = {
+							country_event = political.34
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_idea_with_trait = monarchist_advisor
+						NOT = { has_government = monarchism }
+					}
+					random_list = {
+						25 = {
+							country_event = political.35
 						}
 						75 = {
 						}
