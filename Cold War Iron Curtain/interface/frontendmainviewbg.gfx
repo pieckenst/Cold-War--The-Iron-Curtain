@@ -8,13 +8,24 @@ spriteTypes = {
 		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"				
 	}
 
-	corneredTileSpriteType = {
+	SpriteType = {
 		name = "GFX_mainmenu_screen"
-		size = { x = 800 y = 750 }
 		textureFile = "gfx/interface/tiled_window_new.dds"
-		borderSize = { x=0 y=0 }
-		tilingCenter = no
-		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/tiled_window_new_mask.dds" 			#opaque shape that the animated file stays within, you can use this to create cutout shapes.
+			animationtexturefile = "gfx/interface/tiled_window_new_animation.dds" 	# <- the animated file itself, can be a single image
+			animationrotation = 170							# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes									# yes/no
+			animationtime = 12.0									# in seconds, though it seems to lie sometimes
+			animationdelay = 0.0									# in seconds
+			animationblendmode = "overlay"       						#add, multiply, overlay
+			animationtype = "scrolling"      						#scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0 y = 0 } 				#No clue what this does
+			animationtexturescale = { x = 1 y = 1 } 			#you can resize the file and it will just loop
+		}
+			
+		legacy_lazy_load = no 	
 	}
 
 	corneredTileSpriteType = {

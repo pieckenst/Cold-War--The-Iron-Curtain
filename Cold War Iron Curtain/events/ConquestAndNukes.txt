@@ -1,0 +1,41 @@
+add_namespace = Conquestandnukes
+add_namespace = conquest
+#Helsinki (USSR)
+news_event = {
+	id = conquest.1
+	title = conquest.1.t
+	desc = conquest.1.d
+	picture = GFX_news_event_helsinki_falls_to_ussr
+	
+	major = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		111 = { is_controlled_by = USSR }
+		111 = { is_owned_by = FIN }
+		SOV = { has_war_with = FIN }
+		NOT = { has_global_flag = conquest_helsinki_ussr }
+	}
+	
+	immediate = {
+		set_global_flag = conquest_helsinki_ussr
+	}
+	
+	option = {
+		name = conquest.1.a
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = FIN
+			}
+		}
+	}
+	option = {
+		name = conquest.1.b
+		trigger = { TAG = SOV }
+	}
+	option = {
+		name = conquest.1.c
+		trigger = { TAG = FIN }
+	}
+}

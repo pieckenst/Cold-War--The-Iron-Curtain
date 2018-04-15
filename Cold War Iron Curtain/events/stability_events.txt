@@ -15,47 +15,7 @@ country_event = {
 	
 	hidden = yes
 
-	trigger = {
-		has_war = yes
-		has_civil_war = no
-		OR = {
-			has_stability < 0.5
-			has_war_support < 0.5
-		}
-		NOT = {
-			AND = {
-				is_major = yes
-				all_enemy_country = {
-					is_major = no
-				}
-			}
-		}
-		NOT = { 
-			has_country_flag = crisis_in_progress
-		}
-	}
-
-	mean_time_to_happen = { 
-		days = 360 
-		modifier = {
-			factor = 2
-			NOT = { has_government = democratic }
-		}
-		modifier = {
-			factor = 0.75
-			OR = {
-				has_stability < 0.4
-				has_war_support < 0.4
-			}
-		}
-		modifier = {
-			factor = 0.75
-			OR = {
-				has_stability < 0.2
-				has_war_support < 0.2
-			}
-		}
-	}
+	is_triggered_only = yes
 
 	immediate = { 
 		random_list = {

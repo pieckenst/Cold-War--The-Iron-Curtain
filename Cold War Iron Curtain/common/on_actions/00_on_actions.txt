@@ -439,9 +439,28 @@ on_actions = {
 	#Not run on a specific country.
 	on_startup = {
 		effect = {
-			every_country = {
-				country_event = ic_pulse.14
-			}		
+            random_country = {
+                limit = { is_ai = yes has_war = no }
+                set_country_flag = ic_pulse_one_flag
+               #country_event = { id = ic_pulse.1 }
+            }	
+			ARG = {	#Agentinia Electons 1950s
+				country_event = { id = ic_pulse.1 days = 902 }
+				country_event = { id = ic_pulse.1 days = 3198 }
+			}
+			BRA = {	#Brazilian Elections
+				country_event = { id = ic_pulse.1 days = 498 }
+				country_event = { id = ic_pulse.1 days = 2324 }
+				country_event = { id = ic_pulse.1 days = 4151 }
+				#1960 Bookmark
+				country_event = { id = ic_pulse.1 days = 276 }
+			}
+			ENG = {
+				country_event = { id = ic_pulse.1 days = 276 }
+				country_event = { id = ic_pulse.1 days = 885 }
+				country_event = { id = ic_pulse.1 days = 2194 }
+ 				
+			}
 			FRA = {
 				set_division_template_lock = { division_template = "Légion étrangère Française" is_locked = yes }	
 			}
@@ -526,9 +545,21 @@ on_actions = {
 	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
 	on_state_control_changed = {
 		effect = {
-
+			if = {
+				limit = {
+					tag  = SOV
+					NOT = { has_global_flag = conquest_helsinki_ussr }
+					111 = { 
+						is_controlled_by = USSR 
+						is_owned_by = FIN 
+					}
+					SOV = { has_war_with = FIN }
+				}
+				news_event = conquest.1
+			}
 		}
 	}
+
 	on_nuke_drop = {
 
 		effect = {
