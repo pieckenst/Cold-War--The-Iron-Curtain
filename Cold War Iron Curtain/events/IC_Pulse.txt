@@ -51,6 +51,7 @@ add_namespace = usa
 add_namespace = sov
 add_namespace = islamist
 add_namespace = shia_islamist
+add_namespace = zimbabwe
 
 country_event = {
 	id = ic_pulse.1
@@ -60,6 +61,65 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_country_flag = zimbabwe
+						owns_state = 545
+					}
+					country_event = zimbabwe.69
+				}	
+				if = {
+					limit = {
+						has_country_flag = rhodesia
+						original_tag = ZIM	
+						OR = {
+							has_idea = zim_zanu_1
+							has_idea = zim_zanu_2
+							has_idea = zim_zanu_3
+							has_idea = zim_zanu_4
+							has_idea = zim_zanu_5
+							has_idea = zim_zanu_6
+							has_idea = zim_zanu_7
+							has_idea = zim_zanu_8
+							has_idea = zim_zanu_9
+							has_idea = zim_zanu_10
+							has_idea = zim_zapu_1
+							has_idea = zim_zapu_2
+							has_idea = zim_zapu_3
+							has_idea = zim_zapu_4
+							has_idea = zim_zapu_5
+							has_idea = zim_zapu_6
+							has_idea = zim_zapu_7
+							has_idea = zim_zapu_8
+							has_idea = zim_zapu_9
+							has_idea = zim_zapu_10
+						}
+					
+						has_government = nationalism
+					}
+					country_event = zimbabwe.70
+				}		
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_country_flag = rhodesia
+
+						date > 1961.12.17
+						date < 1965.1.1
+					}
+					country_event = zimbabwe.111
+				}		
+				if = {
+					limit = {
+						has_country_flag = zapu_enabled
+						original_tag = ZIM
+						date > 1963.8.8
+						date < 1965.1.1
+						has_country_flag = rhodesia
+					}
+					country_event = zimbabwe.112
+				}		
 				if = {
 					limit = {
 						tag = SOV
@@ -76,6 +136,103 @@ country_event = {
 						date < 1964.12.31
 					}
 					country_event = sov.6
+				}
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_country_flag = rhodesia
+						has_country_flag = zanu_enabled
+						OR = {
+							has_country_flag = ZIM_mugabe_killed
+							has_country_flag = zanu_defeated
+						}
+					}
+					country_event = zimbabwe.2
+				}
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_country_flag = rhodesia
+						has_country_flag = zapu_enabled
+						OR = {
+							has_country_flag = ZIM_nkomo_killed
+							has_country_flag = zapu_defeated
+						}
+					}
+					country_event = zimbabwe.4
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = frn }
+						has_country_flag = rhodesia
+						OR = {
+							has_idea = zim_zanu_10
+							has_idea = zim_zapu_10
+							nationalism > 0.7
+						}
+					}
+					country_event = zimbabwe.13
+				}
+				if = {
+					limit = {
+						has_country_flag = zim_cw
+						has_war = no
+						original_tag = ZIM
+					}
+					country_event = zimbabwe.65
+				}
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_country_flag = zim_cw
+						has_country_flag = rhodesia
+						has_civil_war = yes
+					}
+					country_event = zimbabwe.66
+				}
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_country_flag = rhodesia
+						has_country_flag = zanu_enabled
+						NOT = { has_country_flag = ZIM_mugabe_killed }
+					}
+					random_list = {
+						25 = {
+							country_event = zimbabwe.1
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_country_flag = zapu_enabled
+						has_country_flag = rhodesia
+						NOT = { has_country_flag = ZIM_nkomo_killed }
+					}
+					random_list = {
+						25 = {
+							country_event = zimbabwe.3
+						}
+						75 = {
+						}
+					}
+				}
+				if = {
+					limit = {
+						original_tag = ZIM
+						has_idea = zim_suppress_rebels
+						has_country_flag = rhodesia
+					}
+					random_list = {
+						25 = {
+							country_event = zimbabwe.35
+						}
+						75 = {
+						}
+					}
 				}
 				if = {
 					limit = {
