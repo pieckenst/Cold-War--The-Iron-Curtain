@@ -1005,7 +1005,10 @@ focus_tree = {
 		}
 		x = 48
 		y = 4
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = IRQ_purge_nationalist_in_army
@@ -1016,7 +1019,10 @@ focus_tree = {
 		}
 		x = 52
 		y = 4
-
+		completion_reward = {
+			army_experience = -25
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = IRQ_stability_is_saved
@@ -1030,7 +1036,10 @@ focus_tree = {
 		}
 		x = 50
 		y = 5
-
+		completion_reward = {
+			add_stability = 0.15
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = IRQ_cut_ties_with_egypt
@@ -1041,7 +1050,20 @@ focus_tree = {
 		}
 		x = 50
 		y = 6
-
+		completion_reward = {
+					EGY = {
+							add_opinion_modifier = {
+									target = IRQ
+									modifier = large_decrease
+								}
+						}
+					IRQ = {
+							add_opinion_modifier = {
+									target = EGY
+									modifier = large_decrease
+								}
+						}			
+		}
 	}
 	focus = {
 		id = IRQ_reform_arab_federation
@@ -1052,7 +1074,11 @@ focus_tree = {
 		}
 		x = 48
 		y = 7
-
+		completion_reward = {
+			JOR = {
+				country_event = ARF.1
+			}
+		}
 	}
 	focus = {
 		id = IRQ_support_the_shahs_monarchy
@@ -1066,7 +1092,20 @@ focus_tree = {
 		}
 		x = 50
 		y = 8
-
+		completion_reward = {
+					PER = {
+							add_opinion_modifier = {
+									target = IRQ
+									modifier = large_increase
+								}
+						}
+					IRQ = {
+							add_opinion_modifier = {
+									target = PER
+									modifier = large_increase
+								}
+						}			
+		}
 	}
 	focus = {
 		id = IRQ_support_saudi_monarchy
@@ -1080,7 +1119,20 @@ focus_tree = {
 		}
 		x = 46
 		y = 8
-
+		completion_reward = {
+					SAU = {
+							add_opinion_modifier = {
+									target = IRQ
+									modifier = large_increase
+								}
+						}
+					IRQ = {
+							add_opinion_modifier = {
+									target = SAU
+									modifier = large_increase
+								}
+						}			
+		}
 	}
 	focus = {
 		id = IRQ_invest_in_our_economies
@@ -1091,8 +1143,73 @@ focus_tree = {
 		}
 		x = 45
 		y = 9
-
+			completion_reward = {
+							every_owned_state = {
+									add_extra_state_shared_building_slots = 1
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+			}
 	}
+
 	focus = {
 		id = IRQ_strengthen_military_ties
 		icon = GFX_goal_generic_construct_mil_factory
@@ -1102,7 +1219,76 @@ focus_tree = {
 		}
 		x = 51
 		y = 9
-
+			completion_reward = {
+							every_owned_state = {
+									add_extra_state_shared_building_slots = 1
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+						PER = {
+							every_owned_state = {
+									add_extra_state_shared_building_slots = 1
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}							
+							}
+			}
 	}
 	focus = {
 		id = IRQ_iraq_iran_diplomatic_marriage
@@ -1113,7 +1299,11 @@ focus_tree = {
 		}
 		x = 51
 		y = 11
-
+		completion_reward = {
+			PER = {
+				country_event = IRQ.1500
+			}
+		}
 	}
 	focus = {
 		id = IRQ_reform_the_baghdad_pact
@@ -1433,7 +1623,38 @@ focus_tree = {
 		}
 		x = 79
 		y = 3
-
+		completion_reward = {
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}		
+		}
 	}
 	focus = {
 		id = IRQ_modernize_equipment
@@ -1444,7 +1665,38 @@ focus_tree = {
 		}
 		x = 81
 		y = 2
-
+		completion_reward = {
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+		}
 	}
 	focus = {
 		id = IRQ_get_rid_of_incompetent_generals
@@ -1468,7 +1720,9 @@ focus_tree = {
 		}
 		x = 84
 		y = 3
-
+		completion_reward = {
+			add_political_power = 400
+		}
 	}
 	focus = {
 		id = IRQ_military_drills
@@ -1481,7 +1735,9 @@ focus_tree = {
 		}
 		x = 81
 		y = 4
-
+		completion_reward = {
+			army_experience = 50
+		}
 	}
 	focus = {
 		id = IRQ_iraqi_air_force
@@ -1492,7 +1748,9 @@ focus_tree = {
 		}
 		x = 89
 		y = 1
-
+		completion_reward = {
+			air_experience = 50
+		}
 	}
 	focus = {
 		id = IRQ_new_airbases
@@ -1901,7 +2159,11 @@ focus_tree = {
 		}
 		x = 19
 		y = 15
-
+		completion_reward = {
+			KUW = {
+				country_event = swfs.5
+			}
+		}
 	}
 	focus = {
 		id = IRQ_liberate_khuzestans_arabs
@@ -2570,7 +2832,20 @@ focus_tree = {
 		}
 		x = 45
 		y = 11
-
+		completion_reward = {
+					PER = {
+							add_opinion_modifier = {
+									target = IRQ
+									modifier = large_increase
+								}
+						}
+					IRQ = {
+							add_opinion_modifier = {
+									target = PER
+									modifier = large_increase
+								}
+						}			
+		}
 	}
 	focus = {
 		id = iraq_saddam_reforms
@@ -2652,7 +2927,10 @@ focus_tree = {
 		}
 		x = 21
 		y = 14
-
+		completion_reward = {
+			add_political_power = 300
+			add_threat = 10
+		}
 	}
 	focus = {
 		id = IRQ_secure_stability
@@ -2698,7 +2976,14 @@ focus_tree = {
 		}
 		x = 93
 		y = 7
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_artillery_bonus
+							bonus = 0.35
+							uses = 1
+							category = infantry_weapons
+						}
+				}
 	}
 	focus = {
 		id = IRQ_effective_tanks
