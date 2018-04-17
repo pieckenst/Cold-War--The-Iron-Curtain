@@ -48,7 +48,6 @@ set_technology = {
 	early_submarine = 1
 	ww_pc = 1 
 	radio = 1 
-
 	experimental_rockets = 1
 	fighter1 = 1
 	fighter2 = 1
@@ -147,8 +146,8 @@ if = {
 	}
 	set_autonomy = {
 		target = SUD
-		autonomous_state = autonomy_colony
-		freedom_level = 0.4
+		autonomous_state = autonomy_puppet
+		freedom_level = 0.6
 	}
 	set_autonomy = {
 		target = KNA
@@ -171,24 +170,19 @@ if = {
 		freedom_level = 0.4
 	}
 	set_autonomy = {
-		target = NIA
-		autonomous_state = autonomy_protectorate
-		freedom_level = 0.4
-	}
-	set_autonomy = {
 		target = ZIM
 		autonomous_state = autonomy_protectorate
 		freedom_level = 0.4
 	}
 	set_autonomy = {
 		target = ZAM
-		autonomous_state = autonomy_colony
+		autonomous_state = autonomy_protectorate
 		freedom_level = 0.4
 	}
 	set_autonomy = {
 		target = NIA
 		autonomous_state = autonomy_colony
-		freedom_level = 0.7
+		freedom_level = 0.4
 	}
 	set_autonomy = {
 		target = GUY
@@ -282,6 +276,11 @@ if = {
 	}
 	set_autonomy = {
 		target = MLT
+		autonomous_state = autonomy_colony
+		freedom_level = 0.6
+	}
+	set_autonomy = {
+		target = SWA
 		autonomous_state = autonomy_protectorate
 		freedom_level = 0.6
 	}
@@ -318,6 +317,7 @@ if = {
 		puppet = GAM
 		puppet = MLT
 		puppet = GUY
+		puppet = SWA
 	}
 }
 
@@ -369,6 +369,9 @@ add_ai_strategy = {
 }
 1967.1.1 = {
 	set_autonomy = { target = DRY autonomy_state = autonomy_free }	
+}
+1968.1.1 = {
+	set_autonomy = { target = SWA autonomy_state = autonomy_free }	
 }
 1971.1.1 = {
 	set_autonomy = { target = OMA autonomy_state = autonomy_free }
@@ -698,26 +701,26 @@ create_equipment_variant = {
 	name = "Colossus Class"
 	type = light_carrier_1
 	upgrades = {
-			ship_deckspace_upgrade = 0
-			carrier_armor_upgrade = 0
-			ship_engine_upgrade = 0
-			ship_reliability_upgrade = 0
+			ship_deckspace_upgrade = 1
+			carrier_armor_upgrade = 1
+			ship_engine_upgrade = 1
+			ship_reliability_upgrade = 1
 	}
 }
 
 ### Variants ###
 # Submarines #
-# create_equipment_variant = {
-	# name = "O/P/R Class"
-	# type = submarine_1
-	# parent_version = 0
-	# upgrades = {
-		# ship_reliability_upgrade = 3
-		# sub_engine_upgrade = 2
-		# sub_stealth_upgrade = 2
-		# sub_torpedo_upgrade = 3
-	# }
-# }
+create_equipment_variant = {
+	name = "O/P/R Class"
+	type = submarine_1
+	parent_version = 0
+	upgrades = {
+		ship_reliability_upgrade = 3
+		sub_engine_upgrade = 2
+		sub_stealth_upgrade = 2
+		sub_torpedo_upgrade = 3
+	}
+}
 # Destroyers #
 create_equipment_variant = {
 	name = "M/O/P/Q/R Class"

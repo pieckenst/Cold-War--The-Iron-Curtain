@@ -51,20 +51,7 @@ country_event = {
 	desc = political.2.d
 	picture = GFX_report_event_worker_protests
 
-	trigger = {
-		has_idea_with_trait = communist_revolutionary
-		NOT = { has_government = communism }
-		NOT = { has_country_flag = communism_government_support }
-	}
-	
-	mean_time_to_happen = {
-		days = 500
-		modifier = {
-			factor = 0.5
-			has_country_flag = communism_political_movement
-		}
-	}
-	
+	is_triggered_only = yes
 	option = {
 		name = political.2.a
 		custom_effect_tooltip = political.2.a.tt
@@ -80,29 +67,7 @@ country_event = {
 	desc = political.3.d
 	picture = GFX_report_event_gathering_protest
 	
-	trigger = {
-		has_idea_with_trait = communist_revolutionary
-		NOT = { has_government = communism }
-		has_country_flag = communism_government_support
-		communism > 0.4
-		is_major = no
-		is_puppet = no
-		OR = {
-			NOT = { tag = CHI }
-			AND = {
-				NOT = { country_exists = PRC }
-				tag = CHI
-			}			
-		}
-	}
-
-	mean_time_to_happen = {
-		days = 100
-		modifier = {
-			factor = 0.5
-			communism > 0.5
-		}
-	}
+	is_triggered_only = yes
 
 	immediate = {
 		hidden_effect = { remove_ideas = communist_revolutionaries }
@@ -125,19 +90,7 @@ country_event = {
 	desc = political.4.d
 	picture = GFX_report_event_gathering_protest
 	
-	trigger = {
-		has_idea_with_trait = communist_revolutionary
-		NOT = { has_government = communism }
-		communism > 0.2
-	}
-
-	mean_time_to_happen = {
-		days = 365
-		modifier = {
-			factor = 0.5
-			has_country_flag = communism_popular_movement
-		}
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = political.4.a
@@ -155,21 +108,8 @@ country_event = {
 	title = political.5.t
 	desc = political.5.d
 	picture = GFX_report_event_desertion_poster
-	
-	trigger = {
-		has_idea_with_trait = communist_revolutionary
-		NOT = { has_government = communism }
-		communism > 0.3
-		NOT = { has_idea = communist_partisans_recruiting }
-	}
 
-	mean_time_to_happen = {
-		days = 365
-		modifier = {
-			factor = 0.5
-			has_country_flag = communism_popular_movement
-		}
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = political.5.a
@@ -188,26 +128,7 @@ country_event = {
 	desc = political.6.d
 	picture = GFX_report_event_gathering_protest
 	
-	trigger = {
-		has_idea_with_trait = communist_revolutionary
-		NOT = { has_government = communism }
-		communism > 0.5
-		OR = {
-			NOT = { tag = CHI }
-			AND = {
-				NOT = { country_exists = PRC }
-				tag = CHI
-			}			
-		}
-	}
-
-	mean_time_to_happen = {
-		days = 365
-		modifier = {
-			factor = 0.75
-			has_country_flag = communism_popular_movement
-		}
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = political.6.a
@@ -287,19 +208,7 @@ country_event = {
 	desc = political.8.d
 	picture = GFX_report_event_fascist_gathering
 	
-	trigger = {
-		has_idea_with_trait = fascist_demagogue
-		NOT = { has_government = fascism }
-		NOT = { has_country_flag = fascism_government_support }
-	}
-	
-	mean_time_to_happen = {
-		days = 500
-		modifier = {
-			factor = 0.5
-			has_country_flag = fascism_political_movement
-		}
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = political.8.a
@@ -316,22 +225,7 @@ country_event = {
 	desc = political.9.d
 	picture = GFX_report_event_fascist_gathering
 	
-	trigger = {
-		has_idea_with_trait = fascist_demagogue
-		NOT = { has_government = fascism }
-		has_country_flag = fascism_government_support
-		fascism > 0.3
-		is_major = no
-		is_puppet = no
-	}
-
-	mean_time_to_happen = {
-		days = 100
-		modifier = {
-			factor = 0.5
-			fascism > 0.4
-		}
-	}
+	is_triggered_only = yes
 
 	immediate = {
 		hidden_effect = { remove_ideas = fascist_revolutionaries }
@@ -354,19 +248,7 @@ country_event = {
 	desc = political.10.d
 	picture = GFX_report_event_fascist_gathering
 	
-	trigger = {
-		has_idea_with_trait = fascist_demagogue
-		NOT = { has_government = fascism }
-		fascism > 0.25
-	}
-
-	mean_time_to_happen = {
-		days = 365
-		modifier = {
-			factor = 0.75
-			has_country_flag = fascism_popular_movement
-		}
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = political.10.a
@@ -448,21 +330,8 @@ country_event = {
 	desc = political.11.d
 	picture = GFX_report_event_fascist_militia
 	
-	trigger = {
-		has_idea_with_trait = fascist_demagogue
-		NOT = { has_government = fascism }
-		fascism > 0.3
-		NOT = { has_idea = fascist_assault_divisions }
-	}
 
-	mean_time_to_happen = {
-		days = 365
-		modifier = {
-			factor = 0.5
-			has_country_flag = fascism_popular_movement
-		}
-	}
-	
+	is_triggered_only = yes
 	option = {
 		name = political.11.a
 		add_popularity = {
@@ -480,23 +349,7 @@ country_event = {
 	desc = political.12.d
 	picture = GFX_report_event_worker_protests
 	
-	trigger = {
-		has_idea_with_trait = fascist_demagogue
-		NOT = { has_government = fascism }
-		fascism > 0.25
-		any_neighbor_country = {
-			has_government = communism
-		}
-	}
-
-	mean_time_to_happen = {
-		days = 365
-		modifier = {
-			factor = 0.5
-			has_country_flag = fascism_popular_movement
-		}
-	}
-	
+	is_triggered_only = yes
 	option = {
 		name = political.12.a
 		add_popularity = {
@@ -545,23 +398,7 @@ country_event = {
 	desc = political.14.d
 	picture = GFX_report_event_journalists_speech
 	
-	trigger = {
-		has_idea_with_trait = democratic_reformer
-		NOT = { has_government = democratic }
-		NOT = { has_country_flag = democracy_government_support }
-	}
-	
-	mean_time_to_happen = {
-		days = 400
-		modifier = {
-			factor = 0.5
-			has_country_flag = democracy_political_movement
-		}
-		modifier = {
-			factor = 0.5
-			democratic > 0.5
-		}
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = political.14.a
@@ -578,19 +415,7 @@ country_event = {
 	desc = political.15.d
 	picture = GFX_report_event_journalists_speech
 	
-	trigger = {
-		has_idea_with_trait = democratic_reformer
-		NOT = { has_government = democratic }
-		NOT = { has_country_flag = democracy_opposition_formed }
-	}
-	
-	mean_time_to_happen = {
-		days = 300
-		modifier = {
-			factor = 0.5
-			has_country_flag = democracy_popular_movement
-		}
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = political.15.a
@@ -610,16 +435,7 @@ country_event = {
 	desc = political.16.d
 	picture = GFX_report_event_election_vote
 	
-	trigger = {
-		has_idea_with_trait = democratic_reformer
-		NOT = { has_government = democratic }
-		has_country_flag = democracy_opposition_formed
-		NOT = { has_idea = democratic_opposition_voicing_protests }
-	}
-	
-	mean_time_to_happen = {
-		days = 150
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = political.16.a
@@ -638,17 +454,7 @@ country_event = {
 	desc = political.17.d
 	picture = GFX_report_event_election_vote
 	
-	trigger = {
-		has_idea_with_trait = democratic_reformer
-		NOT = { has_government = democratic }
-		democratic > 0.5
-		has_country_flag = democracy_government_support
-		is_puppet = no
-	}
-	
-	mean_time_to_happen = {
-		days = 200
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = political.17.a
@@ -681,17 +487,7 @@ country_event = {
 	desc = political.18.d
 	picture = GFX_report_event_fascist_gathering
 
-	trigger = {
-		fascism > 0.5
-		NOT = { has_government = fascism }
-		NOT = { has_idea = fascist_revolutionaries }
-		NOT = { has_idea = reign_of_terror }
-		is_puppet = no
-	}
-
-	mean_time_to_happen = {
-		days = 30
-	}
+	is_triggered_only = yes
 
 	option = {
 		name = political.18.a
@@ -732,17 +528,7 @@ country_event = {
 	desc = political.19.d
 	picture = GFX_report_event_worker_protests
 
-	trigger = {
-		communism > 0.5
-		NOT = { has_government = communism }
-		NOT = { has_idea = communist_revolutionaries }
-		NOT = { has_idea = reign_of_terror }
-		is_puppet = no
-	}
-
-	mean_time_to_happen = {
-		days = 30
-	}
+	is_triggered_only = yes
 
 	option = {
 		name = political.19.a
@@ -793,17 +579,7 @@ country_event = {
 	desc = political.20.d
 	picture = GFX_report_event_journalists_speech
 
-	trigger = {
-		democratic > 0.5
-		NOT = { has_government = democratic }
-		NOT = { has_idea = democratic_revolutionaries }
-		NOT = { has_idea = reign_of_terror }
-		is_puppet = no
-	}
-
-	mean_time_to_happen = {
-		days = 30
-	}
+	is_triggered_only = yes
 
 	option = {
 		name = political.20.a
@@ -853,14 +629,7 @@ country_event = {
 	desc = political.21.d
 	picture = GFX_report_event_fascist_militia
 
-	trigger = {
-		fascism > 0.7
-		has_idea = fascist_revolutionaries
-	}
-
-	mean_time_to_happen = {
-		days = 2
-	}
+	is_triggered_only = yes
 
 	immediate = {
 		hidden_effect = { remove_ideas = fascist_revolutionaries }
@@ -915,22 +684,7 @@ country_event = {
 	desc = political.22.d
 	picture = GFX_report_event_worker_protests
 
-	trigger = {
-		communism > 0.7
-		has_idea = communist_revolutionaries
-		#Special case CHI PRC
-		OR = {
-			NOT = { tag = CHI }
-			AND = {
-				NOT = { country_exists = PRC }
-				tag = CHI
-			}			
-		}
-	}
-
-	mean_time_to_happen = {
-		days = 2
-	}
+	is_triggered_only = yes
 
 	immediate = {
 		hidden_effect = { remove_ideas = communist_revolutionaries }
@@ -985,22 +739,7 @@ country_event = {
 	desc = political.23.d
 	picture = GFX_report_event_gathering_protest
 
-	trigger = {
-		democratic > 0.7
-		has_idea = democratic_revolutionaries
-		#Special case CHI PRC
-		OR = {
-			NOT = { tag = CHI }
-			AND = {
-				NOT = { country_exists = PRC }
-				tag = CHI
-			}			
-		}
-	}
-
-	mean_time_to_happen = {
-		days = 2
-	}
+	is_triggered_only = yes
 
 	immediate = {
 		hidden_effect = { remove_ideas = democratic_revolutionaries }
@@ -1059,14 +798,7 @@ country_event = {
 	desc = political.24.d
 	picture = GFX_report_event_fascists_posing
 
-	trigger = {
-		fascism < 0.3
-		has_idea = fascist_revolutionaries
-	}
-
-	mean_time_to_happen = {
-		days = 2
-	}
+	is_triggered_only = yes
 
 	option = {
 		name = political.24.a
@@ -1080,14 +812,7 @@ country_event = {
 	desc = political.25.d
 	picture = GFX_report_event_stalin_propaganda
 
-	trigger = {
-		communism < 0.3
-		has_idea = communist_revolutionaries
-	}
-
-	mean_time_to_happen = {
-		days = 2
-	}
+	is_triggered_only = yes
 
 	option = {
 		name = political.25.a
@@ -1101,14 +826,7 @@ country_event = {
 	desc = political.26.d
 	picture = GFX_report_event_europe_funeral
 
-	trigger = {
-		democratic < 0.3
-		has_idea = democratic_revolutionaries
-	}
-
-	mean_time_to_happen = {
-		days = 2
-	}
+	is_triggered_only = yes
 
 	option = {
 		name = political.26.a
@@ -1116,69 +834,6 @@ country_event = {
 	}
 }
 
-# Remove neutral foreign policy if fascist or commie
-country_event = {
-	id = political.27
-	title = political.27.t
-	desc = { 
-		text = political.27.d_fascism
-	 	trigger = { has_government = fascism }
-	}
-	desc = { 
-		text = political.27.d_communism
-	 	trigger = { has_government = communism }
-	}
-	picture = GFX_report_event_journalists_speech
-
-	trigger = {
-		OR = {
-			has_government = fascism
-			has_government = communism
-		}
-		has_idea = neutrality_idea
-	}
-
-	mean_time_to_happen = {
-		days = 2
-	}
-
-	option = {
-		name = political.27.a
-		remove_ideas = neutrality_idea
-	}
-}
-
-# Country has same ideology as revolter
-country_event = {
-	id = political.28
-	title = political.28.t
-	desc = political.28.d
-
-	picture = GFX_report_event_journalists_speech
-
-	trigger = {
-		any_country = {
-			NOT = { tag = ROOT }
-			original_tag = ROOT
-			has_government = ROOT
-		}
-	}
-
-	mean_time_to_happen = {
-		days = 2
-	}
-
-	option = {
-		name = political.28.a
-		random_country = {
-			limit = {
-				original_tag = ROOT
-				NOT = { tag = ROOT }
-			}
-			ROOT = { annex_country = { target = PREV transfer_troops = yes } }
-		}
-	}
-}
 # Pan-Arab Execute Coup
 country_event = {
 	id = political.30
@@ -1186,20 +841,7 @@ country_event = {
 	desc = political.30.d
 	picture = GFX_report_event_gathering_protest
 	
-	trigger = {
-		NOT = { has_government = pan_arabism }
-		pan_arabism > 0.45
-		is_major = no
-		is_puppet = no
-	}
-
-	mean_time_to_happen = {
-		days = 100
-		modifier = {
-			factor = 0.5
-			pan_arabism > 0.5
-		}
-	}
+	is_triggered_only = yes
 
 	immediate = {
 		
@@ -1221,14 +863,7 @@ country_event = {
 	desc = political.31.d
 	picture = GFX_report_event_fascist_gathering
 	
-	trigger = {
-		NOT = { has_government = pan_arabism }
-		pan_arabism > 0.40
-	}
-
-	mean_time_to_happen = {
-		days = 365
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = political.31.a
