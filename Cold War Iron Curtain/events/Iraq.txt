@@ -173,3 +173,100 @@ country_event = {
 		}
 	}
 }	
+country_event = {
+	id = IRQ.1500
+	title = "Iraq Proposes Royal Marriage and Unification"
+	desc = "Iraq Proposes Royal Marriage and Unification"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to the Proposal"
+		FROM = {
+			set_cosmetic_tag = IMP_IRQ
+			annex_country = { target = PER transfer_troops = yes } 
+			create_country_leader = {
+				name = "Mohammad Reza Pahlavi"
+				desc = "POLITICS_REZA_SHAH_PAHLAVI_DESC"
+				picture = "Reza.dds"
+				expire = "1965.1.1"
+				ideology = royal_democrat
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 0
+		}
+		name = "Decline"
+
+	}
+}
+
+country_event = {
+	id = IRQ.1752
+	title = "Iraq Demands Turkish Kurdistan"
+	desc = "Iraq Demands Turkish Kurdistan"
+
+	is_triggered_only = yes
+
+	immediate = {
+		349 = { add_core_of = IRQ }
+		350 = { add_core_of = IRQ }
+		352 = { add_core_of = IRQ }
+		353 = { add_core_of = IRQ }
+	}
+	option = {
+		name = "Agree to the Demands"
+		IRQ = { transfer_state = 349 }
+		IRQ = { transfer_state = 350 }
+		IRQ = { transfer_state = 352 }	
+		IRQ = { transfer_state = 353 }	
+		ai_chance = {
+			factor = 80
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 20
+		}
+		name = "Decline"
+		IRQ = { create_wargoal = { type = annex_everything target = TUR }	}
+	}
+}
+country_event = {
+	id = IRQ.1751
+	title = "Iraq Demands Kurdistan and Khuzestan"
+	desc = "Iraq Demands Kurdistan and Khuzestan"
+
+	is_triggered_only = yes
+	immediate = {
+		778 = { add_core_of = IRQ }
+		421 = { add_core_of = IRQ }
+		413 = { add_core_of = IRQ }
+	}
+	option = {
+		name = "Agree to the Demands"
+		IRQ = { transfer_state = 778 }
+		IRQ = { transfer_state = 421 }
+		IRQ = { transfer_state = 413 }	
+		
+
+		ai_chance = {
+			factor = 80
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 20
+		}
+		name = "Decline"
+		IRQ = { create_wargoal = { type = annex_everything target = PER }	}
+	}
+}
