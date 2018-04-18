@@ -4,7 +4,7 @@
 news_event = {
 	id = eurovision.1
 	title = "Eurovision Song Contest 1956"
-	desc = "Today, the first edition of the Eurovision Song Contest took place in Switzerland. It was Switzerland themselves, with the song 'Refrain' from Lys Assia which won this first edition."
+	desc = "Today, the first edition of the Eurovision Song Contest took place in Lugano, Switzerland. It was Switzerland themselves, with the song 'Refrain' by Lys Assia which won this first edition."
 	picture = GFX_eurovision_song_contest_1956
 	
 	major = yes
@@ -16,14 +16,14 @@ news_event = {
 	option = {
 		name = "Oui!"
 		trigger = {
-			TAG = SWI
+			original_tag = SWI
 		}
 	}
 	
 	option = {
 		name = "Congratulations to Switzerland!"
 		trigger = {
-			NOT = { TAG = SWI }
+			NOT = { original_tag = SWI }
 		}
 	}
 }
@@ -31,7 +31,7 @@ news_event = {
 news_event = {
 	id = eurovision.2
 	title = "Eurovision Song Contest 1957"
-	desc = "The second edition of the Eurovision Song Contest just took place in Frankfurt-Am-Main in West Germany. This time, the Netherlands won with the song 'Net als toen' from Corry Brokken. The French singer Paule Desjardins placed second with his song 'La belle amour'."
+	desc = "The second edition of the Eurovision Song Contest just took place in Frankfurt-am-Main, West Germany. This time, the Netherlands won with the song 'Net als toen' by Corry Brokken. The French singer Paule Desjardins placed second with his song 'La belle amour'."
 	picture = GFX_eurovision_song_contest_1957
 	
 	major = yes
@@ -43,22 +43,92 @@ news_event = {
 	option = {
 		name = "Nederland!"
 		trigger = {
-			TAG = HOL
+			original_tag = HOL
 		}
 	}
 	
 	option = {
 		name = "Second place? Really?"
 		trigger = {
-			TAG = FRA
+			original_tag = FRA
 		}
 	}
 	
 	option = {
 		name = "Congratulations to the Netherlands!"
 		trigger = {
-			NOT = { TAG = HOL }
-			NOT = { TAG = FRA }
+			NOT = { original_tag = HOL }
+			NOT = { original_tag = FRA }
+		}
+	}
+}
+# 1958
+news_event = {
+	id = eurovision.3
+	title = "Eurovision Song Contest 1958"
+	desc = "The third edition of the Eurovision Song Contest just took place in Hilversum, The Netherlands. This time, France won with the song 'Dors, mon amour' by Andre Claveau. The Dutch singer and previous winner Corry Brokken placed second with his song 'Heel de wereld'."
+	picture = GFX_eurovision_song_contest_1958
+	
+	major = yes
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = "Finally we won!"
+		trigger = {
+			original_tag = FRA
+		}
+	}
+	
+	option = {
+		name = "It seems the French beat us. What a shame."
+		trigger = {
+			original_tag = HOL
+		}
+	}
+	
+	option = {
+		name = "Congratulations to France!"
+		trigger = {
+			NOT = { original_tag = FRA }
+			NOT = { original_tag = HOL }
+		}
+	}
+}
+# 1959
+news_event = {
+	id = eurovision.4
+	title = "Eurovision Song Contest 1959"
+	desc = "The fourth edition of the Eurovision Song Contest just took place in Cannes, France. The Netherlands achieved their second victory with the song 'Een beetje' by Teddy Scholten. The United Kingdom got the second place, with 'Sing, Little Birdie' by Pearl Carr & Teddy Johnson."
+	picture = GFX_eurovision_song_contest_1959
+	
+	major = yes
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = "Again? We are conquering this contest!"
+		trigger = {
+			original_tag = HOL
+		}
+	}
+	
+	option = {
+		name = "At least we tried."
+		trigger = {
+			original_tag = ENG
+		}
+	}
+	
+	option = {
+		name = "Congratulations to the Netherlands!"
+		trigger = {
+			NOT = { original_tag = HOL }
+			NOT = { original_tag = ENG }
 		}
 	}
 }
