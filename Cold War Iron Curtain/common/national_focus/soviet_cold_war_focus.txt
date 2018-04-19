@@ -408,22 +408,15 @@ focus_tree = {
 							name = bomber_bonus
 							bonus = 0.5
 							uses = 2
-							technology = strategic_bomber1
-							technology = strategic_bomber2
-							technology = strategic_bomber3
+							category = cat_strategic_bomber
 							category = tactical_bomber
 						}
 						add_tech_bonus = {
 							name = fighter_bonus
 							bonus = 0.5
 							uses = 2
-							technology = early_fighter
-							technology = fighter1
-							technology = fighter2
-							technology = fighter3
-							technology = heavy_fighter1
-							technology = heavy_fighter2
-							technology = heavy_fighter3
+							category = light_fighter
+							category = cat_heavy_fighter
 						}
 		}
 
@@ -3066,8 +3059,7 @@ completion_reward = {
 							name = special_forces_bonus
 							bonus = 0.5
 							uses = 1
-							technology = paratroopers
-							technology = paratroopers2
+							category = para_tech
 						}
 					}
 	}
@@ -3085,8 +3077,7 @@ completion_reward = {
 							name = special_forces_bonus
 							bonus = 0.5
 							uses = 1
-							technology = paratroopers
-							technology = paratroopers2
+							category = para_tech
 						}
 					}
 	}
@@ -3382,7 +3373,7 @@ completion_reward = {
 					add_tech_bonus = {
 							name = motorized_bonus
 							bonus = 0.75
-							technology = motorised_infantry
+							category = cat_mechanized_equipment
 						}
 				}
 	}
@@ -3413,7 +3404,7 @@ completion_reward = {
 		x = 52
 		y = 3
 		completion_reward = {
-			air_experience = 0.25
+			air_experience = 25
 		}
 	}
 	focus = {
@@ -3430,9 +3421,7 @@ completion_reward = {
 							name = bomber_bonus
 							bonus = 0.5
 							uses = 2
-							technology = strategic_bomber1
-							technology = strategic_bomber2
-							technology = strategic_bomber3
+							category = cat_strategic_bomber
 							category = tactical_bomber
 						}
 				}
@@ -4180,7 +4169,7 @@ completion_reward = {
 					state_population > 1000000
 				}
 				add_building_construction = {
-					type = anti_air_building
+					type = air_base
 					level = 3
 					instant_build = yes
 				}
@@ -4189,13 +4178,13 @@ completion_reward = {
 			random_owned_controlled_state = {
 				limit = { 
 					free_building_slots = {
-						building = anti_air_building
+						building = air_base
 						size > 2
 					}
 					state_population > 1000000
 				}
 				add_building_construction = {
-					type = anti_air_building
+					type = air_base
 					level = 3
 					instant_build = yes
 				}
@@ -4204,13 +4193,13 @@ completion_reward = {
 			random_owned_controlled_state = {
 				limit = { 
 					free_building_slots = {
-						building = anti_air_building
+						building = air_base
 						size > 2
 					}
 					state_population > 1000000
 				}
 				add_building_construction = {
-					type = anti_air_building
+					type = air_base
 					level = 3
 					instant_build = yes
 				}
@@ -4388,15 +4377,13 @@ completion_reward = {
 				name = bb_bonus
 				bonus = 0.5
 				uses = 2
+				category = bb_tech
 			}
 			add_tech_bonus = {
 				name = cr_bonus
 				bonus = 0.5
 				uses = 2
-				technology = improved_light_cruiser
-				
-				
-				
+				category = cl_tech
 			}
 		}
 	}
@@ -4511,10 +4498,7 @@ completion_reward = {
 				name = cv_bonus
 				bonus = 0.5
 				uses = 2
-				technology = early_carrier
-				technology = basic_carrier
-				technology = improved_carrier
-				technology = advanced_carrier
+				category = cv_tech
 			}
 		}
 	}
@@ -4532,13 +4516,8 @@ completion_reward = {
 			add_tech_bonus = {
 				name = capital_ships_bonus
 				bonus = 0.5
-				ahead_reduction = 1
 				uses = 1
-				technology = battle_cruiser_2
-				technology = early_carrier
-				technology = basic_carrier
-				technology = improved_carrier
-				technology = advanced_carrier
+				category = naval_equipment
 			}
 		}
 	}
@@ -4700,10 +4679,7 @@ completion_reward = {
 				ahead_reduction = 1
 				uses = 1
 				technology = battle_cruiser_2
-				technology = early_carrier
-				technology = basic_carrier
-				technology = improved_carrier
-				technology = advanced_carrier
+				category = cv_tech
 			}
 		}
 	}
@@ -7839,10 +7815,9 @@ completion_reward = {
 							name = bomber_bonus
 							bonus = 0.5
 							uses = 2
-							technology = strategic_bomber1
-							technology = strategic_bomber2
-							technology = strategic_bomber3
+							category = cat_strategic_bomber
 							category = tactical_bomber
+							category = transport_air
 						}
 				}
 	}
@@ -7915,10 +7890,7 @@ completion_reward = {
 							name = bomber_bonus
 							bonus = 0.5
 							uses = 2
-							technology = strategic_bomber1
-							technology = strategic_bomber2
-							technology = strategic_bomber3
-							category = tactical_bomber
+							category = light_air
 						}
 				}
 	}
@@ -7934,9 +7906,10 @@ completion_reward = {
 		completion_reward = {
 					add_tech_bonus = {
 							name = motorized_bonus
+							bonus = 0.5
 							ahead_reduction = 0.5
 							uses = 2
-							category = motorized_equipment
+							category = cat_mechanized_equipment
 						}
 				}
 	}
