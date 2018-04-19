@@ -672,3 +672,88 @@ country_event = {
 		}
 	}	
 }
+
+###############################################
+###############################################
+# COLD WAR GENERIC EVENTS AGAIN (generic.19 - generic.x)
+###############################################
+###############################################
+
+# RELATION: LICENCE ALIGNMENT: from X, 90/10 chance
+country_event = {
+  id = generic.19
+	title = generic.19.t
+	desc = generic.19.d
+
+	is_triggered_only = yes
+
+	# Okay
+	option = {
+		name = generic.19.a
+		FROM = {
+			add_relation_modifier = {
+				target = ROOT
+				modifier = alignment_licenses
+			}
+			hidden_effect = {
+				country_event = { id = generic.20 hours = 6 }
+			}
+		}
+		ROOT = {
+			add_relation_modifier = {
+				target = FROM
+				modifier = alignment_licenses
+			}
+		}
+	  	ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 1
+				has_idea = Member_of_European_Defense_Community
+			}
+		}
+	}
+
+	# No
+	option = {
+		name = generic.19.b
+		hidden_effect = {
+			country_event = { id = generic.21 hours = 6 }
+		}
+	  	ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_idea = Member_of_European_Defense_Community
+			}
+		}
+	}
+}
+
+# RELATION: LICENCE ALIGNTMENT: Country said yes
+country_event = {
+	id = generic.20
+	title = generic.20.t
+	desc = generic.20.d
+
+	is_triggered_only = yes
+
+	# Very good
+	option = {
+		name = generic.20.a
+	}	
+}
+
+# RELATION: LICENCE ALIGNTMENT: Country said no
+country_event = {
+	id = generic.21
+	title = generic.21.t
+	desc = generic.21.d
+
+	is_triggered_only = yes
+
+	# Aww
+	option = {
+		name = generic.21.a
+	}	
+}
