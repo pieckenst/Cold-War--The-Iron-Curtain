@@ -100,15 +100,85 @@ focus_tree = {
 		id = WGR_Formation_of_the_Luftwaffe
 		icon = GFX_goal_generic_air_production
 		cost = 10.00
+		available = {
+			has_completed_focus = WGR_Founding_the_Bundeswhr
+			USA = {
+				has_tech = jet_fighter2
+			}
+		}
 		x = 42
 		y = 0
 			completion_reward = {
 					air_experience = 25
-					add_ideas = Starfighter_Crisis
 					add_political_power = 150
+					add_equipment_to_stockpile = {
+						type = jet_fighter_equipment_2
+						amount = 300
+						producer = USA
+					}
 				}
 
 	}
+	focus = {
+		id = WGR_Buy_US_fighters
+		icon = GFX_goal_generic_air_fighter2
+		cost = 5.00
+		prerequisite = {
+			focus = WGR_Formation_of_the_Luftwaffe
+		}
+		available = {
+			has_completed_focus = WGR_Cooperate_with_NATO
+		}
+		mutually_exclusive = {
+			focus = WGR_Develop_domestic_fighters
+		}
+		x = 41
+		y = 1
+		available = {
+			USA = {
+				has_tech = jet_interceptor5
+			}
+		}
+			completion_reward = {
+					add_ideas = Starfighter_Crisis
+					add_equipment_to_stockpile = {
+							type = jet_interceptor_equipment_5
+							amount = 250        # https://en.wikipedia.org/wiki/List_of_Lockheed_F-104_Starfighter_operators#.C2.A0Germany
+							producer = USA
+						}
+				}
+
+	}
+	
+	focus = {
+		id = WGR_Develop_domestic_fighters
+		icon = GFX_goal_generic_air_fighter2
+		cost = 20.00
+		prerequisite = {
+			focus = WGR_Formation_of_the_Luftwaffe
+		}
+		mutually_exclusive = {
+			focus = WGR_Buy_US_fighters
+		}
+		x = 43
+		y = 1
+			completion_reward = {
+					add_tech_bonus = {
+							name = rocket_bonus
+							bonus = 0.75
+							uses = 4
+							category = light_fighter
+							category = cat_heavy_fighter
+						}
+					if = { limit = {
+						has_idea = Scientific_Collapse
+						}
+						swap_ideas = { remove_idea = Scientific_Collapse add_idea = Scientific_Collapse_lessened }
+					}
+				}
+
+	}
+	
 	focus = {
 		id = WGR_Disband_the_German_Mine_Sweeping_Administration
 		icon = GFX_goal_generic_dangerous_deal
@@ -2190,7 +2260,16 @@ focus_tree = {
 		x = 36
 		y = 6
 			completion_reward = {
-					remove_ideas = Scientific_Collapse
+					if = { limit = {
+						has_idea = Scientific_Collapse
+						}
+						remove_ideas = Scientific_Collapse
+					}
+					if = { limit = {
+						has_idea = Scientific_Collapse_lessened
+						}
+						remove_ideas = Scientific_Collapse_lessened
+					}
 					add_ideas = WGR_Research_Speed_3
 				}
 
@@ -2247,10 +2326,11 @@ focus_tree = {
 		icon = GFX_goal_generic_fortify_city
 		cost = 10.00
 		prerequisite = {
-			focus = WGR_Formation_of_the_Luftwaffe
+			focus = WGR_Buy_US_fighters
+			focus = WGR_Develop_domestic_fighters
 		}
-		x = 39
-		y = 1
+		x = 40
+		y = 2
 			completion_reward = {
 					53 = {
 							if = {
@@ -2325,11 +2405,13 @@ focus_tree = {
 		icon = GFX_goal_generic_air_doctrine
 		cost = 10.00
 		prerequisite = {
-			focus = WGR_Formation_of_the_Luftwaffe
+			focus = WGR_Buy_US_fighters
+			focus = WGR_Develop_domestic_fighters
 		}
-		x = 45
-		y = 1
+		x = 44
+		y = 2
 			completion_reward = {
+					air_experience = 25
 					add_ace = {
 							name = "Erich"
 							surname = "Hartmann"
@@ -2364,7 +2446,7 @@ focus_tree = {
 	focus = {
 		id = WGR_Reemergence_of_the_Luftwaffe
 		icon = GFX_goal_generic_air_fighter2
-		cost = 10.00
+		cost = 15.00
 		prerequisite = {
 			focus = WGR_Expansion_of_Air_Defense
 		}
@@ -2373,10 +2455,40 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = WGR_Ban_the_Witwenmacher
+			focus = WGR_Independent_Luftwaffe
 		}
 		x = 40
-		y = 2
+		y = 3
+		available = {
+			USA = {
+				has_tech = jet_interceptor5
+			}
+		}
 			completion_reward = {
+					if = { limit = {
+						USA = {
+							has_tech = jet_interceptor5
+						}}
+						USA = {
+							create_production_license = {
+								target = WGR 
+								equipment = {
+									type = jet_interceptor_equipment_5
+								}
+								cost_factor = 0
+							}
+						}
+					}
+					add_equipment_to_stockpile = {
+							type = jet_interceptor_equipment_5
+							amount = 666        # https://en.wikipedia.org/wiki/List_of_Lockheed_F-104_Starfighter_operators#.C2.A0Germany
+							producer = USA
+						}
+					if = { limit = {
+						has_completed_focus = WGR_Develop_domestic_fighters
+						}
+						add_ideas = Starfighter_Crisis
+					}
 					USA = {
 							add_opinion_modifier = {
 									target = ROOT
@@ -2398,52 +2510,61 @@ focus_tree = {
 					SOV = {
 							add_opinion_modifier = {
 									target = ROOT
-									modifier = WGR_Reemergence_of_the_Luftwaffe_opinion
+									modifier = WGR_Siding_with_NATO_opinion
 								}
 						}
 				}
 
 	}
 	focus = {
-		id = WGR_Enlist_Dornier
-		icon = GFX_goal_generic_air_naval_bomber
+		id = WGR_Request_NATO_CAS
+		icon = GFX_goal_generic_CAS
 		cost = 10.00
 		prerequisite = {
 			focus = WGR_Reemergence_of_the_Luftwaffe
 		}
 		x = 40
-		y = 3
+		y = 4
+		available = {
+			USA = {
+				has_tech = jet_CAS2
+			}
+		}
 			completion_reward = {
+					if = { limit = {
+						USA = {
+							has_tech = jet_CAS2
+						}}
+						USA = {
+							create_production_license = {
+								target = WGR 
+								equipment = {
+									type = jet_CAS_equipment_2
+								}
+								cost_factor = 0
+							}
+						}
+					}
+					add_equipment_to_stockpile = {
+							type = jet_CAS_equipment_2
+							amount = 450        # https://en.wikipedia.org/wiki/Republic_F-84F_Thunderstreak#Operators
+							producer = USA
+						}
+					
 					add_tech_bonus = {
-							name = Dornier
+							name = NATO_CAS
 							uses = 1
 							bonus = 0.5
-							category = naval_bomber
+							category = cas_bomber
 						}
-					add_ideas = WGR_Enlist_Dornier
 				}
-
-	}
-	focus = {
-		id = WGR_Merge_Dornier_and_Daimler-Benz
-		icon = GFX_goal_generic_intelligence_exchange
-		cost = 10.00
-		prerequisite = {
-			focus = WGR_Enlist_Dornier
-		}
-		x = 40
-		y = 4
-			completion_reward = {
-					add_political_power = 50
-				}
-
 	}
 	focus = {
 		id = WGR_Form_the_Aerial_Safety_Administration
 		icon = GFX_goal_generic_air_fighter2
-		cost = 10.00
+		cost = 15.00
 		prerequisite = {
-			focus = WGR_Merge_Dornier_and_Daimler-Benz
+			focus = WGR_Request_NATO_CAS
 		}
 		x = 40
 		y = 5
@@ -2456,52 +2577,86 @@ focus_tree = {
 	focus = {
 		id = WGR_Ban_the_Witwenmacher
 		icon = GFX_goal_generic_political_pressure
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = WGR_Refresh_the_Elites
 		}
 		prerequisite = {
 			focus = WGR_Expansion_of_Air_Defense
 		}
+		available = {
+			has_completed_focus = WGR_Buy_US_fighters
+		}
 		mutually_exclusive = {
 			focus = WGR_Reemergence_of_the_Luftwaffe
+			focus = WGR_Independent_Luftwaffe
 		}
-		x = 44
-		y = 2
+		x = 42
+		y = 3
 			completion_reward = {
 					remove_ideas = Starfighter_Crisis
 				}
 
 	}
-	focus = {
-		id = WGR_Request_NATO_CAS
-		icon = GFX_goal_generic_CAS
-		cost = 10.00
-		prerequisite = {
-			focus = WGR_Ban_the_Witwenmacher
-		}
-		x = 44
-		y = 3
-			completion_reward = {
-					add_tech_bonus = {
-							name = NATO_CAS
-							uses = 1
-							bonus = 0.5
-							category = cas_bomber
-						}
-				}
-
-	}
+	
 	focus = {
 		id = WGR_US_Production_Licenses
 		icon = GFX_goal_generic_air_production
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
-			focus = WGR_Request_NATO_CAS
+			focus = WGR_Ban_the_Witwenmacher
 		}
-		x = 44
+		x = 42
 		y = 4
+		available = {
+			USA = {
+				AND = {
+					has_tech = jet_fighter5
+					has_tech = jet_CAS3
+					has_tech = naval_bomber6
+					has_tech = jet_tactical_bomber3
+				}
+			}
+		}
 			completion_reward = {
+					if = { limit = {
+						USA = {
+							has_tech = jet_fighter5
+							has_tech = jet_CAS3
+							has_tech = naval_bomber6
+							has_tech = jet_tactical_bomber3
+						}}
+						USA = {
+							create_production_license = {
+								target = WGR 
+								equipment = {
+									type = jet_fighter_equipment_5
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = WGR 
+								equipment = {
+									type = jet_cas_equipment_3
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = WGR 
+								equipment = {
+									type = nav_bomber_equipment_6
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = WGR 
+								equipment = {
+									type = jet_tac_bomber_equipment_3
+								}
+								cost_factor = 0
+							}
+						}
+					}
 					add_ideas = US_Production_Licenses
 				}
 
@@ -2513,9 +2668,15 @@ focus_tree = {
 		prerequisite = {
 			focus = WGR_US_Production_Licenses
 		}
-		x = 44
+		x = 42
 		y = 5
 			completion_reward = {
+					add_tech_bonus = {
+							name = Missile_Defenses
+							bonus = 0.5
+							uses = 2
+							category = missle
+						}
 					53 = {
 							if = {
 									limit = {
@@ -2556,26 +2717,136 @@ focus_tree = {
 								}
 						}
 				}
-
 	}
 	focus = {
-		id = WGR_F-4_Phantom_Order
+		id = WGR_F-4_Phantom_Order   # historical Jan 1971
 		icon = GFX_goal_generic_air_fighter2
 		cost = 10.00
 		prerequisite = {
 			focus = WGR_Form_the_Aerial_Safety_Administration
 			focus = WGR_NATO_Air_Defense
 		}
-		x = 42
+		x = 41
 		y = 6
+		available = {
+			USA = {
+				has_tech = jet_fighter6
+			}
+		}
 			completion_reward = {
+					if = { limit = {
+						USA = {
+							has_tech = jet_fighter6
+						}}
+						USA = {
+							create_production_license = {
+								target = WGR 
+								equipment = {
+									type = jet_fighter_equipment_6
+								}
+								cost_factor = 0
+							}
+						}
+					}
+					add_equipment_to_stockpile = {
+							type = jet_fighter_equipment_6
+							amount = 88        # https://en.wikipedia.org/wiki/McDonnell_Douglas_F-4_Phantom_II#Germany
+							producer = USA
+						}
+					
 					add_tech_bonus = {
 							name = F-4_Phantom_Order
-							bonus = 1
+							bonus = 0.5
 							uses = 1
-							technology = jet_fighter1
+							category = cat_jet_fighter
 						}
 					add_ideas = WGR_F-4_Phantom
+				}
+
+	}
+	focus = {
+		id = WGR_Independent_Luftwaffe
+		icon = GFX_goal_generic_political_pressure
+		cost = 10.00
+		prerequisite = {
+			focus = WGR_Refresh_the_Elites
+		}
+		prerequisite = {
+			focus = WGR_Expansion_of_Air_Defense
+		}
+		available = {
+			has_completed_focus = WGR_Develop_domestic_fighters
+		}
+		mutually_exclusive = {
+			focus = WGR_Reemergence_of_the_Luftwaffe
+			focus = WGR_Ban_the_Witwenmacher
+		}
+		x = 44
+		y = 3
+		completion_reward = {
+			air_experience = 50
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+						type = arms_factory
+						level = 3
+						instant_build = yes
+					}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+			}
+			add_tech_bonus = {
+				name = CAS_research
+				uses = 2
+				bonus = 0.5
+				category = cas_bomber
+			}
+		}
+	}
+	focus = {
+		id = WGR_Enlist_Dornier
+		icon = GFX_goal_generic_air_naval_bomber
+		cost = 10.00
+		prerequisite = {
+			focus = WGR_Independent_Luftwaffe
+		}
+		x = 44
+		y = 4
+			completion_reward = {
+					add_tech_bonus = {
+							name = Dornier
+							uses = 1
+							bonus = 0.5
+							category = naval_bomber
+						}
+					add_ideas = WGR_Enlist_Dornier
+				}
+
+	}
+	focus = {
+		id = WGR_Merge_Dornier_and_Daimler-Benz
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 10.00
+		prerequisite = {
+			focus = WGR_Enlist_Dornier
+		}
+		x = 44
+		y = 5
+			completion_reward = {
+					add_political_power = 50
+					add_tech_bonus = {
+							name = DASA_bonus
+							uses = 3
+							bonus = 0.5
+							category = air_equipment
+						}
+					add_ideas = WGR_German_Air_Engineering
 				}
 
 	}
@@ -2606,7 +2877,7 @@ focus_tree = {
 		prerequisite = {
 			focus = WGR_Formation_of_the_Bundesmarine
 		}
-		x = 46
+		x = 48
 		y = 2
 			completion_reward = {
 					58 = {
@@ -2632,7 +2903,7 @@ focus_tree = {
 		prerequisite = {
 			focus = WGR_Formation_of_the_Bundesmarine
 		}
-		x = 51
+		x = 50
 		y = 2
 			completion_reward = {
 					add_manpower = -1000
@@ -2664,7 +2935,7 @@ focus_tree = {
 		prerequisite = {
 			focus = WGR_Reorganize_the_Navy
 		}
-		x = 47
+		x = 48
 		y = 4
 			completion_reward = {
 					add_tech_bonus = {
@@ -3297,7 +3568,7 @@ focus_tree = {
 		prerequisite = {
 			focus = WGR_Reorganize_the_Navy
 		}
-		x = 51
+		x = 50
 		y = 4
 			completion_reward = {
 					add_ideas = WGR_Leadership_Reforms
