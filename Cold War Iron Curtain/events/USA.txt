@@ -779,6 +779,16 @@ country_event = {
 	option = { 
 		name = "Barry Goldwater"
 	}
+	option = {
+		name = "Walt Disney"
+		set_global_flag = walt_disney_nominated
+		create_country_leader = {
+			name = "Walt Disney"
+			picture = "Portrait_WestGermany_Erich_Mende.dds"
+			expire = "1990.1.1"
+			ideology = democratic_socialist
+		}
+	}
 
 
 }
@@ -818,6 +828,19 @@ country_event = {
 			ideology = democratic_america
 		}
 		set_global_flag = humphrey_64
+	}
+	option = { 
+		name = "Walt Disney"
+		ai_chance = {
+			factor = 30
+		}
+		trigger = {
+			has_global_flag = walt_disney_nominated
+		}
+		set_politics = { ruling_party = democratic_socialist elections_allowed = yes }
+		set_party_name = { ideology = democratic_socialist long_name = "The Republican Party - Social Democrat Wing" name = "The SocDem GOP" }
+		retire_country_leader = yes
+		set_global_flag = walt_disney_64
 	}
 	
 	option = { 

@@ -176,6 +176,7 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = BRA_soviet_alignment
+			focus = BRA_american_alignment
 		}
 		x = 12
 		y = 0
@@ -208,6 +209,10 @@ focus_tree = {
 									modifier = large_increase
 								}
 						}
+					add_relation_modifier = {
+						target = SOV
+						modifier = alignment_licenses
+					}
 				}
 
 	}
@@ -217,6 +222,7 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = BRA_soviet_alignment
+			focus = BRA_non_aligned
 		}
 		x = 28
 		y = 0
@@ -233,6 +239,10 @@ focus_tree = {
 									modifier = large_increase
 								}
 						}
+					add_relation_modifier = {
+						target = USA
+						modifier = alignment_licenses
+					}
 				}
 
 	}
@@ -892,7 +902,7 @@ focus_tree = {
 			completion_reward = {
 					add_tech_bonus = {
 							name = nuclear_bonus
-							ahead_reduction = 0.5
+							bonus = 0.5
 							category = nuclear
 						}
 				}
@@ -1035,7 +1045,7 @@ focus_tree = {
 			completion_reward = {
 					add_tech_bonus = {
 							name = infantry_artillery_bonus
-							ahead_reduction = 1
+							bonus = 0.5
 							uses = 1
 							category = infantry_weapons
 							category = artillery
@@ -1115,15 +1125,13 @@ focus_tree = {
 		}
 		x = 11
 		y = 2
-			bypass = {
-					has_tech = motorised_infantry
-				}
+
 			available_if_capitulated = yes
 			completion_reward = {
 					add_tech_bonus = {
 							name = motorized_bonus
 							bonus = 0.75
-							technology = motorised_infantry
+							category = motorized_equipment
 						}
 				}
 
@@ -1140,10 +1148,10 @@ focus_tree = {
 			available_if_capitulated = yes
 			completion_reward = {
 					add_tech_bonus = {
-							name = motorized_bonus
-							ahead_reduction = 0.5
+							name = mechanized_bonus
+							bonus = 0.5
 							uses = 1
-							category = motorized_equipment
+							category = cat_mechanized_equipment
 						}
 				}
 
@@ -1189,12 +1197,9 @@ focus_tree = {
 							name = special_forces_bonus
 							bonus = 0.5
 							uses = 1
-							technology = paratroopers
-							technology = paratroopers2
-							technology = marines
-							technology = marines2
-							technology = tech_mountaineers
-							technology = tech_mountaineers2
+							category = para_tech
+							category = marine_tech
+							category = mountaineers_tech
 						}
 				}
 
@@ -1305,13 +1310,8 @@ focus_tree = {
 							name = fighter_bonus
 							bonus = 0.5
 							uses = 2
-							technology = early_fighter
-							technology = fighter1
-							technology = fighter2
-							technology = fighter3
-							technology = heavy_fighter1
-							technology = heavy_fighter2
-							technology = heavy_fighter3
+							category = light_fighter
+							category = cat_heavy_fighter
 						}
 				}
 
@@ -1334,9 +1334,7 @@ focus_tree = {
 							name = bomber_bonus
 							bonus = 0.5
 							uses = 2
-							technology = strategic_bomber1
-							technology = strategic_bomber2
-							technology = strategic_bomber3
+							category = cat_strategic_bomber
 							category = tactical_bomber
 						}
 				}
@@ -1451,7 +1449,6 @@ focus_tree = {
 					add_tech_bonus = {
 							name = CAS_bonus
 							bonus = 0.5
-							ahead_reduction = 1
 							uses = 1
 							category = cas_bomber
 						}
@@ -1472,7 +1469,6 @@ focus_tree = {
 					add_tech_bonus = {
 							name = nav_bomber_bonus
 							bonus = 0.5
-							ahead_reduction = 1
 							uses = 1
 							category = naval_bomber
 						}
@@ -1495,7 +1491,7 @@ focus_tree = {
 			completion_reward = {
 					add_tech_bonus = {
 							name = jet_rocket_bonus
-							ahead_reduction = 0.5
+							bonus = 0.5
 							uses = 2
 							category = rocketry
 							category = jet_technology
@@ -1536,22 +1532,22 @@ focus_tree = {
 			completion_reward = {
 					add_equipment_to_stockpile = {
 							type = infantry_equipment_1
-							amount = 2000
+							amount = 3000
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
-							type = main_battle_tanks_2
-							amount = 150
+							type = mbt_equipment_2
+							amount = 50
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
 							type = lt_equipment_1
-							amount = 300
+							amount = 100
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
-							type = ht_equipment_2
-							amount = 100
+							type = artillery_equipment_1
+							amount = 150
 							producer = SOV
 						}
 				}
@@ -1641,21 +1637,26 @@ focus_tree = {
 			completion_reward = {
 					add_equipment_to_stockpile = {
 							type = infantry_equipment_1
-							amount = 2000
+							amount = 5000
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
-							type = main_battle_tanks_2
-							amount = 150
+							type = mbt_equipment_2
+							amount = 50
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
 							type = lt_equipment_1
-							amount = 300
+							amount = 100
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
-							type = ht_equipment_2
+							type = artillery_equipment_1
+							amount = 100
+							producer = SOV
+						}
+					add_equipment_to_stockpile = {
+							type = anti_tank_equipment_1
 							amount = 100
 							producer = SOV
 						}
@@ -1671,15 +1672,61 @@ focus_tree = {
 		}
 		x = 23
 		y = 2
+		available = {
+			SOV = {
+				AND = {
+					has_tech = jet_interceptor2
+					has_tech = jet_fighter2
+					has_tech = jet_CAS1
+				}
+			}
+		}
 			completion_reward = {
+					if = { limit = {
+						SOV = {
+							AND = {
+								has_tech = jet_interceptor2
+								has_tech = jet_fighter2
+								has_tech = jet_CAS1
+							}
+						}}
+						SOV = {
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = jet_CAS_equipment_1
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = jet_fighter_equipment_2
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = jet_interceptor_equipment_2
+								}
+								cost_factor = 0
+							}
+						}
+					}
 					add_equipment_to_stockpile = {
-							type = CAS_equipment_4
-							amount = 200
+							type = jet_CAS_equipment_1
+							amount = 50
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
 							type = jet_fighter_equipment_2
-							amount = 800
+							amount = 80
+							producer = SOV
+						}
+					add_equipment_to_stockpile = {
+							type = jet_interceptor_equipment_2
+							amount = 40
 							producer = SOV
 						}
 				}
@@ -1697,15 +1744,47 @@ focus_tree = {
 		}
 		x = 21
 		y = 3
+		available = {
+			SOV = {
+				AND = {
+					has_tech = jet_tactical_bomber2
+					has_tech = jet_strategic_bomber2
+				}
+			}
+		}
 			completion_reward = {
+					if = { limit = {
+						SOV = {
+							AND = {
+								has_tech = jet_tactical_bomber2
+								has_tech = jet_strategic_bomber2
+							}
+						}}
+						SOV = {
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = jet_strat_bomber_equipment_2
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = jet_tac_bomber_equipment_2
+								}
+								cost_factor = 0
+							}
+						}
+					}
 					add_equipment_to_stockpile = {
 							type = jet_strat_bomber_equipment_2
-							amount = 200
+							amount = 20
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
 							type = jet_tac_bomber_equipment_2
-							amount = 800
+							amount = 40
 							producer = SOV
 						}
 				}
@@ -1866,7 +1945,7 @@ focus_tree = {
 		y = 5
 			completion_reward = {
 					add_tech_bonus = {
-							name = TUR_fighter_modernisation
+							name = BRA_fighter_modernisation
 							bonus = 0.5
 							uses = 2
 							category = light_fighter
@@ -1883,11 +1962,33 @@ focus_tree = {
 		}
 		x = 22
 		y = 6
+		available = {
+			SOV = {
+				has_tech = cruisemissile_1
+			}
+		}
 			completion_reward = {
+					if = { limit = { SOV = { has_tech = cruisemissile_1 } }
+						SOV = {
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = cruisemissile_equipment_1
+								}
+								cost_factor = 0
+							}
+						}
+					}
 					add_equipment_to_stockpile = {
-							type = cruisemissile_1
-							amount = 400
+							type = cruisemissile_equipment_1
+							amount = 100
 							producer = SOV
+						}
+					add_tech_bonus = {
+							name = rocket_bonus
+							bonus = 0.5
+							uses = 2
+							category = rocketry
 						}
 				}
 
@@ -1922,17 +2023,17 @@ focus_tree = {
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
-							type = main_battle_tanks_2
-							amount = 150
+							type = mbt_equipment_2
+							amount = 50
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
 							type = lt_equipment_1
-							amount = 300
+							amount = 100
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
-							type = ht_equipment_2
+							type = artillery_equipment_1
 							amount = 100
 							producer = USA
 						}
@@ -1986,17 +2087,17 @@ focus_tree = {
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
-							type = main_battle_tanks_2
-							amount = 150
+							type = mbt_equipment_2
+							amount = 50
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
 							type = lt_equipment_1
-							amount = 300
+							amount = 100
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
-							type = ht_equipment_2
+							type = artillery_equipment_1
 							amount = 100
 							producer = USA
 						}
@@ -2052,20 +2153,61 @@ focus_tree = {
 		}
 		x = 25
 		y = 5
+		available = {
+			USA = {
+				AND = {
+					has_tech = main_battle_tanks_3
+					has_tech = light_tanks_1
+					has_tech = heavy_tanks_2
+				}
+			}
+		}
 			completion_reward = {
+					if = { limit = {
+						USA = {
+							AND = {
+								has_tech = main_battle_tanks_3
+								has_tech = light_tanks_1
+								has_tech = heavy_tanks_2
+							}
+						}}
+						USA = {
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = mbt_equipment_3
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = lt_equipment_1
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = ht_equipment_2
+								}
+								cost_factor = 0
+							}
+						}
+					}
 					add_equipment_to_stockpile = {
-							type = main_battle_tanks_2
-							amount = 150
+							type = mbt_equipment_3
+							amount = 50
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
 							type = lt_equipment_1
-							amount = 300
+							amount = 100
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
 							type = ht_equipment_2
-							amount = 100
+							amount = 30
 							producer = USA
 						}
 				}
@@ -2087,17 +2229,17 @@ focus_tree = {
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
-							type = main_battle_tanks_2
-							amount = 150
+							type = anti_air_equipment_1
+							amount = 100
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
-							type = lt_equipment_1
-							amount = 300
+							type = anti_tank_equipment_1
+							amount = 100
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
-							type = ht_equipment_2
+							type = artillery_equipment_1
 							amount = 100
 							producer = USA
 						}
@@ -2120,17 +2262,17 @@ focus_tree = {
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
-							type = main_battle_tanks_2
-							amount = 150
+							type = anti_air_equipment_1
+							amount = 100
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
-							type = lt_equipment_1
-							amount = 300
+							type = anti_tank_equipment_1
+							amount = 100
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
-							type = ht_equipment_2
+							type = artillery_equipment_1
 							amount = 100
 							producer = USA
 						}
@@ -2146,15 +2288,61 @@ focus_tree = {
 		}
 		x = 31
 		y = 2
+		available = {
+			USA = {
+				AND = {
+					has_tech = jet_CAS1
+					has_tech = jet_fighter2
+					has_tech = jet_interceptor2
+				}
+			}
+		}
 			completion_reward = {
+					if = { limit = {
+						USA = {
+							AND = {
+								has_tech = jet_CAS1
+								has_tech = jet_fighter2
+								has_tech = jet_interceptor2
+							}
+						}}
+						USA = {
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = jet_CAS_equipment_1
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = jet_fighter_equipment_2
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = jet_interceptor_equipment_2
+								}
+								cost_factor = 0
+							}
+						}
+					}
 					add_equipment_to_stockpile = {
-							type = CAS_equipment_4
-							amount = 200
+							type = jet_CAS_equipment_1
+							amount = 50
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
 							type = jet_fighter_equipment_2
-							amount = 800
+							amount = 80
+							producer = USA
+						}
+					add_equipment_to_stockpile = {
+							type = jet_interceptor_equipment_2
+							amount = 40
 							producer = USA
 						}
 				}
@@ -2172,15 +2360,47 @@ focus_tree = {
 		}
 		x = 29
 		y = 3
+		available = {
+			USA = {
+				AND = {
+					has_tech = jet_tactical_bomber2
+					has_tech = jet_strategic_bomber2
+				}
+			}
+		}
 			completion_reward = {
+					if = { limit = {
+						USA = {
+							AND = {
+								has_tech = jet_tactical_bomber2
+								has_tech = jet_strategic_bomber2
+							}
+						}}
+						USA = {
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = jet_strat_bomber_equipment_2
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = jet_strat_bomber_equipment_2
+								}
+								cost_factor = 0
+							}
+						}
+					}
 					add_equipment_to_stockpile = {
 							type = jet_strat_bomber_equipment_2
-							amount = 200
+							amount = 20
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
 							type = jet_tac_bomber_equipment_2
-							amount = 800
+							amount = 40
 							producer = USA
 						}
 				}
@@ -2262,11 +2482,36 @@ focus_tree = {
 		}
 		x = 29
 		y = 5
+		available = {
+			USA = {
+				has_tech = cruisemissile_1
+			}
+		}
 			completion_reward = {
+					if = { limit = {
+						USA = {
+							has_tech = cruisemissile_1
+						}}
+						USA = {
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = cruisemissile_equipment_1
+								}
+								cost_factor = 0
+							}
+						}
+					}
 					add_equipment_to_stockpile = {
 							type = cruisemissile_1
-							amount = 400
+							amount = 100
 							producer = USA
+						}
+					add_tech_bonus = {
+							name = rocket_bonus
+							bonus = 0.5
+							uses = 2
+							category = rocketry
 						}
 				}
 
@@ -2400,11 +2645,7 @@ focus_tree = {
 							name = sub_op_bonus
 							bonus = 0.5
 							uses = 2
-							technology = convoy_interdiction_ti
-							technology = unrestricted_submarine_warfare
-							technology = wolfpacks
-							technology = advanced_submarine_warfare
-							technology = combined_operations_raiding
+							category = trade_interdiction_tree
 						}
 				}
 
@@ -2471,12 +2712,8 @@ focus_tree = {
 					add_tech_bonus = {
 							name = ss_bonus
 							bonus = 0.5
-							ahead_reduction = 1
 							uses = 1
-							technology = early_submarine
-							technology = basic_submarine
-							technology = improved_submarine
-							technology = advanced_submarine
+							category = ss_tech
 						}
 				}
 
@@ -2507,12 +2744,8 @@ focus_tree = {
 					add_tech_bonus = {
 							name = dd_bonus
 							bonus = 0.5
-							ahead_reduction = 1
 							uses = 1
-							technology = early_destroyer
-							technology = basic_destroyer
-							technology = improved_destroyer
-							technology = advanced_destroyer
+							category = dd_tech
 						}
 				}
 
@@ -2579,10 +2812,8 @@ focus_tree = {
 					add_tech_bonus = {
 							name = cr_bonus
 							bonus = 0.5
-							ahead_reduction = 1
 							uses = 1
-							technology = improved_light_cruiser
-							technology = advanced_light_cruiser
+							category = cl_tech
 						}
 				}
 
@@ -2614,16 +2845,10 @@ focus_tree = {
 					add_tech_bonus = {
 							name = capital_ships_bonus
 							bonus = 0.5
-							ahead_reduction = 1
 							uses = 1
-							technology = battle_cruiser_1
-							technology = early_battleship
-							technology = battleship_2
-							technology = battleship_3
-							technology = early_carrier
-							technology = basic_carrier
-							technology = improved_carrier
-							technology = advanced_carrier
+							category = bc_tech
+							category = bb_tech
+							category = cv_tech
 						}
 				}
 
@@ -2666,7 +2891,26 @@ focus_tree = {
 		}
 		x = 19
 		y = 4
+		available = {
+			SOV = {
+				has_tech = motorised_infantry_2 
+			}
+		}
 			completion_reward = {
+					if = { limit = {
+						SOV = {
+							has_tech = motorised_infantry_2
+						}}
+						SOV = {
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = motorized_equipment_2
+								}
+								cost_factor = 0
+							}
+						}
+					}
 					add_equipment_to_stockpile = {
 							type = motorized_equipment_2
 							amount = 500
@@ -2687,20 +2931,61 @@ focus_tree = {
 		}
 		x = 17
 		y = 5
+		available = {
+			SOV = {
+				AND = {
+					has_tech = main_battle_tanks_3
+					has_tech = light_tanks_1
+					has_tech = heavy_tanks_2
+				}
+			}
+		}
 			completion_reward = {
+					if = { limit = {
+						SOV = {
+							AND = {
+								has_tech = main_battle_tanks_3
+								has_tech = light_tanks_1
+								has_tech = heavy_tanks_2
+							}
+						}}
+						SOV = {
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = mbt_equipment_3
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = lt_equipment_1
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = ht_equipment_2
+								}
+								cost_factor = 0
+							}
+						}
+					}
 					add_equipment_to_stockpile = {
-							type = main_battle_tanks_2
-							amount = 150
+							type = mbt_equipment_3
+							amount = 50
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
 							type = lt_equipment_1
-							amount = 300
+							amount = 100
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
 							type = ht_equipment_2
-							amount = 100
+							amount = 30
 							producer = SOV
 						}
 				}
@@ -2718,10 +3003,29 @@ focus_tree = {
 		}
 		x = 19
 		y = 5
+		available = {
+			SOV = {
+				has_tech = mechanized_infantry2
+			}
+		}
 			completion_reward = {
+					if = { limit = {
+						SOV = {
+							has_tech = motorised_infantry_2
+						}}
+						SOV = {
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = mechanized_equipment_2
+								}
+								cost_factor = 0
+							}
+						}
+					}
 					add_equipment_to_stockpile = {
-							type = mechanized_equipment_3
-							amount = 500
+							type = mechanized_equipment_2
+							amount = 300
 							producer = SOV
 						}
 				}
@@ -2770,16 +3074,48 @@ focus_tree = {
 		}
 		x = 27
 		y = 5
+		available = {
+			USA = {
+				AND = {
+					has_tech = mechanized_infantry2
+					has_tech = motorised_infantry_2
+				}
+			}
+		}
 			completion_reward = {
+					if = { limit = {
+						USA = {
+							AND = {
+								has_tech = mechanized_infantry2
+								has_tech = motorised_infantry_2
+							}
+						}}
+						USA = {
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = mechanized_equipment_2
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = BRA 
+								equipment = {
+									type = motorized_equipment_2
+								}
+								cost_factor = 0
+							}
+						}
+					}
 					add_equipment_to_stockpile = {
-							type = mechanized_equipment_3
+							type = mechanized_equipment_2
 							amount = 500
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
 							type = motorized_equipment_2
-							amount = 500
-							producer = SOV
+							amount = 300
+							producer = USA
 						}
 				}
 
@@ -2796,88 +3132,42 @@ focus_tree = {
 		}
 		x = 26
 		y = 6
-			completion_reward = {
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = motorized_equipment_2
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = mechanized_equipment_3
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = main_battle_tanks_2
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = lt_equipment_1
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = ht_equipment_2
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = infantry_equipment_1
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = CAS_equipment_4
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = jet_fighter_equipment_2
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = jet_tac_bomber_equipment_2
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = jet_strat_bomber_equipment_2
-									version = 0
-								}
-						}
+		available = {
+			USA = {
+				AND = {
+					has_tech = infantry_equip_3
+					has_tech = mechanized_infantry3
 				}
+			}
+		}	
+			completion_reward = {
+				if = { limit = {
+						USA = {
+							AND = {
+								has_tech = infantry_equip_3
+								has_tech = mechanized_infantry3
+							}
+						}}
+					USA = {
+						create_production_license = {
+								target = BRA
+								cost_factor = 1.0
+								equipment = {
+										type = mechanized_equipment_3
+										version = 0
+									}
+							}
+						create_production_license = {
+								target = BRA
+								cost_factor = 1.0
+								equipment = {
+										type = infantry_equipment_3
+										version = 0
+									}
+							}
+					}
+				}
+			}
 
 	}
 	
