@@ -3,6 +3,10 @@
 ###########################
 
 add_namespace = itacw
+add_namespace = Piano_Solo
+add_namespace = Golpe_Borghese
+add_namespace = MSI
+add_namespace = ITA_COM
 
 # Worker's Strike
 country_event = {
@@ -147,5 +151,167 @@ country_event = {
 	
 	option = {
 		name = itacw.6.b
+	}
+}
+
+country_event = {
+	id = MSI.100
+	title = "Demand Istria"
+	desc = "Demand Istria"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to the Demands"
+		ITA = { 
+			transfer_state = 911
+			transfer_state = 736
+		}
+		ai_chance = {
+			factor = 80
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 20
+		}
+		name = "Decline"
+		ITA = { create_wargoal = { type = annex_everything target = YUG }	}
+	}
+}
+country_event = {
+	id = MSI.101
+	title = "Demand Corsica"
+	desc = "Demand Corsica"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to the Demands"
+		ITA = { 
+			transfer_state = 1
+		}
+		ai_chance = {
+			factor = 80
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 20
+		}
+		name = "Decline"
+		ITA = { create_wargoal = { type = annex_everything target = FRA }	}
+	}
+}
+country_event = {
+	id = MSI.102
+	title = "Demand Ticino"
+	desc = "Demand Ticino"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to the Demands"
+		ITA = { 
+			transfer_state = 1074
+		}
+		ai_chance = {
+			factor = 80
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 20
+		}
+		name = "Decline"
+		ITA = { create_wargoal = { type = annex_everything target = SWI }	}
+	}
+}
+country_event = {
+	id = Golpe_Borghese.1
+	title = "The Golpe Borghese Coup"
+	desc = "The Golpe Borghese Coup"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Execute the Coup"
+		set_country_flag = Golpe_Borghese
+		set_politics = {
+			ruling_party = fascism
+			elections_allowed = no
+		}
+		ai_chance = {
+			factor = 30
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 70
+		}
+		name = "Abort the Coup"
+		set_country_flag = Golpe_Borghese
+	}
+}
+country_event = {
+	id = Piano_Solo.1
+	title = "Piano Solo Coup"
+	desc = "The Piano Solo Coup"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Execute the Coup"
+		set_politics = {
+			ruling_party = fascism
+			elections_allowed = no
+		}
+		set_country_flag = piano_solo
+	}
+
+}
+country_event = {
+	id = ITA_COM.2
+	title = "Civil War with Mafia"
+	desc = "The Civil War with Mafia"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Damn Mafia Scum"
+			start_civil_war = {
+				ideology = centrist
+				size = 0.5
+				states = { 117 115 156 }
+			}
+	}
+}
+country_event = {
+	id = ITA_COM.3
+	title = "Fate of the Papacy"
+	desc = "What should the fate of the Vatican be?"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Let it be"
+		add_political_power = 300
+		add_stability = 0.15
+		ai_chance = {
+			factor = 80
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 20
+		}
+		name = "Plan to Invade the Vatican"
+		add_stability = -0.35
+		create_wargoal = { type = annex_everything target = VTC }	
 	}
 }
