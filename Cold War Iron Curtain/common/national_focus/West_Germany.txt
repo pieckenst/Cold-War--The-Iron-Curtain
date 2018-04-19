@@ -22,7 +22,9 @@ focus_tree = {
 							days = 350
 						}
 				}
-
+		ai_will_do = {
+			factor = 100
+		}
 	}
 	focus = {
 		id = WGR_Founding_the_Bundeswhr
@@ -30,20 +32,20 @@ focus_tree = {
 		cost = 20.00
 		x = 28
 		y = 0
-			available = {
-					date > 1950.06.01
+		available = {
+			date > 1950.06.01
+			has_completed_focus = WGR_Political_Sovereignty
+		}
+		completion_reward = {
+			remove_ideas = NATO_Military_Restrictions
+			add_timed_idea = {
+					idea = Founding_the_Bundeswehr
+					days = 728
 				}
-			completion_reward = {
-					remove_ideas = NATO_Military_Restrictions
-					add_timed_idea = {
-							idea = Founding_the_Bundeswehr
-							days = 728
-						}
-				}
-			ai_will_do = {
-					factor = 5
-				}
-
+		}
+		ai_will_do = {
+			factor = 50
+		}
 	}
 	focus = {
 		id = WGR_Accept_the_Marshall_Plan
@@ -92,8 +94,8 @@ focus_tree = {
 						}
 				}
 			ai_will_do = {
-					factor = 2
-				}
+				factor = 80
+			}
 
 	}
 	focus = {
@@ -117,7 +119,9 @@ focus_tree = {
 						producer = USA
 					}
 				}
-
+		ai_will_do = {
+			factor = 50
+		}
 	}
 	focus = {
 		id = WGR_Buy_US_fighters
@@ -147,7 +151,13 @@ focus_tree = {
 							producer = USA
 						}
 				}
-
+		ai_will_do = {
+			factor = 85
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 100
+			}
+		}
 	}
 	
 	focus = {
@@ -176,20 +186,15 @@ focus_tree = {
 						swap_ideas = { remove_idea = Scientific_Collapse add_idea = Scientific_Collapse_lessened }
 					}
 				}
-
+		ai_will_do = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	
-	focus = {
-		id = WGR_Disband_the_German_Mine_Sweeping_Administration
-		icon = GFX_goal_generic_dangerous_deal
-		cost = 10.00
-		x = 49
-		y = 0
-			completion_reward = {
-					add_ideas = Disorganized_Navy
-				}
-
-	}
 	focus = {
 		id = WGR_True_Democracy
 		icon = GFX_goal_support_democracy
@@ -422,29 +427,33 @@ focus_tree = {
 		}
 		x = 4
 		y = 4
-			completion_reward = {
-					every_other_country = {
-							limit = {
-									is_in_faction_with = ENG
-								}
-							add_opinion_modifier = {
-									target = WGR
-									modifier = WGR_Cooperate_with_Warsaw_opinion
-								}
-						}
-					FRA = {
-							add_ideas = communist_pressure
-						}
-					add_ideas = communist_pressure
+		completion_reward = {
+			FRA = {
+				add_ideas = communist_pressure
+			}
+			every_other_country = {
+				limit = {
+					has_idea = nato_member
+					NOT = { tag = WGR }
 				}
-			ai_will_do = {
-					factor = 0
-					modifier = {
-							is_historical_focus_on = no
-							factor = 1
-						}
+				add_opinion_modifier = {
+					target = WGR
+					modifier = WGR_Cooperate_with_Warsaw_opinion
 				}
-
+			}
+			add_relation_modifier = {
+				target = SOV
+				modifier = alignment_licenses
+			}
+			add_ideas = communist_pressure
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = WGR_Stay_Neutral
@@ -459,25 +468,32 @@ focus_tree = {
 		}
 		x = 6
 		y = 4
-			completion_reward = {
-					every_other_country = {
-							limit = {
-									is_in_faction_with = ENG
-								}
-							add_opinion_modifier = {
-									target = WGR
-									modifier = WGR_Staying_Neutral_opinion
-								}
-						}
-					every_other_country = {
-							limit = {
-									has_idea = Member_of_European_Defense_Community
-								}
-							add_ideas = Unity_in_the_EDC
-						}
-					add_political_power = 120
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					has_idea = nato_member
+					NOT = { tag = WGR }
 				}
-
+				add_opinion_modifier = {
+					target = WGR
+					modifier = WGR_Staying_Neutral_opinion
+				}
+			}
+			every_other_country = {
+				limit = {
+					has_idea = Member_of_European_Defense_Community
+				}
+				add_ideas = Unity_in_the_EDC
+			}
+			add_political_power = 120
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = WGR_Cooperate_with_NATO
@@ -492,33 +508,69 @@ focus_tree = {
 		}
 		x = 8
 		y = 4
-			completion_reward = {
-					every_other_country = {
-							limit = {
-									has_idea = Member_of_European_Defense_Community
-								}
-							add_ideas = democracy_idea
-						}
-					every_other_country = {
-							limit = {
-									is_in_faction_with = ENG
-								}
-							add_opinion_modifier = {
-									target = WGR
-									modifier = WGR_Cooperate_with_NATO_opinion
-								}
-						}
-					every_other_country = {
-							limit = {
-									is_in_faction_with = SOV
-								}
-							add_opinion_modifier = {
-									target = WGR
-									modifier = WGR_Siding_with_NATO_opinion
-								}
-						}
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					is_in_faction_with = SOV
 				}
-
+				add_opinion_modifier = {
+					target = WGR
+					modifier = WGR_Siding_with_NATO_opinion
+				}
+			}
+			every_other_country = {
+				limit = {
+					has_idea = nato_member
+					NOT = { tag = WGR }
+				}
+				add_opinion_modifier = {
+					target = WGR
+					modifier = WGR_Cooperate_with_NATO_opinion
+				}
+			}
+			every_other_country = {
+				limit = {
+					has_idea = Member_of_European_Defense_Community
+				}
+				add_ideas = democracy_idea
+				hidden_effect = {
+					add_relation_modifier = {
+						target = WGR
+						modifier = alignment_licenses
+					}
+				}
+				country_event = { id = generic.19 hours = 6 } # Ask to share licenses
+			}
+			add_relation_modifier = {
+				target = USA
+				modifier = alignment_licenses
+			}
+			add_relation_modifier = {
+				target = ENG
+				modifier = alignment_licenses
+			}
+			hidden_effect = {
+				ENG = {
+					add_relation_modifier = {
+						target = WGR
+						modifier = alignment_licenses
+					}
+				}
+				USA = {
+					add_relation_modifier = {
+						target = WGR
+						modifier = alignment_licenses
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 85
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 100
+			}
+		}
 	}
 	focus = {
 		id = WGR_West_German_Army_controll
@@ -530,7 +582,7 @@ focus_tree = {
 			focus = WGR_Cooparate_with_Warsaw_pact
 		}
 		x = 8
-		y = 6
+		y = 5
 			completion_reward = {
 					army_experience = 25
 				}
@@ -629,19 +681,31 @@ focus_tree = {
 		x = 14
 		y = 2
 			completion_reward = {
-					ENG = {
-							add_opinion_modifier = {
-									target = WGR
-									modifier = WGR_War_Reparations_Opinion
-								}
-						}
-					FRA = {
-							add_opinion_modifier = {
-									target = WGR
-									modifier = WGR_War_Reparations_Opinion
-								}
-						}
+				add_timed_idea = {
+					idea = WGR_WW2_Reparations
+					days = 365
 				}
+				ENG = {
+					add_opinion_modifier = {
+						target = WGR
+						modifier = WGR_War_Reparations_Opinion
+					}
+					add_timed_idea = {
+						idea = WW2_Reparations_Recipient
+						days = 365
+					}
+				}
+				FRA = {
+					add_opinion_modifier = {
+						target = WGR
+						modifier = WGR_War_Reparations_Opinion
+					}
+					add_timed_idea = {
+						idea = WW2_Reparations_Recipient
+						days = 365
+					}
+				}
+			}
 
 	}
 	focus = {
@@ -1014,9 +1078,11 @@ focus_tree = {
 		id = WGR_Bonn_Paris_Conventions
 		icon = GFX_goal_generic_major_alliance
 		cost = 10.00
-		prerequisite = {
-			focus = WGR_Reinforcing_Democracy
-			focus = WGR_stay_with_NATO
+		available = {
+			OR = {
+				has_completed_focus = WGR_Reinforcing_Democracy
+				has_completed_focus = WGR_stay_with_NATO
+			}
 		}
 		x = 14
 		y = 4
@@ -1040,9 +1106,6 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = WGR_Reform_the_Central_Powers
-		}
-		mutually_exclusive = {
-			focus = WGR_stay_with_NATO
 		}
 		x = 18
 		y = 7
@@ -1167,40 +1230,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = WGR_Foreign_Tank_Requests
-		icon = GFX_goal_generic_army_tanks
-		cost = 10.00
-		prerequisite = {
-			focus = WGR_Founding_the_Bundeswhr
-		}
-		x = 22
-		y = 1
-			completion_reward = {
-					USA = {
-							send_equipment = {
-									target = WGR
-									type = heavy_tanks_1
-									amount = 150
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = WGR_Armoured_Use
-		icon = GFX_goal_generic_build_tank
-		cost = 10.00
-		prerequisite = {
-			focus = WGR_Foreign_Tank_Requests
-		}
-		x = 22
-		y = 2
-			completion_reward = {
-					add_ideas = Armoured_Use
-				}
-
-	}
-	focus = {
 		id = WGR_Return_of_Colonies
 		icon = GFX_focus_RAJ_lions_of_the_great_war
 		cost = 10.00
@@ -1242,18 +1271,21 @@ focus_tree = {
 	focus = {
 		id = WGR_Foreign_APC_Request
 		icon = GFX_goal_generic_army_tanks
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = WGR_Founding_the_Bundeswhr
 		}
-		x = 24
+		available = {
+			has_completed_focus = WGR_Cooperate_with_NATO
+		}
+		x = 22
 		y = 1
 			completion_reward = {
 					USA = {
 							send_equipment = {
 									target = WGR
-									type = light_tanks_1
-									amount = 150
+									type = mechanized_equipment 
+									amount = 500
 								}
 						}
 				}
@@ -1266,7 +1298,7 @@ focus_tree = {
 		prerequisite = {
 			focus = WGR_Foreign_APC_Request
 		}
-		x = 24
+		x = 22
 		y = 2
 			completion_reward = {
 					add_tech_bonus = {
@@ -1279,20 +1311,75 @@ focus_tree = {
 
 	}
 	focus = {
-		id = WGR_American_German_Tank_Cooperation
+		id = WGR_Foreign_Tank_Requests
+		icon = GFX_goal_generic_army_tanks
+		cost = 5.00
+		prerequisite = {
+			focus = WGR_Founding_the_Bundeswhr
+		}
+		available = {
+			has_completed_focus = WGR_Cooperate_with_NATO
+		}
+		x = 24
+		y = 1
+			completion_reward = {
+					USA = {
+							send_equipment = {
+									target = WGR
+									type = mbt_equipment
+									amount = 150
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = WGR_Armoured_Use
 		icon = GFX_goal_generic_build_tank
 		cost = 10.00
 		prerequisite = {
-			focus = WGR_Focus_on_ATGMs
+			focus = WGR_Foreign_Tank_Requests
+		}
+		x = 24
+		y = 2
+			completion_reward = {
+					add_ideas = Armoured_Use
+				}
+
+	}
+	focus = {
+		id = WGR_Franco_German_Tank_Cooperation
+		icon = GFX_goal_generic_build_tank
+		cost = 10.00
+		prerequisite = {
+			focus = WGR_Armoured_Use
 		}
 		x = 24
 		y = 3
 			completion_reward = {
-					add_tech_bonus = {
-							name = "American-German Tank Cooperation"
-							uses = 1
-							bonus = 0.5
-							category = cat_light_armor
+					FRA = {
+							add_opinion_modifier = {
+									target = ROOT
+									modifier = WGR_Tank_Cooperation_opinion
+								}
+							add_tech_bonus = {
+									name = "Franco-German Tank Cooperation"
+									uses = 1
+									bonus = 0.5
+									category = cat_medium_armor
+								}
+						}
+					ROOT = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = WGR_Tank_Cooperation_opinion
+								}
+							add_tech_bonus = {
+									name = "Franco-German Tank Cooperation"
+									uses = 1
+									bonus = 0.5
+									category = cat_medium_armor
+								}
 						}
 				}
 
@@ -1317,9 +1404,12 @@ focus_tree = {
 	focus = {
 		id = WGR_Foreign_Light_Tank_Requests
 		icon = GFX_goal_generic_army_tanks
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = WGR_Founding_the_Bundeswhr
+		}
+		available = {
+			has_completed_focus = WGR_Cooperate_with_NATO
 		}
 		x = 26
 		y = 1
@@ -1327,7 +1417,7 @@ focus_tree = {
 					USA = {
 							send_equipment = {
 									target = WGR
-									type = light_tanks_1
+									type = lt_equipment
 									amount = 150
 								}
 						}
@@ -1354,7 +1444,7 @@ focus_tree = {
 
 	}
 	focus = {
-		id = WGR_Franco_German_Tank_Cooperation
+		id = WGR_American_German_Tank_Cooperation
 		icon = GFX_goal_generic_build_tank
 		cost = 10.00
 		prerequisite = {
@@ -1362,33 +1452,32 @@ focus_tree = {
 		}
 		x = 26
 		y = 3
-			completion_reward = {
-					FRA = {
-							add_opinion_modifier = {
-									target = ROOT
-									modifier = WGR_Tank_Cooperation_opinion
-								}
-							add_tech_bonus = {
-									name = "Franco-German Tank Cooperation"
-									uses = 1
-									bonus = 0.5
-									category = cat_heavy_armor
-								}
-						}
-					ROOT = {
-							add_opinion_modifier = {
-									target = FRA
-									modifier = WGR_Tank_Cooperation_opinion
-								}
-							add_tech_bonus = {
-									name = "Franco-German Tank Cooperation"
-									uses = 1
-									bonus = 0.5
-									category = cat_heavy_armor
-								}
-						}
+		completion_reward = {
+			USA = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = WGR_Tank_Cooperation_opinion
 				}
-
+				add_tech_bonus = {
+					name = "American-German Tank Cooperation"
+					uses = 1
+					bonus = 0.5
+					category = cat_light_armor
+				}
+			}
+			ROOT = {
+				add_opinion_modifier = {
+					target = USA
+					modifier = WGR_Tank_Cooperation_opinion
+				}
+				add_tech_bonus = {
+					name = "American-German Tank Cooperation"
+					uses = 1
+					bonus = 0.5
+					category = cat_light_armor
+				}
+			}
+		}
 	}
 	focus = {
 		id = WGR_Funding_the_Bundeswehr
@@ -2114,6 +2203,12 @@ focus_tree = {
 										}
 								}
 						}
+					add_tech_bonus = {
+						name = Computers
+						bonus = 0.5
+						uses = 1
+						category = electronics
+					}
 				}
 
 	}
@@ -2237,6 +2332,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = WGR_modern_Programming
+		}
+		available = {
+			has_completed_focus = WGR_Cooperate_with_NATO
 		}
 		x = 36
 		y = 5
@@ -2619,6 +2717,10 @@ focus_tree = {
 			}
 		}
 			completion_reward = {
+					add_relation_modifier = {
+						target = USA
+						modifier = production_licenses
+					}
 					if = { limit = {
 						USA = {
 							has_tech = jet_fighter5
@@ -2854,21 +2956,23 @@ focus_tree = {
 		id = WGR_Formation_of_the_Bundesmarine
 		icon = GFX_goal_generic_navy_battleship
 		cost = 10.00
-		prerequisite = {
-			focus = WGR_Disband_the_German_Mine_Sweeping_Administration
+		available = {
+			has_completed_focus = WGR_Founding_the_Bundeswhr
 		}
 		x = 49
-		y = 1
+		y = 0
 			completion_reward = {
 					navy_experience = 25
 					SOV = {
 							add_opinion_modifier = {
 									target = ROOT
-									modifier = WGR_Bundesmarine_opinion
+									modifier = WGR_Bundesmarine_opinion # why ?
 								}
 						}
 				}
-
+		ai_will_do = {
+			factor = 30
+		}
 	}
 	focus = {
 		id = WGR_Re_open_the_Dockyards
@@ -2878,23 +2982,25 @@ focus_tree = {
 			focus = WGR_Formation_of_the_Bundesmarine
 		}
 		x = 48
-		y = 2
-			completion_reward = {
-					58 = {
-							if = {
-									limit = {
-											is_controlled_by = ROOT
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = naval_base
-											level = 3
-											instant_build = yes
-										}
-								}
-						}
+		y = 1
+		completion_reward = {
+			58 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
 				}
-
+			}
+		}
+		ai_will_do = {
+			factor = 30
+		}
 	}
 	focus = {
 		id = WGR_Re_Staff_the_Kiel_Naval_Base
@@ -2904,12 +3010,27 @@ focus_tree = {
 			focus = WGR_Formation_of_the_Bundesmarine
 		}
 		x = 50
-		y = 2
-			completion_reward = {
-					add_manpower = -1000
-					add_ideas = WGR_Re-Staffing
+		y = 1
+		completion_reward = {
+			58 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = naval_base
+						level = 3
+						instant_build = yes
+					}
 				}
-
+			}
+			add_manpower = -1000
+			add_ideas = WGR_Re-Staffing
+		}
+		ai_will_do = {
+			factor = 30
+		}
 	}
 	focus = {
 		id = WGR_Reorganize_the_Navy
@@ -2922,11 +3043,13 @@ focus_tree = {
 			focus = WGR_Re_Staff_the_Kiel_Naval_Base
 		}
 		x = 49
-		y = 3
-			completion_reward = {
-					remove_ideas = Disorganized_Navy
-				}
-
+		y = 2
+		completion_reward = {
+				remove_ideas = Disorganized_Navy
+			}
+		ai_will_do = {
+			factor = 30
+		}
 	}
 	focus = {
 		id = WGR_Submarine_Designs
@@ -2936,16 +3059,34 @@ focus_tree = {
 			focus = WGR_Reorganize_the_Navy
 		}
 		x = 48
-		y = 4
-			completion_reward = {
-					add_tech_bonus = {
-							uses = 1
-							bonus = 0.5
-							category = submarine_doctrine
-						}
-					add_ideas = WGR_Submarine
-				}
-
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				uses = 1
+				bonus = 0.5
+				category = submarine_doctrine
+			}
+			add_ideas = WGR_Submarine
+		}
+		ai_will_do = {
+			factor = 30
+		}
+	}
+	focus = {
+		id = WGR_Naval_Leadership_Reforms
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		cost = 10.00
+		prerequisite = {
+			focus = WGR_Reorganize_the_Navy
+		}
+		x = 50
+		y = 3
+		completion_reward = {
+			add_ideas = WGR_Leadership_Reforms
+		}
+		ai_will_do = {
+			factor = 30
+		}
 	}
 	focus = {
 		id = WGR_Reinforcement_of_Govermment
@@ -3198,12 +3339,9 @@ focus_tree = {
 		icon = GFX_goal_generic_improve_relations
 		cost = 10.00
 		prerequisite = {
-			focus = WGR_Saarland_Invitation
-		}
-		prerequisite = {
 			focus = WGR_Call_for_Great_Britain_to_Join
 		}
-		x = 10
+		x = 8
 		y = 8
 			completion_reward = {
 					every_other_country = {
@@ -3246,7 +3384,7 @@ focus_tree = {
 		prerequisite = {
 			focus = WGR_European_Political_Cooperation
 		}
-		x = 10
+		x = 8
 		y = 9
 			completion_reward = {
 					add_stability = -0.05
@@ -3561,20 +3699,7 @@ focus_tree = {
 				}
 
 	}
-	focus = {
-		id = WGR_Naval_Leadership_Reforms
-		icon = GFX_goal_generic_navy_doctrines_tactics
-		cost = 10.00
-		prerequisite = {
-			focus = WGR_Reorganize_the_Navy
-		}
-		x = 50
-		y = 4
-			completion_reward = {
-					add_ideas = WGR_Leadership_Reforms
-				}
-
-	}
+	
 	focus = {
 		id = WGR_annex_saarland
 		icon = GFX_focus_RAJ_lions_of_the_great_war
