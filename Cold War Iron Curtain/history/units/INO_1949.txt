@@ -1,5 +1,23 @@
-﻿division_template = {
-	name = "Infanteri Divisi"		
+﻿start_equipment_factor = 0.1
+##### Division Templates #####
+division_template = {
+	name = "Infantry Division"  	# Standard formation for frontline divisions
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }  # US Hvy Field Arty consisted of 2 Bns, 155mm howitzers
+		engineer = { x = 0 y = 1 }   # US Eng Rgt consisted of 2 Bns
+	}
+}
+division_template = {
+	name = "National Guard Division"  # Standard formation for NG divisions through late 1940
 
 	regiments = {
 		infantry = { x = 0 y = 0 }
@@ -11,26 +29,18 @@
 		infantry = { x = 2 y = 0 }
 		infantry = { x = 2 y = 1 }
 		infantry = { x = 2 y = 2 }
-	}
-}
-division_template = {
-	name = "Cahaya Infanteri Divisi"			# Light Division - elite bicycle infantry
-
-	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		infantry = { x = 3 y = 2 }
 	}
 	support = {
-		recon = { x = 0 y = 0 }      
+		artillery = { x = 0 y = 0 }  # US Hvy Field Arty consisted of 2 Bns, 155mm howitzers
+		engineer = { x = 0 y = 1 }   # US Eng Rgt consisted of 2 Bns
 	}
-	priority = 2
 }
 division_template = {
-	name = "Kalvari Divisi"  	
+	name = "Cavalry Division"  	# 1st Cavalry Division only
+
 	regiments = {
 		cavalry = { x = 0 y = 0 }
 		cavalry = { x = 0 y = 1 }
@@ -42,12 +52,28 @@ division_template = {
 		cavalry = { x = 1 y = 3 }
 	}
 	support = {
-		recon = { x = 0 y = 0 }      
-		engineer = { x = 0 y = 1 } 
+		recon = { x = 0 y = 0 }      # US Cav Recon consisted of 52 ACs, 13 L Arm
+		engineer = { x = 0 y = 1 }   # US Eng Bn
 	}
 }
 division_template = {
-	name = "Laut Divisi" 
+	name = "Mechanized Cavalry"  	# 7th Cavalry (Mech.) Brigade, precursor to 1st Armored Div.
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		medium_armor = { x = 1 y = 0}
+		light_armor = { x = 1 y = 1 }
+		light_armor = { x = 1 y = 2}
+	}
+	support = {
+		recon = { x = 0 y = 0 }      
+		engineer = { x = 0 y = 1 }   
+	}
+}
+division_template = {
+	name = "Marine Division" 		# 1st, 2nd Marine Brigades, precursors to 1st, 2nd USMC Divisions
 
 	regiments = {
 		marine = { x = 0 y = 0 }
@@ -59,116 +85,111 @@ division_template = {
 		light_armor = { x = 2 y = 0 }
 	}
 	support = {
-		engineer = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 0 }   
 	}
+	priority = 0
 }
 division_template = {
-	name = "Air Divisi"
-
-	regiments = {
-		paratrooper = { x = 0 y = 0 }
-		paratrooper = { x = 0 y = 1 }
-        		paratrooper = { x = 0 y = 2 }
-		paratrooper = { x = 1 y = 0 }
-		paratrooper = { x = 1 y = 1 }
-        		paratrooper = { x = 1 y = 2 }
-		light_armor = { x = 2 y = 0 }
-	}
-}
-division_template = {
-	name = "Tangki Brigade"				# Represents (light) Army Tank Brigades (LT Mk VIs, some Matilda Is)
-
-	regiments = {
-		medium_armor = { x = 0 y = 0 }
-		medium_armor = { x = 0 y = 1 }
-        		medium_armor = { x = 0 y = 2 }
-	}
-}
-division_template = {
-	name = "Cahaya Tangki Divisi"
-
-	regiments = {
-		light_armor = { x = 0 y = 0 }
-		light_armor = { x = 0 y = 1 }
-        		light_armor = { x = 0 y = 2 }
-		motorized = { x = 1 y = 0 }
-       		motorized = { x = 1 y = 1 }
-	}
-	support = {
-        recon = { x = 0 y = 0 }
-        engineer = { x = 0 y = 1 }
-        artillery = { x = 0 y = 2 }
-	}
-	}
-division_template = {
-	name = "Medium Tangki Divisi"
-
-	regiments = {
-		medium_armor = { x = 0 y = 0 }
-		medium_armor = { x = 0 y = 1 }
-        		medium_armor = { x = 0 y = 2 }
-		light_armor = { x = 1 y = 0 }
-		light_armor = { x = 1 y = 1}
-		motorized = { x = 2 y = 0}
-       		motorized = { x = 2 y = 1 }
-	}
-	support = {
-        recon = { x = 0 y = 0 }
-        engineer = { x = 0 y = 1 }
-        artillery = { x = 0 y = 2 }
-	}
-}
-division_template = {
-	name = "Lebat Tangki Divisi"
-
-	regiments = {
-		heavy_armor = { x = 0 y = 0 }
-		heavy_armor = { x = 0 y = 1 }
-        		heavy_armor = { x = 0 y = 2}
-		medium_armor = { x = 1 y = 0 }
-		medium_armor = { x = 1 y = 1 }
-		light_armor = { x = 1 y = 2 }
-		motorized = { x = 2 y = 0 }
-       		motorized = { x = 2 y = 1 }
-	}
-	support = {
-        recon = { x = 0 y = 0 }
-        engineer = { x = 0 y = 1 }
-        artillery = { x = 0 y = 2 }
-	}
-}
-division_template = {
-	name = "Bermotor Infanteri Divisi"
-
-	regiments = {
-		motorized = { x = 0 y = 0 }
-		motorized = { x = 0 y = 1 }
-       		motorized = { x = 0 y = 2 }
-       		motorized = { x = 1 y = 0 }
-		motorized = { x = 1 y = 1 }
-        		motorized = { x = 1 y = 2 }
-	}
-}
-division_template = {
-	name = "Cahaya Mekanisasi Infanteri Brigade"				# Represents (light) Army Tank Brigades (LT Mk VIs, some Matilda Is)
+	name = "Garrison Brigade"  		# used for island defense (older equipment, lower experience)
 
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
 		infantry = { x = 0 y = 2 }
-		light_armor = { x = 1 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   
+	}
+	priority = 0
+}
+division_template = {
+	name = "Airborne Division"
+
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+        paratrooper = { x = 0 y = 2 }
+		paratrooper = { x = 1 y = 0 }
+		paratrooper = { x = 1 y = 1 }
+        paratrooper = { x = 1 y = 2 }
+		light_armor = { x = 2 y = 0 }
 	}
 }
 division_template = {
-	name = "Cahaya Mekanisasi Infanteri Divisi"
+	name = "Light Armored Division"
+
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+        light_armor = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+       	motorized = { x = 1 y = 1 }
+	}
+	support = {
+        recon = { x = 0 y = 0 }
+        engineer = { x = 0 y = 1 }
+        artillery = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Medium Armored Division"
+
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+        medium_armor = { x = 0 y = 2 }
+		light_armor = { x = 1 y = 0 }
+		light_armor = { x = 1 y = 1}
+		mechanized = { x = 1 y = 2}
+       	mechanized = { x = 2 y = 0 }
+	}
+	support = {
+        recon = { x = 0 y = 0 }
+        engineer = { x = 0 y = 1 }
+        artillery = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Heavy Armored Division"
+
+	regiments = {
+		heavy_armor = { x = 0 y = 0 }
+		heavy_armor = { x = 0 y = 1 }
+        heavy_armor = { x = 0 y = 2}
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		light_armor = { x = 1 y = 2 }
+		mechanized = { x = 2 y = 0 }
+       	mechanized = { x = 2 y = 1 }
+	}
+	support = {
+        recon = { x = 0 y = 0 }
+        engineer = { x = 0 y = 1 }
+        artillery = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Motorized Infantry Division"
 
 	regiments = {
 		motorized = { x = 0 y = 0 }
 		motorized = { x = 0 y = 1 }
-		motorized = { x = 0 y = 2 }
+       	motorized = { x = 0 y = 2 }
+       	motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+        motorized = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Light Mechanized Infantry Division"
+
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
 		motorized = { x = 1 y = 0 }
 		motorized = { x = 1 y = 1 }
-		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 2 y = 0 }
 	}
 	support = {
 	 	engineer = { x = 0 y = 0 }
@@ -176,13 +197,13 @@ division_template = {
 	}
 }
 division_template = {
-	name = "Lebat Mekanisasi Infanteri Divisi"
+	name = "Heavy Mechanized Infantry Division"
 
 	regiments = {
-		motorized = { x = 0 y = 0 }
-		motorized = { x = 0 y = 1 }
-		motorized = { x = 0 y = 2 }
-		light_armor = { x = 1 y = 0 }
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		light_armor = { x = 0 y = 0 }
 		light_armor = { x = 0 y = 1}
 		light_armor = { x = 0 y = 2 }
 	}
@@ -192,12 +213,12 @@ division_template = {
 	}
 }
 division_template = {
-	name = "Gunung Infanteri Divisie"
+	name = "Mountain Infantry Division"
 
 	regiments = {
 		mountaineers = { x = 0 y = 0 }
 		mountaineers = { x = 0 y = 1 }
-      		mountaineers = { x = 0 y = 2 }
+      	mountaineers = { x = 0 y = 2 }
 		mountaineers = { x = 1 y = 0 }
 		mountaineers = { x = 1 y = 1 }
         mountaineers = { x = 1 y = 2 }
@@ -207,137 +228,152 @@ division_template = {
 	    recon = { x = 0 y = 1 }
 	}
 }
-division_template = {
-	name = "Laskar"		#Militia forces (lowest experience, oldest equipment)
-
-	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-		infantry = { x = 1 y = 0 }
-	}
-	priority = 0
-}
-
-units = { 				
-	##### INDONESIAN ARMY #####
-	division= {	
-		name = "1.Infanteri Divisi"
-		location = 1209
-		division_template = "Infanteri Divisi"
-		start_experience_factor = 0.6
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "2.Infanteri Divisi"
-		location = 10491
-		division_template = "Infanteri Divisi"
-		start_experience_factor = 0.5
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "3.Infanteri Divisi"
-		location = 10479
-		division_template = "Infanteri Divisi"
-		start_experience_factor = 0.5
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "4.Infanteri Divisi"
-		location = 1648 
-		division_template = "Infanteri Divisi"
-		start_experience_factor = 0.5
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "5.Infanteri Divisi"
-		location = 7654
-		division_template = "Infanteri Divisi"
-		start_experience_factor = 0.5
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "6.Infanteri Divisi"
-		location = 12138
-		division_template = "Infanteri Divisi"
-		start_experience_factor = 0.6
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "7.Infanteri Divisi"
-		location = 4361
-		division_template = "Infanteri Divisi"
-		start_experience_factor = 0.5
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "8.Infanteri Divisi"
-		location = 1313
-		division_template = "Infanteri Divisi"
-		start_experience_factor = 0.6
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "9.Infanteri Divisi"
-		location = 4320
-		division_template = "Infanteri Divisi"
-		start_experience_factor = 0.6
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "1.Laskar"
-		location = 4276
-		division_template = "Laskar"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "2.Laskar"
-		location = 7368
-		division_template = "Laskar"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "3.Laskar"
-		location = 4306
-		division_template = "Laskar"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "4.Laskar"
-		location = 4361
-		division_template = "Laskar"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "5.Laskar"
-		location = 1246
-		division_template = "Laskar"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "6.Laskar"
-		location = 12488
-		division_template = "Laskar"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.5
-	}
 
 
-	##### NAVAL UNITS #####
-	### ROYAL NAVY (CO: ) ###
-	
-}
+###### OOB ######
+units = {
 
-### Air Wings
-air_wings = {
-	
-}
-### Starting Production ###
-instant_effect = {
-	
+	division= {
+        name = "Bukittinggi Guard Division"
+        location =10354
+        division_template = "Infantry Division"
+        start_experience_factor = 0.7
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "1.Infantry Division"
+        location =1460
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "2.Infantry Division"
+        location =10382
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "3.Infantry Division"
+        location =10194
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "4.Infantry Division"
+        location =12138
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "5.Infantry Division"
+        location =7308
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "6.Infantry Division"
+        location =7654
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "7.Infantry Division"
+        location =1313
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "8.Infantry Division"
+        location =1246
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "9.Infantry Division"
+        location =1648
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "10.Infantry Division"
+        location =8360
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "11.Infantry Division"
+        location =1342
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "12.Infantry Division"
+        location =10491
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "13.Infantry Division"
+        location =1209
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "14.Infantry Division"
+        location =4390
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "15.Infantry Division"
+        location =4306
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "16.Infantry Division"
+        location =7654
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "17.Infantry Division"
+        location =10479
+        division_template = "Infantry Division"
+        start_experience_factor = 0.3
+		start_equipment_factor = 1
+    }
 }
