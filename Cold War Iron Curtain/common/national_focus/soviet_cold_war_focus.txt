@@ -1703,9 +1703,12 @@ focus_tree = {
 	focus = {
 		id = SOV_neutral_austria
 		icon = GFX_goal_molotov_ribbentrop_pact
-		cost = 10.00
+		cost = 7.00
 		prerequisite = {
 			focus = SOV_stalin_reforms
+		}
+		mutually_exclusive = {
+			focus = SOV_communist_austria
 		}
 		x = 12
 		y = 1
@@ -1732,11 +1735,71 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = SOV_communist_austria
+		icon = GFX_goal_molotov_ribbentrop_pact
+		cost = 7.00
+		prerequisite = {
+			focus = SOV_stalin_reforms
+		}
+		mutually_exclusive = {
+			focus = SOV_neutral_austria
+		}
+		x = 13
+		y = 1
+		available = {
+			NOT = { country_exists = AUS }
+			NOT = { country_exists = ADR }
+		}	
+		bypass = {
+			country_exists = AUS
+			country_exists = ADR
+		}		
+		completion_reward = {
+			set_global_flag = aus_questions_over
+			release = ADR
+			puppet = ADR
+			ADR = {
+				load_oob = "ADR_1949"
+				hold_election = ROOT
+				set_party_name = { ideology = communism long_name = "Kommunistische Partei Österreichs" name = "KPÖ" } 
+				set_party_name = { ideology = democratic long_name = "Demokratisch Partei Österreichs" name = "DPÖ" } 
+				set_party_name = { ideology = socialist long_name = "Sozialdemokratische Arbeiter Partei Österreichs" name = "SDAPÖ" } 
+				set_party_name = { ideology = conservative long_name = "Ostösterreichisch Konservative Freiheit Partei Österreichs" name = "OKFPÖ" } 
+				set_party_name = { ideology = Liberal_Conservatism long_name = "Konservative Freiheit Partei Österreichs - Liberale Flügel" name = "KFPÖ - LF" }
+				set_party_name = { ideology = Christian_Democratic long_name = "Christliche Sozialdemokratische Partei" name = "CSDP" }
+				
+				create_country_leader = {
+					name = "Johann Koplenig"
+					picture = "Koplenig.dds"
+					ideology = stalinism
+				}
+				set_politics = {
+
+					parties = {
+						communism = { popularity = 43.5 }
+						democratic = { popularity = 4 }
+						socialist = { popularity = 25 }
+						Christian_Democratic = { popularity = 13 }
+						conservative = { popularity = 2 }
+						Liberal_Conservatism = { popularity = 12.5 }
+					}
+	
+					ruling_party = communism
+					last_election = "1949.1.1"
+					election_frequency = 480
+					elections_allowed = yes
+				}
+
+			}
+		}
+	}
+	focus = {
 		id = SOV_stalin_notes
 		icon = GFX_goal_generic_dangerous_deal
 		cost = 10.00
 		prerequisite = {
 			focus = SOV_neutral_austria
+			focus = SOV_communist_austria
 		}
 		x = 12
 		y = 2

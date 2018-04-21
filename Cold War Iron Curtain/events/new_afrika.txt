@@ -106,6 +106,8 @@ country_event = {
 			transfer_state = 370
 			transfer_state = 365
 			transfer_state = 372
+			transfer_state = 367
+			transfer_state = 1246
 			load_oob = "RNA_1949"
 			add_manpower = 100000
 			add_stability = 0.8
@@ -134,6 +136,8 @@ country_event = {
 			transfer_state = 370
 			transfer_state = 365
 			transfer_state = 372
+			transfer_state = 367
+			transfer_state = 1246
 			load_oob = "RNA_1949"
 			add_manpower = 100000
 			add_stability = 0.8
@@ -244,9 +248,8 @@ country_event = {
 	desc = "[RNA.GetCommunistParty] has called for the centralization of Black Panther, or some kind of control from government, however the nationalisms have called for decentralization and paramilitarism"
 	is_triggered_only = yes
 	fire_only_once = yes
-	immediate = {
-		country_event = { id = new_afrika_revolt.9 hours = 125 }
-	}
+	#immediate = {
+	#}
 	option = {
 		trigger = {
 			has_country_flag = black_panther_happy
@@ -258,6 +261,7 @@ country_event = {
 		name = "Centralize the Black Panther paramilitary"
 		add_manpower = 10000
 		add_temporary_buff_to_units = { combat_offense = 0.55 combat_breakthrough = 0.25 org_damage_multiplier = -1.0 str_damage_multiplier = 0.25 war_support_reduction_on_damage = 0.2 cannot_retreat_while_attacking = 1.0 days = 365 } 
+		country_event = { id = new_afrika_revolt.9 hours = 124 }
 	}
 	option = {
 		trigger = {
@@ -265,12 +269,16 @@ country_event = {
 		}
 		name = "Keep it under check"
 		add_manpower = 5000
+		clr_country_flag = black_panther_angry
+		set_country_flag = black_panther_mad
 	}
 	option = {
 		ai_chance = {
 			factor = 25
 		}
 		name = "Keep the status quo"
+		set_country_flag = black_panther_okay
+		country_event = { id = new_afrika_revolt.9 hours = 125 }
 	}
 }
 country_event = {
@@ -282,23 +290,11 @@ country_event = {
 	
 	option = {
 		name = "And run them we shall!"
-		#if = {
-		#	limit = {
-		#		communism > 0.5
-		#	}
-		#	set_politics = { ruling_party = communism elections_allowed = yes }
-		#	create_country_leader = {
-		#		name = "National Council"
-		#		desc = ""
-		#		# picture = "Portrait_Beria.dds"
-		#		expire = "1990.1.1"
-		#		ideology = anti_revisionism
-		#	}
-		#}
+
 		trigger = {
 			socialist > 0.5
 		}
-		set_politics = { ruling_party socialist elections_allowed = yes }
+		set_politics = { ruling_party = socialist elections_allowed = yes }
 		create_country_leader = {
 			name = "National Council"
 			desc = ""
@@ -312,19 +308,7 @@ country_event = {
 	}
 	option = {
 		name = "And run them we shall!"
-		#if = {
-		#	limit = {
-		#		communism > 0.5
-		#	}
-		#	set_politics = { ruling_party = communism elections_allowed = yes }
-		#	create_country_leader = {
-		#		name = "National Council"
-		#		desc = ""
-		#		# picture = "Portrait_Beria.dds"
-		#		expire = "1990.1.1"
-		#		ideology = anti_revisionism
-		#	}
-		#}
+
 		trigger = {
 			nationalism > 0.5
 		}
@@ -357,6 +341,40 @@ country_event = {
 		hold_election = ROOT
 		set_major = yes 
 		# add_country_leader_trait = council 
+	}
+}
+country_event = {
+	id = new_afrika_revolt.10
+	title = "Black Panther Revolt"
+	desc = "In the early hours of this morning, the Black Panthers revolted in several towns in Alabama, stating that our government is too corrupt and nationalistic for a coalition with the communists."
+	trigger = {
+		has_country_flag = black_panther_mad
+	}
+	mean_time_to_happen = { days = 10 }
+	immediate = {
+		clr_country_flag = black_panther_mad
+		start_civil_war = {
+			ruling_party = nationalism
+			ideology = communism
+			size = 0.1
+			capital = 1246
+			states = { 1246 }
+		}
+		random_other_country = {
+			limit = {
+				original_tag = RNA
+				ideology = communism
+			}
+			load_oob = "Black_Panthers"
+			declare_war_on = {
+				type = civil_war
+				target = USA
+			}
+		}
+	}
+	option = {
+		name = "Traitors!"
+		set_country_flag = black_panther_rebellion
 	}
 }
     
