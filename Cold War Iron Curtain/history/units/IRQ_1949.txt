@@ -1,8 +1,22 @@
 ﻿start_equipment_factor = 0.1
 ##### Division Templates #####
-#dont move
 division_template = {
 	name = "Infantry Division"  	# Standard formation for frontline divisions
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }  # US Hvy Field Arty consisted of 2 Bns, 155mm howitzers
+		engineer = { x = 0 y = 1 }   # US Eng Rgt consisted of 2 Bns
+	}
+}
+division_template = {
+	name = "National Guard Division"  # Standard formation for NG divisions through late 1940
 
 	regiments = {
 		infantry = { x = 0 y = 0 }
@@ -14,6 +28,9 @@ division_template = {
 		infantry = { x = 2 y = 0 }
 		infantry = { x = 2 y = 1 }
 		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		infantry = { x = 3 y = 2 }
 	}
 	support = {
 		artillery = { x = 0 y = 0 }  # US Hvy Field Arty consisted of 2 Bns, 155mm howitzers
@@ -214,15 +231,41 @@ division_template = {
 
 ###### OOB ######
 units = {
+
+	division= {
+        name = "Baghdad Guard Division"
+        location =2097
+        division_template = "Infantry Division"
+        start_experience_factor = 1
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "Basrah Guard Division"
+        location =2089
+        division_template = "Infantry Division"
+        start_experience_factor = 0.6
+		start_equipment_factor = 1
+    }
+	division= {
+        name = "Erbil Guard Division"
+        location =3916
+        division_template = "Infantry Division"
+        start_experience_factor =0.5
+		start_equipment_factor = 1
+    }
+
+	division= {
+        name = "Mosul Guard Division"
+        location =10106
+        division_template = "Infantry Division"
+        start_experience_factor = 0.5
+		start_equipment_factor = 1
+    }
+
 }
-instant_effect = {
-	add_equipment_production = {
-		equipment = {
-			type = infantry_equipment_0
-			creator = "IRQ"
-		}
-		requested_factories = 1
-		progress = 0.13
-		efficiency = 100
+air_wings = {
+	291 = {
+	cv_CAS_equipment_3 =  { owner = "ENG" amount = 44 }
 	}
 }
