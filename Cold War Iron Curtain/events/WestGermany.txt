@@ -3,6 +3,7 @@
 #####################
 
 add_namespace = wgr
+add_namespace = wgr_news
 
 # WGR in NATO
 country_event = {
@@ -527,3 +528,57 @@ country_event = {
 #		}
 #	}
 #}	
+country_event = {
+	id = wgr.13
+	title = "The Bavarian Nationalist Party wants independence!"
+	desc = "The BNP has demanded that the West German government will give them independence, so far, only 34% of the Bavarian population wants independence."
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		date > 1951.1.1
+		date < 1951.2.2
+		is_historical_focus_on = no
+	}
+	option = {
+		name = "Hold a referendum"
+		add_ideas = WGR_bav_nationalist
+		hidden_effect = {
+			country_event = { id = wgr.14 hours = 720 }
+			add_ideas = WGR_bav_nationalist
+		}
+	}
+	option = {
+		name = "We cannot seperate Germany even more!"
+		hidden_effect = {
+			add_ideas = WGR_bav_nationalist
+		}
+	}
+}
+country_event = {
+	id = wgr.14
+	title = "The Bavarian Independence Referendum"
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		trigger = {
+			nationalism > 0.2
+		}
+		name = "Bavaria becomes independent"
+		release = BAV
+		# news_event = wgr_news.1
+		hidden_effect = {
+			set_political_party = { ideology = nationalism popularity = 0.2 } 
+			remove_ideas = WGR_bav_nationalist
+		}
+		set_country_flag = bav_independent
+	}
+	option = {
+		trigger = {
+			nationalism < 0.2
+		}
+		name = "Bavaria stays in Germany"
+		# news_event = wgr_news.1
+		remove_ideas = WGR_bav_nationalist
+
+	}
+}
