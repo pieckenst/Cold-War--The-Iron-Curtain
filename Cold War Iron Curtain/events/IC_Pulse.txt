@@ -54,7 +54,7 @@ add_namespace = shia_islamist
 add_namespace = zimbabwe
 add_namespace = french_elections
 add_namespace = may_68
-
+add_namespace = new_afrika_revolt
 country_event = {
 	id = ic_pulse.1
 	hidden = yes
@@ -63,6 +63,19 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+				if = {
+					limit = {
+						has_country_flag = black_panther_mad
+					}
+					country_event = new_afrika_revolt.10
+				}
+				if = {
+					limit = {
+						USA = { has_country_flag = second_us_civil_war_new_afrika }
+						tag = RNA
+					}
+					country_event = new_afrika_revolt.5
+				}
 				if = {
 					limit = {
 						tag = USA
