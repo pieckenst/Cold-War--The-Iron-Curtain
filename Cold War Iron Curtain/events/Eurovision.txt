@@ -132,3 +132,38 @@ news_event = {
 		}
 	}
 }
+# 1960
+news_event = {
+	id = eurovision.5
+	title = "Eurovision Song Contest 1960"
+	desc = "The fifth edition of the Eurovision Song Contest just took place in London, the United Kingdom. The Netherlands won the 1959 contest but declined to host the 1960 contest. This year, France got another victory with 'Tom Pillibi' by Jacqueline Boyer. At second place is the United Kingdom with 'Looking High, High, High' by Bryan Johnson."
+	picture = GFX_eurovision_song_contest_1960
+	
+	major = yes
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = "It should be called Francovision at this point."
+		trigger = {
+			original_tag = FRA
+		}
+	}
+	
+	option = {
+		name = "Second place again?!"
+		trigger = {
+			original_tag = ENG
+		}
+	}
+	
+	option = {
+		name = "Congratulations to France!"
+		trigger = {
+			NOT = { original_tag = FRA }
+			NOT = { original_tag = ENG }
+		}
+	}
+}
