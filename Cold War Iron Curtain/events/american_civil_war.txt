@@ -14,16 +14,212 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = "It is only only localised recruitments, the Second Amendment must be enforced at all times"
+		ai_chance = { factor = 70 }
 		set_country_flag = allowed_communist_recruitments
 		add_popularity = { ideology = trotskyism popularity = 0.01 }
 		add_popularity = { ideology = communism popularity = 0.05 }
 		set_party_name = { ideology = trotskyism long_name = "International Workers of the World - Left Communist Faction" name = "IWW - LC Faction" }
-		
+		hidden_effect = {
+			country_event = { id = americancivilwar.2 hours = 280 }
+			country_event = { id = americancivilwar.5 hours = 940 }
+		}
 	}
 	option = {
 		name = "McCarthyism! At once!"
+		ai_chance = { factor = 30 }
 		add_popularity = { ideology = communism popularity = -0.30 }
 		set_country_flag = communism_banned
 		set_country_flag = mccarthyism_enforced
+		hidden_effect = {
+			country_event = { id = americancivilwar.3 hours = 280 }
+			country_event = { id = americancivilwar.5 hours = 761 }
+		}
+	}
+}
+country_event = {
+	id = americancivilwar.2
+	title = "Strikes in New England"
+	desc = "After we have allowed communists to continue what they were doing, the IWW has organized a strike in New England."
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "Hopefully they end soon"
+		add_ideas = IWW_strikes
+		hidden_effect = {
+			country_event = { id = americancivilwar.4 hours = 280 }
+		}
+	}
+	option = {
+		name = "We should follow McCarthyism, even if it violates the second amendment!"
+		set_country_flag = mccarthyism_enforced_2
+		hidden_effect = {
+			country_event = { id = americancivilwar.3 hours = 280 }
+		}
+	}
+}
+country_event = {
+	id = americancivilwar.3
+	title = "Riots in New England"
+	desc = "After we have chosen to follow McCarthyism, the IWW has rioted in Bangor and Boston, demanding freedom of speech be reinstated, they were accompanied by allied riots from the Tea Party, this is the only time two sides of the spectrum have worked together."
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "The Tea Party are just Capitalist in name! Ban them too!"
+		trigger = {
+			has_country_flag = mccarthyism_enforced
+		}
+		hidden_effect = {
+			country_event = { id = americancivilwar.4 hours = 280 }
+		}
+	}
+	option = {
+		name = "Instate martial law!"
+		trigger = {
+			has_country_flag = mccarthyism_enforced_2
+		}
+		add_stability = -0.03
+		set_country_flag = martial_law
+		hidden_effect = {
+			add_temporary_buff_to_units = { combat_offense = -0.95 combat_breakthrough = -0.55 org_damage_multiplier = -1.0 str_damage_multiplier = 0.25 war_support_reduction_on_damage = 0.2 cannot_retreat_while_attacking = 1.0 days = 32 } 
+		}
+	}
+}
+country_event = {
+	id = americancivilwar.4
+	title = "Civil Conflict has ended"
+	desc = "The IWW has decided to end the civil conflict, and lay down their arms"
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "Good. Now get back to work!"
+		remove_ideas = IWW_strikes
+	}
+}
+country_event = {
+	id = americancivilwar.5
+	hidden = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = civil_war_trigger
+	}
+}
+country_event = {
+	id = americancivilwar.6
+	title = "Second American Civil War"
+	desc = "The IWW has taken over the government buildings all over New England, New York and New Jersey, they proclaim the People's Republic of America."
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		has_country_flag = civil_war_trigger
+		date > 1970.6.1
+		date < 1970.7.2
+	}
+	option = {
+		name = "For the Revolution! (Changes country to the IWW tag)"
+		change_tag_from = IWW # change will happen if needed
+		declare_war_on = {
+			type = annex
+			target = IWW
+		}
+		hidden_effect = {
+		IWW = {
+			transfer_state = 861
+			transfer_state = 862
+			transfer_state = 863
+			transfer_state = 864
+			transfer_state = 865
+			transfer_state = 358
+			transfer_state = 359
+			# load_oob = "IWW_1970"
+			set_politics = {
+				communism = { popularity = 29 }
+				trotskyism = { popularity = 31 }
+				conservative = { popularity = 4 }
+				American_Democratic = { popularity = 6 }
+				socialist = { popularity = 13 }
+				Social_Democratic = { popularity = 6.5 }
+				Republicanism = { popularity = 0.5 }
+				democratic = { popularity = 1 }
+				progressive_green = { popularity = 5 }
+				liberal = { popularity = 0.5 }
+				maoism = { popularity = 0.7 }
+				National_Socialism = { popularity = 2 }
+				fascism = { popularity = 0.1 }
+				nationalism { popularity = 0.6 }
+				monarchism = { popularity = 0.05 }
+				neutrality = { popularity = 0.02 }
+				islamism = { popularity = 0.01 }
+				Judaism = { popularity = 0.01 }
+				Christianism = { popularity = 0.01 }
+				ruling_party = trotskyism
+			}
+			set_party_name = { ideology = trotskyism long_name = "International Workers of the World - Left Communist Faction" name = "IWW - LC Faction" }
+			set_party_name = { ideology = communism long_name = "International Workers of the World - Marxist-Leninist Faction" name = "IWW - ML Faction" }
+			set_party_name = { ideology = conservative long_name = "New England Independence Party" name = "NEIP" }
+			set_party_name = { ideology = American_Democratic long_name = "The New English Democratic Unionist Party" name = "Democratic Unionist Party" }
+			set_party_name = { ideology = socialist long_name = "International Workers of the World - Democratic Socialist Faction" name = "IWW - DemSoc Faction" }
+			set_party_name = { ideology = Social_Democratic long_name = "Independent Democrats" name = "Independent Democrats" } 
+			set_party_name = { ideology = Republicanism long_name = "The Republicans of New England" name = "The Republicans" }
+			set_party_name = { ideology = democratic long_name = "New Liberal Party" name = "NLP" }
+			set_party_name = { ideology = progressive_green long_name = "International Workers of the World - The Green Faction" name = "IWW - Green Faction" }
+			set_party_name = { ideology = maoism long_name = "International Workers of the World - Maoist Faction" name = "IWW - Maoist Faction" }
+			set_party_name = { ideology = communism long_name = "Nazi Party New England" name = "NPNE" }
+			set_party_name = { ideology = nationalism long_name = "United Independence Party of New England" name = "UIP" }
+		}
+		}
+	}
+	option = {
+		name = "Better Dead than Red!"
+		declare_war_on = {
+			type = annex
+			target = IWW
+		}
+		hidden_effect = {
+		IWW = {
+			transfer_state = 861
+			transfer_state = 862
+			transfer_state = 863
+			transfer_state = 864
+			transfer_state = 865
+			transfer_state = 358
+			transfer_state = 359
+			# load_oob = "IWW_1970"
+			set_politics = {
+				communism = { popularity = 29 }
+				trotskyism = { popularity = 31 }
+				conservative = { popularity = 4 }
+				American_Democratic = { popularity = 6 }
+				socialist = { popularity = 13 }
+				Social_Democratic = { popularity = 6.5 }
+				Republicanism = { popularity = 0.5 }
+				democratic = { popularity = 1 }
+				progressive_green = { popularity = 5 }
+				liberal = { popularity = 0.5 }
+				maoism = { popularity = 0.7 }
+				National_Socialism = { popularity = 2 }
+				fascism = { popularity = 0.1 }
+				nationalism { popularity = 0.6 }
+				monarchism = { popularity = 0.05 }
+				neutrality = { popularity = 0.02 }
+				islamism = { popularity = 0.01 }
+				Judaism = { popularity = 0.01 }
+				Christianism = { popularity = 0.01 }
+				ruling_party = trotskyism
+			}
+			set_party_name = { ideology = trotskyism long_name = "International Workers of the World - Left Communist Faction" name = "IWW - LC Faction" }
+			set_party_name = { ideology = communism long_name = "International Workers of the World - Marxist-Leninist Faction" name = "IWW - ML Faction" }
+			set_party_name = { ideology = conservative long_name = "New England Independence Party" name = "NEIP" }
+			set_party_name = { ideology = American_Democratic long_name = "The New English Democratic Unionist Party" name = "Democratic Unionist Party" }
+			set_party_name = { ideology = socialist long_name = "International Workers of the World - Democratic Socialist Faction" name = "IWW - DemSoc Faction" }
+			set_party_name = { ideology = Social_Democratic long_name = "Independent Democrats" name = "Independent Democrats" } 
+			set_party_name = { ideology = Republicanism long_name = "The Republicans of New England" name = "The Republicans" }
+			set_party_name = { ideology = democratic long_name = "New Liberal Party" name = "NLP" }
+			set_party_name = { ideology = progressive_green long_name = "International Workers of the World - The Green Faction" name = "IWW - Green Faction" }
+			set_party_name = { ideology = maoism long_name = "International Workers of the World - Maoist Faction" name = "IWW - Maoist Faction" }
+			set_party_name = { ideology = communism long_name = "Nazi Party New England" name = "NPNE" }
+			set_party_name = { ideology = nationalism long_name = "United Independence Party of New England" name = "UIP" }
+		}
+		}
 	}
 }
