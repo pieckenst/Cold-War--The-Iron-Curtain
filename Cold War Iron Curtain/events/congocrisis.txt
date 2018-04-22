@@ -66,3 +66,60 @@ country_event = {
 	    }
 	}
 }
+
+country_event = {
+	id = congocrisis.3
+	title = congocrisis.3.t	
+	desc = congocrisis.3.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = congocrisis.3.a
+		ai_chance = {
+			factor = 100
+		}
+        KAG = { transfer_state = 824 transfer_state = 538 }
+		declare_war_on = { target = KAG type = annex_everything }
+	}
+	option = {
+		name = congocrisis.3.b
+		ai_chance = {
+			factor = 0
+		}
+        release = KAG
+	}
+}
+
+country_event = {
+	id = congocrisis.4
+	title = congocrisis.4.t	
+	desc = congocrisis.4.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = congocrisis.4.a
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = -20
+		KAG = { add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 10000 } }
+		add_ai_strategy = {
+		    type = support
+		    id = "KAG"
+		    value = 200
+	    }
+	    add_ai_strategy = {
+		    type = send_volunteers_desire
+		    id = "KAG"
+		    value = 200
+	    }
+	}
+	option = {
+		name = congocrisis.4.b
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
