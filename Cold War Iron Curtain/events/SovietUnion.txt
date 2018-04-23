@@ -479,7 +479,7 @@ country_event = {
 country_event = {
 	id = every1.2
 	title = "Removal of Khrushchev"
-	desc = "The meeting was a lie. KGB agents met me at the airport and even my own dear friend,  Vladimir Semichastny turned against me. They told me not to resist otherwise I will be hurt. This is obviously a coup. Leonid Brezhnev and then other people on the "Committee" yelled at me in the Kremlin to resign as Premier because I'm too friendly with the USA after almost plunging the World into nuclear war in 1961 and 1962. They have declared me unfit and mentally unstable to lead. Brezhnev and the "Committee" said that if I resign for advanced age and ill issues and made him Premier, everything would be fine. If I didn't there would be consequences. What should I do? ."
+	desc = "The meeting was a lie. KGB agents met me at the airport and even my own dear friend,  Vladimir Semichastny turned against me. They told me not to resist otherwise I will be hurt. This is obviously a coup. Leonid Brezhnev and then other people on the Committee yelled at me in the Kremlin to resign as Premier because I'm too friendly with the USA after almost plunging the World into nuclear war in 1961 and 1962. They have declared me unfit and mentally unstable to lead. Brezhnev and the Committee said that if I resign for advanced age and ill issues and made him Premier, everything would be fine. If I didn't there would be consequences. What should I do? ."
 	is_triggered_only = yes
 	fire_only_once = yes
 	trigger = {
@@ -559,7 +559,7 @@ news_event = {
 
 news_event = {
 	id = newssovever.2
-	title = "Brezhnev and "Committee" Leading Coup on Khrushchev!"
+	title = "Brezhnev and Committee Leading Coup on Khrushchev!"
 	desc = newssovever.2.d
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -609,7 +609,7 @@ country_event = {
 		random_other_country = {
 			limit = {
 				original_tag = SOV
-				ideology = trotskyism
+				has_government = trotskyism
 			}
 			create_country_leader = {
 				name = "Leonid Brezhnev"
@@ -638,7 +638,7 @@ country_event = {
 		random_other_country = {
 			limit = {
 				original_tag = SOV
-				ideology = trotskyism
+				has_government = trotskyism
 			}
 			create_country_leader = {
 				name = "Nikita Khrushchev"
@@ -655,19 +655,17 @@ country_event = {
 news_event = {
 	id = newssovever.3
 	title = "USSR Now in Civil War!"
-	desc = "The USSR has now entered a civil war between Nikita Khrushchev and Leonid Brezhnev. Military units from both sides from the USSR are supporting 1 side or the other. Khrushchev said that Brezhnev and his "Committee" have committed treason against the USSR, and Brezhnev said that Khrushchev has been unfit for Premier. The conflict will only grow bigger with NATO wanting to intervene on 1 side or the other. The only SSRs that have joined the rebel side was Estonia and Latvia, seeing the rebels as liberators against communism. Who will win the civil war?"
+	desc = "The USSR has now entered a civil war between Nikita Khrushchev and Leonid Brezhnev. Military units from both sides from the USSR are supporting 1 side or the other. Khrushchev said that Brezhnev and his Committee have committed treason against the USSR, and Brezhnev said that Khrushchev has been unfit for Premier. The conflict will only grow bigger with NATO wanting to intervene on 1 side or the other. The only SSRs that have joined the rebel side was Estonia and Latvia, seeing the rebels as liberators against communism. Who will win the civil war?"
 	is_triggered_only = yes
 	fire_only_once = yes
 	option = {
 		name = "We will fight for our side!"
 		trigger = {
-			tag = SOV
 			OR = {
-				random_other_country = {
-					limit = {
-						original_tag = SOV
-						ideology = trotskyism
-					}
+				tag = SOV
+				AND = {
+					original_tag = SOV
+					has_government = trotskyism
 				}
 			}
 		}
@@ -697,15 +695,13 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 	trigger = {
-		tag = SOV
-		OR = {
-			random_other_country = {
-				limit = {
+			OR = {
+				tag = SOV
+				AND = {
 					original_tag = SOV
-					ideology = trotskyism
+					has_government = trotskyism
 				}
 			}
-		}
 	}
 	option = {
 		name = "Finally, peace at last"
