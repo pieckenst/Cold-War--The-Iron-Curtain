@@ -56,6 +56,7 @@ add_namespace = french_elections
 add_namespace = may_68
 add_namespace = new_afrika_revolt
 add_namespace = every1
+add_namespace = americancivilwar
 country_event = {
 	id = ic_pulse.1
 	hidden = yes
@@ -64,6 +65,20 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+				if = {
+					limit = {
+						has_country_flag = black_panther_mad
+					}
+					country_event = new_afrika_revolt.10
+				}
+				if = {
+					limit = {
+						date > 1970.1.1
+						date < 1970.2.2
+						has_country_flag = communist_america_rising
+					}
+					country_event = americancivilwar.1
+				}
 				if = {
 					limit = {
 						OR = {
@@ -115,8 +130,15 @@ country_event = {
 						date < 1968.1.1
 					}
 					country_event = swf.102
-				}				
-
+				}	
+				if = {
+					limit = {
+						has_country_flag = civil_war_trigger
+						date > 1970.6.1
+						date < 1970.7.2
+					}				
+					country_event = americancivilwar.6
+				}
 				if = {
 					limit = {
 						original_tag = ZIM
