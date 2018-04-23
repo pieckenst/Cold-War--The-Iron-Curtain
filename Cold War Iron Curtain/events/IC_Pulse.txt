@@ -55,6 +55,7 @@ add_namespace = zimbabwe
 add_namespace = french_elections
 add_namespace = may_68
 add_namespace = new_afrika_revolt
+add_namespace = every1
 country_event = {
 	id = ic_pulse.1
 	hidden = yes
@@ -63,6 +64,17 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+				if = {
+					limit = {
+						OR = {
+							has_country_flag = premier_khrushchev
+							has_country_leader = { name = "Nikita Khrushchev" ruling_only = yes  }	
+						}
+						date > 1964.9.25
+						date < 1964.12.31					
+					}
+					country_event = every1.1
+				}
 				if = {
 					limit = {
 						has_country_flag = black_panther_mad
