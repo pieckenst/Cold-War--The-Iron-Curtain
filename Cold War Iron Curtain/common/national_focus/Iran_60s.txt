@@ -32,22 +32,6 @@ focus_tree = {
 				}
 			completion_reward = {
 					navy_experience = 25
-					if = {
-							limit = {
-									NOT = {
-											any_owned_state = {
-													dockyard > 0
-													free_building_slots = {
-															building = dockyard
-															size > 2
-															include_locked = yes
-														}
-												}
-										}
-									any_owned_state = {
-											is_coastal = yes
-										}
-								}
 							random_owned_controlled_state = {
 									limit = {
 											is_coastal = yes
@@ -62,22 +46,6 @@ focus_tree = {
 											type = dockyard
 											level = 3
 											instant_build = yes
-										}
-								}
-							set_country_flag = naval_effort_built
-						}
-					if = {
-							limit = {
-									NOT = {
-											has_country_flag = naval_effort_built
-										}
-									any_owned_state = {
-											dockyard > 0
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
 										}
 								}
 							random_owned_controlled_state = {
@@ -96,42 +64,6 @@ focus_tree = {
 											instant_build = yes
 										}
 								}
-							set_country_flag = naval_effort_built
-						}
-					if = {
-							limit = {
-									NOT = {
-											has_country_flag = naval_effort_built
-										}
-									NOT = {
-											any_owned_state = {
-													free_building_slots = {
-															building = dockyard
-															size > 2
-															include_locked = yes
-														}
-												}
-										}
-								}
-							random_state = {
-									limit = {
-											controller = {
-													tag = ROOT
-												}
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-						}
 				}
 
 	}
@@ -265,7 +197,7 @@ focus_tree = {
 		cost = 10.00
 		x = 55
 		y = 0
-			availible = {
+			available = {
 					has_global_flag = six_day_war_rumor
 				}
 			bypass = {
@@ -3649,25 +3581,25 @@ focus_tree = {
 					EGY = {
 							add_timed_idea = {
 									days = 900
-									idea = iranian_influence
+									idea = anti_baathist_influence
 								}
 						}
 					SYR = {
 							add_timed_idea = {
 									days = 900
-									idea = iranian_influence
+									idea = anti_baathist_influence
 								}
 						}
 					UAR = {
 							add_timed_idea = {
 									days = 900
-									idea = iranian_influence
+									idea = anti_baathist_influence
 								}
 						}
 					IRQ = {
 							add_timed_idea = {
 									days = 900
-									idea = iranian_influence
+									idea = anti_baathist_influence
 								}
 						}
 				}
@@ -4234,7 +4166,7 @@ focus_tree = {
 		}
 		x = 64
 		y = 3
-			availible = {
+			available = {
 					has_government = Social_Democratic
 				}
 			completion_reward = {
@@ -4579,6 +4511,7 @@ focus_tree = {
 											is_in_faction_with = ENG
 											is_in_faction_with = USA
 										}
+									}
 									add_opinion_modifier = {
 											target = ROOT
 											modifier = large_decrease
@@ -4590,8 +4523,6 @@ focus_tree = {
 								}
 						}
 				}
-
-	}
 	focus = {
 		id = PER_Leave_NATO
 		icon = GFX_focus_ger_break_anglo_french_colonial_hegemony
@@ -4652,12 +4583,12 @@ focus_tree = {
 			completion_reward = {
 					add_political_power = 300
 					SOV = {
-							any_owned_state = {
+							every_owned_state  = {
 									remove_core_of = PER
 								}
 						}
 					AZR = {
-							any_owned_state = {
+							every_owned_state  = {
 									remove_core_of = PER
 								}
 						}
