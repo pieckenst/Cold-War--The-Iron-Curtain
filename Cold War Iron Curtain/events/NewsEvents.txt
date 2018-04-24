@@ -792,11 +792,32 @@ news_event = {
 		set_global_flag = first_soviet_nuke
 	}
 
-  option = {
+	option = {	#Soviet Response
 	  ai_chance = {
 		  factor = 100
 	  }
-		name = news.1028.a
+		name = "Excellent"
+		trigger = { tag = SOV }
+		add_stability = +0.05
+	}
+	
+	option = {	#Other Response
+	  ai_chance = {
+		  factor = 100
+	  }
+		name = "The United States is no longer the world's only nuclear power..."
+		trigger = {
+			NOT = { tag = USA }
+			NOT = { tag = SOV }	
+	  }
+	}
+
+	option = {	#USA Response
+	  ai_chance = {
+		  factor = 100
+	  }
+		name = "Prepare a briefing immediately"
+		trigger = { tag = USA }
 		add_stability = -0.05
   }
 }
