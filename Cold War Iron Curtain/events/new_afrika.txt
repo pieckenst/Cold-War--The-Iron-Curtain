@@ -37,6 +37,7 @@ country_event = {
 	}
 	option = {
 		name = "Great!"
+		country_event = new_afrika_revolt.2
 	}
 }
 country_event = {
@@ -54,6 +55,7 @@ country_event = {
 		name = "They are just empty threats, we have more important things to do."
 		set_country_flag = ignore_new_afrika
 		add_stability = -0.16
+		country_event = { id = new_afrika_revolt.3 hours = 48 }
 	}
 	option = {
 		ai_chance = { factor = 33 }
@@ -61,6 +63,7 @@ country_event = {
 		add_manpower = -600
 		add_stability = -0.09
 		set_country_flag = angry_new_afrika
+		country_event = { id = new_afrika_revolt.3 hours = 24 }
 	}
 	option = {
 		ai_chance = { factor = 34 }
@@ -74,12 +77,7 @@ country_event = {
 	desc = "Several military dispatchments in the south have fought the militant Black Panthers paramilitary organization, after police illegally searched homes of black residents"
 	is_triggered_only = yes
 	fire_only_once = yes	
-	trigger = {
-		has_country_flag = angry_new_afrika
-		OR = {
-			has_country_flag = ignore_new_afrika
-		}
-	}
+
 	option = {
 		ai_chance = { factor = 1 }
 		name = "We should be worried!"
@@ -100,7 +98,7 @@ country_event = {
 	option = {
 		ai_chance = { factor = 0 }
 		name = "We must free the black race from American tyranny!"
-		change_tag_from = RNA 
+		RNA = { change_tag_from = USA }
 		RNA = {
 			transfer_state = 371
 			transfer_state = 370
@@ -147,6 +145,7 @@ country_event = {
 			type = civil_war
 		}
 		set_country_flag = second_us_civil_war_new_afrika
+		country_event = { id = new_afrika_revolt.5 hours = 48 }
 	}
 }
 ### 1st Congress ###
@@ -165,7 +164,7 @@ country_event = {
 		clr_country_flag = second_us_civil_war_new_afrika
 		set_country_flag = new_afrika_congress_first
 		add_stability = 0.03
-		country_event = { id = new_afrika_revolt.5 hours = 72 }
+		country_event = { id = new_afrika_revolt.6 hours = 72 }
 	}
 	option = {
 		name = "Let the congress continue!"
@@ -339,9 +338,6 @@ country_event = {
 	id = new_afrika_revolt.10
 	title = "Black Panther Revolt"
 	desc = "In the early hours of this morning, the Black Panthers revolted in several towns in Alabama, stating that our government is too corrupt and nationalistic for a coalition with the communists."
-	trigger = {
-		has_country_flag = black_panther_mad
-	}
 	is_triggered_only = yes
 	immediate = {
 		clr_country_flag = black_panther_mad

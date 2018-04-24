@@ -3,7 +3,7 @@
 ################################
 
 add_namespace = sov
-
+add_namespace = every1
 # Yes or No to help to PRC?
 country_event = {
 	id = sov.1
@@ -463,10 +463,249 @@ country_event = {
 	}	
 }
 
+#Brezhnev
+add_namespace = newssovever
+country_event = {
+	id = every1.1
+	title = "Meeting with Brezhnev and Committee in Moscow"
+	desc = "Leonid Brezhnev has requested my presence at Moscow to meet with a committee on agriculture production in the USSR. Something doesn't seem to be right here, but I have done a lot of agriculture reforms so maybe everything will be fine. I will take my great comrade and KGB agent Vladimir Semichastny to help me with this. Hopefully everything goes fine in Moscow, but I will need a plan if I am in trouble. "
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "We must meet the committee at Moscow, but be somewhat prepared."
+		country_event = { id = every1.2 hours = 20 }
+	}
+}
+country_event = {
+	id = every1.2
+	title = "Removal of Khrushchev"
+	desc = "The meeting was a lie. KGB agents met me at the airport and even my own dear friend,  Vladimir Semichastny turned against me. They told me not to resist otherwise I will be hurt. This is obviously a coup. Leonid Brezhnev and then other people on the Committee yelled at me in the Kremlin to resign as Premier because I'm too friendly with the USA after almost plunging the World into nuclear war in 1961 and 1962. They have declared me unfit and mentally unstable to lead. Brezhnev and the Committee said that if I resign for advanced age and ill issues and made him Premier, everything would be fine. If I didn't there would be consequences. What should I do? ."
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		ai_chance = { factor = 33 }
+		name = "I did all I wanted to do.  Let's not do anything that isn't necessary."
+		every_country = {
+			news_event = newssovever.1
+		}
+		create_country_leader = {
+			name = "Leonid Brezhnev"
+			desc = ""
+			picture = "Leonid.dds"
+			expire = "1980.1.1"
+			ideology = leninism
+		}
+	}
+	option = {
+		ai_chance = { factor = 5 }
+		name = "No, I will not be removed! This is high treason! The World must know!"
+		country_event = { id = every1.3 hours = 20 }
+		every_country = {
+			news_event = newssovever.2
+		}
+	}
+	option = {
+		ai_chance = { factor = 62 }
+		name = "I must make a run for it. Whenever they want you gone, you are gone forever. "
+		USA = {
+			country_event = { id = every1.4 hours 24 }
+			set_country_flag = khruschev_seeking_asylum
+		}
+		create_country_leader = {
+			name = "Leonid Brezhnev"
+			desc = ""
+			picture = "Leonid.dds"
+			expire = "1980.1.1"
+			ideology = leninism
+		}
+	}
+}
+country_event = {
+	id = every1.3
+	title = "Word of Brezhnev Coup Spreads in USSR"
+	desc = newssovever.3.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		ai_chance = { factor = 30 }
+		name = "Nikita Khrushchev is the rightful ruler! Brezhnev committed treason!"
+		every_country = {
+			news_event = newssovever.3
+		}
+		start_civil_war = {
+			ruling_party = communism
+			ideology = trotskyism
+			size = 0.5
+			capital = 195
+			states = { 195 208 146 216 215 147 722 213 209 244 263 264 }
+		}
+		random_other_country = {
+			limit = {
+				original_tag = SOV
+				has_government = trotskyism
+			}
+			create_country_leader = {
+				name = "Leonid Brezhnev"
+				desc = ""
+				picture = "Leonid.dds"
+				expire = "1980.1.1"
+				ideology = trotskyism_ideology
+			}
+			annex_country = { target = EST transfer_troops = yes }
+			annex_country = { target = LAT transfer_troops = yes }
+		}
+	}
+	option = {
+		ai_chance = { factor = 70 }
+		name = "Leonid Brezhnev is the rightful ruler! Khrushchev is unfit!"
+		every_country = {
+			news_event = newssovever.3
+		}
+		start_civil_war = {
+			ruling_party = communism
+			ideology = trotskyism
+			size = 0.5
+			capital = 195
+			states = { 195 208 146 216 215 147 722 213 209 244 263 264 }
+		}
+		random_other_country = {
+			limit = {
+				original_tag = SOV
+				has_government = trotskyism
+			}
+			create_country_leader = {
+				name = "Nikita Khrushchev"
+				desc = ""
+				picture = "Portrait_Soviet_Nikita_Khrushchev.dds"
+				expire = "1980.1.1"
+				ideology = trotskyism_ideology
+			}
+			annex_country = { target = EST transfer_troops = yes }
+			annex_country = { target = LAT transfer_troops = yes }
+		}
+	}
+}
+news_event = {
+	id = newssovever.1
+	title = "Khrushchev Steps Down as Premier!"
+	desc = newssovever.1.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "What path will the USSR take?"
+		trigger = {
+			tag = USA
+		}
+	}
+	option = {
+		name = "We will lead the world."
+		trigger = {
+			tag = SOV
+		}
+		add_stability = 0.10
+	}
+	option = {
+		name = "Will there be peace under a new ruler?"
+		trigger = {
+			NOT = {
+				tag = SOV
+				tag = USA
+			}
+		}
+		set_political_party = { ideology = communism popularity = 0.05 } 
+	}
+}
 
+news_event = {
+	id = newssovever.2
+	title = "Brezhnev and Committee Leading Coup on Khrushchev!"
+	desc = newssovever.2.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "We will defend our rightful ruler!"
+		trigger = {
+			tag = SOV
+		}
+	}
+	option = {
+		name = "This is real interesting."
+		trigger = {
+			tag = USA
+		}
+		add_stability = 0.10
+	}
+	option = {
+		name = "Is this the fall of the USSR?"
+		trigger = {
+			NOT = {
+				tag = SOV
+				tag = USA
+			}
+		}
+		set_political_party = { ideology = communism popularity = -0.05 } 
+	}
+}
 
-
-
+news_event = {
+	id = newssovever.3
+	title = "USSR Now in Civil War!"
+	desc = "The USSR has now entered a civil war between Nikita Khrushchev and Leonid Brezhnev. Military units from both sides from the USSR are supporting 1 side or the other. Khrushchev said that Brezhnev and his Committee have committed treason against the USSR, and Brezhnev said that Khrushchev has been unfit for Premier. The conflict will only grow bigger with NATO wanting to intervene on 1 side or the other. The only SSRs that have joined the rebel side was Estonia and Latvia, seeing the rebels as liberators against communism. Who will win the civil war?"
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "We will fight for our side!"
+		trigger = {
+			OR = {
+				tag = SOV
+				AND = {
+					original_tag = SOV
+					has_government = trotskyism
+				}
+			}
+		}
+	}
+	option = {
+		name = "We will find a USSR who will help us."
+		trigger = {
+			tag = USA
+		}
+		add_stability = 0.10
+	}
+	option = {
+		name = "Is this the fall of the USSR?"
+		trigger = {
+			NOT = {
+				tag = SOV
+				tag = USA
+			}
+		}
+		set_political_party = { ideology = communism popularity = -0.05 } 
+	}
+}
+country_event = {
+	id = every1.5
+	title = "We have achieved victory!"
+	desc = "Our men have finished fighting, the other side has capitulated!"
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+			OR = {
+				tag = SOV
+				AND = {
+					original_tag = SOV
+					has_government = trotskyism
+				}
+			}
+	}
+	option = {
+		name = "Finally, peace at last"
+		add_stability = 0.3
+		#every_country = {
+		#	news_event = newssovever.4
+		#}
+	}
+}
 ###########################################################################
 # More Soviet Events #
 ###########################################################################
@@ -474,7 +713,7 @@ country_event = {
 add_namespace = soviet
 country_event = {
     id = soviet.1
-	title = "Transfer of Crimea?"
+	title = "Transfer of the Crimea?"
 	desc = soviet.1.d
 	picture = GFX_report_soviet_union
 	

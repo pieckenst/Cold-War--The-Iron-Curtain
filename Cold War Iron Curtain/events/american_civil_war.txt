@@ -6,11 +6,6 @@ country_event = {
 	title = "Socialists recruit unionized workers"
 	desc = "The IWW in New England have recruited some workers to join their communistic union"
 	picture = GFX_report_event_chinese_army_training	### placeholder
-	trigger = {
-		date > 1970.1.1
-		date < 1970.2.2
-		has_country_flag = communist_america_rising
-	}
 	is_triggered_only = yes
 	fire_only_once = yes
 	option = {
@@ -111,14 +106,10 @@ country_event = {
 	desc = "The IWW has taken over the government buildings all over New England, New York and New Jersey, they proclaim the People's Republic of America."
 	is_triggered_only = yes
 	fire_only_once = yes
-	trigger = {
-		has_country_flag = civil_war_trigger
-		date > 1970.6.1
-		date < 1970.7.2
-	}
+
 	option = {
 		name = "For the Revolution! (Changes country to the IWW tag)"
-		change_tag_from = IWW # change will happen if needed
+		IWW = { change_tag_from = USA } # change will happen if needed
 		declare_war_on = {
 			type = civil_war
 			target = IWW
@@ -132,6 +123,7 @@ country_event = {
 			transfer_state = 865
 			transfer_state = 358
 			transfer_state = 359
+			transfer_state = 357
 			# load_oob = "IWW_1970"
 			set_politics = {
 				ruling_party = trotskyism
