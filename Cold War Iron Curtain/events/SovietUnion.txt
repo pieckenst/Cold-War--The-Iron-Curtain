@@ -508,7 +508,7 @@ country_event = {
 		ai_chance = { factor = 62 }
 		name = "I must make a run for it. Whenever they want you gone, you are gone forever. "
 		USA = {
-			country_event = { id = every1.4 hours 24 }
+			country_event = { id = every1.6 hours 24 }
 			set_country_flag = khruschev_seeking_asylum
 		}
 		create_country_leader = {
@@ -704,6 +704,143 @@ country_event = {
 		#every_country = {
 		#	news_event = newssovever.4
 		#}
+	}
+}
+country_event = {
+	id = every1.6
+	title = "Khrushchev Wants Asylum in the US?"
+	desc = every1.6.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = "Nikita Khrushchev would be a great in our fight against CommunisM"
+		create_country_leader = {
+			name = "Nikita Khrushchev"
+			desc = ""
+			picture = "Portrait_Soviet_Nikita_Khrushchev.dds"
+			expire = "1983.3.12"
+			ideology = democratic_socialist
+		}
+		every_country = {
+			news_event = newssovever.5
+		}
+	}
+	option = {
+		name = "We can't accept the backlash behind Khrushchev being allowed in the US. Send him to Mexico. "
+		MEX = {
+			country_event = { id = every1.7 hours = 48 }
+		}
+	}
+}
+country_event = {
+	id = every1.7
+	title = "Khrushchev Wants Asylum in Mexico?"
+	desc = every1.7.d	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = "Might as well put Trotsky's old place to good use"
+		create_country_leader = {
+			name = "Nikita Khrushchev"
+			desc = ""
+			picture = "Portrait_Soviet_Nikita_Khrushchev.dds"
+			expire = "1983.3.12"
+			ideology = democratic_socialist
+		}
+		every_country = {
+			news_event = newssovever.6
+		}
+	}
+	option = {
+		name = "We will not allow Khrushchev in. "
+	}
+}
+news_event = {
+	id = newssovever.5
+	title = "Khrushchev Allowed in US!"
+	desc = newssovever.5.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "We need a plan for this. "
+		trigger = {
+			tag = SOV
+		}
+		#SOV = {
+		#	country_event = { id = every1.10 hours = 48 }
+		#}
+	}
+	option = {
+		name = "e gained a great ally and dealt a great blow to the Red Menace. "
+		trigger = {
+			tag = USA
+		}
+		add_stability = 0.10
+	}
+	option = {
+		name = "How will this affect relations now?"
+		trigger = {
+			NOT = {
+				tag = SOV
+				tag = USA
+			}
+		}
+	}
+}
+news_event = {
+	id = newssovever.6
+	title = "Khrushchev Allowed in Mexico!"
+	desc = newssovever.6.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "We need a plan for this. "
+		trigger = {
+			tag = SOV
+		}		
+		SOV = {
+			country_event = { id = every1.9 hours = 48 }
+		}
+	}
+	option = {
+		name = "e gained a great ally and dealt a great blow to the Red Menace. "
+		set_political_party = { ideology = communism popularity = 0.05 } 
+	}
+}
+
+country_event = {
+	id = every1.9
+	title = "Nikita Khrushchev escapes to Mexico!"
+	desc = every1.9.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = "We have bigger plans. Leave him alone. "
+
+	}
+	option = {
+		name = "We need to stop Soviet secrets from leaking. Send a KGB agent in. "
+		random_list = { 
+                50 = {
+					every_country = {
+						news_event = newssovever.7
+					}
+                }
+                50 = {
+					add_stability = -0.03
+					MEX = {
+						add_stability = -0.03
+					}
+					#SOV = {	
+					#	country_event = { id = every1.11 hours = 48 }
+					#}
+                }
+        }
+
+		set_political_party = { ideology = communism popularity = -0.05 } 
 	}
 }
 ###########################################################################
