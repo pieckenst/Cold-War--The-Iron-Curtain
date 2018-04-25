@@ -880,7 +880,7 @@ news_event = {
 	title = news.1031.t
 	desc = news.1031.d
 	#PICTURES ARE TEMPORARY
-	picture = GFX_news_event_BCR_NATO_saying_no
+	picture = GFX_news_event_tsar_bomba
 
 	major = yes
 
@@ -891,26 +891,39 @@ news_event = {
 		date < 1961.11.1
 		NOT = { has_global_flag = tsar_bomba }
 	}
-
+	
 	immediate = {
 		set_global_flag = tsar_bomba
 	}
-
-	option = {
+	
+	option = {	#Soviet Response
 	  ai_chance = {
-		  factor = 60
+		  factor = 100
+	  }
+		name = news.1031.c
+		trigger = { tag = SOV }
+		add_political_power = +25
+	}
+	
+	option = {	#USA Response
+	  ai_chance = {
+		  factor = 100
 	  }
 		name = news.1031.a
-		add_stability = -0.1
-
+		trigger = { tag = USA }
+		add_political_power = -25
+	  }
 	}
-
-  option = {
+	
+	option = {	#Other Response
 	  ai_chance = {
-		  factor = 40
-    }
+		  factor = 100
+	  }
 		name = news.1031.b
-		add_political_power = -100
+		trigger = {
+			NOT = { tag = USA }
+			NOT = { tag = SOV }	
+	  }
 	}
 }
 
