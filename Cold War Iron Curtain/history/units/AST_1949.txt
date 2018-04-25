@@ -1,225 +1,322 @@
-﻿division_template = {
-	name = "Infantry Division"			# All divisions except 6th were reserves assigned to various military districts
-										# All but 6th are at reserve levels with low experience, older equipment
+﻿##### Division Templates #####
+division_template = {
+	name = "Infantry Division"  	# Standard formation for frontline divisions
+
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
 		infantry = { x = 0 y = 2 }
-		infantry = { x = 0 y = 3 }
 		infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
-		infantry = { x = 1 y = 3 }
-		infantry = { x = 2 y = 0 }
-		infantry = { x = 2 y = 1 }
-		infantry = { x = 2 y = 2 }
-		infantry = { x = 2 y = 3 }
 	}
 	support = {
-		engineer = { x = 0 y = 0 }  
+		artillery = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
 	}
 }
 division_template = {
-	name = "Cavalry Division"  			# Reserve divisions (reserve-level, older equipment, low experience)
+	name = "National Guard Division"  # Standard formation for NG divisions through late 1940
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		infantry = { x = 3 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }  # US Hvy Field Arty consisted of 2 Bns, 155mm howitzers
+		engineer = { x = 0 y = 1 }   # US Eng Rgt consisted of 2 Bns
+	}
+}
+division_template = {
+	name = "Cavalry Division"  	# 1st Cavalry Division only
 
 	regiments = {
 		cavalry = { x = 0 y = 0 }
 		cavalry = { x = 0 y = 1 }
 		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 3 }
 		cavalry = { x = 1 y = 0 }
 		cavalry = { x = 1 y = 1 }
 		cavalry = { x = 1 y = 2 }
+		cavalry = { x = 1 y = 3 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }      # US Cav Recon consisted of 52 ACs, 13 L Arm
+		engineer = { x = 0 y = 1 }   # US Eng Bn
 	}
 }
-
-
 division_template = {
-	name = "Armoured Division"
+	name = "Mechanized Cavalry"  	# 7th Cavalry (Mech.) Brigade, precursor to 1st Armored Div.
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		medium_armor = { x = 1 y = 0}
+		light_armor = { x = 1 y = 1 }
+		light_armor = { x = 1 y = 2}
+	}
+	support = {
+		recon = { x = 0 y = 0 }      
+		engineer = { x = 0 y = 1 }   
+	}
+}
+division_template = {
+	name = "Marine Division" 		# 1st, 2nd Marine Brigades, precursors to 1st, 2nd USMC Divisions
+
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 0 y = 2 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 1 y = 2 }
+		light_armor = { x = 2 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   
+	}
+	priority = 0
+}
+division_template = {
+	name = "Garrison Brigade"  		# used for island defense (older equipment, lower experience)
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+	}
+	support = {}
+	priority = 0
+}
+division_template = {
+	name = "Airborne Division"
+
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+        paratrooper = { x = 0 y = 2 }
+		paratrooper = { x = 1 y = 0 }
+		paratrooper = { x = 1 y = 1 }
+        paratrooper = { x = 1 y = 2 }
+		light_armor = { x = 2 y = 0 }
+	}
+}
+division_template = {
+	name = "Light Armored Division"
 
 	regiments = {
 		light_armor = { x = 0 y = 0 }
 		light_armor = { x = 0 y = 1 }
-		cavalry = { x = 1 y = 0 }
-		cavalry = { x = 1 y = 1 }
+        light_armor = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+       	motorized = { x = 1 y = 1 }
+	}
+	support = {
+        recon = { x = 0 y = 0 }
+        engineer = { x = 0 y = 1 }
+        artillery = { x = 0 y = 2 }
 	}
 }
+division_template = {
+	name = "Medium Armored Division"
 
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+        medium_armor = { x = 0 y = 2 }
+		light_armor = { x = 1 y = 0 }
+		light_armor = { x = 1 y = 1}
+		mechanized = { x = 1 y = 2}
+       	mechanized = { x = 2 y = 0 }
+	}
+	support = {
+        recon = { x = 0 y = 0 }
+        engineer = { x = 0 y = 1 }
+        artillery = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Heavy Armored Division"
 
+	regiments = {
+		heavy_armor = { x = 0 y = 0 }
+		heavy_armor = { x = 0 y = 1 }
+        heavy_armor = { x = 0 y = 2}
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		light_armor = { x = 1 y = 2 }
+		mechanized = { x = 2 y = 0 }
+       	mechanized = { x = 2 y = 1 }
+	}
+	support = {
+        recon = { x = 0 y = 0 }
+        engineer = { x = 0 y = 1 }
+        artillery = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Motorized Infantry Division"
 
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+       	motorized = { x = 0 y = 2 }
+       	motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+        motorized = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Light Mechanized Infantry Division"
+
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		light_armor = { x = 2 y = 0 }
+	}
+	support = {
+	 	engineer = { x = 0 y = 0 }
+	    recon = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Heavy Mechanized Infantry Division"
+
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1}
+		light_armor = { x = 0 y = 2 }
+	}
+	support = {
+	 	engineer = { x = 0 y = 0 }
+	    recon = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Mountain Infantry Division"
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+      	mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+        mountaineers = { x = 1 y = 2 }
+	}
+	support = {
+	 	engineer = { x = 0 y = 0 }
+	    recon = { x = 0 y = 1 }
+	}
+}
 units = {
 	##### Royal Australian Army #####
-	### 2nd Australian Imperial Force (CO: Blamey) ###
 	division= {	
-		#name = "6th Infantry Division"					# CO: Blamey
-        division_name = {    # New syntax for compatibility with name lists
-            is_name_ordered = yes
-            name_order = 6
-        }
-		location = 12406 # Sydney
-		division_template = "Infantry Division"			# Frontline unit, experienced with latest equip., readying for overseas deployment
-		start_experience_factor = 0.3
-	}
-	
-	### Home Defense Militia ###
-	division= {	
-		#name = "5th Infantry Division"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 5
-		}
-		location = 1652 # Perth
+		name = "Canberra Guard Division"
+		location = 7859
 		division_template = "Infantry Division"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
-
+                start_experience_factor =1
+	        start_equipment_factor =1
 	}
 	division= {	
-		#name = "1st Cavalry Division"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 1
-		}
-		location = 7564 # Brisbane
-		division_template = "Cavalry Division"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
-
-	}
-	# 2nd Military District -- New South Wales
-	division= {	
-		#name = "1st Infantry Division"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 1
-		}
-		location = 12406 # Sydney
+		name = "Melbourne Guard Division"
+		location = 7798
 		division_template = "Infantry Division"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
-
+                start_experience_factor =0.6
+	        start_equipment_factor =1
 	}
 	division= {	
-		#name = "2nd Infantry Division"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 2
-		}
-		location = 7859 # Canberra
+		name = "Sydney Guard Division"
+		location = 12406
 		division_template = "Infantry Division"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
-
+                start_experience_factor =0.6
+	        start_equipment_factor =1
 	}
-
-	# 3rd Military District -- New South Wales
 	division= {	
-		#name = "3rd Infantry Division"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 3
-		}
-		location = 7798 # Melbourne
+		name = "Tasmania Guard Division"
+		location = 2189
 		division_template = "Infantry Division"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
-
+                start_experience_factor =0.6
+	        start_equipment_factor =1
 	}
 	division= {	
-		#name = "4th Infantry Division"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 4
-		}
-		location = 7798 # Melbourne
+		name = "Perth Guard Division"
+		location = 1652
 		division_template = "Infantry Division"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
-
+                start_experience_factor =0.6
+	        start_equipment_factor =1
 	}
 	division= {	
-		#name = "2nd Cavalry Division"
-		division_name = {    # New syntax for compatibility with name lists
-			is_name_ordered = yes
-			name_order = 2
-		}
-		location = 7798 # Melbourne
-		division_template = "Cavalry Division"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.3
-
+		name = "Darwin Guard Division"
+		location = 7669
+		division_template = "Infantry Division"
+                start_experience_factor =0.6
+	        start_equipment_factor =1
 	}
 
-	# https://en.wikipedia.org/wiki/List_of_ships_of_the_Royal_Australian_Navy
 	##### Naval OOB #####
-	navy = {				
-		name = "Australian Squadron"			
-		base = 12406
-		location = 12406 # Sydney
-		ship = { name = "HMAS Australia" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = AST version_name = "County Class" } } }
-		ship = { name = "HMAS Arunta" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = AST version_name = "Tribal Class" } } }
-		ship = { name = "HMAS Ararat" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Bowen" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Bunbury" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Bundaberg" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Benalla" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Barcoo" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "River Class" } } }
-		ship = { name = "HMAS Bataan" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = AST version_name = "Tribal Class" } } }
-		ship = { name = "HMAS Barwon" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "River Class" } } }
-		ship = { name = "HMAS Colac" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Cowra" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Cootamundra" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Condamine" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "River Class" } } }
-		ship = { name = "HMAS Culgoa" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "River Class" } } }
-		ship = { name = "HMAS Deloraine" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Diamantina" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "River Class" } } }
-		ship = { name = "HMAS Dubbo" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Echuca" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Fremantle" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Glenelg" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Gympie" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Gladstone" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Gascoyne" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "River Class" } } }
-		ship = { name = "HMAS Horsham" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Hawkesbury" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "River Class" } } }
-		ship = { name = "HMAS Inverell" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Junee" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Katoomba" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Kiama" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Kapunda" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Lithgow" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Mildura" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Macquarie" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "River Class" } } }
-		ship = { name = "HMAS Murchison" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "River Class" } } }
-		ship = { name = "HMAS Parkes" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Quadrant" definition = destroyer equipment = { destroyer_2 = { amount = 1 owner = AST creator = ENG } } }
-		ship = { name = "HMAS Quality" definition = destroyer equipment = { destroyer_2 = { amount = 1 owner = AST creator = ENG } } }
-		ship = { name = "HMAS Queenborough" definition = destroyer equipment = { destroyer_2 = { amount = 1 owner = AST creator = ENG } } }
-		ship = { name = "HMAS Quiberon" definition = destroyer equipment = { destroyer_2 = { amount = 1 owner = AST creator = ENG } } }
-		ship = { name = "HMAS Quickmatch" definition = destroyer equipment = { destroyer_2 = { amount = 1 owner = AST creator = ENG } } }
-		ship = { name = "HMAS Rockhampton" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Shropshire" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = AST version_name = "County Class" } } }
-		ship = { name = "HMAS Stawell" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Shepparton" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Strahan" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Shoalhaven" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "River Class" } } }
-		ship = { name = "HMAS Sydney (R17)" definition = light_carrier equipment = { light_carrier_1 = { amount = 1 owner = AST creator = ENG } }
-			air_wings = {
-				cv_fighter_equipment_4 =  { owner = AST creator = ENG amount = 16 }				
-				cv_nav_bomber_equipment_3 =  { owner = AST creator = ENG amount = 14 }						
-			}
-		}
-		ship = { name = "HMAS Townsville (J205)" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Wagga" definition = frigate equipment = { frigate_1 = { amount = 1 owner = AST version_name = "Bathurst Class" } } }
-		ship = { name = "HMAS Warramunga" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = AST version_name = "Tribal Class" } } }
-	}
+	navy = {					
+		name = "Royal Australian Navy"				
+		base = 12910
+		location = 12910 # San Francisco
+		ship = { name = "HMAS Barcoo" definition = destroyer equipment = { frigate_2 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Codamine" definition = destroyer equipment = { frigate_2 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Culgoa" definition = destroyer equipment = { frigate_2 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Murchison" definition = destroyer equipment = { frigate_2 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Shoalhaven" definition = destroyer equipment = { frigate_2 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Macquarie" definition = destroyer equipment = { frigate_2 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Australia" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Bataan" definition = destroyer equipment = { destroyer_3 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Warramunga" definition = destroyer equipment = { destroyer_3 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Arunta" definition = destroyer equipment = { destroyer_3 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Quadrant" definition = destroyer equipment = { destroyer_3 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Quality" definition = destroyer equipment = { destroyer_3 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Queenborough" definition = destroyer equipment = { destroyer_3 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Quiberon" definition = destroyer equipment = { destroyer_3 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Quickmatch" definition = destroyer equipment = { destroyer_3 = { amount = 1 owner = AST } } }
+	}	
+	navy = {					
+		name = "Reserve Fleet"				
+		base = 12910
+		location = 12910 # San Francisco
+		ship = { name = "HMAS Burdekin" definition = destroyer equipment = { frigate_2 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Hawkesbury" definition = destroyer equipment = { frigate_2 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Barwon" definition = destroyer equipment = { frigate_2 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Grasconye" definition = destroyer equipment = { frigate_2 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Lachlan" definition = destroyer equipment = { frigate_2 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Macquarie" definition = destroyer equipment = { frigate_2 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Shropshire" definition = light_cruiser equipment = { light_cruiser_1 = { amount = 1 owner = AST } } }
+		ship = { name = "HMAS Hobart" definition = light_cruiser equipment = { light_cruiser_2 = { amount = 1 owner = AST } } }
+	}		
 }
+
 air_wings = {
 	### Royal Australian Air Force (RAAF)(CO: ) ###
-	674 = {															# Capital
+	674 = {															# New South Wales
 		# RAAF Stations Laverton, Richmond #
-		fighter_equipment_1 =  { owner = "AST" amount = 32 }		# RAAF Fighter Group -- Hawker Demons
+		fighter_equipment_3 =  { owner = "AST" amount = 32 }		# RAAF Fighter Group -- Hawker Demons
 		CAS_equipment_1 =  { owner = "AST" amount = 48 }			# RAAF Bomber Group -- Westland Wapitis
 		nav_bomber_equipment_1 =  { owner = "AST" amount = 72 }		# No. 1, No. 2 RAAF Coastal Group -- Avro Ansons
+		jet_fighter_equipment_1 =  { owner = "AST" amount = 20 }		# No. 1, No. 2 RAAF Coastal Group -- Avro Ansons
+		heavy_fighter_equipment_3 = { owner = "AST" amount = 13 }
+	}
+	521 = {															# New South Wales
+		# RAAF Stations Laverton, Richmond #
+		strat_bomber_equipment_3 = { owner = "AST" amount = 20 }
 	}
 }
 
