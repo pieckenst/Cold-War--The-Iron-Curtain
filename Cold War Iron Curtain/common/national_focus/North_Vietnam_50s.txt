@@ -13,7 +13,7 @@ focus_tree = {
 		icon = GFX_goal_generic_demand_territory
 		cost = 5.00
 		x = 0
-		y = _1
+		y = -1
                 
                 available_if_capitulated = yes
 
@@ -312,9 +312,13 @@ focus_tree = {
 		}
 		x = 8
 		y = 11
-		completion_reward = {	#Establish Viet Cong
+		completion_reward = {
 			VIE = {
-				add_ideas = Viet_Cong
+				start_civil_war = {
+					ideology = communism
+					size = 0.3
+					states = { 982 }
+				}		
 			}
 		}
 	}
@@ -327,8 +331,19 @@ focus_tree = {
 		}
 		x = 7
 		y = 12
-		completion_reward = {
-			start_civil_war = { ideology = communism size = 0.30 }	#Specify States at a later date	
+			completion_reward = {
+				random_country = {
+					limit = {
+						original_tag = VIE
+						has_government = communism
+					}
+					add_manpower = 25000
+					add_equipment_to_stockpile = {
+							type = infantry_equipment
+							amount = 1000
+							producer = VIN
+						}
+					}
 		}
 	}
 	focus = {
@@ -347,9 +362,9 @@ focus_tree = {
 						has_government = communism
 					}
 					add_equipment_to_stockpile = {
-							type = infantry_equipment_1
+							type = infantry_equipment
 							amount = 2000
-							producer = ROOT
+							producer = VIN
 						}
 					}
 		}
@@ -382,7 +397,10 @@ focus_tree = {
 		}
 		x = 13
 		y = 2
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = VIN_Soviet_Recongition
@@ -396,14 +414,14 @@ focus_tree = {
 			completion_reward = {
 					SOV = {
 							add_opinion_modifier = {
-									target = ROOT
-									modifier = large_increase
+									target = VIN
+									modifier = small_increase
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = SOV
-									modifier = large_increase
+									modifier = small_increase
 								}
 						}
 					}
@@ -420,14 +438,14 @@ focus_tree = {
 			completion_reward = {
 					PRC = {
 							add_opinion_modifier = {
-									target = ROOT
-									modifier = large_increase
+									target = VIN
+									modifier = small_increase
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = PRC
-									modifier = large_increase
+									modifier = small_increase
 								}
 						}
 					}
@@ -456,9 +474,9 @@ focus_tree = {
 		y = 4
 		completion_reward = {
 					add_equipment_to_stockpile = {
-							type = infantry_equipment_2
+							type = infantry_equipment
 							amount = 2000
-							producer = ROOT
+							producer = VIN
 						}
 					}
 	}
@@ -595,7 +613,20 @@ focus_tree = {
 		}
 		x = 17
 		y = 4
-
+			completion_reward = {
+					PRC = {
+							add_opinion_modifier = {
+									target = VIN
+									modifier = large_increase
+								}
+						}
+					VIN = {
+							add_opinion_modifier = {
+									target = PRC
+									modifier = large_increase
+								}
+						}
+					}
 	}
 	focus = {
 		id = VIN_The_Big_Brothers
@@ -655,9 +686,9 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 					add_equipment_to_stockpile = {
-							type = infantry_equipment_1
+							type = infantry_equipment
 							amount = 2000
-							producer = ROOT
+							producer = VIN
 						}		
 		}
 	}
@@ -672,7 +703,7 @@ focus_tree = {
 		y = 4
 		completion_reward = {
 					add_equipment_to_stockpile = {
-							type = infantry_equipment_2
+							type = infantry_equipment
 							amount = 2000
 							producer = JAP
 						}		
@@ -689,7 +720,7 @@ focus_tree = {
 		y = 4
 		completion_reward = {
 					add_equipment_to_stockpile = {
-							type = infantry_equipment_2
+							type = infantry_equipment
 							amount = 2000
 							producer = JAP
 						}		
@@ -725,7 +756,7 @@ focus_tree = {
 		y = 4
 		completion_reward = {
 					add_equipment_to_stockpile = {
-							type = infantry_equipment_2
+							type = infantry_equipment
 							amount = 2000
 							producer = SOV
 						}		
@@ -821,7 +852,7 @@ focus_tree = {
 				picture = "GFX_Giap.dds" 
 				traits = { } 
 				skill = 3 
-				id = VIN_14785
+				id = 14785
 			}	
 		}
 	}
@@ -835,7 +866,12 @@ focus_tree = {
 		x = 25
 		y = 5
 		completion_reward = {
-			promote_leader = 14785
+			every_unit_leader = { 
+				limit = {
+					has_id = 14785
+				}
+				promote_leader = yes
+			}	
 		}
 	}
 	focus = {
@@ -908,11 +944,11 @@ focus_tree = {
 			completion_reward = {
 					VIE = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = large_increase
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = VIE
 									modifier = large_increase
@@ -1007,11 +1043,11 @@ focus_tree = {
 			completion_reward = {
 					SOV = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = large_decrease
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = SOV
 									modifier = large_decrease
@@ -1049,11 +1085,11 @@ focus_tree = {
 					}
 					VIE = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = large_decrease
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = VIE
 									modifier = large_decrease
@@ -1074,11 +1110,11 @@ focus_tree = {
 					add_war_support = 0.15
 					USA = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = large_decrease
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = USA
 									modifier = large_decrease
@@ -1099,11 +1135,11 @@ focus_tree = {
 					add_political_power = 150
 					VIE = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = small_decrease
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = VIE
 									modifier = small_decrease
@@ -1338,7 +1374,22 @@ focus_tree = {
 		}
 		x = 31
 		y = 11
-
+		completion_reward = {
+			671 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 5
+					instant_build = yes
+				}		
+			}
+			881 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 5
+					instant_build = yes
+				}		
+			}
+		}
 	}
 	focus = {
 		id = VIN_Southern_Infrastructure
@@ -1349,7 +1400,22 @@ focus_tree = {
 		}
 		x = 31
 		y = 12
-
+		completion_reward = {
+			786 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 5
+					instant_build = yes
+				}		
+			}
+			838 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 5
+					instant_build = yes
+				}		
+			}
+		}
 	}
 	focus = {
 		id = VIN_Apply_Marxism_in_Vietnam
@@ -1377,11 +1443,11 @@ focus_tree = {
 					add_war_support = 0.15
 					FRA = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = large_decrease
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = FRA
 									modifier = large_decrease
@@ -1765,11 +1831,11 @@ focus_tree = {
 			completion_reward = {
 					USA = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = small_increase
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = USA
 									modifier = small_increase
@@ -1790,11 +1856,11 @@ focus_tree = {
 			completion_reward = {
 					USA = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = small_increase
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = USA
 									modifier = small_increase
@@ -1815,22 +1881,22 @@ focus_tree = {
 			completion_reward = {
 					SOV = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = small_decrease
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = SOV
 									modifier = small_decrease
 								}
 						PRC = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = small_decrease
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = PRC
 									modifier = small_decrease
@@ -1838,11 +1904,11 @@ focus_tree = {
 						}
 						KPA = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = small_decrease
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = KPA
 									modifier = small_decrease
@@ -1863,11 +1929,11 @@ focus_tree = {
 			completion_reward = {
 					SOV = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = large_decrease
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = SOV
 									modifier = large_decrease
@@ -1890,11 +1956,11 @@ focus_tree = {
 					is_in_faction_with = SOV
 				}
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = large_decrease
 								}
 								reverse_add_opinion_modifier  = {
-									target = ROOT
+									target = VIN
 									modifier = large_decrease
 								}
 			}
@@ -1933,11 +1999,11 @@ focus_tree = {
 		completion_reward = {
 						PRC = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = large_decrease
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = PRC
 									modifier = large_decrease
@@ -1969,7 +2035,7 @@ focus_tree = {
 		y = 15
 		completion_reward = {
 					add_equipment_to_stockpile = {
-							type = infantry_equipment_2
+							type = infantry_equipment
 							amount = 5000
 							producer = USA
 						}				
@@ -2001,7 +2067,7 @@ focus_tree = {
 		y = 15
 		completion_reward = {
 					add_equipment_to_stockpile = {
-							type = infantry_equipment_2
+							type = infantry_equipment
 							amount = 5000
 							producer = VIE
 						}		
@@ -2311,11 +2377,11 @@ focus_tree = {
 			completion_reward = {
 					SOV = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = small_increase
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = SOV
 									modifier = small_increase
@@ -2339,11 +2405,11 @@ focus_tree = {
 			completion_reward = {
 					SOV = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = small_increase
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = SOV
 									modifier = small_increase
@@ -2363,11 +2429,11 @@ focus_tree = {
 			completion_reward = {
 					SOV = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = large_increase
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = SOV
 									modifier = large_increase
@@ -2405,11 +2471,11 @@ focus_tree = {
 			completion_reward = {
 					PRC = {
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = small_increase
 								}
 						}
-					ROOT = {
+					VIN = {
 							add_opinion_modifier = {
 									target = PRC
 									modifier = small_increase
@@ -2484,6 +2550,7 @@ focus_tree = {
 		}
 		x = 68
 		y = 13
+		completion_reward = {
 			if = {
 				limit = {
 					has_government = communism
@@ -2671,7 +2738,13 @@ focus_tree = {
 		}
 		x = 11
 		y = 5
-
+		completion_reward = {
+					add_equipment_to_stockpile = {
+							type = artillery_equipment_1
+							amount = 500
+							producer = PRC
+						}		
+		}
 	}
 	focus = {
 		id = VIN_First_AA_Battalion
@@ -2682,7 +2755,15 @@ focus_tree = {
 		}
 		x = 9
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_weapons_bonus
+							bonus = 0.5
+							uses = 1
+							category = infantry_weapons
+							category = artillery
+						}
+				}
 	}
 	focus = {
 		id = VIN_Mechanize_Our_Army
@@ -2693,7 +2774,14 @@ focus_tree = {
 		}
 		x = 9
 		y = 5
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 0.5
+				uses = 1
+				category = armor
+			}
+		}
 	}
 	focus = {
 		id = VIN_First_Anti_tank_Models
@@ -2704,7 +2792,15 @@ focus_tree = {
 		}
 		x = 19
 		y = 5
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_weapons_bonus
+							bonus = 0.5
+							uses = 1
+							category = infantry_weapons
+							category = artillery
+						}
+				}
 	}
 	focus = {
 		id = VIN_Cooperate_with_the_Landlords
@@ -2737,7 +2833,15 @@ focus_tree = {
 		}
 		x = 7
 		y = 13
-
+		completion_reward = {
+			VIE = {
+				random_list = {
+					35 = { add_to_variable = { var = commie_infil value = 5  }	}
+					35 = { add_to_variable = { var = commie_infil value = 3  }	}
+					30 = { add_to_variable = { var = commie_infil value = 7  }	}
+				}
+			}	
+		}
 	}
 	focus = {
 		id = VIN_South_Vietnamese_Officers
@@ -2855,13 +2959,7 @@ focus_tree = {
 		x = 10
 		y = 15
 		completion_reward = {
-			random_country = {
-				limit = {
-					has_government = communism
-					original_tag = VIE
-				}
-				add_manpower = 50000	
-			}
+			declare_war_on = { target = VIE type = annex_everything } 
 		}
 	}
 	focus = {
@@ -2884,7 +2982,20 @@ focus_tree = {
 		}
 		x = 19
 		y = 14
-
+			completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = VIN
+									modifier = large_increase
+								}
+						}
+					VIN = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					}
 	}
 	focus = {
 		id = VIN_Consolidate_Our_Power
@@ -3182,11 +3293,11 @@ focus_tree = {
 				}
 			
 							add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = large_increase
 								}
 							reverse_add_opinion_modifier = {
-									target = ROOT
+									target = VIN
 									modifier = large_increase
 								}
 							}
