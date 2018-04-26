@@ -545,7 +545,10 @@ focus_tree = {
 		}
 		x = 15
 		y = 10
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = VIN_Export_Communism_in_Indochina
@@ -569,7 +572,44 @@ focus_tree = {
 		}
 		x = 13
 		y = 12
-
+		available = {
+			OR = {
+				AND = {
+					country_exists = LAO
+					LAO = {
+						has_government = communism
+					}
+				}
+				AND = {
+					original_tag = LOS
+					has_government = communism
+				}
+			}
+		}
+		completion_reward = {
+			random_country = {
+				limit = {
+					OR = {
+						AND = {
+							country_exists = LAO
+							LAO = {
+								has_government = communism
+							}
+						}
+						AND = {
+							original_tag = LOS
+							has_government = communism
+						}
+					}	
+				}
+				add_manpower = 100000
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = VIN
+				}				
+			}
+		}
 	}
 	focus = {
 		id = VIN_Intervene_in_the_Laotian_Civil_War
@@ -580,7 +620,40 @@ focus_tree = {
 		}
 		x = 13
 		y = 13
-
+		available = {
+			OR = {
+				AND = {
+					country_exists = LAO
+					LAO = {
+						has_government = communism
+					}
+				}
+				AND = {
+					original_tag = LOS
+					has_government = communism
+				}
+			}
+		}
+		completion_reward = {
+			random_country = {
+				limit = {
+					OR = {
+						AND = {
+							country_exists = LAO
+							LAO = {
+								has_government = communism
+							}
+						}
+						AND = {
+							original_tag = LOS
+							has_government = communism
+						}
+					}	
+				}
+				add_to_war = { targeted_alliance = VIN enemy = LOS }
+				add_to_war = { targeted_alliance = VIN enemy = LAS }				
+			}
+		}
 	}
 	focus = {
 		id = VIN_Chinese_Volunteer_Division
@@ -591,7 +664,10 @@ focus_tree = {
 		}
 		x = 15
 		y = 4
-
+		completion_reward = {
+			load_oob = VIN_chinese_reinforcements
+			add_manpower = 100000
+		}
 	}
 	focus = {
 		id = VIN_Aid_the_KPRP
@@ -602,7 +678,20 @@ focus_tree = {
 		}
 		x = 15
 		y = 12
-
+		completion_reward = {
+			if = {
+				limit = {
+					has_government = maoism
+				}
+				add_timed_idea = { idea = maoist_drift days = 700 }
+			}
+			if = {
+				limit = {
+					has_government = communism
+				}
+				add_timed_idea = { idea = internationalism days = 700 }
+			}
+		}
 	}
 	focus = {
 		id = VIN_Closer_Ties_with_the_PRC
@@ -637,7 +726,30 @@ focus_tree = {
 		}
 		x = 18
 		y = 11
-
+		completion_reward = {
+			add_opinion_modifier = {
+				target = PRC
+				modifier = small_increase
+			}	
+			PRC = {
+				add_opinion_modifier = {
+					target = VIN
+					modifier = small_increase
+				}	
+			}
+			add_ideas = soviet_advisors
+			add_manpower = 25000
+			add_opinion_modifier = {
+				target = SOV
+				modifier = small_increase
+			}	
+			SOV = {
+				add_opinion_modifier = {
+					target = VIN
+					modifier = small_increase
+				}	
+			}
+		}
 	}
 	focus = {
 		id = VIN_Improve_Relations_with_the_PRC
@@ -648,7 +760,18 @@ focus_tree = {
 		}
 		x = 17
 		y = 12
-
+		completion_reward = {
+			add_opinion_modifier = {
+				target = PRC
+				modifier = large_increase
+			}	
+			PRC = {
+				add_opinion_modifier = {
+					target = VIN
+					modifier = large_increase
+				}	
+			}
+		}
 	}
 	focus = {
 		id = VIN_Seek_Chinese_Aids
@@ -659,7 +782,73 @@ focus_tree = {
 		}
 		x = 17
 		y = 13
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					add_manpower = 50000
+					army_experience = 25
+				}
 	}
 	focus = {
 		id = VIN_Develop_the_Peoples_Army
@@ -722,7 +911,7 @@ focus_tree = {
 					add_equipment_to_stockpile = {
 							type = infantry_equipment
 							amount = 2000
-							producer = JAP
+							producer = FRA
 						}		
 		}
 	}
@@ -1156,7 +1345,9 @@ focus_tree = {
 		}
 		x = 27
 		y = 15
-
+		completion_reward = {
+			add_timed_idea = { idea = fortification_build_up days = 900 }
+		}
 	}
 	focus = {
 		id = VIN_Ethnic_Minority_Patriots
@@ -1571,7 +1762,34 @@ focus_tree = {
 		}
 		x = 38
 		y = 2
-	
+				completion_reward = {
+					add_war_support = 0.1
+					add_political_power = 150
+					ENG = {
+							add_opinion_modifier = {
+									target = VIN
+									modifier = large_decrease
+								}
+						}
+					VIN = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+							}
+					FRA = {
+							add_opinion_modifier = {
+									target = VIN
+									modifier = large_decrease
+								}
+						}
+					VIN = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_decrease
+								}
+							}
+						}
 	}
 	focus = {
 		id = VIN_Raise_Patriotism_Amongst_Our_People
@@ -1816,7 +2034,12 @@ focus_tree = {
 		x = 49
 		y = 11
 		completion_reward = {
-			add_political_power = 300
+			set_politics = {
+				ruling_party = nationalism
+				elections_allowed = no
+			}
+			add_popularity = { ideology = nationalism popularity = 0.50 }	
+			add_ideas = nationalist_drift
 		}
 	}
 	focus = {
@@ -1976,12 +2199,9 @@ focus_tree = {
 		x = 53
 		y = 12
 		completion_reward = {
-			set_politics = {
-				ruling_party = nationalism
-				elections_allowed = no
-			}
-			add_popularity = { ideology = nationalism popularity = 0.70 }	
+			add_popularity = { ideology = nationalism popularity = 0.25 }	
 			add_ideas = nationalist_drift
+			add_ideas = military_youth_focus
 		}
 	}
 	focus = {
@@ -2282,7 +2502,7 @@ focus_tree = {
 		x = 58
 		y = 17
 		completion_reward = {
-			add_ideas = KOR_education_reform
+			add_research_slot = 1
 		}
 	}
 	focus = {
@@ -2584,7 +2804,13 @@ focus_tree = {
 		}
 		x = 68
 		y = 14
-
+		completion_reward = {
+			SIA = {
+				add_political_power = -300
+				add_stability = -0.15
+				add_war_support = -0.10
+			}
+		}
 	}
 	focus = {
 		id = VIN_Trigger_Thai_Civil_War
@@ -2595,7 +2821,38 @@ focus_tree = {
 		}
 		x = 68
 		y = 15
-
+		available = {
+			if = { 
+				limit = {
+					has_government = communism
+				}
+				SIA = {
+					communism > 0.4
+				}
+			}
+			if = { 
+				limit = {
+					has_government = maoism
+				}
+				SIA = {
+					maoism > 0.4
+				}
+			}			
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_government = maoism
+				}
+				SIA = { start_civil_war = { ideology = maoism size = 0.30 } }	#Specify States at a later date
+			}
+			if = {
+				limit = {
+					has_government = communism
+				}
+				SIA = { start_civil_war = { ideology = communism size = 0.30 } }	#Specify States at a later date
+			}
+		}
 	}
 	focus = {
 		id = VIN_Improve_Relation_with_Thais_People_Republic
@@ -2606,7 +2863,22 @@ focus_tree = {
 		}
 		x = 68
 		y = 16
-
+		completion_reward = {
+			random_country = {
+				limit = {
+					original_tag = SIA
+					has_government = communism
+					}
+				}
+							reverse_add_opinion_modifier = {
+								target = VIN
+								modifier = large_increase
+							}
+							add_opinion_modifier = {
+									target = VIN
+									modifier = large_increase
+							}			
+			}
 	}
 	focus = {
 		id = VIN_Malaysian_Communist_in_Exile
@@ -2617,7 +2889,10 @@ focus_tree = {
 		}
 		x = 70
 		y = 13
-
+		completion_reward = {
+			army_experience = 20
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = VIN_Spread_Communism_in_Malaysia
@@ -2628,7 +2903,25 @@ focus_tree = {
 		}
 		x = 70
 		y = 14
-
+		completion_reward = {
+				if = { 
+					limit = {
+						has_government = communism
+					}
+					MAL = {
+						add_timed_idea = { idea = internationalism days = 750 }
+					}
+				}
+				if = { 
+					limit = {
+						has_government = maoism
+					}
+					MAL = {
+						add_timed_idea = { idea = maoist_drift days = 750 
+					}
+				}
+			}
+		}
 	}
 	focus = {
 		id = VIN_Return_of_Socialism_in_Malaysia
@@ -2639,7 +2932,38 @@ focus_tree = {
 		}
 		x = 70
 		y = 15
-
+		available = {
+			if = { 
+				limit = {
+					has_government = communism
+				}
+				MAL = {
+					communism > 0.4
+				}
+			}
+			if = { 
+				limit = {
+					has_government = maoism
+				}
+				MAL = {
+					maoism > 0.4
+				}
+			}			
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_government = maoism
+				}
+				MAL = { start_civil_war = { ideology = maoism size = 0.30 } }	#Specify States at a later date
+			}
+			if = {
+				limit = {
+					has_government = communism
+				}
+				MAL = { start_civil_war = { ideology = communism size = 0.30 } }	#Specify States at a later date
+			}
+		}
 	}
 	focus = {
 		id = VIN_Improve_Relation_with_Malaysian_Communist_Party
@@ -2650,7 +2974,22 @@ focus_tree = {
 		}
 		x = 70
 		y = 16
-
+		completion_reward = {
+			random_country = {
+				limit = {
+					original_tag = MAL
+					has_government = communism
+					}
+				}
+							reverse_add_opinion_modifier = {
+								target = VIN
+								modifier = large_increase
+							}
+							add_opinion_modifier = {
+									target = VIN
+									modifier = large_increase
+							}			
+			}
 	}
 	focus = {
 		id = VIN_Filippino_Communist_in_exile
@@ -2661,7 +3000,10 @@ focus_tree = {
 		}
 		x = 72
 		y = 13
-
+		completion_reward = {
+			add_political_power = 300
+			army_experience = 20
+		}
 	}
 	focus = {
 		id = VIN_Spread_Communism_in_Phillippines
@@ -2672,7 +3014,25 @@ focus_tree = {
 		}
 		x = 72
 		y = 14
-
+		completion_reward = {
+				if = { 
+					limit = {
+						has_government = communism
+					}
+					"PHI" = {
+						add_timed_idea = { idea = internationalism days = 750 }
+					}
+				}
+				if = { 
+					limit = {
+						has_government = maoism
+					}
+					"PHI" = {
+						add_timed_idea = { idea = maoist_drift days = 750 
+					}
+				}
+			}
+		}
 	}
 	focus = {
 		id = VIN_Return_Of_Socialism_in_the_Philippines
@@ -2683,7 +3043,38 @@ focus_tree = {
 		}
 		x = 72
 		y = 15
-
+		available = {
+			if = { 
+				limit = {
+					has_government = communism
+				}
+				"PHI" = {
+					communism > 0.4
+				}
+			}
+			if = { 
+				limit = {
+					has_government = maoism
+				}
+				"PHI" = {
+					maoism > 0.4
+				}
+			}			
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_government = maoism
+				}
+				"PHI" = { start_civil_war = { ideology = maoism size = 0.30 } }	#Specify States at a later date
+			}
+			if = {
+				limit = {
+					has_government = communism
+				}
+				"PHI" = { start_civil_war = { ideology = communism size = 0.30 } }	#Specify States at a later date
+			}
+		}
 	}
 	focus = {
 		id = VIN_Improve_Relation_with_Fillippino_Communist_Party
@@ -2694,7 +3085,22 @@ focus_tree = {
 		}
 		x = 72
 		y = 16
-
+		completion_reward = {
+			random_country = {
+				limit = {
+					original_tag = "PHI"
+					has_government = communism
+					}
+				}
+							reverse_add_opinion_modifier = {
+								target = VIN
+								modifier = large_increase
+							}
+							add_opinion_modifier = {
+									target = VIN
+									modifier = large_increase
+							}			
+			}
 	}
 	focus = {
 		id = VIN_Support_the_Pathet_Lao
@@ -2705,7 +3111,44 @@ focus_tree = {
 		}
 		x = 74
 		y = 13
-
+		available = {
+			OR = {
+				AND = {
+					country_exists = LAO
+					LAO = {
+						has_government = communism
+					}
+				}
+				AND = {
+					original_tag = LOS
+					has_government = communism
+				}
+			}
+		}
+		completion_reward = {
+			random_country = {
+				limit = {
+					OR = {
+						AND = {
+							country_exists = LAO
+							LAO = {
+								has_government = communism
+							}
+						}
+						AND = {
+							original_tag = LOS
+							has_government = communism
+						}
+					}	
+				}
+				add_manpower = 100000
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = VIN
+				}				
+			}
+		}
 	}
 	focus = {
 		id = VIN_Intervention_in_the_Laotian_Civil_War
@@ -2716,7 +3159,40 @@ focus_tree = {
 		}
 		x = 74
 		y = 14
-
+		available = {
+			OR = {
+				AND = {
+					country_exists = LAO
+					LAO = {
+						has_government = communism
+					}
+				}
+				AND = {
+					original_tag = LOS
+					has_government = communism
+				}
+			}
+		}
+		completion_reward = {
+			random_country = {
+				limit = {
+					OR = {
+						AND = {
+							country_exists = LAO
+							LAO = {
+								has_government = communism
+							}
+						}
+						AND = {
+							original_tag = LOS
+							has_government = communism
+						}
+					}	
+				}
+				add_to_war = { targeted_alliance = VIN enemy = LOS }
+				add_to_war = { targeted_alliance = VIN enemy = LAS }				
+			}
+		}
 	}
 	focus = {
 		id = VIN_Improve_Relation_with_Pathet_Lao
@@ -2727,7 +3203,46 @@ focus_tree = {
 		}
 		x = 74
 		y = 15
-
+		available = {
+			OR = {
+				AND = {
+					country_exists = LAO
+					LAO = {
+						has_government = communism
+					}
+				}
+				AND = {
+					original_tag = LOS
+					has_government = communism
+				}
+			}
+		}
+		completion_reward = {
+			random_country = {
+				limit = {
+					OR = {
+						AND = {
+							country_exists = LAO
+							LAO = {
+								has_government = communism
+							}
+						}
+						AND = {
+							original_tag = LOS
+							has_government = communism
+						}
+					}	
+				}
+							reverse_add_opinion_modifier = {
+								target = VIN
+								modifier = large_increase
+							}
+							add_opinion_modifier = {
+									target = VIN
+									modifier = large_increase
+								}			
+			}
+		}
 	}
 	focus = {
 		id = VIN_Chinese_Arthillery
@@ -2811,7 +3326,27 @@ focus_tree = {
 		}
 		x = 37
 		y = 5
-
+		completion_reward = {
+			add_stability = 0.10
+			add_war_support = -0.10
+			add_political_power = -150
+			random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}			
+			}
+			random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}			
+			}
+		}
 	}
 	focus = {
 		id = VIN_War_Technological_Advances
@@ -2822,7 +3357,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 15
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = VIN_Anti_Neo_Imperialism_Prapoganda
@@ -2971,7 +3508,101 @@ focus_tree = {
 		}
 		x = 19
 		y = 13
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIN_Establish_Soviet_Embassy_in_Hanoi
@@ -3019,7 +3650,39 @@ focus_tree = {
 		}
 		x = 22
 		y = 13
-
+		completion_reward = {
+			add_ideas = maoist_drift
+				VIE = {
+					add_timed_idea = {
+						idea = maoist_drift
+						days = 700
+					}
+				}
+				CMB = {
+					add_timed_idea = {
+						idea = maoist_drift
+						days = 700
+					}
+				}
+				LOS = {
+					add_timed_idea = {
+						idea = maoist_drift
+						days = 700
+					}
+				}
+				SIA = {
+					add_timed_idea = {
+						idea = maoist_drift
+						days = 700
+					}
+				}
+				"PHI" = {
+					add_timed_idea = {
+						idea = maoist_drift
+						days = 700
+					}
+				}
+		}
 	}
 	focus = {
 		id = VIN_Chinese_Influenes_in_the_Party
@@ -3030,7 +3693,12 @@ focus_tree = {
 		}
 		x = 22
 		y = 14
-
+		available = {
+			country_exists = PRC
+		}
+		completion_reward = {
+			PRC = { diplomatic_relation = { country = VIN relation = guarantee active = yes } }
+		}
 	}
 	focus = {
 		id = VIN_Consolidate_Maoism
@@ -3041,7 +3709,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 15
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = VIN_Treaty_with_France
@@ -3052,7 +3722,20 @@ focus_tree = {
 		}
 		x = 36
 		y = 12
-
+			completion_reward = {
+					FRA = {
+							add_opinion_modifier = {
+									target = VIN
+									modifier = large_increase
+								}
+						}
+					VIN = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						}
+					}
 	}
 	focus = {
 		id = VIN_Treaty_with_USA
@@ -3063,7 +3746,20 @@ focus_tree = {
 		}
 		x = 36
 		y = 13
-
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = VIN
+									modifier = large_increase
+								}
+						}
+					VIN = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					}
 	}
 	focus = {
 		id = VIN_Wipe_out_Colonial_Eras_Traces
@@ -3074,7 +3770,11 @@ focus_tree = {
 		}
 		x = 36
 		y = 14
-
+		completion_reward = {
+			add_stability = 0.15
+			add_political_power = 400
+			
+		}
 	}
 	focus = {
 		id = VIN_Support_the_Landlords
@@ -3088,7 +3788,26 @@ focus_tree = {
 		}
 		x = 35
 		y = 15
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+						add_stability = -0.05
+						add_political_power = -200
+			}
 	}
 	focus = {
 		id = VIN_Support_the_Farmers
@@ -3102,7 +3821,14 @@ focus_tree = {
 		}
 		x = 37
 		y = 15
-
+		completion_reward = {
+			add_stability = 0.10
+			add_political_power = 400
+			every_owned_state = {
+				add_manpower = 50000
+			}
+		
+		}
 	}
 	focus = {
 		id = VIN_Investments_from_our_Former_Master
@@ -3113,7 +3839,101 @@ focus_tree = {
 		}
 		x = 39
 		y = 13
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIN_Accept_French_Interests_in_Indochina
@@ -3127,7 +3947,36 @@ focus_tree = {
 		}
 		x = 39
 		y = 14
-
+		completion_reward = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						VIN = {
+							add_opinion_modifier = {
+									target = VIN
+									modifier = large_increase
+								}
+							}
+					add_political_power = -300
+					add_stability = -0.10
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIN_Invite_American_Corporations
@@ -3138,7 +3987,101 @@ focus_tree = {
 		}
 		x = 45
 		y = 14
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIN_Improve_Relations_with_the_Capitalist_World
@@ -3149,7 +4092,22 @@ focus_tree = {
 		}
 		x = 47
 		y = 13
-
+			completion_reward = {
+					every_country = {
+						limit = { 
+							has_idea = nato_member 
+						}
+							reverse_add_opinion_modifier = {
+								target = VIN
+								modifier = large_increase
+							}
+							add_opinion_modifier = {
+									target = VIN
+									modifier = large_increase
+								}
+						
+					}
+				}
 	}
 	focus = {
 		id = VIN_US_based_Society
@@ -3160,7 +4118,43 @@ focus_tree = {
 		}
 		x = 47
 		y = 14
-
+		completion_reward = {
+			add_stability = 0.25
+			add_political_power = 300
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+		}
 	}
 	focus = {
 		id = VIN_A_Marshall_Plan_in_Indochina
@@ -3171,7 +4165,101 @@ focus_tree = {
 		}
 		x = 49
 		y = 16
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIN_Establish_Research_Institue
@@ -3183,7 +4271,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 15
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = VIN_Technological_Advances
@@ -3194,7 +4284,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 16
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = VIN_Technological_Advance
@@ -3205,7 +4297,9 @@ focus_tree = {
 		}
 		x = 58
 		y = 18
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = VIN_Consolidate_Leninism
@@ -3216,7 +4310,13 @@ focus_tree = {
 		}
 		x = 64
 		y = 14
-
+		completion_reward = {
+			add_political_power = 300
+			add_timed_idea = {
+				idea = internationalism
+				days = 700
+			}
+		}
 	}
 	focus = {
 		id = VIN_Support_the_KPRP
@@ -3228,20 +4328,21 @@ focus_tree = {
 		x = 76
 		y = 13
 		completion_reward = {
-			if = { 
-				limit = {
-					has_government = communism
+				if = { 
+					limit = {
+						has_government = communism
+					}
+					CMB = {
+						add_timed_idea = { idea = internationalism days = 750 }
+					}
 				}
-				CMB = {
-					add_timed_idea = { idea = internationalism days = 750 }
-				}
-			}
-			if = { 
-				limit = {
-					has_government = maoism
-				}
-				CMB = {
-					add_timed_idea = { idea = maoist_drift days = 750 
+				if = { 
+					limit = {
+						has_government = maoism
+					}
+					CMB = {
+						add_timed_idea = { idea = maoist_drift days = 750 
+					}
 				}
 			}
 		}
@@ -3322,8 +4423,6 @@ focus_tree = {
 				}
 				CMB = { start_civil_war = { ideology = maoism size = 0.30 } }	#Specify States at a later date
 			}
-		}
-		completion_reward = {
 			if = {
 				limit = {
 					has_government = communism
@@ -3343,7 +4442,7 @@ focus_tree = {
 		y = 16
 		completion_reward = {
 			SOV = {
-				country_event = generic.2
+				country_event = generic.8
 			}
 		}
 	}
@@ -3358,7 +4457,7 @@ focus_tree = {
 		y = 15
 		completion_reward = {
 			SOV = {
-				country_event = generic.2
+				country_event = generic.8
 			}
 		}
 	}
