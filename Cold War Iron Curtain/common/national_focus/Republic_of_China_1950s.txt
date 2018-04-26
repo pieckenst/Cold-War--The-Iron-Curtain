@@ -217,7 +217,13 @@ focus_tree = {
 					add_political_power = 120
 					add_stability = 0.10
 				}
-
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
 	}
 	focus = {
 		id = CHI_american_alignment
@@ -245,7 +251,9 @@ focus_tree = {
 								}
 						}
 				}
-
+		ai_will_do = {
+			factor = 2
+		}
 	}
 	focus = {
 		id = CHI_victory_in_the_civil_war
@@ -2280,6 +2288,13 @@ focus_tree = {
 				days = 365
 			}		
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
 	}
 	focus = {
 		id = CHI_strike_back_against_the_communists
@@ -2326,6 +2341,9 @@ focus_tree = {
 				}			
 			}
 		}
+		ai_will_do = {
+			factor = 2
+		}
 	}
 	focus = {
 		id = CHI_retreat_to_taiwan
@@ -2335,7 +2353,8 @@ focus_tree = {
 			focus = CHI_begin_moving_supplies_to_taiwan
 		}
         available = {
-			NOT= { has_global_flag = PRC_mainland }
+			date > 1950.1.1
+			NOT = { has_global_flag = PRC_mainland }
 			CHI = { has_war_with = PRC }
 		}
 		x = 32
@@ -2924,6 +2943,13 @@ focus_tree = {
 		completion_reward = {
 			remove_ideas = decleration_of_martial_law
 		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
 	}
 	focus = {
 		id = CHI_embrace_capitalism
@@ -3184,8 +3210,6 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = CHI_develop_light_industry
-		}
-		prerequisite = {
 			focus = CHI_liberalization_of_society
 		}
 		x = 44
@@ -3214,8 +3238,8 @@ focus_tree = {
 		prerequisite = {
 			focus = CHI_sino_american_mutual_defense_treaty
 		}
-		prerequisite = {
-			focus = CHI_liberalization_of_society
+		available = {
+			has_completed_focus = CHI_liberalization_of_society
 		}
 		mutually_exclusive = {
 			focus = CHI_solidify_KMT_control
@@ -3280,8 +3304,8 @@ focus_tree = {
 		prerequisite = {
 			focus = CHI_sino_american_mutual_defense_treaty
 		}
-		prerequisite = {
-			focus = CHI_develop_light_industry
+		available = {
+			has_completed_focus = CHI_develop_light_industry
 		}
 		mutually_exclusive = {
 			focus = CHI_CIA_coup
@@ -3326,6 +3350,13 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = monarchist_influence
 			set_politics = { ruling_party = monarchism elections_allowed = no }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
 		}
 	}
 	focus = {
@@ -3463,6 +3494,13 @@ focus_tree = {
 							ruling_party = nationalism
 							elections_allowed = no
 						}		
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
 		}
 	}
 	focus = {
