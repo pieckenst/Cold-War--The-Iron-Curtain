@@ -17,7 +17,9 @@ focus_tree = {
 			completion_reward = {
 					army_experience = 30
 				}
-
+		ai_will_do = {
+			factor = 20
+		}
 	}
 	focus = {
 		id = KPA_Rebuild_the_Nation
@@ -129,6 +131,9 @@ focus_tree = {
 		y = 0
 		completion_reward = {
 			add_political_power = 300
+		}
+		ai_will_do = {
+			factor = 5
 		}
 	}
 	focus = {
@@ -1431,7 +1436,9 @@ random_owned_controlled_state = {
 							category = air_doctrine
 						}
 				}
-
+		ai_will_do = {
+			factor = 2
+		}
 	}
 	focus = {
 		id = KPA_fighter_focus
@@ -1445,21 +1452,47 @@ random_owned_controlled_state = {
 		}
 		x = 27
 		y = 2
-			completion_reward = {
-					add_tech_bonus = {
-							name = fighter_bonus
-							bonus = 0.5
-							uses = 2
-							technology = early_fighter
-							technology = fighter1
-							technology = fighter2
-							technology = fighter3
-							technology = heavy_fighter1
-							technology = heavy_fighter2
-							technology = heavy_fighter3
-						}
+		completion_reward = {
+			SOV = {
+				create_production_license = {
+					target = KPA 
+					equipment = {
+						type = CAS_equipment_3
+					}
+					cost_factor = 0
 				}
-
+				create_production_license = {
+					target = KPA 
+					equipment = {
+						type = jet_fighter_equipment_1
+					}
+					cost_factor = 0
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = jet_fighter_equipment_2
+				amount = 20
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = jet_fighter_equipment_1
+				amount = 40
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_3
+				amount = 60
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = CAS_equipment_3
+				amount = 20
+				producer = SOV
+			}
+		}
+		ai_will_do = {
+			factor = 2
+		}
 	}
 	focus = {
 		id = KPA_bomber_focus
@@ -1473,18 +1506,42 @@ random_owned_controlled_state = {
 		}
 		x = 29
 		y = 2
-			completion_reward = {
-					add_tech_bonus = {
-							name = bomber_bonus
-							bonus = 0.5
-							uses = 2
-							technology = strategic_bomber1
-							technology = strategic_bomber2
-							technology = strategic_bomber3
-							category = tactical_bomber
-						}
+		completion_reward = {
+			SOV = {
+				create_production_license = {
+					target = KPA 
+					equipment = {
+						type = CAS_equipment_3
+					}
+					cost_factor = 0
 				}
-
+				create_production_license = {
+					target = KPA 
+					equipment = {
+						type = jet_tac_bomber_equipment_1
+					}
+					cost_factor = 0
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = jet_tac_bomber_equipment_1
+				amount = 20
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = CAS_equipment_4
+				amount = 20
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = CAS_equipment_3
+				amount = 40
+				producer = SOV
+			}
+		}
+		ai_will_do = {
+			factor = 0.5
+		}
 	}
 	focus = {
 		id = KPA_aviation_effort_2
@@ -1572,7 +1629,9 @@ random_owned_controlled_state = {
 							category = air_doctrine
 						}
 				}
-
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	focus = {
 		id = KPA_CAS_effort
@@ -1583,16 +1642,17 @@ random_owned_controlled_state = {
 		}
 		x = 27
 		y = 4
-			completion_reward = {
-					add_tech_bonus = {
-							name = CAS_bonus
-							bonus = 0.5
-							ahead_reduction = 1
-							uses = 1
-							category = cas_bomber
-						}
-				}
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = CAS_bonus
+				bonus = 0.5
+				uses = 1
+				category = cas_bomber
+			}
+		}
+		ai_will_do = {
+			factor = 0.5
+		}
 	}
 	focus = {
 		id = KPA_rocket_effort
@@ -1601,25 +1661,40 @@ random_owned_controlled_state = {
 		prerequisite = {
 			focus = KPA_aviation_effort_2
 		}
+		available = {
+			SOV = {
+				has_tech = cruisemissile_1
+			}
+		}
 		x = 28
 		y = 5
-			completion_reward = {
-					add_tech_bonus = {
-							name = jet_rocket_bonus
-							ahead_reduction = 0.5
-							uses = 2
-							category = rocketry
-							category = jet_technology
+		completion_reward = {
+			if = { limit = { SOV = { has_tech = cruisemissile_1 } }
+				SOV = {
+					create_production_license = {
+						target = KPA 
+						equipment = {
+							type = cruisemissile_equipment_1
 						}
+						cost_factor = 0
+					}
 				}
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							factor = 0.25
-							always = yes
-						}
-				}
-
+			}
+			add_equipment_to_stockpile = {
+				type = cruisemissile_equipment_1
+				amount = 100
+				producer = SOV
+			}
+			add_tech_bonus = {
+				name = rocket_bonus
+				bonus = 0.5
+				uses = 2
+				category = rocketry
+			}
+		}
+		ai_will_do = {
+			factor = 0.25
+		}
 	}
 	focus = {
 		id = KPA_NAV_effort
@@ -1630,16 +1705,17 @@ random_owned_controlled_state = {
 		}
 		x = 29
 		y = 4
-			completion_reward = {
-					add_tech_bonus = {
-							name = nav_bomber_bonus
-							bonus = 0.5
-							ahead_reduction = 1
-							uses = 1
-							category = naval_bomber
-						}
-				}
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = nav_bomber_bonus
+				bonus = 0.5
+				uses = 1
+				category = naval_bomber
+			}
+		}
+		ai_will_do = {
+			factor = 0.25
+		}
 	}
 	focus = {
 		id = KPA_army_effort
@@ -1659,7 +1735,9 @@ random_owned_controlled_state = {
 							category = land_doctrine
 						}
 				}
-
+		ai_will_do = {
+			factor = 2
+		}
 	}
 	focus = {
 		id = KPA_equipment_effort
@@ -1668,18 +1746,41 @@ random_owned_controlled_state = {
 		prerequisite = {
 			focus = KPA_army_effort
 		}
+		bypass = {
+			PRC = { exists = no }
+		}
 		x = 31
 		y = 3
-			completion_reward = {
-					add_tech_bonus = {
-							name = infantry_weapons_bonus
-							bonus = 0.5
-							uses = 1
-							category = infantry_weapons
-							category = artillery
-						}
-				}
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 10000
+				producer = PRC
+			}
+			add_equipment_to_stockpile = {
+				type = mbt_equipment_1
+				amount = 50
+				producer = PRC
+			}
+			add_equipment_to_stockpile = {
+				type = anti_air_equipment_1
+				amount = 100
+				producer = PRC
+			}
+			add_equipment_to_stockpile = {
+				type = anti_tank_equipment_1
+				amount = 100
+				producer = PRC
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 150
+				producer = PRC
+			}
+		}
+		ai_will_do = {
+			factor = 2
+		}
 	}
 	focus = {
 		id = KPA_equipment_effort_2
@@ -1688,18 +1789,36 @@ random_owned_controlled_state = {
 		prerequisite = {
 			focus = KPA_equipment_effort
 		}
+		bypass = {
+			SOV = { exists = no }
+		}
 		x = 31
 		y = 5
-			completion_reward = {
-					add_tech_bonus = {
-							name = infantry_artillery_bonus
-							bonus = 0.5
-							uses = 1
-							category = infantry_weapons
-							category = artillery
-						}
-				}
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 10000
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = mbt_equipment_1
+				amount = 150
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment_1
+				amount = 400
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 150
+				producer = SOV
+			}
+		}
+		ai_will_do = {
+			factor = 2
+		}
 	}
 	focus = {
 		id = KPA_equipment_effort_3
@@ -1713,13 +1832,15 @@ random_owned_controlled_state = {
 			completion_reward = {
 					add_tech_bonus = {
 							name = infantry_artillery_bonus
-							ahead_reduction = 1
-							uses = 1
+							bonus = 0.5
+							uses = 2
 							category = infantry_weapons
 							category = artillery
 						}
 				}
-
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	focus = {
 		id = KPA_soviet_sino_training
@@ -1728,14 +1849,19 @@ random_owned_controlled_state = {
 		prerequisite = {
 			focus = KPA_militarization
 		}
+		bypass = {
+			SOV = { exists = no }
+		}
 		x = 32
 		y = 2
-			completion_reward = {
-					army_experience = 15
-					navy_experience = 5
-					air_experience = 10
-				}
-
+		completion_reward = {
+			army_experience = 25
+			navy_experience = 5
+			air_experience = 10
+		}
+		ai_will_do = {
+			factor = 1.5
+		}
 	}
 	focus = {
 		id = KPA_doctrine_effort
@@ -1755,7 +1881,9 @@ random_owned_controlled_state = {
 							category = land_doctrine
 						}
 				}
-
+		ai_will_do = {
+			factor = 1.5
+		}
 	}
 	focus = {
 		id = KPA_doctrine_effort_2
@@ -1775,7 +1903,9 @@ random_owned_controlled_state = {
 							category = land_doctrine
 						}
 				}
-
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	focus = {
 		id = KPA_motorization_effort
@@ -1786,17 +1916,16 @@ random_owned_controlled_state = {
 		}
 		x = 33
 		y = 3
-			bypass = {
-					has_tech = motorised_infantry
-				}
-			completion_reward = {
-					add_tech_bonus = {
-							name = motorized_bonus
-							bonus = 0.75
-							technology = motorised_infantry
-						}
-				}
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 0.5
+				category = motorized_equipment
+			}
+		}
+		ai_will_do = {
+			factor = 0.5
+		}
 	}
 	focus = {
 		id = KPA_mechanization_effort
@@ -1807,15 +1936,17 @@ random_owned_controlled_state = {
 		}
 		x = 33
 		y = 5
-			completion_reward = {
-					add_tech_bonus = {
-							name = motorized_bonus
-							ahead_reduction = 0.5
-							uses = 1
-							category = motorized_equipment
-						}
-				}
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 0.5
+				uses = 1
+				category = cat_mechanized_equipment
+			}
+		}
+		ai_will_do = {
+			factor = 0.5
+		}
 	}
 	focus = {
 		id = KPA_armor_effort
@@ -1824,17 +1955,36 @@ random_owned_controlled_state = {
 		prerequisite = {
 			focus = KPA_mechanization_effort
 		}
+		bypass = {
+			SOV = { exists = no }
+		}
 		x = 33
 		y = 7
-			completion_reward = {
-					add_tech_bonus = {
-							name = armor_bonus
-							bonus = 0.5
-							uses = 2
-							category = armor
-						}
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 0.5
+				uses = 2
+				category = armor
+			}
+			SOV = {
+				create_production_license = {
+					target = KPA
+					equipment = {
+						type = mbt_equipment_2
+					}
+					cost_factor = 0
 				}
-
+			}
+			add_equipment_to_stockpile = {
+				type = mbt_equipment_2
+				amount = 50
+				producer = SOV
+			}
+		}
+		ai_will_do = {
+			factor = 1.5
+		}
 	}
 	focus = {
 		id = KPA_naval_effort
@@ -1963,7 +2113,9 @@ random_owned_controlled_state = {
 								}
 						}
 				}
-
+		ai_will_do = {
+			factor = 0.25
+		}
 	}
 	focus = {
 		id = KPA_flexible_navy
@@ -1994,14 +2146,12 @@ random_owned_controlled_state = {
 							name = sub_op_bonus
 							bonus = 0.5
 							uses = 2
-							technology = convoy_interdiction_ti
-							technology = unrestricted_submarine_warfare
-							technology = wolfpacks
-							technology = advanced_submarine_warfare
-							technology = combined_operations_raiding
+							category = trade_interdiction_tree
 						}
 				}
-
+		ai_will_do = {
+			factor = 0.5
+		}
 	}
 	focus = {
 		id = KPA_large_navy
@@ -2035,7 +2185,9 @@ random_owned_controlled_state = {
 							category = fleet_in_being_tree
 						}
 				}
-
+		ai_will_do = {
+			factor = 0.25
+		}
 	}
 	focus = {
 		id = KPA_submarine_effort
@@ -2063,12 +2215,8 @@ random_owned_controlled_state = {
 					add_tech_bonus = {
 							name = ss_bonus
 							bonus = 0.5
-							ahead_reduction = 1
 							uses = 1
-							technology = early_submarine
-							technology = basic_submarine
-							technology = improved_submarine
-							technology = advanced_submarine
+							category = ss_tech
 						}
 				}
 
@@ -2098,12 +2246,8 @@ random_owned_controlled_state = {
 					add_tech_bonus = {
 							name = dd_bonus
 							bonus = 0.5
-							ahead_reduction = 1
 							uses = 1
-							technology = early_destroyer
-							technology = basic_destroyer
-							technology = improved_destroyer
-							technology = advanced_destroyer
+							category = fg_tech
 						}
 				}
 
@@ -2134,10 +2278,8 @@ random_owned_controlled_state = {
 					add_tech_bonus = {
 							name = cr_bonus
 							bonus = 0.5
-							ahead_reduction = 1
 							uses = 1
-							technology = improved_light_cruiser
-							technology = advanced_light_cruiser
+							category = cl_tech
 						}
 				}
 
@@ -2168,13 +2310,9 @@ random_owned_controlled_state = {
 					add_tech_bonus = {
 							name = capital_ships_bonus
 							bonus = 0.5
-							ahead_reduction = 1
 							uses = 1
-							technology = battle_cruiser_2
-							technology = early_carrier
-							technology = basic_carrier
-							technology = improved_carrier
-							technology = advanced_carrier
+							category = bc_tech
+							category = bb_tech
 						}
 				}
 
