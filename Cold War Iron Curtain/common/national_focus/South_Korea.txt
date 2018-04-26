@@ -19,6 +19,9 @@ focus_tree = {
 			add_stability = 0.15
 			add_ideas = land_reform
 		}
+		ai_will_do = {
+			factor = 1.5
+		}
 	}
 	focus = {
 		id = KOR_north_korean_policy
@@ -28,6 +31,9 @@ focus_tree = {
 		y = 0
 		completion_reward = {
 			add_political_power = 120
+		}
+		ai_will_do = {
+			factor = 2
 		}
 	}
 	focus = {
@@ -155,7 +161,9 @@ focus_tree = {
 								}
 						}
 				}
-
+		ai_will_do = {
+			factor = 1.5
+		}
 	}
 	focus = {
 		id = KOR_establish_air_force
@@ -163,22 +171,20 @@ focus_tree = {
 		cost = 10.00
 		x = 5
 		y = 0
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = fighter_bonus
-							bonus = 0.5
-							uses = 2
-							technology = early_fighter
-							technology = fighter1
-							technology = fighter2
-							technology = fighter3
-							technology = heavy_fighter1
-							technology = heavy_fighter2
-							technology = heavy_fighter3
-						}
+		available_if_capitulated = yes
+		completion_reward = {
+			air_experience = 25
+			754 = {
+				add_building_construction = {
+					type = air_base
+					level = 4
+					instant_build = yes
 				}
-
+			}
+		}
+		ai_will_do = {
+			factor = 2
+		}
 	}
 	focus = {
 		id = KOR_draft_a_constitution
@@ -190,7 +196,9 @@ focus_tree = {
 
 					add_political_power = 150
 				}
-
+		ai_will_do = {
+			factor = 3
+		}
 	}
 	focus = {
 		id = KOR_acquire_american_aircraft
@@ -206,11 +214,13 @@ focus_tree = {
 		y = 1
 			available_if_capitulated = yes
 			completion_reward = {
-					add_equipment_to_stockpile = { type = CAS_equipment_4 amount = 200 producer = USA }	
-					add_equipment_to_stockpile = { type = jet_fighter_equipment_2 amount = 800 producer = USA }	
-					
-				}
-
+				add_equipment_to_stockpile = { type = CAS_equipment_4 amount = 40 producer = USA }	
+				add_equipment_to_stockpile = { type = fighter_equipment_3 amount = 60 producer = USA }
+				add_equipment_to_stockpile = { type = jet_fighter_equipment_1 amount = 20 producer = USA }
+			}
+		ai_will_do = {
+			factor = 2
+		}
 	}
 	focus = {
 		id = KOR_aviation_effort
@@ -309,21 +319,24 @@ focus_tree = {
 		}
 		x = 4
 		y = 3
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = fighter_bonus
-							bonus = 0.5
-							uses = 2
-							technology = early_fighter
-							technology = fighter1
-							technology = fighter2
-							technology = fighter3
-							technology = heavy_fighter1
-							technology = heavy_fighter2
-							technology = heavy_fighter3
-						}
+		available_if_capitulated = yes
+		completion_reward = {
+			USA = {
+				create_production_license = {
+					target = KPA 
+					equipment = {
+						type = jet_fighter_equipment_2
+					}
+					cost_factor = 0
 				}
+			}
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 0.5
+				uses = 1
+				category = light_fighter
+			}
+		}
 
 	}
 	focus = {
@@ -335,18 +348,32 @@ focus_tree = {
 		}
 		x = 6
 		y = 3
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = bomber_bonus
-							bonus = 0.5
-							uses = 2
-							technology = strategic_bomber1
-							technology = strategic_bomber2
-							technology = strategic_bomber3
-							category = tactical_bomber
-						}
+		available_if_capitulated = yes
+		completion_reward = {
+			USA = {
+				create_production_license = {
+					target = KPA 
+					equipment = {
+						type = jet_tac_bomber_equipment_1
+					}
+					cost_factor = 0
 				}
+				create_production_license = {
+					target = KPA 
+					equipment = {
+						type = jet_CAS_equipment_1
+					}
+					cost_factor = 0
+				}
+			}
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 0.5
+				uses = 1
+				category = tactical_bomber
+				category = cas_bomber
+			}
+		}
 
 	}
 	focus = {
@@ -442,7 +469,9 @@ focus_tree = {
 							category = air_doctrine
 						}
 				}
-
+		ai_will_do = {
+			factor = 0.5
+		}
 	}
 	focus = {
 		id = KOR_rocket_effort
@@ -451,26 +480,41 @@ focus_tree = {
 		prerequisite = {
 			focus = KOR_aviation_effort_2
 		}
+		available = {
+			USA = {
+				has_tech = cruisemissile_1
+			}
+		}
 		x = 5
 		y = 6
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = jet_rocket_bonus
-							ahead_reduction = 0.5
-							uses = 2
-							category = rocketry
-							category = jet_technology
+		available_if_capitulated = yes
+		completion_reward = {
+			if = { limit = { USA = { has_tech = cruisemissile_1 } }
+				USA = {
+					create_production_license = {
+						target = KPA 
+						equipment = {
+							type = cruisemissile_equipment_1
 						}
+						cost_factor = 0
+					}
 				}
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							factor = 0.25
-							always = yes
-						}
-				}
-
+			}
+			add_equipment_to_stockpile = {
+				type = cruisemissile_equipment_1
+				amount = 100
+				producer = USA
+			}
+			add_tech_bonus = {
+				name = rocket_bonus
+				bonus = 0.5
+				uses = 2
+				category = rocketry
+			}
+		}
+		ai_will_do = {
+			factor = 0.25
+		}
 	}
 	focus = {
 		id = KOR_acquire_old_american_ships
@@ -479,40 +523,27 @@ focus_tree = {
 		prerequisite = {
 			focus = KOR_expand_the_korean_navy
 		}
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
 		x = 9
 		y = 1
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							factor = 0
-							all_owned_state = {
-									OR = {
-											is_coastal = no
-											dockyard < 1
-										}
-								}
-						}
-				}
-			completion_reward = {
-					navy_experience = 25
-					add_tech_bonus = {
-							name = capital_ships_bonus
-							bonus = 0.5
-							ahead_reduction = 1
-							uses = 1
-							technology = battle_cruiser_1
-							technology = early_carrier
-							technology = basic_carrier
-							technology = improved_carrier
-							technology = advanced_carrier
-						}
-					add_equipment_to_stockpile = { type = frigate_2 amount = 10 producer = USA }	
-					add_equipment_to_stockpile = { type = destroyer_4 amount = 10 producer = USA }	
-					add_equipment_to_stockpile = { type = battleship_3 amount = 10 producer = USA }	
-					add_equipment_to_stockpile = { type = battle_cruiser_1 amount = 10 producer = USA }	
-				}
-
+		available_if_capitulated = yes
+		completion_reward = {
+			navy_experience = 25
+			add_equipment_production = { equipment = { type = frigate_1 creator = USA } requested_factories = 1 progress = 0.99 amount = 1 }
+			add_equipment_production = { equipment = { type = frigate_1 creator = USA } requested_factories = 1 progress = 0.99 amount = 1 }
+			add_equipment_production = { equipment = { type = frigate_1 creator = USA } requested_factories = 1 progress = 0.99 amount = 1 }
+			add_equipment_production = { equipment = { type = frigate_1 creator = USA } requested_factories = 1 progress = 0.99 amount = 1 }
+			add_equipment_production = { equipment = { type = light_cruiser_1 creator = USA } requested_factories = 1 progress = 0.99 amount = 1 }
+		}
+		ai_will_do = {
+			factor = 1.25
+		}
 	}
 	focus = {
 		id = KOR_acquire_american_ships_II
@@ -521,132 +552,23 @@ focus_tree = {
 		prerequisite = {
 			focus = KOR_acquire_old_american_ships
 		}
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
 		x = 9
 		y = 2
-			available_if_capitulated = yes
-			available = {
-					any_state = {
-							is_coastal = yes
-							is_controlled_by = ROOT
-						}
-				}
-			complete_tooltip = {
-					navy_experience = 25
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-							type = dockyard
-							level = 3
-							instant_build = yes
-						}
-				}
-			completion_reward = {
-					navy_experience = 25
-					add_equipment_to_stockpile = { type = frigate_2 amount = 10 producer = USA }	
-					add_equipment_to_stockpile = { type = destroyer_4 amount = 10 producer = USA }	
-					add_equipment_to_stockpile = { type = battleship_3 amount = 10 producer = USA }	
-					add_equipment_to_stockpile = { type = battle_cruiser_1 amount = 10 producer = USA }	
-					if = {
-							limit = {
-									NOT = {
-											any_owned_state = {
-													dockyard > 0
-													free_building_slots = {
-															building = dockyard
-															size > 2
-															include_locked = yes
-														}
-												}
-										}
-									any_owned_state = {
-											is_coastal = yes
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											is_coastal = yes
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-							set_country_flag = naval_effort_built
-						}
-					if = {
-							limit = {
-									NOT = {
-											has_country_flag = naval_effort_built
-										}
-									any_owned_state = {
-											dockyard > 0
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											dockyard > 0
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-							set_country_flag = naval_effort_built
-						}
-					if = {
-							limit = {
-									NOT = {
-											has_country_flag = naval_effort_built
-										}
-									NOT = {
-											any_owned_state = {
-													free_building_slots = {
-															building = dockyard
-															size > 2
-															include_locked = yes
-														}
-												}
-										}
-								}
-							random_state = {
-									limit = {
-											controller = {
-													tag = ROOT
-												}
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-						}
-				}
-
+		available_if_capitulated = yes
+		completion_reward = {
+			navy_experience = 25
+			add_equipment_production = { equipment = { type = destroyer_2 creator = USA } requested_factories = 1 progress = 0.99 amount = 1 }
+			add_equipment_production = { equipment = { type = destroyer_2 creator = USA } requested_factories = 1 progress = 0.99 amount = 1 }
+		}
+		ai_will_do = {
+			factor = 1.25
+		}
 	}
 	focus = {
 		id = KOR_flexible_navy
@@ -660,32 +582,18 @@ focus_tree = {
 		}
 		x = 8
 		y = 3
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							factor = 0
-							all_owned_state = {
-									OR = {
-											is_coastal = no
-											dockyard < 1
-										}
-								}
-						}
-				}
-			completion_reward = {
-					add_tech_bonus = {
-							name = sub_op_bonus
-							bonus = 0.5
-							uses = 2
-							technology = convoy_interdiction_ti
-							technology = unrestricted_submarine_warfare
-							technology = wolfpacks
-							technology = advanced_submarine_warfare
-							technology = combined_operations_raiding
-						}
-				}
-
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 0.5
+				uses = 2
+				category = trade_interdiction_tree
+			}
+		}
+		ai_will_do = {
+			factor = 0.5
+		}
 	}
 	focus = {
 		id = KOR_NAV_effort
@@ -699,17 +607,18 @@ focus_tree = {
 		}
 		x = 6
 		y = 5
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = nav_bomber_bonus
-							bonus = 0.5
-							ahead_reduction = 1
-							uses = 1
-							category = naval_bomber
-						}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+					name = nav_bomber_bonus
+					bonus = 0.5
+					uses = 1
+					category = naval_bomber
 				}
-
+		}
+		ai_will_do = {
+			factor = 0.5
+		}
 	}
 	focus = {
 		id = KOR_large_navy
@@ -723,28 +632,23 @@ focus_tree = {
 		}
 		x = 10
 		y = 3
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							factor = 0
-							all_owned_state = {
-									OR = {
-											is_coastal = no
-											dockyard < 1
-										}
-								}
-						}
-				}
-			completion_reward = {
-					add_tech_bonus = {
-							name = fleet_in_being_bonus
-							bonus = 0.5
-							uses = 2
-							category = fleet_in_being_tree
-						}
-				}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = fleet_in_being_bonus
+				bonus = 0.5
+				uses = 2
+				category = fleet_in_being_tree
+			}
+		}
 
+		ai_will_do = {
+			factor = 0.25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	focus = {
 		id = KOR_cruiser_effort
@@ -756,30 +660,18 @@ focus_tree = {
 		}
 		x = 10
 		y = 4
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							factor = 0
-							all_owned_state = {
-									OR = {
-											is_coastal = no
-											dockyard < 1
-										}
-								}
-						}
-				}
-			completion_reward = {
-					add_tech_bonus = {
-							name = cr_bonus
-							bonus = 0.5
-							ahead_reduction = 1
-							uses = 1
-							technology = improved_light_cruiser
-							technology = advanced_light_cruiser
-						}
-				}
-
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 0.5
+				uses = 1
+				category = cl_tech
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	focus = {
 		id = KOR_capital_ships_effort
@@ -790,34 +682,20 @@ focus_tree = {
 		}
 		x = 10
 		y = 5
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							factor = 0
-							all_owned_state = {
-									OR = {
-											is_coastal = no
-											dockyard < 1
-										}
-								}
-						}
-				}
-			completion_reward = {
-					navy_experience = 25
-					add_tech_bonus = {
-							name = capital_ships_bonus
-							bonus = 0.5
-							ahead_reduction = 1
-							uses = 1
-							technology = battle_cruiser_1
-							technology = early_carrier
-							technology = basic_carrier
-							technology = improved_carrier
-							technology = advanced_carrier
-						}
-				}
-
+		available_if_capitulated = yes
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 0.5
+				uses = 1
+				category = bc_tech
+				category = cv_tech
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	focus = {
 		id = KOR_american_investments
@@ -829,9 +707,6 @@ focus_tree = {
 		x = 13
 		y = 1
 			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 2
-				}
 			bypass = {
 					custom_trigger_tooltip = {
 							tooltip = construction_effort_tt
@@ -845,10 +720,10 @@ focus_tree = {
 						}
 				}
 			complete_tooltip = {
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 3
 					add_building_construction = {
 							type = industrial_complex
-							level = 1
+							level = 3
 							instant_build = yes
 						}
 				}
@@ -876,15 +751,17 @@ focus_tree = {
 												}
 										}
 								}
-							add_extra_state_shared_building_slots = 1
+							add_extra_state_shared_building_slots = 3
 							add_building_construction = {
 									type = industrial_complex
-									level = 1
+									level = 3
 									instant_build = yes
 								}
 						}
 				}
-
+		ai_will_do = {
+			factor = 2
+		}
 	}
 	focus = {
 		id = KOR_industrial_effort
@@ -905,22 +782,7 @@ focus_tree = {
 						}
 				}
 			ai_will_do = {
-					factor = 3
-					modifier = {
-							factor = 0
-							date < 1939.1.1
-							OR = {
-									tag = GXC
-									tag = YUN
-									tag = SHX
-									tag = XSM
-									tag = BEL
-									tag = LUX
-									tag = HOL
-									tag = DEN
-									num_of_controlled_states < 2
-								}
-						}
+					factor = 1.5
 				}
 
 	}
@@ -2934,8 +2796,8 @@ focus_tree = {
 		x = 32
 		y = 3
 		completion_reward = {
-			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 2000 producer = USA }	
-			add_equipment_to_stockpile = { type = main_battle_tanks_2 amount = 150 producer = USA }	
+			add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 2000 producer = USA }	
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 150 producer = USA }	
 			add_equipment_to_stockpile = { type = lt_equipment_1 amount = 300 producer = USA }	
 			add_equipment_to_stockpile = { type = ht_equipment_2 amount = 100 producer = USA }	
 		}
@@ -3037,6 +2899,10 @@ focus_tree = {
 		prerequisite = {
 			focus = KOR_american_armed_divisions
 		}
+		available = {
+			has_global_flag = korean_war_begun
+			NOT = { has_war_with = KPA }
+		}
 		x = 1
 		y = 4
 			available_if_capitulated = yes
@@ -3052,19 +2918,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = KOR_american_equipment
-		icon = GFX_goal_generic_small_arms
-		cost = 10.00
-		prerequisite = {
-			focus = KOR_lessons_of_the_korean_war
-		}
-		x = 0
-		y = 5
-		completion_reward = {
-			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 2000 producer = USA }	
-		}
-	}
-	focus = {
 		id = KOR_motorization_effort
 		icon = GFX_goal_generic_army_motorized
 		cost = 10.00
@@ -3073,17 +2926,14 @@ focus_tree = {
 		}
 		x = 2
 		y = 5
-			bypass = {
-					has_tech = motorised_infantry
-				}
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = motorized_bonus
-							bonus = 0.75
-							technology = motorised_infantry
-						}
-				}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 0.5
+				category = motorized_equipment
+			}
+		}
 
 	}
 	focus = {
@@ -3112,7 +2962,7 @@ focus_tree = {
 		icon = GFX_goal_generic_army_artillery
 		cost = 10.00
 		prerequisite = {
-			focus = KOR_american_equipment
+			focus = KOR_lessons_of_the_korean_war
 		}
 		x = 0
 		y = 7
@@ -3143,7 +2993,7 @@ focus_tree = {
 							name = motorized_bonus
 							ahead_reduction = 0.5
 							uses = 1
-							category = motorized_equipment
+							category = cat_mechanized_equipment
 						}
 				}
 
@@ -3182,7 +3032,7 @@ focus_tree = {
 			completion_reward = {
 					add_tech_bonus = {
 							name = infantry_artillery_bonus
-							ahead_reduction = 1
+							bonus = 0.5
 							uses = 1
 							category = infantry_weapons
 							category = artillery
@@ -3200,9 +3050,35 @@ focus_tree = {
 		x = 2
 		y = 9
 		completion_reward = {
-			add_equipment_to_stockpile = { type = main_battle_tanks_2 amount = 150 producer = USA }	
-			add_equipment_to_stockpile = { type = lt_equipment_1 amount = 300 producer = USA }	
-			add_equipment_to_stockpile = { type = ht_equipment_2 amount = 100 producer = USA }	
+			USA = {
+				create_production_license = {
+					target = KOR
+					equipment = {
+						type = mbt_equipment_2
+					}
+					cost_factor = 0
+				}
+				create_production_license = {
+					target = KOR
+					equipment = {
+						type = lt_equipment_1
+					}
+					cost_factor = 0
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = mbt_equipment_2
+				amount = 150
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = lt_equipment_1
+				amount = 300
+				producer = USA
+			}
+		}
+		ai_will_do = {
+			factor = 1.5
 		}
 	}
 	focus = {
@@ -3220,20 +3096,17 @@ focus_tree = {
 		}
 		x = 1
 		y = 10
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = special_forces_bonus
-							bonus = 0.5
-							uses = 1
-							technology = paratroopers
-							technology = paratroopers2
-							technology = marines
-							technology = marines2
-							technology = tech_mountaineers
-							technology = tech_mountaineers2
-						}
-				}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 0.5
+				uses = 1
+				category = para_tech
+				category = marine_tech
+				category = mountaineers_tech
+			}
+		}
 
 	}
 	focus = {
@@ -3243,21 +3116,17 @@ focus_tree = {
 		prerequisite = {
 			focus = KOR_aviation_effort_2
 		}
-		prerequisite = {
-			focus = KOR_motorization_effort
-		}
 		x = 4
 		y = 5
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = CAS_bonus
-							bonus = 0.5
-							ahead_reduction = 1
-							uses = 1
-							category = cas_bomber
-						}
-				}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_tech_bonus = {
+				name = CAS_bonus
+				bonus = 0.5
+				uses = 1
+				category = cas_bomber
+			}
+		}
 
 	}
 	focus = {
@@ -3287,12 +3156,8 @@ focus_tree = {
 					add_tech_bonus = {
 							name = ss_bonus
 							bonus = 0.5
-							ahead_reduction = 1
 							uses = 1
-							technology = early_submarine
-							technology = basic_submarine
-							technology = improved_submarine
-							technology = advanced_submarine
+							category = ss_tech
 						}
 				}
 
@@ -3323,12 +3188,9 @@ focus_tree = {
 					add_tech_bonus = {
 							name = dd_bonus
 							bonus = 0.5
-							ahead_reduction = 1
 							uses = 1
-							technology = early_destroyer
-							technology = basic_destroyer
-							technology = improved_destroyer
-							technology = advanced_destroyer
+							category = dd_tech
+							category = fg_tech
 						}
 				}
 
@@ -3662,7 +3524,8 @@ focus_tree = {
 			completion_reward = {
 					add_tech_bonus = {
 							name = nuclear_bonus
-							ahead_reduction = 0.5
+							bonus = 0.5
+							uses = 2
 							category = nuclear
 						}
 				}
@@ -3724,9 +3587,8 @@ focus_tree = {
 					add_tech_bonus = {
 							name = secret_bonus
 							bonus = 0.5
-							uses = 4
+							uses = 3
 							category = electronics
-							category = nuclear
 							category = rocketry
 						}
 				}
@@ -3749,6 +3611,9 @@ focus_tree = {
 			add_ideas = american_advisors
 			load_oob = KOR_american_armed_divisions_2
 		}
+		ai_will_do = {
+			factor = 15
+		}
 	}
 	focus = {
 		id = KOR_expand_the_army
@@ -3757,23 +3622,67 @@ focus_tree = {
 		prerequisite = {
 			focus = KOR_american_military_aid
 		}
-		x = 1
+		x = 0
 		y = 1
 		completion_reward = {
 			add_ideas = recruitment_propaganda
+		}
+		ai_will_do = {
+			factor = 3
+		}
+	}
+	focus = {
+		id = KOR_american_equipment
+		icon = GFX_goal_generic_small_arms
+		cost = 10.00
+		prerequisite = {
+			focus = KOR_expand_the_army
+		}
+		x = 0
+		y = 2
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 10000
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = mbt_equipment_1
+				amount = 150
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment_1
+				amount = 400
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 150
+				producer = USA
+			}
+		}
+		ai_will_do = {
+			factor = 3
 		}
 	}
 	focus = {
 		id = KOR_american_armed_divisions
 		icon = GFX_focus_generic_little_entente
-		cost = 10.00
+		cost = 1.00
 		prerequisite = {
-			focus = KOR_expand_the_army
+			focus = KOR_american_military_aid
+		}
+		available = {
+			has_global_flag = korean_war_begun
 		}
 		x = 1
 		y = 3
 		completion_reward = {
 			load_oob = KOR_american_armed_divisions_1
+		}
+		ai_will_do = {
+			factor = 15
 		}
 	}
 	focus = {
