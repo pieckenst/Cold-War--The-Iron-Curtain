@@ -2166,81 +2166,11 @@ focus_tree = {
 						}
 				}
 			complete_tooltip = {
-					add_ideas = liberty_ethos_focus
-				}
+				add_ideas = liberty_ethos_focus
+			}
 			completion_reward = {
 				add_ideas = liberty_ethos_focus
-				country_event = AFR.201
-				if = {
-						limit = { tag = CHA }
-						release = CAR
-                        release = ROC
-                        release = GAB				
-				}
-				if = {
-						limit = { tag = LES }
-						add_popularity ={
-		                     ideology = democratic
-		                     popularity = 0.20
-		                }
-						set_politics = {
-	                        ruling_party = democratic
-                        }	
-				}
-			    if = {
-						limit = { tag = GAM }
-						add_popularity ={
-		                     ideology = centrist
-		                     popularity = 1.0
-		                }
-						set_politics = {
-	                        ruling_party = centrist
-                        }	
-				}
-		        if = {
-						limit = { tag = MAD }
-						add_popularity ={
-		                     ideology = socialist
-		                     popularity = 1.0
-		                }
-						set_politics = {
-	                        ruling_party = socialist
-                        }	
-				}
-			    if = {
-						limit = { tag = SLE }
-						add_popularity ={
-		                     ideology = socialist
-		                     popularity = 1.0
-		                }
-						set_politics = {
-	                        ruling_party = socialist
-                        }	
-				}
-				if = {
-						limit = { tag = DJB }
-						add_popularity ={
-		                     ideology = socialist
-		                     popularity = 1.0
-		                }
-						set_politics = {
-	                        ruling_party = socialist
-                        }	
-				}
-				if = {
-						limit = { tag = DOC }
-						add_popularity ={
-		                     ideology = Liberal_Conservatism
-		                     popularity = 0.80
-		                }
-						add_popularity ={
-		                     ideology = nationalism
-		                     popularity = 0.20
-		                }
-						set_politics = {
-	                        ruling_party = Liberal_Conservatism
-                        }	
-				}
+				OVERLORD = { country_event = AFR.1 }
 		    }
 	}
 	focus = {
@@ -2788,7 +2718,7 @@ focus_tree = {
 				}
 			completion_reward = {
 					add_ideas = collectivist_ethos_focus
-					country_event = AFR.201
+					country_event = AFR.1
 				if = {
 						limit = { tag = CHA }
 						release = CAR
@@ -3277,13 +3207,10 @@ focus_tree = {
 		}
 		x = 34
 		y = 9
-			available = {
-
-}
-			available_if_capitulated = yes
-			completion_reward = {
-					add_to_faction = SOV
-				}
+		available_if_capitulated = yes
+		completion_reward = {
+			SOV = { country_event = { id = generic.8 hours = 6 } }
+		}
 
 	}
 	focus = {
@@ -3457,13 +3384,16 @@ focus_tree = {
 		}
 		x = 34
 		y = 10
-			available = {
-
-}
-			available_if_capitulated = yes
-			completion_reward = {
-					SOV = { add_to_faction = ROOT }
+		available_if_capitulated = yes
+		completion_reward = {
+			OVERLORD = {
+				end_puppet = ROOT
 			}
+			SOV = {
+				puppet = ROOT
+				add_to_faction = ROOT
+			}
+		}
 
 	}
 	focus = {
