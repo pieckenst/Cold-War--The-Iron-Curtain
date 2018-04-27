@@ -40,6 +40,7 @@ add_namespace = soviet
 add_namespace = ffl
 add_namespace = eurovision
 add_namespace = ARG
+add_namespace = NATO
 add_namespace = brazil
 add_namespace = bra
 add_namespace = CWelect
@@ -1696,6 +1697,18 @@ country_event = {
 				}	
 				if = {
 					limit = {
+						has_country_flag = Leader_of_NATO
+						NOT = {
+							any_country = {
+								has_country_flag = Attacked_NATO
+								has_war_with = ROOT
+							}
+						}
+					}
+					country_event = NATO.4
+				}	
+				if = {
+					limit = {
 						tag = ENG 
 							OR = {
 								has_government = conservative
@@ -2050,8 +2063,8 @@ country_event = {
 			}
 			if = {
 				limit = {
-					date < 1949.6.1
-					NOT = { has_global_flag = nuremberg_trials_over }
+					date < 1949.7.1
+					NOT = { has_country_flag = nuremberg_trials_over }
 				}
 				news_event = news.1000 
 			}
