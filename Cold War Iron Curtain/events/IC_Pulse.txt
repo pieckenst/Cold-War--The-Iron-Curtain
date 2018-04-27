@@ -40,6 +40,7 @@ add_namespace = soviet
 add_namespace = ffl
 add_namespace = eurovision
 add_namespace = ARG
+add_namespace = NATO
 add_namespace = brazil
 add_namespace = bra
 add_namespace = CWelect
@@ -68,6 +69,210 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+				if = {
+					limit = {
+						date > 1952.2.1
+						date < 1952.3.2
+						NOT = { has_country_flag = summergames52 }
+						"NOR" = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.1
+				}
+				if = {
+					limit = {
+						date > 1956.1.1
+						date < 1956.2.2
+						NOT = { has_country_flag = summergames56 }
+						ITA = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.2
+				}
+				if = {
+					limit = {
+						date > 1960.2.1
+						date < 1960.3.2
+						NOT = { has_country_flag = summergames60 }
+						USA = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.3
+				}
+				if = {
+					limit = {
+						date > 1964.1.1
+						date < 1964.2.2
+						NOT = { has_country_flag = summergames64 }
+						AUS = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.4
+				}
+				if = {
+					limit = {
+						date > 1968.2.1
+						date < 1968.3.2
+						NOT = { has_country_flag = summergames68 }
+						FRA = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.5
+				}
+				if = {
+					limit = {
+						date > 1972.2.1
+						date < 1972.3.2
+						NOT = { has_country_flag = summergames72 }
+						JAP = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.6
+				}
+				if = {
+					limit = {
+						date > 1976.2.1
+						date < 1976.3.2
+						NOT = { has_country_flag = summergames76 }
+						AUS = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.7
+				}
+				if = {
+					limit = {
+						date > 1980.2.1
+						date < 1980.3.2
+						NOT = { has_country_flag = summergames80 }
+						USA = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.8
+				}
+				if = {
+					limit = {
+						date > 1984.2.1
+						date < 1984.3.2
+						NOT = { has_country_flag = summergames84 }
+						YUG = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.9
+				}
+				if = {
+					limit = {
+						date > 1988.2.1
+						date < 1988.3.2
+						NOT = { has_country_flag = summergames88 }
+						CAN = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.10
+				}
+				if = {
+					limit = {
+						date > 1992.2.1
+						date < 1992.3.2
+						NOT = { has_country_flag = summergames92 }
+						FRA = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.11
+				}
+				if = {
+					limit = {
+						date > 1994.2.1
+						date < 1994.3.2
+						NOT = { has_country_flag = summergames96 }
+						"NOR" = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.12
+				}
+				if = {
+					limit = {
+						date > 1998.2.1
+						date < 1998.3.2
+						NOT = { has_country_flag = summergames00 }
+						JAP = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.13
+				}
+				if = {
+					limit = {
+						date > 2002.2.1
+						date < 2002.3.2
+						NOT = { has_country_flag = summergames04 }
+						USA = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.14
+				}
+				if = {
+					limit = {
+						date > 2006.2.1
+						date < 2006.3.2
+						NOT = { has_country_flag = summergames08 }
+						ITA = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.15
+				}
+				if = {
+					limit = {
+						date > 2010.2.1
+						date < 2010.3.2
+						NOT = { has_country_flag = summergames12 }
+						CAN = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = summerolympics.16
+				}
+				if = {
+					limit = {
+						date > 2014.2.1
+						date < 2014.3.2
+						NOT = { has_country_flag = summergames16 }
+						SOV = {
+							exists = yes
+							has_war = no
+						}
+					}
+					news_event = winterolympics.17
+				}
 				if = {
 					limit = {
 						date > 1952.2.1
@@ -1492,6 +1697,18 @@ country_event = {
 				}	
 				if = {
 					limit = {
+						has_country_flag = Leader_of_NATO
+						NOT = {
+							any_country = {
+								has_country_flag = Attacked_NATO
+								has_war_with = ROOT
+							}
+						}
+					}
+					country_event = NATO.4
+				}	
+				if = {
+					limit = {
 						tag = ENG 
 							OR = {
 								has_government = conservative
@@ -1846,8 +2063,8 @@ country_event = {
 			}
 			if = {
 				limit = {
-					date < 1949.6.1
-					NOT = { has_global_flag = nuremberg_trials_over }
+					date < 1949.7.1
+					NOT = { has_country_flag = nuremberg_trials_over }
 				}
 				news_event = news.1000 
 			}
