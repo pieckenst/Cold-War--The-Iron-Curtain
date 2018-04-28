@@ -47,7 +47,7 @@ focus_tree = {
 		x = 54
 		y = 0
 			completion_reward = {
-					add_ideas = communist_revolutionary_drift
+					add_ideas = communist_influence
 				}
 
 	}
@@ -319,7 +319,9 @@ focus_tree = {
 		icon = GFX_goal_generic_neutrality_focus
 		cost = 10.00
 		mutually_exclusive = {
+			focus = SIA_american_alignment
 			focus = SIA_soviet_alignment
+
 		}
 		x = 12
 		y = 0
@@ -361,6 +363,8 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = SIA_soviet_alignment
+			focus = SIA_non_aligned
+			
 		}
 		x = 28
 		y = 0
@@ -3295,6 +3299,7 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = SIA_Reform_Plaek_Government
+			focus = SIA_Install_Sarit_Government
 		}
 		x = 47
 		y = 1
@@ -3460,7 +3465,6 @@ focus_tree = {
 		y = 5
 			completion_reward = {
 					set_politics = {
-							ruling_party = nationalism
 							elections_allowed = yes
 						}
 				}
@@ -3494,7 +3498,7 @@ focus_tree = {
 		x = 49
 		y = 2
 			completion_reward = {
-					add_ideas = cultural_superiority_propaganda
+					add_ideas = fascist_influence
 				}
 
 	}
@@ -3528,10 +3532,13 @@ focus_tree = {
 		x = 49
 		y = 4
 			completion_reward = {
-					retire_country_leader = yes
+					add_popularity = {
+							ideology = democratic
+							popularity = -0.15
 				}
 
 	}
+}
 	focus = {
 		id = SIA_Install_Sarit_Government
 		icon = GFX_goal_anschluss
@@ -3541,6 +3548,7 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = SIA_Reform_Plaek_Government
+			focus = SIA_Restore_Pridi_Government
 		}
 		x = 51
 		y = 1
@@ -3604,7 +3612,7 @@ focus_tree = {
 		x = 51
 		y = 4
 			completion_reward = {
-					remove_ideas = Khana_Ratsadon
+					remove_ideas = the_lagacy_of_khana_ratsadon
 				}
 
 	}
@@ -3675,8 +3683,8 @@ focus_tree = {
 		x = 53
 		y = 2
 			completion_reward = {
-					add_ideas = maoist_drift
-					remove_ideas = communist_revolutionary_drift
+					add_ideas = communist_pressure
+					remove_ideas = communist_influence
 					set_politics = {
 							ruling_party = maoism
 							elections_allowed = no
@@ -3697,7 +3705,7 @@ focus_tree = {
 		x = 55
 		y = 2
 			completion_reward = {
-					remove_ideas = communist_revolutionary_drift
+					remove_ideas = communist_influence
 					add_stability = 0.1
 				}
 
@@ -3710,10 +3718,11 @@ focus_tree = {
 			focus = SIA_Support_Soviet
 			focus = SIA_Support_China
 		}
+		
 		x = 54
 		y = 3
 			completion_reward = {
-					remove_ideas = Khana_Ratsadon
+					remove_ideas = the_lagacy_of_khana_ratsadon
 				}
 
 	}
@@ -3805,7 +3814,7 @@ focus_tree = {
 			completion_reward = {
 					every_neighbor_country = {
 							add_timed_idea = {
-									idea = communist_revolutionary_drift
+									idea = internationalism
 									days = 365
 								}
 						}
@@ -4063,7 +4072,7 @@ focus_tree = {
 		x = 50
 		y = 6
 			completion_reward = {
-					add_ideas = nato_member
+					USA = { country_event = generic.8 }
 				}
 
 	}
