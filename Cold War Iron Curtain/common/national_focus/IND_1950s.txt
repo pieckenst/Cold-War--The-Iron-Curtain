@@ -3338,10 +3338,16 @@ focus_tree = {
 		prerequisite = {
 			focus = RAJ_finish_unification
 		}
+		available = {
+			MNI = { is_subject_of = ROOT }
+		}
+	    bypass = {
+			NOT = { MNI = { is_subject_of = ROOT } }
+		}
 		x = 45
 		y = 2
 		completion_reward = {
-			MNI = { country_event = generic.1 }	
+			annex_country = { target = MNI transfer_troops = yes }
 		}
 	}
 	focus = {
@@ -3351,10 +3357,16 @@ focus_tree = {
 		prerequisite = {
 			focus = RAJ_finish_unification
 		}
+		available = {
+			TRP = { is_subject_of = ROOT }
+		}
+	    bypass = {
+			NOT = { TRP = { is_subject_of = ROOT } }
+		}
 		x = 48
 		y = 2
 		completion_reward = {
-			TRP = { country_event = generic.1 }		
+		    annex_country = { target = TRP transfer_troops = yes }
 		}
 	}
 	focus = {
@@ -3364,10 +3376,16 @@ focus_tree = {
 		prerequisite = {
 			focus = RAJ_finish_unification
 		}
+		available = {
+			SKK = { is_subject_of = ROOT }
+		}
+	    bypass = {
+			NOT = { SKK = { is_subject_of = ROOT } }
+		}
 		x = 51
 		y = 2
 		completion_reward = {
-			SKK = { country_event = generic.1 }		
+			annex_country = { target = SKK transfer_troops = yes }		
 		}
 	}
 	focus = {
@@ -3426,10 +3444,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = RAJ_influence_nepal
 		}
+		available = {
+			NEP = { exists = yes }
+		}
 		x = 47
 		y = 4
 		completion_reward = {
-			annex_country = { target = NEP }	
+			annex_country = { target = NEP transfer_troops = yes }	
 		}
 	}
 	focus = {
@@ -3444,6 +3465,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = RAJ_accension_of_manipur
+		}
+		available = {
+			BHU = { exists = yes }
 		}
 		x = 50
 		y = 3
@@ -3472,6 +3496,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RAJ_relations_with_nepal
 		}
+		available = {
+			CEY = { exists = yes }
+		}
 		x = 47
 		y = 5
 		completion_reward = {
@@ -3494,6 +3521,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = RAJ_relations_with_bhutan
+		}
+		available = {
+			TIB = { exists = yes }
 		}
 		x = 49
 		y = 5
@@ -3523,6 +3553,9 @@ focus_tree = {
 			focus = RAJ_influence_nepal
 			focus = RAJ_Accension_of_tibet
 		}
+		available = {
+			TIB = { exists = yes }
+		}
 		x = 48
 		y = 6
 		completion_reward = {
@@ -3538,6 +3571,9 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = RAJ_Accension_of_bhutan
+		}
+		available = {
+			BHU = { exists = yes }
 		}
 		x = 49
 		y = 4
@@ -3555,6 +3591,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = RAJ_protect_bhutan
 			focus = RAJ_safeguard_tibet
+		}
+		available = {
+			TIB = { exists = yes }
 		}
 		x = 50
 		y = 6
