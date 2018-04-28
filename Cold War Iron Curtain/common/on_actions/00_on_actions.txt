@@ -78,7 +78,9 @@ on_actions = {
 	# triggered daily, so make sure there is a sink somewhere not firing events
 	# country, FROM = target nation
 	on_justifying_wargoal_pulse = {
-
+		random_events = {
+			1000 = NATO.1
+		}
 		random_events = {
 			100 = war_justification.1
 			100 = war_justification.2
@@ -187,20 +189,18 @@ on_actions = {
 	on_declare_war = {
 		effect = {
 			if = {
-				limit = { 
-					FROM = { 
-						has_idea = nato_member					
-					}
+				limit = {
+					FROM = { has_idea = nato_member}
 				}
-				country_event = nato.1
+				custom_effect_tooltip = TT_CALL_NATO
+				if = {
+					limit = {
+						NOT = { has_global_flag = NATO_called_to_arms }
+					}
+					FROM = { country_event = NATO.2 }
+				}
+				set_country_flag = Attacked_NATO
 			}
-		#	if = {
-		#		limit = {
-		#			NOT = { has_idea = UN_Security_Council_Member_Perm }
-		#		}
-		#		save_event_target_as = agressor_target
-		#		FROM = { country_event = UN.1 }
-		#	}
 		}
 	}
 	
