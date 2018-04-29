@@ -1532,13 +1532,19 @@ focus_tree = {
 	    id = DDR_expedition_to_south_america
 		icon = GFX_goal_generic_propaganda
 		mutually_exclusive = { focus = DDR_find_a_leader }
-		prerequisite = { focus = DDR_fascist_coup }
+		prerequisite = { 
+		focus = DDR_fascist_coup
+		}
+		available = {
+        NOT = { has_global_flag = hitler_back }
+		}
 		x = 15
 		y = 16
 		cost = 4
 		completion_reward = {
 		    DDR = {
 		        country_event = { days = 1 id = hitler.1 } 
+				 set_global_flag = hitler_back
 		    }
 		}
 	}
