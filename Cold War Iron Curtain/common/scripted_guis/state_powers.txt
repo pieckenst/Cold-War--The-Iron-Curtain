@@ -283,7 +283,6 @@ scripted_gui = {
 			}
 			construction_ato_click_enabled = {
 				ROOT = {
-					has_tech = nukes
 					check_variable = { money > 4.99 }
 				}
 			}
@@ -293,6 +292,143 @@ scripted_gui = {
 				}
 			}
 			construction_inf_click_enabled = {
+				ROOT = {
+					check_variable = { money > 4.99 }
+				}
+			}
+		}
+		
+		ai_test_parent = ""
+		
+		ai_test_scopes = test_self_controlled_states
+		
+		ai_enabled = {
+            always = no
+		}
+        
+		ai_check = {
+		}
+		
+		ai_weights = {
+		}
+	}
+	state_powers_construction_defensive = {
+	
+		context_type = selected_state_context
+		
+		window_name = "state_powers_construction_defensive"
+		parent_window_token = selected_state_view
+		
+		visible = {
+			ROOT = {
+                check_variable = { selector = 3 }
+			}
+			is_controlled_by = ROOT
+		}
+		
+		effects = {
+			construction_fort_click = {
+				save_event_target_as = target
+					add_building_construction = { 
+					type = industrial_complex
+					level = 1 
+					instant_build = yes 
+				} 
+				state_event = { id = build_building.10 days = 25  }
+				
+				ROOT = {
+					subtract_from_variable = { money = 5 }
+				}
+			}
+			construction_nav_fort_click = { 
+				save_event_target_as = target
+				add_building_construction = { 
+					type = arms_factory 
+					level = 1 
+					instant_build = yes 
+				}
+				state_event = { id = build_building.11 days = 25  }
+				ROOT = {
+					subtract_from_variable = { money = 5 }
+				}			
+			}
+			construction_radar_click = { 
+				save_event_target_as = target
+				add_building_construction = { 
+					type = dockyard 
+					level = 1 
+					instant_build = yes 
+				}
+				state_event = { id = build_building.12 days = 25  }
+				ROOT = {
+					subtract_from_variable = { money = 5 }
+				}
+			}
+			construction_airfield_click = { 
+				save_event_target_as = target
+				state_event = { id = build_building.14 days = 25  }
+				add_building_construction = { 
+					type = nuclear_reactor 
+					level = 1 
+					instant_build = yes 
+				}
+				ROOT = {
+					subtract_from_variable = { money = 5 }
+				}			
+			}
+			construction_anti_air_click = { 
+				save_event_target_as = target
+				state_event = { id = build_building.15 days = 25  }
+				add_building_construction = { 
+					type = synthetic_refinery 
+					level = 1 
+					instant_build = yes 
+				}
+				ROOT = {
+					subtract_from_variable = { money = 5 }
+				}
+			}
+			construction_nav_base_click = { 
+				save_event_target_as = target
+				add_building_construction = { 
+					type = infrastructure 
+					level = 1 
+					instant_build = yes 
+				}	 
+				state_event = { id = build_building.13 days = 25  }
+				ROOT = {
+					subtract_from_variable = { money = 5 }
+				}
+			}
+		}
+		
+		triggers = {
+			construction_fort_click_enabled = {
+				ROOT = {
+					check_variable = { money > 4.99 }
+				}
+			}
+			construction_nav_fort_click_enabled = {
+				ROOT = {
+					check_variable = { money > 4.99 }
+				}
+			}
+			construction_radar_click_enabled = {
+				ROOT = {
+					check_variable = { money > 4.99 }
+				}
+			}
+			construction_airfield_click_enabled = {
+				ROOT = {
+					check_variable = { money > 4.99 }
+				}
+			}
+			construction_anti_air_click_enabled = {
+				ROOT = {
+					check_variable = { money > 4.99 }
+				}
+			}
+			construction_nav_base_click_enabled = {
 				ROOT = {
 					check_variable = { money > 4.99 }
 				}
