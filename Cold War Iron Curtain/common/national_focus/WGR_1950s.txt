@@ -856,34 +856,23 @@ focus_tree = {
 		x = 16
 		y = 4
 			completion_reward = {
-					every_other_country = {
-							limit = {
-									NOT = {
-											has_government = fascism
-										}
-								}
-							add_opinion_modifier = {
-									target = WGR
-									modifier = WGR_ODESSA_Opinion
-								}
-						}
 					WGR = {
-							add_ideas = ODESSA
+							add_timed_idea  = { idea = ODESSA days = 25 } 
 						}
 					BRA = {
-							add_ideas = ODESSA
+							add_timed_idea  = { idea = ODESSA days = 25 } 
 						}
 					ARG = {
-							add_ideas = ODESSA
+							add_timed_idea  = { idea = ODESSA days = 25 } 
 						}
 					JAP = {
-							add_ideas = ODESSA
+							add_timed_idea  = { idea = ODESSA days = 25 } 
 						}
 					SPR = {
-							add_ideas = ODESSA
+							add_timed_idea  = { idea = ODESSA days = 25 } 
 						}
 					CRO = {
-							add_ideas = ODESSA
+							add_timed_idea  = { idea = ODESSA days = 25 } 
 						}
 				}
 		ai_will_do = {
@@ -905,24 +894,7 @@ focus_tree = {
 		x = 16
 		y = 5
 			completion_reward = {
-					WGR = {
-							add_ideas = Ratlines
-						}
-					BRA = {
-							add_ideas = Ratlines
-						}
-					ARG = {
-							add_ideas = Ratlines
-						}
-					JAP = {
-							add_ideas = Ratlines
-						}
-					SPR = {
-							add_ideas = Ratlines
-						}
-					PRC = {
-							add_ideas = Ratlines
-						}
+				add_manpower = 10000
 				}
 		ai_will_do = {
 			factor = 10
@@ -4763,7 +4735,7 @@ focus_tree = {
 		y = 11
 		completion_reward = {
 			remove_ideas = NATO_Military_Restrictions
-			annex_country = { target = DDR }
+			DDR = { country_event = { days = 1 id = generic.1 } }
 		}
 		ai_will_do = {
 			factor = 60
@@ -4803,12 +4775,16 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = WGR_A_New_Fuhrer
 		}
+		available = {
+        NOT = { has_global_flag = hitler_back }
+		}
 		x = 16
 		y = 12
 		cost = 4
 		completion_reward = {
 		    WGR = {
-		        country_event = { days = 1 id = hitler.1 } 
+		        country_event = { days = 1 id = hitler.1 }
+				set_global_flag = hitler_back
 		    }
 		}
 		ai_will_do = {
