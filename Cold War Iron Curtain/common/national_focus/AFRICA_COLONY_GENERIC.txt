@@ -58,15 +58,15 @@ focus_tree = {
 			add = 10
 			tag = UGA
 		}
-        modifier = {
+		modifier = {
 			add = 10
 			tag = SUD
 		}
-        modifier = {
+		modifier = {
 			add = 10
 			tag = BSL
 		}
-        modifier = {
+		modifier = {
 			add = 10
 			tag = CHA
 		}
@@ -2161,13 +2161,10 @@ focus_tree = {
 								}
 						}
 				}
-			complete_tooltip = {
-				add_ideas = liberty_ethos_focus
-			}
 			completion_reward = {
 				add_ideas = liberty_ethos_focus
-				OVERLORD = { country_event = AFR.1 }
-		    }
+				country_event = africa.4
+			}
 	}
 	focus = {
 		id = AFR_emulate_overlord_government
@@ -2692,100 +2689,21 @@ focus_tree = {
 		}
 		x = 33
 		y = 1
-			available = {
-			}
-
 			available_if_capitulated = yes
 			ai_will_do = {
 					factor = 5
 					modifier = {
-							factor = 0
-							OR = {
-									AND = {
-											is_historical_focus_on = yes
-											has_government = neutrality
-										}
-									has_idea = neutrality_idea
-								}
+						factor = 0
+						OR = {
+							is_historical_focus_on = yes
+							has_idea = neutrality_idea
 						}
-				}
-			complete_tooltip = {
-					add_ideas = collectivist_ethos_focus
+					}
 				}
 			completion_reward = {
-					add_ideas = collectivist_ethos_focus
-					country_event = AFR.1
-				if = {
-						limit = { tag = CHA }
-						release = CAR
-                        release = ROC
-                        release = GAB				
-				}
-				if = {
-						limit = { tag = LES }
-						add_popularity ={
-		                     ideology = democratic
-		                     popularity = 0.20
-		                }
-						set_politics = {
-	                        ruling_party = democratic
-                        }	
-				}
-				if = {
-						limit = { tag = GAM }
-						add_popularity ={
-		                     ideology = centrist
-		                     popularity = 1.0
-		                }
-						set_politics = {
-	                        ruling_party = centrist
-                        }	
-				}
-				if = {
-						limit = { tag = MAD }
-						add_popularity ={
-		                     ideology = socialist
-		                     popularity = 1.0
-		                }
-						set_politics = {
-	                        ruling_party = socialist
-                        }	
-				}
-				if = {
-						limit = { tag = SLE }
-						add_popularity ={
-		                     ideology = socialist
-		                     popularity = 1.0
-		                }
-						set_politics = {
-	                        ruling_party = socialist
-                        }	
-				}
-				if = {
-						limit = { tag = DJB }
-						add_popularity ={
-		                     ideology = socialist
-		                     popularity = 1.0
-		                }
-						set_politics = {
-	                        ruling_party = socialist
-                        }	
-				}
-				if = {
-						limit = { tag = DOC }
-						add_popularity ={
-		                     ideology = Liberal_Conservatism
-		                     popularity = 0.80
-		                }
-						add_popularity ={
-		                     ideology = nationalism
-		                     popularity = 0.20
-		                }
-						set_politics = {
-	                        ruling_party = Liberal_Conservatism
-                        }	
-				}
-		    }
+				add_ideas = collectivist_ethos_focus
+				country_event = africa.4
+			}
 	}
 	focus = {
 		id = AFR_nationalism_focus
@@ -3382,9 +3300,6 @@ focus_tree = {
 		y = 10
 		available_if_capitulated = yes
 		completion_reward = {
-			OVERLORD = {
-				end_puppet = ROOT
-			}
 			SOV = {
 				puppet = ROOT
 				add_to_faction = ROOT

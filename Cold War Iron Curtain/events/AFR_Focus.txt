@@ -1,10 +1,89 @@
-﻿add_namespace = AFR
+﻿add_namespace = africa
 
 # African Colonial Nations can trigger this event through their focus tree. It is sent to their overlord.
 country_event = {
-	id = AFR.1
-	title = AFR.1.t
-	desc = AFR.1.d
+	id = africa.1
+	title = {
+		text = "Uganda demands independance"
+		trigger = { FROM = { tag = UGA } }
+	}
+	title = {
+		text = "Kenya demands independance"
+		trigger = { FROM = { tag = KNA } }
+	}
+	title = {
+		text = "Nysaland demands independance"
+		trigger = { FROM = { tag = NYA } }
+	}
+	title = {
+		text = "Zambia demands independance"
+		trigger = { FROM = { tag = ZAM } }
+	}
+	title = {
+		text = "Nigeria demands independance"
+		trigger = { FROM = { tag = NIA } }
+	}
+	title = {
+		text = "Mali demands independance"
+		trigger = { FROM = { tag = MLI } }
+	}
+	title = {
+		text = "Niger demands independance"
+		trigger = { FROM = { tag = NIG } }
+	}
+	title = {
+		text = "Burkina Faso demands independance"
+		trigger = { FROM = { tag = BRK } }
+	}
+	title = {
+		text = "Benin demands independance"
+		trigger = { FROM = { tag = BEN } }
+	}
+	title = {
+		text = "Côte d'Invoire demands independance"
+		trigger = { FROM = { tag = CTD } }
+	}
+	title = {
+		text = "Togo demands independance"
+		trigger = { FROM = { tag = TOG } }
+	}
+	title = {
+		text = "Mauritiana demands independance"
+		trigger = { FROM = { tag = MAU } }
+	}
+	title = {
+		text = "Guinea demands independance"
+		trigger = { FROM = { tag = GUI } }
+	}
+	title = {
+		text = "Senegal demands independance"
+		trigger = { FROM = { tag = SEN } }
+	}
+	title = {
+		text = "Chad demands independance"
+		trigger = { FROM = { tag = CHA } }
+	}
+	title = {
+		text = "Lesotho demands independance"
+		trigger = { FROM = { tag = LES } }
+	}
+	title = {
+		text = "Gambia demands independance"
+		trigger = { FROM = { tag = GAM } }
+	}
+	title = {
+		text = "Sierra Leone demands independance"
+		trigger = { FROM = { tag = SLE } }
+	}
+	title = {
+		text = "Djibuti demands independance"
+		trigger = { FROM = { tag = DJB } }
+	}
+	title = {
+		text = "The Democratic Republic of Congo demands independance"
+		trigger = { FROM = { tag = DOC } }
+	}
+	desc = africa.1.d
 
 	is_triggered_only = yes
 	
@@ -262,7 +341,7 @@ country_event = {
 	                ruling_party = Liberal_Conservatism
                 }	
 			}
-			country_event = { id = AFR.3 hours = 6 }
+			country_event = { id = africa.3 hours = 6 }
 		}
 	}
 	option = {
@@ -270,15 +349,15 @@ country_event = {
 		ai_chance = {
 			factor = 0
 		}
-		FROM = { country_event = { id = AFR.2 hours = 6 } }
+		FROM = { country_event = { id = africa.2 hours = 6 } }
 	}
 }
 
 # Independance Refused
 country_event = {
-	id = AFR.2
-	title = AFR.2.t
-	desc = AFR.2.d
+	id = africa.2
+	title = africa.2.t
+	desc = africa.2.d
 
 	is_triggered_only = yes
 
@@ -334,7 +413,7 @@ country_event = {
 		name = "It's not over yet"
 		custom_effect_tooltip = "We'll ask them again in about a year. Maybe their decision will change..."
 		hidden_effect = {
-			OVERLORD = { country_event = { id = AFR.1 days = 360 random = 1 } }
+			OVERLORD = { country_event = { id = africa.1 days = 360 random = 1 } }
 			add_to_variable = { var = ROOT.Anger value = 10 }
 		}
 		ai_chance = {
@@ -363,13 +442,26 @@ country_event = {
 
 # Independance Allowed
 country_event = {
-	id = AFR.3
-	title = AFR.3.t
-	desc = AFR.3.d
+	id = africa.3
+	title = africa.3.t
+	desc = africa.3.d
 
 	is_triggered_only = yes
 
 	option = {
 		name = "Great!"
+	}
+}
+
+country_event = {
+	id = africa.4
+	title = africa.4.t
+	desc = africa.4.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Demand Independance"
+		OVERLORD = { country_event = africa.1 }
 	}
 }
