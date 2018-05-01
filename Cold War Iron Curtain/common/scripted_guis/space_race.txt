@@ -1,33 +1,36 @@
 scripted_gui = {
 
-	nasa_agency = {
+	nasa_button = {
 
 		window_name = "nasa_button_container"
+		parent_window_token = top_bar
 
 		context_type = player_context
         
 		visible = {
-            tag = USA
-            # date > 1958.1.1
+			tag = USA
+			# date > 1958.1.1
 		}
 		
 		effects = {
-			agency_icon_click = {
+			nasa_bg_click = {
 				set_temp_variable = { show = 1 }
 				subtract_from_temp_variable = { show = show_nasa }
 				set_variable = { show_nasa = show }
 			}
 		}
 	}
+}
 
-	nasa_agency_window = {
+scripted_gui = {
+	nasa_window = {
 
 		window_name = "nasa_window_container"
 
 		context_type = player_context
 		
 		visible = {
-            check_variable = { show_nasa > 0.0 }
+            	check_variable = { show_nasa > 0.0 }
 		}
 
 		effects = {
