@@ -442,7 +442,12 @@ focus_tree = {
 		}
 		x = 14
 		y = 1
-
+		available = {
+			has_country_flag = greek_elections_1951
+		}
+		bypass = {
+			has_country_flag = greek_elections_1951
+		}
 	}
 	focus = {
 		id = GRE_Papagos
@@ -469,7 +474,12 @@ focus_tree = {
 		}
 		x = 9
 		y = 3
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = conservativism_drift
+				days = 900
+			}
+		}
 	}
 	focus = {
 		id = GRE_Plastiras
@@ -549,7 +559,10 @@ focus_tree = {
 		}
 		x = 10
 		y = 6
-
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = GRE_Decrease_Influence_of_the_Royal_Family
@@ -609,7 +622,12 @@ focus_tree = {
 		}
 		x = 16
 		y = 3
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = liberal_conservative_drifting
+				days = 900
+			}
+		}
 	}
 	focus = {
 		id = GRE_Further_Liberalization_of_Greek_Society
@@ -620,7 +638,9 @@ focus_tree = {
 		}
 		x = 15
 		y = 4
-
+			completion_reward = {
+					add_ideas = rights_for_people
+				}
 	}
 	focus = {
 		id = GRE_Join_the_Non_Aligned_Movement
@@ -746,7 +766,12 @@ focus_tree = {
 		}
 		x = 21
 		y = 3
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = nationalist_drift
+				days = 900
+			}
+		}
 	}
 	focus = {
 		id = GRE_Military_Junta
@@ -757,7 +782,13 @@ focus_tree = {
 		}
 		x = 21
 		y = 4
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = nationalism
+				elections_allowed = no
+			}
+			add_ideas = militarism_focusait
+		}
 	}
 	focus = {
 		id = GRE_Demand_Extradition_of_All_Greek_Communists
@@ -792,7 +823,10 @@ focus_tree = {
 		}
 		x = 22
 		y = 5
-
+		completion_reward = {
+			add_ideas = military_youth_focus
+			add_ideas = military_expansion
+		}
 	}
 	focus = {
 		id = GRE_Recall_American_Ambassador
@@ -1026,7 +1060,68 @@ focus_tree = {
 		}
 		x = 15
 		y = 8
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}						
+		}
 	}
 	focus = {
 		id = GRE_New_Greece
