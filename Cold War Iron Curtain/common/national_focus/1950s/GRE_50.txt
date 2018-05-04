@@ -631,7 +631,9 @@ focus_tree = {
 		}
 		x = 17
 		y = 4
-
+		completion_reward = {
+			YUG = { add_to_faction = GRE }
+		}
 	}
 	focus = {
 		id = GRE_Establish_Relations_with_the_Soviets
@@ -645,7 +647,20 @@ focus_tree = {
 		}
 		x = 16
 		y = 5
-
+			completion_reward = {
+					GRE = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = GRE_Embrace_Free_Trade
@@ -656,7 +671,9 @@ focus_tree = {
 		}
 		x = 17
 		y = 6
-
+			completion_reward = {
+					add_ideas = embrace_free_trade
+				}
 	}
 	focus = {
 		id = GRE_New_Port_In_Igoumenitsa
@@ -667,8 +684,17 @@ focus_tree = {
 		}
 		x = 15
 		y = 6
-
-	}
+		completion_reward = {
+			185 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}	
+		}
+	}	
 	focus = {
 		id = GRE_Reconciliation_with_Turkey
 		icon = GFX_goal_unknown
@@ -681,7 +707,20 @@ focus_tree = {
 		}
 		x = 16
 		y = 7
-
+			completion_reward = {
+					GRE = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_increase
+								}
+						}
+					TUR = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = GRE_Papadopoulos
@@ -729,7 +768,20 @@ focus_tree = {
 		}
 		x = 20
 		y = 5
-
+			completion_reward = {
+					GRE = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = large_decrease
+								}
+						}
+					YUG = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = GRE_Military_with_a_State
@@ -754,7 +806,20 @@ focus_tree = {
 		}
 		x = 22
 		y = 6
-
+			completion_reward = {
+					GRE = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = GRE_Absolute_Monarchy
@@ -790,7 +855,11 @@ focus_tree = {
 		}
 		x = 27
 		y = 2
-
+		completion_reward = {
+			ALB = {
+				country_event = GRE.10
+			}
+		}
 	}
 	focus = {
 		id = GRE_Makedonia_ksakusti
@@ -804,7 +873,11 @@ focus_tree = {
 		}
 		x = 26
 		y = 3
-
+		completion_reward = {
+			YUG = {
+				country_event = GRE.11
+			}
+		}
 	}
 	focus = {
 		id = GRE_Crown_Paul_as_Tsar
@@ -826,7 +899,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 5
-
+		completion_reward = {
+			set_cosmetic_tag = BYZ_UNIFIED
+		}
 	}
 	focus = {
 		id = GRE_Crush_Yugoslavia
@@ -837,7 +912,13 @@ focus_tree = {
 		}
 		x = 25
 		y = 6
-
+				completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = YUG
+						}
+					YUG = { every_owned_state = { add_core_of = GRE }	}
+				}
 	}
 	focus = {
 		id = GRE_Invade_Anatolia
