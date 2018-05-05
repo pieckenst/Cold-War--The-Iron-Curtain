@@ -123,7 +123,9 @@ focus_tree = {
 		cost = 10.00
 		x = 27
 		y = 2
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = gre_election_of_1958
@@ -131,7 +133,9 @@ focus_tree = {
 		cost = 10.00
 		x = 27
 		y = 8
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = GRE_Adopt_the_Marshall_Plan
@@ -479,7 +483,9 @@ focus_tree = {
 		}
 		x = 9
 		y = 2
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = GRE_Extreme_Right_Wing
@@ -492,7 +498,7 @@ focus_tree = {
 		y = 3
 			completion_reward = {
 					add_timed_idea = {
-							idea = nationalist_drift
+							idea = reactionary_drift
 							days = 900
 						}
 				}
@@ -509,10 +515,10 @@ focus_tree = {
 		y = 4
 			completion_reward = {
 					set_politics = {
-							ruling_party = nationalism
+							ruling_party = neutrality
 							elections_allowed = no
 						}
-					add_ideas = militarism_focusait
+					add_ideas = militarism_focus
 				}
 
 	}
@@ -777,7 +783,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 3
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = GRE_Karamanlis_58
@@ -788,7 +796,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 9
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = GRE_Further_Liberalization_of_Greek_Society
@@ -1113,7 +1123,13 @@ focus_tree = {
 		}
 		x = 29
 		y = 5
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+			341 = { add_core_of = GRE }
+			340 = { add_core_of = GRE }
+			339 = { add_core_of = GRE }
+			342 = { add_core_of = GRE }
+		}
 	}
 	focus = {
 		id = GRE_Decrease_Influence_of_the_Royal_Family_Venizelism
@@ -1201,13 +1217,10 @@ focus_tree = {
 		x = 30
 		y = 8
 			completion_reward = {
-					341 = {
-							add_core_of = GRE
-						}
 					create_wargoal = {
 							type = take_state_focus
 							target = TUR
-							generator = { 341 }
+							generator = { 339 340 341 342 }
 						}
 				}
 
@@ -1221,7 +1234,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 9
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = GRE_Strengthen_Ties_with_yugoslavia
@@ -1527,10 +1542,11 @@ focus_tree = {
 		x = 1
 		y = 20
 		completion_reward = {
+			kill_country_leader = yes
 			set_politics = {
-				kill_country_leader = yes
+				
 				ruling_party = Liberal_Conservatism
-				elections_allowed = yes
+				elections_allowed = no
 			}
 		}
 	}
@@ -1874,7 +1890,7 @@ focus_tree = {
 				drop_cosmetic_tag = yes
 				set_politics = {
 					ruling_party = democratic
-					elections_allowed = yes
+					elections_allowed = no
 				}
 			}
 		}
