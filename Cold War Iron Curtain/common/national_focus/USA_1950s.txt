@@ -2579,12 +2579,24 @@ focus_tree = {
 		prerequisite = {
 			focus = USA_call_for_de_colonization
 		}
+		available = {
+			NOT = { PRC = { has_war_with = CHI } }
+		}
 		allow_branch = { date < 1959.12.31 }
 		x = 20
 		y = 7
 		completion_reward = {
-			CHI = { transfer_state = 326 }	
-			CHI = { transfer_state = 729 }	
+			if = {
+				limit = {
+					has_country_flag = china_in_taiwan
+				}
+				PRC = { transfer_state = 326 }	
+				PRC = { transfer_state = 729 }
+			}
+			else = {
+				CHI = { transfer_state = 326 }	
+				CHI = { transfer_state = 729 }
+			}
 		}
 	}
 	focus = {
