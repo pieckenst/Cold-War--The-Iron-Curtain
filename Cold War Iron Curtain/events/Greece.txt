@@ -3,6 +3,8 @@
 ###########################
 
 add_namespace = gre
+add_namespace = GRE
+add_namespace = CYP
 
 
 # Hidden Trigger, end of civil war
@@ -33,5 +35,99 @@ country_event = {
 		PDG = { white_peace = GRE }
 		PDG = { annex_country = { target = GRE } }
 		PDG = { set_capital = 47 }
+	}
+}
+country_event = {
+	id = GRE.10
+	title = "Greece Demands Northern Epirus"
+	desc = "Greece Demands Northern Epirus"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to the Demands"
+		GRE = { transfer_state = 1012 }	
+		ai_chance = {
+			factor = 80
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 20
+		}
+		name = "Decline"
+		GRE = { create_wargoal = { type = annex_everything target = ALB }	}
+	}
+}
+country_event = {
+	id = GRE.11
+	title = "Greece Demands Macedonia"
+	desc = "Greece Demands Macedonia"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to the Demands"
+		GRE = { transfer_state = 106 }	
+		ai_chance = {
+			factor = 50
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 50
+		}
+		name = "Decline"
+		GRE = { create_wargoal = { type = annex_everything target = YUG }	}
+	}
+}
+country_event = {
+	id = GRE.200
+	title = "The Partitioning of Albania"
+	desc = "Greece and Yugoslavia Demands to Partition Albania"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to the Demands"
+		YUG = { annex_country = { target = ALB } }
+		GRE = { transfer_state = 1012 }	
+		ai_chance = {
+			factor = 80
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 20
+		}
+		name = "Decline"
+		GRE = { create_wargoal = { type = annex_everything target = ALB }	}
+		YUG = { create_wargoal = { type = annex_everything target = ALB }	}
+	}
+}
+country_event = {
+	id = CYP.1
+	title = "Greece Demands Unification with Cyprus"
+	desc = "Greece Demands Unification with Cyprus"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to the Demands"
+		GRE = { annex_country = { target = CYP } }
+		ai_chance = {
+			factor = 80
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 20
+		}
+		name = "Decline"
+		GRE = { create_wargoal = { type = annex_everything target = CYP }	}
 	}
 }
