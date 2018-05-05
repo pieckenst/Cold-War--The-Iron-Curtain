@@ -1,0 +1,204 @@
+
+Warning: iw_armored_vehicles = 1 should **ALWAYS** be researched!
+
+Note: land-locked countries shouldn't have any navy researched
+Note: you can put several set_technology = {} with different tech in sequence
+
+#### Foreign equipment ####
+
+If the army of the country uses something they cannot make (typically artillery, tanks, planes, ships), they should have it as foreign equipment. Ideally add precise name of type/class as comment. If unavailable, then use USA, ENG, FRA or SOV as creator (based on historical leanings of country).
+
+Ships and planes are easy:
+
+	# Mendoza-class destroyer
+	ship = { name = "ARA Tucuman" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = ARG creator = ENG } } }
+	
+	# Coastal Group -- mostly P2Y-3A Rangers 
+	nav_bomber_equipment_1 = { owner = "ARG" amount = 12 creator = USA }
+
+Divisions are bit more complicated.. Firstly, you MUST add license creation at the **START** of OOB file if nation doesn't have any technology unlocking this equipment type or errors will show.
+
+cost_factor = x determines how many civ factories nation will pay for this license. Ideally add names of equipment as comment.
+
+	instant_effect = {
+		SOV = {
+			create_production_license = {
+				target = KPA
+				equipment = {
+					type = artillery_equipment_1  # D-74 122 mm
+				}
+				cost_factor = 0
+			}
+			create_production_license = {
+				target = KPA
+				equipment = {
+					type = mechanized_equipment_1 # ZiS-42
+				}
+				cost_factor = 1
+			}
+			create_production_license = {
+				target = KPA
+				equipment = {
+					type = mbt_equipment_0 # T-34
+				}
+				cost_factor = 1
+			}
+			create_production_license = {
+				target = KPA
+				equipment = {
+					type = motorized_equipment_1 # GAZ-64
+				}
+				cost_factor = 0
+			}
+		}
+	}
+
+Finally, all spawned divisions **MUST** have definition of what equipment should they use in order to spawn with it:
+
+	division= {	
+		name = "105th Gigab Budae"
+		location = 11915
+		division_template = "Maejil Gigab Doen Bunhal"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1
+		force_equipment_variants = {
+			mbt_equipment_0 = { owner = "KPA" creator = "SOV" }
+			mechanized_equipment_1 = { owner = "KPA" creator = "SOV" }
+			motorized_equipment_1 = { owner = "KPA" creator = "SOV" }
+			infantry_equipment_0 = { owner = "KPA" creator = "SOV" }
+			artillery_equipment_1 = { owner = "KPA" creator = "SOV" }
+		}
+	}
+
+As you can see, the division uses infantry_equipment_0 but KPA didn't get license for it from SOV. That's because they have the technology to create their own infantry_equipment_0.
+	
+#### GENERIC STARTING TECHS ####
+Modify generic starting tech as needed - for example Argentina had jet fighter technology in 1949 (unlike other countries of similar power).
+
+
+## 3rd world country (colonies, small states like Bhutan, ...) ##
+set_technology = {
+	## Tech ##
+	radio = 1
+
+	## Industry ##
+
+	## AIR ##
+	
+	## NAVY ##
+	transport = 1
+
+	## Infantry ##
+	infantry_equip_1 = 1 
+	
+	## Support ##
+	tech_support = 1
+
+	## Artillery  ##
+	
+	## Armor ## 
+	iw_armored_vehicles = 1  # dummy tech
+}
+
+## Countries with relatively small but active military industry (Belgium, Poland, ...) ##
+set_technology = {
+	## Tech ##
+	radio = 1
+
+	## Industry ##
+	ww_production = 1
+	ww_construction = 1
+
+	## AIR ##
+	
+	## NAVY ##
+	transport = 1
+
+	## Infantry ##
+	infantry_equip_1 = 1
+	team_weapons_1 = 1
+	specialist_1 = 1
+	
+	## Support ##
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_field_hospital = 1
+
+	## Artillery  ##
+	gw_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	
+	## Armor ## 
+	iw_armored_vehicles = 1  # dummy tech
+	motorised_infantry = 1
+}
+
+# Add this if the nation has proper army structures #
+set_technology = {
+	## Support ##
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	tech_maintenance_company = 1
+}
+
+# Add this if the nation has small navy building capabilites (for example Belgium) #
+set_technology = {
+	## NAVY ##
+	frigate_1 = 1
+	early_destroyer = 1
+	basic_destroyer = 1
+	early_light_cruiser = 1
+	early_submarine = 1
+}
+
+# Add this if the nation has bigger (but not modern) navy building capabilites (for example Netherlands) #
+set_technology = {
+	## NAVY ##
+	frigate_1 = 1
+	frigate_2 = 1
+	early_destroyer = 1
+	basic_destroyer = 1
+	improved_destroyer = 1
+	early_light_cruiser = 1
+	basic_light_cruiser = 1
+	early_submarine = 1
+	early_battleship = 1
+	battle_cruiser_1 = 1
+}
+
+# Add this if the nation has marines #
+set_technology = {
+	## NAVY ##
+	landing_craft = 1
+
+	## Infantry ##
+	marines = 1
+}
+
+# Add this if the nation built it's own aircraft (Belgium had, Portugal hadn't so shouldn't have the tech...) #
+set_technology = {
+	## AIR ##
+	early_bomber = 1
+	early_fighter = 1
+	fighter1 = 1
+	fighter2 = 1
+	heavy_fighter1 = 1
+	heavy_fighter2 = 1
+	CAS1 = 1
+	CAS2 = 1
+	naval_bomber1 = 1
+	naval_bomber2 = 1
+	tactical_bomber1 = 1
+	tactical_bomber2 = 1
+}
+
+# Add this if the nation could build tanks at some point #
+set_technology = {
+	## Armor ## 
+	main_battle_tanks = 1
+	light_tanks_1 = 1
+	mechanized_infantry = 1
+}
