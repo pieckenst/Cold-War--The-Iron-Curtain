@@ -14,7 +14,13 @@ focus_tree = {
 		cost = 10.00
 		x = 27
 		y = 0
-
+		completion_reward = {
+			add_political_power = 150
+			add_timed_idea = {
+				idea = repression
+				days = 700
+			}
+		}
 	}
 	focus = {
 		id = VIE_Seek_Foriegn_Alliances
@@ -22,7 +28,9 @@ focus_tree = {
 		cost = 10.00
 		x = 48
 		y = 0
-
+		completion_reward = {
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = VIE_Strengthen_Ties_With_Japan
@@ -33,7 +41,20 @@ focus_tree = {
 		}
 		x = 54
 		y = 2
-
+			completion_reward = {
+					VIE = {
+							add_opinion_modifier = {
+									target = JAP
+									modifier = small_increase
+								}
+						}
+					JAP = {
+							add_opinion_modifier = {
+									target = VIE
+									modifier = small_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIE_Continue_Promoting_Personalism
@@ -44,7 +65,13 @@ focus_tree = {
 		}
 		x = 26
 		y = 1
-
+			completion_reward = {
+					add_stability = -0.05
+					add_timed_idea = {
+						idea = christian_democratic_drift_2
+						days = 700
+					}
+				}
 	}
 	focus = {
 		id = VIA_Catholic_Officiers
@@ -55,7 +82,10 @@ focus_tree = {
 		}
 		x = 28
 		y = 1
-
+		completion_reward = {
+			army_experience = 50
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = VIA_Civil_Unrest
@@ -69,7 +99,10 @@ focus_tree = {
 		}
 		x = 27
 		y = 2
-
+			completion_reward = {
+					add_stability = -0.10
+					add_political_power = 150
+				}
 	}
 	focus = {
 		id = VIA_Hue_Phat_Dan
@@ -80,23 +113,29 @@ focus_tree = {
 		}
 		x = 27
 		y = 3
-
+			completion_reward = {
+					add_stability = -0.05
+					add_war_support = -0.05
+					add_political_power = 150
+				}
 	}
 	focus = {
 		id = VIE_Anti_Diem_Coup_1963
 		icon = GFX_goal_anschluss
-		cost = 10.00
+		cost = 10.00 
 		prerequisite = {
 			focus = VIA_Hue_Phat_Dan
 		}
 		x = 27
 		y = 4
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = VIE_Diem_Coup_Failure
 		icon = GFX_focus_generic_military_mission
-		cost = 10.00
+		cost = 1
 		prerequisite = {
 			focus = VIE_Anti_Diem_Coup_1963
 		}
@@ -105,7 +144,20 @@ focus_tree = {
 		}
 		x = 25
 		y = 5
-
+			completion_reward = {
+					VIE = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = VIE
+									modifier = small_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIE_Military_Purge
@@ -116,7 +168,11 @@ focus_tree = {
 		}
 		x = 24
 		y = 6
-
+		completion_reward = {
+			add_political_power = 300
+			army_experience = -50
+			add_manpower -25000
+		}
 	}
 	focus = {
 		id = VIE_Spread_Personalism
@@ -127,7 +183,12 @@ focus_tree = {
 		}
 		x = 26
 		y = 6
-
+			completion_reward = {
+					add_timed_idea = {
+						idea = christian_democratic_drift_2
+						days = 700
+					}
+				}
 	}
 	focus = {
 		id = VIE_Diem_Coup_Success
@@ -141,7 +202,19 @@ focus_tree = {
 		}
 		x = 29
 		y = 5
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+					create_country_leader = {
+							name = "Dưong Van Minh"
+							picture = "VIE_Portrait_Van_Minh.dds"
+							expire = "1980.5.5"
+							ideology = military_junta
+						}
+			
+		}
 	}
 	focus = {
 		id = VIE_Loss_of_Legitimacy
@@ -152,7 +225,11 @@ focus_tree = {
 		}
 		x = 29
 		y = 6
-
+		completion_reward = {
+			add_political_power = 150
+			add_stability = -0.10
+			add_war_support = -0.05
+		}
 	}
 	focus = {
 		id = VIE_Military_Coup
@@ -163,7 +240,19 @@ focus_tree = {
 		}
 		x = 29
 		y = 7
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+					create_country_leader = {
+							name = "Nguyen Khanh"
+							picture = "VIE_Portrait_Nguyan_Khanh.dds"
+							expire = "1980.5.5"
+							ideology = military_junta
+						}
+			
+		}
 	}
 	focus = {
 		id = VIE_Propose_Vung_Tau_Charter
@@ -174,7 +263,10 @@ focus_tree = {
 		}
 		x = 28
 		y = 8
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = VIE_Buddhist_Crisis
@@ -185,7 +277,10 @@ focus_tree = {
 		}
 		x = 30
 		y = 8
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = -0.10
+		}
 	}
 	focus = {
 		id = VIE_1964_Coup_Attempt
@@ -199,7 +294,9 @@ focus_tree = {
 		}
 		x = 29
 		y = 9
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = VIE_Viet_Quoc_Takes_Power
@@ -213,7 +310,12 @@ focus_tree = {
 		}
 		x = 31
 		y = 10
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}
+		}
 	}
 	focus = {
 		id = VIE_Request_More_American_Aid
@@ -227,7 +329,18 @@ focus_tree = {
 		}
 		x = 25
 		y = 7
-
+			completion_reward = {
+					add_war_support = 0.15
+					add_stability = 0.1
+					add_offsite_building = {
+							type = arms_factory
+							level = 2
+						}
+					add_offsite_building = {
+							type = industrial_complex
+							level = 2
+						}
+				}
 	}
 	focus = {
 		id = VIA_Enact_Pro_Catholic_Policies
@@ -239,7 +352,12 @@ focus_tree = {
 		}
 		x = 30
 		y = 11
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = nationalism
+				days = 700
+			}
+		}
 	}
 	focus = {
 		id = VIE_Return_to_Diem_Era_Policies
@@ -250,7 +368,10 @@ focus_tree = {
 		}
 		x = 32
 		y = 11
-
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = VIE_The_Three_Principles
@@ -262,7 +383,10 @@ focus_tree = {
 		}
 		x = 31
 		y = 12
-
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = VIE_Nationalist_Education
@@ -273,7 +397,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 13
-
+		completion_reward = {
+			add_ideas = military_youth_focus
+		}
 	}
 	focus = {
 		id = VIE_Outreach_to_Franco
@@ -284,7 +410,20 @@ focus_tree = {
 		}
 		x = 29
 		y = 14
-
+			completion_reward = {
+					VIE = {
+							add_opinion_modifier = {
+									target = SPR
+									modifier = large_increase
+								}
+						}
+					SPR = {
+							add_opinion_modifier = {
+									target = VIE
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIE_Emphasize_Militarism
@@ -295,7 +434,10 @@ focus_tree = {
 		}
 		x = 32
 		y = 13
-
+			completion_reward = {
+					add_war_support = 0.15
+					add_ideas = militarism_focus
+				}
 	}
 	focus = {
 		id = VIE_Embrace_Urban_Populism
@@ -309,7 +451,9 @@ focus_tree = {
 		}
 		x = 31
 		y = 14
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 	focus = {
 		id = VIE_Crackdown_on_Buddhism
@@ -323,7 +467,16 @@ focus_tree = {
 		}
 		x = 30
 		y = 15
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = repression
+				days = 365
+			}
+			add_timed_idea = {
+				idea = nationalism
+				days = 365
+			}
+		}
 	}
 	focus = {
 		id = VIE_Outreach_to_the_Estado_Nova
@@ -334,7 +487,20 @@ focus_tree = {
 		}
 		x = 33
 		y = 14
-
+			completion_reward = {
+					VIE = {
+							add_opinion_modifier = {
+									target = POR
+									modifier = large_increase
+								}
+						}
+					POR = {
+							add_opinion_modifier = {
+									target = VIE
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIE_Ties_to_Australia
@@ -348,7 +514,20 @@ focus_tree = {
 		}
 		x = 32
 		y = 15
-
+			completion_reward = {
+					VIE = {
+							add_opinion_modifier = {
+									target = AST
+									modifier = large_increase
+								}
+						}
+					AST = {
+							add_opinion_modifier = {
+									target = VIE
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIA_Rural_Pacification
@@ -362,7 +541,10 @@ focus_tree = {
 		}
 		x = 31
 		y = 16
-
+		completion_reward = [
+			add_stability = 0.25
+			add_war_support = 0.15
+		}
 	}
 	focus = {
 		id = VIE_Southeast_Asian_Diplomacy
@@ -373,7 +555,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 1
-
+		completion_reward = {
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = VIE_Strengthen_Ties_with_the_Kingdom_of_Thailand
@@ -384,7 +568,20 @@ focus_tree = {
 		}
 		x = 34
 		y = 2
-
+			completion_reward = {
+					VIE = {
+							add_opinion_modifier = {
+									target = SIA
+									modifier = large_increase
+								}
+						}
+					SIA = {
+							add_opinion_modifier = {
+									target = VIE
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIE_Seek_Thai_Advisors
@@ -395,7 +592,9 @@ focus_tree = {
 		}
 		x = 34
 		y = 3
-
+		completion_reward = {
+			add_ideas = thai_advisors
+		}
 	}
 	focus = {
 		id = VIE_Seek_Thai_Intervention
@@ -406,7 +605,11 @@ focus_tree = {
 		}
 		x = 34
 		y = 4
-
+		completion_reward = {
+			SIA = {
+				country_event = join_vietnam_war.1
+			}
+		}
 	}
 	focus = {
 		id = VIE_Seek_Closer_Ties_to_Cambodia
@@ -526,7 +729,9 @@ focus_tree = {
 		}
 		x = 43
 		y = 2
-
+		completion_reward = {
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = VIE_Strengthen_Ties_to_India
@@ -565,7 +770,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 1
-
+		completion_reward = {
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = VIA_Reapproach_the_French
@@ -591,7 +798,11 @@ focus_tree = {
 		}
 		x = 46
 		y = 3
-
+		completion_reward = {
+			VIN = {
+				country_event = vie_peace.1
+			}
+		}
 	}
 	focus = {
 		id = VIE_French_Economic_Aid
@@ -698,7 +909,10 @@ focus_tree = {
 		}
 		x = 56
 		y = 1
-
+		completion_reward = {
+			add_political_power = 150
+		}
+		
 	}
 	focus = {
 		id = VIE_Strengthen_Ties_with_Republic_of_Korea
@@ -720,7 +934,9 @@ focus_tree = {
 		}
 		x = 52
 		y = 3
-
+		completion_reward = {
+			add_ideas = chinese_advisors
+		}
 	}
 	focus = {
 		id = VIE_Seek_KMT_Entry_into_the_War
@@ -731,7 +947,11 @@ focus_tree = {
 		}
 		x = 52
 		y = 4
-
+		completion_reward = {
+			CHI = {
+				country_event = join_vietnam_war.1
+			}
+		}
 	}
 	focus = {
 		id = VIE_Request_Reperations_From_Japan
@@ -800,7 +1020,11 @@ focus_tree = {
 		}
 		x = 58
 		y = 4
-
+		completion_reward = {
+			KOR = {
+				country_event = join_vietnam_war.1
+			}
+		}
 	}
 	focus = {
 		id = VIE_Strengthen_Ties_with_the_Philippines
@@ -833,7 +1057,11 @@ focus_tree = {
 		}
 		x = 60
 		y = 4
-
+		completion_reward = {
+			PHI = {
+				country_event = join_vietnam_war.1
+			}
+		}
 	}
 	focus = {
 		id = VIE_Junta_Consolidates_Power
@@ -847,17 +1075,6 @@ focus_tree = {
 		}
 		x = 26
 		y = 10
-
-	}
-	focus = {
-		id = VIA_Hue_Phat_Dan_Copy
-		icon = GFX_focus_SAF_colonialist_crusade
-		cost = 10.00
-		prerequisite = {
-			focus = VIA_Civil_Unrest
-		}
-		x = 27
-		y = 3
 
 	}
 	focus = {
@@ -916,7 +1133,9 @@ focus_tree = {
 		}
 		x = 27
 		y = 12
-
+			completion_reward = {
+					add_ideas = press_censorship_5
+				}
 	}
 	focus = {
 		id = VIE_Increase_Anti_Communist_Efforts
@@ -930,7 +1149,16 @@ focus_tree = {
 		}
 		x = 25
 		y = 13
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = communism_banned
+				days = 700
+			}
+			add_timed_idea = {
+				idea = repression
+				days = 365
+			}
+		}	
 	}
 	focus = {
 		id = VIE_Governmental_Stability
@@ -944,7 +1172,9 @@ focus_tree = {
 		}
 		x = 27
 		y = 13
-
+		completion_reward = {
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = VIE_Develop_a_Native_Arms_Industry
@@ -955,7 +1185,12 @@ focus_tree = {
 		}
 		x = 27
 		y = 16
-
+			completion_reward = {
+					add_offsite_building = {
+							type = arms_factory
+							level = 2
+						}
+				}
 	}
 	focus = {
 		id = VIE_Develop_a_Native_Arms_Industry_II
@@ -966,7 +1201,12 @@ focus_tree = {
 		}
 		x = 27
 		y = 17
-
+			completion_reward = {
+					add_offsite_building = {
+							type = arms_factory
+							level = 2
+						}
+				}
 	}
 	focus = {
 		id = VIE_Invite_Western_Capitalists
@@ -977,7 +1217,13 @@ focus_tree = {
 		}
 		x = 25
 		y = 16
+			completion_reward = {
 
+					add_offsite_building = {
+							type = industrial_complex
+							level = 3
+						}
+				}
 	}
 	focus = {
 		id = VIA_Rural_Anti_Communism
@@ -988,7 +1234,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 15
-
+		completion_reward = {
+			add_ideas = TUR_mobilization_of_the_masses
+		}
 	}
 	focus = {
 		id = VIE_Further_Economic_Aid
@@ -999,6 +1247,15 @@ focus_tree = {
 		}
 		x = 25
 		y = 17
-
+			completion_reward = {
+					add_offsite_building = {
+							type = arms_factory
+							level = 2
+						}
+					add_offsite_building = {
+							type = industrial_complex
+							level = 2
+						}
+				}
 	}
 }
