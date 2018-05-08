@@ -3,9 +3,9 @@ scripted_gui = {
 	nasa_button = {
 
 		window_name = "nasa_button_container"
-		parent_window_token = top_bar
 
-		context_type = player_context
+		context_type = politics_context
+		parent_window_token = politics_tab
         
 		visible = {
 			tag = USA
@@ -30,11 +30,41 @@ scripted_gui = {
 		context_type = player_context
 		
 		visible = {
-            	check_variable = { show_nasa > 0.0 }
+            check_variable = { show_nasa > 0.0 }
 		}
 
 		effects = {
+			exitbutton_click = {
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_nasa }
+				set_variable = { show_nasa = show }
+			}
+			Atlas_Project_button_click = {
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_atlas }
+				set_variable = { show_atlas = show }
+			}
+		}
+	}
+}
 
+scripted_gui = {
+	atlas_project_window = {
+
+		window_name = "atlas_window_container"
+
+		context_type = player_context
+		
+		visible = {
+            check_variable = { show_atlas > 0.0 }
+		}
+
+		effects = {
+			exitbutton_click = {
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_atlas }
+				set_variable = { show_atlas = show }
+			}
 		}
 	}
 }
