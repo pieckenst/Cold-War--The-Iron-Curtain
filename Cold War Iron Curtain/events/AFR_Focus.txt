@@ -95,7 +95,6 @@ country_event = {
 		set_autonomy = { target = FROM autonomy_state = autonomy_free }	
 		FROM = {
 			drop_cosmetic_tag = yes
-			OVERLORD = { end_puppet = FROM }
 			remove_from_faction = FROM
 			if = {
 				limit = {
@@ -434,9 +433,7 @@ country_event = {
 
 	option = {
 		name = "This means war!"
-		OVERLORD = {
-			end_puppet = ROOT
-		}
+		set_autonomy = { target = ROOT autonomy_state = autonomy_free }	
 		declare_war_on = {
 			target = FROM
 			type = civil_war
