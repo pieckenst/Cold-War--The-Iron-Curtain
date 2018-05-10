@@ -588,3 +588,74 @@ country_event = {
 
 	}
 }
+
+country_event = {
+	id = wgr.200
+	title = "The Election of 1953"
+	desc = The Election of 1953"
+	
+	trigger = {
+		date > 1953.1.1
+		date < 1954.1.1
+	}	
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Konrad Adenauer (CDU)"
+
+		set_politics = {
+			ruling_party = Christian_Democratic
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 34
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+	}
+	option = {
+		name = "Erich Ollenhauer (SDP)"
+
+		set_politics = {
+			ruling_party = socialist
+			elections_allowed = yes
+		}
+		create_country_leader = {
+			name = "Erich Ollenhauer"
+			picture = "Portrait_WestGermany_Erich_Ollenhauer.dds"
+			expire = "1963.12.14"
+			ideology = democratic_socialist
+		}
+		ai_chance = {
+			factor = 33
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+	option = {
+		name = "Franz Blücher (FDB)"
+
+		set_politics = {
+			ruling_party = liberal
+			elections_allowed = yes
+		}
+		create_country_leader = {
+			name = "Franz Blücher"
+			picture = "Portrait_WestGermany_Franz_Blucher.dds"
+			expire = "1959.3.26"
+			ideology = left_libertarianism
+		}
+		ai_chance = {
+			factor = 33
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
