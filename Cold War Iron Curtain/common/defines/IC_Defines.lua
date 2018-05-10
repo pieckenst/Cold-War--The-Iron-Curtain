@@ -27,8 +27,6 @@ NDefines.NDiplomacy.CIVIL_WAR_INVOLVEMENT_MIN_TENSION = 0.0		-- base value of wo
 NDefines.NTechnology.BASE_RESEARCH_POINTS_SAVED = 50.0		-- Base amount of research points a country can save per slot.	
 NDefines.NTechnology.BASE_YEAR_AHEAD_PENALTY_FACTOR = 7		-- Base year ahead penalty
 NDefines.NBuildings.RADAR_RANGE_MAX = 220				-- Range is interpolated between building levels 1-15.
-NDefines.NBuildings.INFRA_TO_SUPPLY = 30
-NDefines.NBuildings.INFRA_TO_SUPPLY_COEFF = 6
 NDefines.NMilitary.MAX_DIVISION_SUPPORT_WIDTH = 2			-- Max width of support in division designer.
 NDefines.NAir.AIR_WING_MAX_STATS_SPEED = 6000
 NDefines.NAir.STRATEGIC_BOMBER_NUKE_AIR_SUPERIORITY = 0.0		-- How much air superiority is needed for a tactical bomber to be able to nuke a province
@@ -49,7 +47,6 @@ NDefines.NAI.RESEARCH_AIR_DOCTRINE_NEED_GAIN_FACTOR = 0.08 -- Multiplies value b
 NDefines.NAI.RESEARCH_BONUS_FACTOR = 1.5 				-- To which extent AI should care about bonuses to research
 NDefines.NAI.RESEARCH_AHEAD_OF_TIME_FACTOR = 10.0 		-- To which extent AI should care about ahead of time penalties to research
 NDefines.NAI.DEPLOY_MIN_EQUIPMENT_WAR_FACTOR = 0.75		-- Required percentage of equipment (1.0 = 100%) for AI to deploy unit in wartime
-NDefines.NProduction.INFRA_MAX_CONSTRUCTION_COST_EFFECT = 5
 NDefines.NBuildings.INFRASTRUCTURE_RESOURCE_BONUS= 0.2
 NDefines.NCountry.POLITICAL_POWER_CAP = 2000000.0
 NDefines.NCountry.EVENT_PROCESS_OFFSET = 2000000						-- Events are checked every X day per country or state (1 is ideal, but CPU heavy)
