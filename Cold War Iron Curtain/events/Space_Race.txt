@@ -454,3 +454,106 @@ news_event = {
 		name = space_race.15.a
 	}
 }
+
+
+add_namespace = nasa_research
+add_namespace = nasa_research_upgrade
+
+# Do you want to research the Atlas rocket?
+country_event = {
+	id = nasa_research.1
+	title = nasa_research.1.t
+	desc = nasa_research.1.d
+	picture = GFX_report_event_space_race_atlas_rocket
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Yes"
+		set_country_flag = NASA_Atlas_research
+		custom_effect_tooltip = "Start Developing the Atlas Rocket through the decision system"
+	}
+
+	option = {
+		name = "No"
+		custom_effect_tooltip = "Return to the Atlas Research Screen"
+	}
+}
+
+# Do you want to upgrade the Booster Power?
+country_event = {
+	id = nasa_research.2
+	title = nasa_research.2.t
+	desc = nasa_research.2.d
+	picture = GFX_report_event_space_race_atlas_rocket
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Yes"
+		custom_effect_tooltip = "Start the Booster Upgrade. It will take approximately 30 days."
+		hidden_effect = {
+			country_event = { id = nasa_research_upgrade.1 days = 30 random = 1 }
+		}
+	}
+
+	option = {
+		name = "No"
+		custom_effect_tooltip = "Return to the Atlas Research Screen"
+	}
+}
+
+# Booster Power Upgrade Completed
+country_event = {
+	id = nasa_research_upgrade.1
+	title = nasa_research_upgrade.1.t
+	desc = nasa_research_upgrade.1.d
+	picture = GFX_report_event_space_race_atlas_rocket
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Very Good"
+		custom_effect_tooltip = "The upgrade Improved the Value of the Atlas rocket by 5"
+		add_to_variable = { var = USA_atlas_level value = 5 }
+	}
+}
+
+# Do you want to upgrade the Propulsion Engine?
+country_event = {
+	id = nasa_research.3
+	title = nasa_research.3.t
+	desc = nasa_research.3.d
+	picture = GFX_report_event_space_race_atlas_rocket
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Yes"
+		custom_effect_tooltip = "Start the Propulsion Engine Upgrade. It will take approximately 30 days."
+		hidden_effect = {
+			country_event = { id = nasa_research_upgrade.2 days = 30 random = 1 }
+		}
+	}
+
+	option = {
+		name = "No"
+		custom_effect_tooltip = "Return to the Atlas Research Screen"
+	}
+}
+
+# Propulsion Engine Upgrade Completed
+country_event = {
+	id = nasa_research_upgrade.2
+	title = nasa_research_upgrade.2.t
+	desc = nasa_research_upgrade.2.d
+	picture = GFX_report_event_space_race_atlas_rocket
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Very Good"
+		custom_effect_tooltip = "The upgrade Improved the Value of the Atlas rocket by 5"
+		add_to_variable = { var = USA_atlas_level value = 5 }
+	}
+}
