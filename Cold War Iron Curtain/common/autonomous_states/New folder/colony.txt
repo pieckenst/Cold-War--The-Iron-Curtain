@@ -1,5 +1,5 @@
 autonomy_state = {
-	id = autonomy_easternbloc
+	id = autonomy_colony
 	
 	is_puppet = yes
 	
@@ -11,21 +11,21 @@ autonomy_state = {
 	}
 	
 	modifier = {
-		autonomy_manpower_share = 0.0		
-		extra_trade_to_overlord_factor = 0.25
-		overlord_trade_cost_factor = -0.25
+		autonomy_manpower_share = 0.0
+		
+		extra_trade_to_overlord_factor = 0.5
+		overlord_trade_cost_factor = -0.5
 		can_master_build_for_us = 1
-		license_subject_master_purchase_cost = -1
-		autonomy_gain_global_factor = -0.3
-		cic_to_overlord_factor = 0.10
+
+		research_sharing_per_country_bonus_factor = -0.5
 	}
 	
 	ai_subject_wants_higher = {
-		factor = 0.0
+		factor = 1.0
 	}
 	
 	ai_overlord_wants_lower = {
-		factor = 0.0
+		factor = 1.0
 	}
 
 	ai_overlord_wants_garrison = {
@@ -34,8 +34,11 @@ autonomy_state = {
 
 	allowed = {
 		has_dlc = "Together for Victory"
-		is_subject_of = SOV
-		has_government = communism
+		NOT = { is_subject_of = SOV }
+		if = {
+			limit = { has_dlc = "Death or Dishonor" }
+			NOT = { has_government = fascism }
+		}
 	}
 	
 	can_take_level = {
