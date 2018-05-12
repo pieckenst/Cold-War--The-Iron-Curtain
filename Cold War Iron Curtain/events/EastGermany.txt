@@ -1266,9 +1266,296 @@ news_event = {
 	}
 
 }
-
-
+###1960 Focus Tree Events
+add_namespace = Honecker
+add_namespace = Prussia_cul
+add_namespace = Prussia_Spring
+add_namespace = NDP
+add_namespace = DDR_prussa_unify
+add_namespace = DDR_unify
+news_event = {
+    id = Honecker.100
+    title = "Honecker Takes Power"
+    desc = Honecker.100.d
+	major = yes
+    picture = news_event_india_troops
+   
+    is_triggered_only = yes
 	
+	option = { 
+	    name = "An interesting development"
+	}
+}
+news_event = {
+    id = Prussia_cul.1 
+    title = "Rehabilitation of Fredrick the Great"
+    desc = Prussia_cul.1.d
+	major = yes
+    picture = news_event_india_troops
+   
+    is_triggered_only = yes
+	
+	option = { 
+	    name = "An interesting development"
+	}
+}
+news_event = {
+    id = Prussia_cul.2
+    title = "Rehabilitation of Luther"
+    desc = Prussia_cul.2.d
+	major = yes
+    picture = news_event_india_troops
+   
+    is_triggered_only = yes
+	
+	option = { 
+	    name = "An interesting development"
+	}
+}
+news_event = {
+    id = Prussia_cul.5
+    title = "Anti Lutheran Propaganda"
+    desc = Prussia_cul.5.d
+	major = yes
+    picture = news_event_india_troops
+   
+    is_triggered_only = yes
+	
+	option = { 
+	    name = "An interesting development"
+	}
+}
+news_event = {
+    id = Prussia_Spring.5
+    title = "Titoist East Germany"
+    desc = Prussia_Spring.5.d
+	major = yes
+    picture = news_event_india_troops
+   
+    is_triggered_only = yes
+	
+	option = { 
+	    name = "An interesting development"
+	}
+}
+
+news_event = {
+    id = Prussia_Spring.6
+    title = "The Kingdom of Prussia"
+    desc = Prussia_Spring.6.d
+	major = yes
+    picture = news_event_india_troops
+   
+    is_triggered_only = yes
+	
+	option = { 
+	    name = "An interesting development"
+	}
+}
+news_event = {
+    id = Prussia_Spring.3
+    title = "Leave the Warsaw Pact"
+    desc = Prussia_Spring.3.d
+	major = yes
+    picture = news_event_india_troops
+   
+    is_triggered_only = yes
+	
+	option = { 
+	    name = "An interesting development"
+	}
+}
+news_event = {
+    id = Prussia_Spring.4
+    title = "Maoist East Germany"
+    desc = Prussia_Spring.4.d
+	major = yes
+    picture = news_event_india_troops
+   
+    is_triggered_only = yes
+	
+	option = { 
+	    name = "An interesting development"
+	}
+}
+news_event = {
+    id = NDP.1
+    title = "Rise of the NDP in West Germany"
+    desc = NDP.1.d
+	major = yes
+    picture = news_event_india_troops
+   
+    is_triggered_only = yes
+	
+	option = { 
+	    name = "An interesting development"
+	}
+}
+news_event = {
+    id = NDP.2
+    title = "Reunification of Germany under the NDP"
+    desc = NDP.2.d
+	major = yes
+    picture = news_event_india_troops
+   
+    is_triggered_only = yes
+	
+	option = { 
+	    name = "An interesting development"
+	}
+}
+country_event = {
+	id = NDP.3
+	title = "East Germany Requests Reunification"
+	desc = "East Germany Requests Reunification"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to the Proposal"
+		FROM = {
+			annex_country = { target = ROOT transfer_troops = yes } 
+			news_event NDP.2
+			set_cosmetic_tag = DDR_Became_Germany
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 0
+		}
+		name = "Decline"
+
+	}
+}
+news_event = {
+    id = DDR_prussa_unify.2
+    title = "Reunification of Germany under the Monarchy"
+    desc = DDR_prussa_unify.1.d
+	major = yes
+    picture = news_event_india_troops
+   
+    is_triggered_only = yes
+	
+	option = { 
+	    name = "An interesting development"
+	}
+}
+country_event = {
+	id = DDR_prussa_unify.1
+	title = "East Germany Requests Reunification as a Constitutional Monarchy"
+	desc = "East Germany Requests Reunification"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to the Proposal"
+		FROM = {
+			annex_country = { target = ROOT transfer_troops = yes } 
+			news_eventDDR_prussa_unify
+			set_cosmetic_tag = DDR_Became_Germany
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 0
+		}
+		name = "Decline"
+
+	}
+}
+news_event = {
+    id = DDR_unify.2
+    title = "Reunification of Germany under the NDP"
+    desc = DDR_unify.1.d
+	major = yes
+    picture = news_event_india_troops
+   
+    is_triggered_only = yes
+	
+	option = { 
+	    name = "An interesting development"
+	}
+}
+country_event = {
+	id = DDR_unify.1
+	title = "East Germany Requests Reunification"
+	desc = "East Germany Requests Reunification"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to the Proposal"
+		
+		WGR = {
+			change_tag_from = DDR 
+			annex_country = { target = ROOT transfer_troops = yes } 
+			news_event NDP.2
+			set_cosmetic_tag = DDR_Became_Germany
+		}
+		
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 0
+		}
+		name = "Decline"
+
+	}
+}
+add_namespace = Prussia
+country_event = {
+	id = Prussia.10
+	title = "The Prussian Spring
+	desc = "After the Events in Czechoslovakia the unrest quickly spread to East Germany, threatening to topple the government......"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Restore the Kingdom of Prussia"
+		complete_national_focus = DDR_The_Kingdom_of_Prussia
+		
+		ai_chance = {
+			factor = 25
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 25
+		}
+		name = "Persue Democratic Reunification"
+		complete_national_focus = DDR_Democratic_Reunification
+	}
+	option = {
+		ai_chance = {
+			factor = 25
+		}
+		name = "Radicalize the NDPD"
+		complete_national_focus = DDR_Radicalization_of_the_NDPD
+	}
+	option = {
+		ai_chance = {
+			factor = 25
+		}
+		name = "Leave the Warsaw Pact"
+		complete_national_focus = DDR_Leave_the_Warsaw_Pact
+	}
+}
 	
 
 
