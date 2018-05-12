@@ -62,6 +62,7 @@ add_namespace = winterolympics
 add_namespace = summerolympics
 add_namespace = GRE_Elections
 add_namespace = wgr
+add_namespace = ROM
 
 country_event = {
 	id = ic_pulse.1
@@ -71,6 +72,14 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+				if = {
+					limit = {
+						tag = ROM
+						date > 1965.4.2
+						date < 1965.7.22					
+					}
+					country_event = ROM.1
+				}
 				if = {
 					limit = {
 						date > 1952.7.1
