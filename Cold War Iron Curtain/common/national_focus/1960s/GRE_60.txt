@@ -166,7 +166,24 @@ focus_tree = {
 		}
 		x = 49
 		y = 1
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = GRE_60s_More_resorts_for_vacations
@@ -177,7 +194,24 @@ focus_tree = {
 		}
 		x = 49
 		y = 2
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = GRE_60s_New_ski_resorts
@@ -188,7 +222,24 @@ focus_tree = {
 		}
 		x = 49
 		y = 3
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = GRE_60s_Economic_cooperation_with_neighbors
@@ -199,7 +250,24 @@ focus_tree = {
 		}
 		x = 51
 		y = 1
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = GRE_60s_Steel_factories
@@ -210,7 +278,14 @@ focus_tree = {
 		}
 		x = 51
 		y = 2
-
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = steel
+									amount = 50
+								}
+						}
+				}
 	}
 	focus = {
 		id = GRE_60s_Import_oil_from_Middle_East
@@ -221,7 +296,14 @@ focus_tree = {
 		}
 		x = 51
 		y = 3
-
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = oil
+									amount = 25
+								}
+						}
+				}
 	}
 	focus = {
 		id = GRE_60s_Promotion_of_Greek_culture
@@ -232,7 +314,9 @@ focus_tree = {
 		}
 		x = 53
 		y = 1
-
+		completion_reward = {
+			add_ideas = KOR_education_reform
+		}
 	}
 	focus = {
 		id = GRE_60s_Rebuild_Hellenistic_monuments
@@ -243,7 +327,10 @@ focus_tree = {
 		}
 		x = 53
 		y = 2
-
+		completion_reward = {
+			add_political_power = 150
+			add_war_support = 0.10
+		}
 	}
 	focus = {
 		id = GRE_60s_Modern_and_ancient_culture
@@ -317,7 +404,10 @@ focus_tree = {
 		}
 		x = 71
 		y = 1
-
+		completion_reward = {
+			add_political_power = 150
+			add_stability = -0.10
+		}
 	}
 	focus = {
 		id = GRE_60s_Expel_royal_family
@@ -392,7 +482,68 @@ focus_tree = {
 		}
 		x = 66
 		y = 4
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = GRE_60s_Oust_opposition
@@ -403,7 +554,13 @@ focus_tree = {
 		}
 		x = 66
 		y = 5
-
+		completion_reward = {
+			add_political_power = 150
+			add_timed_idea = {
+				idea = repression
+				days = 365
+			}	
+		}
 	}
 	focus = {
 		id = GRE_60s_Gizikis_as_new_head_of_state
@@ -414,7 +571,14 @@ focus_tree = {
 		}
 		x = 66
 		y = 6
-
+		completion_reward = {
+			create_country_leader = {
+				name = "Phaedon Gizikis"
+				picture = "Portrait_Phaedon_Gizikis.dds"
+				ideology = military_junta
+			}
+		
+		}
 	}
 	focus = {
 		id = GRE_60s_Successful_Counter_Coup
@@ -502,7 +666,11 @@ focus_tree = {
 		}
 		x = 71
 		y = 5
-
+		completion_reward = {
+			army_experience = -50
+			add_political_power = 150
+			add_manpower = -2500
+		}
 	}
 	focus = {
 		id = GRE_60s_Reward_the_Navy_and_Airforce
@@ -513,7 +681,26 @@ focus_tree = {
 		}
 		x = 71
 		y = 6
-
+		completion_reward = {
+			navy_experience = 25
+			air_experience = 25
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+		}
 	}
 	focus = {
 		id = GRE_60s_Strengthen_Ties_to_the_Church
@@ -524,7 +711,10 @@ focus_tree = {
 		}
 		x = 73
 		y = 4
-
+		completion_reward = {
+			add_stability = 0.15
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = GRE_60s_Consolidate_our_Position
@@ -535,7 +725,10 @@ focus_tree = {
 		}
 		x = 74
 		y = 5
-
+		completion_reward = {
+			add_stability = 0.15
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = GRE_60s_Encourage_Traditionalism
@@ -546,7 +739,9 @@ focus_tree = {
 		}
 		x = 74
 		y = 6
-
+			completion_reward = {
+					add_ideas = traditional_culture
+				}
 	}
 	focus = {
 		id = GRE_60s_Harder_stance_on_Cyprus
@@ -640,7 +835,9 @@ focus_tree = {
 		}
 		x = 83
 		y = 2
-
+		complete_national_focus = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = GRE_60s_Maoists
