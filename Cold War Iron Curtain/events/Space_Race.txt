@@ -579,6 +579,45 @@ country_event = {
 	
 	option = {
 		name = "Very Good"
+		custom_effect_tooltip = "The upgrade Improved the Value of the Atlas rocket by 10"
+		add_to_variable = { var = USA_atlas_level value = 10 }
+	}
+}
+
+# Do you want to upgrade the Booster Tank?
+country_event = {
+	id = nasa_research.4
+	title = nasa_research.4.t
+	desc = nasa_research.4.d
+	picture = GFX_report_event_space_race_atlas_rocket
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Yes"
+		custom_effect_tooltip = "Start the Booster Tank Upgrade. It will take approximately 30 days."
+		hidden_effect = {
+			country_event = { id = nasa_research_upgrade.3 days = 30 random = 1 }
+		}
+	}
+
+	option = {
+		name = "No"
+		custom_effect_tooltip = "Return to the Atlas Research Screen"
+	}
+}
+
+# Propulsion Engine Upgrade Completed
+country_event = {
+	id = nasa_research_upgrade.3
+	title = nasa_research_upgrade.3.t
+	desc = nasa_research_upgrade.3.d
+	picture = GFX_report_event_space_race_atlas_rocket
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Very Good"
 		custom_effect_tooltip = "The upgrade Improved the Value of the Atlas rocket by 5"
 		add_to_variable = { var = USA_atlas_level value = 5 }
 	}
