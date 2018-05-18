@@ -29,22 +29,6 @@ set_technology = {
 	iw_armored_vehicles = 1
 	motorised_infantry = 1
 }
-
-
-add_ideas = {
-	population_growth_explosion
-}
-1949.1.1 = {
-	add_ai_strategy = {
-		type = alliance
-		id = "USA"
-		value = 1000
-	}
-}
-USA = { diplomatic_relation = { country = KOR relation = military_access active = yes } }
-set_convoys = 200
-set_stability = 0.9
-
 set_politics = {
 
 	parties = {
@@ -55,12 +39,12 @@ set_politics = {
 		fascism = {
 			popularity = 15
 		}
-		
+			
 		communism = {
 			popularity = 20
 			#banned = no #default is no
 		}
-		
+			
 		neutrality = { 
 			popularity = 20
 		}
@@ -71,12 +55,67 @@ set_politics = {
 			popularity = 25
 		}
 	}
-	ruling_party = conservative
-	last_election = "1949.1.1"
+	ruling_party = neutrality
+	last_election = "1945.1.1"
 	election_frequency = 48
-	elections_allowed = yes
+	elections_allowed = no
 }
 
+add_ideas = {
+	population_growth_explosion
+}
+set_cosmetic_tag = USA_KOR
+1949.1.1 = {
+	drop_cosmetic_tag = yes
+	add_ai_strategy = {
+		type = alliance
+		id = "USA"
+		value = 1000
+	}
+}
+USA = { diplomatic_relation = { country = KOR relation = military_access active = yes } }
+set_convoys = 200
+set_stability = 0.9
+
+1948.1.1 = {
+	set_politics = {
+
+		parties = {
+			democratic = { 
+				popularity = 20
+			}
+
+			fascism = {
+				popularity = 15
+			}
+			
+			communism = {
+				popularity = 20
+				#banned = no #default is no
+			}
+			
+			neutrality = { 
+				popularity = 20
+			}
+			pan_arabism = { 
+				popularity = 0
+			}
+			conservative = {
+				popularity = 25
+			}
+		}
+		ruling_party = conservative
+		last_election = "1949.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+}
+create_country_leader = {
+	name = "Archibald Arnold
+	picture = "Archibald_Arnold.dds"
+	expire = "1946.3.4"
+	ideology = military_junta
+}
 create_country_leader = {
 	name = "Syngman Rhee"
 	picture = "gfx/leaders/KOR/Portrait_SouthKorea_Syngman_Rhee.dds"
