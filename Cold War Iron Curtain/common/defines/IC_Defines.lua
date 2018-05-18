@@ -1,4 +1,4 @@
-NDefines.NGame.START_DATE = "1949.5.23.12"
+NDefines.NGame.START_DATE = "1945.5.23.12"
 NDefines.NGame.END_DATE = "2050.5.23.12"
 NDefines.NDiplomacy.MAX_OPINION_VALUE = 200						-- Max opinion value cap.
 NDefines.NDiplomacy.MIN_OPINION_VALUE = -200		
