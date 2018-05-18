@@ -35,7 +35,124 @@ focus_tree = {
 		}
 		x = 32
 		y = 0
-
+			available = {
+					any_state = {
+							is_coastal = yes
+							is_controlled_by = ROOT
+						}
+				}
+			complete_tooltip = {
+					navy_experience = 25
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+							type = dockyard
+							level = 3
+							instant_build = yes
+						}
+				}
+			completion_reward = {
+					navy_experience = 25
+					if = {
+							limit = {
+									NOT = {
+											any_owned_state = {
+													dockyard > 0
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+									any_owned_state = {
+											is_coastal = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									any_owned_state = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									NOT = {
+											any_owned_state = {
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+								}
+							random_state = {
+									limit = {
+											controller = {
+													tag = ROOT
+												}
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+				}
 	}
 	focus = {
 		id = POL_60s_Chance_for_Polish_Officers
@@ -56,7 +173,63 @@ focus_tree = {
 		cost = 10.00
 		x = 40
 		y = 0
-
+			completion_reward = {
+					air_experience = 25
+					if = {
+							limit = {
+									capital_scope = {
+											NOT = {
+													free_building_slots = {
+															building = air_base
+															size > 1
+														}
+												}
+										}
+								}
+							random_owned_state = {
+									limit = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					if = {
+							limit = {
+									capital_scope = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+								}
+							capital_scope = {
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					add_tech_bonus = {
+							name = air_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = air_doctrine
+						}
+				}
 	}
 	focus = {
 		id = POL_60s_Deny_Soviet_Military_Control
@@ -98,7 +271,21 @@ focus_tree = {
 		}
 		x = 53
 		y = 0
-
+			completion_reward = {
+					POL = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = POL
+									modifier = large_increase
+								}
+						}
+					army_experience = -20
+				}
 	}
 	focus = {
 		id = POL_60s_Opress_the_Church
@@ -109,7 +296,13 @@ focus_tree = {
 		}
 		x = 4
 		y = 1
-
+			completion_reward = {
+					add_stability = -0.1
+					add_popularity = {
+							ideology = communism
+							popularity = 0.1
+						}
+				}
 	}
 	focus = {
 		id = POL_60s_Abolition_of_Christian_Holidays
@@ -120,7 +313,13 @@ focus_tree = {
 		}
 		x = 4
 		y = 2
-
+		completion_reward = {
+			add_political_power = 150
+			add_timed_idea = {
+				idea = repression
+				days = 900
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Code_of_Administrative_Procedure
@@ -131,7 +330,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 1
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = POL_60s_Raise_the_Wages
@@ -142,7 +343,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 2
-
+		completion_reward = {
+			add_ideas = increase_the_wages
+		}
 	}
 	focus = {
 		id = POL_60s_Support_The_DDR
@@ -153,7 +356,20 @@ focus_tree = {
 		}
 		x = 8
 		y = 1
-
+			completion_reward = {
+					POL = {
+							add_opinion_modifier = {
+									target = DDR
+									modifier = small_increase
+								}
+						}
+					DDR = {
+							add_opinion_modifier = {
+									target = POL
+									modifier = small_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = POL_60s_Support_the_Idea_of_Berlin_Wall
@@ -164,7 +380,20 @@ focus_tree = {
 		}
 		x = 8
 		y = 2
-
+			completion_reward = {
+					POL = {
+							add_opinion_modifier = {
+									target = DDR
+									modifier = large_increase
+								}
+						}
+					DDR = {
+							add_opinion_modifier = {
+									target = POL
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = POL_60s_1961_Assasination_Attempt_of_Wladyslaw_Gomulka
@@ -208,7 +437,9 @@ focus_tree = {
 		}
 		x = 5
 		y = 5
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = POL_60s_A_chance_for_the_Others
@@ -444,7 +675,14 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 300
 			add_stability = -0.25
-			add_popularity = {
+						set_autonomy = {
+							target = POL
+							autonomy_state = autonomy_free
+						}
+			SOV = {
+				remove_from_faction = POL
+			}
+			complete_national_focus = POL_60s_Return_of_the_Government_on_Exile
 		}
 	}
 	focus = {
@@ -456,7 +694,12 @@ focus_tree = {
 		}
 		x = 20
 		y = 6
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = no
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Join_NATO
@@ -467,7 +710,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 7
-
+		completion_reward = {
+			add_ideas = nato_member
+		}
 	}
 	focus = {
 		id = POL_60s_Creation_of_Opposition
@@ -478,7 +723,12 @@ focus_tree = {
 		}
 		x = 20
 		y = 8
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = democratic_party_drift
+				days = 900
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Free_Elections
@@ -489,7 +739,12 @@ focus_tree = {
 		}
 		x = 20
 		y = 9
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = no
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Support_Democracy_in_the_Neighbours
@@ -500,7 +755,32 @@ focus_tree = {
 		}
 		x = 20
 		y = 10
-
+		completion_reward = {
+			HUN = {
+				add_timed_idea = {
+					idea = democratic_party_drift
+					days = 300
+				}			
+			}
+			CZE = {
+				add_timed_idea = {
+					idea = democratic_party_drift
+					days = 300
+				}			
+			}
+			ROM = {
+				add_timed_idea = {
+					idea = democratic_party_drift
+					days = 300
+				}			
+			}
+			DDR = {
+				add_timed_idea = {
+					idea = democratic_party_drift
+					days = 300
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Hungary
@@ -511,7 +791,14 @@ focus_tree = {
 		}
 		x = 20
 		y = 11
-
+		completion_reward = {
+			HUN = {
+				add_timed_idea = {
+					idea = democratic_party_drift
+					days = 750
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Nationalist_Economic_Policy
@@ -589,7 +876,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 3
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = POL_60s_Supersamy
@@ -600,7 +889,24 @@ focus_tree = {
 		}
 		x = 22
 		y = 4
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Czechoslovakia
@@ -611,7 +917,14 @@ focus_tree = {
 		}
 		x = 23
 		y = 11
-
+		completion_reward = {
+			CZE = {
+				add_timed_idea = {
+					idea = democratic_party_drift
+					days = 750
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_The_Intermarium
@@ -628,7 +941,23 @@ focus_tree = {
 		}
 		x = 23
 		y = 13
-
+		available = {
+			CZE = {
+				is_subject = no
+			}
+			HUN = {
+				is_subject = no
+			}
+		}
+		completion_reward = {
+			create_faction = "The Intermarium"
+			CZE = {
+				country_event = generic.8
+			}
+			HUN {
+				country_event = generic.8
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Expansion_of_Chemical_Plants
@@ -642,7 +971,24 @@ focus_tree = {
 		}
 		x = 25
 		y = 3
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Expansion_of_Mines
@@ -653,7 +999,18 @@ focus_tree = {
 		}
 		x = 25
 		y = 4
-
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = chromium
+									amount = 25
+								}
+							add_resource = {
+									type = steel
+									amount = 25
+								}
+						}
+				}
 	}
 	focus = {
 		id = POL_60s_Rybnik_Coal_Area
@@ -664,7 +1021,24 @@ focus_tree = {
 		}
 		x = 25
 		y = 5
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Oil_Refineries
@@ -675,7 +1049,14 @@ focus_tree = {
 		}
 		x = 25
 		y = 6
-
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = oil
+									amount = 50
+								}
+						}
+				}
 	}
 	focus = {
 		id = Military_Expansion
@@ -840,7 +1221,14 @@ focus_tree = {
 		}
 		x = 28
 		y = 8
-
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = oil
+									amount = 50
+								}
+						}
+				}
 	}
 	focus = {
 		id = POL_60s_Scientific_Deal
@@ -851,7 +1239,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 9
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = POL_60s_Dissolution_of_Some_Agricultural_Cooperatives
@@ -948,7 +1338,10 @@ focus_tree = {
 		}
 		x = 32
 		y = 1
-
+			completion_reward = {
+					add_manpower = 20000
+					load_oob = polish_reinforcements_1
+				}
 	}
 	focus = {
 		id = POL_60s_Develop_Local_Naval_Industry

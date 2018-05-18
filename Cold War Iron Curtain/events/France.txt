@@ -223,8 +223,25 @@ country_event = {
 			factor = 90
 		}
 		name = fra.8.a
-		release = GUI
-		USA = { remove_from_faction = GUI }
+		"GUI" = {
+				set_autonomy = { target = GUI autonomy_state = autonomy_free }	
+				if = {
+					limit = {
+						has_war_with = VIN
+					}
+					white_peace = VIN			
+				}
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}
+				create_country_leader = {
+					name = "Ahmed Sékou Touré"
+					picture = "gfx/leaders/AFR/Touré"
+					expire = "2005.1.1"
+					ideology = liberalism
+				}		
+		}
 	}
 	option = {
 		ai_chance = {
@@ -249,8 +266,27 @@ country_event = {
 			factor = 90
 		}
 		name = fra.9.a
-		release = NIG
-		USA = { remove_from_faction = NIG }
+		set_autonomy = { target = NIG autonomy_state = autonomy_free }	
+		NIG = {
+				set_autonomy = { target = NIG autonomy_state = autonomy_free }	
+				if = {
+					limit = {
+						has_war_with = VIN
+					}
+					white_peace = VIN			
+				}
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}
+				create_country_leader = {
+					name = "Hamani Diori"
+					desc = ""
+					picture = "gfx/leaders/AFR/Diori.dds"
+					expire = "1999.1.1"
+					ideology = liberalism
+				}		
+		}
 	}
 
 	option = {
@@ -276,8 +312,20 @@ country_event = {
 		  factor = 90
 		}
 		name = fra.10.a
-		release = CHA
-		USA = { remove_from_faction = CHA }
+		
+		CHA = {
+			drop_cosmetic_tag = yes
+			set_autonomy = { target = CHA autonomy_state = autonomy_free }	
+				if = {
+					limit = {
+						has_war_with = VIN
+					}
+					white_peace = VIN			
+				}
+				release = CAR
+            	release = ROC
+                release = GAB			
+		}
 	}
 
 	option = {
@@ -289,33 +337,6 @@ country_event = {
 	}
 }
 
-#Independence of Gabon
-country_event = {
-  id = fra.11
-	title = fra.11.t
-	desc = fra.11.d
-
-	fire_only_once = yes
-
-	is_triggered_only = yes
-
-	option = {
-	  ai_chance = {
-		  factor = 90
-		}
-		name = fra.11.a
-		release = GAB
-		USA = { remove_from_faction = GAB }
-	}
-
-	option = {
-	  ai_chance = {
-		  factor = 10
-		}
-		name = fra.11.b
-		add_political_power = -125
-	}
-}
 
 # Join the Pleven Plan
 country_event = {

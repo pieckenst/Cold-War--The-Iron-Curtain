@@ -12,6 +12,7 @@ IC_border_clashes = {
 			any_state = {
 				is_owned_and_controlled_by = FROM
 				is_core_of = ROOT
+				is_capital = no
 				set_temp_variable = { var:test_state_temp = id }
 				any_neighbor_state = {
 					is_fully_controlled_by = ROOT
@@ -40,6 +41,7 @@ IC_border_clashes = {
 			any_state = {
 				is_owned_and_controlled_by = FROM
 				is_core_of = ROOT
+				is_capital = no
 				NOT = { has_state_flag = spratly_islands }
 				NOT = { has_state_flag = korea_dmz }
 				NOT = { has_state_flag = cyprus_dmz }
@@ -60,6 +62,7 @@ IC_border_clashes = {
 				any_state = {
 					is_owned_and_controlled_by = FROM
 					is_core_of = ROOT
+					is_capital = no
 					hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
 					any_neighbor_state = {
 						hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
@@ -71,13 +74,14 @@ IC_border_clashes = {
 
 		target_trigger = {
 			is_not_china = yes
-			FROM = { is_not_china = yes }
+			FROM = { is_not_china = yes NOT = { has_country_flag = condominium } }
 		}
 
 		highlight_states = {
 				state = FROM.defender_state_vs_@ROOT
 				is_owned_and_controlled_by = FROM
 				is_core_of = ROOT
+				is_capital = no
 				set_temp_variable = { var:test_state_temp = id }
 				hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
 				any_neighbor_state = {
@@ -115,6 +119,7 @@ IC_border_clashes = {
 					limit = {
 						is_owned_and_controlled_by = FROM
 						is_core_of = ROOT
+						is_capital = no
 						set_temp_variable = { test_defender_state_temp = id }
 						hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
 						any_neighbor_state = {

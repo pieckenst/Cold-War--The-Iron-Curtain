@@ -1268,7 +1268,7 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = infantry_equipment_1
+							type = infantry_equipment
 							amount = 2000
 							producer = USA
 						}
@@ -1318,7 +1318,7 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = infantry_equipment_1
+							type = infantry_equipment
 							amount = 2000
 							producer = USA
 						}
@@ -1351,7 +1351,7 @@ focus_tree = {
 		y = 4
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = infantry_equipment_1
+							type = infantry_equipment
 							amount = 2000
 							producer = USA
 						}
@@ -1384,7 +1384,7 @@ focus_tree = {
 		y = 6
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = infantry_equipment_1
+							type = infantry_equipment
 							amount = 2000
 							producer = USA
 						}
@@ -2621,9 +2621,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SPR_Algerian_War_Opportunity
 		}
-		prerequisite = {
-			focus = SPR_Algerian_War_Opportunity
-		}
+
 		mutually_exclusive = {
 			focus = SPR_End_of_the_Algerian_War
 			focus = SPR_Aid_Algerian_Rebels
@@ -2634,7 +2632,7 @@ focus_tree = {
 			FRA = { has_war_with = ALG }
 		}
 		completion_reward = {
-			add_to_war = { targeted_alliance = ALG enemy = FRA }	
+			add_to_war = { targeted_alliance = FRA enemy = ALG }	
 		}
 	}
 	focus = {
@@ -2650,7 +2648,20 @@ focus_tree = {
 		}
 		x = 49
 		y = 2
-
+			completion_reward = {
+					SPR = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = small_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = SPR
+									modifier = small_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = SPR_soviet_alignment
@@ -2703,7 +2714,7 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = infantry_equipment_1
+							type = infantry_equipment
 							amount = 2000
 							producer = SOV
 						}
@@ -3553,7 +3564,7 @@ focus_tree = {
 		y = 4
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = infantry_equipment_1
+							type = infantry_equipment
 							amount = 2000
 							producer = SOV
 						}
@@ -4066,7 +4077,7 @@ focus_tree = {
 							target = USA
 							cost_factor = 1.0
 							equipment = {
-									type = infantry_equipment_1
+									type = infantry_equipment
 									version = 0
 								}
 						}

@@ -601,6 +601,16 @@ focus_tree = {
 		cost = 10 
 		completion_reward = {
 			news_event =  ddr.3 
+			create_country_leader = {
+				name = "Wilhelm Pieck"
+				desc = "pol_desc_pieck"	 
+				picture = "Portrait_EastGermany_Wilhelm_Pieck.dds"
+				ideology = stalinism
+				traits = {
+					stalins_puppet
+				}
+			}
+
 			every_country = {
 				limit = { has_government = communism }
 				add_opinion_modifier = { target = DDR modifier = socialist_unity }
@@ -1556,8 +1566,17 @@ focus_tree = {
 		cost = 4
 		completion_reward = {
 		    DDR = {
-		        country_event = { days = 1 id = ddr.22 } 
-		    }
+				random_list = {
+					99 = {
+						country_event = { days = 1 id = ddr.22 } 
+					}
+					1 = {
+						hidden_effect = {
+							country_event = { days = 1 id = ddr.571 } 
+						}
+					}
+				}
+			}
 		}
 	}
 	

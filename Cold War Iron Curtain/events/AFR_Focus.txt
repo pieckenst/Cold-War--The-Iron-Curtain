@@ -9,7 +9,7 @@ country_event = {
 	}
 	title = {
 		text = "Kenya demands independance"
-		trigger = { FROM = { tag = KNA } }
+		trigger = { FROM = { tag = KEN } }
 	}
 	title = {
 		text = "Nysaland demands independance"
@@ -92,13 +92,10 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
+		set_autonomy = { target = FROM autonomy_state = autonomy_free }	
 		FROM = {
 			drop_cosmetic_tag = yes
-			OVERLORD = { end_puppet = FROM }
 			remove_from_faction = FROM
-			set_politics = {
-				elections_allowed = yes
-			}
 			if = {
 				limit = {
 					is_in_faction_with = USA
@@ -122,7 +119,12 @@ country_event = {
 			if = {
 				limit = {
 						tag = UGA
-				}					
+				}
+				set_autonomy = { target = UGA autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}				
 				create_country_leader = {
 					name = "Milton Obote"
 					picture = "gfx/leaders/AFR/Obote.dds"
@@ -132,7 +134,12 @@ country_event = {
 			}
 			if = {
 				limit = {
-					tag = KNA
+					tag = KEN
+				}
+				set_autonomy = { target = KEN autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
 				}
 				create_country_leader = {
 					name = "Jomo Kenyatta"
@@ -145,7 +152,8 @@ country_event = {
 				limit = {
 					tag = NYA
 				}
-				retire_country_leader = yes
+				set_autonomy = { target = NYA autonomy_state = autonomy_free }	
+
 				set_politics = {
 					ruling_party = neutrality
 					elections_allowed = no
@@ -154,6 +162,11 @@ country_event = {
 			if = {
 				limit = {
 					tag = ZAM
+				}
+				set_autonomy = { target = ZAM autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
 				}
 				create_country_leader = {
 					name = "Kenneth Kaunda"
@@ -166,6 +179,11 @@ country_event = {
 				limit = {
 					tag = NIA
 				}
+				set_autonomy = { target = NIA autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}
 				create_country_leader = {
 					name = "Nnamdi Azikiwe"
 					picture = "gfx/leaders/AFR/Azikiwe.dds"
@@ -177,8 +195,13 @@ country_event = {
 				limit = {
 					tag = MLI
 				}
+				set_autonomy = { target = MLI autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}
 				create_country_leader = {
-					name = "Modibo Keïta"
+					name = "Modibo Keita"
 					picture = "gfx/leaders/AFR/Keïta.dds"
 					expire = "1999.1.1"
 					ideology = liberalism
@@ -187,6 +210,11 @@ country_event = {
 			if = {
 				limit = {
 					tag = NIG
+				}
+				set_autonomy = { target = NIG autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
 				}
 				create_country_leader = {
 					name = "Hamani Diori"
@@ -200,6 +228,11 @@ country_event = {
 				limit = {
 					tag = BRK
 				}
+				set_autonomy = { target = BRK autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}
 				create_country_leader = {
 					name = "Maurice Yaméogo"
 					picture = "gfx/leaders/AFR/Portrait_Africa_Generic_1.dds"
@@ -210,6 +243,11 @@ country_event = {
 			if = {
 				limit = {
 					tag = BEN
+				}
+				set_autonomy = { target = BEN autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
 				}
 				create_country_leader = {
 					name = "Hubert Maga"
@@ -222,6 +260,7 @@ country_event = {
 				limit = {
 					tag = CTD
 				}
+				set_autonomy = { target = CTD autonomy_state = autonomy_free }	
 				retire_country_leader = yes
 				set_politics = {
 					ruling_party = neutrality
@@ -231,6 +270,11 @@ country_event = {
 			if = {
 				limit = {
 					tag = TOG
+				}
+				set_autonomy = { target = TOG autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
 				}
 				create_country_leader = {
 					name = "Sylvanus Olympio"
@@ -243,6 +287,8 @@ country_event = {
 				limit = {
 					tag = MAU
 				}
+				set_autonomy = { target = MAU autonomy_state = autonomy_free }	
+
 				retire_country_leader = yes
 				set_politics = {
 					ruling_party = neutrality
@@ -252,6 +298,11 @@ country_event = {
 			if = {
 				limit = {
 					tag = GUI
+				}
+				set_autonomy = { target = GUI autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
 				}
 				create_country_leader = {
 					name = "Ahmed Sékou Touré"
@@ -263,6 +314,11 @@ country_event = {
 			if = {
 				limit = {
 					tag = SEN
+				}
+				set_autonomy = { target = SEN autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
 				}
 				create_country_leader = {
 					name = "Léopold Sédar Senghor"
@@ -279,56 +335,73 @@ country_event = {
 			}
 			if = {
 				limit = { tag = LES }
+				set_autonomy = { target = LES autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}
 				add_popularity ={
 		        	ideology = democratic
 		            popularity = 0.20
 		        }
-				set_politics = {
-	            	ruling_party = democratic
-				}
+
 			}
 			if = {
 				limit = { tag = GAM }
+				set_autonomy = { target = GAM autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = centrist
+					elections_allowed = yes
+				}
 				add_popularity ={
 		            ideology = centrist
-		            popularity = 1.0
+		            popularity = 0.25
 		        }
-				set_politics = {
-	                ruling_party = centrist
-                }	
 			}
 		    if = {
 				limit = { tag = MAD }
+				set_autonomy = { target = MAD autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = socialist
+					elections_allowed = yes
+				}
 				add_popularity ={
 		            ideology = socialist
-		            popularity = 1.0
+		            popularity = 0.25
 		        }
-				set_politics = {
-	                ruling_party = socialist
-                }	
 			}
 			if = {
 				limit = { tag = SLE }
+				set_autonomy = { target = SLE autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = socialist
+					elections_allowed = yes
+				}
 				add_popularity ={
 		            ideology = socialist
-		            popularity = 1.0
+		            popularity = 0.25
 		        }
-				set_politics = {
-	            	ruling_party = socialist
-                }	
+
 			}
 			if = {
 				limit = { tag = DJB }
+				set_autonomy = { target = DJB autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = socialist
+					elections_allowed = yes
+				}
 				add_popularity ={
 		            ideology = socialist
-		            popularity = 1.0
+		            popularity = 0.25
 		        }
-				set_politics = {
-	                ruling_party = socialist
-                }	
 			}
 			if = {
 				limit = { tag = DOC }
+				set_autonomy = { target = DOC autonomy_state = autonomy_free }	
+				set_politics = {
+					ruling_party = Liberal_Conservatism
+					elections_allowed = yes
+				}
 				add_popularity ={
 		            ideology = Liberal_Conservatism
 		            popularity = 0.80
@@ -337,9 +410,6 @@ country_event = {
 		            ideology = nationalism
 		            popularity = 0.20
 		        }
-				set_politics = {
-	                ruling_party = Liberal_Conservatism
-                }	
 			}
 			country_event = { id = africa.3 hours = 6 }
 		}
@@ -363,9 +433,7 @@ country_event = {
 
 	option = {
 		name = "This means war!"
-		OVERLORD = {
-			end_puppet = ROOT
-		}
+		set_autonomy = { target = ROOT autonomy_state = autonomy_free }	
 		declare_war_on = {
 			target = FROM
 			type = civil_war

@@ -3,13 +3,13 @@ scripted_gui = {
 	nasa_button = {
 
 		window_name = "nasa_button_container"
-		parent_window_token = top_bar
 
-		context_type = player_context
+		context_type = politics_context
+		parent_window_token = politics_tab
         
 		visible = {
 			tag = USA
-			# date > 1958.1.1
+			# date > 1954.1.1
 		}
 		
 		effects = {
@@ -30,11 +30,72 @@ scripted_gui = {
 		context_type = player_context
 		
 		visible = {
-            	check_variable = { show_nasa > 0.0 }
+            check_variable = { show_nasa > 0.0 }
 		}
 
 		effects = {
+			exitbutton_click = {
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_nasa }
+				set_variable = { show_nasa = show }
+			}
+			Atlas_Project_button_click = {
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_atlas }
+				set_variable = { show_atlas = show }
+			}
+		}
+	}
+}
 
+scripted_gui = {
+	atlas_project_window = {
+
+		window_name = "atlas_window_container"
+
+		context_type = player_context
+		
+		visible = {
+            check_variable = { show_atlas > 0.0 }
+		}
+
+		effects = {
+			exitbutton_click = {
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_atlas }
+				set_variable = { show_atlas = show }
+			}
+			atlas_sm65a_rocket_click = {
+				country_event = nasa_research.1
+			}
+			atlas_sm65a_rocket_tank_click = {
+				country_event = nasa_research.2
+			}
+			atlas_sm65a_rocket_engine_click = {
+				country_event = nasa_research.3
+			}
+			atlas_sm65a_booster_tank_click = {
+				country_event = nasa_research.4
+			}
+		}
+
+		triggers = {
+			atlas_sm65a_rocket_click_enabled = {
+				NOT = { 	
+					ROOT = {
+						has_tech = icbm1
+					}
+				}
+			}
+			atlas_sm65a_rocket_tank_click_enabled = {
+				has_tech = icbm1
+			}
+			atlas_sm65a_rocket_engine_click_enabled = {
+				has_tech = icbm1
+			}
+			atlas_sm65a_booster_tank_click_enabled = {
+				has_tech = icbm1
+			}
 		}
 	}
 }

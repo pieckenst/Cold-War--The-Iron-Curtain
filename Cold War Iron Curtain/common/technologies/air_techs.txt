@@ -3132,6 +3132,10 @@ technologies = {
 				add = 3
 				has_navy_size = { type = carrier size > 0 }
 			}
+			modifier = {
+				factor = 0
+				has_tech = naval_bomber8
+			}
 		}
 	}
 	
@@ -3148,6 +3152,10 @@ technologies = {
 			name = air_techs_folder
 			position = { x = 8 y = 36 }
 		}
+
+		sub_technologies = {
+			cv_naval_bomber8
+		}
 				
 		categories = {
 			naval_air
@@ -3157,6 +3165,36 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 1
+		}
+	}
+	cv_naval_bomber8 = {
+
+		enable_equipments = {
+			cv_nav_bomber_equipment_8
+		}
+				
+		research_cost = 3
+		start_year = 2005
+		
+		categories = {
+			naval_air
+			air_equipment
+			naval_bomber
+		}
+		
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 1
+				OR = {
+					has_tech = early_carrier
+					has_tech = light_carrier1
+				}
+			}
+			modifier = {
+				add = 3
+				has_navy_size = { type = carrier size > 0 }
+			}
 		}
 	}
 
@@ -4114,7 +4152,7 @@ technologies = {
 		}
 		
 		research_cost = 4
-		start_year = 1970
+		start_year = 1965
 
 		path = {
 			leads_to_tech = jet_strategic_bomber5
@@ -4162,7 +4200,7 @@ technologies = {
 		}
 		
 		research_cost = 4
-		start_year = 1965
+		start_year = 1970
 
 		dependencies = {
 			jet_engines = 1
