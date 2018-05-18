@@ -124,8 +124,79 @@ add_ideas = {
 }
 
 
-set_convoys = 200
+set_convoys = 124
 
+set_cosmetic_tag = RAJ_ENG
+
+set_politics = {
+
+	parties = {
+        democratic = { popularity = 11 }
+        communism = { popularity = 7 }
+        fascism = { popularity = 3 }
+        nationalism = { popularity = 0 }
+        monarchism = { popularity = 0 }
+        neutrality = { popularity = 51 }
+        islamism = { popularity = 0 }
+        radical_shiaism = { popularity = 0 }
+        pan_arabism = {popularity = 0}
+        Social_Democratic = { popularity = 0 }
+        Social_Liberalism = { popularity = 0 }
+        Salafism = { popularity = 0 }
+        Christianism = { popularity = 0 }
+        Liberal_Conservatism = { popularity = 0 }
+        Judaism = { popularity = 0 }
+        Republicanism = { popularity = 0 }
+        conservative = { popularity = 0 }
+        Christian_Democratic = { popularity = 0 }
+        socialist = { popularity = 28 }
+        American_Democratic = { popularity = 0 }
+        centrist = { popularity = 0 }
+        liberal = { popularity = 0 }
+        trotskyism = { popularity = 0 }
+        maoism = { popularity = 0 }
+        National_Socialism = { popularity = 0 }
+	progressive_green = { popularity = 0 }
+	}
+	
+	ruling_party = neutrality
+	last_election = "1949.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "Frederick Pethick-Lawrence"
+	picture = "Frederick_Pethick-Lawrence.dds"
+	expire = "1961.9.10"
+	ideology = reactionary
+}
+1947.1.14 = {
+   create_country_leader = {
+	name = "William Francis Hare"
+	picture = "William_Francis_Hare.dds"
+	expire = "1997.3.12"
+	ideology = reactionary
+   }
+}
+
+
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = BHU
+		autonomous_state = autonomy_protectorate
+		freedom_level = 0.4
+	}
+	else = {
+		puppet = BHU
+	}
+}
+
+1947.1.1 = {
+  drop_cosmetic_tag = yes
 set_politics = {
 
 	parties = {
@@ -155,7 +226,7 @@ set_politics = {
 	last_election = "1948.11.14"
 	election_frequency = 48
 	elections_allowed = yes
-}
+   }
 
 if = {
 	limit = {
@@ -187,35 +258,10 @@ if = {
 		puppet = SKK
 		puppet = TRP
 		puppet = MNI
-	}
+       }
+   }
 }
-BHU = {
-	set_politics = {
 
-		parties = {
-			democratic = { 
-				popularity = 0
-			}
-
-			fascism = {
-				popularity = 0
-			}
-			
-			communism = {
-				popularity = 0
-			}
-			
-			monarchism = { 
-				popularity = 100
-			}
-		}
-		
-		ruling_party = monarchism
-		last_election = "1949.1.1"
-		election_frequency = 48
-		elections_allowed = no
-	}
-}
 1957.1.1 = {
 set_politics = {
 
