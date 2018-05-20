@@ -14,7 +14,10 @@ focus_tree = {
 		cost = 10.00
 		x = 6
 		y = 0
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = -0.10
+		}
 	}
 	focus = {
 		id = Poland_in_the_1960s
@@ -467,7 +470,16 @@ focus_tree = {
 		}
 		x = 12
 		y = 5
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = trotskyism_drift
+				days = 700
+			}
+			add_timed_idea = {
+				idea = maoist_drift
+				days = 700
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Kuron_and_Modzelewski
@@ -481,7 +493,10 @@ focus_tree = {
 		}
 		x = 9
 		y = 6
-
+		completion_reward = {
+			set_autonomy = { target = POL autonomy_state = autonomy_free }	
+			set_politics = { ruling_party = trotskyism elections_allowed = no }
+		}
 	}
 	focus = {
 		id = POL_60s_Dictatorship_of_the_proletariat
@@ -492,7 +507,9 @@ focus_tree = {
 		}
 		x = 9
 		y = 7
-
+		completion_reward = {
+			add_ideas = TUR_mobilization_of_the_masses
+		}
 	}
 	focus = {
 		id = POL_60s_Partisans_of_Moczar
@@ -506,7 +523,10 @@ focus_tree = {
 		}
 		x = 15
 		y = 6
-
+		completion_reward = {
+			set_autonomy = { target = POL autonomy_state = autonomy_free }	
+			set_politics = { ruling_party = maoism elections_allowed = no }
+		}
 	}
 	focus = {
 		id = POL_60s_Communist_Chauvinism
@@ -517,7 +537,9 @@ focus_tree = {
 		}
 		x = 15
 		y = 7
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 	focus = {
 		id = POL_60s_Leave_the_Warsaw_Pact
@@ -532,7 +554,11 @@ focus_tree = {
 		}
 		x = 11
 		y = 8
-
+		completion_reward = {
+			SOV = {
+				remove_from_faction = POL
+			}	
+		}
 	}
 	focus = {
 		id = POL_60s_Stay_with_the_USSR
@@ -547,7 +573,20 @@ focus_tree = {
 		}
 		x = 13
 		y = 8
-
+			completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = POL
+									modifier = large_increase
+								}
+						}
+					POL = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = POL_60s_Antisemitism
@@ -558,7 +597,13 @@ focus_tree = {
 		}
 		x = 15
 		y = 8
-
+		completion_reward = {
+			add_political_power = 300
+			add_timed_idea = {
+				idea = repression
+				days = 700
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Fight_with_the_Cosmopolitanism
@@ -569,7 +614,13 @@ focus_tree = {
 		}
 		x = 15
 		y = 9
-
+		completion_reward = {
+			add_political_power = 300
+			add_timed_idea = {
+				idea = Scientific_Collapse
+				days = 900
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Remove_the_Minorities
@@ -580,7 +631,12 @@ focus_tree = {
 		}
 		x = 15
 		y = 10
-
+		completion_reward = {
+			add_political_power = 150
+			every_owned_state = {
+				add_manpower = -10000
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Turn_Fascist
@@ -613,7 +669,42 @@ focus_tree = {
 		}
 		x = 17
 		y = 11
-
+		completion_reward = {
+			if = {
+				limit = {
+					has_goverment = trotskyism
+				}
+				CZE = {
+					add_timed_idea = {
+						idea = trotskyism_drift
+						days = 200
+					}
+				}
+				HUN = {
+					add_timed_idea = {
+						idea = trotskyism_drift
+						days = 200
+					}				
+				}
+			}
+			if = {
+				limit = {
+					has_goverment = maoism
+				}
+				CZE = {
+					add_timed_idea = {
+						idea = maoist_drift
+						days = 200
+					}
+				}
+				HUN = {
+					add_timed_idea = {
+						idea = maoist_drift
+						days = 200
+					}				
+				}
+			}
+		}	
 	}
 	focus = {
 		id = POL_60s_Retake_Kresy
@@ -625,7 +716,20 @@ focus_tree = {
 		}
 		x = 15
 		y = 12
-
+		completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = BLR
+						}
+					create_wargoal = {
+							type = annex_everything
+							target = UKR
+						}
+					create_wargoal = {
+							type = annex_everything
+							target = LIT
+						}
+		}
 	}
 	focus = {
 		id = POL_60s_Influence_Czechoslovakia
@@ -636,7 +740,30 @@ focus_tree = {
 		}
 		x = 17
 		y = 12
-
+		completion_reward = {
+			if = {
+				limit = {
+					has_goverment = trotskyism
+				}
+				CZE = {
+					add_timed_idea = {
+						idea = trotskyism_drift
+						days = 500
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_goverment = maoism
+				}
+				CZE = {
+					add_timed_idea = {
+						idea = maoist_drift
+						days = 500
+					}
+				}
+			}
+		}	
 	}
 	focus = {
 		id = POL_60s_Influence_Hungary
@@ -647,7 +774,30 @@ focus_tree = {
 		}
 		x = 19
 		y = 12
-
+		completion_reward = {
+			if = {
+				limit = {
+					has_goverment = trotskyism
+				}
+				HUN = {
+					add_timed_idea = {
+						idea = trotskyism_drift
+						days = 500
+					}				
+				}
+			}
+			if = {
+				limit = {
+					has_goverment = maoism
+				}
+				HUN = {
+					add_timed_idea = {
+						idea = maoist_drift
+						days = 500
+					}				
+				}
+			}
+		}	
 	}
 	focus = {
 		id = POL_60s_New_Communist_Faction
@@ -661,7 +811,9 @@ focus_tree = {
 		}
 		x = 17
 		y = 13
-
+		completion_reward = {
+			create_faction = "The Pan-Slavic Socialist Union"
+		}
 	}
 	focus = {
 		id = POL_60s_Coup_against_PZPR
@@ -814,7 +966,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 1
-
+			completion_reward = {
+					add_ideas = national_corporations
+				}
 	}
 	focus = {
 		id = POL_60s_Catholic_Economic_Policy
@@ -830,7 +984,17 @@ focus_tree = {
 		}
 		x = 24
 		y = 1
-
+		completion_reward = {
+			add_stability = 0.15
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Socialist_Economic_Policy
@@ -846,7 +1010,24 @@ focus_tree = {
 		}
 		x = 26
 		y = 1
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Make_a_Compromise
@@ -862,7 +1043,24 @@ focus_tree = {
 		}
 		x = 29
 		y = 1
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Thousands_schools_for_the_Millennium_of_the_Polish_State
@@ -1354,7 +1552,31 @@ focus_tree = {
 		}
 		x = 36
 		y = 1
+		completion_reward = {
 
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}			
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Naval_Transportation
@@ -1366,7 +1588,20 @@ focus_tree = {
 		}
 		x = 34
 		y = 2
+		completion_reward = {
 
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POL_60s_Soviet_Naval_Officers
@@ -1380,7 +1615,9 @@ focus_tree = {
 		}
 		x = 33
 		y = 3
-
+		completion_reward = {
+			navy_experience = 50
+		}
 	}
 	focus = {
 		id = POL_60s_No_Need_For_Help
@@ -1394,7 +1631,10 @@ focus_tree = {
 		}
 		x = 35
 		y = 3
-
+		completion_reward = {
+			navy_experience = 25
+			add_autonomy_ratio = { value = 0.15 }	
+		}
 	}
 	focus = {
 		id = POL_60s_Soviet_Heavy_Navy
@@ -1834,7 +2074,14 @@ focus_tree = {
 		}
 		x = 53
 		y = 5
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = motorized_bonus
+							ahead_reduction = 0.5
+							uses = 1
+							category = motorized_equipment
+						}
+				}
 	}
 	focus = {
 		id = POL_60s_Finish_the_Schools
@@ -1856,7 +2103,10 @@ focus_tree = {
 		}
 		x = 9
 		y = 8
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = POL_60s_Workers_Councils
@@ -1867,7 +2117,10 @@ focus_tree = {
 		}
 		x = 9
 		y = 9
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+			add_ideas = workers_trade_union
+		}
 	}
 	focus = {
 		id = POL_60s_Freedom_of_Speech
@@ -1878,7 +2131,9 @@ focus_tree = {
 		}
 		x = 9
 		y = 10
-
+		completion_reward = {
+			add_ideas = free_press_5
+		}
 	}
 	focus = {
 		id = POL_60s_True_Communism
@@ -1889,7 +2144,9 @@ focus_tree = {
 		}
 		x = 8
 		y = 11
-
+			completion_reward = {
+					add_ideas = the_american_welfare_state
+				}
 	}
 	focus = {
 		id = POL_60s_Fascism_in_Czechoslovakia

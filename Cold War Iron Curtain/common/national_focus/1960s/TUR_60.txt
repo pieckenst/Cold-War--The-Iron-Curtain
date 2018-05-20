@@ -11,31 +11,48 @@ focus_tree = {
 	focus = {
 		id = TUR_27_May_coup
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		x = 12
 		y = 0
-
+		completion_reward = {
+			country_event = tur.1000
+		}
 	}
 	focus = {
 		id = TUR_Kurdish_rebellion
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		x = 23
 		y = 0
-
+		completion_reward = {
+			remove_ideas = kurdish_conflict
+					TUR = {
+							release = KUR
+							declare_war_on = {
+									target = KUR
+									type = annex_everything
+								}
+						}
+				
+		}
 	}
 	focus = {
 		id = TUR_Coup_in_Cyprus
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		x = 28
 		y = 0
-
+		available = {
+			GRE = { has_completed_focus = GRE_60s_Coup_against_Makarios }
+		}
+		bypass = {
+			GRE = { has_completed_focus = GRE_60s_Coup_against_Makarios }
+		}
 	}
 	focus = {
 		id = TUR_Failure_of_coup
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_27_May_coup
 		}
@@ -44,40 +61,64 @@ focus_tree = {
 		}
 		x = 7
 		y = 1
-
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = TUR_Bayar_strenghtens_power
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Failure_of_coup
 		}
 		x = 7
 		y = 2
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = repression 
+				days = 365
+			}
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = TUR_Reestablish_relations_with_USSR
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Bayar_strenghtens_power
 		}
 		x = 5
 		y = 3
-
+			completion_reward = {
+					TUR = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = small_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = small_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = TUR_Preserve_Bayar_as_new_Ataturk
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Bayar_strenghtens_power
 		}
 		x = 7
 		y = 3
-
+		completion_reward = {
+			add_ideas = gulag_politic
+		}
 	}
 	focus = {
 		id = TUR_Strengthen_ties_to_the_Arab_world
@@ -88,7 +129,68 @@ focus_tree = {
 		}
 		x = 7
 		y = 4
-
+			completion_reward = {
+					TUR = {
+							add_opinion_modifier = {
+									target = SYR
+									modifier = large_increase
+								}
+						}
+					SYR = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_increase
+								}
+						}
+					TUR = {
+							add_opinion_modifier = {
+									target = EGY
+									modifier = large_increase
+								}
+						}
+					EGY = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_increase
+								}
+						}
+					TUR = {
+							add_opinion_modifier = {
+									target = SAU
+									modifier = large_increase
+								}
+						}
+					SAU = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_increase
+								}
+						}
+					TUR = {
+							add_opinion_modifier = {
+									target = IRQ
+									modifier = large_increase
+								}
+						}
+					IRQ = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_increase
+								}
+						}
+					TUR = {
+							add_opinion_modifier = {
+									target = JOR
+									modifier = large_increase
+								}
+						}
+					JOR = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = TUR_Support_Islamic_Populism
@@ -99,18 +201,26 @@ focus_tree = {
 		}
 		x = 5
 		y = 4
-
+		completion_reward = {
+			add_ideas = rural_vanguard
+			add_popularity = { ideology = conservative popularity = 0.15 }
+		}
 	}
 	focus = {
 		id = TUR_Prevent_migrating_of_our_people
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Bayar_strenghtens_power
 		}
 		x = 9
 		y = 3
-
+		completion_reward = {
+			add_political_power = -150
+			every_owned_state = {
+				add_manpower = 25000
+			}
+		}
 	}
 	focus = {
 		id = TUR_Agricultural_Investments
@@ -121,12 +231,18 @@ focus_tree = {
 		}
 		x = 9
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = agri_tech_bonus
+							ahead_reduction = 1
+							category = agri_tech
+						}
+				}
 	}
 	focus = {
 		id = TUR_Rising_Discontent_in_the_Military
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Agricultural_Investments
 		}
@@ -138,12 +254,16 @@ focus_tree = {
 		}
 		x = 7
 		y = 5
-
+		completion_reward = {
+			add_political_power = -150
+			add_stability = -0.15
+			add_war_support = 0.20
+		}
 	}
 	focus = {
 		id = TUR_New_Turkey
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_27_May_coup
 		}
@@ -152,89 +272,143 @@ focus_tree = {
 		}
 		x = 18
 		y = 1
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.10
+			complete_national_focus = TUR_Gursel_as_new_head_of_state
+		}
 	}
 	focus = {
 		id = TUR_Gursel_as_new_head_of_state
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_New_Turkey
 		}
 		x = 18
-		y = 2
-
+		y = 2	
+		completion_reward = {
+			add_timed_idea = {
+				idea = reactionary_drift
+				days = 700
+			}
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+		}
 	}
 	focus = {
 		id = TUR_Yassiada_trials
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Gursel_as_new_head_of_state
 		}
 		x = 16
 		y = 3
-
+		completion_reward = {
+			add_stability = -0.10
+			add_ideas = leftist_persecution
+		}
 	}
 	focus = {
 		id = TUR_Press_censorships
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Gursel_as_new_head_of_state
 		}
 		x = 18
 		y = 3
-
+			completion_reward = {
+					add_ideas = press_censorship_5
+				}
 	}
 	focus = {
 		id = TUR_Hostility_towards_Greece
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Press_censorships
 		}
 		x = 18
 		y = 4
-
+			completion_reward = {
+					TUR = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = large_decrease
+								}
+						}
+					GRE = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = TUR_Further_suppressions
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Yassiada_trials
 		}
 		x = 16
 		y = 4
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = repression
+				days = 700
+			}
+		}
 	}
 	focus = {
 		id = TUR_Reaffirm_our_position_in_NATO
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Gursel_as_new_head_of_state
 		}
 		x = 20
 		y = 3
-
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = large_increase
+								}
+						}
+					GRE = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = TUR_Expansionism_towards_USSR
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Reaffirm_our_position_in_NATO
 		}
 		x = 20
 		y = 4
-
+		completion_reward = {
+			add_ideas = {
+				militarism_focus
+				military_expansion
+			}
+		}
 	}
 	focus = {
 		id = TUR_New_Constitution
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Further_suppressions
 		}
@@ -246,12 +420,14 @@ focus_tree = {
 		}
 		x = 18
 		y = 5
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = TUR_Inonu_takes_over
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_New_Constitution
 		}
@@ -261,7 +437,12 @@ focus_tree = {
 		}
 		x = 14
 		y = 6
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = socialist
+				elections_allowed = yes
+			}
+		}
 	}
 	focus = {
 		id = TUR_Emphasize_Secularism
@@ -272,34 +453,43 @@ focus_tree = {
 		}
 		x = 13
 		y = 7
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = social_democracy_drift
+				days = 700
+			}
+		}	
 	}
 	focus = {
 		id = TUR_Reinforced_Republicanism
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Inonu_takes_over
 		}
 		x = 15
 		y = 7
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 	focus = {
 		id = TUR_Ask_for_help_of_Iraq
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Kurdish_rebellion
 		}
 		x = 23
 		y = 1
-
+		completion_reward = {
+			IRQ = { country_event = TUR.1010 }
+		}
 	}
 	focus = {
 		id = TUR_Military_intervention
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Ask_for_help_of_Iraq
 		}
@@ -308,12 +498,14 @@ focus_tree = {
 		}
 		x = 22
 		y = 2
-
+		completion_reward = {
+			add_ideas = military_expansion
+		}
 	}
 	focus = {
 		id = TUR_Embrace_Anti_Communists
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_New_Constitution
 		}
@@ -323,7 +515,12 @@ focus_tree = {
 		}
 		x = 22
 		y = 6
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = nationalist_drift
+				days = 700
+			}
+		}
 	}
 	focus = {
 		id = TUR_Embrace_Azeri_Cliques
@@ -334,7 +531,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 7
-
+		completion_reward = {
+			add_ideas = militarism_focus
+		}
 	}
 	focus = {
 		id = TUR_Ahmet_Caferoglu
@@ -345,34 +544,48 @@ focus_tree = {
 		}
 		x = 22
 		y = 8
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = nationalism
+				elections_allowed = yes
+			}
+		}
 	}
 	focus = {
 		id = TUR_Fear_in_eyes_of_neighbours
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Ahmet_Caferoglu
 		}
 		x = 21
 		y = 9
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus		
+		}
 	}
 	focus = {
 		id = TUR_Nuclearisation_of_Turkish_state
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Ahmet_Caferoglu
 		}
 		x = 23
 		y = 9
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = TUR_atomic_energy_institute
+							bonus = 0.5
+							uses = 2
+							category = nuclear
+						}
+				}		
 	}
 	focus = {
 		id = TUR_Anti_Soviet_Rhetoric
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Fear_in_eyes_of_neighbours
 		}
@@ -381,12 +594,25 @@ focus_tree = {
 		}
 		x = 22
 		y = 10
-
+			completion_reward = {
+					TUR = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_decrease
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = TUR_Leave_Kurds_independent
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Ask_for_help_of_Iraq
 		}
@@ -395,12 +621,14 @@ focus_tree = {
 		}
 		x = 24
 		y = 2
-
+		completion_reward = {
+			white_peace = KUR
+		}
 	}
 	focus = {
 		id = TUR_Remain_silent
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Coup_in_Cyprus
 		}
@@ -410,12 +638,14 @@ focus_tree = {
 		}
 		x = 26
 		y = 1
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = TUR_Return_Makarios_as_legitimate_leader
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Coup_in_Cyprus
 		}
@@ -425,23 +655,30 @@ focus_tree = {
 		}
 		x = 28
 		y = 1
-
+		completion_reward = {
+			CYP = { country_event = TUR.1015 }
+		}
 	}
 	focus = {
 		id = TUR_Leftist_Military_Coup
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Radicalization_of_the_Military
 		}
 		x = 7
 		y = 7
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+		}
 	}
 	focus = {
 		id = TUR_Align_with_USSR
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Leftist_Military_Coup
 		}
@@ -451,34 +688,53 @@ focus_tree = {
 		}
 		x = 11
 		y = 8
-
+			completion_reward = {
+					TUR = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = TUR_Join_Warsaw_pact
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Align_with_USSR
 		}
 		x = 12
-		y = 9
-
+		y = 9	
+		completion_reward = {
+			SOV = {
+				add_to_faction = TUR
+			}
+		}
 	}
 	focus = {
 		id = TUR_Southern_flank_against_NATO
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Join_Warsaw_pact
 		}
 		x = 12
 		y = 10
-
+		completion_reward = {
+			add_ideas = military_expansion 
+		}
 	}
 	focus = {
 		id = TUR_Align_with_China
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Leftist_Military_Coup
 		}
@@ -488,23 +744,97 @@ focus_tree = {
 		}
 		x = 3
 		y = 8
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = maoism
+				elections_allowed = no
+			}
+			add_timed_idea = {
+				idea = maoist_drift
+				days = 700
+			}
+		}
 	}
 	focus = {
 		id = TUR_Turkish_Great_Leap_Forward
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Align_with_China
 		}
 		x = 4
 		y = 9
-
+		completion_reward = {
+			add_manpower = -50000
+			add_stability = -0.25
+			add_political_power = -200
+			add_ideas = gulag_politic
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = TUR_Grab_land_for_ourselves
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Coup_in_Cyprus
 		}
@@ -514,12 +844,14 @@ focus_tree = {
 		}
 		x = 30
 		y = 1
-
+		completion_reward = {
+			CYP = { country_event = TUR.1020 }
+		}
 	}
 	focus = {
 		id = TUR_Gursel_remains_President
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_New_Constitution
 		}
@@ -529,23 +861,29 @@ focus_tree = {
 		}
 		x = 18
 		y = 6
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = TUR_Death_of_Gursel
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Reduce_Global_Tension
 		}
 		x = 18
 		y = 9
-
+		completion_reward = {
+			kill_country_leader = yes
+			add_political_power = 150
+			complete_national_focus = TUR_Cevdet_Sunay_Takes_Over
+		}
 	}
 	focus = {
 		id = TUR_Status_Quo_in_Middle_East
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Reinforced_Republicanism
 		}
@@ -554,40 +892,58 @@ focus_tree = {
 		}
 		x = 14
 		y = 8
-
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = TUR_Defend_our_strategic_position
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Student_Protests
 		}
 		x = 17
 		y = 12
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = repression
+				days = 365
+			}
+			add_ideas = militarism_focus
+		}
 	}
 	focus = {
 		id = TUR_Second_father_of_the_nation
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Status_Quo_in_Middle_East
 		}
 		x = 14
 		y = 9
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.25
+		}
 	}
 	focus = {
 		id = TUR_Import_Chinese_tanks
 		icon = GFX_goal_unknown
-		cost = 0.00
+		cost = 10.00
 		prerequisite = {
 			focus = TUR_Turkish_Great_Leap_Forward
 		}
 		x = 4
 		y = 10
-
+		completion_reward = {
+					add_equipment_to_stockpile = {
+							type = main_battle_tanks_3
+							amount = 200
+							producer = PRC
+						}		
+		}
 	}
 	focus = {
 		id = TUR_Cultural_Changes
@@ -598,7 +954,11 @@ focus_tree = {
 		}
 		x = 10
 		y = 9
-
+			completion_reward = {
+					add_ideas = egalitarian_beliefs
+					add_ideas = partisan_suppression_focus
+					add_ideas = militarized_schools
+				}
 	}
 	focus = {
 		id = TUR_Soviet_Economic_Aid
@@ -609,7 +969,21 @@ focus_tree = {
 		}
 		x = 10
 		y = 10
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = TUR_Cultural_Revolution
@@ -620,7 +994,9 @@ focus_tree = {
 		}
 		x = 2
 		y = 9
-
+			completion_reward = {
+					add_ideas = PRC_cultural_revolution
+				}
 	}
 	focus = {
 		id = TUR_Strengthen_Ties_to_Albania
@@ -631,7 +1007,20 @@ focus_tree = {
 		}
 		x = 2
 		y = 10
-
+			completion_reward = {
+					TUR = {
+							add_opinion_modifier = {
+									target = ALB
+									modifier = large_increase
+								}
+						}
+					ALB = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = TUR_Reduce_Global_Tension
@@ -645,7 +1034,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 8
-
+		completion_reward = {
+			add_threat = -5
+		}
 	}
 	focus = {
 		id = TUR_Relations_with_the_Soviets
@@ -656,7 +1047,20 @@ focus_tree = {
 		}
 		x = 17
 		y = 7
-
+			completion_reward = {
+					TUR = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = TUR_Industrial_Expansion
@@ -667,7 +1071,21 @@ focus_tree = {
 		}
 		x = 19
 		y = 7
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = TUR_Cevdet_Sunay_Takes_Over
@@ -678,7 +1096,13 @@ focus_tree = {
 		}
 		x = 18
 		y = 10
-
+		completion_reward = {
+			create_country_leader = {
+				name = "Cevdet Sunay"
+				picture = "Cevdet_Sunay.dds"
+				ideology = military_junta
+			}		
+		}
 	}
 	focus = {
 		id = TUR_Rising_Internal_Problems
@@ -689,7 +1113,10 @@ focus_tree = {
 		}
 		x = 19
 		y = 12
-
+		completion_reward = {
+			add_stability = -0.10
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = TUR_Student_Protests
@@ -702,7 +1129,10 @@ focus_tree = {
 		}
 		x = 18
 		y = 11
-
+		completion_reward = {
+			add_stability = -0.10
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = TUR_National_Instability
@@ -716,8 +1146,11 @@ focus_tree = {
 		}
 		x = 18
 		y = 13
-
-	}
+		completion_reward = {
+			add_stability = -0.20
+			add_political_power = 150
+		}
+	}		
 	focus = {
 		id = TUR_Radicalization_of_the_Military
 		icon = GFX_goal_unknown
@@ -727,7 +1160,12 @@ focus_tree = {
 		}
 		x = 7
 		y = 6
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = internationalism
+				days = 365
+			}
+		}
 	}
 	focus = {
 		id = TUR_Remain_in_NATO
@@ -742,7 +1180,20 @@ focus_tree = {
 		}
 		x = 7
 		y = 8
-
+			completion_reward = {
+					TUR = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = TUR_Embrace_Market_Socialism
@@ -753,7 +1204,16 @@ focus_tree = {
 		}
 		x = 6
 		y = 9
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = Social_Democratic
+				elections_allowed = no
+			}
+			add_timed_idea = {
+				idea = Market_Socialist_Drift
+				days = 700
+			}
+		}
 	}
 	focus = {
 		id = TUR_Increase_Ties_With_Yugoslavia
@@ -764,7 +1224,20 @@ focus_tree = {
 		}
 		x = 8
 		y = 9
-
+			completion_reward = {
+					TUR = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = large_increase
+								}
+						}
+					YUG = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = TUR_Social_Dividends
@@ -775,7 +1248,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 10
-
+			completion_reward = {
+					add_ideas = Social_Dividends
+				}
 	}
 	focus = {
 		id = TUR_Economic_Progress
@@ -786,6 +1261,20 @@ focus_tree = {
 		}
 		x = 8
 		y = 10
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 }
