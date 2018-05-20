@@ -444,7 +444,7 @@ focus_tree = {
 	}
 	focus = {
 		id = centralized_approach
-		icon = GFX_focus_yug_pan_slavic_congress
+		icon = GFX_Communism3
 		cost = 10.00
 		prerequisite = {
 			focus = communism_1
@@ -456,6 +456,10 @@ focus_tree = {
 		y = 3
 			completion_reward = {
 					add_political_power = 50
+					add_timed_idea = {
+							idea = YUG_idea_peasant_councils
+							days = 365
+						}
 				}
 
 	}
@@ -585,7 +589,9 @@ focus_tree = {
 		}
 		x = 23
 		y = 7
-
+		completion_reward = {
+					add_ideas = revolutionary_army
+				}
 	}
 	focus = {
 		id = geopolitics
@@ -632,6 +638,13 @@ focus_tree = {
 									modifier = placate_soviet
 								}
 						}
+						YUG = {
+							remove_ideas = YUG_anti_soviet
+							add_opinion_modifier = {
+									target = SOV
+									modifier = placate_soviet
+								}
+						}
 				}
 
 	}
@@ -666,7 +679,11 @@ focus_tree = {
 			completion_reward = {
 					add_popularity = {
 							ideology = communism
-							popularity = 0.2
+							popularity = 0.05
+						}
+						add_timed_idea = {
+							idea = true_stalinism
+							days = 150
 						}
 				}
 
@@ -910,13 +927,27 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = open_the_goli_otok_camp
+			has_global_flag = stalin_dead
 		}
 		mutually_exclusive = {
 			focus = YUG_no_room_for_soviets
 		}
 		x = 33
 		y = 6
-
+		completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = reconcile_moscow
+								}
+						}
+						YUG = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = reconcile_moscow
+								}
+						}
+				}
 	}
 	focus = {
 		id = YUG_no_room_for_soviets
@@ -2990,7 +3021,7 @@ focus_tree = {
 		icon = GFX_goal_generic_army_doctrines
 		cost = 10.00
 		prerequisite = {
-			focus = total_war_doctine
+			focus = YUG_total_war_doctine
 		}
 		x = 80
 		y = 3
@@ -3349,7 +3380,7 @@ focus_tree = {
 		icon = GFX_goal_generic_major_war
 		cost = 10.00
 		prerequisite = {
-			focus = total_war_doctine
+			focus = YUG_total_war_doctine
 		}
 		x = 86
 		y = 3
