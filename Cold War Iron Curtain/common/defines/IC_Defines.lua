@@ -53,6 +53,7 @@ NDefines.NCountry.EVENT_PROCESS_OFFSET = 2000000						-- Events are checked ever
 NDefines.NBuildings.MAX_SHARED_SLOTS = 50
 NDefines.NBuildings.MAX_BUILDING_LEVELS = 200
 NDefines.NBuildings.SUPPLY_PORT_LEVEL_THROUGHPUT = 10    -- Supply throughput per level of naval base. Vanilla value is 3.
+NDefines.NBuildings.AIRBASE_CAPACITY_MULT = 80    -- Each level of airbase building multiplied by this, gives capacity (max operational value). Value is int. 1 for each airplane.
 NDefines.NMilitary.ARMY_LEADER_XP_GAIN_PER_UNIT_IN_COMBAT = 0.02
 NDefines.NMilitary.CONSTANT_XP_RATIO_FOR_MULTIPLE_LEADERS_IN_SAME_COMBAT = 0.2
 NDefines.NMilitary.MAX_RELATIVE_COMBAT_DAMAGE_TO_MODIFY_XP = 2.0
