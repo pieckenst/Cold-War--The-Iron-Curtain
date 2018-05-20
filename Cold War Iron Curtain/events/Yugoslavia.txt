@@ -227,8 +227,47 @@ country_event = {
 
 	option = { # We cant let them leave
 		name = yug.11.a
-		release = CRO
-		YUG = { declare_war_on = { target = CRO type = annex_everything } }
+		set_politics = {
+							ruling_party = monarchism
+							elections_allowed = no
+						}
+					create_country_leader = {
+							name = "Peter II"
+							picture = "Peter_II.dds"
+							expire = "1988.5.5"
+							ideology = absolute_monarchist
+						}
+					set_cosmetic_tag = SERBIA
+					release = CRO
+					release = BOS
+					release = TRI
+					CRO = {
+							set_politics = {
+									ruling_party = National_Socialism
+									elections_allowed = no
+								}
+							create_country_leader = {
+									name = "Andrija Artukov"
+									picture = "Artukov.dds"
+									expire = "1988.5.5"
+									ideology = neo_nazism
+								}
+						}
+						TRI = {
+								set_cosmetic_tag = TRI_YUG
+								create_country_leader = {
+									name = "Josip Broz Tito"
+									picture = "gfx/leaders/YUG/Tito.dds"
+									expire = "1988.5.5"
+									ideology = titoism
+								}
+								add_popularity = { ideology = Social_Democratic popularity = 0.5 }
+								set_party_name = { ideology = Social_Democratic long_name = "Vlada Jugoslovenske Spasenja" name = "VJS" }
+								set_politics = {
+									ruling_party = Social_Democratic
+									elections_allowed = no
+								}
+						}
 	}
 }
 
@@ -242,8 +281,33 @@ country_event = {
 
 	option = { # We cant let them leave
 		name = yug.12.a
-		release = SER
-		YUG = { declare_war_on = { target = SER type = annex_everything } }
+		 kill_country_leader = yes
+		set_politics = {
+							ruling_party = National_Socialism
+							elections_allowed = no
+						}
+					create_country_leader = {
+							name = "Andrija Artukov"
+							picture = "Artukov.dds"
+							expire = "1988.5.5"
+							ideology = neo_nazism
+						}
+					set_cosmetic_tag = CROATIA
+					release = SER
+					release = SRP
+					release = MAC
+					SER = {
+							set_politics = {
+									ruling_party = monarchism
+									elections_allowed = no
+								}
+							create_country_leader = {
+									name = "Peter II"
+									picture = "Peter_II.dds"
+									expire = "1988.5.5"
+									ideology = absolute_monarchist
+								}
+						}
 	}
 }
 
@@ -300,20 +364,17 @@ country_event = {
 	option = { 
 		name = yug.16.a
 		ai_chance = {
-			factor = 4
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
-			}
+			factor = 80
 		}
 		YUG = { annex_country = { target = ROOT } }
 	}
 	option = { 
 		name = yug.16.b
 		ai_chance = {
-			factor = 6
+			factor = 20
 		}
 		add_opinion_modifier = { target = ROOT modifier = YUG_not_uniting_opinion }
+		YUG = {  create_wargoal = { type = annex_everything target = ROOT } }
 	}
 }
 
@@ -521,46 +582,106 @@ country_event = {
 	}
 }
 
-# Soviet Sattelite State
+#Elections
 country_event = {
 	id = yug.29
-	title = yug.29.t
-	desc = yug.29.d
+	title = "Election Day"
+	desc = "Who will be the future leader?"
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Josip Broz Tito (SKJ)"
+
+		set_politics = {
+			ruling_party = Social_Democratic
+			elections_allowed = yes
+		}
+		add_popularity = { ideology = Social_Democratic popularity = 0.05 }
+		ai_chance = {
+			factor = 50
+		}
+	}
+	option = {
+		name = "Vladko Maček (HSS)"
+
+		set_politics = {
+			ruling_party = liberal
+			elections_allowed = yes
+		}
+		create_country_leader = {
+			name = "Juraj Krnjević"
+			picture = "Juraj.dds"
+			expire = "1988.12.14"
+			ideology = right_libertarianism
+		}
+		add_popularity = { ideology = liberal popularity = 0.1 }
+		ai_chance = {
+			factor = 20
+		}
+	}
+	option = {
+		name = "Milan Stojadinović (JRZ)"
+
+		set_politics = {
+			ruling_party = nationalism
+			elections_allowed = yes
+		}
+		create_country_leader = {
+			name = "Milan Stojadinović"
+			picture = "Milan.dds"
+			expire = "1962.3.26"
+			ideology = nationalist_ideology
+		}
+		add_popularity = { ideology = nationalism popularity = 0.2 }
+		ai_chance = {
+			factor = 33
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+
+#Communism
+country_event = {
+	id = yug.30
+	title = "Transformation To Communism"
+	desc = yug.30.d
+	
+	picture = GFX_report_event_tito_speech
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "A Surprise, To Be Sure"
+
+		set_politics = {
+			ruling_party = communism
+			elections_allowed = yes
+		}
+	}
+}
+
+country_event = {
+	id = yug.31
+	title = "No deal"
+	desc = yug.31.d
 
 	is_triggered_only = yes
 
 	option = { 
-		name = yug.29.a
-		SOV = { puppet = YUG }
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = industrial_complex
-					size > 1
-					include_locked = yes
-				}
-			}
-			add_extra_state_shared_building_slots = 2
-			add_building_construction = {
-				type = industrial_complex
-				level = 2
-				instant_build = yes
-			}
+		name = "Our disappointment is immeasurable"
+		ai_chance = {
+			factor = 80
 		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = industrial_complex
-					size > 1
-					include_locked = yes
-				}
-			}
-			add_extra_state_shared_building_slots = 2
-			add_building_construction = {
-				type = industrial_complex
-				level = 2
-				instant_build = yes
-			}
+	}
+	option = { 
+		name = "Lets Fight Them"
+		ai_chance = {
+			factor = 20
 		}
+		 declare_war_on = { target = BUL type = annex_everything } 
 	}
 }

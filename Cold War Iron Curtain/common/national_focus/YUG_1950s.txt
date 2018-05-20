@@ -8,114 +8,128 @@ focus_tree = {
 		}
 	}
 	default = no
-
-	continuous_focus_position = { x = 500 y = 1400 }
-
 	focus = {
 		id = gateway_to_politics
 		icon = GFX_goal_generic_improve_relations
-		cost = 10.00
-		x = 21
-		y = 1
-		
-		completion_reward = {
-			add_political_power = 150
-		}
+		cost = 1.00
+		x = 20
+		y = 0
+			completion_reward = {
+					add_political_power = 150
+				}
 
 	}
 	focus = {
 		id = army_maneuvers
 		icon = GFX_focus_secret_rearmament
 		cost = 10.00
-		x = 69
-		y = 1
-		
-		completion_reward = {
-			army_experience = 25
-		}
+		x = 83
+		y = 0
+			completion_reward = {
+					army_experience = 25
+				}
 
 	}
 	focus = {
 		id = expand_the_navy
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		cost = 10.00
-		x = 44
-		y = 1
-		
-		completion_reward = {
-			navy_experience = 25
-		}
+		x = 48
+		y = 0
+			completion_reward = {
+					navy_experience = 25
+				}
 
 	}
 	focus = {
 		id = air_expantions
 		icon = GFX_goal_generic_air_fighter2
 		cost = 10.00
-		x = 53
-		y = 1
-		
-		completion_reward = {
-			air_experience = 25
-		}
+		x = 58
+		y = 0
+			completion_reward = {
+					air_experience = 25
+				}
 
 	}
 	focus = {
 		id = defense_plans
 		icon = GFX_goal_generic_build_tank
 		cost = 10.00
-		x = 58
-		y = 8
-		
-		completion_reward = {
-			add_ideas = deterrence
-		}
+		x = 71
+		y = 0
+			completion_reward = {
+					add_ideas = deterrence
+				}
 
 	}
 	focus = {
 		id = repair_after_the_war
 		icon = GFX_goal_continuous_non_factory_construct
 		cost = 10.00
-		x = 29
-		y = 8
-		
-		completion_reward = {
-			add_tech_bonus = {
-            name = industrial_bonus
-                bonus = 0.5
-                uses = 2
-                category = industry
-            }
-		}
+		x = 38
+		y = 9
+			completion_reward = {
+					add_tech_bonus = {
+							name = industrial_bonus
+							bonus = 0.5
+							uses = 2
+							category = industry
+						}
+				}
 
 	}
 	focus = {
 		id = politics
 		icon = GFX_goal_generic_national_unity
-		cost = 10.00
+		cost = 1.00
 		prerequisite = {
 			focus = gateway_to_politics
 		}
-		x = 14
-		y = 2
-		
-		completion_reward = {
-			add_political_power = 50
-		}
+		x = 12
+		y = 1
+			completion_reward = {
+					add_political_power = 50
+				}
 
 	}
 	focus = {
 		id = democracy_1
-		icon = GFX_goal_support_democracy
-		cost = 10.00
+		icon = GFX_goal_anti_comintern_pact
+		cost = 4.00
 		prerequisite = {
 			focus = politics
 		}
-		x = 9
-		y = 3
-		
-		completion_reward = {
-			add_political_power = 50
+		mutually_exclusive = {
+			focus = communism_1
 		}
+		x = 5
+		y = 2
+			completion_reward = {
+					add_political_power = 50
+				}
+
+	}
+	focus = {
+		id = path_to_nato
+		icon = GFX_goal_generic_alliance
+		cost = 10.00
+		prerequisite = {
+			focus = democracy_1
+		}
+		mutually_exclusive = {
+			focus = proclaim_the_sfry
+		}
+		x = 2
+		y = 3
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = improve_with_nato
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -126,198 +140,58 @@ focus_tree = {
 			focus = democracy_1
 		}
 		mutually_exclusive = {
-			focus = abolish_the_constitution
+			focus = path_to_nato
 		}
-		x = 9
-		y = 4
-		
-		completion_reward = {
-			add_political_power = 50
-		}
+		x = 8
+		y = 3
+			completion_reward = {
+					add_political_power = 50
+				}
 
 	}
 	focus = {
 		id = constitution_1953
 		icon = GFX_goal_generic_intelligence_exchange
-		cost = 20
-		available = {
-			date > 1953.1.1
-		}
-		prerequisite = {
-			focus = proclaim_the_sfry
-		}
-		x = 4
-		y = 5
-		
-		completion_reward = {
-			add_ideas = YUG_constitution
-		}
-
-	}
-	focus = {
-		id = constitution_1963
-		icon = GFX_goal_generic_intelligence_exchange
-		cost = 20
-			available = {
-			date > 1963.1.1
-		}
+		cost = 20.00
 		prerequisite = {
 			focus = proclaim_the_sfry
 		}
 		x = 8
-		y = 5
-		
-		completion_reward = {
-			add_ideas = YUG_constitution
-			
-		}
+		y = 4
+			available = {
+					date > 1953.1.1
+				}
+			completion_reward = {
+					add_ideas = YUG_constitution
+				}
 
 	}
 	focus = {
-		id = give_autonomy
-		icon = GFX_goal_generic_neutrality_focus
-		cost = 10.00
-		prerequisite = {
-			focus = constitution_1963
-		}
-		x = 7
-		y = 6
-		
-		completion_reward = {
-			add_stability = -0.05
-			add_ideas = YUG_export_focus2
-		}
-
-	}
-	focus = {
-		id = self_government
-		icon = GFX_focus_generic_self_management
-		cost = 10.00
-		prerequisite = {
-			focus = constitution_1963
-		}
-		x = 9
-		y = 6
-		
-		completion_reward = {
-			add_stability = -0.05
-			add_ideas = YUG_export_focus2
-		}
-
-	}
-	focus = {
-		id = constitution_1974
-		icon = GFX_goal_generic_intelligence_exchange
-		cost = 20
-		available = {
-			date > 1974.1.1
-		}
-		prerequisite = {
-			focus = proclaim_the_sfry
-		}
-		x = 12
-		y = 5
-		
-		completion_reward = {
-			add_ideas = YUG_constitution
-		}
-
-	}
-	focus = {
-		id = further_autonomy
-		icon = GFX_goal_generic_neutrality_focus
-		cost = 10.00
-		prerequisite = {
-			focus = constitution_1974
-		}
-		x = 11
-		y = 6
-		
-		completion_reward = {
-			add_stability = -0.10
-		}
-
-	}
-	focus = {
-		id = president_tito
-		icon = GFX_focus_generic_military_mission
-		cost = 10.00
-		prerequisite = {
-			focus = constitution_1974
-		}
-		x = 12
-		y = 7
-		
-		completion_reward = {
-			add_political_power = 50
-			add_stability = 0.10
-		}
-
-	}
-	focus = {
-		id = titos_successor
-		icon = GFX_goal_generic_propaganda
-		cost = 10.00
-		prerequisite = {
-			focus = president_tito
-		}
-		available = {
-			has_idea = YUG_Tito_is_dead
-		}
-		x = 12
-		y = 8
-		
-
-	}
-	focus = {
-		id = appoint_a_new_president
-		icon = GFX_focus_generic_military_mission
-		cost = 10.00
-		prerequisite = {
-			focus = titos_successor
-		}
-		mutually_exclusive = {
-			focus = collective_presidency
-		}
-		completion_reward = {
-			country_event = yug.7
-		}
-		x = 11
-		y = 9
-
-	}
-	focus = {
-		id = purge_the_government
-		icon = GFX_goal_generic_war_with_comintern
-		cost = 10.00
-		prerequisite = {
-			focus = constitution_1974
-		}
-		completion_reward = {
-			country_event = yug.8
-		}
-		x = 13
-		y = 6
-		
-
-	}
-	focus = {
-		id = collective_presidency
+		id = federation_of_6_nations
 		icon = GFX_goal_generic_national_unity
 		cost = 10.00
 		prerequisite = {
-			focus = titos_successor
+			focus = constitution_1953
 		}
-		mutually_exclusive = {
-			focus = appoint_a_new_president
+		x = 8
+		y = 5
+			completion_reward = {
+					add_stability = 0.1
+				}
+
+	}
+	focus = {
+		id = national_equality
+		icon = GFX_goal_continuous_increase_nu
+		cost = 10.00
+		prerequisite = {
+			focus = federation_of_6_nations
 		}
-		completion_reward = {
-			country_event = yug.4
-		}
-		x = 13
-		y = 9
-		
-		#will add event later
+		x = 8
+		y = 6
+			completion_reward = {
+					add_stability = 0.2
+				}
 
 	}
 	focus = {
@@ -327,12 +201,14 @@ focus_tree = {
 		prerequisite = {
 			focus = politics
 		}
-		x = 18
-		y = 3
-		
-		completion_reward = {
-			add_political_power = 50
+		mutually_exclusive = {
+			focus = democracy_1
 		}
+		x = 19
+		y = 2
+			completion_reward = {
+					add_political_power = 50
+				}
 
 	}
 	focus = {
@@ -343,15 +219,13 @@ focus_tree = {
 			focus = communism_1
 		}
 		mutually_exclusive = {
-			focus = proclaim_the_sfry
 			focus = centralized_approach
 		}
 		x = 16
-		y = 4
-		
-		completion_reward = {
-			add_political_power = -300
-		}
+		y = 3
+			completion_reward = {
+					add_political_power = -300
+				}
 
 	}
 	focus = {
@@ -362,11 +236,10 @@ focus_tree = {
 			focus = abolish_the_constitution
 		}
 		x = 15
-		y = 5
-		
-		completion_reward = {
-			add_stability = -0.20
-		}
+		y = 4
+			completion_reward = {
+					add_stability = -0.20
+				}
 
 	}
 	focus = {
@@ -377,11 +250,10 @@ focus_tree = {
 			focus = abolish_the_constitution
 		}
 		x = 17
-		y = 5
-		
-		completion_reward = {
-			add_political_power = 150
-		}
+		y = 4
+			completion_reward = {
+					add_political_power = 150
+				}
 
 	}
 	focus = {
@@ -395,32 +267,10 @@ focus_tree = {
 			focus = belgrades_iron_fist
 		}
 		x = 16
-		y = 6
-		
-		completion_reward = {
-			add_manpower = -5000
-		
-		}
-		
-
-	}
-	focus = {
-		id = one_nation_one_army
-		icon = GFX_focus_generic_little_entente
-		cost = 10.00
-		prerequisite = {
-			focus = crack_down_on_nationalism
-		}
-		x = 17
-		y = 7
-		
-		completion_reward = { 
-			add_stability = -0.05
-			
-			add_manpower = -1000
-			
-			add_ideas = YUG_idea_one_nation_one_army
-		}
+		y = 5
+			completion_reward = {
+					add_manpower = -5000
+				}
 
 	}
 	focus = {
@@ -430,12 +280,27 @@ focus_tree = {
 		prerequisite = {
 			focus = crack_down_on_nationalism
 		}
-		x = 15
-		y = 7
-		
-		completion_reward = {
-			add_stability = 0.10
+		x = 14
+		y = 6
+			completion_reward = {
+					add_stability = 0.10
+				}
+
+	}
+	focus = {
+		id = one_nation_one_army
+		icon = GFX_focus_generic_little_entente
+		cost = 10.00
+		prerequisite = {
+			focus = crack_down_on_nationalism
 		}
+		x = 18
+		y = 6
+			completion_reward = {
+					add_stability = -0.05
+					add_manpower = -1000
+					add_ideas = YUG_idea_one_nation_one_army
+				}
 
 	}
 	focus = {
@@ -451,13 +316,11 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = a_republic_only_in_name
 		}
-		x = 17
-		y = 8
-		
-		completion_reward = {
-			add_stability = 0.20
-		}
-		
+		x = 18
+		y = 7
+			completion_reward = {
+					add_stability = 0.20
+				}
 
 	}
 	focus = {
@@ -467,13 +330,28 @@ focus_tree = {
 		prerequisite = {
 			focus = abolish_the_republics
 		}
-		completion_reward = {
-			country_event = yug.13
+		x = 18
+		y = 8
+			completion_reward = {
+					country_event = yug.13
+				}
+
+	}
+	focus = {
+		id = greater_croatia
+		icon = GFX_focus_yug_banovina_of_croatia
+		cost = 10.00
+		prerequisite = {
+			focus = radical_coup
 		}
-		x = 17
+		mutually_exclusive = {
+			focus = greater_serbia
+		}
+		x = 18
 		y = 9
-		
-		#will add event later
+			completion_reward = {
+					country_event = yug.12
+				}
 
 	}
 	focus = {
@@ -481,37 +359,87 @@ focus_tree = {
 		icon = GFX_goal_generic_secret_weapon
 		cost = 10.00
 		prerequisite = {
-			focus = radical_coup
+			focus = greater_croatia
 		}
-		mutually_exclusive = {
-			focus = croatia_must_suffer!
-		}
-		x = 17
+		x = 18
 		y = 10
-		
-		completion_reward = {
-			add_manpower = -100000
-		}
+			completion_reward = {
+					add_manpower = -100000
+				}
+
 	}
 	focus = {
-		id = croatia_must_suffer!
-		icon = GFX_focus_generic_anti_fascist_diplomacy
+		id = YUG_catholicism
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = continue_where_we_left_off
+		}
+		x = 18
+		y = 11
+		completion_reward = {
+					add_ideas = ideological_fanaticism_focus
+					add_stability = -0.05
+				}
+	}
+	focus = {
+		id = YUG_forgive_utashe
+		icon = GFX_focus_yug_banovina_of_croatia
+		cost = 10.00
+		prerequisite = {
+			focus = YUG_catholicism
+		}
+		x = 18
+		y = 12
+		completion_reward = {
+					add_stability = -0.1
+					add_timed_idea = {
+							idea = neo_nazi_drift
+							days = 200
+						}
+				}
+	}
+	focus = {
+		id = YUG_war_on_serbs
+		icon = GFX_goal_generic_attack_allies
+		cost = 10.00
+		prerequisite = {
+			focus = YUG_forgive_utashe
+		}
+		x = 18
+		y = 13
+		completion_reward = {
+					add_war_support  = 0.1
+					YUG = { declare_war_on = { target = SER type = annex_everything } }
+				}
+	}
+	focus = {
+		id = greater_serbia
+		icon = GFX_goal_continuous_suppression
 		cost = 10.00
 		prerequisite = {
 			focus = radical_coup
 		}
 		mutually_exclusive = {
-			focus = continue_where_we_left_off
+			focus = greater_croatia
 		}
-		x = 19
+		x = 22
+		y = 9
+			completion_reward = {
+					country_event = yug.11
+				}
+
+	}
+	focus = {
+		id = YUG_pruge_islam
+		icon = GFX_goal_generic_secret_weapon
+		cost = 10.00
+		prerequisite = {
+			focus = greater_croatia
+			focus = greater_serbia
+		}
+		x = 20
 		y = 10
-		
-		completion_reward = { 
-			add_manpower = -20000
-			add_stability = -0.2
-		
-		}
-		
 
 	}
 	focus = {
@@ -523,16 +451,12 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = abolish_the_constitution
-			focus = proclaim_the_sfry
 		}
-		x = 20
-		y = 4
-		
-		#will add bounus later
-		
-		completion_reward = {
-			add_political_power = 50
-		}
+		x = 22
+		y = 3
+			completion_reward = {
+					add_political_power = 50
+				}
 
 	}
 	focus = {
@@ -542,13 +466,11 @@ focus_tree = {
 		prerequisite = {
 			focus = centralized_approach
 		}
-		x = 20
-		y = 5
-		
-		completion_reward = {
-			add_political_power = 50
-		
-		}
+		x = 22
+		y = 4
+			completion_reward = {
+					add_political_power = 50
+				}
 
 	}
 	focus = {
@@ -558,13 +480,73 @@ focus_tree = {
 		prerequisite = {
 			focus = strengthen_the_fec
 		}
-		x = 19
-		y = 6
-		
-		completion_reward = {
-			add_ideas = YUG_idea_more_self_management
-		}
+		x = 21
+		y = 5
+			completion_reward = {
+					add_ideas = YUG_idea_more_self_management
+				}
 
+	}
+	focus = {
+		id = croatia_must_suffer!
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		cost = 10.00
+		prerequisite = {
+			focus = greater_serbia
+		}
+		x = 22
+		y = 10
+			completion_reward = {
+					add_manpower = -20000
+					add_stability = -0.2
+				}
+
+	}
+	focus = {
+		id = YUG_serb_religion
+		icon = GFX_focus_ger_strike_at_the_source
+		cost = 10.00
+		prerequisite = {
+			focus = croatia_must_suffer!
+		}
+		x = 22
+		y = 11
+		completion_reward = {
+					add_ideas = ideological_fanaticism_focus
+					add_stability = -0.05
+					add_political_power = 300
+				}
+	}
+	focus = {
+		id = YUG_ignore_chetneks
+		icon = GFX_goal_generic_dangerous_deal
+		cost = 10.00
+		prerequisite = {
+			focus = YUG_serb_religion
+		}
+		x = 22
+		y = 12
+		completion_reward = {
+					add_stability = -0.1
+					add_timed_idea = {
+							idea = monarchist_influence
+							days = 200
+						}
+				}
+	}
+	focus = {
+		id = YUG_payback_on_croats
+		icon = GFX_goal_generic_attack_allies
+		cost = 10.00
+		prerequisite = {
+			focus = YUG_ignore_chetneks
+		}
+		x = 22
+		y = 13
+		completion_reward = {
+					add_war_support  = 0.1
+					YUG = { declare_war_on = { target = CRO type = annex_everything } }
+				}
 	}
 	focus = {
 		id = single_party_system
@@ -573,29 +555,36 @@ focus_tree = {
 		prerequisite = {
 			focus = strengthen_the_fec
 		}
-		x = 21
-		y = 6
-		
-		completion_reward = {
-			add_political_power = 250
-			add_ideas = YUG_pp
-		}
+		x = 23
+		y = 5
+			completion_reward = {
+					add_political_power = 150
+					add_ideas = YUG_pp
+				}
 
 	}
 	focus = {
-		id = support_the_federal_system
-		icon = GFX_goal_generic_intelligence_exchange
+		id = YUG_from_eveyr_public
+		icon = GFX_goal_generic_national_unity
 		cost = 10.00
 		prerequisite = {
-			focus = more_self_management
 			focus = single_party_system
 		}
-		x = 20
-		y = 7
-		
+		x = 23
+		y = 6
 		completion_reward = {
-			add_political_power = 50
+					add_stability = 0.05
+				}
+	}
+	focus = {
+		id = YUG_politbyro
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = YUG_from_eveyr_public
 		}
+		x = 23
+		y = 7
 
 	}
 	focus = {
@@ -605,12 +594,22 @@ focus_tree = {
 		prerequisite = {
 			focus = gateway_to_politics
 		}
-		x = 28
-		y = 2
-		
-		completion_reward = {
-			add_political_power = 50
+		x = 29
+		y = 1
+			completion_reward = {
+					add_political_power = 50
+				}
+
+	}
+	focus = {
+		id = YUG_the_soviet_problem
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = geopolitics
 		}
+		x = 31
+		y = 2
 
 	}
 	focus = {
@@ -618,20 +617,22 @@ focus_tree = {
 		icon = GFX_goal_generic_dangerous_deal
 		cost = 10.00
 		prerequisite = {
-			focus = geopolitics
+			focus = YUG_the_soviet_problem
 		}
 		mutually_exclusive = {
 			focus = stay_independant
 		}
-		x = 23
+		x = 29
 		y = 3
-		
-		completion_reward = {
-			SOV = { 
-				remove_ideas = YUG_anti_soviet
-				add_opinion_modifier = { target = YUG modifier = placate_soviet }
-			}
-		}
+			completion_reward = {
+					SOV = {
+							remove_ideas = YUG_anti_soviet
+							add_opinion_modifier = {
+									target = YUG
+									modifier = placate_soviet
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -641,14 +642,16 @@ focus_tree = {
 		prerequisite = {
 			focus = placate_the_soviets
 		}
-		x = 23
+		x = 29
 		y = 4
-		
-		completion_reward = {
-			SOV = { 
-				add_opinion_modifier = { target = YUG modifier = reconcile_moscow }
-			}
-		}
+			completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = reconcile_moscow
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -658,15 +661,14 @@ focus_tree = {
 		prerequisite = {
 			focus = reconcile_with_moscow
 		}
-		x = 23
+		x = 29
 		y = 5
-		
-		completion_reward = {
-			add_popularity = {
-					ideology = communism
-					popularity = 0.2
-			}
-		}
+			completion_reward = {
+					add_popularity = {
+							ideology = communism
+							popularity = 0.2
+						}
+				}
 
 	}
 	focus = {
@@ -676,31 +678,11 @@ focus_tree = {
 		prerequisite = {
 			focus = follow_stalin
 		}
-		x = 23
+		x = 29
 		y = 6
-		
-		completion_reward = {
-			add_political_power = 50
-		}
-
-	}
-	focus = {
-		id = soviet_sattelite_state
-		icon = GFX_focus_cze_german_puppet
-		cost = 10.00
-		prerequisite = {
-			focus = rejoin_cominform
-		}
-		mutually_exclusive = {
-			focus = join_the_warsaw_pact
-		}
-		completion_reward = {
-			country_event = yug.29
-		}
-		x = 22
-		y = 7
-		
-		#will add bounus later
+			completion_reward = {
+					add_political_power = 50
+				}
 
 	}
 	focus = {
@@ -710,99 +692,29 @@ focus_tree = {
 		prerequisite = {
 			focus = rejoin_cominform
 		}
-		mutually_exclusive = {
-			focus = soviet_sattelite_state
-		}
-		x = 24
+		x = 29
 		y = 7
-		
-		#will add bounus later
-
-	}
-	focus = {
-		id = stay_independant
-		icon = GFX_focus_generic_self_management
-		cost = 10.00
-		prerequisite = {
-			focus = geopolitics
-		}
-		mutually_exclusive = {
-			focus = placate_the_soviets
-		}
-		x = 25
-		y = 3
-		
-		completion_reward = {
-			add_political_power = 150
-		}
-	}
-	focus = {
-		id = cpsu_letters
-		icon = GFX_focus_renounce_the_treaty_of_triannon
-		cost = 10.00
-		prerequisite = {
-			focus = stay_independant
-		}
-		x = 25
-		y = 4
-		
-		completion_reward = {
-			SOV = {
-				add_opinion_modifier = { target = YUG modifier = protest_soviet }
-			}
-		}
-
-	}
-	focus = {
-		id = dennounce_stalinism
-		icon = GFX_goal_continuous_def_against_influence
-		cost = 10.00
-		prerequisite = {
-			focus = cpsu_letters
-		}
-		x = 25
-		y = 5
-		
 		completion_reward = {
 			SOV = { 
-				add_opinion_modifier = { target = YUG modifier = dennounce_soviet }
+				country_event = generic.8
 			}
 		}
-
-	}
-	focus = {
-		id = open_the_goli_otok_camp
-		icon = GFX_goal_generic_construction2
-		cost = 10.00
-		prerequisite = {
-			focus = dennounce_stalinism
-		}
-		x = 25
-		y = 6
-		
-		completion_reward = {
-			add_ideas = YUG_goli_otok
-		}
-
 	}
 	focus = {
 		id = renew_the_bled_agreement
 		icon = GFX_goal_anschluss
 		cost = 10.00
 		prerequisite = {
-			focus = geopolitics
-			focus = geopolitics
+			focus = join_the_warsaw_pact
 		}
-		prerequisite = {
-			focus = geopolitics
-		}
-		completion_reward = {
-			country_event = yug.14
+		mutually_exclusive = {
+			focus = YUG_our_own_thing
 		}
 		x = 28
-		y = 3
-		
-		#will add event later
+		y = 8
+			completion_reward = {
+					country_event = yug.14
+				}
 
 	}
 	focus = {
@@ -812,38 +724,33 @@ focus_tree = {
 		prerequisite = {
 			focus = renew_the_bled_agreement
 		}
-		completion_reward = {
-			country_event = yug.15
-		}
 		x = 27
-		y = 4
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
-			}
-		}
+		y = 9
+			completion_reward = {
+					country_event = yug.15
+				}
+			ai_will_do = {
+					factor = 1
+					modifier = {
+							factor = 0
+							is_historical_focus_on = yes
+						}
+				}
+
 	}
 	focus = {
 		id = pressure_albania
-		icon = GFX_goal_generic_dangerous_deal
+		icon = GFX_goal_generic_major_alliance
 		cost = 10.00
 		prerequisite = {
 			focus = renew_the_bled_agreement
 		}
-		completion_reward = {
-			country_event = yug.17
-		}
 		x = 29
-		y = 4
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
-			}
-		}
+		y = 9
+			completion_reward = {
+					country_event = yug.17
+				}
+
 	}
 	focus = {
 		id = proclaim_the_balkan_fed.
@@ -855,35 +762,208 @@ focus_tree = {
 		prerequisite = {
 			focus = pressure_bulgaria
 		}
-		completion_reward = {
-			add_political_power = 150
-			set_cosmetic_tag = YUG_Greater_Balkan
-			hidden_effect = {
-				news_event = yug.20
-			}
-		}
 		x = 28
-		y = 5
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
-			}
-		}
+		y = 10
+			completion_reward = {
+					add_political_power = 150
+					set_cosmetic_tag = YUG_Greater_Balkan
+					hidden_effect = {
+							news_event = yug.20
+						}
+				}
+
 	}
 	focus = {
-		id = invite_greece
-		icon = GFX_goal_molotov_ribbentrop_pact
+		id = pressure_romania
+		icon = GFX_goal_generic_major_alliance
 		cost = 10.00
 		prerequisite = {
 			focus = proclaim_the_balkan_fed.
 		}
-		x = 27
-		y = 6
-		completion_reward = {
-			GRE = { country_event = yug.19 }
+		mutually_exclusive = {
+			focus = a_romanian_puppet
 		}
+		x = 29
+		y = 11
+			completion_reward = {
+					country_event = yug.18
+				}
+
+	}
+	focus = {
+		id = force_greece_to_join
+		icon = GFX_goal_generic_occupy_start_war
+		cost = 10.00
+		prerequisite = {
+			focus = proclaim_the_balkan_fed.
+		}
+		mutually_exclusive = {
+			focus = invite_greece
+		}
+		x = 25
+		y = 11
+			completion_reward = {
+					create_wargoal = {
+							type = take_state_focus
+							target = GRE
+							generator = { 47 }# Athens
+						}
+				}
+			ai_will_do = {
+					factor = 1
+					modifier = {
+							is_historical_focus_on = yes
+							factor = 0
+						}
+				}
+
+	}
+	focus = {
+		id = YUG_our_own_thing
+		icon = GFX_focus_cze_german_puppet
+		cost = 10.00
+		prerequisite = {
+			focus = join_the_warsaw_pact
+		}
+		mutually_exclusive = {
+			focus = renew_the_bled_agreement
+		}
+		x = 30
+		y = 8
+
+	}
+	focus = {
+		id = a_romanian_puppet
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = proclaim_the_balkan_fed.
+		}
+		mutually_exclusive = {
+			focus = pressure_romania
+		}
+		x = 31
+		y = 11
+			bypass = {
+					YUG = {
+							controls_state = 46
+						}
+				}
+			completion_reward = {
+					country_event = yug.21
+				}
+
+	}
+	focus = {
+		id = stay_independant
+		icon = GFX_focus_generic_self_management
+		cost = 10.00
+		prerequisite = {
+			focus = YUG_the_soviet_problem
+		}
+		mutually_exclusive = {
+			focus = placate_the_soviets
+		}
+		x = 33
+		y = 3
+			completion_reward = {
+					add_political_power = 150
+				}
+
+	}
+	focus = {
+		id = dennounce_stalinism
+		icon = GFX_goal_continuous_def_against_influence
+		cost = 10.00
+		prerequisite = {
+			focus = stay_independant
+		}
+		x = 33
+		y = 4
+			completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = dennounce_soviet
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = open_the_goli_otok_camp
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+		prerequisite = {
+			focus = dennounce_stalinism
+		}
+		x = 33
+		y = 5
+			completion_reward = {
+					add_ideas = YUG_goli_otok
+				}
+
+	}
+	focus = {
+		id = YUG_new_course
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		cost = 10.00
+		prerequisite = {
+			focus = open_the_goli_otok_camp
+		}
+		mutually_exclusive = {
+			focus = YUG_no_room_for_soviets
+		}
+		x = 33
+		y = 6
+
+	}
+	focus = {
+		id = YUG_no_room_for_soviets
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = open_the_goli_otok_camp
+		}
+		mutually_exclusive = {
+			focus = YUG_new_course
+		}
+		x = 36
+		y = 6
+
+	}
+	focus = {
+		id = YUG_claims_on_albania
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = YUG_no_room_for_soviets
+		}
+		x = 36
+		y = 7
+
+	}
+	focus = {
+		id = YUG_ties_with_others
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = geopolitics
+		}
+		x = 38
+		y = 2
+
+	}
+	focus = {
+		id = YUG_middle_est
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = YUG_ties_with_others
+		}
+		x = 37
+		y = 3
+
 	}
 	focus = {
 		id = reconstruction_efforts
@@ -892,49 +972,37 @@ focus_tree = {
 		prerequisite = {
 			focus = repair_after_the_war
 		}
-		x = 28
-		y = 9
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = construction_tech_bonus
-				bonus = 0.5
-				uses = 1
-				category = construction_tech
-			}
-		}
+		x = 37
+		y = 10
+			completion_reward = {
+					add_tech_bonus = {
+							name = construction_tech_bonus
+							bonus = 0.5
+							uses = 1
+							category = construction_tech
+						}
+				}
 
 	}
 	focus = {
-		id = pressure_romania
+		id = YUG_ties_asia
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = YUG_ties_with_others
+		}
+		x = 38
+		y = 4
+
+	}
+	focus = {
+		id = YUG_aid_hungarian_rebels
 		icon = GFX_goal_generic_dangerous_deal
 		cost = 10.00
 		prerequisite = {
-			focus = proclaim_the_balkan_fed.
+			focus = YUG_no_room_for_soviets
 		}
-		completion_reward = {
-			country_event = yug.18
-		}
-		x = 29
-		y = 6
-
-	}
-	focus = {
-		id = a_romanian_puppet
-		icon = GFX_focus_rom_coup
-		cost = 10.00
-		prerequisite = {
-			focus = pressure_romania
-		}
-		bypass = {
-			YUG = {
-				controls_state = 46
-			}
-		}
-		completion_reward = {
-			country_event = yug.21
-		}
-		x = 29
+		x = 38
 		y = 7
 
 	}
@@ -945,24 +1013,23 @@ focus_tree = {
 		prerequisite = {
 			focus = repair_after_the_war
 		}
-		x = 30
-		y = 9
-		
-		completion_reward = {
-		107 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
+		x = 39
+		y = 10
+			completion_reward = {
+					107 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -975,17 +1042,16 @@ focus_tree = {
 		prerequisite = {
 			focus = rebuilding_the_cities
 		}
-		x = 29
-		y = 10
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = industrial_bonus
-				bonus = 0.5
-				uses = 1
-				category = industry
-			}
-		}
+		x = 38
+		y = 11
+			completion_reward = {
+					add_tech_bonus = {
+							name = industrial_bonus
+							bonus = 0.5
+							uses = 1
+							category = industry
+						}
+				}
 
 	}
 	focus = {
@@ -995,12 +1061,12 @@ focus_tree = {
 		prerequisite = {
 			focus = industry_expantion
 		}
-		x = 25
-		y = 11
-		
-		completion_reward = {
-			add_ideas = YUG_idea_civilian_expantion
-		}
+		x = 33
+		y = 12
+			completion_reward = {
+					add_ideas = YUG_idea_civilian_expantion
+				}
+
 	}
 	focus = {
 		id = prioritize_serbia
@@ -1012,10 +1078,8 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = equal_republics
 		}
-		x = 23
-		y = 12
-		
-		#will add event later
+		x = 31
+		y = 13
 
 	}
 	focus = {
@@ -1028,24 +1092,49 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = prioritize_serbia
 		}
-		x = 26
-		y = 12
-		
-		completion_reward = {
-			109 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
+		x = 34
+		y = 13
+			completion_reward = {
+					109 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = develop_serbia
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = equal_republics
 		}
+		x = 35
+		y = 14
+			completion_reward = {
+					107 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -1055,24 +1144,23 @@ focus_tree = {
 		prerequisite = {
 			focus = industry_expantion
 		}
-		x = 34
-		y = 11
-		
-		completion_reward = {
-			107 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
+		x = 44
+		y = 12
+			completion_reward = {
+					107 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = arms_factory
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -1085,24 +1173,23 @@ focus_tree = {
 		prerequisite = {
 			focus = civilian_expantion
 		}
-		x = 29
-		y = 12
-		
-		completion_reward = {
-			107 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 2
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 2
-                        instant_build = yes
-                    }
-                }
-            }
-		}
+		x = 38
+		y = 13
+			completion_reward = {
+					107 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -1112,24 +1199,23 @@ focus_tree = {
 		prerequisite = {
 			focus = develop_the_capital
 		}
-		x = 29
-		y = 13
-		
-		completion_reward = {
-			107 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 2
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 2
-                        instant_build = yes
-                    }
-                }
-            }
-		}
+		x = 38
+		y = 14
+			completion_reward = {
+					107 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -1139,23 +1225,22 @@ focus_tree = {
 		prerequisite = {
 			focus = yugoimport_sdpr
 		}
-		x = 29
-		y = 14
-		
-		completion_reward = {
-			107 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
+		x = 38
+		y = 15
+			completion_reward = {
+					107 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
 				}
-			}
-		}
 
 	}
 	focus = {
@@ -1165,84 +1250,33 @@ focus_tree = {
 		prerequisite = {
 			focus = better_roads_for_the_capital
 		}
-		x = 29
-		y = 15
-		
-		completion_reward = {
-			add_research_slot = 1
-		}
-
-	}
-	focus = {
-		id = vinca_nuclear_institute
-		icon = GFX_goal_generic_secret_weapon
-		cost = 10.00
-		prerequisite = {
-			focus = university_of_belgrade
-		}
-		x = 29
+		x = 38
 		y = 16
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = nuclear_bonus
-				ahead_reduction = 0.5
-				category = nuclear
-			}
-		}
+			completion_reward = {
+					add_research_slot = 1
+				}
 
 	}
 	focus = {
-		id = placate_the_west
-		icon = GFX_goal_generic_major_alliance
+		id = YUG_ties_with_america
+		icon = GFX_goal_generic_improve_relations
 		cost = 10.00
 		prerequisite = {
-			focus = geopolitics
+			focus = YUG_ties_with_others
 		}
-		x = 31
+		x = 39
 		y = 3
-		
-		completion_reward = {
-			USA = { 
-				add_opinion_modifier = { target = YUG modifier = placate_west }
-			}
-		}
 
 	}
 	focus = {
-		id = request_american_aid
-		icon = GFX_goal_generic_trade
+		id = YUG_ask_western_halp
+		icon = GFX_goal_generic_improve_relations
 		cost = 10.00
 		prerequisite = {
-			focus = placate_the_west
+			focus = YUG_no_room_for_soviets
 		}
-		x = 31
-		y = 4
-		
-		completion_reward = {
-			add_ideas = YUG_idea_american_aid
-		}
-		
-
-	}
-	focus = {
-		id = ask_for_increased_aid
-		icon = GFX_goal_generic_construct_civ_factory
-		cost = 10.00
-		prerequisite = {
-			focus = request_american_aid
-		}
-		x = 31
-		y = 5
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = industrial_bonus
-				bonus = 0.5
-				uses = 1
-				category = industry
-			}
-		}
+		x = 40
+		y = 7
 
 	}
 	focus = {
@@ -1255,88 +1289,101 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = centralized_production
 		}
-		x = 32
-		y = 12
-		
-		completion_reward = {
-			109 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
+		x = 42
+		y = 13
+			completion_reward = {
+					109 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = arms_factory
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
-		id = reconcile_italy
-		icon = GFX_goal_generic_improve_relations
+		id = croatian_industry
+		icon = GFX_goal_generic_construct_mil_factory
 		cost = 10.00
 		prerequisite = {
-			focus = placate_the_west
+			focus = decentralized_production
 		}
-		x = 33
-		y = 4
-		
-		completion_reward = {
-			ITA = { 
-				add_opinion_modifier = { target = YUG modifier = reconcile_italy }
-			}
-		}
+		x = 41
+		y = 14
+			completion_reward = {
+					109 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
-		id = reconcile_greece
-		icon = GFX_goal_generic_improve_relations
+		id = bosnian_arsenals
+		icon = GFX_goal_generic_construct_mil_factory
 		cost = 10.00
 		prerequisite = {
-			focus = reconcile_italy
+			focus = croatian_industry
 		}
-		x = 33
-		y = 5
-		
-		completion_reward = {
-			GRE = { 
-				add_opinion_modifier = { target = YUG modifier = reconcile_greece }
-			}
-		}
+		x = 41
+		y = 15
+			completion_reward = {
+					104 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = arms_factory
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
-		id = request_investment
-		icon = GFX_goal_generic_consumer_goods
+		id = slovenian_arms_factories
+		icon = GFX_goal_generic_construct_mil_factory
 		cost = 10.00
 		prerequisite = {
-			focus = ask_for_increased_aid
+			focus = bosnian_arsenals
 		}
-		prerequisite = {
-			focus = reconcile_greece
-		}
-		x = 31
-		y = 6
-		
-		completion_reward = {
-			109 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 2
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 2
-                        instant_build = yes
-                    }
-                }
-            }
-		}
+		x = 41
+		y = 16
+			completion_reward = {
+					102 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = arms_factory
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -1349,24 +1396,23 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = decentralized_production
 		}
-		x = 35
-		y = 12
-		
-		completion_reward = {
-			107 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
+		x = 44
+		y = 13
+			completion_reward = {
+					107 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = arms_factory
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -1377,16 +1423,15 @@ focus_tree = {
 			focus = decentralized_production
 			focus = centralized_production
 		}
-		x = 33
-		y = 13
-		
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 2
-				category = electronics
-			}
-		}
+		x = 43
+		y = 14
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 0.5
+							uses = 2
+							category = electronics
+						}
+				}
 
 	}
 	focus = {
@@ -1396,330 +1441,15 @@ focus_tree = {
 		prerequisite = {
 			focus = develop_military_radar
 		}
-		x = 33
-		y = 14
-		
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 1
-				category = electronics
-			}
-		}
-
-	}
-	focus = {
-		id = path_to_nato
-		icon = GFX_goal_generic_alliance
-		cost = 10.00
-		prerequisite = {
-			focus = geopolitics
-		}
-		mutually_exclusive = {
-			focus = nonaligned_movement
-		}
-		x = 35
-		y = 3
-		
-		completion_reward = {
-			USA = {
-				add_opinion_modifier = { target = YUG modifier = improve_with_nato }
-			}
-		}
-	}
-	focus = {
-		id = move_toward_democracy 
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		prerequisite = {
-			focus = reconcile_greece
-		}
-		prerequisite = {
-			focus = path_to_nato
-		}
-		x = 35
-		y = 6
-		
-		completion_reward = {
-			add_ideas = democratic_influence
-		}
-
-	}
-	focus = {
-		id = join_nato
-		icon = GFX_goal_anschluss
-		cost = 10.00
-		prerequisite = {
-			focus = move_toward_democracy 
-		}
-		x = 35
-		y = 7
-		completion_reward = {
-			add_ideas = nato_member
-		}
-	}
-	focus = {
-		id = kosovar_arms_factories
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = centralized_production
-		}
-		x = 35
-		y = 13
-		
-		completion_reward = {
-		105 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
-
-	}
-	focus = {
-		id = serbian_artillery_yards
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = kosovar_arms_factories
-		}
-		x = 35
-		y = 14
-		
-		completion_reward = {
-		107 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 2
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 2
-                        instant_build = yes
-                    }
-                }
-            }
-		}
-
-	}
-	focus = {
-		id = moravian_arsenals
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = serbian_artillery_yards
-		}
-		x = 35
+		x = 43
 		y = 15
-		
-		completion_reward = {
-		108 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
-
-	}
-	focus = {
-		id = nonaligned_movement
-		icon = GFX_goal_generic_intelligence_exchange
-		cost = 10.00
-		prerequisite = {
-			focus = geopolitics
-		}
-		mutually_exclusive = {
-			focus = path_to_nato
-		}
-		x = 37
-		y = 3
-		
-		completion_reward = {
-			set_rule = { can_create_factions = yes }
-			create_faction = "Non-Aligned Movement"
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				is_historical_focus_on = yes
-				factor = 0
-			}
-		}
-
-	}
-	focus = {
-		id = bandung_conference
-		icon = GFX_focus_generic_diplomatic_treaty
-		cost = 10.00
-		prerequisite = {
-			focus = nonaligned_movement
-		}
-		completion_reward = {
-			country_event = yug.24
-		}
-		x = 37
-		y = 4
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
-			}
-		}
-
-	}
-	focus = {
-		id = north_african_expantion
-		icon = GFX_goal_generic_position_armies
-		cost = 10.00
-		prerequisite = {
-			focus = bandung_conference
-		}
-		completion_reward = {
-			country_event = yug.26
-		}
-		x = 37
-		y = 5
-
-	}
-	focus = {
-		id = middle_east_expantion
-		icon = GFX_goal_generic_position_armies
-		cost = 10.00
-		prerequisite = {
-			focus = north_african_expantion
-		}
-		completion_reward = {
-			country_event = yug.27
-		}
-		x = 37
-		y = 6
-
-	}
-	focus = {
-		id = asian_expantion
-		icon = GFX_goal_generic_position_armies
-		cost = 10.00
-		prerequisite = {
-			focus = middle_east_expantion
-		}
-		completion_reward = {
-			country_event = yug.28
-		}
-		x = 37
-		y = 7
-
-	}
-	focus = {
-		id = croatian_naval_yards
-		icon = GFX_goal_generic_construct_naval_dockyard
-		cost = 10.00
-		prerequisite = {
-			focus = military_industrial_complex
-		}
-		x = 37
-		y = 12
-		
-		completion_reward = {
-			103 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = dockyard
-					level = 2
-					instant_build = yes	
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 0.5
+							uses = 1
+							category = electronics
+						}
 				}
-			}
-		}
-
-	}
-	focus = {
-		id = bigger_naval_yards
-		icon = GFX_goal_generic_construct_naval_dockyard
-		cost = 10.00
-		prerequisite = {
-			focus = croatian_naval_yards
-		}
-		x = 37
-		y = 13
-		
-		completion_reward = {
-			736 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = dockyard
-					level = 2
-					instant_build = yes	
-				}
-			}
-		}
-
-	}
-	focus = {
-		id = further_naval_production
-		icon = GFX_goal_generic_construct_naval_dockyard
-		cost = 10.00
-		prerequisite = {
-			focus = bigger_naval_yards
-		}
-		x = 37
-		y = 14
-		
-		completion_reward = {
-			105 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes	
-				}
-			}
-		}
-
-	}
-	focus = {
-		id = suez_crisis
-		icon = GFX_focus_generic_little_entente
-		cost = 10.00
-		prerequisite = {
-			focus = nonaligned_movement
-		}
-		completion_reward = {
-			country_event = yug.9
-		}
-		x = 39
-		y = 4
-
-	}
-	focus = {
-		id = the_afghan_question
-		icon = GFX_focus_generic_concessions
-		cost = 10.00
-		prerequisite = {
-			focus = middle_east_expantion
-		}
-		completion_reward = {
-			country_event = yug.10
-		}
-		x = 39
-		y = 7
 
 	}
 	focus = {
@@ -1729,17 +1459,16 @@ focus_tree = {
 		prerequisite = {
 			focus = expand_the_navy
 		}
-		x = 42
-		y = 3
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = fleet_in_being_bonus
-				bonus = 0.5
-				uses = 1
-				category = fleet_in_being_tree
-			}
-		}
+		x = 46
+		y = 2
+			completion_reward = {
+					add_tech_bonus = {
+							name = fleet_in_being_bonus
+							bonus = 0.5
+							uses = 1
+							category = fleet_in_being_tree
+						}
+				}
 
 	}
 	focus = {
@@ -1749,39 +1478,99 @@ focus_tree = {
 		prerequisite = {
 			focus = open_admiralty_schools
 		}
-		x = 41
-		y = 4
-		
-		completion_reward  = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = naval_base
-					level = 3
-					province = 3924
-					instant_build = yes
-				}
-			}
+		mutually_exclusive = {
+			focus = new_hq_in_kotor
 		}
+		x = 45
+		y = 3
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = naval_base
+									level = 3
+									province = 3924
+									instant_build = yes
+								}
+						}
+				}
+
 	}
 	focus = {
-		id = marine_training
-		icon = GFX_goal_generic_amphibious_assault
+		id = kosovar_arms_factories
+		icon = GFX_goal_generic_construct_mil_factory
 		cost = 10.00
 		prerequisite = {
-			focus = expand_the_split_hq
+			focus = centralized_production
 		}
-		x = 41
-		y = 5
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = special_forces_bonus
-				bonus = 0.5
-				uses = 1
-				technology = marines
-				technology = marines2
-			}
+		x = 45
+		y = 14
+			completion_reward = {
+					105 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = arms_factory
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = serbian_artillery_yards
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = kosovar_arms_factories
 		}
+		x = 45
+		y = 15
+			completion_reward = {
+					107 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = moravian_arsenals
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = serbian_artillery_yards
+		}
+		x = 45
+		y = 16
+			completion_reward = {
+					108 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = arms_factory
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -1791,20 +1580,21 @@ focus_tree = {
 		prerequisite = {
 			focus = open_admiralty_schools
 		}
-		x = 43
-		y = 4
-		
-		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = naval_base
-					level = 3
-					province = 9809
-					instant_build = yes
-				}
-			}
+		mutually_exclusive = {
+			focus = expand_the_split_hq
 		}
-			
+		x = 47
+		y = 3
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = naval_base
+									level = 3
+									province = 9809
+									instant_build = yes
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -1814,12 +1604,11 @@ focus_tree = {
 		prerequisite = {
 			focus = expand_the_navy
 		}
-		x = 46
-		y = 3
-		
-		completion_reward = {
-			add_research_slot = 1
-		}
+		x = 50
+		y = 2
+			completion_reward = {
+					add_research_slot = 1
+				}
 
 	}
 	focus = {
@@ -1829,21 +1618,18 @@ focus_tree = {
 		prerequisite = {
 			focus = our_own_naval_designs
 		}
-		x = 46
-		y = 4
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = cr_bonus
-				bonus = 0.5
-				ahead_reduction = 1
-				uses = 2
-				technology = improved_light_cruiser
-				technology = advanced_light_cruiser
-				
-				
-			}
-		}
+		x = 50
+		y = 3
+			completion_reward = {
+					add_tech_bonus = {
+							name = cr_bonus
+							bonus = 0.5
+							ahead_reduction = 1
+							uses = 2
+							technology = improved_light_cruiser
+							technology = advanced_light_cruiser
+						}
+				}
 
 	}
 	focus = {
@@ -1856,21 +1642,20 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = c_80_class
 		}
-		x = 44
-		y = 5
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = ss_bonus
-				bonus = 0.5
-				ahead_reduction = 1
-				uses = 1
-				technology = early_submarine
-				technology = basic_submarine
-				technology = improved_submarine
-				technology = advanced_submarine
-			}
-		}
+		x = 48
+		y = 4
+			completion_reward = {
+					add_tech_bonus = {
+							name = ss_bonus
+							bonus = 0.5
+							ahead_reduction = 1
+							uses = 1
+							technology = early_submarine
+							technology = basic_submarine
+							technology = improved_submarine
+							technology = advanced_submarine
+						}
+				}
 
 	}
 	focus = {
@@ -1883,21 +1668,20 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = more_submarines
 		}
-		x = 43
-		y = 6
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = ss_bonus
-				bonus = 0.5
-				ahead_reduction = 1
-				uses = 1
-				technology = early_submarine
-				technology = basic_submarine
-				technology = improved_submarine
-				technology = advanced_submarine
-			}
-		}
+		x = 47
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							name = ss_bonus
+							bonus = 0.5
+							ahead_reduction = 1
+							uses = 1
+							technology = early_submarine
+							technology = basic_submarine
+							technology = improved_submarine
+							technology = advanced_submarine
+						}
+				}
 
 	}
 	focus = {
@@ -1910,8 +1694,8 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = better_submarines
 		}
-		x = 45
-		y = 6
+		x = 49
+		y = 5
 
 	}
 	focus = {
@@ -1924,22 +1708,20 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = sutjeska_class
 		}
-		x = 48
-		y = 5
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = dd_bonus
-				bonus = 0.5
-				ahead_reduction = 1
-				uses = 1
-				technology = early_destroyer
-				technology = basic_destroyer
-				technology = improved_destroyer
-				technology = advanced_destroyer
-			}
-		}
-		
+		x = 52
+		y = 4
+			completion_reward = {
+					add_tech_bonus = {
+							name = dd_bonus
+							bonus = 0.5
+							ahead_reduction = 1
+							uses = 1
+							technology = early_destroyer
+							technology = basic_destroyer
+							technology = improved_destroyer
+							technology = advanced_destroyer
+						}
+				}
 
 	}
 	focus = {
@@ -1952,19 +1734,18 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = light_ship_focus
 		}
-		x = 47
-		y = 6
-		
-		completion_reward = {
-			navy_experience = 25
-			add_tech_bonus = {
-				name = capital_ships_bonus
-				bonus = 0.5
-				ahead_reduction = 1
-				uses = 2
-				technology = battle_cruiser_2
-			}
-		}
+		x = 51
+		y = 5
+			completion_reward = {
+					navy_experience = 25
+					add_tech_bonus = {
+							name = capital_ships_bonus
+							bonus = 0.5
+							ahead_reduction = 1
+							uses = 2
+							technology = battle_cruiser_2
+						}
+				}
 
 	}
 	focus = {
@@ -1977,19 +1758,18 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = we_need_a_carrier_1
 		}
-		x = 46
-		y = 8
-		
-		completion_reward = {
-			navy_experience = 25
-			add_tech_bonus = {
-				name = capital_ships_bonus
-				bonus = 0.5
-				ahead_reduction = 1
-				uses = 1
-				technology = battle_cruiser_2
-			}
-		}
+		x = 50
+		y = 7
+			completion_reward = {
+					navy_experience = 25
+					add_tech_bonus = {
+							name = capital_ships_bonus
+							bonus = 0.5
+							ahead_reduction = 1
+							uses = 1
+							technology = battle_cruiser_2
+						}
+				}
 
 	}
 	focus = {
@@ -2002,22 +1782,21 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = battleship_superiority
 		}
-		x = 48
-		y = 8
-		
-		completion_reward = {
-			navy_experience = 25
-			add_tech_bonus = {
-				name = capital_ships_bonus
-				bonus = 0.5
-				ahead_reduction = 1
-				uses = 1
-				technology = early_carrier
-				technology = basic_carrier
-				technology = improved_carrier
-				technology = advanced_carrier
-			}
-		}
+		x = 52
+		y = 7
+			completion_reward = {
+					navy_experience = 25
+					add_tech_bonus = {
+							name = capital_ships_bonus
+							bonus = 0.5
+							ahead_reduction = 1
+							uses = 1
+							technology = early_carrier
+							technology = basic_carrier
+							technology = improved_carrier
+							technology = advanced_carrier
+						}
+				}
 
 	}
 	focus = {
@@ -2027,17 +1806,16 @@ focus_tree = {
 		prerequisite = {
 			focus = battleship_superiority
 		}
-		x = 46
-		y = 9
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = USA_fund_the_navy
-				uses = 3
-				bonus = 0.5
-				category = naval_doctrine
-			}
-		}
+		x = 50
+		y = 8
+			completion_reward = {
+					add_tech_bonus = {
+							name = USA_fund_the_navy
+							uses = 3
+							bonus = 0.5
+							category = naval_doctrine
+						}
+				}
 
 	}
 	focus = {
@@ -2050,17 +1828,16 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = coastal_bombardment
 		}
-		x = 48
-		y = 10
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = USA_fund_the_navy
-				uses = 3
-				bonus = 0.5
-				category = naval_doctrine
-			}
-		}
+		x = 52
+		y = 9
+			completion_reward = {
+					add_tech_bonus = {
+							name = USA_fund_the_navy
+							uses = 3
+							bonus = 0.5
+							category = naval_doctrine
+						}
+				}
 
 	}
 	focus = {
@@ -2070,19 +1847,18 @@ focus_tree = {
 		prerequisite = {
 			focus = expand_the_navy
 		}
-		x = 49
-		y = 3
-		
-		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = naval_base
-					level = 3
-					province = 591
-					instant_build = yes
+		x = 53
+		y = 2
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = naval_base
+									level = 3
+									province = 591
+									instant_build = yes
+								}
+						}
 				}
-			}
-		}
 
 	}
 	focus = {
@@ -2092,19 +1868,18 @@ focus_tree = {
 		prerequisite = {
 			focus = expand_bases_at_sibenik
 		}
-		x = 49
-		y = 4
-		
-		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = naval_base
-					level = 3
-					province = 9809
-					instant_build = yes
+		x = 53
+		y = 3
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = naval_base
+									level = 3
+									province = 9809
+									instant_build = yes
+								}
+						}
 				}
-			}
-		}
 
 	}
 	focus = {
@@ -2117,20 +1892,16 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = heavy_ship_focus
 		}
-		x = 49
-		y = 6
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = cr_bonus
-				bonus = 0.5
-				uses = 1
-				
-				technology = advanced_light_cruiser
-				
-				
-			}
-		}
+		x = 53
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							name = cr_bonus
+							bonus = 0.5
+							uses = 1
+							technology = advanced_light_cruiser
+						}
+				}
 
 	}
 	focus = {
@@ -2140,17 +1911,16 @@ focus_tree = {
 		prerequisite = {
 			focus = light_ship_focus
 		}
-		x = 49
-		y = 7
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = USA_fund_the_navy
-				uses = 3
-				bonus = 0.5
-				category = naval_doctrine
-			}
-		}
+		x = 53
+		y = 6
+			completion_reward = {
+					add_tech_bonus = {
+							name = USA_fund_the_navy
+							uses = 3
+							bonus = 0.5
+							category = naval_doctrine
+						}
+				}
 
 	}
 	focus = {
@@ -2160,17 +1930,16 @@ focus_tree = {
 		prerequisite = {
 			focus = air_expantions
 		}
-		x = 53
-		y = 3
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = air_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = air_doctrine
-			}
-		}
+		x = 58
+		y = 2
+			completion_reward = {
+					add_tech_bonus = {
+							name = air_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = air_doctrine
+						}
+				}
 
 	}
 	focus = {
@@ -2180,17 +1949,16 @@ focus_tree = {
 		prerequisite = {
 			focus = air_doctines_I
 		}
-		x = 53
-		y = 4
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = air_doc_bonus
-				bonus = 0.5
-				uses = 2
-				category = air_doctrine
-			}
-		}
+		x = 58
+		y = 3
+			completion_reward = {
+					add_tech_bonus = {
+							name = air_doc_bonus
+							bonus = 0.5
+							uses = 2
+							category = air_doctrine
+						}
+				}
 
 	}
 	focus = {
@@ -2203,35 +1971,34 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = foreign_made_planes
 		}
-		x = 51
-		y = 5
-		
-		completion_reward = {
-			add_research_slot = 1
-		}
+		x = 56
+		y = 4
+			completion_reward = {
+					add_research_slot = 1
+				}
 
 	}
 	focus = {
-		id = soko_j_22_orao
-		icon = GFX_focus_yug_ikarus
+		id = planes_for_the_navy
+		icon = GFX_goal_generic_air_naval_bomber
 		cost = 10.00
+		prerequisite = {
+			focus = we_need_a_carrier_1
+		}
 		prerequisite = {
 			focus = fund_new_designs
 		}
-		x = 52
-		y = 7
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = fighter_bonus
-				bonus = 0.5
-				uses = 1
-				technology = early_fighter
-				technology = fighter1
-				technology = fighter2
-				technology = fighter3
-			}
-		}
+		x = 55
+		y = 8
+			completion_reward = {
+					add_tech_bonus = {
+							name = nav_bomber_bonus
+							bonus = 0.5
+							ahead_reduction = 1
+							uses = 1
+							category = naval_bomber
+						}
+				}
 
 	}
 	focus = {
@@ -2244,153 +2011,23 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = fund_new_designs
 		}
-		x = 55
-		y = 5
+		x = 60
+		y = 4
 
 	}
 	focus = {
 		id = rafale
-		icon = GFX_focus_rocketry
+		icon = GFX_goal_generic_build_airforce
 		cost = 10.00
 		prerequisite = {
 			focus = foreign_made_planes
 		}
-		x = 54
-		y = 6
-
-	}
-	focus = {
-		id = j_20_kraguj
-		icon = GFX_goal_generic_CAS
-		cost = 10.00
-		prerequisite = {
-			focus = fund_new_designs
+		mutually_exclusive = {
+			focus = mig_21
 		}
-		x = 54
-		y = 7
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = CAS_bonus
-				bonus = 0.5
-				ahead_reduction = 1
-				uses = 1
-				category = cas_bomber
-			}
-		}
-
-	}
-	focus = {
-		id = plan_for_nato
-		icon = GFX_goal_generic_construct_military
-		cost = 10.00
-		prerequisite = {
-			focus = defense_plans
-		}
-		x = 55
-		y = 9
-
-	}
-	focus = {
-		id = adriatic_protocols
-		icon = GFX_focus_generic_coastal_fort
-		cost = 10.00
-		prerequisite = {
-			focus = plan_for_nato
-		}
-		x = 54
-		y = 10
-		
-		completion_reward = {
-			736 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 11735
-					instant_build = yes
-				}
-			}
-			163 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 3943
-					instant_build = yes
-				}
-			}
-			103 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 3924
-					instant_build = yes
-				}
-			}
-			103 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 6889
-					instant_build = yes
-				}
-			}
-			105 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 9809
-					instant_build = yes
-				}
-			}
-		}	
-
-	}
-	focus = {
-		id = black_sea_protocols
-		icon = GFX_focus_generic_coastal_fort
-		cost = 10.00
-		prerequisite = {
-			focus = adriatic_protocols
-		}
-		x = 54
-		y = 11
-		
-		completion_reward = {
-			211 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 9902
-					instant_build = yes
-				}
-			}
-			211 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 9783
-					instant_build = yes
-				}
-			}
-			46 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 657
-					instant_build = yes
-				}
-			}
-			46 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 687
-					instant_build = yes
-				}
-			}
-		}
-
-
+		x = 59
+		y = 5
+		#Idk, planes from us, uk and france?
 	}
 	focus = {
 		id = air_defenses
@@ -2399,13 +2036,11 @@ focus_tree = {
 		prerequisite = {
 			focus = air_expantions
 		}
-		x = 56
-		y = 3
-		
-		completion_reward = {
-            air_experience = 25
-			#need antiair here
-		}
+		x = 61
+		y = 2
+			completion_reward = {
+					air_experience = 25
+				}
 
 	}
 	focus = {
@@ -2415,13 +2050,11 @@ focus_tree = {
 		prerequisite = {
 			focus = air_defenses
 		}
-		x = 56
-		y = 4
-		
-		completion_reward = {
-            air_experience = 25
-			#need antiair here
-		}
+		x = 61
+		y = 3
+			completion_reward = {
+					air_experience = 25
+				}
 
 	}
 	focus = {
@@ -2431,29 +2064,187 @@ focus_tree = {
 		prerequisite = {
 			focus = foreign_made_planes
 		}
-		x = 56
-		y = 6
+		mutually_exclusive = {
+			focus = rafale
+		}
+		x = 62
+		y = 5
 
 	}
 	focus = {
-		id = novi_avion_design
-		icon = GFX_focus_rocketry
+		id = new_airbases
+		icon = GFX_goal_generic_construction2
 		cost = 10.00
 		prerequisite = {
-			focus = fund_new_designs
+			focus = air_expantions
 		}
-		x = 56
-		y = 7
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = jet_rocket_bonus
-				ahead_reduction = 0.5
-				uses = 1
-				category = rocketry
-				category = jet_technology
-			}
+		x = 63
+		y = 2
+			completion_reward = {
+					106 = {
+							add_building_construction = {
+									type = air_base
+									level = 2
+									instant_build = yes
+								}
+						}
+					102 = {
+							add_building_construction = {
+									type = air_base
+									level = 3
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = expand_the_zeljava_airbase
+		icon = GFX_goal_generic_construction
+		cost = 10.00
+		prerequisite = {
+			focus = new_airbases
 		}
+		x = 63
+		y = 3
+			completion_reward = {
+					104 = {
+							add_building_construction = {
+									type = air_base
+									level = 3
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = form_paratroop_divisions
+		icon = GFX_focus_generic_paratrooper
+		cost = 10.00
+		prerequisite = {
+			focus = air_expantions
+		}
+		x = 65
+		y = 2
+			completion_reward = {
+					add_tech_bonus = {
+							name = special_forces_bonus
+							bonus = 0.5
+							uses = 1
+							technology = paratroopers
+							technology = paratroopers2
+						}
+				}
+
+	}
+	focus = {
+		id = plan_for_nato
+		icon = GFX_goal_generic_construct_military
+		cost = 0.10
+		prerequisite = {
+			focus = defense_plans
+		}
+		x = 68
+		y = 1
+
+	}
+	focus = {
+		id = adriatic_protocols
+		icon = GFX_focus_generic_coastal_fort
+		cost = 10.00
+		prerequisite = {
+			focus = plan_for_nato
+		}
+		x = 67
+		y = 2
+			completion_reward = {
+					736 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 11735
+									instant_build = yes
+								}
+						}
+					163 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 3943
+									instant_build = yes
+								}
+						}
+					103 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 3924
+									instant_build = yes
+								}
+						}
+					103 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 6889
+									instant_build = yes
+								}
+						}
+					105 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 9809
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = black_sea_protocols
+		icon = GFX_focus_generic_coastal_fort
+		cost = 10.00
+		prerequisite = {
+			focus = adriatic_protocols
+		}
+		x = 67
+		y = 3
+			completion_reward = {
+					211 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 9902
+									instant_build = yes
+								}
+						}
+					211 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 9783
+									instant_build = yes
+								}
+						}
+					46 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 657
+									instant_build = yes
+								}
+						}
+					46 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 687
+									instant_build = yes
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -2463,45 +2254,42 @@ focus_tree = {
 		prerequisite = {
 			focus = plan_for_nato
 		}
-		x = 56
-		y = 10
-		
-		completion_reward = {
-			44 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 11767
-					instant_build = yes
+		x = 69
+		y = 2
+			completion_reward = {
+					44 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 11767
+									instant_build = yes
+								}
+						}
+					44 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 914
+									instant_build = yes
+								}
+						}
+					44 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 3448
+									instant_build = yes
+								}
+						}
+					44 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 6900
+									instant_build = yes
+								}
+						}
 				}
-			}
-			44 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 914
-					instant_build = yes
-				}
-			}
-			44 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 3448
-					instant_build = yes
-				}
-			}
-			44 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 6900
-					instant_build = yes
-				}
-			}
-		}
-
-
 
 	}
 	focus = {
@@ -2511,35 +2299,34 @@ focus_tree = {
 		prerequisite = {
 			focus = plan_for_nato
 		}
-		x = 58
-		y = 10
-		
-		completion_reward = {
-			736 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 11735
-					instant_build = yes
+		x = 71
+		y = 2
+			completion_reward = {
+					736 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 11735
+									instant_build = yes
+								}
+						}
+					736 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 599
+									instant_build = yes
+								}
+						}
+					736 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 11595
+									instant_build = yes
+								}
+						}
 				}
-			}
-			736 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 599
-					instant_build = yes
-				}
-			}
-			736 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 11595
-					instant_build = yes
-				}
-			}
-		}
 
 	}
 	focus = {
@@ -2553,59 +2340,58 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = fortify_macedonia
 		}
-		x = 56
-		y = 11
-		
-		completion_reward = {
-			184 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 11905
-					instant_build = yes
+		x = 69
+		y = 3
+			completion_reward = {
+					184 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 11905
+									instant_build = yes
+								}
+						}
+					731 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 11818
+									instant_build = yes
+								}
+						}
+					47 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 4109
+									instant_build = yes
+								}
+						}
+					186 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 11965
+									instant_build = yes
+								}
+						}
+					186 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 4193
+									instant_build = yes
+								}
+						}
+					185 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 9805
+									instant_build = yes
+								}
+						}
 				}
-			}
-			731 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 11818
-					instant_build = yes
-				}
-			}
-			47 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 4109
-					instant_build = yes
-				}
-			}
-			186 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 11965
-					instant_build = yes
-				}
-			}
-			186 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 4193
-					instant_build = yes
-				}
-			}
-			185 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 9805
-					instant_build = yes
-				}
-			}
-		}
 
 	}
 	focus = {
@@ -2619,43 +2405,42 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = expand_over_greece
 		}
-		x = 58
-		y = 11
-		
-		completion_reward = {
-			106 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 11856
-					instant_build = yes
+		x = 71
+		y = 3
+			completion_reward = {
+					106 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 11856
+									instant_build = yes
+								}
+						}
+					106 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 974
+									instant_build = yes
+								}
+						}
+					106 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 3833
+									instant_build = yes
+								}
+						}
+					106 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 6886
+									instant_build = yes
+								}
+						}
 				}
-			}
-			106 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 974
-					instant_build = yes
-				}
-			}
-			106 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 3833
-					instant_build = yes
-				}
-			}
-			106 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 6886
-					instant_build = yes
-				}
-			}
-		}
 
 	}
 	focus = {
@@ -2666,170 +2451,26 @@ focus_tree = {
 			focus = fortify_macedonia
 			focus = expand_over_greece
 		}
-		x = 57
-		y = 12
-		
-		completion_reward = {
-			211 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 9888
-					instant_build = yes
-				}
-			}
-			211 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 9902
-					instant_build = yes
-				}
-			}
-		}
-		
-	}
-	focus = {
-		id = new_airbases
-		icon = GFX_goal_generic_construction2
-		cost = 10.00
-		prerequisite = {
-			focus = air_expantions
-		}
-		x = 58
-		y = 3
-		
-		completion_reward = {
-			106 = {
-				add_building_construction = {
-					type = air_base
-					level = 2
-					instant_build = yes
-				}
-			}
-			102 = {
-				add_building_construction = {
-					type = air_base
-					level = 3
-					instant_build = yes
-				}
-			}
-		}
-		
-		
-
-	}
-	focus = {
-		id = expand_the_zeljava_airbase
-		icon = GFX_goal_generic_construction
-		cost = 10.00
-		prerequisite = {
-			focus = new_airbases
-		}
-		x = 58
+		x = 70
 		y = 4
-		
-		completion_reward = {
-			104 = {
-				add_building_construction = {
-					type = air_base
-					level = 3
-					instant_build = yes
+			completion_reward = {
+					211 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 9888
+									instant_build = yes
+								}
+						}
+					211 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 9902
+									instant_build = yes
+								}
+						}
 				}
-			}
-		}
-
-	}
-	focus = {
-		id = mirage_2000
-		icon = GFX_goal_generic_air_fighter
-		cost = 10.00
-		prerequisite = {
-			focus = foreign_made_planes
-		}
-		x = 58
-		y = 6
-
-	}
-	focus = {
-		id = finance_the_air_industry
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = air_expantions
-		}
-		x = 60
-		y = 3
-		
-		completion_reward = {
-		102 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
-
-	}
-	focus = {
-		id = expand_soko_factories
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = finance_the_air_industry
-		}
-		x = 60
-		y = 4
-		
-		completion_reward = {
-		104 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 2
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 2
-                        instant_build = yes
-                    }
-                }
-            }
-		}
-
-	}
-	focus = {
-		id = air_production_continued
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = expand_soko_factories
-		}
-		x = 60
-		y = 5
-		
-		completion_reward = {
-		106 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
 
 	}
 	focus = {
@@ -2839,12 +2480,12 @@ focus_tree = {
 		prerequisite = {
 			focus = defense_plans
 		}
-		x = 61
-		y = 9
+		x = 74
+		y = 1
 
 	}
 	focus = {
-		id = protect_against_bulgaria 
+		id = protect_against_bulgaria
 		icon = GFX_goal_generic_construct_military
 		cost = 10.00
 		prerequisite = {
@@ -2853,59 +2494,58 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = protect_bulgaria
 		}
-		x = 60
-		y = 10
-		
-		completion_reward = {
-			106 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 6886
-					instant_build = yes
+		x = 73
+		y = 2
+			completion_reward = {
+					106 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 6886
+									instant_build = yes
+								}
+						}
+					106 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 907
+									instant_build = yes
+								}
+						}
+					106 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 11857
+									instant_build = yes
+								}
+						}
+					106 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 11868
+									instant_build = yes
+								}
+						}
+					108 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 11887
+									instant_build = yes
+								}
+						}
+					108 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 9756
+									instant_build = yes
+								}
+						}
 				}
-			}
-			106 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 907
-					instant_build = yes
-				}
-			}
-			106 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 11857
-					instant_build = yes
-				}
-			}
-			106 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 11868
-					instant_build = yes
-				}
-			}
-			108 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 11887
-					instant_build = yes
-				}
-			}
-			108 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 9756
-					instant_build = yes
-				}
-			}
-		}
 
 	}
 	focus = {
@@ -2916,77 +2556,76 @@ focus_tree = {
 			focus = plan_for_the_soviets
 		}
 		mutually_exclusive = {
-			focus = protect_against_bulgaria 
+			focus = protect_against_bulgaria
 		}
-		x = 62
-		y = 10
-		
-		completion_reward = {
-			48 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 9771
-					instant_build = yes
+		x = 75
+		y = 2
+			completion_reward = {
+					48 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 9771
+									instant_build = yes
+								}
+						}
+					48 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 11754
+									instant_build = yes
+								}
+						}
+					48 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 793
+									instant_build = yes
+								}
+						}
+					212 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 3796
+									instant_build = yes
+								}
+						}
+					212 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 9610
+									instant_build = yes
+								}
+						}
+					211 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 9612
+									instant_build = yes
+								}
+						}
+					211 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 649
+									instant_build = yes
+								}
+						}
+					211 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 9783
+									instant_build = yes
+								}
+						}
 				}
-			}
-			48 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 11754
-					instant_build = yes
-				}
-			}
-			48 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 793
-					instant_build = yes
-				}
-			}
-			212 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 3796
-					instant_build = yes
-				}
-			}
-			212 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 9610
-					instant_build = yes
-				}
-			}
-			211 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 9612
-					instant_build = yes
-				}
-			}
-			211 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 649
-					instant_build = yes
-				}
-			}
-			211 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 9783
-					instant_build = yes
-				}
-			}
-		}
 
 	}
 	focus = {
@@ -2994,65 +2633,64 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_military
 		cost = 10.00
 		prerequisite = {
-			focus = protect_against_bulgaria 
+			focus = protect_against_bulgaria
 			focus = protect_bulgaria
 		}
 		mutually_exclusive = {
 			focus = protect_romania
 		}
-		x = 60
-		y = 11
-		
-		completion_reward = {
-			107 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 6643
-					instant_build = yes
+		x = 73
+		y = 3
+			completion_reward = {
+					107 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 6643
+									instant_build = yes
+								}
+						}
+					107 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 11787
+									instant_build = yes
+								}
+						}
+					107 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 614
+									instant_build = yes
+								}
+						}
+					107 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 6634
+									instant_build = yes
+								}
+						}
+					108 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 630
+									instant_build = yes
+								}
+						}
+					108 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 9756
+									instant_build = yes
+								}
+						}
 				}
-			}
-			107 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 11787
-					instant_build = yes
-				}
-			}
-			107 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 614
-					instant_build = yes
-				}
-			}
-			107 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 6634
-					instant_build = yes
-				}
-			}
-			108 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 630
-					instant_build = yes
-				}
-			}
-			108 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 9756
-					instant_build = yes
-				}
-			}
-		}
 
 	}
 	focus = {
@@ -3061,88 +2699,79 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = protect_bulgaria
-			focus = protect_against_bulgaria 
+			focus = protect_against_bulgaria
 		}
 		mutually_exclusive = {
 			focus = protect_against_romania
 		}
-		x = 62
-		y = 11
-		
-		completion_reward = {
-			79 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 6584
-					instant_build = yes
+		x = 75
+		y = 3
+			completion_reward = {
+					79 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 6584
+									instant_build = yes
+								}
+						}
+					79 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 11534
+									instant_build = yes
+								}
+						}
+					79 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 723
+									instant_build = yes
+								}
+						}
+					79 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 6729
+									instant_build = yes
+								}
+						}
+					81 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 3076
+									instant_build = yes
+								}
+						}
+					81 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 687
+									instant_build = yes
+								}
+						}
+					79 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 9716
+									instant_build = yes
+								}
+						}
+					79 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 6706
+									instant_build = yes
+								}
+						}
 				}
-			}
-			
-			79 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 11534
-					instant_build = yes
-				}
-			}
-			
-			79 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 723
-					instant_build = yes
-				}
-			}
-			
-			79 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 6729
-					instant_build = yes
-				}
-			}
-			
-			81 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 3076
-					instant_build = yes
-				}
-			}
-			
-			81 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 687
-					instant_build = yes
-				}
-			}
-			
-			79 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 9716
-					instant_build = yes
-				}
-			}
-			
-			79 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 6706
-					instant_build = yes
-				}
-			}
-		}
-
 
 	}
 	focus = {
@@ -3153,688 +2782,74 @@ focus_tree = {
 			focus = protect_against_romania
 			focus = protect_romania
 		}
-		x = 60
-		y = 12
-		
-		completion_reward = {
-			102 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 6672
-					instant_build = yes
-				}
-			}
-			109 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 9611
-					instant_build = yes
-				}
-			}
-			109 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 11594
-					instant_build = yes
-				}
-			}
-			109 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 3627
-					instant_build = yes
-				}
-			}
-			45 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 9608
-					instant_build = yes
-				}
-			}
-			45 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 3623
-					instant_build = yes
-				}
-			}
-			45 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 9621
-					instant_build = yes
-				}
-			}
-			107 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 6643
-					instant_build = yes
-				}
-			}
-		}
-
-	}
-	focus = {
-		id = finance_soko_further
-		icon = GFX_goal_generic_build_airforce
-		cost = 10.00
-		prerequisite = {
-			focus = expand_soko_factories
-		}
-		x = 62
-		y = 5
-		
-		completion_reward = {
-			add_ideas = british_fighter_discount
-		}
-
-	}
-	focus = {
-		id = total_war_doctine
-		icon = GFX_goal_generic_army_doctrines
-		cost = 10.00
-		prerequisite = {
-			focus = army_maneuvers
-		}
-		x = 69
-		y = 3
-		
-		completion_reward = {
-			army_experience = 10
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = land_doctrine
-			}
-		}
-
-	}
-	focus = {
-		id = jna_training
-		icon = GFX_goal_generic_army_doctrines
-		cost = 10.00
-		prerequisite = {
-			focus = total_war_doctine
-		}
-		x = 66
+		x = 73
 		y = 4
-		
-		completion_reward = {
-			army_experience = 10
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = land_doctrine
-			}
-		}
-
-	}
-	focus = {
-		id = further_jna_training
-		icon = GFX_goal_generic_army_doctrines
-		cost = 10.00
-		prerequisite = {
-			focus = jna_training
-		}
-		x = 66
-		y = 5
-		
-		completion_reward = {
-			army_experience = 20
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 2
-				category = land_doctrine
-			}
-		}
-
-	}
-	focus = {
-		id = form_paratroop_divisions
-		icon = GFX_focus_generic_paratrooper
-		cost = 10.00
-		prerequisite = {
-			focus = air_production_continued
-		}
-		prerequisite = {
-			focus = further_jna_training
-		}
-		x = 62
-		y = 6
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = special_forces_bonus
-				bonus = 0.5
-				uses = 1
-				technology = paratroopers
-				technology = paratroopers2
-			}
-		}
-
-	}
-	focus = {
-		id = new_weapon_models
-		icon = GFX_goal_generic_small_arms
-		cost = 10.00
-		prerequisite = {
-			focus = further_jna_training
-		}
-		x = 64
-		y = 6
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = infantry_weapons_bonus
-				bonus = 0.5
-				uses = 2
-				category = infantry_weapons
-			}
-		}
-
-	}
-	focus = {
-		id = found_signal_corps
-		icon = GFX_focus_generic_cryptologic_bomb
-		cost = 10.00
-		prerequisite = {
-			focus = further_jna_training
-		}
-		x = 66
-		y = 6
-		
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.25
-				uses = 1
-				category = support_tech
-			}
-		}
-
-	}
-	focus = {
-		id = found_engineering_corps
-		icon = GFX_goal_generic_military_sphere
-		cost = 10.00
-		prerequisite = {
-			focus = found_signal_corps
-		}
-		x = 66
-		y = 7
-		
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.25
-				uses = 1
-				category = support_tech
-			}
-		}
-
-	}
-	focus = {
-		id = modernize_the_artillery
-		icon = GFX_goal_generic_army_artillery2
-		cost = 10.00
-		prerequisite = {
-			focus = new_weapon_models
-		}
-		x = 64
-		y = 7
-		
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 1
-				category = artillery
-			}
-		}
-
-	}
-	focus = {
-		id = anti_tank_regiments
-		icon = GFX_goal_generic_army_artillery
-		cost = 10.00
-		prerequisite = {
-			focus = modernize_the_artillery
-		}
-		prerequisite = {
-			focus = found_engineering_corps
-		}
-		x = 66
-		y = 8
-		
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 1
-				category = artillery
-			}
-		}
-
-	}
-	focus = {
-		id = motorized_support
-		icon = GFX_goal_generic_army_motorized
-		cost = 10.00
-		prerequisite = {
-			focus = further_jna_training
-		}
-		x = 68
-		y = 6
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = motorized_bonus
-				bonus = 0.75
-				technology = motorised_infantry
-			}
-		}
-
-	}
-	focus = {
-		id = mechinized_support
-		icon = GFX_goal_generic_army_motorized
-		cost = 10.00
-		prerequisite = {
-			focus = motorized_support
-		}
-		x = 68
-		y = 7
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = motorized_bonus
-				bonus = 0.75
-				technology = motorised_infantry
-			}
-		}
-
-	}
-	focus = {
-		id = model_m_84
-		icon = GFX_goal_generic_army_tanks
-		cost = 10.00
-		prerequisite = {
-			focus = mechinized_support
-		}
-		mutually_exclusive = {
-			focus = import_foreign_models
-		}
-		x = 68
-		y = 8
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = armor_bonus
-				bonus = 0.5
-				uses = 1
-				category = armor
-			}
-		}
-
-	}
-	focus = {
-		id = streamline_production
-		icon = GFX_focus_cze_military_research_institute
-		cost = 10.00
-		prerequisite = {
-			focus = model_m_84
-		}
-		x = 68
-		y = 9
-
-	}
-	focus = {
-		id = import_foreign_models
-		icon = GFX_focus_generic_license_production
-		cost = 10.00
-		prerequisite = {
-			focus = mechinized_support
-		}
-		mutually_exclusive = {
-			focus = model_m_84
-		}
-		x = 70
-		y = 8
-		
-		completion_reward = {
-			add_ideas = YUG_tank_licenses
-		}
-
-	}
-	focus = {
-		id = found_teritorijalna_obrana
-		icon = GFX_focus_generic_little_entente
-		cost = 10.00
-		prerequisite = {
-			focus = total_war_doctine
-		}
-		x = 72
-		y = 4
-		
-		completion_reward = {
-			add_manpower = 10000
-		}
-
-	}
-	focus = {
-		id = sabotage_training
-		icon = GFX_goal_generic_major_war
-		cost = 10.00
-		prerequisite = {
-			focus = found_teritorijalna_obrana
-		}
-		x = 72
-		y = 5
-		
-		completion_reward = {
-			army_experience = 50
-		}
-
-	}
-	focus = {
-		id = force_greece_to_join
-		icon = GFX_goal_generic_occupy_start_war
-		cost = 10.00
-		prerequisite = {
-			focus = invite_greece
-		}
-		x = 27
-		y = 7
-		
-		completion_reward = {
-			create_wargoal = {
-				type = take_state_focus
-				target = GRE
-				generator = { 47 } # Athens
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				is_historical_focus_on = yes
-				factor = 0
-			}
-		}
-	}
-	focus = {
-		id = further_nato_investment
-		icon = GFX_focus_generic_the_giant_wakes
-		cost = 10.00
-		prerequisite = {
-			focus = request_investment
-		}
-		prerequisite = {
-			focus = move_toward_democracy 
-		}
-		x = 31
-		y = 7
-		
-		completion_reward = {
-			107 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 2
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 2
-                        instant_build = yes
-                    }
-                }
-            }
-			102 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 2
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 2
-                        instant_build = yes
-                    }
-                }
-            }	
-			109 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
+			completion_reward = {
+					102 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 6672
+									instant_build = yes
+								}
+						}
+					109 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 9611
+									instant_build = yes
+								}
+						}
+					109 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 11594
+									instant_build = yes
+								}
+						}
+					109 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 3627
+									instant_build = yes
+								}
+						}
+					45 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 9608
+									instant_build = yes
+								}
+						}
+					45 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 3623
+									instant_build = yes
+								}
+						}
+					45 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 9621
+									instant_build = yes
+								}
+						}
+					107 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 6643
+									instant_build = yes
+								}
+						}
 				}
-			}
-		}
-
-	}
-	focus = {
-		id = expand_zastava_factories
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = expand_utva_factories
-		}
-		x = 74
-		y = 4
-		
-		completion_reward = {
-		107 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 2
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 2
-                        instant_build = yes
-                    }
-                }
-            }
-		}
-
-	}
-	focus = {
-		id = finance_zastava_further
-		icon = GFX_goal_generic_build_tank
-		cost = 10.00
-		prerequisite = {
-			focus = expand_zastava_factories
-		}
-		x = 74
-		y = 5
-		
-		completion_reward = {
-			add_ideas = YUG_export_focus2
-		}
-
-	}
-	focus = {
-		id = expand_utva_factories
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = army_maneuvers
-		}
-		x = 74
-		y = 3
-		
-		completion_reward = {
-			106 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
-
-	}
-	focus = {
-		id = develop_croatia
-		icon = GFX_goal_generic_construct_civ_factory
-		cost = 10.00
-		prerequisite = {
-			focus = equal_republics
-		}
-		x = 25
-		y = 13
-		
-		completion_reward = {
-		109 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
-
-	}
-	focus = {
-		id = develop_serbia
-		icon = GFX_goal_generic_construct_civ_factory
-		cost = 10.00
-		prerequisite = {
-			focus = equal_republics
-		}
-		x = 27
-		y = 13
-		
-		completion_reward = {
-		107 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
-
-	}
-	focus = {
-		id = develop_bosnia
-		icon = GFX_goal_generic_construct_civ_factory
-		cost = 10.00
-		prerequisite = {
-			focus = develop_croatia
-		}
-		x = 25
-		y = 14
-		
-		completion_reward = {
-		104 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
-
-	}
-	focus = {
-		id = bulgarian_coastal_defenses
-		icon = GFX_focus_generic_coastal_fort
-		cost = 10.00
-		prerequisite = {
-			focus = protect_bulgaria
-		}
-		x = 64
-		y = 11
-		
-		completion_reward = {
-			211 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 9902
-					instant_build = yes
-				}
-			}
-			211 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 9783
-					instant_build = yes
-				}
-			}
-		}
-		
-		
-
-	}
-	focus = {
-		id = romanian_coastal_defenses
-		icon = GFX_focus_generic_coastal_fort
-		cost = 10.00
-		prerequisite = {
-			focus = protect_romania
-		}
-		x = 64
-		y = 12
-		
-		completion_reward = {
-			46 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 657
-					instant_build = yes
-				}
-			}
-			46 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 687
-					instant_build = yes
-				}
-			}
-		}
 
 	}
 	focus = {
@@ -3846,211 +2861,604 @@ focus_tree = {
 			focus = protect_against_romania
 			focus = protect_romania
 		}
-		x = 62
-		y = 12
-		
-		completion_reward = {
-			105 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 9809
-					instant_build = yes
+		x = 75
+		y = 4
+			completion_reward = {
+					105 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 9809
+									instant_build = yes
+								}
+						}
+					105 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 6913
+									instant_build = yes
+								}
+						}
+					105 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 867
+									instant_build = yes
+								}
+						}
+					105 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 833
+									instant_build = yes
+								}
+						}
+					106 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 11856
+									instant_build = yes
+								}
+						}
 				}
-			}
-			105 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 6913
-					instant_build = yes
-				}
-			}
-			105 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 867
-					instant_build = yes
-				}
-			}
-			105 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 833
-					instant_build = yes
-				}
-			}
-			106 = {
-				add_building_construction = {
-					type = bunker
-					level = 5
-					province = 11856
-					instant_build = yes
-				}
-			}
-		}
 
 	}
 	focus = {
-		id = yugoslav_road_networks
-		icon = GFX_goal_generic_construct_infrastructure
+		id = bulgarian_coastal_defenses
+		icon = GFX_focus_generic_coastal_fort
 		cost = 10.00
 		prerequisite = {
-			focus = republic_infrastructure
+			focus = protect_bulgaria
+		}
+		x = 77
+		y = 3
+			completion_reward = {
+					211 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 9902
+									instant_build = yes
+								}
+						}
+					211 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 9783
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = romanian_coastal_defenses
+		icon = GFX_focus_generic_coastal_fort
+		cost = 10.00
+		prerequisite = {
+			focus = protect_romania
+		}
+		x = 77
+		y = 4
+			completion_reward = {
+					46 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 657
+									instant_build = yes
+								}
+						}
+					46 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 2
+									province = 687
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = YUG_total_war_doctine
+		icon = GFX_goal_generic_army_doctrines
+		cost = 10.00
+		prerequisite = {
+			focus = army_maneuvers
+		}
+		x = 83
+		y = 2
+			completion_reward = {
+					army_experience = 10
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+				}
+
+	}
+	focus = {
+		id = jna_training
+		icon = GFX_goal_generic_army_doctrines
+		cost = 10.00
+		prerequisite = {
+			focus = total_war_doctine
+		}
+		x = 80
+		y = 3
+			completion_reward = {
+					army_experience = 10
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+				}
+
+	}
+	focus = {
+		id = further_jna_training
+		icon = GFX_goal_generic_army_doctrines
+		cost = 10.00
+		prerequisite = {
+			focus = jna_training
+		}
+		x = 80
+		y = 4
+			completion_reward = {
+					army_experience = 20
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 2
+							category = land_doctrine
+						}
+				}
+
+	}
+	focus = {
+		id = new_weapon_models
+		icon = GFX_goal_generic_small_arms
+		cost = 10.00
+		prerequisite = {
+			focus = further_jna_training
+		}
+		x = 78
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_weapons_bonus
+							bonus = 0.5
+							uses = 2
+							category = infantry_weapons
+						}
+				}
+
+	}
+	focus = {
+		id = found_signal_corps
+		icon = GFX_focus_generic_cryptologic_bomb
+		cost = 10.00
+		prerequisite = {
+			focus = further_jna_training
+		}
+		x = 80
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 0.25
+							uses = 1
+							category = support_tech
+						}
+				}
+
+	}
+	focus = {
+		id = found_engineering_corps
+		icon = GFX_goal_generic_military_sphere
+		cost = 10.00
+		prerequisite = {
+			focus = found_signal_corps
+		}
+		x = 80
+		y = 6
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 0.25
+							uses = 1
+							category = support_tech
+						}
+				}
+
+	}
+	focus = {
+		id = motorized_support
+		icon = GFX_goal_generic_army_motorized
+		cost = 10.00
+		prerequisite = {
+			focus = further_jna_training
+		}
+		x = 82
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							name = motorized_bonus
+							bonus = 0.75
+							technology = motorised_infantry
+						}
+				}
+
+	}
+	focus = {
+		id = mechinized_support
+		icon = GFX_goal_generic_army_motorized
+		cost = 10.00
+		prerequisite = {
+			focus = motorized_support
+		}
+		x = 82
+		y = 6
+			completion_reward = {
+					add_tech_bonus = {
+							name = motorized_bonus
+							bonus = 0.75
+							technology = motorised_infantry
+						}
+				}
+
+	}
+	focus = {
+		id = invite_greece
+		icon = GFX_goal_molotov_ribbentrop_pact
+		cost = 10.00
+		prerequisite = {
+			focus = proclaim_the_balkan_fed.
+		}
+		mutually_exclusive = {
+			focus = force_greece_to_join
 		}
 		x = 27
-		y = 17
-		
-		completion_reward = {
-			109 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
+		y = 11
+			completion_reward = {
+					GRE = {
+							country_event = yug.19
+						}
 				}
-			}
-			102 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
-				}
-			}
-			104 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
-				}
-			}
-			45 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
-				}
-			}
-			105 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
-				}
-			}
-			107 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
-				}
-			}
-			108 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
-				}
-			}
-			103 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
-				}
-			}
-			106 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
-				}
-			}
-		}
 
 	}
 	focus = {
-		id = railway_expantions
-		icon = GFX_goal_generic_construct_infrastructure
+		id = vinca_nuclear_institute
+		icon = GFX_goal_generic_secret_weapon
 		cost = 10.00
 		prerequisite = {
-			focus = republic_infrastructure
+			focus = university_of_belgrade
 		}
-		x = 25
+		x = 38
 		y = 17
-		
-		completion_reward = {
-			109 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
+			completion_reward = {
+					add_tech_bonus = {
+							name = nuclear_bonus
+							ahead_reduction = 0.5
+							category = nuclear
+						}
 				}
-			}
-			107 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
-				}
-			}
+
+	}
+	focus = {
+		id = placate_the_west
+		icon = GFX_goal_generic_major_alliance
+		cost = 10.00
+		prerequisite = {
+			focus = path_to_nato
 		}
+		x = 2
+		y = 4
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = placate_west
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = request_american_aid
+		icon = GFX_goal_generic_trade
+		cost = 10.00
+		prerequisite = {
+			focus = placate_the_west
+		}
+		x = 1
+		y = 5
+			completion_reward = {
+					add_ideas = YUG_idea_american_aid
+				}
+
+	}
+	focus = {
+		id = reconcile_italy
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = placate_the_west
+		}
+		x = 3
+		y = 5
+			completion_reward = {
+					ITA = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = reconcile_italy
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = reconcile_greece
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = reconcile_italy
+		}
+		x = 3
+		y = 6
+			completion_reward = {
+					GRE = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = reconcile_greece
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = request_investment
+		icon = GFX_goal_generic_consumer_goods
+		cost = 10.00
+		prerequisite = {
+			focus = request_american_aid
+		}
+		x = 1
+		y = 6
+			completion_reward = {
+					109 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = move_toward_democracy
+		icon = GFX_goal_support_democracy
+		cost = 14.00
+		prerequisite = {
+			focus = further_nato_investment
+		}
+		prerequisite = {
+			focus = reconcile_greece
+		}
+		mutually_exclusive = {
+			focus = YUG_no_democracy_here
+		}
+		x = 1
+		y = 8
+			completion_reward = {
+					add_timed_idea = { idea = democratic_influence  days = 365 }
+				}
+
+	}
+	focus = {
+		id = join_nato
+		icon = GFX_nato
+		cost = 10.00
+		prerequisite = {
+			focus = YUG_equal_republics
+		}
+		x = 1
+		y = 11
+			completion_reward = {
+					add_ideas = nato_member
+				}
+
+	}
+	focus = {
+		id = croatian_naval_yards
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = military_industrial_complex
+		}
+		x = 47
+		y = 13
+			completion_reward = {
+					103 = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = dockyard
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = bigger_naval_yards
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = croatian_naval_yards
+		}
+		x = 47
+		y = 14
+			completion_reward = {
+					736 = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = dockyard
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = modernize_the_artillery
+		icon = GFX_goal_generic_army_artillery2
+		cost = 10.00
+		prerequisite = {
+			focus = new_weapon_models
+		}
+		x = 78
+		y = 6
+			completion_reward = {
+					add_tech_bonus = {
+							bonus = 0.5
+							uses = 1
+							category = artillery
+						}
+				}
+
+	}
+	focus = {
+		id = sabotage_training
+		icon = GFX_goal_generic_major_war
+		cost = 10.00
+		prerequisite = {
+			focus = total_war_doctine
+		}
+		x = 86
+		y = 3
+			completion_reward = {
+					army_experience = 50
+				}
+
+	}
+	focus = {
+		id = further_nato_investment
+		icon = GFX_focus_generic_the_giant_wakes
+		cost = 10.00
+		prerequisite = {
+			focus = request_investment
+		}
+		x = 1
+		y = 7
+			completion_reward = {
+					107 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+					102 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+					109 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = develop_croatia
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = equal_republics
+		}
+		x = 33
+		y = 14
+			completion_reward = {
+					109 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = develop_bosnia
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = develop_croatia
+		}
+		x = 33
+		y = 15
+			completion_reward = {
+					104 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -4061,47 +3469,46 @@ focus_tree = {
 			focus = develop_macedonia
 			focus = develop_slovenia
 		}
-		x = 26
-		y = 16
-		
-		completion_reward = {
-			109 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
+		x = 34
+		y = 17
+			completion_reward = {
+					109 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+					104 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+					107 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
 				}
-			}
-			104 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
-				}
-			}
-			107 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 2
-							instant_build = yes
-					}
-				}
-			}
-		}
 
 	}
 	focus = {
@@ -4112,20 +3519,19 @@ focus_tree = {
 			focus = better_submarines
 			focus = more_submarines
 		}
-		x = 44
-		y = 7
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = sub_op_bonus
-				bonus = 0.5
-				uses = 2
-				technology = convoy_interdiction_ti
-				technology = unrestricted_submarine_warfare
-				technology = advanced_submarine_warfare
-				technology = combined_operations_raiding
-			}
-		}
+		x = 48
+		y = 6
+			completion_reward = {
+					add_tech_bonus = {
+							name = sub_op_bonus
+							bonus = 0.5
+							uses = 2
+							technology = convoy_interdiction_ti
+							technology = unrestricted_submarine_warfare
+							technology = advanced_submarine_warfare
+							technology = combined_operations_raiding
+						}
+				}
 
 	}
 	focus = {
@@ -4135,41 +3541,16 @@ focus_tree = {
 		prerequisite = {
 			focus = submarine_tactics
 		}
-		x = 44
-		y = 8
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = sub_op_bonus
-				bonus = 0.5
-				uses = 1
-				technology = wolfpacks
-			}
-		}
-
-	}
-	focus = {
-		id = planes_for_the_navy
-		icon = GFX_goal_generic_air_naval_bomber
-		cost = 10.00
-		prerequisite = {
-			focus = we_need_a_carrier_1
-		}
-		prerequisite = {
-			focus = fund_new_designs
-		}
-		x = 51
-		y = 9
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = nav_bomber_bonus
-				bonus = 0.5
-				ahead_reduction = 1
-				uses = 1
-				category = naval_bomber
-			}
-		}
+		x = 48
+		y = 7
+			completion_reward = {
+					add_tech_bonus = {
+							name = sub_op_bonus
+							bonus = 0.5
+							uses = 1
+							technology = wolfpacks
+						}
+				}
 
 	}
 	focus = {
@@ -4182,10 +3563,8 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = sea_fortress
 		}
-		x = 46
-		y = 10
-		
-
+		x = 50
+		y = 9
 
 	}
 	focus = {
@@ -4195,24 +3574,23 @@ focus_tree = {
 		prerequisite = {
 			focus = develop_serbia
 		}
-		x = 27
-		y = 14
-		
-		completion_reward = {
-		105 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
+		x = 35
+		y = 15
+			completion_reward = {
+					105 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -4222,24 +3600,23 @@ focus_tree = {
 		prerequisite = {
 			focus = develop_bosnia
 		}
-		x = 25
-		y = 15
-		
-		completion_reward = {
-		102 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
+		x = 33
+		y = 16
+			completion_reward = {
+					102 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -4249,24 +3626,23 @@ focus_tree = {
 		prerequisite = {
 			focus = develop_moravia
 		}
-		x = 23
-		y = 14
-		
-		completion_reward = {
-		105 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 2
-                        instant_build = yes
-                    }
-                }
-            }
-		}
+		x = 31
+		y = 15
+			completion_reward = {
+					105 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -4276,24 +3652,23 @@ focus_tree = {
 		prerequisite = {
 			focus = prioritize_serbia
 		}
-		x = 23
-		y = 13
-		
-		completion_reward = {
-		104 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 2
-                        instant_build = yes
-                    }
-                }
-            }
-		}
+		x = 31
+		y = 14
+			completion_reward = {
+					104 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -4303,24 +3678,23 @@ focus_tree = {
 		prerequisite = {
 			focus = develop_kosovo
 		}
-		x = 23
-		y = 15
-		
-		completion_reward = {
-		104 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 2
-                        instant_build = yes
-                    }
-                }
-            }
-		}
+		x = 31
+		y = 16
+			completion_reward = {
+					104 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -4330,137 +3704,34 @@ focus_tree = {
 		prerequisite = {
 			focus = develop_vojvodina
 		}
-		x = 23
-		y = 16
-		
-		completion_reward = {
-			107 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-					}
+		x = 31
+		y = 17
+			completion_reward = {
+					107 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+					108 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
 				}
-			}
-			108 = {
-				if = {
-					limit = {
-						is_owned_by = YUG
-					}
-					add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-					}
-				}
-			}
-		}
-
-	}
-	focus = {
-		id = croatian_industry
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = decentralized_production
-		}
-		x = 31
-		y = 13
-		
-		completion_reward = {
-		109 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 2
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 2
-                        instant_build = yes
-                    }
-                }
-            }
-		}
-		
-		
-
-	}
-	focus = {
-		id = bosnian_arsenals
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = croatian_industry
-		}
-		x = 31
-		y = 14
-		
-		completion_reward = {
-		104 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 3
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 3
-                        instant_build = yes
-                    }
-                }
-            }
-		}
-
-	}
-	focus = {
-		id = slovenian_arms_factories
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = bosnian_arsenals
-		}
-		x = 31
-		y = 15
-		
-		completion_reward = {
-		102 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = arms_factory
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
-
-	}
-	focus = {
-		id = modernize_the_anti_air
-		icon = GFX_focus_generic_air_defense
-		cost = 10.00
-		prerequisite = {
-			focus = modernize_the_artillery
-		}
-		x = 64
-		y = 8
-		
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 1
-				category = artillery
-			}
-		}
 
 	}
 	focus = {
@@ -4468,14 +3739,13 @@ focus_tree = {
 		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
-			focus = national_equality
+			focus = federal_peoples_assembly
 		}
-		x = 3
-		y = 8
-		
-		completion_reward = {
-			add_ideas = YUG_idea_local_self_management
-		}
+		x = 6
+		y = 10
+			completion_reward = {
+					add_ideas = YUG_idea_local_self_management
+				}
 
 	}
 	focus = {
@@ -4483,16 +3753,13 @@ focus_tree = {
 		icon = GFX_goal_generic_national_unity
 		cost = 10.00
 		prerequisite = {
-			focus = national_equality
+			focus = federal_peoples_assembly
 		}
-		x = 5
-		y = 8
-		
-		completion_reward = {
-			add_stability = 0.05
-		}
-		
-		
+		x = 8
+		y = 10
+			completion_reward = {
+					add_stability = 0.05
+				}
 
 	}
 	focus = {
@@ -4500,15 +3767,14 @@ focus_tree = {
 		icon = GFX_focus_generic_soviet_politics
 		cost = 10.00
 		prerequisite = {
-			focus = rights_for_the_republics
-			focus = self_management
+			focus = YUG_no_democracy_here
+			focus = national_equality
 		}
-		x = 3
+		x = 8
 		y = 9
-		
-		completion_reward = {
-			add_ideas = YUG_idea_federal_peoples_assembly
-		}
+			completion_reward = {
+					add_ideas = YUG_idea_federal_peoples_assembly
+				}
 
 	}
 	focus = {
@@ -4516,15 +3782,13 @@ focus_tree = {
 		icon = GFX_focus_yug_pan_slavic_congress
 		cost = 10.00
 		prerequisite = {
-			focus = rights_for_the_republics
-			focus = self_management
+			focus = federal_peoples_assembly
 		}
-		x = 5
-		y = 9
-		
-		completion_reward = {
-			add_ideas = YUG_idea_federal_executive_council
-		}
+		x = 10
+		y = 10
+			completion_reward = {
+					add_ideas = YUG_idea_federal_executive_council
+				}
 
 	}
 	focus = {
@@ -4534,44 +3798,23 @@ focus_tree = {
 		prerequisite = {
 			focus = develop_montenegro
 		}
-		x = 27
-		y = 15
-		
-		completion_reward = {
-		106 = {
-                if = {
-                    limit = {
-                        is_owned_by = YUG
-                    }
-                    add_extra_state_shared_building_slots = 1
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 1
-                        instant_build = yes
-                    }
-                }
-            }
-		}
-
-	}
-	focus = {
-		id = greater_serbia
-		icon = GFX_goal_continuous_suppression
-		cost = 10.00
-		prerequisite = {
-			focus = support_radical_elements
-			focus = croatia_must_suffer!
-		}
-		mutually_exclusive = {
-			focus = greater_croatia
-		}
-		completion_reward = {
-			country_event = yug.11
-		}
-		x = 17
-		y = 11
-		
-		#will add event later
+		x = 35
+		y = 16
+			completion_reward = {
+					106 = {
+							if = {
+									limit = {
+											is_owned_by = YUG
+										}
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -4585,28 +3828,11 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = abolish_the_republics
 		}
-		x = 15
-		y = 8
-		
-		completion_reward = {
-			add_stability = -0.1
-		}
-
-	}
-	focus = {
-		id = destroy_the_rebellion
-		icon = GFX_focus_SAF_colonialist_crusade
-		cost = 10.00
-		prerequisite = {
-			focus = greater_serbia
-			focus = greater_croatia
-		}
-		x = 16
-		y = 12
-		
-		completion_reward = {
-			country_event = yug.23
-		}
+		x = 14
+		y = 7
+			completion_reward = {
+					add_stability = -0.1
+				}
 
 	}
 	focus = {
@@ -4616,15 +3842,15 @@ focus_tree = {
 		prerequisite = {
 			focus = a_republic_only_in_name
 		}
-		x = 15
-		y = 9
-		
-		completion_reward = {
-			add_popularity = {
-					ideology = communism
-					popularity = 0.3
-			}
-		}
+		x = 14
+		y = 8
+			completion_reward = {
+					add_popularity = {
+							ideology = communism
+							popularity = 0.2
+						}
+						country_event = yug.30
+				}
 
 	}
 	focus = {
@@ -4634,64 +3860,126 @@ focus_tree = {
 		prerequisite = {
 			focus = stay_communist
 		}
-		x = 15
-		y = 10
-		
-		completion_reward = {
-			add_popularity = {
-					ideology = fascism
-					popularity = 0.3
-			}
-		}
+		x = 13
+		y = 9
+			completion_reward = {
+					add_popularity = {
+							ideology = communism
+							popularity = 0.3
+						}
+				}
 
 	}
 	focus = {
-		id = greater_croatia
-		icon = GFX_focus_yug_banovina_of_croatia
+		id = YUG_no_democracy_here
+		icon = GFX_goal_generic_forceful_treaty
 		cost = 10.00
 		prerequisite = {
-			focus = support_radical_elements
-			focus = continue_where_we_left_off
+			focus = reconcile_greece
 		}
 		mutually_exclusive = {
-			focus = greater_serbia
-		}
-		completion_reward = {
-			country_event = yug.12
-		}
-		x = 15
-		y = 11
-		
-		#will add event later
-
-	}
-	focus = {
-		id = national_equality
-		icon = GFX_goal_continuous_increase_nu
-		cost = 10.00
-		prerequisite = {
-			focus = federation_of_6_nations
+			focus = move_toward_democracy
 		}
 		x = 4
-		y = 7
-		
+		y = 8
 		completion_reward = {
-			add_stability = 0.2
-		}
-
+					add_popularity = {
+							ideology = Social_Democratic
+							popularity = 0.15
+						}
+				}
 	}
 	focus = {
-		id = federation_of_6_nations
+		id = YUG_elections_democratic
+		icon = GFX_focus_generic_treaty
+		cost = 26.00
+		prerequisite = {
+			focus = move_toward_democracy
+		}
+		x = 1
+		y = 9
+		completion_reward = {
+					country_event = yug.29
+				}
+	}
+	focus = {
+		id = YUG_annex_albania
+		icon = GFX_goal_generic_demand_territory
+		cost = 10.00
+		prerequisite = {
+			focus = stay_communist
+		}
+		x = 15
+		y = 9
+		completion_reward = {
+				add_war_support  = 0.05
+				YUG = { create_wargoal = { type = annex_everything target = ALB } }
+				}
+	}
+	focus = {
+		id = YUG_agarian_reform
+		icon = GFX_focus_prc_agrarian_socialism
+		cost = 10.00
+		prerequisite = {
+			focus = more_self_management
+		}
+		x = 21
+		y = 6
+		completion_reward = {
+			add_ideas = agrarian_reform
+		}
+	}
+	focus = {
+		id = YUG_equal_republics
 		icon = GFX_goal_generic_national_unity
 		cost = 10.00
 		prerequisite = {
-			focus = constitution_1953
+			focus = YUG_elections_democratic
 		}
-		x = 4
-		y = 6
-		
+		x = 1
+		y = 10
 		completion_reward = {
-			add_stability = 0.1
+					add_stability = 0.09
+				}
+	}
+	focus = {
+		id = YUG_annex_gre
+		icon = GFX_goal_generic_demand_territory
+		cost = 10.00
+		prerequisite = {
+			focus = YUG_annex_albania
+		}
+		x = 15
+		y = 10
+		completion_reward = {
+				add_war_support  = 0.05
+				YUG = { create_wargoal = { type = annex_everything target = GRE } }
+				}
+	}
+	focus = {
+		id = YUG_fanaticism
+		icon = GFX_goal_support_communism
+		cost = 10.00
+		prerequisite = {
+			focus = support_radical_elements
+		}
+		x = 13
+		y = 10
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
+	}
+	focus = {
+		id = YUG_healt_care_reform
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = YUG_agarian_reform
+		}
+		x = 21
+		y = 7
+		completion_reward = {
+			add_ideas = socialized_health_care
 		}
 	}
 }
