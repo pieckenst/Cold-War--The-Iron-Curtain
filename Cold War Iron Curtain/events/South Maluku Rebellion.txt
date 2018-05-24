@@ -1,0 +1,67 @@
+################################
+# South Maluku Rebellion 
+################################
+
+add_namespace = smr
+
+# South Maluku Rebellion 1950
+country_event = {
+	id = smr.1
+	title = smr.1.t
+	desc = smr.1.d
+
+	is_triggered_only = yes
+
+	option = { # Fight them
+		name = cwu.1.a
+		start_civil_war = {
+			ruling_party = communism
+			ideology = democratic
+			size = 0.3
+			states = { 62 68 65 }
+		}
+		hidden_effect = {
+			set_country_flag = ddr_fight_democrats
+			news_event = cwu.2
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = no
+				factor = 80
+			}
+		}
+	}
+
+	option = { # Give in to their demands
+		name = cwu.1.b
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
+			parties = {
+				communism = { popularity = 0 }
+				democratic = { popularity = 40 }
+				socialist = { popularity = 23 }
+				conservative = { popularity = 12 }
+				fascism = { popularity = 2 }
+				nationalism = { popularity = 3 }
+				centrist = { popularity = 30 }
+			}
+		}
+		hidden_effect = {
+			set_country_flag = ddr_become_democratic
+			news_event = cwu.2
+		}
+		ai_chance = {
+			factor = 0
+			modifier = {
+				is_historical_focus_on = no
+				factor = 20
+			}
+		}
+	}
+
+	immediate = {
+		set_global_flag = berlin_uprising_1952 
+	}
+}
