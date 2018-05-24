@@ -119,6 +119,13 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			available = {
+				has_global_flag = roc_taiwan
+			}
+			completion_reward = {
+				add_political_power = 150
+				add_stability = -0.05
+			}
 	}
 	focus = {
 		id = USA_Peace_Fails
@@ -131,6 +138,17 @@ focus_tree = {
 		y = 5
 			allow_branch = {
 					date < 1959.12.31
+				}
+				available = {
+					has_global_flag = chinapeace_armistice
+					date > 1955.1.31
+					country_exists = PRC
+					country_exists = CHI
+					CHI = { has_war_with = PRC }	
+				}
+				completion_reward = {
+					add_threat = 5
+					add_war_support = 0.10
 				}
 	}
 	focus = {
@@ -145,7 +163,21 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+				available = {
+					has_global_flag = chinapeace_armistice
+					date > 1955.1.31
+					country_exists = PRC
+					country_exists = CHI
+					NOT = {
+						CHI = { has_war_with = PRC }	
+					}
+				}
+				completion_reward = {
+					add_threat = -2
+					add_political_power = 150
+				}
 	}
+	
 	focus = {
 		id = USA_Support_Israel
 		icon = GFX_focus_generic_diplomatic_treaty
@@ -1301,6 +1333,9 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+				add_ideas = Communist_Control_Act
+			}
 	}
 	focus = {
 		id = USA_the_interstate_highway_system
@@ -1543,6 +1578,10 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = USA_Puerto_Rican_Statehood
@@ -1555,6 +1594,9 @@ focus_tree = {
 		y = 2
 			allow_branch = {
 					date < 1959.12.31
+				}
+				completion_reward = {
+					686 = { add_core_of = USA }
 				}
 	}
 	focus = {
@@ -2391,6 +2433,23 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {	
+					add_war_support = 0.05
+					add_political_power = 100
+					SOV = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_decrease
+								}
+						}	
+						
+				}
 	}
 	focus = {
 		id = USA_Mobilize_Against_the_Soviets
@@ -2404,6 +2463,98 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+						random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+						random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+						random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}								
+			}
 	}
 	focus = {
 		id = USA_An_Arms_Race
@@ -2416,6 +2567,14 @@ focus_tree = {
 		y = 7
 			allow_branch = {
 					date < 1959.12.31
+				}
+			completion_reward = {
+					add_tech_bonus = {
+							name = secret_bonus
+							bonus = 0.5
+							uses = 2
+							category = rocketry
+						}
 				}
 	}
 	focus = {
@@ -3581,10 +3740,11 @@ focus_tree = {
 		id = USA_Atomic_Investments
 		icon = GFX_focus_generic_the_giant_wakes
 		cost = 10.00
+
 		prerequisite = {
-			focus = USA_Estes_Kefauver_56
+			focus = USA_Adlai_Stevenson_II_56
 		}
-		x = 40
+		x = 44
 		y = 10
 			completion_reward = {
 					add_tech_bonus = {
@@ -3713,6 +3873,14 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+				available = {
+					country_exists = CHI
+				}
+				completion_reward = {
+					diplomatic_relation = { country = CHI relation = guarantee active = yes }
+
+				}
+
 	}
 	focus = {
 		id = USA_Develop_Taiwanese_Industry
@@ -3725,6 +3893,70 @@ focus_tree = {
 		y = 7
 			allow_branch = {
 					date < 1959.12.31
+				}
+			completion_reward = {
+					CHI = {
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
 				}
 	}
 	focus = {
@@ -3748,9 +3980,9 @@ focus_tree = {
 		icon = GFX_goal_generic_neutrality_focus
 		cost = 10.00
 		prerequisite = {
-			focus = USA_Adlai_Stevenson_II_56
+			focus = USA_Estes_Kefauver_56
 		}
-		x = 44
+		x = 40
 		y = 10
 			allow_branch = {
 					date < 1959.12.31
@@ -3923,6 +4155,100 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+				CHI = {
+						random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+						random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+						random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}	
+						}
+			}
 	}
 	focus = {
 		id = USA_Post_War_China
@@ -3936,6 +4262,100 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+				CHI = {
+						random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}	
+						}
+			}
 	}
 	focus = {
 		id = USA_restart_marshall_mission
@@ -4090,6 +4510,10 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+				add_stability = 0.05
+				add_threat = -5
+			}
 	}
 	focus = {
 		id = USA_The_Chinese_Model
@@ -4103,6 +4527,10 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+				add_stability = 0.05
+				add_threat = -5
+			}
 	}
 	focus = {
 		id = USA_The_Colonization_Question
@@ -4268,6 +4696,70 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+					ENG = {
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -4304,6 +4796,318 @@ focus_tree = {
 				}
 			allow_branch = {
 					date < 1959.12.31
+				}
+			completion_reward = {
+					POR = {
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+					HOL = {
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+					BEL = {
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+					FRA = {
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+					ENG = {
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
 				}
 
 	}
@@ -5072,6 +5876,21 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+				add_political_power = 150
+				COL = { add_timed_idea = { idea = anti_communist_propaganda days = 500 } }
+				VEN = { add_timed_idea = { idea = anti_communist_propaganda days = 500 } }
+				ECU = { add_timed_idea = { idea = anti_communist_propaganda days = 500 } }
+				PRU = { add_timed_idea = { idea = anti_communist_propaganda days = 500 } }
+				BRA = { add_timed_idea = { idea = anti_communist_propaganda days = 500 } }
+				ARG = { add_timed_idea = { idea = anti_communist_propaganda days = 500 } }
+				BOL = { add_timed_idea = { idea = anti_communist_propaganda days = 500 } }
+				PAR = { add_timed_idea = { idea = anti_communist_propaganda days = 500 } }
+				URG = { add_timed_idea = { idea = anti_communist_propaganda days = 500 } }
+				CHL = { add_timed_idea = { idea = anti_communist_propaganda days = 500 } }
+				
+				
+			}
 	}
 	focus = {
 		id = USA_Mutual_Security_Act
@@ -5085,6 +5904,62 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+				every_country = {
+						limit = {
+							OR = {
+								original_tag = COL
+								original_tag = VEN
+								original_tag = ECU
+								original_tag = PRU
+								original_tag = BRA
+								original_tag = ARG
+								original_tag = BOL
+								original_tag = PAR
+								original_tag = URG
+								original_tag = CHL
+							}
+							NOT = { has_government = communism }
+							NOT = { has_government = socialist }
+							NOT = { has_government = National_Socialism }
+							NOT = { has_government = maoism }
+							NOT = { has_government = Social_Democratic }
+						}
+								random_owned_controlled_state = {
+										limit = {
+												industrial_complex > 0
+												free_building_slots = {
+														building = industrial_complex
+														size > 1
+														include_locked = yes
+													}
+											}
+										add_extra_state_shared_building_slots = 2
+										add_building_construction = {
+												type = industrial_complex
+												level = 2
+												instant_build = yes
+											}
+									}
+								random_owned_controlled_state = {
+										limit = {
+												industrial_complex > 0
+												free_building_slots = {
+														building = industrial_complex
+														size > 1
+														include_locked = yes
+													}
+											}
+										add_extra_state_shared_building_slots = 2
+										add_building_construction = {
+												type = industrial_complex
+												level = 2
+												instant_build = yes
+											}
+									}
+					}
+				}
+
 	}
 	focus = {
 		id = USA_The_Southern_Cone
@@ -5101,6 +5976,13 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+				ARG = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+				BOL = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+				PAR = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+				URG = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+				CHL = { add_timed_idea = { idea = reactionary_drift days = 900 } }			
+			}
 	}
 	focus = {
 		id = USA_Assurances_in_Gran_Colombia
@@ -5117,6 +5999,112 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+		completion_reward = {
+				COL = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+				VEN = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+				ECU = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+				PRU = { add_timed_idea = { idea = reactionary_drift days = 900 } }		
+		}
+	}
+	focus = {
+		id = USA_undermine_Sukarno
+		icon = GFX_focus_generic_military_mission
+		cost = 10.00
+		prerequisite = {
+			focus = USA_Creation_of_the_CIA
+		}
+		x = 75
+		y = 2
+			allow_branch = {
+					date < 1959.12.31
+				}
+			available = {
+					country_exists = INO
+				}
+			completion_reward = {
+					INO = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+				}
+
+	}
+	focus = {
+		id = USA_Launch_Coup_in_Indonesia
+		icon = GFX_focus_generic_strike_at_democracy1
+		cost = 10.00
+		prerequisite = {
+			focus = USA_undermine_Sukarno
+		}
+		x = 75
+		y = 3
+			available = {
+					country_exists = INO
+				}
+			allow_branch = {
+					date < 1959.12.31
+				}
+				completion_reward = {
+					INO = {
+						start_civil_war = {
+							ideology = neutrality
+							size = 0.5
+						}
+					}
+				}
+
+	}
+	focus = {
+		id = USA_Support_the_indonesian_uprising
+		icon = GFX_goal_generic_small_arms
+		cost = 10.00
+		prerequisite = {
+			focus = USA_Launch_Coup_in_Indonesia
+		}
+		x = 75
+		y = 4
+			available = {
+					country_exists = INO
+				}
+			allow_branch = {
+					date < 1959.12.31
+				}
+			completion_reward = {
+				every_country = {
+					limit = {
+						original_tag = INO
+						has_government = neutrality
+					}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
+																		}
+																}
+														}
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = USA_Coup_in_Brazil
@@ -5131,6 +6119,29 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+				bypass = {
+					BRA = {
+						has_government = neutrality
+					}
+				}
+				available = {
+					BRA = {
+						OR = {
+							has_government = socialist
+							has_government = communism
+							has_government = maoism
+							has_government = National_Socialism
+						}
+					}
+				}
+				completion_reward = {
+					BRA = {
+						start_civil_war = {
+							ideology = neutrality
+							size = 0.6
+						}
+					}
+				}
 	}
 	focus = {
 		id = USA_Support_Pro_American_Regimes
@@ -5143,6 +6154,88 @@ focus_tree = {
 		y = 6
 			allow_branch = {
 					date < 1959.12.31
+				}
+				
+			completion_reward = {
+				every_country = {
+						limit = {
+							OR = {
+								original_tag = COL
+								original_tag = VEN
+								original_tag = ECU
+								original_tag = PRU
+								original_tag = BRA
+								original_tag = ARG
+								original_tag = BOL
+								original_tag = PAR
+								original_tag = URG
+								original_tag = CHL
+							}
+							has_government = neutrality
+						}
+								random_owned_controlled_state = {
+										limit = {
+												free_building_slots = {
+														building = arms_factory
+														size > 0
+														include_locked = yes
+													}
+												OR = {
+														is_in_home_area = yes
+														NOT = {
+																owner = {
+																		any_owned_state = {
+																				free_building_slots = {
+																						building = arms_factory
+																						size > 0
+																						include_locked = yes
+																					}
+																				is_in_home_area = yes
+																			}
+																	}
+															}
+													}
+											}
+										add_extra_state_shared_building_slots = 2
+										add_building_construction = {
+												type = arms_factory
+												level = 2
+												instant_build = yes
+											}
+									}
+								random_owned_controlled_state = {
+										limit = {
+												industrial_complex > 0
+												free_building_slots = {
+														building = industrial_complex
+														size > 1
+														include_locked = yes
+													}
+											}
+										add_extra_state_shared_building_slots = 2
+										add_building_construction = {
+												type = industrial_complex
+												level = 2
+												instant_build = yes
+											}
+									}
+								random_owned_controlled_state = {
+										limit = {
+												industrial_complex > 0
+												free_building_slots = {
+														building = industrial_complex
+														size > 1
+														include_locked = yes
+													}
+											}
+										add_extra_state_shared_building_slots = 2
+										add_building_construction = {
+												type = industrial_complex
+												level = 2
+												instant_build = yes
+											}
+									}
+					}
 				}
 	}
 	focus = {
@@ -5931,8 +7024,10 @@ focus_tree = {
 					date < 1959.12.31
 				}
 			completion_reward = {
-					every_owned_state = {
-							add_extra_state_shared_building_slots = 2
+					WGR = {
+						every_owned_state = {
+								add_extra_state_shared_building_slots = 3
+							}
 						}
 				}
 
@@ -6288,6 +7383,10 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+				add_political_power = 150
+				add_stability = 0.05
+			}
 	}
 	focus = {
 		id = USA_Conitinue_Hard_Liner_Stance_on_Communism
@@ -6301,6 +7400,9 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+				add_ideas = civilian_preparations
+			}
 	}
 	focus = {
 		id = USA_Strengthen_NATO_Members
