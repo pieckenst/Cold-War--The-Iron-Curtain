@@ -209,7 +209,9 @@ country_event = {
 		date > 1952.1.1
 		date < 1953.1.1
 	}
-	
+	immediate = {
+		complete_national_focus = USA_Elections_of_1952
+	}
 	option = { 
 		name = usa.1002.a
 		ai_chance = {
@@ -238,6 +240,7 @@ country_event = {
 			ideology = democratic_america
 		}
 		set_global_flag = president_stevenson
+		complete_national_focus = USA_stevenson_presidency 
 	}
 	
 	option = { 
@@ -257,6 +260,7 @@ country_event = {
 			ideology = democratic_america
 		}
 		set_global_flag = president_kefauver
+		complete_national_focus = USA_kefauver_presidency
 	}
 	option = { 
 		name = usa.1002.d
@@ -284,6 +288,7 @@ country_event = {
 		}
 		set_global_flag = president_macarthur
 		remove_unit_leader = 57
+		complete_national_focus = USA_macarthur_presidency
 	}
 	option = { 
 		name = usa.1002.e
@@ -307,6 +312,7 @@ country_event = {
 		}
 		set_politics = { ruling_party = conservative elections_allowed = yes }
 		set_global_flag = president_taft
+		complete_national_focus = USA_taft_presidency
 	}
 	option = { 
 		name = usa.1002.f
@@ -333,6 +339,7 @@ country_event = {
 		}
 		set_politics = { ruling_party = conservative elections_allowed = yes }
 		set_global_flag = president_eisenhower
+		complete_national_focus = USA_eisenhower_presidency
 	}
 }
 
@@ -439,6 +446,17 @@ country_event = {
 		}
 		set_global_flag = macarthur_gop_nominee_56
 	}	
+	option = { 
+		name = "Joseph McCarthy"
+		trigger = {
+			NOT = { has_global_flag = president_taft }
+			NOT = { has_global_flag = president_eisenhower }
+		}
+		ai_chance = {
+			factor = 10
+		}
+		set_global_flag = Joseph_McCarthy_gop_nominee_56
+	}	
 }
 
 # Election of 1956
@@ -455,7 +473,9 @@ country_event = {
 		date > 1956.1.1
 		date < 1957.1.1
 	}
-
+	immediate = {
+		complete_national_focus = USA_Elections_of_1956
+	}
 	option = { 
 		name = "Adlai Stevenson II"
 		ai_chance = {
@@ -473,6 +493,7 @@ country_event = {
 			ideology = democratic_america
 		}
 		set_global_flag = president_stevenson
+		complete_national_focus = USA_Adlai_Stevenson_II_56
 		if = {
 			limit = {
 				has_global_flag = president_taft
@@ -499,6 +520,7 @@ country_event = {
 			ideology = democratic_america
 		}
 		set_global_flag = president_kefauver
+		complete_national_focus = USA_Estes_Kefauver_56
 		if = {
 			limit = {
 				has_global_flag = president_taft
@@ -567,6 +589,7 @@ country_event = {
 		trigger = {
 			has_global_flag = eisenhower_gop_nominee_56
 		}
+		complete_national_focus = USA_eisenhower_presidency_copy
 		ai_chance = {
 			factor = 35
 				modifier = {
@@ -594,6 +617,40 @@ country_event = {
 			clr_global_flag = president_taft
 		}
 	}
+	option = { 
+		name = "Joseph McCarthy"
+		trigger = {
+			has_global_flag = Joseph_McCarthy_gop_nominee_56
+		}
+		complete_national_focus = USA_mccarthy_presidency
+		ai_chance = {
+			factor = 35
+				modifier = {
+					factor = 1000
+					is_historical_focus_on = yes
+				}
+		}
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Joseph McCarthy"
+			desc = ""
+			picture = "Portrait_USA_McCarthy.dds"
+			expire = "1965.1.1"
+			ideology = republican
+			traits = {
+				
+			} 
+		}
+		set_politics = { ruling_party = conservative elections_allowed = yes }
+		set_global_flag = president_Joseph_McCarthy
+		if = {
+			limit = {
+				has_global_flag = president_taft
+			}
+			clr_global_flag = president_taft
+		}
+	}	
+	
 }
 # Election of 1960: democratic Nomination
 country_event = {
