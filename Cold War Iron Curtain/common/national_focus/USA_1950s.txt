@@ -2353,8 +2353,11 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+				available = {
+				has_idea = mccarthyism
+				}
 			completion_reward = {
-					add_ideas = mccarthyism
+					add_political_power = 150
 				}
 
 	}
@@ -2458,6 +2461,12 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+				swap_ideas = {
+					add_idea = mccarthyism2
+					remove_idea = mccarthyism
+				}
+			}
 	}
 	focus = {
 		id = USA_army_macarthur_hearings
@@ -2472,7 +2481,7 @@ focus_tree = {
 					date < 1959.12.31
 				}
 			completion_reward = {
-					remove_ideas = mccarthyism
+					remove_ideas = mccarthyism2
 				}
 
 	}
@@ -4386,6 +4395,32 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+				completion_reward = {
+					PAK = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = PAK
+									modifier = large_decrease
+								}
+						}			
+					RAJ = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = RAJ
+									modifier = large_increase
+								}
+						}	
+					}
 	}
 	focus = {
 		id = USA_support_for_India
@@ -4455,6 +4490,32 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+				completion_reward = {
+					PAK = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = PAK
+									modifier = large_increase
+								}
+						}			
+					RAJ = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = RAJ
+									modifier = large_decrease
+								}
+						}	
+					}
 	}
 	focus = {
 		id = USA_support_for_Pakistan
@@ -4539,10 +4600,10 @@ focus_tree = {
 					date < 1959.12.31
 				}
 				available = {
-				
+					has_global_flag = algeria_war
 				}
 			completion_reward = {
-
+				add_political_power = 150
 			}
 
 	}
@@ -4558,7 +4619,9 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
-
+		completion_reward = {
+			FRA = { country_event = algeria_war.2 }
+		}
 	}
 	focus = {
 		id = USA_the_treaty_ports
@@ -4658,6 +4721,9 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+				add_political_power = 150
+			}
 	}
 	focus = {
 		id = USA_support_monarchism_iran
@@ -4770,10 +4836,10 @@ focus_tree = {
 					date < 1959.12.31
 				}
 				available = {
-				
+					IRQ = { has_completed_focus = IRQ_free_officer_victory }
 				}
 				bypass = {
-				
+					IRQ = { has_completed_focus = IRQ_free_officer_victory }
 				}
 	}
 	focus = {
@@ -4810,11 +4876,13 @@ focus_tree = {
 				}
 			completion_reward = {
 					send_equipment = {
-							target = PAK
+							target = JOR
 							type = infantry_equipment
 							amount = 3000
 						}
-						create_wargoal = { type = annex_everything target = IRQ }	
+						JOR = {
+							create_wargoal = { type = annex_everything target = JOR }	
+						}
 				}
 	}
 	focus = {
@@ -6012,6 +6080,13 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+					add_stability = -0.05
+					add_popularity = {
+							ideology = conservative
+							popularity = 0.05
+						}
+				}
 	}
 	focus = {
 		id = USA_Support_Anti_Communist_Groups
@@ -6024,6 +6099,9 @@ focus_tree = {
 		y = 10
 			allow_branch = {
 					date < 1959.12.31
+				}
+				completion_reward = {
+					add_ideas = militarism_focus
 				}
 	}
 	focus = {
@@ -6367,6 +6445,10 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+				add_idea = constitutional_crisis
+				add_popularity = { ideology = conservative popularity = 0.05 }	
+			}
 	}
 	focus = {
 		id = USA_Impeach_Truman
@@ -6380,7 +6462,16 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
-
+			completion_reward = {
+				create_country_leader = {
+					name = "Alben W. Barkley"
+					desc = ""
+					picture = "gfx/leaders/USA/Portrait_USA_Barkley.dds"
+					expire = "1960.1.1"
+					ideology = democratic_america
+				}
+				remove_ideas = constitutional_crisis
+			}
 	}
 	focus = {
 		id = USA_Continue_Reforms

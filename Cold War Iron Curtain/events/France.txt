@@ -3,6 +3,7 @@
 ########################
 
 add_namespace = fra
+add_namespace = algeria_war
 
 # The Reunification of Austria
 country_event = {
@@ -399,5 +400,44 @@ news_event = {
 
 	option = {
 		name = "Interesting."
+	}
+}
+
+country_event = {
+	id = algeria_war.1
+	title = "The Algerian War of Independence"
+	desc = "The Native Population in Algeria has launched a revolutionary struggle against our rightful rule!"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "We must crush them"
+		set_global_flag = algeria_war
+		ALG = {
+			transfer_state = 513
+			transfer_state = 514
+			transfer_state = 1153
+			transfer_state = 1154
+			transfer_state = 1156
+			transfer_state = 1157
+		}	
+		declare_war_on = { target = ALG type = annex_everything }	
+	}
+}
+
+country_event = {
+	id = algeria_war.2
+	title = "America Demands we Make Peace with Algeria"
+	desc = "America Demands we Make Peace with Algeria"
+	is_triggered_only = yes
+
+	option = {
+		name = "We Must Concede to the Americans"
+		annex_country = { target = ALG }	
+		release = ALG		
+	}
+	option = {
+		name = "Reject the Americans Offer"
+
 	}
 }
