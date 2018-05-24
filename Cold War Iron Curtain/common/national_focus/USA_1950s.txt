@@ -1805,6 +1805,36 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+					TUR = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_increase
+								}
+						}
+					}
 	}
 	focus = {
 		id = USA_economic_aid_to_turkey
@@ -1952,6 +1982,12 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = USA_invite_greece_and_turkey_nato
+		}
+		available = {
+			has_global_flag = suez_crisis
+		}
+		bypass = {
+			has_global_flag = suez_crisis
 		}
 		x = 13
 		y = 5
@@ -3469,13 +3505,14 @@ focus_tree = {
 			focus = USA_pre_emptive_strike
 			focus = USA_defend_the_border
 		}
+		
 		x = 40
 		y = 5
 			allow_branch = {
 					date < 1959.12.31
 				}
 				available = {
-				
+					has_global_flag = korean_war_begun
 				}
 				completion_reward = {
 					add_political_power = 200
@@ -3511,7 +3548,7 @@ focus_tree = {
 					date < 1959.12.31
 				}
 			completion_reward = {
-
+				country_event = macarthur_question.1
 			}
 
 	}
@@ -3709,6 +3746,10 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+				add_stability = 0.15
+				add_political_power = 150
+			}
 	}
 	focus = {
 		id = USA_Manufacturing_Subsidies
@@ -3723,6 +3764,41 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = USA_cut_off_roc
@@ -5991,6 +6067,68 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}						
+		}
 	}
 	focus = {
 		id = USA_Continue_New_Deal_Economic_Policies
@@ -6004,6 +6142,41 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = USA_eisenhower_presidency_Copy
@@ -6063,6 +6236,76 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_idea = nato_member
+				}
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					}	
+		}
 	}
 	focus = {
 		id = USA_These_Years_Of_Progress
@@ -6076,6 +6319,41 @@ focus_tree = {
 			allow_branch = {
 					date < 1959.12.31
 				}
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = USA_The_Constitutional_Crisis
