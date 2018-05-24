@@ -3,7 +3,45 @@
 # Also Made by RB33
 ###########################
 
+add_namespace = macarthur_question
 add_namespace = korea
+
+
+#macarthur_question.1 Matthew Ridgeway  
+country_event = {
+	id = korea.1
+	title = korea.1.t
+	desc = korea.1.d
+	
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	option = {
+		name = "Replace MacArthur with Matthew Ridgeway"
+		remove_unit_leader = 57	
+		add_stability = -0.05
+		add_war_support = -0.05
+		add_political_power = 100
+		create_field_marshal = { 
+			name = "Matthew Ridgeway" 
+			picture = "Ridgeway.dds" 
+			traits = { } 
+			skill = 4 
+		}	
+		ai_chance = { 
+			factor = 100
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+	}
+	option = {
+		name = "Keep MacArthur in charge"
+		add_political_power = 150
+		add_stability = 0.1
+	}
+}	
 
 # Korean War Declaration
 country_event = {

@@ -1,7 +1,45 @@
 ﻿add_namespace = egypt
+add_namespace = USA_suez
 ### Nationalization of the Suez
 
 # English Response
+country_event = {
+	id = USA_suez.1
+	title = "Americans Demand Ceasefire"
+	desc = "Americans Demand Ceasefire"
+	picture = GFX_report_event_german_troops
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	option = { # Accept
+		name = egypt.60.a
+		ai_chance = { 
+			factor = 100
+		}
+		white_peace = EGY	
+		FRA = { white_peace = EGY }
+		ISR = { white_peace = EGY }
+	}
+	option = { # 
+		name = "Refuse their demands"
+		ai_chance = { 
+			factor = 0
+		}
+					ENG = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+						}		
+	}
+}	
 country_event = {
 	id = egypt.60
 	title = egypt.60.t
@@ -147,6 +185,7 @@ country_event = {
 		FRA = {
 			add_to_war = { targeted_alliance = ENG enemy = EGY }	
 		}
+		set_global_flag = suez_crisis
 		ISR = { country_event = egypt.69 }
 		hidden_effect = {
 			#news_event = { hours = 6 id = news.206 }
@@ -168,6 +207,7 @@ country_event = {
 	
 	option = {
 		name = egypt.65.a
+		set_global_flag = suez_crisis
 		ENG = { 
 			country_event = egypt.68 
 		}
