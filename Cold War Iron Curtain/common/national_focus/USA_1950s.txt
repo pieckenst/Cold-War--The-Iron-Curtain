@@ -8242,7 +8242,23 @@ focus_tree = {
 		x =  5
 		y = 1
 		completion_reward = {
-			swap_ideas = { remove_idea = segregation_question remove_idea = segregation_question_military add_idea = civil_rights_act_of_1960 }
+			if = {
+				limit = {
+					has_idea = segregation_question
+				}
+				swap_ideas = {
+					remove_idea = segregation_question
+					add_idea = civil_rights_act_of_1960
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = segregation_question
+					}
+				}
+				add_political_power = 150
+			}
 		}
 	}
 	focus = {
@@ -9888,7 +9904,26 @@ focus_tree = {
 		x =  36
 		y = 5
 		completion_reward = {
-			add_ideas = voting_rights_act_of_1965
+			if = {
+				limit = {
+					has_idea = segregation_question
+				}
+				swap_ideas = {
+					remove_idea = segregation_question
+					add_idea = voting_rights_act_of_1965
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = segregation_question
+					}
+				}
+				swap_ideas = {
+					remove_idea = civil_rights_act_of_1960
+					add_idea = voting_rights_act_of_1965
+				}
+			}
 		}
 	}
 	focus = {
@@ -12586,7 +12621,10 @@ focus_tree = {
 		x =  36
 		y = 6
 		completion_reward = {
-			add_ideas = civil_rights_act_of_1968
+			swap_ideas = {
+				remove_idea = voting_rights_act_of_1965
+				add_idea = civil_rights_act_of_1968
+			}
 		}
 	}
 	focus = {
