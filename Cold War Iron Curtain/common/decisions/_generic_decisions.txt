@@ -1320,7 +1320,7 @@ war_measures = {
 				set_division_template_lock = { division_template = "Private Military Contractors" is_locked = yes }	 
 				create_corps_commander = { 
 					name = "Jean Schramme" 
-					picture = "gfx/leaders/PMC/Schramme.dds" 
+					picture = "Schramme.dds" 
 					id = 9006
 					traits = { 
 						war_hero
@@ -1397,7 +1397,7 @@ war_measures = {
 				set_division_template_lock = { division_template = "Private Military Contractors" is_locked = yes }	 
 				create_corps_commander = { 
 					name = "Allan S. Vinnell" 
-					picture = "gfx/leaders/PMC/Vinell.dds" 
+					picture = "Vinell.dds" 
 					id = 9007
 					skill = 4
 				}	
@@ -1470,7 +1470,7 @@ war_measures = {
 				set_division_template_lock = { division_template = "Private Military Contractors" is_locked = yes }	 
 				create_corps_commander = { 
 					name = "Bob Denard" 
-					picture = "gfx/leaders/PMC/Denard.dds" 
+					picture = "Denard.dds"
 					id = 9008
 					skill = 6
 				}	
@@ -1542,8 +1542,8 @@ war_measures = {
 				}
 				set_division_template_lock = { division_template = "Private Military Contractors" is_locked = yes }	 
 				create_corps_commander = { 
-					name = "Ian Crooke" 
-					picture = "gfx/leaders/PMC/Crooke.dds" 
+					name = "David Stirling" 
+					picture = "Stirling.dds" 
 					id = 9009
 					skill = 6
 				}	
@@ -1616,7 +1616,7 @@ war_measures = {
 				set_division_template_lock = { division_template = "Private Military Contractors" is_locked = yes }	 
 				create_corps_commander = { 
 					name = "Hogg Robinson" 
-					picture = "gfx/leaders/PMC/Robinson.dds" 
+					picture = "Robinson.dds" 
 					id = 9010
 					skill = 6
 				}	
@@ -1689,7 +1689,7 @@ war_measures = {
 				set_division_template_lock = { division_template = "Private Military Contractors" is_locked = yes }	 
 				create_corps_commander = { 
 					name = "Carl Gustaf von Rosen" 
-					picture = "gfx/leaders/PMC/Rosen.dds" 
+					picture = "Rosen.dds" 
 					id = 9011
 					skill = 4
 				}	
@@ -1760,6 +1760,170 @@ war_measures = {
 					}
 				}
 				set_division_template_lock = { division_template = "Private Military Contractors" is_locked = yes }	 
+			}
+        }
+
+        ai_will_do = {
+            factor = 0 #Gotta allow the Americans to help
+        }
+    }
+	
+	hire_Militaires_Sans_Frontieres = {
+
+        icon = GFX_msf
+
+        available = {
+            has_war = yes
+			 NOT = { has_global_flag = hired_Militaires_Sans_Frontieres }
+			 NOT = { 
+				has_government = communism
+				has_government = Social_Democratic
+				has_government = maoism
+			}
+			date < 1975.3.16
+			date > 1971.12.30
+        }
+		
+		visible = {
+		date < 1975.3.16
+		date > 1971.12.30
+		}
+
+        cost = 1000
+
+        fire_only_once = no
+        complete_effect = {
+			set_global_flag = hired_Militaires_Sans_Frontieres
+			set_country_flag = Militaires_Sans_Frontieres_sponsor
+			custom_effect_tooltip = hire_Militaires_Sans_Frontieres
+			hidden_effect = {
+				division_template = {
+					name = "Private Military Contractors"
+					priority = 2
+
+					regiments = {
+						pmc = { x = 0 y = 0 }
+						pmc = { x = 0 y = 1 }
+						pmc = { x = 0 y = 2 }
+
+						pmc = { x = 1 y = 0 }
+						pmc = { x = 1 y = 1 }
+						pmc = { x = 1 y = 2 }
+
+					}
+				}
+				capital_scope = {
+					if = {
+						limit = { ROOT = { has_full_control_of_state = PREV } }
+						create_unit = {
+							division = "name = \"Militaires Sans Frontières\" division_template = \"Private Military Contractors\" start_experience_factor = 10.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Militaires Sans Frontières\" division_template = \"Private Military Contractors\" start_experience_factor = 10.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Militaires Sans Frontières\" division_template = \"Private Military Contractors\" start_experience_factor = 10.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Militaires Sans Frontières\" division_template = \"Private Military Contractors\" start_experience_factor = 10.0"
+							owner = ROOT
+						}
+					}
+				}
+				set_division_template_lock = { division_template = "Private Military Contractors" is_locked = yes }	 
+				create_corps_commander = { 
+					name = "John Snake"
+					picture = "Boss.dds"
+					skill = 4
+					attack_skill = 4
+					defense_skill = 2
+					planning_skill = 4
+					logistics_skill = 5	
+				}
+			}
+        }
+
+        ai_will_do = {
+            factor = 0 #Gotta allow the Americans to help
+        }
+    }
+	
+	hire_Diamond_Dogs = {
+
+        icon = GFX_ddog
+
+        available = {
+            has_war = yes
+			 NOT = { has_global_flag = hired_Diamond_Dogs }
+			 NOT = { 
+				has_government = communism
+				has_government = Social_Democratic
+				has_government = maoism
+			}
+			date < 1995.12.30
+			date > 1984.1.1
+        }
+		
+		visible = {
+		    is_historical_focus_on = no
+		    date < 1995.12.30
+		    date > 1984.1.1
+		}
+
+        cost = 1000
+
+        fire_only_once = no
+        complete_effect = {
+			set_global_flag = hired_Militaires_Sans_Frontieres
+			set_country_flag = Militaires_Sans_Frontieres_sponsor
+			custom_effect_tooltip = hire_Militaires_Sans_Frontieres
+			hidden_effect = {
+				division_template = {
+					name = "Private Military Contractors"
+					priority = 2
+
+					regiments = {
+						pmc = { x = 0 y = 0 }
+						pmc = { x = 0 y = 1 }
+						pmc = { x = 0 y = 2 }
+
+						pmc = { x = 1 y = 0 }
+						pmc = { x = 1 y = 1 }
+						pmc = { x = 1 y = 2 }
+
+					}
+				}
+				capital_scope = {
+					if = {
+						limit = { ROOT = { has_full_control_of_state = PREV } }
+						create_unit = {
+							division = "name = \"Diamond Dogs\" division_template = \"Private Military Contractors\" start_experience_factor = 10.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Diamond Dogs\" division_template = \"Private Military Contractors\" start_experience_factor = 10.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Diamond Dogs\" division_template = \"Private Military Contractors\" start_experience_factor = 10.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Diamond Dogs\" division_template = \"Private Military Contractors\" start_experience_factor = 10.0"
+							owner = ROOT
+						}
+					}
+				}
+				set_division_template_lock = { division_template = "Private Military Contractors" is_locked = yes }	 
+				create_corps_commander = { 
+					name = "John Snake" 
+					picture = "gfx/leaders/PMC/Boss.dds" 
+					id = 9012
+					skill = 4
+				}	
 			}
         }
 
