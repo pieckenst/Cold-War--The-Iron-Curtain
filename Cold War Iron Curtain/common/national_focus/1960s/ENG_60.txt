@@ -30,7 +30,7 @@ focus_tree = {
 	focus = {
 		id = ENG_60s_Socialist_republic
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 1
 		x = 29
 		y = 0
 		available = {
@@ -40,6 +40,9 @@ focus_tree = {
 				has_government = trotskyism
 				has_completed_focus = ENG_60s_Radical_Victory
 			}
+		}
+		completion_reward = {
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -132,7 +135,9 @@ focus_tree = {
 		cost = 10.00
 		x = 43
 		y = 0
-
+		completion_reward = {
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = ENG_60s_Consolidate_our_position_in_Europe
@@ -143,7 +148,20 @@ focus_tree = {
 		}
 		x = 39
 		y = 1
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						}
+					FRA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}	
+		}
 	}
 	focus = {
 		id = ENG_60s_Increase_our_presence_in_Vietnam
@@ -154,7 +172,11 @@ focus_tree = {
 		}
 		x = 42
 		y = 1
-
+		completion_reward = {
+			VIE = {
+				add_ideas = british_advisors
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_The_Entriest_Threat
@@ -163,7 +185,7 @@ focus_tree = {
 		x = 19
 		y = 0
 		completion_reward = {
-		add_popularity = { ideology = trotskyism popularity = 0.3 }	
+			add_popularity = { ideology = trotskyism popularity = 0.03}	
 		}
 	}
 	focus = {
@@ -172,7 +194,12 @@ focus_tree = {
 		cost = 10.00
 		x = 4
 		y = 12
-
+		available = {
+			has_country_leader = { ruling_only = yes name = "Edward Heath"
+		}
+		completion_reward = {
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = ENG_60s_Wind_of_change
@@ -200,7 +227,10 @@ focus_tree = {
 		}
 		x = 3
 		y = 2
-
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 150		
+		}
 	}
 	focus = {
 		id = ENG_60s_Nigerian_independence
@@ -211,7 +241,25 @@ focus_tree = {
 		}
 		x = 2
 		y = 3
-
+		available = {
+			NIA = {
+				is_subject = no
+			}
+		}
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = NIA
+									modifier = large_increase
+								}
+						}
+					NIA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Condemn_South_Africa
@@ -250,20 +298,14 @@ focus_tree = {
 		}
 		x = 3
 		y = 4
-			completion_reward = {
-					ENG = {
-							add_opinion_modifier = {
-									target = KNA
-									modifier = large_increase
-								}
-						}
-					KNA = {
-							add_opinion_modifier = {
-									target = ENG
-									modifier = large_increase
-								}
-						}
-				}
+		bypass = {
+			NOT = {
+				KEN = { is_subject = no }
+			}
+		}
+		completion_reward = {
+			country_event = eng.7
+		}
 
 	}
 	focus = {
@@ -300,7 +342,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 13
-
+		completion_reward = {
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = ENG_60s_Embrace_the_Conservative_Monday_Club
@@ -314,7 +358,10 @@ focus_tree = {
 		}
 		x = 8
 		y = 1
-
+		completion_reward = {
+			add_political_power = 150
+			add_popularity = { ideology = conservative popularity = 0.1 }	
+		}	
 	}
 	focus = {
 		id = ENG_60s_Resist_Nigerian_independence_movements
@@ -325,7 +372,9 @@ focus_tree = {
 		}
 		x = 8
 		y = 2
-
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = NIA }	
+		}
 	}
 	focus = {
 		id = ENG_60s_Internal_policy
@@ -336,7 +385,9 @@ focus_tree = {
 		}
 		x = 13
 		y = 1
-
+		completion_reward = {
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = ENG_60s_Economic_reforms
@@ -347,7 +398,40 @@ focus_tree = {
 		}
 		x = 12
 		y = 2
-
+		completion_reward = {
+							random_owned_controlled_state = {
+									limit = {
+											industrial_complex > 0
+											free_building_slots = {
+													building = industrial_complex
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											industrial_complex > 0
+											free_building_slots = {
+													building = industrial_complex
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}		
+		}
 	}
 	focus = {
 		id = ENG_60s_Limited_Economic_Growth
@@ -361,7 +445,24 @@ focus_tree = {
 		}
 		x = 3
 		y = 14
-
+		completion_reward = {
+							random_owned_controlled_state = {
+									limit = {
+											industrial_complex > 0
+											free_building_slots = {
+													building = industrial_complex
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}		
+		}
 	}
 	focus = {
 		id = ENG_60s_Conservatives_declining
@@ -372,7 +473,10 @@ focus_tree = {
 		}
 		x = 14
 		y = 2
-
+		completion_reward = {
+			add_popularity = { ideology = socialist popularity = 0.05 }	
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = ENG_60s_Night_of_the_Long_knives
@@ -416,8 +520,10 @@ focus_tree = {
 		}
 		x = 12
 		y = 5
-
-	}
+		completion_reward = {
+			add_popularity = { ideology = conservative popularity = 0.4 }			
+		}
+	}	
 	focus = {
 		id = ENG_60s_Instability_on_streets
 		icon = GFX_goal_unknown
@@ -427,7 +533,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 5
-
+		completion_reward = {
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = ENG_60s_Increased_Housing
@@ -438,7 +546,11 @@ focus_tree = {
 		}
 		x = 14
 		y = 13
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Liberalize_Abortion_Laws
@@ -450,7 +562,7 @@ focus_tree = {
 		x = 12
 		y = 14
 		completion_reward = {
-			
+			add_political_power = 150
 		}
 	}
 	focus = {
@@ -462,7 +574,9 @@ focus_tree = {
 		}
 		x = 16
 		y = 13
-
+		completion_reward = {
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = ENG_60s_Abolish_Death_Penalty
@@ -505,7 +619,9 @@ focus_tree = {
 		}
 		x = 19
 		y = 1
-
+		completion_reward = {
+			add_popularity = { ideology = trotskyism popularity = 0.03 }	
+		}
 	}
 	focus = {
 		id = ENG_60s_Salvation_of_Britain
@@ -544,7 +660,9 @@ focus_tree = {
 		}
 		x = 8
 		y = 3
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 	focus = {
 		id = ENG_60s_Prevent_further_decolonisation
@@ -555,7 +673,9 @@ focus_tree = {
 		}
 		x = 7
 		y = 4
-
+		completion_reward = {
+			add_war_support = 0.25
+		}
 	}
 	focus = {
 		id = ENG_60s_Old_glory_of_Britain
@@ -566,7 +686,9 @@ focus_tree = {
 		}
 		x = 9
 		y = 4
-
+		completion_reward = {
+			add_ideas = militarized_schools
+		}
 	}
 	focus = {
 		id = ENG_60s_Tolerate_the_Entriests
@@ -581,7 +703,9 @@ focus_tree = {
 		}
 		x = 19
 		y = 3
-
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.03 }	
+		}
 	}
 	focus = {
 		id = ENG_60s_Radicalization_oF_the_Trade_Unions
@@ -592,7 +716,9 @@ focus_tree = {
 		}
 		x = 19
 		y = 4
-
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = 0.03 }	
+		}
 	}
 	focus = {
 		id = ENG_60s_Infilitration_of_Labor
@@ -603,7 +729,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 5
-
+		completion_reward = {
+			add_popularity = { ideology = trotskyism popularity = 0.03 }	
+		}
 	}
 	focus = {
 		id = ENG_60s_Foriegn_Support
@@ -614,7 +742,10 @@ focus_tree = {
 		}
 		x = 20
 		y = 5
-
+		completion_reward = {
+			add_popularity = { ideology = trotskyism popularity = 0.01 }	
+			add_popularity = { ideology = communism popularity = 0.01 }	
+		}
 	}
 	focus = {
 		id = ENG_60s_Propose_Snap_Election
@@ -628,7 +759,9 @@ focus_tree = {
 		}
 		x = 19
 		y = 6
-
+		completion_reward = {
+			add_stability = -0.15
+		}
 	}
 	focus = {
 		id = ENG_60s_Suspend_Elections
@@ -642,7 +775,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 7
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = ENG_60s_Queen_takes_control
@@ -653,7 +788,13 @@ focus_tree = {
 		}
 		x = 19
 		y = 8
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = monarchism
+				elections_allowed = no
+			}
+			add_popularity = { ideology = monarchism popularity = 0.5 }	
+		}
 	}
 	focus = {
 		id = ENG_60s_Keep_Constitution
@@ -667,7 +808,14 @@ focus_tree = {
 		}
 		x = 17
 		y = 9
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = monarchism
+				elections_allowed = yes
+			}
+			add_popularity = { ideology = conservative popularity = 0.15 }	
+			add_popularity = { ideology = socialist popularity = 0.1 }	
+		}
 	}
 	focus = {
 		id = ENG_60s_Race_Relations_Act
@@ -678,7 +826,10 @@ focus_tree = {
 		}
 		x = 18
 		y = 14
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.02
+		}
 	}
 	focus = {
 		id = ENG_60s_Divorce_Reform
@@ -689,7 +840,9 @@ focus_tree = {
 		}
 		x = 19
 		y = 15
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = ENG_60s_Absolute_monarchy
@@ -714,7 +867,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 10
-
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = IRE }	
+		}
 	}
 	focus = {
 		id = ENG_60s_Status_Quo
@@ -729,7 +884,9 @@ focus_tree = {
 		}
 		x = 21
 		y = 2
-
+		completion_reward = {
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = ENG_60s_Tighten_people_freedom
@@ -740,7 +897,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 10
-
+		completion_reward = {
+			add_ideas = gulag_politic
+		}
 	}
 	focus = {
 		id = ENG_60s_Pre_Great_war_diplomacy
@@ -754,7 +913,21 @@ focus_tree = {
 		}
 		x = 21
 		y = 11
-
+		completion_reward = {
+			add_political_power = 100
+					ENG = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						}
+					FRA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}	
+		}
 	}
 	focus = {
 		id = ENG_60s_Embrace_Stalinism
@@ -768,7 +941,16 @@ focus_tree = {
 		}
 		x = 25
 		y = 1
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = maoist_drift
+				days = 900
+			}
+			set_politics = {
+				ruling_party = maoism
+				elections_allowed = no
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Embrace_Trotskyite_Beliefs
@@ -782,7 +964,9 @@ focus_tree = {
 		}
 		x = 29
 		y = 1
-
+		completion_reward = {
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = ENG_60s_Official_visits_to_China_and_North_Korea
@@ -794,7 +978,32 @@ focus_tree = {
 		}
 		x = 24
 		y = 2
-
+		completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = PRC
+									modifier = large_increase
+								}
+						}
+					PRC = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}	
+					ENG = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}	
+				}
 	}
 	focus = {
 		id = ENG_60s_Distance_from_USSR
@@ -806,7 +1015,20 @@ focus_tree = {
 		}
 		x = 26
 		y = 2
-
+		completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_decrease
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+						}			
+		}
 	}
 	focus = {
 		id = ENG_60s_Demand_extradition_of_royal_family
@@ -820,7 +1042,20 @@ focus_tree = {
 		}
 		x = 25
 		y = 3
-
+		completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = CAN
+									modifier = large_decrease
+								}
+						}
+					CAN = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+						}	
+				}
 	}
 	focus = {
 		id = ENG_60s_Mass_purges
@@ -831,7 +1066,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 4
-
+		completion_reward = {
+			add_ideas = gulag_politic
+		}
 	}
 	focus = {
 		id = ENG_60s_Rename_to_Union_of_Britain
@@ -845,7 +1082,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 4
-
+		completion_reward = {
+			set_cosmetic_tag = Union_of_Britain
+		}
 	}
 	focus = {
 		id = ENG_60s_Give_Hong_Kong_to_China
@@ -860,7 +1099,11 @@ focus_tree = {
 		}
 		x = 25
 		y = 5
-
+			completion_reward = {
+					PRC = {
+							transfer_state = 326
+						}
+					}
 	}
 	focus = {
 		id = ENG_60s_Army_coup
@@ -871,7 +1114,13 @@ focus_tree = {
 		}
 		x = 27
 		y = 8
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+			add_popularity = { ideology = neutrality popularity = 0.4 }	
+		}
 	}
 	focus = {
 		id = ENG_60s_Auchinleck_or_Montgomery
@@ -882,7 +1131,9 @@ focus_tree = {
 		}
 		x = 27
 		y = 9
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = ENG_60s_Auchinleck
@@ -896,8 +1147,14 @@ focus_tree = {
 		}
 		x = 30
 		y = 10
-
-	}
+		completion_reward = {
+			create_country_leader = {
+				name = "Claude Auchinleck"
+				ideology = military_junta
+				picture = "Claude_Auchinleck.dds"
+			}
+		}
+	}	
 	focus = {
 		id = ENG_60s_Royalty_betrayed_us
 		icon = GFX_goal_unknown
@@ -907,7 +1164,10 @@ focus_tree = {
 		}
 		x = 30
 		y = 11
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = ENG_60s_Liberator_of_Britain
@@ -918,7 +1178,12 @@ focus_tree = {
 		}
 		x = 30
 		y = 12
-
+		completion_reward = {
+			add_ideas = {
+				ideological_fanaticism_focus 
+				militarized_schools
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Intervention_in_Vietnam2
@@ -929,7 +1194,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 13
-
+		completion_reward = {
+			VIE = { add_to_war = { targeted_alliance = ENG enemy = VIN } }
+		}
 	}
 	focus = {
 		id = ENG_60s_European_way
@@ -957,7 +1224,16 @@ focus_tree = {
 		}
 		x = 33
 		y = 1
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+			add_timed_idea = {
+				idea = internationalism
+				days = 900
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Land_distribution
@@ -969,7 +1245,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 2
-
+		completion_reward = {
+			add_ideas = land_reform
+		}
 	}
 	focus = {
 		id = ENG_60s_Knife_in_the_back
@@ -981,7 +1259,20 @@ focus_tree = {
 		}
 		x = 34
 		y = 2
-
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Spread_communism_to_all_Commonwealth_states
@@ -995,7 +1286,40 @@ focus_tree = {
 		}
 		x = 33
 		y = 3
-
+		completion_reward = {
+			if = {
+				limit = {
+					has_government = trotskyism
+				}
+				SAF = { add_timed_idea = { idea = trotskyism_drift days = 900 } }
+				CAN = { add_timed_idea = { idea = trotskyism_drift days = 900 } }
+				RAJ = { add_timed_idea = { idea = trotskyism_drift days = 900 } }
+				PAK = { add_timed_idea = { idea = trotskyism_drift days = 900 } }
+				AST = { add_timed_idea = { idea = trotskyism_drift days = 900 } }
+				NZL = { add_timed_idea = { idea = trotskyism_drift days = 900 } }
+				ZIM = { add_timed_idea = { idea = trotskyism_drift days = 900 } }
+				NIA = { add_timed_idea = { idea = trotskyism_drift days = 900 } }
+				KEN = { add_timed_idea = { idea = trotskyism_drift days = 900 } }
+				MAL = { add_timed_idea = { idea = trotskyism_drift days = 900 } }
+				CEY = { add_timed_idea = { idea = trotskyism_drift days = 900 } }
+			}
+			if = {
+				limit = {
+					has_government = communism
+				}
+				SAF = { add_timed_idea = { idea = internationalism days = 900 } }
+				CAN = { add_timed_idea = { idea = internationalism days = 900 } }
+				RAJ = { add_timed_idea = { idea = internationalism days = 900 } }
+				PAK = { add_timed_idea = { idea = internationalism days = 900 } }
+				AST = { add_timed_idea = { idea = internationalism days = 900 } }
+				NZL = { add_timed_idea = { idea = internationalism days = 900 } }
+				ZIM = { add_timed_idea = { idea = internationalism days = 900 } }
+				NIA = { add_timed_idea = { idea = internationalism days = 900 } }
+				KEN = { add_timed_idea = { idea = internationalism days = 900 } }
+				MAL = { add_timed_idea = { idea = internationalism days = 900 } }
+				CEY = { add_timed_idea = { idea = internationalism days = 900 } }
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Rename_to_Socialist_Republic_of_Britain
@@ -1009,7 +1333,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 4
-
+		completion_reward = {
+			set_cosmetic_tag = Socialist_Republic_of_Britain
+		}
 	}
 	focus = {
 		id = ENG_60s_Join_Warsaw_pact
@@ -1023,7 +1349,11 @@ focus_tree = {
 		}
 		x = 34
 		y = 4
-
+		completion_reward = {
+			SOV = {
+				add_to_faction = ENG
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Increase_military_presence_in_HK
@@ -1038,7 +1368,16 @@ focus_tree = {
 		}
 		x = 33
 		y = 5
-
+		completion_reward = {
+			326 = {
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 10062
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Distancing_from_Europe
@@ -1052,7 +1391,68 @@ focus_tree = {
 		}
 		x = 37
 		y = 1
-
+			completion_reward = {
+					FRA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_decrease
+								}
+						}
+					ITA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = ITA
+									modifier = large_decrease
+								}
+						}
+					HOL = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = HOL
+									modifier = large_decrease
+								}
+						}
+					BEL = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = BEL
+									modifier = large_decrease
+								}
+						}
+					WGR = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = WGR
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Isolationing_from_world
@@ -1063,7 +1463,11 @@ focus_tree = {
 		}
 		x = 37
 		y = 2
-
+		completion_reward = {
+			remove_ideas = nato_member
+			add_ideas = neutrality_idea
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = ENG_60s_Join_EEU
@@ -1074,7 +1478,10 @@ focus_tree = {
 		}
 		x = 39
 		y = 2
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.10
+		}
 	}
 	focus = {
 		id = ENG_60s_Intervene_in_the_Vietnam_War
@@ -1085,7 +1492,9 @@ focus_tree = {
 		}
 		x = 42
 		y = 2
-
+		completion_reward = {
+			VIE = { add_to_war = { targeted_alliance = ENG enemy = VIN } }
+		}
 	}
 	focus = {
 		id = ENG_60s_Stay_out_of_Vietnam
@@ -1099,7 +1508,20 @@ focus_tree = {
 		}
 		x = 44
 		y = 1
-
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = small_decrease
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Aid_American_Jungle_Training
@@ -1110,7 +1532,9 @@ focus_tree = {
 		}
 		x = 44
 		y = 2
-
+		completion_reward = {
+			set_technology = { jungle_warfare = 1 }
+		}
 	}
 	focus = {
 		id = ENG_60s_Agreement_with_Ireland
@@ -1121,7 +1545,20 @@ focus_tree = {
 		}
 		x = 48
 		y = 1
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = IRE
+									modifier = large_increase
+								}
+						}
+					IRE = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Maintain_Special_relationship
@@ -1135,7 +1572,20 @@ focus_tree = {
 		}
 		x = 46
 		y = 2
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = small_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Strategic_partnership
@@ -1146,7 +1596,20 @@ focus_tree = {
 		}
 		x = 45
 		y = 3
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Distrust_of_communism
@@ -1157,7 +1620,20 @@ focus_tree = {
 		}
 		x = 47
 		y = 3
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_decrease
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Sanctions_on_Communist_countries
@@ -1171,7 +1647,17 @@ focus_tree = {
 		}
 		x = 46
 		y = 4
-
+		completion_reward = {
+			every_country = {
+				limit = {
+					is_in_faction_with = SOV
+				}
+				reverse_add_opinion_modifier = {
+					target = ENG
+					modifier = trade_sanctions
+				}
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Away_from_America
@@ -1185,7 +1671,20 @@ focus_tree = {
 		}
 		x = 50
 		y = 2
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_New_European_military_alliance
@@ -1196,7 +1695,21 @@ focus_tree = {
 		}
 		x = 49
 		y = 3
-
+				completion_reward = {
+					create_faction = "The European Defense Community"
+					FRA = { country_event = generic.2 }
+					BEL = { country_event = generic.2 }
+					HOL = { country_event = generic.2 }
+					DEN = { country_event = generic.2 }
+					NOR = { country_event = generic.2 }
+					SWE = { country_event = generic.2 }
+					FIN = { country_event = generic.2 }
+					ITA = { country_event = generic.2 }
+					POR = { country_event = generic.2 }
+					SPR = { country_event = generic.2 }
+					LUX = { country_event = generic.2 }
+					GRE = { country_event = generic.2 }
+				}	
 	}
 	focus = {
 		id = ENG_60s_Establish_relations_with_USSR
@@ -1207,7 +1720,20 @@ focus_tree = {
 		}
 		x = 51
 		y = 3
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Isolationist_path
@@ -1221,7 +1747,10 @@ focus_tree = {
 		}
 		x = 50
 		y = 4
-
+		completion_reward = {
+			add_political_power = 100
+			add_ideas = deterrence
+		}
 	}
 	focus = {
 		id = ENG_60s_Deindustrialisation
@@ -1232,7 +1761,10 @@ focus_tree = {
 		}
 		x = 54
 		y = 1
-
+		completion_reward = {
+			add_political_power = 100
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = ENG_60s_Fight_against_stagnation
@@ -1243,7 +1775,69 @@ focus_tree = {
 		}
 		x = 54
 		y = 2
+		completion_reward = {
 
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Create_NEDC
@@ -1254,7 +1848,9 @@ focus_tree = {
 		}
 		x = 54
 		y = 3
-
+		completion_reward = {
+			add_ideas = National_Economic_Development_Council
+		}
 	}
 	focus = {
 		id = ENG_60s_Continue_on_industrialisation
@@ -1265,7 +1861,69 @@ focus_tree = {
 		}
 		x = 58
 		y = 1
+		completion_reward = {
 
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Develop_New_Factories
@@ -1276,7 +1934,69 @@ focus_tree = {
 		}
 		x = 58
 		y = 2
+		completion_reward = {
 
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Golden_age
@@ -1287,7 +2007,98 @@ focus_tree = {
 		}
 		x = 58
 		y = 3
-
+		completion_reward = {
+				random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}	
+				random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}	
+				random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}					
+		}
 	}
 	focus = {
 		id = ENG_60s_Declining_of_economy
@@ -1299,7 +2110,10 @@ focus_tree = {
 		}
 		x = 56
 		y = 4
-
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = -100
+		}
 	}
 	focus = {
 		id = ENG_60s_Recovery_plans
@@ -1310,7 +2124,38 @@ focus_tree = {
 		}
 		x = 56
 		y = 5
-
+		completion_reward = {
+				random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}					
+		}
 	}
 	focus = {
 		id = ENG_60s_Close_the_problematic_factories
@@ -1324,7 +2169,10 @@ focus_tree = {
 		}
 		x = 59
 		y = 6
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.10
+		}
 	}
 	focus = {
 		id = ENG_60s_Take_loans_from_EEU
@@ -1338,7 +2186,43 @@ focus_tree = {
 		}
 		x = 53
 		y = 6
-
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = -150
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}			
+		}
 	}
 	focus = {
 		id = ENG_60s_New_economic_policy
@@ -1349,7 +2233,11 @@ focus_tree = {
 		}
 		x = 59
 		y = 7
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 2
+			}	
+		}
 	}
 	focus = {
 		id = ENG_60s_Focus_on_infrastructure
@@ -1360,7 +2248,78 @@ focus_tree = {
 		}
 		x = 59
 		y = 8
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 2
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}
+							set_state_flag = SOV_improve_railway_3Inf
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 2
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}
+							set_state_flag = SOV_improve_railway_3Inf
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 2
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}
+							set_state_flag = SOV_improve_railway_3Inf
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 2
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}
+							set_state_flag = SOV_improve_railway_3Inf
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 2
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}
+							set_state_flag = SOV_improve_railway_3Inf
+						}
+					}
 	}
 	focus = {
 		id = ENG_60s_Increase_minimum_wage
@@ -1371,7 +2330,9 @@ focus_tree = {
 		}
 		x = 59
 		y = 9
-
+			completion_reward = {
+					add_ideas = increase_the_wages
+				}
 	}
 	focus = {
 		id = ENG_60s_Royal_Navy
@@ -1382,7 +2343,25 @@ focus_tree = {
 		}
 		x = 66
 		y = 1
-
+		completion_reward = {
+			navy_experience = 25
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+		}
 	}
 	focus = {
 		id = ENG_60s_Doctrine_question
@@ -1393,7 +2372,9 @@ focus_tree = {
 		}
 		x = 66
 		y = 2
-
+		completion_reward = {
+			navy_experience = 25
+		}
 	}
 	focus = {
 		id = ENG_60s_Large_battleships
@@ -1408,7 +2389,16 @@ focus_tree = {
 		}
 		x = 64
 		y = 3
-
+			completion_reward = {
+					navy_experience = 25
+					add_tech_bonus = {
+							name = capital_ships_bonus
+							bonus = 0.2
+							ahead_reduction = 1
+							uses = 1
+							category = bb_tech
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Reliance_on_Carriers
@@ -1423,7 +2413,16 @@ focus_tree = {
 		}
 		x = 66
 		y = 3
-
+			completion_reward = {
+					navy_experience = 25
+					add_tech_bonus = {
+							name = capital_ships_bonus
+							bonus = 0.25
+							ahead_reduction = 1
+							uses = 1
+							category = cv_tech
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_New_Naval_bombers
@@ -1434,7 +2433,16 @@ focus_tree = {
 		}
 		x = 66
 		y = 4
-
+			completion_reward = {
+					navy_experience = 25
+					add_tech_bonus = {
+							name = naval_bomber_bonus
+							bonus = 0.25
+							ahead_reduction = 1
+							uses = 1
+							category = naval_bomber
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Super_heavy_carrier
@@ -1445,7 +2453,16 @@ focus_tree = {
 		}
 		x = 66
 		y = 5
-
+			completion_reward = {
+					navy_experience = 25
+					add_tech_bonus = {
+							name = capital_ships_bonus
+							bonus = 0.5
+							ahead_reduction = 1
+							uses = 1
+							category = cv_tech
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Submarine_doctrine
@@ -1460,7 +2477,15 @@ focus_tree = {
 		}
 		x = 68
 		y = 3
-
+			completion_reward = {
+					navy_experience = 5
+					add_tech_bonus = {
+							name = submarine_tech_bonus
+							bonus = 0.25
+							uses = 1
+							category = ss_tech
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_New_torpedoes
@@ -1471,7 +2496,15 @@ focus_tree = {
 		}
 		x = 68
 		y = 4
-
+			completion_reward = {
+					navy_experience = 5
+					add_tech_bonus = {
+							name = submarine_tech_bonus
+							bonus = 0.25
+							uses = 1
+							category = ss_tech
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Development_of_Nuclear_submarines
@@ -1482,7 +2515,15 @@ focus_tree = {
 		}
 		x = 68
 		y = 5
-
+			completion_reward = {
+					navy_experience = 5
+					add_tech_bonus = {
+							name = submarine_tech_bonus
+							bonus = 0.5
+							uses = 1
+							category = ss_tech
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Royal_Army
@@ -1493,7 +2534,9 @@ focus_tree = {
 		}
 		x = 72
 		y = 1
-
+		completion_reward = {
+			army_experience = 25
+		}
 	}
 	focus = {
 		id = ENG_60s_Reorganisation_of_Army
@@ -1504,7 +2547,10 @@ focus_tree = {
 		}
 		x = 72
 		y = 2
-
+		completion_reward = {
+			army_experience = 25
+			add_manpower = 100000
+		}
 	}
 	focus = {
 		id = ENG_60s_Extensive_planning_before_fight
@@ -1518,7 +2564,14 @@ focus_tree = {
 		}
 		x = 70
 		y = 3
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = doctrine_bonus
+				bonus = 0.5
+				uses = 3
+				category = cat_grand_battle_plan
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Blitzkrieg_Tactics
@@ -1533,7 +2586,14 @@ focus_tree = {
 		}
 		x = 72
 		y = 3
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = doctrine_bonus
+				bonus = 0.5
+				uses = 2
+				category = cat_mobile_warfare
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Modernise_our_tanks
@@ -1544,7 +2604,9 @@ focus_tree = {
 		}
 		x = 72
 		y = 4
-
+		completion_reward = {
+			add_ideas = fra_armor_bonus
+		}
 	}
 	focus = {
 		id = ENG_60s_Effectiveness_of_Blitzkrieg
@@ -1555,7 +2617,14 @@ focus_tree = {
 		}
 		x = 72
 		y = 5
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = doctrine_bonus
+				bonus = 0.5
+				uses = 2
+				category = cat_mobile_warfare
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Rely_on_numbers
@@ -1569,7 +2638,14 @@ focus_tree = {
 		}
 		x = 74
 		y = 3
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = doctrine_bonus
+				bonus = 0.5
+				uses = 2
+				category = cat_mass_assault
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Mass_conscription
@@ -1580,7 +2656,9 @@ focus_tree = {
 		}
 		x = 74
 		y = 4
-
+		completion_reward = {
+			add_ideas = extensive_conscription
+		}
 	}
 	focus = {
 		id = ENG_60s_Conscription_from_Commonwealth
@@ -1591,7 +2669,9 @@ focus_tree = {
 		}
 		x = 74
 		y = 5
-
+		completion_reward = {
+			add_manpower = 300000
+		}
 	}
 	focus = {
 		id = ENG_60s_Royal_Airforce
@@ -1602,7 +2682,15 @@ focus_tree = {
 		}
 		x = 80
 		y = 1
-
+			completion_reward = {
+					air_experience = 25
+					add_tech_bonus = {
+							name = light_air_bonus
+							bonus = 0.25
+							uses = 1
+							category = light_air
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_New_airfields
@@ -1613,7 +2701,63 @@ focus_tree = {
 		}
 		x = 80
 		y = 2
-
+			completion_reward = {
+					air_experience = 25
+					if = {
+							limit = {
+									capital_scope = {
+											NOT = {
+													free_building_slots = {
+															building = air_base
+															size > 1
+														}
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					if = {
+							limit = {
+									capital_scope = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+								}
+							capital_scope = {
+									add_building_construction = {
+											type = air_base
+											level = 2
+											instant_build = yes
+										}
+									ROOT = {
+											set_country_flag = aviation_effort_AB
+										}
+								}
+						}
+					add_tech_bonus = {
+							name = air_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = air_doctrine
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Fighters
@@ -1627,7 +2771,15 @@ focus_tree = {
 		}
 		x = 78
 		y = 3
-
+			completion_reward = {
+					air_experience = 5
+					add_tech_bonus = {
+							name = jet_technology_bonus
+							bonus = 0.5
+							uses = 1
+							category = jet_technology
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Garnisons_in_Kenya
@@ -1641,7 +2793,10 @@ focus_tree = {
 		}
 		x = 8
 		y = 5
-
+		completion_reward = {
+			add_manpower = 100000
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 		id = ENG_60s_Economic_reforms
@@ -1652,7 +2807,69 @@ focus_tree = {
 		}
 		x = 2
 		y = 13
+		completion_reward = {
 
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Alliance_with_Spain
@@ -1666,7 +2883,20 @@ focus_tree = {
 		}
 		x = 8
 		y = 7
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = SPR
+									modifier = large_increase
+								}
+						}
+					SPR = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}	
+		}
 	}
 	focus = {
 		id = ENG_60s_Rightist_military_alliance
@@ -1680,7 +2910,19 @@ focus_tree = {
 		}
 		x = 6
 		y = 8
-
+		available = {
+			SPR = {
+				has_government = fascism
+				is_in_faction = no	
+			}
+		}	
+		completion_reward = {
+			SPR = {
+				create_faction = "The Concordat"
+				add_to_faction = ENG
+			}
+			
+		}
 	}
 	focus = {
 		id = ENG_60s_Common_goal
@@ -1694,7 +2936,9 @@ focus_tree = {
 		}
 		x = 10
 		y = 8
-
+		completion_reward = {
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = ENG_60s_Tighten_belts_on_Commonwealth
@@ -1705,7 +2949,12 @@ focus_tree = {
 		}
 		x = 11
 		y = 9
-
+		completion_reward = {
+			CAN = { country_event = commonwealth.100 }
+			AST = { country_event = commonwealth.100 }
+			NZL = { country_event = commonwealth.100 }
+			SAF = { country_event = commonwealth.100 }
+		}
 	}
 	focus = {
 		id = ENG_60s_Propaganda_machines_against_USSR
@@ -1716,7 +2965,19 @@ focus_tree = {
 		}
 		x = 9
 		y = 9
-
+		completion_reward = {
+			BLR = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+			LIT = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+			LAT = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+			EST = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+			UKR = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+			POL = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+			HUN = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+			ROM = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+			DDR = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+			CZE = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+			SOV = { add_timed_idea = { idea = reactionary_drift days = 900 } }
+		}  
 	}
 	focus = {
 		id = ENG_60s_Fund_rebellions_in_communist_countries
@@ -1730,7 +2991,18 @@ focus_tree = {
 		}
 		x = 10
 		y = 10
-
+		completion_reward = {
+			BLR = { start_civil_war = { ideology = neutrality size = 0.5 }	}
+			LIT = { start_civil_war = { ideology = neutrality size = 0.5 }	}
+			LAT = { start_civil_war = { ideology = neutrality size = 0.5 }	}
+			EST = { start_civil_war = { ideology = neutrality size = 0.5 }	}
+			UKR = { start_civil_war = { ideology = neutrality size = 0.5 }	}
+			POL = { start_civil_war = { ideology = neutrality size = 0.5 }	}
+			HUN = { start_civil_war = { ideology = neutrality size = 0.5 }	}
+			ROM = { start_civil_war = { ideology = neutrality size = 0.5 }	}
+			DDR = { start_civil_war = { ideology = neutrality size = 0.5 }	}
+			CZE = { start_civil_war = { ideology = neutrality size = 0.5 }	}
+		}
 	}
 	focus = {
 		id = ENG_60s_Snap_elections
@@ -1741,7 +3013,9 @@ focus_tree = {
 		}
 		x = 17
 		y = 10
-
+		completion_reward = {
+			add_political_power = 150
+		}	
 	}
 	focus = {
 		id = ENG_60s_Labour_gets_majority
@@ -1755,7 +3029,12 @@ focus_tree = {
 		}
 		x = 16
 		y = 11
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = socialist
+				elections_allowed = yes
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Conservaties_get_majority
@@ -1769,7 +3048,12 @@ focus_tree = {
 		}
 		x = 18
 		y = 11
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = conservative
+				elections_allowed = yes
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Montgomery
@@ -1783,7 +3067,14 @@ focus_tree = {
 		}
 		x = 24
 		y = 10
+		completion_reward = {
+			create_country_leader = {
+				name = "Bernard Montgomery"
+				picture = "Portrait_ENG_Montgomery.dds"
+				ideology = military_junta
+			}
 
+		}
 	}
 	focus = {
 		id = ENG_60s_Call_Edward_as_new_king
@@ -1794,7 +3085,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 11
-
+		completion_reward = {
+			add_ideas = ENG_king_edward_fascism
+		}
 	}
 	focus = {
 		id = ENG_60s_Monarchy_in_shadow
@@ -1805,7 +3098,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 12
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = ENG_60s_Coronation
@@ -1816,7 +3111,10 @@ focus_tree = {
 		}
 		x = 24
 		y = 13
-
+		completion_reward = {
+			add_political_power = 100
+			news_event = coronation.100
+		}
 	}
 	focus = {
 		id = ENG_60s_Coalition_with_Mosley
@@ -1830,7 +3128,16 @@ focus_tree = {
 		}
 		x = 22
 		y = 14
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}
+			add_timed_idea = {
+				idea = nationalism
+				days = 900
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Civilian_government
@@ -1844,7 +3151,12 @@ focus_tree = {
 		}
 		x = 26
 		y = 14
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = yes
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Gain_support_in_NATO
@@ -1855,7 +3167,21 @@ focus_tree = {
 		}
 		x = 26
 		y = 15
-
+		completion_reward = {
+			add_ideas = nato_member
+					USA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+		}
 	}
 	focus = {
 		id = ENG_60s_Eternal_government
@@ -1866,7 +3192,10 @@ focus_tree = {
 		}
 		x = 26
 		y = 16
-
+		completion_reward = {
+			add_stability = 0.25
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = ENG_60s_Allow_elections
@@ -1877,7 +3206,12 @@ focus_tree = {
 		}
 		x = 28
 		y = 15
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = yes
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Lift_Martial_law
@@ -1888,7 +3222,10 @@ focus_tree = {
 		}
 		x = 28
 		y = 16
-
+		completion_reward = {
+			remove_ideas = repression
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = ENG_60s_Our_way
@@ -1902,7 +3239,10 @@ focus_tree = {
 		}
 		x = 32
 		y = 14
-
+		completion_reward = {
+			add_war_support = 0.1
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = ENG_60s_Execute_Labour_politicians
@@ -1913,7 +3253,12 @@ focus_tree = {
 		}
 		x = 32
 		y = 15
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = repression
+				days = 365
+			}
+		}	
 	}
 	focus = {
 		id = ENG_60s_Imprison_the_Opposition
@@ -1924,7 +3269,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 16
-
+		completion_reward = {
+			add_ideas = gulag_politic
+		}
 	}
 	focus = {
 		id = ENG_60s_Birmingham_conference
@@ -1935,7 +3282,10 @@ focus_tree = {
 		}
 		x = 22
 		y = 15
-
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = { ideology = fascism popularity = 0.1 }	
+		}
 	}
 	focus = {
 		id = ENG_60s_One_king_two_Prime_Ministers
@@ -1946,7 +3296,10 @@ focus_tree = {
 		}
 		x = 22
 		y = 16
-
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.1 }	
+			add_popularity = { ideology = neutrality popularity = 0.1 }	
+		}
 	}
 	focus = {
 		id = ENG_60s_Keep_our_path
@@ -1957,7 +3310,71 @@ focus_tree = {
 		}
 		x = 53
 		y = 7
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = ENG_60s_Bombers
@@ -1971,7 +3388,15 @@ focus_tree = {
 		}
 		x = 82
 		y = 3
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = bomber_bonus
+							bonus = 0.5
+							uses = 2
+							category = cat_strategic_bomber
+							category = tactical_bomber
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Focus_on_Civilian_factories
@@ -1982,7 +3407,71 @@ focus_tree = {
 		}
 		x = 53
 		y = 8
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = ENG_60s_Close_US_embassies_in_Britain
@@ -1993,7 +3482,21 @@ focus_tree = {
 		}
 		x = 5
 		y = 9
-
+			completion_reward = {
+				remove_ideas = nato_member
+					USA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Bigger_models
@@ -2004,7 +3507,16 @@ focus_tree = {
 		}
 		x = 64
 		y = 4
-
+			completion_reward = {
+					navy_experience = 25
+					add_tech_bonus = {
+							name = capital_ships_bonus
+							bonus = 0.2
+							ahead_reduction = 1
+							uses = 1
+							category = bb_tech
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Steel_production_at_Wales
@@ -2016,7 +3528,14 @@ focus_tree = {
 		}
 		x = 56
 		y = 9
-
+		completion_reward = {
+			122 = {
+				add_resource = {
+					type = steel
+					amount = 50
+				}			
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_New_oil_wells
@@ -2027,7 +3546,13 @@ focus_tree = {
 		}
 		x = 56
 		y = 10
-
+			completion_reward = {
+				random_owned_state = {
+					add_resource = {
+							type = oil
+							amount = 50
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Increase_value_of_pound
@@ -2038,7 +3563,71 @@ focus_tree = {
 		}
 		x = 53
 		y = 9
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = ENG_60s_Usage_of_early_computers
@@ -2049,8 +3638,15 @@ focus_tree = {
 		}
 		x = 70
 		y = 4
-
-	}
+		completion_reward = {
+			add_tech_bonus = {
+				name = computing_bonus
+				bonus = 0.5
+				uses = 2
+				category = computing_tech
+			}
+		}
+	} 
 	focus = {
 		id = ENG_60s_Invite_Middle_Eastern_dictatorships
 		icon = GFX_goal_unknown
@@ -2060,7 +3656,11 @@ focus_tree = {
 		}
 		x = 7
 		y = 9
-
+		completion_reward = {
+			IRQ = { country_event = generic.2 }
+			EGY = { country_event = generic.2 }
+			SYR = { country_event = generic.2 }
+		}
 	}
 	focus = {
 		id = ENG_60s_Support_South_Korean_dictator
@@ -2074,7 +3674,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 10
-
+		completion_reward = {
+			KOR = { country_event = generic.2 }
+		}
 	}
 	focus = {
 		id = ENG_60s_Crusade_against_Communism
@@ -2086,7 +3688,9 @@ focus_tree = {
 		}
 		x = 8
 		y = 11
-
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = SOV }	
+		}
 	}
 	focus = {
 		id = ENG_60s_Britannia_rules_the_waves
@@ -2097,7 +3701,25 @@ focus_tree = {
 		}
 		x = 64
 		y = 5
-
+			completion_reward = {
+					add_ideas = RuleBritannia
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+				}
 	}
 	focus = {
 		id = ENG_60s_Multirole_fighters
@@ -2108,7 +3730,14 @@ focus_tree = {
 		}
 		x = 78
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = light_air_bonus
+							bonus = 0.5
+							uses = 1
+							category = light_air 
+						}
+					}
 	}
 	focus = {
 		id = ENG_60s_Faster_bombers
@@ -2119,7 +3748,15 @@ focus_tree = {
 		}
 		x = 82
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = bomber_bonus
+							bonus = 0.5
+							uses = 1
+							category = tactical_bomber
+							category = cat_strategic_bomber
+						}
+					}
 	}
 	focus = {
 		id = ENG_60s_Shelling_of_artillery
@@ -2130,7 +3767,15 @@ focus_tree = {
 		}
 		x = 70
 		y = 5
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = artillery_bonus
+							bonus = 0.5
+							uses = 1
+							category = artillery
+							category = rocketry
+						}
+					}
 	}
 	focus = {
 		id = ENG_60s_Export_new_models_to_NATO
@@ -2141,7 +3786,75 @@ focus_tree = {
 		}
 		x = 78
 		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							name = light_air_bonus
+							bonus = 0.5
+							uses = 1
+							category = light_air 
+						}
 
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Research_on_Napalm
@@ -2152,7 +3865,16 @@ focus_tree = {
 		}
 		x = 82
 		y = 5
-
+			completion_reward = {
+					navy_experience = 25
+					add_tech_bonus = {
+							name = chemical_Weapons
+							bonus = 0.5
+							ahead_reduction = 1
+							uses = 1
+							category = chemical_weapon
+						}
+				}
 	}
 	focus = {
 		id = ENG_60s_Reorganised_Navy
@@ -2165,7 +3887,9 @@ focus_tree = {
 		}
 		x = 66
 		y = 6
-
+		completion_reward = {
+			navy_experience = 25
+		}
 	}
 	focus = {
 		id = ENG_60s_Reorganised_Army
@@ -2178,7 +3902,9 @@ focus_tree = {
 		}
 		x = 72
 		y = 6
-
+		completion_reward = {
+			army_experience = 25
+		}
 	}
 	focus = {
 		id = ENG_60s_Reorganised_RAF
@@ -2190,7 +3916,9 @@ focus_tree = {
 		}
 		x = 80
 		y = 6
-
+		completion_reward = {
+			air_experience = 25
+		}
 	}
 	focus = {
 		id = ENG_60s_We_are_safe
@@ -2207,7 +3935,13 @@ focus_tree = {
 		}
 		x = 72
 		y = 7
-
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.1
+			army_experience = 25
+			navy_experience = 25
+			air_experience = 25
+		}
 	}
 	focus = {
 		id = ENG_60s_Aid_the_Rhodesian_Struggle
@@ -2218,7 +3952,22 @@ focus_tree = {
 		}
 		x = 7
 		y = 6
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = ZIM
+									modifier = large_increase
+								}
+						}
+					ZIM = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+								add_manpower = 100000
+								add_ideas = british_advisors
+						}	
+		}
 	}
 	focus = {
 		id = ENG_60s_Rappoachment_with_South_Africa
@@ -2229,7 +3978,20 @@ focus_tree = {
 		}
 		x = 9
 		y = 6
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = large_increase
+								}
+						}
+					SAF = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}	
+		}
 	}
 	focus = {
 		id = ENG_60s_Radical_Victory
@@ -2243,7 +4005,12 @@ focus_tree = {
 		}
 		x = 18
 		y = 7
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = trotskyism
+				elections_allowed = no
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Reduce_Voting_Age_to_18
@@ -2254,7 +4021,10 @@ focus_tree = {
 		}
 		x = 11
 		y = 15
-
+		completion_reward = {
+			add_political_power = 150
+			add_popularity = { ideology = democratic popularity = 0.03 }	
+		}
 	}
 	focus = {
 		id = ENG_60s_Increase_Education_Budget
@@ -2268,7 +4038,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 16
-
+			completion_reward = {
+					add_ideas = KOR_education_reform
+				}
 	}
 	focus = {
 		id = ENG_60s_Increased_Social_Welfare_Spending
@@ -2282,7 +4054,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 16
-
+		completion_reward = {
+			add_ideas = the_american_welfare_state
+		}	
 	}
 	focus = {
 		id = ENG_60s_Urban_Renewal
@@ -2296,7 +4070,11 @@ focus_tree = {
 		}
 		x = 16
 		y = 17
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = ENG_60s_Criminal_Justice_Act
@@ -2310,7 +4088,9 @@ focus_tree = {
 		}
 		x = 15
 		y = 16
-
+		completion_reward = {
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = ENG_60s_Limit_Immigration
@@ -2324,7 +4104,10 @@ focus_tree = {
 		}
 		x = 16
 		y = 15
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.1
+		}
 	}
 	focus = {
 		id = ENG_60s_Economic_Slowdown
@@ -2338,7 +4121,10 @@ focus_tree = {
 		}
 		x = 14
 		y = 17
-
+		completion_reward = {
+			add_stability = -0.05
+			add_war_support = -0.05
+		}
 	}
 	focus = {
 		id = ENG_60s_Local_Government_Act
@@ -2349,7 +4135,10 @@ focus_tree = {
 		}
 		x = 6
 		y = 13
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = ENG_60s_Crackdown_on_Labour_Unions
@@ -2363,6 +4152,9 @@ focus_tree = {
 		}
 		x = 5
 		y = 14
-
+		completion_reward = {
+			add_popularity = { ideology = communism popularity = -0.03 }	
+			add_stability = -0.05
+		}
 	}
 }
