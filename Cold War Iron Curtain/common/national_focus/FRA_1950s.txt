@@ -364,6 +364,11 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_ration
 		}
+		available = {
+			NOT = {
+				has_government = communism
+			}
+		}
 		x = 3
 		y = 2
 		completion_reward = {
@@ -377,6 +382,11 @@ focus_tree = {
 		cost = 10
 		prerequisite = {
 			focus = FRA_marshall
+		}
+		available = {
+			NOT = {
+				has_government = communism
+			}
 		}
 		x = 3
 		y = 3
@@ -882,6 +892,9 @@ focus_tree = {
 				popularity = 0.3
 			}
 			set_politics = { ruling_party = communism }
+			remove_ideas = nato_member
+			if = { limit = { has_idea = fra_amhelp_1 } remove_ideas = fra_amhelp_1 }
+			if = { limit = { has_idea = fra_amhelp_2 } remove_ideas = fra_amhelp_2 }
 		}
 		ai_will_do = {
 			factor = 1
