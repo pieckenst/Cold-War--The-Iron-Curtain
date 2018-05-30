@@ -133,20 +133,24 @@ give_military_access = NOR
 give_military_access = POR
 give_military_access = FRA
 give_military_access = DEN
+1945.1.1 = {
+	if = {
+		limit = {
+			has_dlc = "Together for Victory"
+		}
+		set_autonomy = {
+			target = INS
+			autonomous_state = autonomy_colony
+			freedom_level = 0.7
+		}
 
-if = {
-	limit = {
-		has_dlc = "Together for Victory"
+		else = {
+			puppet = INS
+		}
 	}
-	set_autonomy = {
-		target = INS
-		autonomous_state = autonomy_colony
-		freedom_level = 0.7
-	}
-
-	else = {
-		puppet = INS
-	}
+}
+1949.1.1 = {
+	set_autonomy = { target = INS autonomy_state = autonomy_free }	
 }
 add_ideas = {
 	population_growth_steady
