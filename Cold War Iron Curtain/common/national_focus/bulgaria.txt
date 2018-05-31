@@ -998,7 +998,7 @@ focus_tree = {
 
 	}
 	focus = {
-		id = BUL_reject_soviet_aviation_officers
+		id = BUL_train_with_soviet_aviation_officers
 		icon = GFX_goal_generic_air_doctrine
 		cost = 10.00
 		prerequisite = {
@@ -1010,17 +1010,17 @@ focus_tree = {
 		x = 15
 		y = 3
 			completion_reward = {
-					air_experience = 10
+					air_experience = 25
 					BUL = {
 							add_opinion_modifier = {
 									target = SOV
-									modifier = large_decrease
+									modifier = small_increase
 								}
 						}
 					SOV = {
 							add_opinion_modifier = {
 									target = BUL
-									modifier = large_decrease
+									modifier = small_increase
 								}
 						}
 				}
@@ -1922,6 +1922,9 @@ focus_tree = {
 		prerequisite = {
 			focus = BUL_rapid_industrialization
 		}
+		mutually_exclusive = {
+			focus = BUL_secretly_aid_the_goryani
+		}
 		x = 37
 		y = 1
 		completion_reward = {
@@ -1965,9 +1968,6 @@ focus_tree = {
 		prerequisite = {
 			focus = BUL_crush_the_Goryani
 		}
-		mutually_exclusive = {
-			focus = BUL_consolidate_power
-		}
 		x = 36
 		y = 4
 			completion_reward = {
@@ -2004,6 +2004,9 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = BUL_destalinization
+		}
+		mutually_exclusive = {
+			focus = BUL_bulgarian-soviet_split
 		}
 		x = 33
 		y = 5
@@ -2083,9 +2086,6 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = BUL_prc_advisors
-		}
-		mutually_exclusive = {
-			focus = BUL_embrace_destalinization
 		}
 		x = 37
 		y = 8
@@ -2394,7 +2394,6 @@ focus_tree = {
 		x = 43
 		y = 5
 		completion_reward = {
-			set_autonomy = { target = BUL autonomy_state = autonomy_free }
 			set_politics = { ruling_party = monarchism elections_allowed = no }	
 			add_ideas = monarchist_influence
 		}
@@ -2412,7 +2411,6 @@ focus_tree = {
 		x = 45
 		y = 5
 		completion_reward = {
-			set_autonomy = { target = BUL autonomy_state = autonomy_free }
 			set_politics = { ruling_party = democratic elections_allowed = yes }	
 		}
 	}
@@ -2560,7 +2558,7 @@ focus_tree = {
 		icon = GFX_goal_generic_build_airforce
 		cost = 10.00
 		prerequisite = {
-			focus = BUL_reject_soviet_aviation_officers
+			focus = BUL_train_with_soviet_aviation_officers
 		}
 		x = 15
 		y = 4
@@ -2789,12 +2787,11 @@ focus_tree = {
 		prerequisite = {
 			focus = BUL_embrace_destalinization
 		}
-		mutually_exclusive = {
-			focus = BUL_social_liberalization
-		}
 		x = 33
 		y = 6
-
+		completion_reward = {
+			add_political_power = 160
+		}
 	}
 	focus = {
 		id = BUL_social_liberalization
@@ -2803,14 +2800,11 @@ focus_tree = {
 		prerequisite = {
 			focus = BUL_stay_the_course
 		}
-		mutually_exclusive = {
-			focus = BUL_stay_the_course
-		}
 		x = 33
 		y = 7
-			completion_reward = {
-					add_ideas = social_democracy_drift
-				}
+		completion_reward = {
+			add_timed_idea = { idea = social_democracy_drift days = 300 }
+		}
 	}
 	focus = {
 		id = BUL_spread_democratic_ideology
