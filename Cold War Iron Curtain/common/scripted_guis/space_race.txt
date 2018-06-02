@@ -69,7 +69,11 @@ scripted_gui = {
 				country_event = nasa_research.1
 			}
 			atlas_sm65a_rocket_tank_click = {
-				country_event = nasa_research.2
+				# country_event = nasa_research.2
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_event }
+				set_variable = { show_event = show }
+				set_country_flag = atlas_sm65a_rocket_tank
 			}
 			atlas_sm65a_rocket_engine_click = {
 				country_event = nasa_research.3
@@ -88,13 +92,53 @@ scripted_gui = {
 				}
 			}
 			atlas_sm65a_rocket_tank_click_enabled = {
-				has_tech = icbm1
+				NOT = { has_tech = icbm1 }
 			}
 			atlas_sm65a_rocket_engine_click_enabled = {
 				has_tech = icbm1
 			}
 			atlas_sm65a_booster_tank_click_enabled = {
 				has_tech = icbm1
+			}
+		}
+	}
+}
+
+scripted_gui = {
+	space_event_window = {
+
+		window_name = "space_event_window_container"
+
+		context_type = player_context
+		
+		visible = {
+            check_variable = { show_event > 0.0 }
+		}
+
+		effects = {
+			yes_button_click = {
+				if = {
+					limit = {
+						has_country_flag = atlas_sm65a_rocket_tank
+					}
+					hidden_effect = {
+						country_event = { id = nasa_research_upgrade.1 days = 30 random = 1 }
+					}
+				}
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_event }
+				set_variable = { show_event = show }
+			}
+			no_button_click = {
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_event }
+				set_variable = { show_event = show }
+			}
+		}
+
+		triggers = {
+			no_button_visible = {
+				NOT = { ROOT = { has_country_flag = atlas_sm65a_rocket_tank_done }
 			}
 		}
 	}
