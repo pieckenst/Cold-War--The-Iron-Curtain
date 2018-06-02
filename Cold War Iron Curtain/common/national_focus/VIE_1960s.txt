@@ -1613,15 +1613,54 @@ focus_tree = {
 		}
 		x = 23
 		y = 2
+		available = {
+			SOV = {
+				AND = {
+					has_tech = jet_multirole5
+					has_tech = jet_CAS5
+				}
+			}
+		}
 			completion_reward = {
+					if = { 
+						limit = {
+							SOV = {
+								AND = {
+									has_tech = jet_multirole5
+									has_tech = jet_CAS1
+								}
+							}
+						}
+						SOV = {
+							create_production_license = {
+								target = VIE
+								equipment = {
+									type = jet_CAS_equipment_1
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = VIE
+								equipment = {
+									type = jet_multirole_equipment_5
+								}
+								cost_factor = 0
+							}
+						}
+					}
 					add_equipment_to_stockpile = {
-							type = CAS_equipment_5
-							amount = 200
+							type = jet_CAS_equipment_5
+							amount = 50
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
-							type = jet_multirole_equipment_3
-							amount = 800
+							type = jet_multirole_equipment_5
+							amount = 190
+							producer = SOV
+						}
+					add_equipment_to_stockpile = {
+							type = jet_interceptor_equipment_2
+							amount = 40
 							producer = SOV
 						}
 				}
@@ -2075,13 +2114,13 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = CAS_equipment_5
-							amount = 200
+							type = CAS_equipment_4
+							amount = 50
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
-							type = jet_multirole_equipment_3
-							amount = 800
+							type = jet_multirole_equipment_5
+							amount = 191
 							producer = USA
 						}
 				}
@@ -2837,6 +2876,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = VIE_60s_Condemn_Japan
 		}
+		prerequisite = {
+			focus = VIE_60s_East_Asian_Politics
+		}
 		x = 74
 		y = 2
 			completion_reward = {
@@ -3339,7 +3381,7 @@ focus_tree = {
 		}
 		x = 51
 		y = 16
-		completion_reward = [
+		completion_reward = {
 			add_stability = 0.25
 			add_war_support = 0.15
 		}

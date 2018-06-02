@@ -213,8 +213,8 @@ focus_tree = {
 		icon = GFX_goal_support_democracy
 		cost = 10.00
 		mutually_exclusive = {
-			focus = GRE_1960s_soviet_alignment
 			focus = GRE_1960s_non_aligned
+			focus = GRE_1960s_soviet_alignment
 		}
 		x = 28
 		y = 0
@@ -235,19 +235,70 @@ focus_tree = {
 
 	}
 	focus = {
-		id = GRE_1960s_equipment_effort
-		icon = GFX_goal_generic_small_arms
+		id = GRE_60s_Rising_star
+		icon = GFX_focus_generic_the_giant_wakes
 		cost = 10.00
-		x = 9
-		y = 2
-			available_if_capitulated = yes
+		x = 50
+		y = 0
 			completion_reward = {
-					add_tech_bonus = {
-							name = infantry_weapons_bonus
-							bonus = 0.5
-							uses = 1
-							category = infantry_weapons
-							category = artillery
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Turbulent_times
+		icon = GFX_goal_BEL_FederalParliament
+		cost = 10.00
+		x = 59
+		y = 0
+			completion_reward = {
+					add_political_power = 150
+					add_stability = -0.10
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Papadopoulos_coup
+		icon = GFX_goal_generic_military_sphere
+		cost = 10.00
+		mutually_exclusive = {
+			focus = GRE_60s_Return_of_Communists
+		}
+		x = 71
+		y = 0
+			completion_reward = {
+					set_politics = {
+							ruling_party = neutrality
+							elections_allowed = no
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Return_of_Communists
+		icon = GFX_GFX_Communism3
+		cost = 10.00
+		mutually_exclusive = {
+			focus = GRE_60s_Papadopoulos_coup
+		}
+		x = 83
+		y = 0
+			completion_reward = {
+					set_politics = {
+							ruling_party = communism
+							elections_allowed = no
 						}
 				}
 
@@ -957,6 +1008,48 @@ focus_tree = {
 
 	}
 	focus = {
+		id = GRE_1960s_army_effort
+		icon = GFX_goal_generic_allies_build_infantry
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_1960s_non_aligned
+		}
+		x = 10
+		y = 1
+			available_if_capitulated = yes
+			completion_reward = {
+					army_experience = 5
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_1960s_equipment_effort
+		icon = GFX_goal_generic_small_arms
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_1960s_army_effort
+		}
+		x = 9
+		y = 2
+			available_if_capitulated = yes
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_weapons_bonus
+							bonus = 0.5
+							uses = 1
+							category = infantry_weapons
+							category = artillery
+						}
+				}
+
+	}
+	focus = {
 		id = GRE_1960s_equipment_effort_2
 		icon = GFX_goal_generic_army_artillery
 		cost = 10.00
@@ -994,27 +1087,6 @@ focus_tree = {
 							uses = 1
 							category = infantry_weapons
 							category = artillery
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_army_effort
-		icon = GFX_goal_generic_allies_build_infantry
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_non_aligned
-		}
-		x = 10
-		y = 1
-			available_if_capitulated = yes
-			completion_reward = {
-					army_experience = 5
-					add_tech_bonus = {
-							name = land_doc_bonus
-							bonus = 0.5
-							uses = 1
-							category = land_doctrine
 						}
 				}
 
@@ -1466,6 +1538,41 @@ focus_tree = {
 
 	}
 	focus = {
+		id = GRE_1960s_reform_officer_corps_2
+		icon = GFX_goal_generic_special_forces
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_1960s_special_forces
+		}
+		prerequisite = {
+			focus = GRE_1960s_rocket_effort
+		}
+		prerequisite = {
+			focus = GRE_1960s_special_forces
+		}
+		prerequisite = {
+			focus = GRE_1960s_rocket_effort
+		}
+		prerequisite = {
+			focus = GRE_1960s_special_forces
+		}
+		prerequisite = {
+			focus = GRE_1960s_rocket_effort
+		}
+		prerequisite = {
+			focus = GRE_1960s_special_forces
+		}
+		prerequisite = {
+			focus = GRE_1960s_rocket_effort
+		}
+		x = 12
+		y = 8
+			completion_reward = {
+					remove_ideas = incompetent_officer_corps
+				}
+
+	}
+	focus = {
 		id = GRE_1960s_soviet_advisors
 		icon = GFX_focus_generic_military_mission
 		cost = 10.00
@@ -1512,7 +1619,6 @@ focus_tree = {
 				}
 
 	}
-
 	focus = {
 		id = GRE_1960s_soviet_trainer_pilots
 		icon = GFX_goal_generic_air_doctrine
@@ -1882,7 +1988,6 @@ focus_tree = {
 		id = GRE_1960s_american_aircraft_training
 		icon = GFX_goal_generic_air_doctrine
 		cost = 10.00
-
 		prerequisite = {
 			focus = GRE_1960s_american_alignment
 		}
@@ -1959,7 +2064,6 @@ focus_tree = {
 		prerequisite = {
 			focus = GRE_1960s_american_doctrine
 		}
-
 		x = 26
 		y = 4
 			completion_reward = {
@@ -2442,41 +2546,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = GRE_1960s_reform_officer_corps_2
-		icon = GFX_goal_generic_special_forces
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_special_forces
-		}
-		prerequisite = {
-			focus = GRE_1960s_rocket_effort
-		}
-		prerequisite = {
-			focus = GRE_1960s_special_forces
-		}
-		prerequisite = {
-			focus = GRE_1960s_rocket_effort
-		}
-		prerequisite = {
-			focus = GRE_1960s_special_forces
-		}
-		prerequisite = {
-			focus = GRE_1960s_rocket_effort
-		}
-		prerequisite = {
-			focus = GRE_1960s_special_forces
-		}
-		prerequisite = {
-			focus = GRE_1960s_rocket_effort
-		}
-		x = 12
-		y = 8
-			completion_reward = {
-					remove_ideas = incompetent_officer_corps
-				}
-
-	}
-	focus = {
 		id = GRE_1960s_cruiser_effort
 		icon = GFX_goal_generic_navy_cruiser
 		cost = 10.00
@@ -2553,6 +2622,1057 @@ focus_tree = {
 
 	}
 	focus = {
+		id = GRE_60s_Improvements_of_infrastracture
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Rising_star
+		}
+		x = 47
+		y = 1
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Highway_Thessaloniki_Istanbul
+		icon = GFX_goal_tripartite_pact
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Improvements_of_infrastracture
+		}
+		x = 47
+		y = 2
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Modern_railways
+		icon = GFX_goal_generic_army_motorized
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Highway_Thessaloniki_Istanbul
+		}
+		x = 47
+		y = 3
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_encourage_tourism
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Rising_star
+		}
+		x = 49
+		y = 1
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_More_resorts_for_vacations
+		icon = GFX_goal_continuous_non_factory_construct
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_encourage_tourism
+		}
+		x = 49
+		y = 2
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_New_ski_resorts
+		icon = GFX_goal_continuous_repairments
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_More_resorts_for_vacations
+		}
+		x = 49
+		y = 3
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Economic_cooperation_with_neighbors
+		icon = GFX_SAU_develop_the_heavy_industry
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Rising_star
+		}
+		x = 51
+		y = 1
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Steel_factories
+		icon = GFX_focus_generic_steel
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Economic_cooperation_with_neighbors
+		}
+		x = 51
+		y = 2
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = steel
+									amount = 50
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Import_oil_from_Middle_East
+		icon = GFX_SAU_develop_ploesti_oil_fields
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Steel_factories
+		}
+		x = 51
+		y = 3
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = oil
+									amount = 25
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Promotion_of_Greek_culture
+		icon = GFX_goal_continuous_def_against_influence
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Rising_star
+		}
+		x = 53
+		y = 1
+			completion_reward = {
+					add_ideas = KOR_education_reform
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Rebuild_Hellenistic_monuments
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Promotion_of_Greek_culture
+		}
+		x = 53
+		y = 2
+			completion_reward = {
+					add_political_power = 150
+					add_war_support = 0.10
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Modern_and_ancient_culture
+		icon = GFX_goal_continuous_increase_nu
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Rebuild_Hellenistic_monuments
+		}
+		x = 53
+		y = 3
+			completion_reward = {
+					add_research_slot = 1
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Hellenic_economy_rises
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Modern_railways
+		}
+		prerequisite = {
+			focus = GRE_60s_New_ski_resorts
+		}
+		prerequisite = {
+			focus = GRE_60s_Import_oil_from_Middle_East
+		}
+		prerequisite = {
+			focus = GRE_60s_Modern_and_ancient_culture
+		}
+		x = 50
+		y = 4
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_1961_elections
+		icon = GFX_focus_generic_election 
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Turbulent_times
+		}
+		x = 59
+		y = 1
+			available = {
+					always = no
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Karamanlis
+		icon = GFX_karamanlis_election
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_1961_elections
+		}
+		mutually_exclusive = {
+			focus = GRE_60s_Papandreou
+		}
+		x = 56
+		y = 2
+			available = {
+					always = no
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Continued_reforms
+		icon = GFX_focus_generic_self_management
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Karamanlis
+		}
+		x = 56
+		y = 3
+			completion_reward = {
+					add_political_power = 150
+					add_stability = 0.05
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Women_rights
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Continued_reforms
+		}
+		x = 56
+		y = 4
+			completion_reward = {
+					add_ideas = womens_rights
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Royal_Counter_Coup_Attempt
+		icon = GFX_focus_rom_royal_dictatorship
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Papadopoulos_coup
+		}
+		x = 71
+		y = 1
+			completion_reward = {
+					add_political_power = 150
+					add_stability = -0.10
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Expel_royal_family
+		icon = GFX_focus_rom_abdicate
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Royal_Counter_Coup_Attempt
+		}
+		mutually_exclusive = {
+			focus = GRE_60s_De_jure_Monarchy
+			focus = GRE_60s_Successful_Counter_Coup
+		}
+		x = 65
+		y = 2
+			completion_reward = {
+					add_stability = -0.05
+					add_political_power = 300
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Proclaim_Hellenic_Republic
+		icon = GFX_Greek_Proclamation
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Expel_royal_family
+		}
+		x = 64
+		y = 3
+			completion_reward = {
+					set_cosmetic_tag = GRE_REPUBLIC
+					add_political_power = 150
+				}
+
+	}
+	focus = {
+		id = GRE_60s_De_jure_Monarchy
+		icon = GFX_focus_generic_home_defense
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Royal_Counter_Coup_Attempt
+		}
+		mutually_exclusive = {
+			focus = GRE_60s_Expel_royal_family
+			focus = GRE_60s_Successful_Counter_Coup
+		}
+		x = 77
+		y = 2
+			completion_reward = {
+					add_stability = 0.05
+					add_political_power = 150
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Press_censorship
+		icon = GFX_GFX_Communism7
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Expel_royal_family
+			focus = GRE_60s_De_jure_Monarchy
+		}
+		x = 66
+		y = 3
+			completion_reward = {
+					add_ideas = press_censorship_5
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Militarised_economy
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Press_censorship
+		}
+		x = 66
+		y = 4
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Oust_opposition
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Militarised_economy
+		}
+		x = 66
+		y = 5
+			completion_reward = {
+					add_political_power = 150
+					add_timed_idea = {
+							idea = repression
+							days = 365
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Gizikis_as_new_head_of_state
+		icon = GFX_focus_generic_military_mission
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Oust_opposition
+		}
+		x = 66
+		y = 6
+			completion_reward = {
+					create_country_leader = {
+							name = "Phaedon Gizikis"
+							picture = "Portrait_Phaedon_Gizikis.dds"
+							ideology = military_junta
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Successful_Counter_Coup
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Royal_Counter_Coup_Attempt
+		}
+		mutually_exclusive = {
+			focus = GRE_60s_Expel_royal_family
+			focus = GRE_60s_De_jure_Monarchy
+		}
+		x = 71
+		y = 2
+			completion_reward = {
+					add_stability = 0.10
+					set_politics = {
+							ruling_party = monarchism
+							elections_allowed = no
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Restore_Democratic_Rule
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Successful_Counter_Coup
+		}
+		mutually_exclusive = {
+			focus = GRE_60s_Absolute_Monarchy
+		}
+		x = 69
+		y = 3
+			completion_reward = {
+					set_politics = {
+							ruling_party = monarchism
+							elections_allowed = yes
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Appoint_Karamanlis_as_PM
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Restore_Democratic_Rule
+		}
+		x = 69
+		y = 4
+			completion_reward = {
+					set_politics = {
+							ruling_party = Liberal_Conservatism
+							elections_allowed = yes
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Reinstate_Liberal_Reforms
+		icon = GFX_focus_generic_self_management
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Appoint_Karamanlis_as_PM
+		}
+		x = 68
+		y = 5
+			completion_reward = {
+					add_ideas = rights_for_people
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Absolute_Monarchy
+		icon = GFX_focus_rom_royal_dictatorship
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Successful_Counter_Coup
+		}
+		mutually_exclusive = {
+			focus = GRE_60s_Restore_Democratic_Rule
+		}
+		x = 73
+		y = 3
+			completion_reward = {
+					add_ideas = ideological_fanaticism_focus
+					add_political_power = 150
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Junta_Trials
+		icon = GFX_focus_generic_military_academy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Restore_Democratic_Rule
+			focus = GRE_60s_Absolute_Monarchy
+		}
+		x = 71
+		y = 4
+			completion_reward = {
+					add_political_power = 150
+					add_stability = 0.10
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Purge_the_Military
+		icon = GFX_focus_RAJ_indian_gurkhas
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Junta_Trials
+		}
+		x = 71
+		y = 5
+			completion_reward = {
+					army_experience = -50
+					add_political_power = 150
+					add_manpower = -2500
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Reward_the_Navy_and_Airforce
+		icon = GFX_SAU_foreign_loans
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Purge_the_Military
+		}
+		x = 71
+		y = 6
+			completion_reward = {
+					navy_experience = 25
+					air_experience = 25
+					random_owned_controlled_state = {
+							limit = {
+									is_coastal = yes
+									free_building_slots = {
+											building = dockyard
+											size > 2
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 3
+							add_building_construction = {
+									type = dockyard
+									level = 3
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Strengthen_Ties_to_the_Church
+		icon = GFX_GFX_protestant
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Absolute_Monarchy
+		}
+		x = 73
+		y = 4
+			completion_reward = {
+					add_stability = 0.15
+					add_political_power = 150
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Consolidate_our_Position
+		icon = GFX_goal_demand_sudetenland
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Strengthen_Ties_to_the_Church
+		}
+		x = 74
+		y = 5
+			completion_reward = {
+					add_stability = 0.15
+					add_political_power = 150
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Encourage_Traditionalism
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Consolidate_our_Position
+		}
+		x = 74
+		y = 6
+			completion_reward = {
+					add_ideas = traditional_culture
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Harder_stance_on_Cyprus
+		icon = GFX_goal_generic_propaganda
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Expel_royal_family
+			focus = GRE_60s_De_jure_Monarchy
+		}
+		x = 76
+		y = 3
+			completion_reward = {
+					GRE = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = small_decrease
+								}
+						}
+					TUR = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = small_decrease
+								}
+						}
+					GRE = {
+							add_opinion_modifier = {
+									target = CYP
+									modifier = small_decrease
+								}
+						}
+					CYP = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = small_decrease
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Hostilities_with_Turkey
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Harder_stance_on_Cyprus
+		}
+		x = 76
+		y = 4
+			completion_reward = {
+					GRE = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_decrease
+								}
+						}
+					TUR = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = large_decrease
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Ultimatum_to_Makarios
+		icon = GFX_focus_generic_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Hostilities_with_Turkey
+		}
+		x = 76
+		y = 5
+			completion_reward = {
+					CYP = {
+							country_event = CYP.1
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Push_for_unification
+		icon = GFX_focus_generic_diplomatic_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Ultimatum_to_Makarios
+		}
+		x = 76
+		y = 6
+			completion_reward = {
+					add_stability = 0.15
+					add_war_support = 0.15
+					add_political_power = 150
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Coup_against_Makarios
+		icon = GFX_goal_generic_military_sphere
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Gizikis_as_new_head_of_state
+			focus = GRE_60s_Reward_the_Navy_and_Airforce
+			focus = GRE_60s_Push_for_unification
+		}
+		x = 71
+		y = 7
+			bypass = {
+					NOT = {
+							country_exists = CYP
+						}
+				}
+			completion_reward = {
+					CYP = {
+							country_event = CYP.2
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_King_just_as_figure
+		icon = GFX_focus_generic_military_mission
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_De_jure_Monarchy
+		}
+		x = 78
+		y = 3
+			completion_reward = {
+					add_political_power = 150
+					add_stability = 0.05
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Execute_royalty
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Return_of_Communists
+		}
+		x = 83
+		y = 1
+			completion_reward = {
+					add_political_power = 150
+					add_stability = -0.15
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Divided_government
+		icon = GFX_goal_BEL_FederalParliament
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Execute_royalty
+		}
+		x = 83
+		y = 2
+			completion_reward = {
+					add_political_power = 300
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Maoists
+		icon = GFX_focus_prc_maoism
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Divided_government
+		}
+		mutually_exclusive = {
+			focus = GRE_60s_Stalinists
+			focus = GRE_60s_Titoists
+		}
+		x = 80
+		y = 3
+			completion_reward = {
+					set_politics = {
+							ruling_party = maoism
+							elections_allowed = no
+						}
+					add_timed_idea = {
+							idea = maoist_drift
+							days = 700
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Titoists
+		icon = GFX_goal_YUG_Proclamation
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Divided_government
+		}
+		mutually_exclusive = {
+			focus = GRE_60s_Maoists
+			focus = GRE_60s_Stalinists
+		}
+		x = 83
+		y = 3
+			completion_reward = {
+					set_politics = {
+							ruling_party = Social_Democratic
+							elections_allowed = no
+						}
+					add_timed_idea = {
+							idea = Market_Socialist_Drift
+							days = 700
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Compromise_about_Macedonia
+		icon = GFX_focus_generic_diplomatic_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Titoists
+		}
+		x = 83
+		y = 4
+			completion_reward = {
+					GRE = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = large_increase
+								}
+						}
+					YUG = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = large_increase
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Economic_Cooperation_with_Yugoslavia
+		icon = GFX_GFX_Paper
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Compromise_about_Macedonia
+		}
+		x = 83
+		y = 5
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Join_Non_Aligned_Movement
+		icon = GFX_goal_generic_defence
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Economic_Cooperation_with_Yugoslavia
+		}
+		x = 83
+		y = 6
+			completion_reward = {
+					YUG = {
+							add_to_faction = GRE
+						}
+				}
+
+	}
+	focus = {
 		id = GRE_1960s_extra_tech_slot_2
 		icon = GFX_focus_research
 		cost = 10.00
@@ -2585,7 +3705,6 @@ focus_tree = {
 		prerequisite = {
 			focus = GRE_1960s_soviet_army_doctrine
 		}
-
 		x = 19
 		y = 4
 			completion_reward = {
@@ -2801,1075 +3920,10 @@ focus_tree = {
 						}
 				}
 
-	}		
-	#Political
-	focus = {
-		id = GRE_60s_Rising_star
-		icon = GFX_goal_unknown
-		cost = 10.00
-		x = 50
-		y = 0
-			completion_reward = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Turbulent_times
-		icon = GFX_goal_unknown
-		cost = 10.00
-		x = 59
-		y = 0
-		completion_reward = {
-			add_political_power = 150
-			add_stability = -0.10
-		}
-	}
-	focus = {
-		id = GRE_60s_Papadopoulos_coup
-		icon = GFX_goal_unknown
-		cost = 10.00
-		mutually_exclusive = {
-			focus = GRE_60s_Return_of_Communists
-		}
-		x = 71
-		y = 0
-			completion_reward = {
-					set_politics = {
-							ruling_party = neutrality
-							elections_allowed = no
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Return_of_Communists
-		icon = GFX_goal_unknown
-		cost = 10.00
-		mutually_exclusive = {
-			focus = GRE_60s_Papadopoulos_coup
-		}
-		x = 83
-		y = 0
-			completion_reward = {
-					set_politics = {
-							ruling_party = communism
-							elections_allowed = no
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Improvements_of_infrastracture
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Rising_star
-		}
-		x = 47
-		y = 1
-			completion_reward = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Highway_Thessaloniki_Istanbul
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Improvements_of_infrastracture
-		}
-		x = 47
-		y = 2
-			completion_reward = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Modern_railways
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Highway_Thessaloniki_Istanbul
-		}
-		x = 47
-		y = 3
-			completion_reward = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Advanced_Tourism
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Rising_star
-		}
-		x = 49
-		y = 1
-			completion_reward = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_More_resorts_for_vacations
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Advanced_Tourism
-		}
-		x = 49
-		y = 2
-			completion_reward = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_New_ski_resorts
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_More_resorts_for_vacations
-		}
-		x = 49
-		y = 3
-			completion_reward = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 1
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Economic_cooperation_with_neighbors
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Rising_star
-		}
-		x = 51
-		y = 1
-			completion_reward = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Steel_factories
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Economic_cooperation_with_neighbors
-		}
-		x = 51
-		y = 2
-			completion_reward = {
-					random_owned_state = {
-							add_resource = {
-									type = steel
-									amount = 50
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Import_oil_from_Middle_East
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Steel_factories
-		}
-		x = 51
-		y = 3
-			completion_reward = {
-					random_owned_state = {
-							add_resource = {
-									type = oil
-									amount = 25
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Promotion_of_Greek_culture
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Rising_star
-		}
-		x = 53
-		y = 1
-		completion_reward = {
-			add_ideas = KOR_education_reform
-		}
-	}
-	focus = {
-		id = GRE_60s_Rebuild_Hellenistic_monuments
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Promotion_of_Greek_culture
-		}
-		x = 53
-		y = 2
-		completion_reward = {
-			add_political_power = 150
-			add_war_support = 0.10
-		}
-	}
-	focus = {
-		id = GRE_60s_Modern_and_ancient_culture
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Rebuild_Hellenistic_monuments
-		}
-		x = 53
-		y = 3
-		completion_reward = {
-			add_research_slot = 1
-		}	
-	}
-	focus = {
-		id = GRE_60s_Hellenic_economy_rises
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Modern_railways
-		}
-		prerequisite = {
-			focus = GRE_60s_New_ski_resorts
-		}
-		prerequisite = {
-			focus = GRE_60s_Import_oil_from_Middle_East
-		}
-		prerequisite = {
-			focus = GRE_60s_Modern_and_ancient_culture
-		}
-		x = 50
-		y = 4
-			completion_reward = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-							}
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-							}
-						}
-	}
-	focus = {
-		id = GRE_60s_1961_elections
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Turbulent_times
-		}
-		x = 59
-		y = 1
-		available = {
-			always = no
-		}
-	}
-	focus = {
-		id = GRE_60s_Royal_Counter_Coup_Attempt
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Papadopoulos_coup
-		}
-		x = 71
-		y = 1
-		completion_reward = {
-			add_political_power = 150
-			add_stability = -0.10
-		}
-	}
-	focus = {
-		id = GRE_60s_Expel_royal_family
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Royal_Counter_Coup_Attempt
-		}
-		mutually_exclusive = {
-			focus = GRE_60s_De_jure_Monarchy
-			focus = GRE_60s_Successful_Counter_Coup
-		}
-		x = 65
-		y = 2
-			completion_reward = {
-					add_stability = -0.05
-					add_political_power = 300
-				}
-	}
-	focus = {
-		id = GRE_60s_Proclaim_Hellenic_Republic
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Expel_royal_family
-		}
-		x = 64
-		y = 3
-		completion_reward = {
-			set_cosmetic_tag = GRE_REPUBLIC
-			add_political_power = 150
-		}
-	}
-	focus = {
-		id = GRE_60s_De_jure_Monarchy
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Royal_Counter_Coup_Attempt
-		}
-		mutually_exclusive = {
-			focus = GRE_60s_Expel_royal_family
-			focus = GRE_60s_Successful_Counter_Coup
-		}
-		x = 77
-		y = 2
-			completion_reward = {
-					add_stability = 0.05
-					add_political_power = 150
-				}
-	}
-	focus = {
-		id = GRE_60s_Press_censorship
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Expel_royal_family
-			focus = GRE_60s_De_jure_Monarchy
-		}
-		x = 66
-		y = 3
-			completion_reward = {
-					add_ideas = press_censorship_5
-				}
-	}
-	focus = {
-		id = GRE_60s_Militarised_economy
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Press_censorship
-		}
-		x = 66
-		y = 4
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = arms_factory
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = arms_factory
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = arms_factory
-									level = 2
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = arms_factory
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = arms_factory
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = arms_factory
-									level = 2
-									instant_build = yes
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Oust_opposition
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Militarised_economy
-		}
-		x = 66
-		y = 5
-		completion_reward = {
-			add_political_power = 150
-			add_timed_idea = {
-				idea = repression
-				days = 365
-			}	
-		}
-	}
-	focus = {
-		id = GRE_60s_Gizikis_as_new_head_of_state
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Oust_opposition
-		}
-		x = 66
-		y = 6
-		completion_reward = {
-			create_country_leader = { 
-				name = "Phaedon Gizikis"
-				picture = "Portrait_Phaedon_Gizikis.dds"
-				ideology = military_junta
-			}
-		
-		}
-	}
-	focus = {
-		id = GRE_60s_Successful_Counter_Coup
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Royal_Counter_Coup_Attempt
-		}
-		mutually_exclusive = {
-			focus = GRE_60s_De_jure_Monarchy
-			focus = GRE_60s_Expel_royal_family
-		}
-		x = 71
-		y = 2
-			completion_reward = {
-				add_stability = 0.10
-					set_politics = {
-							ruling_party = monarchism
-							elections_allowed = no
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Restore_Democratic_Rule
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Successful_Counter_Coup
-		}
-		mutually_exclusive = {
-			focus = GRE_60s_Absolute_Monarchy
-		}
-		x = 69
-		y = 3
-			completion_reward = {
-					set_politics = {
-							ruling_party = monarchism
-							elections_allowed = yes
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Appoint_Karamanlis_as_PM
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Restore_Democratic_Rule
-		}
-		x = 69
-		y = 4
-			completion_reward = {
-					set_politics = {
-							ruling_party = Liberal_Conservatism
-							elections_allowed = yes
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Reinstate_Liberal_Reforms
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Appoint_Karamanlis_as_PM
-		}
-		x = 68
-		y = 5
-			completion_reward = {
-					add_ideas = rights_for_people
-				}
-	}
-	focus = {
-		id = GRE_60s_Absolute_Monarchy
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Successful_Counter_Coup
-		}
-		mutually_exclusive = {
-			focus = GRE_60s_Restore_Democratic_Rule
-		}
-		x = 73
-		y = 3
-		completion_reward = {
-			add_ideas = ideological_fanaticism_focus
-			add_political_power = 150
-		}
-	}
-	focus = {
-		id = GRE_60s_Junta_Trials
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Restore_Democratic_Rule
-			focus = GRE_60s_Absolute_Monarchy
-		}
-		x = 71
-		y = 4
-		completion_reward = {
-			add_political_power = 150
-			add_stability = 0.10
-		}
-	}
-	focus = {
-		id = GRE_60s_Purge_the_Military
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Junta_Trials
-		}
-		x = 71
-		y = 5
-		completion_reward = {
-			army_experience = -50
-			add_political_power = 150
-			add_manpower = -2500
-		}
-	}
-	focus = {
-		id = GRE_60s_Reward_the_Navy_and_Airforce
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Purge_the_Military
-		}
-		x = 71
-		y = 6
-		completion_reward = {
-			navy_experience = 25
-			air_experience = 25
-							random_owned_controlled_state = {
-									limit = {
-											is_coastal = yes
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-		}
-	}
-	focus = {
-		id = GRE_60s_Strengthen_Ties_to_the_Church
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Absolute_Monarchy
-		}
-		x = 73
-		y = 4
-		completion_reward = {
-			add_stability = 0.15
-			add_political_power = 150
-		}
-	}
-	focus = {
-		id = GRE_60s_Consolidate_our_Position
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Strengthen_Ties_to_the_Church
-		}
-		x = 74
-		y = 5
-		completion_reward = {
-			add_stability = 0.15
-			add_political_power = 150
-		}
-	}
-	focus = {
-		id = GRE_60s_Encourage_Traditionalism
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Consolidate_our_Position
-		}
-		x = 74
-		y = 6
-			completion_reward = {
-					add_ideas = traditional_culture
-				}
-	}
-	focus = {
-		id = GRE_60s_Harder_stance_on_Cyprus
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Expel_royal_family
-			focus = GRE_60s_De_jure_Monarchy
-		}
-		x = 76
-		y = 3
-			completion_reward = {
-					GRE = {
-							add_opinion_modifier = {
-									target = TUR
-									modifier = small_decrease
-								}
-						}
-					TUR = {
-							add_opinion_modifier = {
-									target = GRE
-									modifier = small_decrease
-								}
-						}
-					GRE = {
-							add_opinion_modifier = {
-									target = CYP
-									modifier = small_decrease
-								}
-						}
-					CYP = {
-							add_opinion_modifier = {
-									target = GRE
-									modifier = small_decrease
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Hostilities_with_Turkey
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Harder_stance_on_Cyprus
-		}
-		x = 76
-		y = 4
-			completion_reward = {
-					GRE = {
-							add_opinion_modifier = {
-									target = TUR
-									modifier = large_decrease
-								}
-						}
-					TUR = {
-							add_opinion_modifier = {
-									target = GRE
-									modifier = large_decrease
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Ultimatum_to_Makarios
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Hostilities_with_Turkey
-		}
-		x = 76
-		y = 5
-		completion_reward = {
-			CYP = { country_event = CYP.1 }
-		}
-	}
-	focus = {
-		id = GRE_60s_Push_for_unification
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Ultimatum_to_Makarios
-		}
-		x = 76
-		y = 6
-		completion_reward = {
-			add_stability = 0.15
-			add_war_support = 0.15
-			add_political_power = 150
-		}	
-	}
-	focus = {
-		id = GRE_60s_Coup_against_Makarios
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Gizikis_as_new_head_of_state
-			focus = GRE_60s_Reward_the_Navy_and_Airforce
-			focus = GRE_60s_Push_for_unification
-		}
-		bypass = {
-			NOT = {
-				country_exists = CYP
-			}
-		}
-		x = 71
-		y = 7
-		completion_reward = {
-			CYP = {
-				country_event = CYP.2
-			}
-		}
-	}
-	focus = {
-		id = GRE_60s_King_just_as_figure
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_De_jure_Monarchy
-		}
-		x = 78
-		y = 3
-		completion_reward = {
-			add_political_power = 150
-			add_stability = 0.05
-		}
-	}
-	focus = {
-		id = GRE_60s_Execute_royalty
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Return_of_Communists
-		}
-		x = 83
-		y = 1
-		completion_reward = {
-			add_political_power = 150
-			add_stability = -0.15
-		}
-	}
-	focus = {
-		id = GRE_60s_Divided_government
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Execute_royalty
-		}
-		x = 83
-		y = 2
-		completion_reward = {
-			add_political_power = 300
-		}
-	}
-	focus = {
-		id = GRE_60s_Maoists
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Divided_government
-		}
-		mutually_exclusive = {
-			focus = GRE_60s_Stalinists
-			focus = GRE_60s_Titoists
-		}
-		x = 80
-		y = 3
-		completion_reward = {
-			set_politics = {
-				ruling_party = maoism
-				elections_allowed = no
-			}
-			add_timed_idea = {
-				idea = maoist_drift
-				days = 700
-			}
-		}
-	}
-	focus = {
-		id = GRE_60s_Titoists
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Divided_government
-		}
-		mutually_exclusive = {
-			focus = GRE_60s_Maoists
-			focus = GRE_60s_Stalinists
-		}
-		x = 83
-		y = 3
-		completion_reward = {
-			set_politics = {
-				ruling_party = Social_Democratic
-				elections_allowed = no
-			}
-			add_timed_idea = {
-				idea = Market_Socialist_Drift
-				days = 700
-			}
-		}
-	}
-	focus = {
-		id = GRE_60s_Compromise_about_Macedonia
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Titoists
-		}
-		x = 83
-		y = 4
-			completion_reward = {
-					GRE = {
-							add_opinion_modifier = {
-									target = YUG
-									modifier = large_increase
-								}
-						}
-					YUG = {
-							add_opinion_modifier = {
-									target = GRE
-									modifier = large_increase
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Economic_Cooperation_with_Yugoslavia
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Compromise_about_Macedonia
-		}
-		x = 83
-		y = 5
-			completion_reward = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Join_Non_Aligned_Movement
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Economic_Cooperation_with_Yugoslavia
-		}
-		x = 83
-		y = 6
-		completion_reward = {
-			YUG = { add_to_faction = GRE }
-		}
-	}	
-	focus = {
-		id = GRE_60s_Karamanlis
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_1961_elections
-		}
-		mutually_exclusive = {
-			focus = GRE_60s_Papandreou
-		}
-		x = 56
-		y = 2
-		available = {
-			always = no
-		}
-	}
-	focus = {
-		id = GRE_60s_Continued_reforms
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Karamanlis
-		}
-		x = 56
-		y = 3
-		completion_reward = {
-			add_political_power = 150
-			add_stability = 0.05
-		}
-	}
-	focus = {
-		id = GRE_60s_Women_rights
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Continued_reforms
-		}
-		x = 56
-		y = 4
-		completion_reward = {
-			add_ideas = womens_rights
-		}
 	}
 	focus = {
 		id = GRE_60s_Papandreou
-		icon = GFX_goal_unknown
+		icon = GFX_Papandreou_election
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_1961_elections
@@ -3882,13 +3936,14 @@ focus_tree = {
 		}
 		x = 62
 		y = 2
-		available = {
-			always = no
-		}
+			available = {
+					always = no
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Denounce_Zurich_agreements
-		icon = GFX_goal_unknown
+		icon = GFX_focus_renounce_the_treaty_of_triannon
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Papandreou
@@ -3921,10 +3976,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Reinforced_Conservatism
-		icon = GFX_goal_unknown
+		icon = GFX_goal_BEL_FederalParliament
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Denounce_Zurich_agreements
@@ -3937,10 +3993,11 @@ focus_tree = {
 							days = 900
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_1963_elections
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Women_rights
@@ -3948,13 +4005,14 @@ focus_tree = {
 		}
 		x = 59
 		y = 5
-		available = {
-			always = no
-		}
+			available = {
+					always = no
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Karamanlis_63
-		icon = GFX_goal_unknown
+		icon = GFX_karamanlis_election
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_1963_elections
@@ -3964,13 +4022,14 @@ focus_tree = {
 		}
 		x = 56
 		y = 6
-		available = {
-			always = no
-		}
+			available = {
+					always = no
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Papandreou_63
-		icon = GFX_goal_unknown
+		icon = GFX_Papandreou_election
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_1963_elections
@@ -3980,13 +4039,14 @@ focus_tree = {
 		}
 		x = 62
 		y = 6
-		available = {
-			always = no
-		}
+			available = {
+					always = no
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Claims_on_Cyprus
-		icon = GFX_goal_unknown
+		icon = GFX_cyprus
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Papandreou_63
@@ -4007,24 +4067,26 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Deliberalisation
-		icon = GFX_goal_unknown
+		icon = GFX_goal_support_fascism
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Claims_on_Cyprus
 		}
 		x = 62
 		y = 8
-		completion_reward = {
-			add_political_power = 300
-			remove_ideas = rights_for_people
-		}
+			completion_reward = {
+					add_political_power = 300
+					remove_ideas = rights_for_people
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Colder_relations_with_Ankara
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_air_defense
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Deliberalisation
@@ -4045,10 +4107,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Threats_to_Turkey
-		icon = GFX_goal_unknown
+		icon = GFX_goal_continuous_reduce_training_time
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Coup_against_Makarios
@@ -4069,10 +4132,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Deescalation_of_situation
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_little_entente
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Threats_to_Turkey
@@ -4096,10 +4160,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Invasion_on_Turkey
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_occupy_states_ongoing_war
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Threats_to_Turkey
@@ -4113,13 +4178,14 @@ focus_tree = {
 					create_wargoal = {
 							type = take_state_focus
 							target = TUR
-							generator = { 339 340 341 342 }
+							generator = { 339  340  341  342 }
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Socialist_economy
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_trade
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Karamanlis_63
@@ -4140,10 +4206,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_King_is_not_happy
-		icon = GFX_goal_unknown
+		icon = GFX_focus_rom_royal_dictatorship
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Socialist_economy
@@ -4151,14 +4218,15 @@ focus_tree = {
 		}
 		x = 59
 		y = 8
-		completion_reward = {
-			add_political_power = 200
-			add_stability = -0.05
-		}
+			completion_reward = {
+					add_political_power = 200
+					add_stability = -0.05
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Removing_sanctions_on_Soviets
-		icon = GFX_goal_unknown
+		icon = GFX_focus_chi_mission_to_the_soviet_union
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Socialist_economy
@@ -4179,10 +4247,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Amnesty_to_civil_war_communists
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Removing_sanctions_on_Soviets
@@ -4190,8 +4259,8 @@ focus_tree = {
 		x = 56
 		y = 9
 			completion_reward = {
-				add_political_power = -150
-				add_stability = -0.05
+					add_political_power = -150
+					add_stability = -0.05
 					GRE = {
 							add_opinion_modifier = {
 									target = YUG
@@ -4205,10 +4274,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_King_is_furious
-		icon = GFX_goal_unknown
+		icon = GFX_focus_rom_abdicate
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Amnesty_to_civil_war_communists
@@ -4219,27 +4289,29 @@ focus_tree = {
 		}
 		x = 59
 		y = 10
-		completion_reward = {
-			add_political_power = 200
-			add_stability = -0.05
-		}
+			completion_reward = {
+					add_political_power = 200
+					add_stability = -0.05
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Coup_of_Communists
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_soviet_politics
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Amnesty_to_civil_war_communists
 		}
 		x = 56
 		y = 10
-		completion_reward = {
-			complete_national_focus = GRE_60s_Return_of_Communists
-		}
+			completion_reward = {
+					complete_national_focus = GRE_60s_Return_of_Communists
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Coup_of_colonels
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_military_mission
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Colder_relations_with_Ankara
@@ -4249,13 +4321,14 @@ focus_tree = {
 		}
 		x = 61
 		y = 11
-		completion_reward = {
-			complete_national_focus = GRE_60s_Papadopoulos_coup
-		}
+			completion_reward = {
+					complete_national_focus = GRE_60s_Papadopoulos_coup
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Stalinists
-		icon = GFX_goal_unknown
+		icon = GFX_stalin
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Divided_government
@@ -4266,16 +4339,17 @@ focus_tree = {
 		}
 		x = 86
 		y = 3
-		completion_reward = {
-			set_politics = {
-				ruling_party = communism
-				elections_allowed = no
-			}
-		}
+			completion_reward = {
+					set_politics = {
+							ruling_party = communism
+							elections_allowed = no
+						}
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Revoke_claims_on_Northern_epirus
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_major_alliance
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Stalinists
@@ -4296,10 +4370,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Economic_Cooperation_with_China
-		icon = GFX_goal_unknown
+		icon = GFX_focus_chi_one_china_policy
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Maoists
@@ -4321,10 +4396,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Hostility_with_Soviet_Union
-		icon = GFX_goal_unknown
+		icon = GFX_goal_anti_comintern_pact
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Revoke_claims_on_Northern_epirus
@@ -4345,10 +4421,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Support_to_North_Korea
-		icon = GFX_goal_unknown
+		icon = GFX_goal_KPA_Proclamation
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Economic_Cooperation_with_China
@@ -4356,26 +4433,27 @@ focus_tree = {
 		x = 80
 		y = 5
 			completion_reward = {
-				KPA = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
+					KPA = {
+							random_owned_controlled_state = {
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
 								}
 						}
 				}
-			}
+
 	}
 	focus = {
 		id = GRE_60s_Help_Albania_economy
-		icon = GFX_goal_unknown
+		icon = GFX_goal_continuous_increase_nu
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Hostility_with_Soviet_Union
@@ -4383,50 +4461,59 @@ focus_tree = {
 		x = 86
 		y = 6
 			completion_reward = {
-				ALB = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
+					ALB = {
+							random_owned_controlled_state = {
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
 								}
 						}
 				}
-			}
+
 	}
 	focus = {
 		id = GRE_60s_China_guarantee_us
-		icon = GFX_goal_unknown
+		icon = GFX_goal_PRC_deal
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Support_to_North_Korea
 		}
 		x = 80
 		y = 6
-		available = {
-			country_exists = PRC
-		}
-		completion_reward = {
-			PRC = { diplomatic_relation = { country = GRE relation = guarantee active = yes } }
-		}
+			available = {
+					country_exists = PRC
+				}
+			completion_reward = {
+					PRC = {
+							diplomatic_relation = {
+									country = GRE
+									relation = guarantee
+									active = yes
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Restore_Stability
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_the_giant_wakes
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Reinstate_Liberal_Reforms
 		}
 		x = 68
 		y = 6
-		completion_reward = {
-			add_stability = 0.15
-		}
+			completion_reward = {
+					add_stability = 0.15
+				}
+
 	}
 }

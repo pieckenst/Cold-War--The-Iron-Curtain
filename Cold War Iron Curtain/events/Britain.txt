@@ -4,6 +4,45 @@
 
 add_namespace = eng
 add_namespace = coronation
+add_namespace = commonwealth
+country_event = {
+	id = commonwealth.100
+	title = "Britain Demands Stronger Integration of the Commonwealth Realms"
+	desc = "Britain Demands Stronger Integration of the Commonwealth Realms"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Accept Proposal"
+		FROM = {
+			set_autonomy = {
+				target = ROOT
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.2
+			}	
+		}
+	ai_chance = {
+			factor = 90
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+	}
+
+	option = {
+		ai_chance = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		name = "Reject Proposal"
+	}
+}
+
+
 news_event = {
 	id = coronation.100
 	title = "Second Coronation of Edward VIII"
