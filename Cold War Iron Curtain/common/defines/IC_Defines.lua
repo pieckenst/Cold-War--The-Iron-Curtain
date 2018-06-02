@@ -54,4 +54,4 @@ NDefines.NBuildings.MAX_SHARED_SLOTS = 50
 NDefines.NBuildings.MAX_BUILDING_LEVELS = 200
 NDefines.NBuildings.SUPPLY_PORT_LEVEL_THROUGHPUT = 10    -- Supply throughput per level of naval base. Vanilla value is 3.
 NDefines.NBuildings.AIRBASE_CAPACITY_MULT = 80    -- Each level of airbase building multiplied by this, gives capacity (max operational value). Value is int. 1 for each airplane.
-
+NDefines.NBuildings.ANTI_AIR_SUPERIORITY_MULT = 100.0	-- How much air superiority reduction to the enemy does our AA guns? Normally each building level = -1 reduction. With this multiplier.
