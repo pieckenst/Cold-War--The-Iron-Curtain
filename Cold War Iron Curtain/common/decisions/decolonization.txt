@@ -245,5 +245,68 @@ decolonization_decisions = {
 	#		}
 	#	}
 	#}
+	
+	decolonize_the_gulf = {
+
+		icon = generic_research
+
+		allowed = {
+			original_tag = ENG
+		}
+		
+		available = {
+			OR = {
+               UAE = { is_subject_of = ROOT }
+			   QAT = { is_subject_of = ROOT }
+			   BHR = { is_subject_of = ROOT }
+			}
+			has_war = no
+		}
+		
+		cost = 0
+
+		fire_only_once = yes
+
+		visible = {
+		    OR = {
+               UAE = { is_subject_of = ROOT }
+			   QAT = { is_subject_of = ROOT }
+			   BHR = { is_subject_of = ROOT }
+			}
+		}
+
+	    complete_effect = {
+		    add_political_power = 30
+		    if = {
+			    limit = {
+					UAE = { is_subject_of = ROOT }
+				}
+				set_autonomy = { target = UAE autonomy_state = autonomy_free }
+				UAE = { drop_cosmetic_tag = yes }
+			}
+			if = {
+			    limit = {
+					QAT = { is_subject_of = ROOT }
+				}
+			    set_autonomy = { target = QAT autonomy_state = autonomy_free }
+				QAT = { drop_cosmetic_tag = yes }
+			}
+			if = {
+			    limit = {
+					BHR = { is_subject_of = ROOT }
+				}
+			    set_autonomy = { target = BHR autonomy_state = autonomy_free }
+				BHR = { drop_cosmetic_tag = yes }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 100
+				date > 1971.12.1
+			}
+		}
+	}
 
 }

@@ -5,67 +5,77 @@ focus_tree = {
 		modifier = {
 			add = 10
 			tag = BOT
-			date < 1959.12.31
+			is_subject = yes
+		}
+		modifier = {
+			add = 10
+			tag = CHA
+			is_subject = yes
 		}
 		modifier = {
 			add = 10
 			tag = KEN
-			date < 1959.12.31
+			is_subject = yes
 		}
 		modifier = {
 			add = 10
 			tag = ZAM
-			date < 1959.12.31
+			is_subject = yes
 		}
 		modifier = {
 			add = 10
 			tag = NYA
-			date < 1959.12.31
+			is_subject = yes
 		}
 		modifier = {
 			add = 10
 			tag = UGA
-			date < 1959.12.31
+			is_subject = yes
+		}
+		modifier = {
+			add = 10
+			tag = SEN
+			is_subject = yes
 		}
 		modifier = {
 			add = 10
 			tag = BSL
-			date < 1959.12.31
+			is_subject = yes
 		}
 		modifier = {
 			add = 10
 			tag = LES
-			date < 1959.12.31
+			is_subject = yes
 		}
 		modifier = {
 			add = 10
 			tag = DOC
-			date < 1959.12.31
+			is_subject = yes
 		}
 		modifier = {
 			add = 10
 			tag = GAM
-			date < 1959.12.31
+			is_subject = yes
 		}
 		modifier = {
 			add = 10
 			tag = MAD
-			date < 1959.12.31
+			is_subject = yes
 		}
 		modifier = {
 			add = 10
 			tag = SWA
-			date < 1959.12.31
+			is_subject = yes
 		}
 		modifier = {
 			add = 10
 			tag = SLE
-			date < 1959.12.31
+			is_subject = yes
 		}
 		modifier = {
 			add = 10
 			tag = DJB
-			date < 1959.12.31
+			is_subject = yes
 		}
 	}
 	default = no
@@ -2103,13 +2113,75 @@ focus_tree = {
 		x = 26
 		y = 1
 			available = {
-					OR = {
-							has_government = democratic
-							has_government = neutrality
-							has_government = conservative
-							has_government = Christian_Democratic
-						}
+			    OR = {
+					has_government = democratic
+				    has_government = neutrality
+					has_government = conservative
+					has_government = Christian_Democratic
 				}
+				ALL = {
+				    OR = {
+					    NOT = { tag = CHA }
+						date > 1960.1.1
+					}
+					OR = {
+					    NOT = { tag = SEN }
+						date > 1960.1.1
+					}
+					OR = {
+					    NOT = { tag = BOT }
+						date > 1966.1.1
+					}
+					OR = {
+					    NOT = { tag = KEN }
+						date > 1963.1.1
+					}
+					OR = {
+					    NOT = { tag = ZAM }
+						date > 1964.1.1
+					}
+					OR = {
+					    NOT = { tag = UGA }
+						date > 1962.1.1
+					}
+					OR = {
+					    NOT = { tag = NYA }
+						date > 1964.1.1
+					}
+					OR = {
+					    NOT = { tag = BSL }
+						date > 1960.1.1
+					}
+					OR = {
+					    NOT = { tag = DOC }
+						date > 1960.1.1
+					}
+					OR = {
+					    NOT = { tag = LES }
+						date > 1966.1.1
+					}
+					OR = {
+					    NOT = { tag = GAM }
+						date > 1965.1.1
+					}
+					OR = {
+					    NOT = { tag = MAD }
+						date > 1960.1.1
+					}
+					OR = {
+					    NOT = { tag = SWA }
+						date > 1968.1.1
+					}
+					OR = {
+					    NOT = { tag = SLE }
+						date > 1961.1.1
+					}
+					OR = {
+					    NOT = { tag = DJB }
+						date > 1977.1.1
+					}
+			    }
+			}
 			available_if_capitulated = yes
 			ai_will_do = {
 					factor = 95
@@ -2655,6 +2727,70 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = AFR_seek_autonomy_from_overlord
+		}
+		available = {
+			ALL = {
+				OR = {
+					NOT = { tag = CHA }
+				    date > 1960.1.1
+				}
+				OR = {
+					NOT = { tag = SEN }
+					date > 1960.1.1
+				}
+				OR = {
+					NOT = { tag = BOT }
+					date > 1966.1.1
+				}
+				OR = {
+					NOT = { tag = KEN }
+					date > 1963.1.1
+				}
+				OR = {
+					NOT = { tag = ZAM }
+					date > 1964.1.1
+				}
+				OR = {
+					NOT = { tag = UGA }
+					date > 1962.1.1
+				}
+				OR = {
+					NOT = { tag = NYA }
+					date > 1964.1.1
+				}
+				OR = {
+					NOT = { tag = BSL }
+					date > 1960.1.1
+				}
+				OR = {
+					NOT = { tag = DOC }
+					date > 1960.1.1
+				}
+				OR = {
+					NOT = { tag = LES }
+					date > 1966.1.1
+				}
+				OR = {
+					NOT = { tag = GAM }
+				    date > 1965.1.1
+				}
+				OR = {
+					NOT = { tag = MAD }
+					date > 1960.1.1
+				}
+				OR = {
+					NOT = { tag = SWA }
+					date > 1968.1.1
+				}
+				OR = {
+					NOT = { tag = SLE }
+				    date > 1961.1.1
+				}
+				OR = {
+					NOT = { tag = DJB }
+				    date > 1977.1.1
+				}
+			}
 		}
 		x = 33
 		y = 1
