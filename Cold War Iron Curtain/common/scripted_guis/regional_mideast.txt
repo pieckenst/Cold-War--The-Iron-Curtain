@@ -1,12 +1,10 @@
 scripted_gui = {
-
-	mid_east_regional_main_menu = {
+	regional_mideast_topbar = {
 		context_type = player_context
 		
-		window_name = "regional_mideast"
-        
+		window_name = "regional_mideast_counter"
+		
 		visible = {
-			has_variable = { mid_east_show = 1 }
 			OR = {
 				tag = EGY
 				tag = LEB
@@ -27,6 +25,26 @@ scripted_gui = {
 				tag = PAL
 				tag = NCY
 			}
+            
+		}
+		
+		effects = {
+			regional_mideast_bg_click = {
+				set_variable = { mid_east_show = 1 }
+			}
+            
+			regional_mideast_bg_right_click = {
+				set_variable = { mid_east_show = 0 }
+			}
+		}
+	}
+	mid_east_regional_main_menu = {
+		context_type = player_context
+		
+		window_name = "regional_mideast"
+        
+		visible = {
+			has_variable = { mid_east_show = 1 }
 		}
 		
 		effects = {
