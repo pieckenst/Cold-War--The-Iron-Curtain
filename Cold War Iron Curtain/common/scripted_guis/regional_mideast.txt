@@ -1,41 +1,168 @@
 scripted_gui = {
-	regional_mideast_topbar = {
+	regional_topbar = {
 		context_type = player_context
 		
-		window_name = "regional_mideast_counter"
+		window_name = "regional_counter"
 		
-		visible = {
-			OR = {
-				tag = EGY
-				tag = LEB
-				tag = ISR
-				tag = SYR
-				tag = SAU
-				tag = DRY
-				tag = YEM
-				tag = PER
-				tag = TUR
-				tag = OMA
-				tag = KUR
-				
-				tag = SUD
-				tag = LBA
-				tag = KUW
-				tag = UAE
-				tag = QAT
-				tag = PAL
-				tag = NCY
+		effects = {
+			regional_bg_click = {
+				set_variable = { region_show = 1 }
 			}
-            
+		}
+	}
+	regional_main_menu = {
+		context_type = player_context
+		
+		window_name = "regional_map"
+        
+		visible = {
+			check_variable = { region_show = 1 }
 		}
 		
 		effects = {
-			regional_mideast_bg_click = {
-				set_variable = { mid_east_show = 1 }
+			exitbutton_region_click = {
+				set_variable = { region_show = 0.0 }
+			}		
+			middle_east_bg_click = {
+				set_variable = { middle_east_show = 1 }
 			}
-            
-			regional_mideast_bg_right_click = {
-				set_variable = { mid_east_show = 0 }
+			north_africa_bg_click = {
+				set_variable = { north_africa_show = 1 }
+			}
+			southern_asia_bg_click = {
+				set_variable = { southern_asia_show = 1 }
+			}
+			central_america_bg_click = {
+				set_variable = { central_america_show = 1 }
+			}
+			carribean_bg_click = {
+				set_variable = { carribean_show = 1 }
+			}
+			south_america_bg_click = {
+				set_variable = { south_america_show = 1 }
+			}
+			oceania_bg_click = {
+				set_variable = { oceania_show = 1 }
+			}
+			north_america_bg_click = {
+				set_variable = { north_america_show = 1 }
+			}
+			southeastern_asia_bg_click = {
+				set_variable = { southeastern_asia_show = 1 }
+			}
+			eastern_asia_bg_click = {
+				set_variable = { eastern_asia_show = 1 }
+			}
+			central_asia_bg_click = {
+				set_variable = { central_asia_show = 1 }
+			}
+			eastern_europe_bg_click = {
+				set_variable = { eastern_europe_show = 1 }
+			}
+			northern_europe_bg_click = {
+				set_variable = { northern_europe_show = 1 }
+			}
+			southern_europe_bg_click = {
+				set_variable = { southern_europe_show = 1 }
+			}
+			western_europe_bg_click = {
+				set_variable = { western_europe_show = 1 }
+			}
+			western_africa_bg_click = {
+				set_variable = { western_africa_show = 1 }
+			}
+			eastern_africa_bg_click = {
+				set_variable = { eastern_africa_show = 1 }
+			}
+			central_africa_bg_click = {
+				set_variable = { central_africa_show = 1 }
+			}
+			southern_africa_bg_click = {
+				set_variable = { southern_africa_show = 1 }
+			}
+		}
+        
+        
+		triggers = {
+			exitbutton_region_click_enabled = {
+				set_variable = { region_show = 0.0 }
+			}		
+			middle_east_bg_click_enabled = {
+				OR = {
+					has_ideas = great_power
+					tag = EGY
+					tag = LEB
+					tag = ISR
+					tag = SYR
+					tag = SAU
+					tag = DRY
+					tag = YEM
+					tag = PER
+					tag = TUR
+					tag = OMA
+					tag = KUR
+					tag = SUD
+					tag = LBA
+					tag = KUW
+					tag = UAE
+					tag = QAT
+					tag = PAL
+					tag = NCY
+				}
+			}
+			north_africa_bg_click_enabled = {
+				
+			}
+			southern_asia_bg_click_enabled = {
+				
+			}
+			central_america_bg_click_enabled = {
+				
+			}
+			carribean_bg_click_enabled = {
+				
+			}
+			south_america_bg_click_enabled = {
+				
+			}
+			oceania_bg_click_enabled = {
+				
+			}
+			north_america_bg_click_enabled = {
+				
+			}
+			southeastern_asia_bg_click_enabled = {
+				
+			}
+			eastern_asia_bg_click_enabled = {
+				
+			}
+			central_asia_bg_click_enabled = {
+				
+			}
+			eastern_europe_bg_click_enabled = {
+				
+			}
+			northern_europe_bg_click_enabled = {
+				
+			}
+			southern_europe_bg_click_enabled = {
+				
+			}
+			western_europe_bg_click_enabled = {
+				
+			}
+			western_africa_bg_click_enabled = {
+				
+			}
+			eastern_africa_bg_click_enabled = {
+				
+			}
+			central_africa_bg_click_enabled = {
+				
+			}
+			southern_africa_bg_click_enabled = {
+				
 			}
 		}
 	}
@@ -195,18 +322,25 @@ scripted_gui = {
 			sanction_egy_click = {
                 add_opinion_modifier = { target = EGY modifier = totalembargo }
                 add_opinion_modifier = { target = EGY modifier = trade_sanctions }	
+				reverse_add_opinion_modifier = { target = EGY modifier = totalembargo }	
+				reverse_add_opinion_modifier = { target = EGY modifier = trade_sanctions }	
 				add_political_power = -20
 				set_variable = { egy_sanction = 1 }
 			}
 			embargo_egy_click = {
                 add_opinion_modifier = { target = EGY modifier = trade_sanctions }	
+				reverse_add_opinion_modifier = { target = EGY modifier = trade_sanctions }	
 				add_political_power = -20
 				set_variable = { egy_sanction = 1 }
 			}
 			normalize_trade_relations_egy_click = {
 				
 				remove_opinion_modifier = { target = EGY modifier = totalembargo }
-				remove_opinion_modifier = { target = EGY modifier = trade_sanctions }					
+				remove_opinion_modifier = { target = EGY modifier = trade_sanctions }	
+				EGY = {
+					remove_opinion_modifier = { target = ROOT modifier = totalembargo }
+					remove_opinion_modifier = { target = ROOT modifier = trade_sanctions }					
+				}
 				add_political_power = -20
 				set_variable = { egy_sanction = 0 }
 			}
@@ -225,15 +359,15 @@ scripted_gui = {
 				add_opinion_modifier = { target = EGY  modifier = sent_manpower }
 			}
 			send_infantry_equipment_egy_click = {
-				send_equipment = { target = EGY type = infantry_equipment amount = 500 }	
+				send_equipment = { target = EGY type = infantry_equipment amount = 2000 }	
 				add_opinion_modifier = { target = EGY  modifier = sent_equipment }
 			}
 			send_mbt_egy_click = {
-				send_equipment = { target = EGY type = mbt_equipment amount = 500 }	
+				send_equipment = { target = EGY type = mbt_equipment amount = 200 }	
 				add_opinion_modifier = { target = EGY  modifier = sent_equipment }
 			}
 			send_fighter_equipment_egy_click = {
-				send_equipment = { target = EGY type = jet_multirole_equipment amount = 500 }	
+				send_equipment = { target = EGY type = jet_multirole_equipment amount = 50 }	
 				add_opinion_modifier = { target = EGY  modifier = sent_equipment }
 			}
 			send_money_egy_click = {
@@ -254,6 +388,50 @@ scripted_gui = {
 			exitbutton_egy_click = {
 				set_variable = { egy_show = 0.0 }
 			}		
+			send_egy_manpower_civil_war_click = {
+				random_country = {
+					limit = {
+						original_tag = EGY
+						NOT = { tag = EGY }
+					}
+					add_manpower = 10000
+					reverse_add_opinion_modifier = { target = ROOT  modifier = sent_manpower }
+				}
+				add_manpower = -10000
+			}
+			send_infantry_equipment_civil_war_egy_click = {
+				random_country = {
+					limit = {
+						original_tag = EGY
+						NOT = { tag = EGY }
+					}
+					add_equipment_to_stockpile = { type = infantry_equipment amount = 2000 producer = ROOT }	
+					reverse_add_opinion_modifier = { target = ROOT  modifier = sent_equipment }
+				}
+				add_equipment_to_stockpile = { type = infantry_equipment amount = -2000 producer = ROOT }
+			}
+			send_mbt_egy_civil_war_click = {
+				random_country = {
+					limit = {
+						original_tag = EGY
+						NOT = { tag = EGY }
+					}
+					add_equipment_to_stockpile = { type = mbt_equipment amount = 200 producer = ROOT }	
+					reverse_add_opinion_modifier = { target = ROOT  modifier = sent_equipment }
+				}
+				add_equipment_to_stockpile = { type = mbt_equipment amount = -200 producer = ROOT }
+			}
+			send_fighter_equipment_civil_war_egy_click = {
+				random_country = {
+					limit = {
+						original_tag = EGY
+						NOT = { tag = EGY }
+					}
+					add_equipment_to_stockpile = { type = jet_multirole_equipment amount = 50 producer = ROOT }	
+					reverse_add_opinion_modifier = { target = ROOT  modifier = sent_equipment }
+				}
+				add_equipment_to_stockpile = { type = jet_multirole_equipment amount = -50 producer = ROOT }
+			} 
 		}
         triggers = {
            sanction_egy_click_enabled = {
@@ -278,15 +456,15 @@ scripted_gui = {
 			}
 			send_infantry_equipment_egy_click_enabled = {
 				NOT = { has_war_with = EGY }
-				has_equipment = { infantry_equipment > 500 }
+				has_equipment = { infantry_equipment > 2000 }
 			}
 			send_mbt_egy_click_enabled = {
 				NOT = { has_war_with = EGY }
-				has_equipment = { mbt_equipment > 500 }
+				has_equipment = { mbt_equipment > 200 }
 			}
 			send_fighter_equipment_egy_click_enabled = {
 				NOT = { has_war_with = EGY }
-				has_equipment = { jet_multirole_equipment > 500 }
+				has_equipment = { jet_multirole_equipment > 50 }
 			} 
 			send_money_egy_click_enabled = {
 				NOT = { has_war_with = EGY }
@@ -315,6 +493,23 @@ scripted_gui = {
 					NOT = { any_owned_state = { is_core_of = EGY } }
 				}
 			}
+			#Column 2
+			send_egy_manpower_civil_war_click_enabled = {
+				EGY = { has_civil_war = yes }	
+				has_manpower > 10000	
+			}
+			send_infantry_equipment_civil_war_egy_click_enabled = {
+				EGY = { has_civil_war = yes }
+				has_equipment = { infantry_equipment > 2000 }
+			}
+			send_mbt_egy_civil_war_click_enabled = {
+				EGY = { has_civil_war = yes }
+				has_equipment = { mbt_equipment > 200 }
+			}
+			send_fighter_equipment_civil_war_egy_click_enabled = {
+				EGY = { has_civil_war = yes }
+				has_equipment = { jet_multirole_equipment > 50 }
+			} 
 		}
 	}
 }
