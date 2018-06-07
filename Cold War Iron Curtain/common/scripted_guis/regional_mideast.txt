@@ -1,169 +1,713 @@
 scripted_gui = {
 	regional_topbar = {
-		context_type = player_context
+		context_type = selected_country_context
+		parent_window_token = selected_country_view_diplomacy
 		
 		window_name = "regional_counter"
 		
-		effects = {
-			regional_bg_click = {
-				set_variable = { region_show = 1 }
-			}
-		}
-	}
-	
-	regional_main_menu = {
-		context_type = player_context
-		
-		window_name = "regional_map"
-        
 		visible = {
-			check_variable = { region_show = 1 }
-		}
-		
-		effects = {
-			exitbutton_region_click = {
-				set_variable = { region_show = 0.0 }
-			}		
-			middle_east_bg_click = {
-				set_variable = { mid_east_show = 1 }
-			}
-			north_africa_bg_click = {
-				set_variable = { north_africa_show = 1 }
-			}
-			southern_asia_bg_click = {
-				set_variable = { southern_asia_show = 1 }
-			}
-			central_america_bg_click = {
-				set_variable = { central_america_show = 1 }
-			}
-			carribean_bg_click = {
-				set_variable = { carribean_show = 1 }
-			}
-			south_america_bg_click = {
-				set_variable = { south_america_show = 1 }
-			}
-			oceania_bg_click = {
-				set_variable = { oceania_show = 1 }
-			}
-			north_america_bg_click = {
-				set_variable = { north_america_show = 1 }
-			}
-			southeastern_asia_bg_click = {
-				set_variable = { southeastern_asia_show = 1 }
-			}
-			eastern_asia_bg_click = {
-				set_variable = { eastern_asia_show = 1 }
-			}
-			central_asia_bg_click = {
-				set_variable = { central_asia_show = 1 }
-			}
-			eastern_europe_bg_click = {
-				set_variable = { eastern_europe_show = 1 }
-			}
-			northern_europe_bg_click = {
-				set_variable = { northern_europe_show = 1 }
-			}
-			southern_europe_bg_click = {
-				set_variable = { southern_europe_show = 1 }
-			}
-			western_europe_bg_click = {
-				set_variable = { western_europe_show = 1 }
-			}
-			western_africa_bg_click = {
-				set_variable = { western_africa_show = 1 }
-			}
-			eastern_africa_bg_click = {
-				set_variable = { eastern_africa_show = 1 }
-			}
-			central_africa_bg_click = {
-				set_variable = { central_africa_show = 1 }
-			}
-			southern_africa_bg_click = {
-				set_variable = { southern_africa_show = 1 }
-			}
-		}
-        
-        
-		triggers = {
-			middle_east_bg_click_enabled = {
-				OR = {
-					has_ideas = great_power
-					tag = EGY
-					tag = LEB
-					tag = ISR
-					tag = SYR
-					tag = SAU
-					tag = DRY
-					tag = YEM
-					tag = PER
-					tag = TUR
-					tag = OMA
-					tag = KUR
-					tag = SUD
-					tag = LBA
-					tag = KUW
-					tag = UAE
-					tag = QAT
-					tag = PAL
-					tag = NCY
+			OR = {
+				has_idea = great_power
+				AND = {
+					OR = {
+						tag = EGY
+						tag = LEB
+						tag = ISR
+						tag = SYR
+						tag = SAU
+						tag = DRY
+						tag = YEM
+						tag = PER
+						tag = TUR
+						tag = OMA
+						tag = KUR
+						tag = SUD
+						tag = LBA
+						tag = KUW
+						tag = UAE
+						tag = QAT
+						tag = PAL
+						tag = NCY
+						tag = JDZ
+						tag = JUD
+						tag = IRQ
+					}
+					ROOT = {
+						OR = {
+							tag = EGY
+							tag = LEB
+							tag = ISR
+							tag = SYR
+							tag = SAU
+							tag = DRY
+							tag = YEM
+							tag = PER
+							tag = TUR
+							tag = OMA
+							tag = KUR
+							tag = SUD
+							tag = LBA
+							tag = KUW
+							tag = UAE
+							tag = QAT
+							tag = PAL
+							tag = NCY
+							tag = JDZ
+							tag = JUD
+							tag = IRQ
+						}					
+					}
+				}
+				AND = {
+					OR = {
+						tag = MOR
+						tag = TUN
+						tag = ALG
+						tag = EGY
+						tag = LBA
+						tag = TNG
+					}
+					ROOT = {
+						OR = {
+							tag = MOR
+							tag = TUN
+							tag = ALG
+							tag = EGY
+							tag = LBA
+							tag = TNG
+						}				
+					}
+				}
+				AND = {
+					OR = {
+						tag = NOR
+						tag = DEN
+						tag = FIN
+						tag = SWE
+						tag = ICE
+						tag = JNM
+						tag = GRN
+						tag = SKL
+						tag = VGD
+						tag = JMT
+					}					
+					ROOT = {
+						OR = {
+							tag = NOR
+							tag = DEN
+							tag = FIN
+							tag = SWE
+							tag = ICE
+							tag = JNM
+							tag = GRN
+							tag = SKL
+							tag = VGD
+							tag = JMT
+						}
+					}
+				}
+				AND = {
+					OR = {
+						tag = ARG
+						tag = BOL
+						tag = BRA
+						tag = CHL
+						tag = COL
+						tag = COS
+						tag = ECU
+						tag = ELS
+						tag = GUA
+						tag = HON
+						tag = PRU
+						tag = URG
+						tag = VEN
+						tag = MEX
+						tag = NIC
+						tag = PAN
+						tag = GUY
+						tag = PAR
+						tag = BLZ
+						tag = BAD
+						tag = CAB
+						tag = SVI
+						tag = MRT					
+					}
+					ROOT = {
+						OR = {
+							tag = ARG
+							tag = BOL
+							tag = BRA
+							tag = CHL
+							tag = COL
+							tag = COS
+							tag = ECU
+							tag = ELS
+							tag = GUA
+							tag = HON
+							tag = PRU
+							tag = URG
+							tag = VEN
+							tag = MEX
+							tag = NIC
+							tag = PAN
+							tag = GUY
+							tag = PAR
+							tag = BLZ
+							tag = BAD
+							tag = CAB
+							tag = SVI
+							tag = MRT
+						}
+					}
+				}
+				AND = {
+					OR = {
+							tag = BOS
+							tag = YUG
+							tag = SER
+							tag = SPR
+							tag = ITA
+							tag = TUR
+							tag = GRE
+							tag = ALB
+							tag = POR
+							tag = PDG
+							tag = MLT
+							tag = VOJ
+							tag = SRP
+							tag = CYP
+							tag = CRO
+							tag = MNT
+							tag = VTC
+							tag = SNM
+							tag = MOC
+							tag = ADS
+							tag = CTL
+							tag = MAC
+							tag = AND
+							tag = TRI
+							tag = SLV
+							tag = KOS
+							tag = PMR
+							tag = NCY
+						}
+					ROOT = {
+						OR = {
+							tag = BOS
+							tag = YUG
+							tag = SER
+							tag = SPR
+							tag = ITA
+							tag = TUR
+							tag = GRE
+							tag = ALB
+							tag = POR
+							tag = PDG
+							tag = MLT
+							tag = VOJ
+							tag = SRP
+							tag = CYP
+							tag = CRO
+							tag = MNT
+							tag = VTC
+							tag = SNM
+							tag = MOC
+							tag = ADS
+							tag = CTL
+							tag = MAC
+							tag = AND
+							tag = TRI
+							tag = SLV
+							tag = KOS
+							tag = PMR
+							tag = NCY
+						}
+					}
+				}
+				AND = {
+					OR = {
+							tag = CAN
+							tag = IWW
+							tag = USA
+							tag = AKA
+							tag = CAL
+							tag = CSA
+							tag = RNA
+							tag = NFL
+							tag = QBC
+							tag = TEX
+							tag = SCA
+							tag = NEL
+							tag = VER
+							tag = LKT
+							tag = CSD					
+					}
+					ROOT = {
+						OR = {
+							tag = CAN
+							tag = IWW
+							tag = USA
+							tag = AKA
+							tag = CAL
+							tag = CSA
+							tag = RNA
+							tag = NFL
+							tag = QBC
+							tag = TEX
+							tag = SCA
+							tag = NEL
+							tag = VER
+							tag = LKT
+							tag = CSD
+						}
+					}
+				}
+				AND = {
+					OR = {
+							tag = ENG
+							tag = FRA
+							tag = LUX
+							tag = BEL
+							tag = HOL
+							tag = GER
+							tag = AUS
+							tag = SWI
+							tag = IRE
+							tag = FCB
+							tag = WGR
+							tag = BAV
+							tag = SAR
+							tag = LIC
+							tag = BRT
+							tag = AGN					
+					}
+					ROOT = {
+						OR = {
+							tag = ENG
+							tag = FRA
+							tag = LUX
+							tag = BEL
+							tag = HOL
+							tag = GER
+							tag = AUS
+							tag = SWI
+							tag = IRE
+							tag = FCB
+							tag = WGR
+							tag = BAV
+							tag = SAR
+							tag = LIC
+							tag = BRT
+							tag = AGN
+						}
+					}
+				}
+				AND = {
+						OR = {
+							tag = LIT
+							tag = EST
+							tag = LAT
+							tag = SOV
+							tag = UKR
+							tag = BLR
+							tag = CZE
+							tag = POL
+							tag = ROM
+							tag = BUL
+							tag = HUN
+							tag = DDR
+							tag = SLO
+							tag = GEO
+							tag = AZR
+							tag = ARM
+							tag = NGK
+							tag = MLD
+							tag = SOS
+							tag = ABK
+							tag = CCN
+							tag = ADR
+							tag = KRL
+							tag = GAG
+							tag = LUS
+						}
+					ROOT = {
+						OR = {
+							tag = LIT
+							tag = EST
+							tag = LAT
+							tag = SOV
+							tag = UKR
+							tag = BLR
+							tag = CZE
+							tag = POL
+							tag = ROM
+							tag = BUL
+							tag = HUN
+							tag = DDR
+							tag = SLO
+							tag = GEO
+							tag = AZR
+							tag = ARM
+							tag = NGK
+							tag = MLD
+							tag = SOS
+							tag = ABK
+							tag = CCN
+							tag = ADR
+							tag = KRL
+							tag = GAG
+							tag = LUS
+						}
+					}
+				}
+				AND = {
+						OR = {
+							tag = AFG
+							tag = BHU
+							tag = RAJ
+							tag = PER
+							tag = PAK
+							tag = NEP
+							tag = CEY
+							tag = BAL
+							tag = BAN
+							tag = ASA
+							tag = KHA
+							tag = KAS
+							tag = MNI
+							tag = TRP
+							tag = SKK
+						}
+					ROOT = {
+						OR = {
+							tag = AFG
+							tag = BHU
+							tag = RAJ
+							tag = PER
+							tag = PAK
+							tag = NEP
+							tag = CEY
+							tag = BAL
+							tag = BAN
+							tag = ASA
+							tag = KHA
+							tag = KAS
+							tag = MNI
+							tag = TRP
+							tag = SKK
+						}
+					}
+				}
+				AND = {
+					OR = {
+							tag = ETH
+							tag = SUD
+							tag = SOR
+							tag = UGA
+							tag = ZIM
+							tag = MZB
+							tag = ZAM
+							tag = TAZ
+							tag = MAD
+							tag = NYA
+							tag = ERI
+							tag = KEN
+							tag = BSL
+							tag = RWA
+							tag = BUR
+							tag = DJB
+					}
+					ROOT = {
+						OR = {
+							tag = ETH
+							tag = SUD
+							tag = SOR
+							tag = UGA
+							tag = ZIM
+							tag = MZB
+							tag = ZAM
+							tag = TAZ
+							tag = MAD
+							tag = NYA
+							tag = ERI
+							tag = KEN
+							tag = BSL
+							tag = RWA
+							tag = BUR
+							tag = DJB
+						}
+					}
+				}
+				AND = {
+						OR = {
+							tag = MLI
+							tag = NIG
+							tag = BRK
+							tag = GUI
+							tag = MAU
+							tag = TOG
+							tag = BEN
+							tag = SEN
+							tag = CTD
+							tag = SRW
+							tag = GAB
+							tag = GEQ
+							tag = GAM
+							tag = SLE
+							tag = GHA
+							tag = NIA
+							tag = LIB
+						}
+					ROOT = {
+						OR = {
+							tag = MLI
+							tag = NIG
+							tag = BRK
+							tag = GUI
+							tag = MAU
+							tag = TOG
+							tag = BEN
+							tag = SEN
+							tag = CTD
+							tag = SRW
+							tag = GAB
+							tag = GEQ
+							tag = GAM
+							tag = SLE
+							tag = GHA
+							tag = NIA
+							tag = LIB
+						}
+					}
+				}
+				AND = {
+						OR = {
+							tag = CHI
+							tag = TIB
+							tag = JAP
+							tag = KOR
+							tag = MEN
+							tag = SIK
+							tag = YUN
+							tag = MON
+							tag = GXC
+							tag = PRC
+							tag = SHX
+							tag = XSM
+							tag = PHI
+							tag = KPA
+							tag = HOK
+							tag = NGO
+							tag = TAN
+							tag = MAN
+						}
+					ROOT = {
+						OR = {
+							tag = CHI
+							tag = TIB
+							tag = JAP
+							tag = KOR
+							tag = MEN
+							tag = SIK
+							tag = YUN
+							tag = MON
+							tag = GXC
+							tag = PRC
+							tag = SHX
+							tag = XSM
+							tag = PHI
+							tag = KPA
+							tag = HOK
+							tag = NGO
+							tag = TAN
+							tag = MAN
+						}
+					}
+				}
+				AND = {
+						OR = {
+							tag = PRT
+							tag = STL
+							tag = JAM
+							tag = TAT
+							tag = CUB
+							tag = DOM
+							tag = HAI
+							tag = VEN
+							tag = MEX
+							tag = COL
+							tag = GUY
+							tag = USA
+						}
+					ROOT = {
+						OR = {
+							tag = PRT
+							tag = STL
+							tag = JAM
+							tag = TAT
+							tag = CUB
+							tag = DOM
+							tag = HAI
+							tag = VEN
+							tag = MEX
+							tag = COL
+							tag = GUY
+							tag = USA
+						}
+					}
+				}
+				AND = {
+						OR = {
+							tag = LES
+							tag = SWA
+							tag = ORJ
+							tag = ZAR
+							tag = SAF
+							tag = ZIM
+							tag = ANG
+							tag = NAM
+							tag = BOT
+						}
+					ROOT = {
+						OR = {
+							tag = LES
+							tag = SWA
+							tag = ORJ
+							tag = ZAR
+							tag = SAF
+							tag = ZIM
+							tag = ANG
+							tag = NAM
+							tag = BOT
+						}
+					}
+				}
+				AND = {
+						OR = {
+							tag = CPH
+							tag = PHI
+							tag = SIA
+							tag = VIN
+							tag = CAM
+							tag = MAL
+							tag = INS
+							tag = LAO
+							tag = CMB
+							tag = MLA
+							tag = INO
+							tag = VIE
+							tag = MYR
+							tag = DAR
+							tag = LAS
+							tag = SMK
+							tag = LOS
+							tag = BRU
+						}
+					ROOT = {
+						OR = {
+							tag = CPH
+							tag = PHI
+							tag = SIA
+							tag = VIN
+							tag = CAM
+							tag = MAL
+							tag = INS
+							tag = LAO
+							tag = CMB
+							tag = MLA
+							tag = INO
+							tag = VIE
+							tag = MYR
+							tag = DAR
+							tag = LAS
+							tag = SMK
+							tag = LOS
+							tag = BRU
+						}
+					}
+				}
+				AND = {
+						OR = {
+							tag = AST
+							tag = SMO
+							tag = NZL
+							tag = HWI
+							tag = PAP
+							tag = SKS
+							tag = SOL
+							tag = TTP
+						}
+					ROOT = {
+						OR = {
+							tag = AST
+							tag = SMO
+							tag = NZL
+							tag = HWI
+							tag = PAP
+							tag = SKS
+							tag = SOL
+							tag = TTP
+						}
+					}
+				}
+				AND = {
+						OR = {
+							tag = ROC
+							tag = CAR
+							tag = CMR
+							tag = DOC
+							tag = CHA
+							tag = BCM
+							tag = BFR
+							tag = COG
+							tag = KAG
+						}					
+					ROOT = {
+						OR = {
+							tag = ROC
+							tag = CAR
+							tag = CMR
+							tag = DOC
+							tag = CHA
+							tag = BCM
+							tag = BFR
+							tag = COG
+							tag = KAG
+						}
+					}
+				}
+				AND = {
+						OR = {
+							tag = KAZ
+							tag = UZB
+							tag = TJK
+							tag = KRG
+							tag = TRK
+							tag = AFG
+							tag = SIK
+						}
+					ROOT = {
+						OR = {
+							tag = KAZ
+							tag = UZB
+							tag = TJK
+							tag = KRG
+							tag = TRK
+							tag = AFG
+							tag = SIK
+						}
+					}
 				}
 			}
-			north_africa_bg_click_enabled = {
-				
-			}
-			southern_asia_bg_click_enabled = {
-				
-			}
-			central_america_bg_click_enabled = {
-				
-			}
-			carribean_bg_click_enabled = {
-				
-			}
-			south_america_bg_click_enabled = {
-				
-			}
-			oceania_bg_click_enabled = {
-				
-			}
-			north_america_bg_click_enabled = {
-				
-			}
-			southeastern_asia_bg_click_enabled = {
-				
-			}
-			eastern_asia_bg_click_enabled = {
-				
-			}
-			central_asia_bg_click_enabled = {
-				
-			}
-			eastern_europe_bg_click_enabled = {
-				
-			}
-			northern_europe_bg_click_enabled = {
-				
-			}
-			southern_europe_bg_click_enabled = {
-				
-			}
-			western_europe_bg_click_enabled = {
-				
-			}
-			western_africa_bg_click_enabled = {
-				
-			}
-			eastern_africa_bg_click_enabled = {
-				
-			}
-			central_africa_bg_click_enabled = {
-				
-			}
-			southern_africa_bg_click_enabled = {
-				
+		}
+		
+		effects = {
+			regional_bg_click = {
+				ROOT = { set_variable = { egy_show = 1 } }
 			}
 		}
 	}
+
 	mid_east_regional_main_menu = {
 		context_type = player_context
 		
@@ -175,10 +719,10 @@ scripted_gui = {
 		
 		effects = {
 			exitbutton_mideast_click = {
-				set_variable = { mid_east_show = 0.0 }
+				ROOT = { set_variable = { mid_east_show = 0.0 } }
 			}		
 			EGY_bg_click = {
-				set_variable = { egy_show = 1 }
+				ROOT = { set_variable = { egy_show = 1 } }
 			}
 			LEB_bg_click = {
 				set_variable = { LEB_show = 1 }
@@ -309,206 +853,160 @@ scripted_gui = {
 			}
 		}
 	}
+	
 	egypt_view = {
-		context_type = player_context
+		context_type = selected_country_context
+		#parent_window_token = selected_country_view_diplomacy
 		
 		window_name = "egypt_view_container"
 		visible = {
-			 check_variable = { egy_show > 0.0 }
+			 ROOT = { check_variable = { egy_show > 0.0 } }
 		}	
 		effects = {
 			sanction_egy_click = {
-                add_opinion_modifier = { target = EGY modifier = totalembargo }
-                add_opinion_modifier = { target = EGY modifier = trade_sanctions }	
-				reverse_add_opinion_modifier = { target = EGY modifier = totalembargo }	
-				reverse_add_opinion_modifier = { target = EGY modifier = trade_sanctions }	
+				reverse_add_opinion_modifier = { target = ROOT modifier = trade_sanctions }	
 				add_political_power = -20
-				set_variable = { egy_sanction = 1 }
 			}
 			embargo_egy_click = {
-                add_opinion_modifier = { target = EGY modifier = trade_sanctions }	
-				reverse_add_opinion_modifier = { target = EGY modifier = trade_sanctions }	
+                reverse_add_opinion_modifier = { target = ROOT modifier = trade_sanctions }	
+				reverse_add_opinion_modifier = { target = ROOT modifier = totalembargo }	
 				add_political_power = -20
-				set_variable = { egy_sanction = 1 }
 			}
 			normalize_trade_relations_egy_click = {
-				
-				remove_opinion_modifier = { target = EGY modifier = totalembargo }
-				remove_opinion_modifier = { target = EGY modifier = trade_sanctions }	
-				EGY = {
-					remove_opinion_modifier = { target = ROOT modifier = totalembargo }
-					remove_opinion_modifier = { target = ROOT modifier = trade_sanctions }					
+				ROOT = {
+					remove_opinion_modifier = { target = PREV modifier = totalembargo }
+					remove_opinion_modifier = { target = PREV modifier = trade_sanctions }					
 				}
 				add_political_power = -20
 				set_variable = { egy_sanction = 0 }
 			}
 			invest_in_egy_economy_click = {
-				EGY = {
-					country_event = { id = build_building.1 days = 50  }
-				}
+				country_event = { id = build_building.1 days = 50  }
 				subtract_from_variable = { var = money value = 500  }
-				add_opinion_modifier = { target = EGY  modifier = sent_economic_aid }
+				reverse_add_opinion_modifier = { target = ROOT  modifier = sent_economic_aid }
 			}
 			send_egy_manpower_click = {
-				EGY = {
-					add_manpower = 10000
-				}
-				add_manpower = -10000
-				add_opinion_modifier = { target = EGY  modifier = sent_manpower }
+				add_manpower = 10000
+				ROOT = { add_manpower = -10000 }
+				reverse_add_opinion_modifier = { target = ROOT  modifier = sent_manpower }
 			}
 			send_infantry_equipment_egy_click = {
-				send_equipment = { target = EGY type = infantry_equipment amount = 2000 }	
-				add_opinion_modifier = { target = EGY  modifier = sent_equipment }
+				
+				add_equipment_to_stockpile = { type = infantry_equipment amount = 2000 producer = ROOT }	
+				reverse_add_opinion_modifier = { target = ROOT  modifier = sent_equipment }
+				ROOT = { add_equipment_to_stockpile = { type = infantry_equipment amount = -2000 } }
 			}
 			send_mbt_egy_click = {
-				send_equipment = { target = EGY type = mbt_equipment amount = 200 }	
-				add_opinion_modifier = { target = EGY  modifier = sent_equipment }
+				add_equipment_to_stockpile = { type = mbt_equipment amount = 200 producer = ROOT }	
+				reverse_add_opinion_modifier = { target = ROOT  modifier = sent_equipment }
+				ROOT = { add_equipment_to_stockpile = { type = mbt_equipment amount = -200 } }
 			}
 			send_fighter_equipment_egy_click = {
-				send_equipment = { target = EGY type = jet_multirole_equipment amount = 50 }	
-				add_opinion_modifier = { target = EGY  modifier = sent_equipment }
+				add_equipment_to_stockpile = { type = jet_multirole_equipment amount = 50 producer = ROOT }	
+				reverse_add_opinion_modifier = { target = ROOT  modifier = sent_equipment }
+				ROOT = { add_equipment_to_stockpile = { type = jet_multirole_equipment amount = -50 } }
 			}
 			send_money_egy_click = {
-				EGY = { add_to_variable = { var = money value = 500  } }
-				subtract_from_variable = { var = money value = 500  }
-				add_opinion_modifier = { target = EGY  modifier = sent_money }
+				add_to_variable = { var = money value = 500  } 
+				ROOT = { subtract_from_variable = { var = money value = 500  } }
+				reverse_add_opinion_modifier = { target = ROOT  modifier = sent_money }
 			}
 			retake_our_cores_egy_click = {
-				set_country_flag = cultural_unification_war_aggressor
-				EGY = { set_country_flag = cultural_unification_war_defender }
-				declare_war_on = { target = EGY type = take_core_state }	
+				ROOT = { 
+					set_country_flag = cultural_unification_war_aggressor
+					declare_war_on = { target = EGY type = take_core_state }
+				}
+				set_country_flag = cultural_unification_war_defender 
 			}
 			liberation_war_egy_click = {
-				set_country_flag = badboy_war_attacker
-				EGY = { set_country_flag = badboy_war_defender }
-				declare_war_on = { target = EGY type = liberate_wargoal }	
+				ROOT = { 
+					set_country_flag = badboy_war_attacker
+					declare_war_on = { target = EGY type = liberate_wargoal }	
+				}
+				set_country_flag = badboy_war_defender 
+				
 			}
 			exitbutton_egy_click = {
-				set_variable = { egy_show = 0.0 }
+				ROOT = { set_variable = { egy_show = 0.0 } }
 			}		
-			send_egy_manpower_civil_war_click = {
-				random_country = {
-					limit = {
-						original_tag = EGY
-						NOT = { tag = EGY }
-					}
-					add_manpower = 10000
-					reverse_add_opinion_modifier = { target = ROOT  modifier = sent_manpower }
-				}
-				add_manpower = -10000
-			}
-			send_infantry_equipment_civil_war_egy_click = {
-				random_country = {
-					limit = {
-						original_tag = EGY
-						NOT = { tag = EGY }
-					}
-					add_equipment_to_stockpile = { type = infantry_equipment amount = 2000 producer = ROOT }	
-					reverse_add_opinion_modifier = { target = ROOT  modifier = sent_equipment }
-				}
-				add_equipment_to_stockpile = { type = infantry_equipment amount = -2000 producer = ROOT }
-			}
-			send_mbt_egy_civil_war_click = {
-				random_country = {
-					limit = {
-						original_tag = EGY
-						NOT = { tag = EGY }
-					}
-					add_equipment_to_stockpile = { type = mbt_equipment amount = 200 producer = ROOT }	
-					reverse_add_opinion_modifier = { target = ROOT  modifier = sent_equipment }
-				}
-				add_equipment_to_stockpile = { type = mbt_equipment amount = -200 producer = ROOT }
-			}
-			send_fighter_equipment_civil_war_egy_click = {
-				random_country = {
-					limit = {
-						original_tag = EGY
-						NOT = { tag = EGY }
-					}
-					add_equipment_to_stockpile = { type = jet_multirole_equipment amount = 50 producer = ROOT }	
-					reverse_add_opinion_modifier = { target = ROOT  modifier = sent_equipment }
-				}
-				add_equipment_to_stockpile = { type = jet_multirole_equipment amount = -50 producer = ROOT }
-			} 
 		}
         triggers = {
            sanction_egy_click_enabled = {
-                check_variable = { egy_sanction = 0 }
+                NOT = {  ROOT = { has_opinion_modifier = trade_sanctions } }
+				 NOT = {  ROOT = { has_opinion_modifier = totalembargo } }
                 check_variable = { ROOT.political_power > 19.99 }
 			}
            embargo_egy_click_enabled = {
-                check_variable = { egy_sanction = 0 }
+                 NOT = {  ROOT = { has_opinion_modifier = totalembargo } }
                 check_variable = { ROOT.political_power > 19.99 }
 			}
            normalize_trade_relations_egy_click_enabled = {
-                check_variable = { egy_sanction = 1 }
+               ROOT = { has_opinion_modifier = trade_sanctions }
                 check_variable = { ROOT.political_power > 19.99 }
 			}
 			invest_in_egy_economy_click_enabled = {
-				NOT = { has_war_with = EGY }
-				check_variable = { money > 499.99 }
+				NOT = { has_war_with = ROOT }
+				ROOT = { check_variable = { money > 499.99 } }
 			}
 			send_egy_manpower_click_enabled = {
-				NOT = { has_war_with = EGY }
-				has_manpower > 10000	
+				NOT = { has_war_with = ROOT }
+				ROOT = { has_manpower > 10000 }
 			}
 			send_infantry_equipment_egy_click_enabled = {
-				NOT = { has_war_with = EGY }
-				has_equipment = { infantry_equipment > 2000 }
+				NOT = { has_war_with = ROOT }
+				ROOT = { has_equipment = { infantry_equipment > 2000 } }
 			}
 			send_mbt_egy_click_enabled = {
-				NOT = { has_war_with = EGY }
-				has_equipment = { mbt_equipment > 200 }
+				NOT = { has_war_with = ROOT }
+				ROOT = { has_equipment = { mbt_equipment > 200 } }
 			}
 			send_fighter_equipment_egy_click_enabled = {
-				NOT = { has_war_with = EGY }
-				has_equipment = { jet_multirole_equipment > 50 }
+				NOT = { has_war_with = ROOT }
+				ROOT = { has_equipment = { jet_multirole_equipment > 50 } }
 			} 
 			send_money_egy_click_enabled = {
-				NOT = { has_war_with = EGY }
-				check_variable = { money > 499.99 }
+				NOT = { has_war_with = ROOT }
+				ROOT = { check_variable = { money > 499.99 } }
 			}
 			retake_our_cores_egy_click_enabled = {
 				NOT = { 
 					OR = {
-						has_war_with = EGY 
-						EGY = { is_subject = yes }	
+						has_war_with = ROOT 
+						is_subject = yes 
 					}
-				}
-				
-				EGY = {
-					any_owned_state = { is_core_of = ROOT }	
-				}
+				}	
+				any_owned_state = { is_core_of = ROOT }	
 			}
 			liberation_war_egy_click_enabled = {
 				NOT = { 
 					OR = {
-						has_war_with = EGY 
-						EGY = { is_subject = yes }	
+						has_war_with = ROOT 
+						is_subject = yes 
 					}
 				}				
-				EGY = {
-					NOT = { any_owned_state = { is_core_of = EGY } }
-				}
+				NOT = { any_owned_state = { is_core_of = THIS } }
 			}
+			
 			#Column 2
 			send_egy_manpower_civil_war_click_enabled = {
 				EGY = { has_civil_war = yes }	
 				has_manpower > 10000	
 			}
 			send_infantry_equipment_civil_war_egy_click_enabled = {
-				EGY = { has_civil_war = yes }
-				has_equipment = { infantry_equipment > 2000 }
+				has_civil_war = yes 
+				ROOT = { has_equipment = { infantry_equipment > 2000 } }
 			}
 			send_mbt_egy_civil_war_click_enabled = {
-				EGY = { has_civil_war = yes }
-				has_equipment = { mbt_equipment > 200 }
+				has_civil_war = yes 
+				ROOT = { has_equipment = { mbt_equipment > 200 } }
 			}
 			send_fighter_equipment_civil_war_egy_click_enabled = {
-				EGY = { has_civil_war = yes }
-				has_equipment = { jet_multirole_equipment > 50 }
+				has_civil_war = yes 
+				ROOT = { has_equipment = { jet_multirole_equipment > 50 } }
 			} 
 		}
+
 	}
 }
+
 
