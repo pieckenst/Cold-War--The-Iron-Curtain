@@ -1,0 +1,401 @@
+scripted_gui = {
+	comecon_russia_menu = {
+		context_type = player_context
+		
+		window_name = "comecon_russia"
+        
+		visible = {
+			check_variable = { comecon_main_show = 1 }
+			
+		}
+		
+		effects = {
+			exitbutton_comecon_russia_click = {
+				ROOT = { set_variable = { comecon_main_show = 0.0 } }
+			}		
+			tech_policy_bg_click = {
+				ROOT = { set_variable = { comecon_tech_show = 1 } }
+			}
+			CZE_bg_click = {
+				set_variable = { comecon_target = CZE.id }
+				set_variable = { comecon_member_show = 1 }
+			}
+			POL_bg_click = {
+				set_variable = { comecon_target = POL.id }
+				set_variable = { comecon_member_show = 1 }
+			}
+			DDR_bg_click = {
+				set_variable = { comecon_target = DDR.id }
+				set_variable = { comecon_member_show = 1 }
+			}
+			HUN_bg_click = {
+				set_variable = { comecon_target = HUN.id }
+				set_variable = { comecon_member_show = 1 }
+			}
+			ROM_bg_click = {
+				set_variable = { comecon_target = ROM.id }
+				set_variable = { comecon_member_show = 1 }
+			}
+			BUL_bg_click = {
+				set_variable = { comecon_target = BUL.id }
+				set_variable = { comecon_member_show = 1 }
+			}
+			ALB_bg_click = {
+				set_variable = { comecon_target = ALB.id }
+				set_variable = { comecon_member_show = 1 }
+			}
+			MON_bg_click = {
+				set_variable = { comecon_target = MON.id }
+				set_variable = { comecon_member_show = 1 }
+			}
+			CUB_bg_click = {
+				set_variable = { comecon_target = CUB.id }
+				set_variable = { comecon_member_show = 1 }
+			}
+			VIN_bg_click = {
+				set_variable = { comecon_target = VIN.id }
+				set_variable = { comecon_member_show = 1 }
+			}
+			YUG_bg_click = {
+				set_variable = { comecon_target = YUG.id }
+				set_variable = { comecon_member_show = 1 }
+			}
+			KPA_bg_click = {
+				set_variable = { comecon_target = KPA.id }
+				set_variable = { comecon_member_show = 1 }
+			}
+			PDG_bg_click = {
+				set_variable = { comecon_target = PDG.id }
+				set_variable = { comecon_member_show = 1 }
+			}
+		}
+        
+        
+		triggers = {
+			CZE_bg_click_enabled = {
+				CZE = { has_idea = comecon_member }
+			}
+			POL_bg_click_enabled = {
+				POL = { has_idea = comecon_member }
+			}
+			DDR_bg_click_enabled = {
+				DDR = { has_idea = comecon_member }
+			}
+			HUN_bg_click_enabled = {
+				HUN = { has_idea = comecon_member }
+			}
+			ROM_bg_click_enabled = {
+				ROM = { has_idea = comecon_member }
+			}
+			ALB_bg_click_enabled = {
+				ALB = { has_idea = comecon_member }
+			}
+			MON_bg_click_enabled = {
+				MON = { has_idea = comecon_member }
+			}
+			CUB_bg_click_enabled = {
+				CUB = { has_idea = comecon_member }
+			}
+			VIN_bg_click_enabled = {
+				VIN = { has_idea = comecon_member }
+			}
+			YUG_bg_click_enabled = {
+				YUG = { has_idea = comecon_member }
+			}
+			KPA_bg_click_enabled = {
+				KPA = { has_idea = comecon_member }
+			}
+			PDG_bg_click_enabled = {
+				PDG = { has_idea = comecon_member }
+			}
+			BUL_bg_click_enabled = {
+				BUL = { has_idea = comecon_member }
+			}
+		}
+	}
+	comecon_tech = {
+		context_type = player_context
+		
+		window_name = "comecon_tech_menu"
+        
+		visible = {
+			check_variable = { comecon_tech_show = 1 }
+			
+		}
+		
+		effects = {
+			exitbutton_comecon_tech_click = {
+				ROOT = { set_variable = { comecon_tech_show = 0.0 } }
+			}		
+			comecon_tech_one_click = {
+				set_global_flag = comecon_level_one	
+				clr_global_flag = comecon_level_two
+				clr_global_flag = comecon_level_one
+				every_country = {
+					limit = {
+						has_idea = comecon_member
+					}
+					add_to_tech_sharing_group = comecon_share_1
+					remove_from_tech_sharing_group = comecon_share_2
+					remove_from_tech_sharing_group = comecon_share_3
+				}
+			}
+			comecon_tech_two_click = {
+				clr_global_flag = comecon_level_three
+				clr_global_flag = comecon_level_one
+				set_global_flag = comecon_level_two
+				every_country = {
+					limit = {
+						has_idea = comecon_member
+					}
+					add_to_tech_sharing_group = comecon_share_2
+					remove_from_tech_sharing_group = comecon_share_1
+					remove_from_tech_sharing_group = comecon_share_3
+				}
+			}
+			comecon_tech_three_click = {
+				set_global_flag = comecon_level_three
+				clr_global_flag = comecon_level_two
+				clr_global_flag = comecon_level_one
+				every_country = {
+					limit = {
+						has_idea = comecon_member
+					}
+					add_to_tech_sharing_group = comecon_share_3
+					remove_from_tech_sharing_group = comecon_share_2
+					remove_from_tech_sharing_group = comecon_share_1
+				}	
+			}
+		}
+        
+        
+		triggers = {
+			comecon_tech_one_click_enabled = {
+				NOT = { has_global_flag = comecon_level_one	 }
+			}
+			comecon_tech_two_click_enabled = {
+				NOT = { has_global_flag = comecon_level_two	 }
+			}
+			comecon_tech_three_click_enabled = {
+				NOT = { has_global_flag = comecon_level_three }
+			}
+		}
+	}
+	comecon_menu = {
+		context_type = player_context
+		
+		window_name = "comecon_menu"
+        
+		visible = {
+			check_variable = { comecon_menu_show = 1 }
+		}
+		
+		effects = {
+			exitbutton_mideast_click = {
+				ROOT = { set_variable = { comecon_menu_show = 0.0 } }
+			}		
+			comecon_integration_one_click = {
+				add_ideas = comecon_level_1
+				remove_ideas = comecon_level_2
+				remove_ideas = comecon_level_3
+				remove_ideas = comecon_level_4
+			}
+			comecon_integration_two_click = {
+				remove_ideas = comecon_level_1
+				add_ideas = comecon_level_2
+				remove_ideas = comecon_level_3
+				remove_ideas = comecon_level_4	
+			}
+			comecon_integration_three_click = {
+				remove_ideas = comecon_level_1
+				remove_ideas = comecon_level_2
+				add_ideas = comecon_level_3
+				remove_ideas = comecon_level_4					
+			}
+			comecon_integration_four_click = {
+				remove_ideas = comecon_level_1
+				remove_ideas = comecon_level_2
+				remove_ideas = comecon_level_3
+				add_ideas = comecon_level_4					
+			}
+			comecon_request_manpower_click = {
+				SOV = { county_event = COMECON.100 }
+				add_timed_idea = {
+					idea = comecon_request
+					days = 1825
+				}
+			}
+			comecon_request_industrial_aid_click = {
+				SOV = { county_event = COMECON.101 }
+				add_timed_idea = {
+					idea = comecon_request
+					days = 1825
+				}
+			}
+			comecon_request_heavy_industrial_aid_click = {
+				SOV = { county_event = COMECON.102 }
+				add_timed_idea = {
+					idea = comecon_request
+					days = 1825
+				}
+			}
+			comecon_request_housing_aid_click = {
+				SOV = { county_event = COMECON.103 }
+				add_timed_idea = {
+					idea = comecon_request
+					days = 1825
+				}
+			}
+		}
+		triggers = {
+			comecon_integration_one_click_enabled = {
+				NOT = { has_idea = comecon_level_1 }
+			}
+			comecon_integration_two_click_enabled = {
+				NOT = { has_idea = comecon_level_2 }
+			}
+			comecon_integration_three_click_enabled = {
+				NOT = { has_idea = comecon_level_3 }
+			}
+			comecon_integration_four_click_enabled = {
+				NOT = { has_idea = comecon_level_4 }
+			}
+			comecon_request_manpower_click_enabled = {
+				NOT = { has_idea = comecon_request }
+			}
+			comecon_request_industrial_aid_click_enabled = {
+				NOT = { has_idea = comecon_request }
+			}
+			comecon_request_heavy_industrial_aid_click_enabled = {
+				NOT = { has_idea = comecon_request }
+			}
+			comecon_request_housing_aid_click_enabled = {
+				NOT = { has_idea = comecon_request }
+			}
+		}
+	}
+	comecon_member_container = {
+		context_type = player_context
+		
+		window_name = "comecon_member"
+        
+		visible = {
+			check_variable = { comecon_member_show = 1 }
+		}
+		
+		effects = {
+			exitbutton_mideast_click = {
+				set_variable = { comecon_member_show = 0.0 } 
+			}		
+			set_agri_focus_click = {
+				var:comecon_target = { 
+					county_event = COMECON.300
+					set_country_flag = sov_economic_plan_proposal
+				}
+			}
+			set_industrial_focus_click = {
+				var:comecon_target = { 
+					county_event = COMECON.301
+					set_country_flag = sov_economic_plan_proposal
+				}
+			}
+			set_heavy_industrial_focus_click = {
+				var:comecon_target = { 
+					county_event = COMECON.302
+					set_country_flag = sov_economic_plan_proposal
+				}
+			}
+			set_technology_focus_click = {
+				var:comecon_target = { 
+					county_event = COMECON.303
+					set_country_flag = sov_economic_plan_proposal
+				}
+			}
+			set_military_focus_click = {
+				var:comecon_target = { 
+					county_event = COMECON.304
+					set_country_flag = sov_economic_plan_proposal
+				}
+			}
+			set_resource_extraction_focus_click = {
+				var:comecon_target = { 
+					county_event = COMECON.305
+					set_country_flag = sov_economic_plan_proposal
+				}
+			}
+			invest_in_com_economy_click = {
+				subtract_from_variable = { var = money value = 500  }
+				var:comecon_target = { 
+					country_event = { id = build_building.1 days = 50  }
+					add_opinion_modifier = { target = ROOT  modifier = sent_economic_aid }
+				}
+				add_timed_idea = {
+					idea = comecon_request
+					days = 365
+				}
+			}
+			comecon_request_manpower_click = {
+				var:comecon_target = { county_event = COMECON.200 }
+				add_timed_idea = {
+					idea = comecon_request
+					days = 1825
+				}
+			}
+			comecon_request_industry_click = {
+				var:comecon_target = { county_event = COMECON.201 }
+				add_timed_idea = {
+					idea = comecon_request
+					days = 1825
+				}
+			}
+			comecon_request_heavy_industry_click = {
+				var:comecon_target = { county_event = COMECON.202 }
+				add_timed_idea = {
+					idea = comecon_request
+					days = 1825
+				}
+			}
+
+		}
+		triggers = {
+			set_agri_focus_click_enabled = {
+				var:comecon_target = { 
+					NOT = { has_country_flag = sov_economic_plan_proposal }
+				}			}
+			set_industrial_focus_click_enabled = {
+				var:comecon_target = { 
+					NOT = { has_country_flag = sov_economic_plan_proposal }
+				}			}
+			set_heavy_industrial_focus_click_enabled = {
+				var:comecon_target = { 
+					NOT = { has_country_flag = sov_economic_plan_proposal }
+				}			}
+			set_technology_focus_click_enabled = {
+				var:comecon_target = { 
+					NOT = { has_country_flag = sov_economic_plan_proposal }
+				}			}
+			set_military_focus_click_enabled = {
+				var:comecon_target = { 
+					NOT = { has_country_flag = sov_economic_plan_proposal }
+				}			}
+			set_resource_extraction_focus_click_enabled = {
+				var:comecon_target = { 
+					NOT = { has_country_flag = sov_economic_plan_proposal }
+				}
+			}
+			invest_in_com_economy_click_enabled = {
+				NOT = { has_idea = comecon_request }
+			}
+			comecon_request_manpower_click_enabled = {
+				NOT = { has_idea = comecon_request }
+			}
+			comecon_request_industry_click_enabled = {
+				NOT = { has_idea = comecon_request }
+			}
+			comecon_request_heavy_industry_click_enabled = {
+				NOT = { has_idea = comecon_request }
+			}
+		}
+	}
+}
+
