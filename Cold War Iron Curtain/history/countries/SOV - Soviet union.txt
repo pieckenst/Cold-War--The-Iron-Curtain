@@ -444,21 +444,17 @@ give_guarantee = TRI
 set_politics = {
 
 	parties = {
-		democratic = { 
-			popularity = 10 #shared between all parties, should add to 100
-		}
-
-		fascism = {
-			popularity = 2
+		neutrality = { 
+			popularity = 22.9
 		}
 		
 		communism = {
-			popularity = 88
+			popularity = 76.1
 		}
 	}
 	
 	ruling_party = communism
-	last_election = "1933.7.1"
+	last_election = "1937.12.12"
 	election_frequency = 48
 	elections_allowed = no
 }
@@ -606,6 +602,22 @@ if = {
 			puppet = HUN
 		}
 	}
+	set_politics = {
+	    parties = {
+		    neutrality = { 
+			    popularity = 19
+		    }
+		
+		    communism = {
+			    popularity = 81
+		    }
+	    }
+	
+	    ruling_party = communism
+	    last_election = "1946.2.10"
+	    election_frequency = 48
+	    elections_allowed = no
+    }
 }
 
 create_faction = "Cominform"
@@ -742,7 +754,7 @@ create_field_marshal = {
 	logistics_skill = 4	
 }
 
-1960.1.1 = {
+1955.1.1 = {
     remove_unit_leader = 404
 	create_faction = "Warsaw Pact"
 	add_to_faction = SOV
@@ -767,6 +779,10 @@ create_field_marshal = {
 	add_to_faction = UZB
 	add_to_faction = KRG
 	add_to_faction = TRK
+}
+
+1960.1.1 = {
+    remove_unit_leader = 404
 }
 
 create_field_marshal = {
@@ -982,61 +998,60 @@ create_equipment_variant = {
 	add_ai_strategy = {
 		type = support
 		id = "SIK"
-		value = 100
+		value = 400
 	}
-	SIK = {
-		add_ai_strategy = {
-			type = befriend
-			id = "SOV"
-			value = 100
-		}
+	add_ai_strategy = {
+		type = send_volunteers_desire
+		id = "SIK"
+		value = 400
 	}
 }
 
 1953.3.5 = {
 	create_country_leader = {
 		name = "Georgy Malenkov"
-		picture = "Portrait_Soviet_Georgy_Malenkov.dds"
+		picture = "Georgy_Malenkov.dds"
 		ideology = stalinism
 	}
 }
 1955.1.1 = {
 	create_country_leader = {
 		name = "Nikita Khrushchev"
-		picture = "Portrait_Soviet_Nikita_Khrushchev.dds"
+		picture = "Nikita_Khrushchev.dds"
 		ideology = stalinism
 	}
 }
 1964.10.14 = {
 	create_country_leader = {
 		name = "Leonid Breznhev"
-		picture = "Leonid.dds"
+		picture = "Leonid_Brezhnev.dds"
 		ideology = stalinism
 	}
 }
 1982.11.12 = {
 	create_country_leader = {
 		name = "Yuri Andropov"
-		picture = "Portrait_Soviet_Yuri_Andropov.dds"
+		picture = "Yuri_Andropov.dds"
 		ideology = stalinism
 	}
 }
-1984.2.13 = {
+1984.2.9 = {
 	create_country_leader = {
 		name = "Konstantin Chernenko"
-		picture = "Portrait_Soviet_Konstantin_Chernenko.dds"
+		picture = "Konstantin_Chernenko.dds"
 		ideology = stalinism
 	}
 }
-1984.2.13 = {
+1985.2.10 = {
 	create_country_leader = {
 		name = "Mikhail Gorbachev"
-		picture = "Portrait_Soviet_Mikhail_Gorbachev.dds"
+		picture = "Mikhail_Gorbachev.dds"
 		ideology = stalinism
 	}
 }
 1991.12.25 = {
 	set_cosmetic_tag = SOV_RUSSIA
+	dismantle_faction = yes
 	
 	create_country_leader = {
 		name = "Boris Yeltsin"
@@ -1047,34 +1062,44 @@ create_equipment_variant = {
 	set_politics = {
 
 		parties = {
-			conservative = { 
-				popularity = 10
-			}
-			Liberal_Conservatism = {
-				popularity = 7
-			}
-			centrist = {
-				popularity = 10
-			}
-			liberal = {
-				popularity = 9
-			}
 			nationalism = {
-				popularity = 16
+				popularity = 10
+			}
+			communism = {
+				popularity = 20.2
 			}
 			neutrality = {
-				popularity = 48
+				popularity = 70.6
 			}
 		}
 		
 		ruling_party = neutrality
-		last_election = "1991.12.25"
+		last_election = "1991.6.12"
 		election_frequency = 48
 		elections_allowed = yes
 	}
 }
 
-2000.1.1 = {
+1996.7.3 = {
+	set_politics = {
+
+		parties = {
+			communism = {
+				popularity = 42.7
+			}
+			neutrality = {
+				popularity = 57.4
+			}
+		}
+		
+		ruling_party = neutrality
+		last_election = "1996.7.3"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+}
+
+2000.5.7 = {
 	create_country_leader = {
 		name = "Vladimir Putin"
 		picture = "Vladimir_Putin.dds"
@@ -1082,10 +1107,3 @@ create_equipment_variant = {
 	}
 }
 
-2008.1.1 = {
-	create_country_leader = {
-		name = "Dmitry Medvedev"
-		picture = "Dmitry_Medvedev.dds"
-		ideology = putinism
-	}
-}
