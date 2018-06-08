@@ -26,6 +26,7 @@ NDefines.NDiplomacy.IDEOLOGY_JOIN_FACTION_MIN_LEVEL = 0			-- ideology limit requ
 NDefines.NDiplomacy.CIVIL_WAR_INVOLVEMENT_MIN_TENSION = 0.0		-- base value of world tension to involve other sides to the civil war
 NDefines.NTechnology.BASE_RESEARCH_POINTS_SAVED = 50.0		-- Base amount of research points a country can save per slot.	
 NDefines.NTechnology.BASE_YEAR_AHEAD_PENALTY_FACTOR = 7		-- Base year ahead penalty
+NDefines.NTechnology.MAX_TECH_SHARING_BONUS = 0.75			-- Max technology sharing bonus that can be applied instantly
 NDefines.NBuildings.RADAR_RANGE_MAX = 220				-- Range is interpolated between building levels 1-15.
 NDefines.NMilitary.MAX_DIVISION_SUPPORT_WIDTH = 2			-- Max width of support in division designer.
 NDefines.NAir.AIR_WING_MAX_STATS_SPEED = 6000
