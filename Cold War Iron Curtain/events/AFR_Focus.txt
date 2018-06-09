@@ -24,12 +24,12 @@ country_event = {
 		trigger = { FROM = { tag = NIA } }
 	}
 	title = {
-		text = "Senegal demands independence"
+		text = "West Africa demands independence"
 		trigger = { FROM = { tag = SEN } }
 	}
 	title = {
-		text = "Chad demands independence"
-		trigger = { FROM = { tag = CHA } }
+		text = "Equatorial Africa demands independence"
+		trigger = { FROM = { tag = ROC } }
 	}
 	title = {
 		text = "Lesotho demands independence"
@@ -69,6 +69,12 @@ country_event = {
 					has_war_with = VIN
 				}
 				white_peace = VIN			
+			}
+			if = {
+				limit = {
+					has_war_with = MLA
+				}
+				white_peace = MLA		
 			}
 			if = {
 				limit = {
@@ -251,10 +257,14 @@ country_event = {
 			    }
 			}
 			if = {
-				limit = { tag = CHA }
+				limit = { tag = ROC }
 				release = CAR
-            	release = ROC
-                release = GAB				
+            	release = CHA
+                release = GAB	
+                set_politics = {
+					ruling_party = conservative
+					elections_allowed = yes
+				}				
 			}
 			if = {
 				limit = { tag = LES }
