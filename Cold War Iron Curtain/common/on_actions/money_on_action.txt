@@ -12,179 +12,106 @@ on_actions = {
     
     on_daily = {
 		effect = {
-			add_to_variable = { money = money_rate }
-           if = {
-					limit={
-						num_of_civilian_factories<3
-						}
-                		set_variable={d=0.01}
-						add_to_variable={var = money value = d}
-						else={
-						 if = { 
-						 		limit={
-										num_of_civilian_factories<6
-									  }
-						 		set_variable={d=0.05}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-									limit={
-										num_of_civilian_factories<11
-									  	}
-									  set_variable={d=0.1}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-								limit{
-								num_of_civilian_factories<21
-								}
-							  	set_variable={d=0.25}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-								limit{
-								num_of_civilian_factories<31
-								}
-							  	set_variable={d=0.3}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-								limit{
-								num_of_civilian_factories<41
-								}
-							  	set_variable={d=0.35}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-								limit{
-								num_of_civilian_factories<51
-								}
-							  	set_variable={d=0.4}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-								limit{
-								num_of_civilian_factories<61
-								}
-							  	set_variable={d=0.45}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-								limit{
-								num_of_civilian_factories<71
-								}
-							  	set_variable={d=0.5}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-								limit{
-								num_of_civilian_factories<81
-								}
-							  	set_variable={d=0.55}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-								limit{
-								num_of_civilian_factories<91
-								}
-							  	set_variable={d=0.6}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-								limit{
-								num_of_civilian_factories<101
-								}
-							  	set_variable={d=0.65}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-								limit{
-								num_of_civilian_factories<111
-								}
-							  	set_variable={d=0.7}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-								limit{
-								num_of_civilian_factories<121
-								}
-							  	set_variable={d=0.75}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-								limit{
-								num_of_civilian_factories<131
-								}
-							  	set_variable={d=0.8}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-								limit{
-								num_of_civilian_factories<141
-								}
-							  	set_variable={d=0.85}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-								limit{
-								num_of_civilian_factories<151
-								}
-							  	set_variable={d=0.9}
-								add_to_variable={var = money value = d}
-								else={
-								if={
-								limit{
-								num_of_civilian_factories<161
-								}
-							  	set_variable={d=0.95}
-								add_to_variable={var = money value = d}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}
-								}	
-								}
-								}
-						 }
-								
-						}
-                
-			}
-            #if = {
-			#	limit = { 
-            #        nor = { 
-            #        	has_idea
-            #        }
-            #    }
-            #    set_variable = { money_rate = 3 }   
-			#
-            #    clamp_variable = { var = money min = 0 max = money_max }
-			#}
+				clear_variable = resourceincome
+				clear_variable = resourceexpenses
+				clear_variable = allexpenses
+				clear_variable =  nmn
+
+				set_variable = { nmn = num_of_civilian_factories}
+				divide_variable = { var = nmn value = 10 }
+
+				every_country={
+				limit={
+				is_puppet = yes
+				}
+				divide_variable ={var=overcome value=2}
+				set_variable = { tax_to_overlord =overcome}
+				}
+				every_country={
+				limit={
+				tag=SOV
+				}
+				set_variable = { nerfeco =3}
+				}
+				set_variable = { tax= num_of_controlled_states}
+				divide_variable = { var = tax value = 25 }
+				set_variable = { nc= num_of_controlled_states}
+				divide_variable = { var = nc value = 50 }
+				set_variable = { chromium_import = resource_imported@chromium}
+				divide_variable = { var = chromium_import value = 100 }
+				set_variable = { tungsten_import = resource_imported@tungsten}
+				divide_variable = { var = tungsten_import value = 100 }
+				set_variable = { rubber_import = resource_imported@rubber}
+				divide_variable = { var = rubber_import value = 100 }
+				set_variable = { aluminum_import = resource_imported@aluminum}
+				divide_variable = { var = aluminum_import value = 100 }
+				set_variable = { oil_import = resource_imported@oil}
+				divide_variable = { var = oil_import value = 100 }
+				set_variable = { steel_import = resource_imported@steel}
+				divide_variable = { var = steel_import value = 100 }
+
+				set_variable = { no = num_occupied_states }
+				divide_variable = { var = no value = 10 }
+				set_variable = { nf = num_of_factories}
+				divide_variable = { var = nf value = 100 }
+				set_variable = { ms = num_divisions }
+				divide_variable = { var = ms value = 100 }
+				set_variable = { chromium_export = resource_exported@chromium}
+				divide_variable = { var = chromium_export value = 50 }
+				set_variable = { tungsten_export = resource_exported@tungsten}
+				divide_variable = { var = tungsten_export value = 100 }
+				set_variable = { rubber_export = resource_exported@rubber}
+				divide_variable = { var = rubber_export value = 100 }
+				set_variable = { aluminum_export = resource_exported@aluminum}
+				divide_variable = { var = aluminum_export value = 100 }
+				set_variable = { oil_export = resource_exported@oil}
+				divide_variable = { var = oil_export value = 50 }
+				set_variable = { steel_export = resource_exported@steel}
+				divide_variable = { var = steel_export value = 100 }
+
+				set_variable ={allexpenses = 0 }
+				set_variable ={resourceexpenses = 0 }
+				set_variable ={resourceincome = 0 }
+
+				add_to_variable = { var = resourceincome value = rubber_export}
+				add_to_variable = { var = resourceincome value = chromium_export}
+				add_to_variable = { var = resourceincome value = tungsten_export}
+				add_to_variable = { var = resourceincome value = steel_export}
+				add_to_variable = { var = resourceincome value = oil_export}
+				add_to_variable = { var = resourceincome value = aluminum_export}
+
+				add_to_variable = { var = resourceexpenses value = rubber_import}
+				add_to_variable = { var = resourceexpenses value = chromium_import}
+				add_to_variable = { var = resourceexpenses value = tungsten_import}
+				add_to_variable = { var = resourceexpenses value = steel_import}
+				add_to_variable = { var = resourceexpenses value = oil_import}
+				add_to_variable = { var = resourceexpenses value = aluminum_import}
+
+				add_to_variable = { var = allexpenses value = no}	
+				add_to_variable = { var = allexpenses value = nerfeco}
+				add_to_variable = { var = allexpenses value = tax_to_overlord}
+				add_to_variable = { var = allexpenses value = depression}
+				add_to_variable = { var = allexpenses value = nc}
+				add_to_variable = { var = allexpenses value = resourceexpenses}
+				add_to_variable = { var = allexpenses value = rubber_import}
+				add_to_variable = { var = allexpenses value = chromium_import}
+				add_to_variable = { var = allexpenses value = tungsten_import}
+				add_to_variable = { var = allexpenses value = steel_import}
+				add_to_variable = { var = allexpenses value = oil_import}
+				add_to_variable = { var = allexpenses value = aluminum_import}
+				add_to_variable = { var = allexpenses value = ms}
+				add_to_variable = { var = allexpenses value = nf}
+				add_to_variable = { var = nmn value = tax }
+				subtract_from_variable = { var = nmn value = allexpenses }
+				set_variable ={overcome= nmn}
+            	add_to_variable = { var = dx value = nmn  }
+            	round_variable = dx 
+            	#if ={
+            	#limit={
+            	# check_variable = { dx < -10 }
+            	#}
+
+            	#}
         }
     }
 }
