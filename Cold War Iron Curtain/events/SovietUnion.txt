@@ -1,9 +1,256 @@
 ﻿################################
 # Events for the Soviet union
 ################################
-
 add_namespace = sov
 add_namespace = every1
+add_namespace = COMECON
+add_namespace = build_building
+country_event = {
+	id = COMECON.100
+	title = "COMECON Requests our Manpower"
+	desc = "A member of COMECON requests our manpower"
+	picture = GFX_report_event_help_PRC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Approve"
+		FROM = {
+			add_manpower = 25000
+		}
+		add_manpower = -25000
+		ai_chance = {
+			factor = 75
+		}
+
+	}
+	option = {
+		name = "Decline"
+		ai_chance = {
+			factor = 25
+		}
+
+	}
+}
+country_event = {
+	id = COMECON.101
+	title = "COMECON Requests Industrial Aid"
+	desc = "A member of COMECON requests industrial aid"
+	picture = GFX_report_event_help_PRC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Approve"
+		FROM = { country_event = build_building.1 }
+		subtract_from_variable = { var = money value = 250  }
+		ai_chance = {
+			factor = 75
+		}
+
+	}
+	option = {
+		name = "Decline"
+		ai_chance = {
+			factor = 25
+		}
+
+	}
+}
+country_event = {
+	id = COMECON.102
+	title = "COMECON Requests Heavy Industrial Aid"
+	desc = "A member of COMECON requests industrial aid"
+	picture = GFX_report_event_help_PRC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Approve"
+		FROM = { country_event = build_building.2 }
+		subtract_from_variable = { var = money value = 250  }
+		ai_chance = {
+			factor = 75
+		}
+
+	}
+	option = {
+		name = "Decline"
+		ai_chance = {
+			factor = 25
+		}
+
+	}
+}
+country_event = {
+	id = COMECON.103
+	title = "COMECON Requests Housing Aid"
+	desc = "A member of COMECON requests industrial aid"
+	picture = GFX_report_event_help_PRC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Approve"
+		FROM = { every_owned_state = { add_extra_state_shared_building_slots = 1 } }
+		subtract_from_variable = { var = money value = 200  }
+		ai_chance = {
+			factor = 75
+		}
+
+	}
+	option = {
+		name = "Decline"
+		ai_chance = {
+			factor = 25
+		}
+
+	}
+}
+country_event = {
+	id = COMECON.300
+	title = "COMECON Agricultural Priority"
+	desc = "COMECON has determined we should prioritize agriculture....."
+	picture = GFX_report_event_help_PRC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Approve"
+		add_ideas = comecon_agri
+		ai_chance = {
+			factor = 90
+		}
+
+	}
+	option = {
+		name = "Decline"
+		ai_chance = {
+			factor = 10
+		}
+
+	}
+}
+country_event = {
+	id = COMECON.301
+	title = "COMECON Industrial Priority"
+	desc = "COMECON has determined we should prioritize industry....."
+	picture = GFX_report_event_help_PRC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Approve"
+		add_ideas = comecon_industrial
+		ai_chance = {
+			factor = 90
+		}
+
+	}
+	option = {
+		name = "Decline"
+		ai_chance = {
+			factor = 10
+		}
+
+	}
+}
+country_event = {
+	id = COMECON.302
+	title = "COMECON Heavy Industrial Priority"
+	desc = "COMECON has determined we should prioritize heavy industry....."
+	picture = GFX_report_event_help_PRC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Approve"
+		add_ideas = comecon_heavy_industrial
+		ai_chance = {
+			factor = 75
+		}
+
+	}
+	option = {
+		name = "Decline"
+		ai_chance = {
+			factor = 25
+		}
+
+	}
+}
+country_event = {
+	id = COMECON.303
+	title = "COMECON Technology Priority"
+	desc = "COMECON has determined we should prioritize technology development....."
+	picture = GFX_report_event_help_PRC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Approve"
+		add_ideas = comecon_technology_focus
+		ai_chance = {
+			factor = 75
+		}
+
+	}
+	option = {
+		name = "Decline"
+		ai_chance = {
+			factor = 25
+		}
+
+	}
+}
+country_event = {
+	id = COMECON.304
+	title = "COMECON Military Priority"
+	desc = "COMECON has determined we should prioritize military development....."
+	picture = GFX_report_event_help_PRC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Approve"
+		add_ideas = comecon_military
+		ai_chance = {
+			factor = 75
+		}
+
+	}
+	option = {
+		name = "Decline"
+		ai_chance = {
+			factor = 25
+		}
+
+	}
+}
+country_event = {
+	id = COMECON.305
+	title = "COMECON Resource Extraction Priority"
+	desc = "COMECON has determined we should prioritize resource extraction....."
+	picture = GFX_report_event_help_PRC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Approve"
+		add_ideas = comecon_resource_extraction
+		ai_chance = {
+			factor = 75
+		}
+
+	}
+	option = {
+		name = "Decline"
+		ai_chance = {
+			factor = 25
+		}
+
+	}
+}
 # Yes or No to help to PRC?
 country_event = {
 	id = sov.1
