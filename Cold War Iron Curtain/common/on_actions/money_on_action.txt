@@ -27,12 +27,6 @@ on_actions = {
 				divide_variable ={var=overcome value=2}
 				set_variable = { tax_to_overlord =overcome}
 				}
-				every_country={
-				limit={
-				tag=SOV
-				}
-				set_variable = { nerfeco =3}
-				}
 				set_variable = { tax= num_of_controlled_states}
 				divide_variable = { var = tax value = 25 }
 				set_variable = { nc= num_of_controlled_states}
@@ -104,11 +98,12 @@ on_actions = {
 				add_to_variable = { var = nmn value = tax }
 				subtract_from_variable = { var = nmn value = allexpenses }
 				set_variable ={overcome= nmn}
-            	add_to_variable = { var = dx value = nmn  }
-            	round_variable = dx 
+            	add_to_variable = { var = money_rate value = nmn  }
+            	round_variable = money_rate 
+				add_to_variable = { var = money value = money_rate }
             	#if ={
             	#limit={
-            	# check_variable = { dx < -10 }
+            	# check_variable = { money_rate < -10 }
             	#}
 
             	#}
