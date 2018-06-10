@@ -1810,7 +1810,7 @@ country_event = {
 					has_global_flag = korean_war_usa_enters
 					NOT = { has_global_flag = korean_armistice_china }
 					OR = {
-					    date > 1953.7.26  
+					    date > 1953.7.26 
                         AND = {   
                             date > 1951.7.1 						
                             KOR = { 
@@ -1824,10 +1824,15 @@ country_event = {
                                 controls_state = 920							
 							}
                         }
+						AND = {   
+                            date > 1950.1.1 						
+                            KOR = { has_war_support < 0.2 }
+                            KPA = { has_war_support < 0.2 }
+                        }
                     }						
 				}
 				country_event = korea.13
-			}	
+			}
 		if = {
 				limit = {	
 					country_exists = KOR
@@ -1852,6 +1857,11 @@ country_event = {
                                 controls_state = 918
                                 controls_state = 920							
 							}
+                        }
+						AND = {   
+                            date > 1950.1.1 						
+                            KOR = { has_war_support < 0.2 }
+                            KPA = { has_war_support < 0.2 }
                         }
                     }
 				}
