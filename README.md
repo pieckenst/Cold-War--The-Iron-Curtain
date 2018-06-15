@@ -20,6 +20,9 @@ Our goal is to deliver the modding community of HOI4 a full Cold War scenario, i
 ## Get the mod on the Steam Workshop
 https://steamcommunity.com/sharedfiles/filedetails/?id=1138310824
 
+## Get the dev version
+https://youtu.be/nzkYqPVkR4M
+
 ## Join us on Discord
 https://discord.gg/2bFfxa9
 
