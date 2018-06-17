@@ -12,7 +12,7 @@ NDefines.NAI.RESEARCH_LAND_DOCTRINE_NEED_GAIN_FACTOR = 0.1 -- Multiplies value b
 NDefines.NAI.RESEARCH_NAVAL_DOCTRINE_NEED_GAIN_FACTOR = 0.075 -- Multiplies value based on relative naval industry size / country size.
 
 NDefines.NAir.AIR_WING_MAX_STATS_SPEED = 15000
-NDefines.NAIR.CAS_NIGHT_ATTACK_FACTOR = 0.8 -- CAS damaged get multiplied by this in land combats at night
+NDefines.NAir.CAS_NIGHT_ATTACK_FACTOR = 0.8 -- CAS damaged get multiplied by this in land combats at night
 NDefines.NAir.STRATEGIC_BOMBER_NUKE_AIR_SUPERIORITY = 0.0 -- How much air superiority is needed for a tactical bomber to be able to nuke a province
 
 NDefines.NBuildings.AIRBASE_CAPACITY_MULT = 80 -- Each level of airbase building multiplied by this, gives capacity (max operational value). Value is int. 1 for each airplane.
