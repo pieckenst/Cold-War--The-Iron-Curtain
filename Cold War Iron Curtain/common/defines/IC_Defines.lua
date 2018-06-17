@@ -55,6 +55,8 @@ NDefines.NGame.START_DATE = "1945.5.23.12"
 
 NDefines.NMilitary.MAX_DIVISION_SUPPORT_WIDTH = 2 -- Max width of support in division designer.
 
+NDefines.NNavy.CARRIER_STACK_PENALTY = 8, -- The most efficient is 4 carriers in combat. 5+ brings the penalty to the amount of wings in battle.
+NDefines.NNavy.CARRIER_STACK_PENALTY_EFFECT = 0.1 -- Each carrier above the optimal amount decreases the amount of airplanes being able to takeoff by such %.
 NDefines.NNavy.DETECTION_SUBS_CHANCE_BALANCE = 30.0 -- Same as above but for sub detection. It should be very hard to detect just the subs.
 NDefines.NNavy.SUBMARINE_HIDE_TIMEOUT = 4 -- Amount of in-game-hours that takes the submarine (with position unrevealed) to hide.
 NDefines.NNavy.SUBMARINE_REVEAL_BASE_CHANCE = 0.002 -- Base chance for submarine detection. It's modified by the difference of a spootter's submarines detection vs submarine visibility. Use this variable for game balancing.
