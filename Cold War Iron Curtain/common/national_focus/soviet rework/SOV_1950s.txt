@@ -1,0 +1,786 @@
+focus_tree = {
+	id = SOV_1950s
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SOV
+		}
+	}
+	default = no
+	focus = {
+		id = SOV_stalin_reforms
+		icon = GFX_goal_support_communism
+		cost = 10.00
+		x = 4
+		y = 0
+			available = {
+					has_country_leader = {
+							ruling_only = yes
+							name = "Joseph Stalin"
+						}
+				}
+			completion_reward = {
+					add_political_power = 120
+				}
+
+	}
+	focus = {
+		id = SOV_Generalissimo_Stalin
+		icon = GFX_goal_unknown
+		cost = 10.00
+		x = 18
+		y = 0
+
+	}
+	focus = {
+		id = SOV_Korea_Question
+		icon = GFX_goal_unknown
+		cost = 10.00
+		x = 21
+		y = 1
+
+	}
+	focus = {
+		id = SOV_egalitarian_beliefs
+		icon = GFX_focus_generic_join_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_stalin_reforms
+		}
+		mutually_exclusive = {
+			focus = SOV_traditional_beliefs
+		}
+		x = 2
+		y = 1
+			completion_reward = {
+					add_ideas = egalitarian_beliefs
+					set_rule = {
+							can_generate_female_aces = yes
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_traditional_beliefs
+		icon = GFX_focus_generic_join_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_stalin_reforms
+		}
+		mutually_exclusive = {
+			focus = SOV_egalitarian_beliefs
+		}
+		x = 6
+		y = 1
+			completion_reward = {
+					add_ideas = traditional_beliefs
+				}
+
+	}
+	focus = {
+		id = SOV_collectivization
+		icon = GFX_focus_generic_join_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_egalitarian_beliefs
+			focus = SOV_traditional_beliefs
+		}
+		mutually_exclusive = {
+			focus = SOV_traditional_farms
+		}
+		x = 2
+		y = 2
+			completion_reward = {
+					add_ideas = agricultural_mismanagement
+					add_political_power = 120
+				}
+
+	}
+	focus = {
+		id = SOV_traditional_farms
+		icon = GFX_goal_continuous_increase_nu
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_traditional_beliefs
+			focus = SOV_egalitarian_beliefs
+		}
+		mutually_exclusive = {
+			focus = SOV_collectivization
+		}
+		x = 6
+		y = 2
+			completion_reward = {
+					add_ideas = traditional_farms
+					add_political_power = -120
+				}
+
+	}
+	focus = {
+		id = SOV_continue_the_great_turn
+		icon = GFX_focus_generic_join_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_traditional_farms
+			focus = SOV_collectivization
+		}
+		mutually_exclusive = {
+			focus = SOV_revitalize_the_new_economic_policy
+		}
+		x = 2
+		y = 3
+			completion_reward = {
+					add_popularity = {
+							ideology = communism
+							popularity = 0.1
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_revitalize_the_new_economic_policy
+		icon = GFX_goal_generic_positive_trade_relations
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_traditional_farms
+			focus = SOV_collectivization
+		}
+		mutually_exclusive = {
+			focus = SOV_continue_the_great_turn
+		}
+		x = 6
+		y = 3
+			completion_reward = {
+					add_ideas = capitalism
+				}
+
+	}
+	focus = {
+		id = SOV_socialized_health_care
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_revitalize_the_new_economic_policy
+			focus = SOV_continue_the_great_turn
+		}
+		mutually_exclusive = {
+			focus = SOV_traditional_healthcare
+		}
+		x = 2
+		y = 4
+			completion_reward = {
+					add_ideas = healthcare_benefits
+				}
+
+	}
+	focus = {
+		id = SOV_traditional_healthcare
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_revitalize_the_new_economic_policy
+			focus = SOV_continue_the_great_turn
+		}
+		mutually_exclusive = {
+			focus = SOV_socialized_health_care
+		}
+		x = 6
+		y = 4
+			completion_reward = {
+					add_stability = 0.05
+				}
+
+	}
+	focus = {
+		id = SOV_educate_the_masses
+		icon = GFX_focus_generic_join_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_socialized_health_care
+			focus = SOV_traditional_healthcare
+		}
+		mutually_exclusive = {
+			focus = SOV_the_working_man
+		}
+		x = 2
+		y = 5
+			completion_reward = {
+					add_ideas = progress_cult_focus
+				}
+
+	}
+	focus = {
+		id = SOV_the_working_man
+		icon = GFX_focus_generic_join_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_traditional_healthcare
+			focus = SOV_socialized_health_care
+		}
+		mutually_exclusive = {
+			focus = SOV_educate_the_masses
+		}
+		x = 6
+		y = 5
+			completion_reward = {
+					add_ideas = workers_culture
+				}
+
+	}
+	focus = {
+		id = SOV_Demand_War_Reparations
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_the_working_man
+			focus = SOV_educate_the_masses
+		}
+		x = 4
+		y = 6
+
+	}
+	focus = {
+		id = SOV_Establish_European_Radar_Stations
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Demand_War_Reparations
+		}
+		x = 2
+		y = 7
+
+	}
+	focus = {
+		id = SOV_Infrastructure_Effort
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Demand_War_Reparations
+		}
+		x = 4
+		y = 7
+
+	}
+	focus = {
+		id = SOV_Institute_Nation_Wide_Workers_Programs
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Demand_War_Reparations
+		}
+		x = 6
+		y = 7
+
+	}
+	focus = {
+		id = SOV_Resume_the_1945_Five_Year_Plan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Establish_European_Radar_Stations
+		}
+		prerequisite = {
+			focus = SOV_Infrastructure_Effort
+		}
+		prerequisite = {
+			focus = SOV_Institute_Nation_Wide_Workers_Programs
+		}
+		x = 4
+		y = 8
+
+	}
+	focus = {
+		id = SOV_Comecon_Investments
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Resume_the_1945_Five_Year_Plan
+		}
+		x = 4
+		y = 9
+
+	}
+	focus = {
+		id = SOV_Turkish_Straits_Crisis
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Generalissimo_Stalin
+		}
+		x = 9
+		y = 1
+
+	}
+	focus = {
+		id = SOV_Peaceful_Resolution
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Turkish_Straits_Crisis
+		}
+		mutually_exclusive = {
+			focus = SOV_Continue_Demands_for_Regime_Chang
+		}
+		x = 8
+		y = 2
+
+	}
+	focus = {
+		id = SOV_Expand_the_Nuclear_Program
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Resume_the_1945_Five_Year_Plan
+		}
+		x = 8
+		y = 9
+
+	}
+	focus = {
+		id = SOV_Continue_Demands_for_Regime_Chang
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Turkish_Straits_Crisis
+		}
+		mutually_exclusive = {
+			focus = SOV_Peaceful_Resolution
+		}
+		x = 10
+		y = 2
+
+	}
+	focus = {
+		id = SOV_Partition_of_Turkey
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Continue_Demands_for_Regime_Chang
+		}
+		x = 10
+		y = 3
+
+	}
+	focus = {
+		id = SOV_Proclaim_Victory_Over_Fascism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Generalissimo_Stalin
+		}
+		x = 13
+		y = 1
+
+	}
+	focus = {
+		id = SOV_neutral_austria
+		icon = GFX_goal_molotov_ribbentrop_pact
+		cost = 7.00
+		prerequisite = {
+			focus = SOV_Proclaim_Victory_Over_Fascism
+		}
+		mutually_exclusive = {
+			focus = SOV_communist_austria
+		}
+		x = 12
+		y = 2
+			available = {
+					NOT = {
+							country_exists = AUS
+						}
+				}
+			bypass = {
+					country_exists = AUS
+				}
+			completion_reward = {
+					USA = {
+							country_event = usa.701
+						}
+					SOV = {
+							country_event = sov.3
+						}
+					FRA = {
+							country_event = fra.1
+						}
+					ENG = {
+							country_event = eng.1
+						}
+					set_global_flag = aus_questions_over
+				}
+
+	}
+	focus = {
+		id = SOV_communist_austria
+		icon = GFX_goal_molotov_ribbentrop_pact
+		cost = 7.00
+		prerequisite = {
+			focus = SOV_Proclaim_Victory_Over_Fascism
+		}
+		mutually_exclusive = {
+			focus = SOV_neutral_austria
+		}
+		x = 14
+		y = 2
+			available = {
+					NOT = {
+							country_exists = AUS
+						}
+					NOT = {
+							country_exists = ADR
+						}
+				}
+			bypass = {
+					country_exists = AUS
+					country_exists = ADR
+				}
+			completion_reward = {
+					set_global_flag = aus_questions_over
+					release = ADR
+					puppet = ADR
+					ADR = {
+							load_oob = "ADR_1949"
+							set_party_name = {
+									ideology = communism
+									long_name = "Sozialistische Einheitspartei Österreichs"
+									name = "SEÖ"
+								}
+							set_party_name = {
+									ideology = democratic
+									long_name = "Demokratisch Partei Österreichs"
+									name = "DPÖ"
+								}
+							set_party_name = {
+									ideology = socialist
+									long_name = "Sozialdemokratische Arbeiter Partei Österreichs"
+									name = "SDAPÖ"
+								}
+							set_party_name = {
+									ideology = conservative
+									long_name = "Ostösterreichisch Konservative Freiheit Partei Österreichs"
+									name = "OKFPÖ"
+								}
+							set_party_name = {
+									ideology = Liberal_Conservatism
+									long_name = "Konservative Freiheit Partei Österreichs - Liberale Flügel"
+									name = "KFPÖ - LF"
+								}
+							set_party_name = {
+									ideology = Christian_Democratic
+									long_name = "Christliche Sozialdemokratische Partei"
+									name = "CSDP"
+								}
+							create_country_leader = {
+									name = "Johann Koplenig"
+									picture = "Koplenig.dds"
+									ideology = stalinism
+								}
+							set_politics = {
+									parties = {
+											communism = {
+													popularity = 43.5
+												}
+											democratic = {
+													popularity = 4
+												}
+											socialist = {
+													popularity = 25
+												}
+											Christian_Democratic = {
+													popularity = 13
+												}
+											conservative = {
+													popularity = 2
+												}
+											Liberal_Conservatism = {
+													popularity = 12.5
+												}
+										}
+									ruling_party = communism
+									last_election = "1949.1.1"
+									election_frequency = 480
+									elections_allowed = yes
+								}
+						}
+				}
+			ai_will_do = {
+					factor = 1
+					modifier = {
+							is_historical_focus_on = yes
+							factor = 0
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_stalin_notes
+		icon = GFX_goal_generic_dangerous_deal
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_neutral_austria
+			focus = SOV_communist_austria
+		}
+		x = 13
+		y = 3
+			completion_reward = {
+					USA = {
+							country_event = cw_stalinotes.1
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_Revival_of_the_Russian_Orthodox_Church
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Generalissimo_Stalin
+		}
+		x = 17
+		y = 1
+
+	}
+	focus = {
+		id = SOV_Soviet_Socialist_Patriotism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Revival_of_the_Russian_Orthodox_Church
+		}
+		x = 17
+		y = 2
+
+	}
+	focus = {
+		id = SOV_Direct_Intervention
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Korea_Question
+		}
+		mutually_exclusive = {
+			focus = SOV_Indirect_Intervention
+		}
+		x = 20
+		y = 2
+
+	}
+	focus = {
+		id = SOV_Indirect_Intervention
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Korea_Question
+		}
+		mutually_exclusive = {
+			focus = SOV_Direct_Intervention
+		}
+		x = 22
+		y = 2
+
+	}
+	focus = {
+		id = SOV_an_iron_curtain
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Generalissimo_Stalin
+		}
+		x = 25
+		y = 1
+			completion_reward = {
+					add_ideas = iron_curtain
+				}
+
+	}
+	focus = {
+		id = SOV_socialism_in_one_country
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_an_iron_curtain
+		}
+		x = 25
+		y = 2
+			completion_reward = {
+					every_country = {
+							limit = {
+									is_in_faction_with = SOV
+								}
+							add_ideas = one_form_of_government
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_expand_gulags
+		icon = GFX_goal_generic_dangerous_deal
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_socialism_in_one_country
+		}
+		x = 25
+		y = 3
+			completion_reward = {
+					add_ideas = gulag_politic
+				}
+
+	}
+	focus = {
+		id = SOV_Further_Purges
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Generalissimo_Stalin
+		}
+		x = 28
+		y = 1
+
+	}
+	focus = {
+		id = SOV_Favour_Beria_and_Malenkov
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Further_Purges
+		}
+		x = 28
+		y = 2
+
+	}
+	focus = {
+		id = SOV_Purge_the_Lenningrad_Party_Leadership
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Favour_Beria_and_Malenkov
+		}
+		x = 27
+		y = 3
+
+	}
+	focus = {
+		id = SOV_the_doctors_plot
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Purge_the_Lenningrad_Party_Leadership
+		}
+		prerequisite = {
+			focus = SOV_Purge_the_Georgian_Party_Leadership_Copy
+		}
+		prerequisite = {
+			focus = SOV_expand_gulags
+		}
+		x = 27
+		y = 4
+			completion_reward = {
+					add_named_threat = {
+							threat = 15
+							name = "The Doctors Plot"
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_decrease
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_blame_jewish_doctors
+		icon = GFX_goal_continuous_suppression
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_the_doctors_plot
+		}
+		x = 27
+		y = 5
+			completion_reward = {
+					add_named_threat = {
+							threat = 15
+							name = "Blame Jewish Doctors"
+						}
+					add_stability = -0.05
+				}
+
+	}
+	focus = {
+		id = SOV_anti_western_propaganda
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_blame_jewish_doctors
+		}
+		x = 27
+		y = 6
+			completion_reward = {
+					add_named_threat = {
+							threat = 15
+							name = "Anti Western Propaganda"
+						}
+				}
+
+	}
+	focus = {
+		id = SOV_Purge_the_Georgian_Party_Leadership_Copy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Favour_Beria_and_Malenkov
+		}
+		x = 29
+		y = 3
+
+	}
+	focus = {
+		id = SOV_Eastern_European_Stimulus_Package
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Comecon_Investments
+		}
+		x = 1
+		y = 10
+
+	}
+	focus = {
+		id = SOV_Jumpstart_Belorussian_Industry
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Comecon_Investments
+		}
+		x = 3
+		y = 10
+
+	}
+	focus = {
+		id = SOV_Jumpstart_Baltic_and_Balkan_Industry
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Comecon_Investments
+		}
+		x = 5
+		y = 10
+
+	}
+	focus = {
+		id = SOV_Invest_In_Ukranian_Reconstruction_Program
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = SOV_Comecon_Investments
+		}
+		x = 7
+		y = 10
+
+	}
+}

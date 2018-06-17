@@ -48,7 +48,7 @@ focus_tree = {
 		x = 20
 		y = 0
 			completion_reward = {
-					SAF_60s = {
+					SAF = {
 							add_opinion_modifier = {
 									target = SOV
 									modifier = large_increase
@@ -56,7 +56,7 @@ focus_tree = {
 						}
 					SOV = {
 							add_opinion_modifier = {
-									target = SAF_60s
+									target = SAF
 									modifier = large_increase
 								}
 						}
@@ -74,7 +74,7 @@ focus_tree = {
 		x = 28
 		y = 0
 			completion_reward = {
-					SAF_60s = {
+					SAF = {
 							add_opinion_modifier = {
 									target = USA
 									modifier = large_increase
@@ -82,7 +82,7 @@ focus_tree = {
 						}
 					USA = {
 							add_opinion_modifier = {
-									target = SAF_60s
+									target = SAF
 									modifier = large_increase
 								}
 						}
@@ -2346,7 +2346,7 @@ focus_tree = {
 		completion_reward = {
 					add_stability = 0.05
 					add_popularity = {
-							ideology = Nationalist
+							ideology = nationalism
 							popularity = 0.05
 						}
 				}
@@ -2581,8 +2581,9 @@ focus_tree = {
 		x = 26
 		y = 6
 			completion_reward = {
+				USA = {
 					create_production_license = {
-							target = USA
+							target = SAF
 							cost_factor = 1.0
 							equipment = {
 									type = motorized_equipment_2
@@ -2590,7 +2591,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SAF
 							cost_factor = 1.0
 							equipment = {
 									type = mechanized_equipment_3
@@ -2598,7 +2599,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SAF
 							cost_factor = 1.0
 							equipment = {
 									type = main_battle_tanks_2
@@ -2606,7 +2607,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SAF
 							cost_factor = 1.0
 							equipment = {
 									type = lt_equipment_1
@@ -2614,7 +2615,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SAF
 							cost_factor = 1.0
 							equipment = {
 									type = ht_equipment_2
@@ -2622,7 +2623,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SAF
 							cost_factor = 1.0
 							equipment = {
 									type = infantry_equipment
@@ -2630,7 +2631,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SAF
 							cost_factor = 1.0
 							equipment = {
 									type = CAS_equipment_4
@@ -2638,7 +2639,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SAF
 							cost_factor = 1.0
 							equipment = {
 									type = jet_fighter_equipment_2
@@ -2646,7 +2647,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SAF
 							cost_factor = 1.0
 							equipment = {
 									type = jet_tac_bomber_equipment_2
@@ -2654,7 +2655,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SAF
 							cost_factor = 1.0
 							equipment = {
 									type = jet_strat_bomber_equipment_2
@@ -2662,6 +2663,7 @@ focus_tree = {
 								}
 						}
 				}
+			}
 
 	}
 	focus = {
@@ -3000,16 +3002,15 @@ focus_tree = {
 		x = 48
 		y = 17
 		completion_reward = {
-				add_ideas = partisan_suppression_focus
-				completion_reward = {
-					add_manpower = 10000
-					add_equipment_to_stockpile = {
-							type = infantry_equipment_2
-							amount = 15000
-							producer = SOV
-						}
-				}
-				}
+			add_ideas = partisan_suppression_focus
+			add_manpower = 10000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_2
+				amount = 15000
+				producer = SOV
+			}
+				
+		}
 	}
 	focus = {
 		id = SAF_60s_commitee_for_equality
@@ -3020,7 +3021,9 @@ focus_tree = {
 		}
 		x = 51
 		y = 17
-		add_ideas = civil_rights_act_of_1960
+		completion_reward = {
+			add_ideas = civil_rights_act_of_1960
+			}
 	}
 	focus = {
 		id = SAF_60s_compulsory_colored_education
@@ -3126,9 +3129,7 @@ focus_tree = {
 		y = 18
 		completion_reward = {
 			remove_ideas = SAF_banned_blacks_from_universities
-			completion_reward = {
-					add_research_slot = 1
-				}
+			add_research_slot = 1
 		}
 	}
 	focus = {
@@ -3303,7 +3304,6 @@ focus_tree = {
 		}
 		x = 51
 		y = 22
-
 	}
 	focus = {
 		id = SAF_60s_isolation
@@ -3317,7 +3317,9 @@ focus_tree = {
 		}
 		x = 55
 		y = 22
-
+		completion_reward = {
+					add_political_power = 150
+				}
 	}
 	focus = {
 		id = SAF_60s_commie_stuff

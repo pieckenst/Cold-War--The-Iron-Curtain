@@ -1,0 +1,319 @@
+﻿add_namespace = KOR_Elections
+add_namespace = KPA_RAID
+country_event = {
+	id = KOR_Elections.1963
+	title = "1963 Presidential Elections"
+	desc = french_elections.2.d
+	picture = GFX_report_event_brazil_election_1955
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = KOR
+		date > 1963.1.1
+		date < 1964.1.1
+	}
+
+	immediate = {
+		complete_national_focus = KOR_60s_Elections_of_1963
+	}
+
+	# Park Chung-hee
+	option = {
+		name = "Park Chung-hee"
+		create_country_leader = {
+			name = "Park Chung-hee"
+			picture = "Park_Chung_hee.dds"
+			ideology = military_junta
+		}
+		complete_national_focus = KOR_60s_Park_Chung_hee
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 70
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+	}
+	# Yun Bo-seon
+	option = {
+		name = "Yun Bo-seon"
+		create_country_leader = {
+			name = "Yun Bo-seon"
+			picture = "Portrait_Yun_Bo_seon.dds"
+			ideology = liberal_conservatism
+		}
+		set_politics = {
+			ruling_party = Liberal_Conservatism
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = Liberal_Conservatism
+			popularity = 0.15
+		}
+		complete_national_focus = KOR_60s_Yun_Bo_seon
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+country_event = {
+	id = KOR_Elections.1967
+	title = "1967 Presidential Elections"
+	desc = french_elections.2.d
+	picture = GFX_report_event_brazil_election_1955
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = KOR
+		date > 1967.1.1
+		date < 1968.1.1
+	}
+	immediate = {
+		complete_national_focus = KOR_60s_1967_Elections
+	}
+
+	# Park Chung-hee
+	option = {
+		name = "Park Chung-hee"
+		create_country_leader = {
+			name = "Park Chung-hee"
+			picture = "Park_Chung_hee.dds"
+			ideology = military_junta
+		}
+		complete_national_focus = KOR_60s_Park_Chung_hee_1967
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 70
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+	}
+	# Yun Bo-seon
+	option = {
+		name = "Yun Bo-seon"
+		create_country_leader = {
+			name = "Yun Bo-seon"
+			picture = "Portrait_Yun_Bo_seon.dds"
+			ideology = liberal_conservatism
+		}
+		set_politics = {
+			ruling_party = Liberal_Conservatism
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = Liberal_Conservatism
+			popularity = 0.15
+		}
+		complete_national_focus = KOR_60s_Yun_Bo_seon_1967
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+country_event = {
+	id = KOR_Elections.1971
+	title = "1971 Presidential Elections"
+	desc = french_elections.2.d
+	picture = GFX_report_event_brazil_election_1955
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = KOR
+		date > 1971.1.1
+		date < 1972.1.1
+	}
+	immediate = {
+		complete_national_focus = KOR_60s_1971_Elections
+	}
+
+	# Park Chung-hee
+	option = {
+		name = "Park Chung-hee"
+		create_country_leader = {
+			name = "Park Chung-hee"
+			picture = "Park_Chung_hee.dds"
+			ideology = military_junta
+		}
+		complete_national_focus = KOR_60s_Park_Chung_hee_1971
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 70
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+	}
+	# Kim Dae-jung
+	option = {
+		name = "Kim Dae-jung"
+		create_country_leader = {
+			name = "Kim Dae-jung"
+			picture = "Portrait_Yun_Bo_seon.dds"
+			ideology = liberal_conservatism
+		}
+		set_politics = {
+			ruling_party = Liberal_Conservatism
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = Liberal_Conservatism
+			popularity = 0.15
+		}
+		complete_national_focus = KOR_60s_Kim_Dae_jung
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+
+country_event = {
+	id = KPA_RAID.1
+	title = "Assasination of Kim Il Sung"
+	desc = "In response to our raid on the Blue House, the South has assasinated our Dear Leader......."
+	picture = GFX_Report_North_Korea_Raid
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Choe Yong-gon"
+			picture = "Choe.dds"
+			ideology = stalinism
+		}	
+		news_event = KPA_RAID.5
+	}
+	option = {
+		name = "Issue Diplomatic Threats"
+		add_threat = 30
+		news_event = KPA_RAID.3
+	}
+	
+	option = {
+		name = "Invade the South"
+		declare_war_on = {
+			target = KOR
+			type = annex_everything
+		}
+		news_event = KPA_RAID.4
+	}
+}
+country_event = {
+	id = KPA_RAID.2
+	title = "Failed assasination of Kim Il Sung"
+	desc = "In response to our raid on the Blue House, the South has attempted and failed to assasinate our Dear Leader......."
+	picture = GFX_Report_North_Korea_Raid
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Choe Yong-gon"
+			picture = "Choe.dds"
+			ideology = stalinism
+		}	
+		news_event = KPA_RAID.6
+	}
+	option = {
+		name = "Issue Diplomatic Threats"
+		add_threat = 15
+		news_event = KPA_RAID.3
+	}
+	
+	option = {
+		name = "Invade the South"
+		declare_war_on = {
+			target = KOR
+			type = annex_everything
+		}
+		news_event = KPA_RAID.4
+	}
+}
+news_event = {
+	id = KPA_RAID.3
+	title = "North Korea Issues Statement on Assasination Attempt"
+	desc = "North Korea has issued a statement blasting South Korea for an attempt on Kim Il-Sung's life......."
+	picture = GFX_News_Report_North_Korea_Raid
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = "Hopefully this does not escalate"
+	}
+}
+news_event = {
+	id = KPA_RAID.4
+	title = "The Second Korean War"
+	desc = "After the recent events in North Korea, the North has mobilized its troops and began the Second Korean War......."
+	picture = GFX_News_Report_North_Korea_Raid
+	major = yes
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "Is Midnight Imminent?"
+	}
+}
+news_event = {
+	id = KPA_RAID.5
+	title = "Assasination of Kim Il Sung"
+	desc = "In response to our raid on the Blue House, the South has assasinated Kim Il-Sung......."
+	picture = GFX_News_Report_North_Korea_Raid
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = "This will not be good for global stability"
+	}
+}
+news_event = {
+	id = KPA_RAID.6
+	title = "Failed Assasination of Kim Il-Sung"
+	desc = "In response to our raid on the Blue House, the South attempted and failed to assasinate Kim Il-Sung......."
+	picture = GFX_News_Report_North_Korea_Raid
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = "This will only embolden Kim Il-Sung"
+	}
+}

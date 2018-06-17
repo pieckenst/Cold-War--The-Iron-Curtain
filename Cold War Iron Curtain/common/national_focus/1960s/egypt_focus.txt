@@ -1,11 +1,8 @@
 focus_tree = {
-	id = egypt_focus
+	id = egypt_60s_focus
 	country = {
 		factor = 0
-		modifier = {
-			add = 10
-			tag = EGY
-		}
+
 	}
 	default = no
 	focus = {
@@ -14,7 +11,98 @@ focus_tree = {
 		cost = 10.00
 		x = 7
 		y = 0
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}	
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}						
+		}
 	}
 	focus = {
 		id = EGY_one_party_system
@@ -25,7 +113,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 0
-
+		completion_reward = {
+			add_popularity = { ideology = pan_arabism popularity = 0.15 }	
+		}
 	}
 	focus = {
 		id = EGY_reverse_one_party_system
@@ -36,7 +126,12 @@ focus_tree = {
 		}
 		x = 39
 		y = 0
-
+		completion_reward = {
+			add_popularity = { ideology = socialist popularity = 0.05 }	
+			add_popularity = { ideology = democratic popularity = 0.05 }	
+			add_popularity = { ideology = conservative popularity = 0.05 }	
+			add_popularity = { ideology = islamism popularity = 0.05 }	
+		}
 	}
 	focus = {
 		id = EGY_3_year_plan
@@ -44,7 +139,98 @@ focus_tree = {
 		cost = 10.00
 		x = 53
 		y = 4
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}	
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}						
+		}
 	}
 	focus = {
 		id = EGY_egyptian_armed_forces
@@ -52,7 +238,11 @@ focus_tree = {
 		cost = 10.00
 		x = 77
 		y = 0
-
+		completion_reward = {
+			army_experience = 25
+			navy_experience = 25
+			air_experience = 25
+		}
 	}
 	focus = {
 		id = EGY_free_markets
@@ -66,7 +256,9 @@ focus_tree = {
 		}
 		x = 1
 		y = 1
-
+		completion_reward = {
+			add_ideas = embrace_free_trade
+		}
 	}
 	focus = {
 		id = EGY_modern_equipment
@@ -77,7 +269,68 @@ focus_tree = {
 		}
 		x = 1
 		y = 2
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = EGY_land_reforms
@@ -88,7 +341,9 @@ focus_tree = {
 		}
 		x = 0
 		y = 3
-
+		completion_reward = {
+			add_ideas = land_reform
+		}
 	}
 	focus = {
 		id = EGY_found_free_trade_among_mediterranean_neighbors
@@ -99,7 +354,40 @@ focus_tree = {
 		}
 		x = 2
 		y = 3
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									industrial_complex > 0
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									industrial_complex > 0
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = EGY_control_our_market
@@ -113,7 +401,11 @@ focus_tree = {
 		}
 		x = 5
 		y = 1
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}	
+		}
 	}
 	focus = {
 		id = EGY_nationalize_certain_industries
@@ -124,7 +416,41 @@ focus_tree = {
 		}
 		x = 5
 		y = 2
-
+			completion_reward = {
+					add_stability = -0.15
+					random_owned_controlled_state = {
+							limit = {
+									industrial_complex > 0
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									industrial_complex > 0
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = EGY_nationalize_steel_and_rubber_industry
@@ -135,7 +461,20 @@ focus_tree = {
 		}
 		x = 4
 		y = 3
-
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = steel
+									amount = 25
+								}
+						}
+					random_owned_state = {
+							add_resource = {
+									type = rubber
+									amount = 25
+								}
+						}
+				}
 	}
 	focus = {
 		id = EGY_boost_economic_might
@@ -146,7 +485,40 @@ focus_tree = {
 		}
 		x = 6
 		y = 3
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									industrial_complex > 0
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									industrial_complex > 0
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = EGY_combat_growing_poverty
@@ -157,7 +529,26 @@ focus_tree = {
 		}
 		x = 7
 		y = 4
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									industrial_complex > 0
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					add_popularity = 150
+					add_stability = 0.05
+				}
 	}
 	focus = {
 		id = EGY_found_el_nasr_automotive_manufacturing_company
@@ -168,7 +559,40 @@ focus_tree = {
 		}
 		x = 10
 		y = 5
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									industrial_complex > 0
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									industrial_complex > 0
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = EGY_encourage_tourism
@@ -179,7 +603,10 @@ focus_tree = {
 		}
 		x = 4
 		y = 5
-
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = EGY_the_population_problem
@@ -191,7 +618,10 @@ focus_tree = {
 		}
 		x = 7
 		y = 6
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.05
+		}	
 	}
 	focus = {
 		id = EGY_encourage_the_rising_birth_rate
@@ -205,7 +635,12 @@ focus_tree = {
 		}
 		x = 5
 		y = 7
-
+		completion_reward = {
+			swap_idea = {
+				remove_idea = population_growth_rapid
+				add_idea = population_growth_explosion
+			}
+		}
 	}
 	focus = {
 		id = EGY_production_of_arms
@@ -216,7 +651,25 @@ focus_tree = {
 		}
 		x = 9
 		y = 1
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = EGY_boost_steel_industry
@@ -227,7 +680,14 @@ focus_tree = {
 		}
 		x = 9
 		y = 2
-
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = steel
+									amount = 25
+								}
+						}
+				}
 	}
 	focus = {
 		id = EGY_increase_petroleum_exports
@@ -238,7 +698,14 @@ focus_tree = {
 		}
 		x = 8
 		y = 3
-
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = oil
+									amount = 25
+								}
+						}
+				}
 	}
 	focus = {
 		id = EGY_counter_rising_birth_rates
@@ -252,7 +719,12 @@ focus_tree = {
 		}
 		x = 9
 		y = 7
-
+		completion_reward = {
+			swap_idea = {
+				remove_idea = population_growth_rapid
+				add_idea = population_growth_steady
+			}
+		}
 	}
 	focus = {
 		id = EGY_support_arab_league
@@ -262,8 +734,10 @@ focus_tree = {
 			focus = EGY_boost_steel_industry
 		}
 		x = 10
-		y = 3
-
+		y = 3	
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = EGY_fix_the_infrastucture_problem
@@ -274,7 +748,33 @@ focus_tree = {
 		}
 		x = 13
 		y = 1
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = EGY_mobilize_workers
@@ -285,7 +785,10 @@ focus_tree = {
 		}
 		x = 13
 		y = 2
-
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = EGY_census_efforts
@@ -296,7 +799,12 @@ focus_tree = {
 		}
 		x = 12
 		y = 3
-
+		completion_reward = {
+			every_owned_state = {
+				add_manpower = 10000
+			}
+			add_political_power = 125
+		}
 	}
 	focus = {
 		id = EGY_infastructure_efforts
@@ -307,7 +815,33 @@ focus_tree = {
 		}
 		x = 14
 		y = 3
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = EGY_unite_egyptians_under_one_banner
@@ -318,7 +852,10 @@ focus_tree = {
 		}
 		x = 20
 		y = 1
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = EGY_push_for_agarian_reforms
@@ -329,7 +866,9 @@ focus_tree = {
 		}
 		x = 19
 		y = 2
-
+		completion_reward = {
+			add_ideas = agrarian_reform
+		}
 	}
 	focus = {
 		id = EGY_ban_the_communist_party
@@ -340,7 +879,9 @@ focus_tree = {
 		}
 		x = 21
 		y = 2
-
+			completion_reward = {
+					add_ideas = communism_banned
+				}
 	}
 	focus = {
 		id = EGY_soviet_assistance
@@ -355,6 +896,20 @@ focus_tree = {
 		}
 		x = 20
 		y = 3
+			completion_reward = {
+					EGY = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = EGY
+									modifier = large_increase
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -370,6 +925,20 @@ focus_tree = {
 		}
 		x = 18
 		y = 3
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = EGY
+									modifier = large_increase
+								}
+						}
+					EGY = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+				}
 
 	}
 	focus = {
@@ -382,7 +951,44 @@ focus_tree = {
 		}
 		x = 22
 		y = 3
-
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = EGY
+									modifier = large_decrease
+								}
+						}
+					EGY = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = EGY
+									modifier = large_decrease
+								}
+						}
+					EGY = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+						}
+					FRA = {
+							add_opinion_modifier = {
+									target = EGY
+									modifier = large_decrease
+								}
+						}
+					EGY = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = EGY_free_welfare
@@ -395,7 +1001,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 4
-
+		completion_reward = {
+			add_ideas = the_american_welfare_state
+		}
 	}
 	focus = {
 		id = EGY_free_healthcare
@@ -408,7 +1016,9 @@ focus_tree = {
 		}
 		x = 19
 		y = 5
-
+		completion_reward = {
+			add_ideas = socialized_health_care
+		}
 	}
 	focus = {
 		id = EGY_free_education
@@ -421,7 +1031,9 @@ focus_tree = {
 		}
 		x = 21
 		y = 5
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = EGY_spread_the_arab_revolution
@@ -434,7 +1046,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 6
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = EGY_influence_iraq
@@ -445,7 +1059,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 7
-
+		completion_reward = {
+			IRQ = { add_timed_idea = { idea = pan_arab_influence days = 365 } }	
+		}
 	}
 	focus = {
 		id = EGY_embrace_the_non_aligned_movement
@@ -456,7 +1072,11 @@ focus_tree = {
 		}
 		x = 20
 		y = 8
-
+		completion_reward = {
+			YUG = {
+				add_to_faction = EGY
+			}
+		}
 	}
 	focus = {
 		id = EGY_ahlan_wa_sahlan
@@ -467,7 +1087,10 @@ focus_tree = {
 		}
 		x = 20
 		y = 9
-
+		completion_reward = {
+			add_threat = -5
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = EGY_rely_on_soviet_arms
@@ -478,7 +1101,11 @@ focus_tree = {
 		}
 		x = 20
 		y = 10
-
+		completion_reward = {
+			add_equipment_to_stockpile = { type = infantry_equipment amount = 2000 producer = SOV }	
+			add_equipment_to_stockpile = { type = mbt_equipment amount = 100 producer = SOV }
+			add_equipment_to_stockpile = { type = jet_fighter_eqipment amount = 100 producer = SOV }
+		}
 	}
 	focus = {
 		id = EGY_conscript_military_personnel
@@ -489,7 +1116,10 @@ focus_tree = {
 		}
 		x = 22
 		y = 10
-
+		completion_reward = {
+			add_manpower = 100000
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = EGY_call_in_arab_league_members
@@ -500,7 +1130,15 @@ focus_tree = {
 		}
 		x = 18
 		y = 10
-
+		completion_reward = {
+			YUG = {
+				IRQ = { country_event = generic.8 }
+				SAU = { country_event = generic.8 }
+				LEB = { country_event = generic.8 }
+				SYR = { country_event = generic.8 }
+				JOR = { country_event = generic.8 }
+			}
+		}	
 	}
 	focus = {
 		id = EGY_push_for_a_greater_agenda
@@ -520,7 +1158,9 @@ focus_tree = {
 		}
 		x = 21
 		y = 11
-
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = ISR }	
+		}
 	}
 	focus = {
 		id = EGY_open_elections
@@ -531,7 +1171,12 @@ focus_tree = {
 		}
 		x = 39
 		y = 1
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = pan_arabism
+				elections_allowed = yes
+			}
+		}
 	}
 	focus = {
 		id = EGY_unban_the_muslim_brotherhood
@@ -546,7 +1191,16 @@ focus_tree = {
 		}
 		x = 27
 		y = 2
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = islamism
+				elections_allowed = yes
+			}
+			add_timed_idea = {
+				idea = islamism_drift
+				days = 500
+			}
+		}
 	}
 	focus = {
 		id = EGY_fight_leftist_on_the_steets
@@ -557,7 +1211,13 @@ focus_tree = {
 		}
 		x = 25
 		y = 3
-
+		completion_reward = {
+			add_stability = -0.1
+			add_timed_idea = {
+				idea = leftist_persecution_egy
+				days = 365
+			}
+		}
 	}
 	focus = {
 		id = EGY_ban_all_leftist_parties
@@ -568,7 +1228,12 @@ focus_tree = {
 		}
 		x = 25
 		y = 4
-
+		completion_reward = {
+			add_ideas = {
+				communism_banned
+				socialism_banned
+			}
+		}
 	}
 	focus = {
 		id = EGY_mixed_economics
@@ -579,7 +1244,71 @@ focus_tree = {
 		}
 		x = 29
 		y = 3
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = EGY_fire_corrupt_officials
@@ -590,7 +1319,10 @@ focus_tree = {
 		}
 		x = 29
 		y = 4
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = EGY_anti_jihadist_stance
@@ -604,7 +1336,11 @@ focus_tree = {
 		}
 		x = 27
 		y = 5
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.15
+			add_war_support = -0.05
+		}
 	}
 	focus = {
 		id = EGY_enforce_milestones_laws
@@ -615,7 +1351,41 @@ focus_tree = {
 		}
 		x = 29
 		y = 6
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 2
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = EGY_return_of_the_monarchs
@@ -630,7 +1400,12 @@ focus_tree = {
 		}
 		x = 39
 		y = 2
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = monarchist_influence
+				days = 500
+			}
+		}
 	}
 	focus = {
 		id = EGY_islamic_state_religon
@@ -642,7 +1417,11 @@ focus_tree = {
 		}
 		x = 33
 		y = 3
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 		id = EGY_the_old_monarch
@@ -656,7 +1435,12 @@ focus_tree = {
 		}
 		x = 37
 		y = 3
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = monarchism
+				elections_allowed = no
+			}
+		}
 	}
 	focus = {
 		id = EGY_a_new_princess
@@ -670,7 +1454,13 @@ focus_tree = {
 		}
 		x = 41
 		y = 3
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = monarchism
+				elections_allowed = no
+			}
+			create_country_leader = { name = "Faiza Rauf" picture = "fazia.dds" ideology = royal_democrat }	
+		}
 	}
 	focus = {
 		id = EGY_increase_monarch_support
@@ -682,7 +1472,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 4
-
+		completion_reward = {
+			add_popularity = { ideology = monarchism popularity = 0.15 }	
+		}
 	}
 	focus = {
 		id = EGY_anti_corruption_policy
@@ -693,7 +1485,10 @@ focus_tree = {
 		}
 		x = 35
 		y = 5
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = EGY_free_food_programs
@@ -704,7 +1499,10 @@ focus_tree = {
 		}
 		x = 37
 		y = 5
-
+		completion_reward = {
+			add_popularity = { ideology = monarchism popularity = 0.10 }
+			add_stability = 0.1
+		}
 	}
 	focus = {
 		id = EGY_revenge_against_israel
@@ -716,7 +1514,12 @@ focus_tree = {
 		}
 		x = 39
 		y = 4
-
+				completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = ISR
+						}
+					}
 	}
 	focus = {
 		id = EGY_rebuild_relations_with_britian
@@ -727,7 +1530,20 @@ focus_tree = {
 		}
 		x = 39
 		y = 5
-
+		completion_reward = {
+					EGY = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = EGY
+									modifier = large_increase
+								}
+						}				
+		}
 	}
 	focus = {
 		id = EGY_british_training
@@ -738,7 +1554,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 6
-
+		completion_reward = {
+			add_ideas = british_advisors
+		}
 	}
 	focus = {
 		id = EGY_reclaim_the_egyptian_empire
@@ -749,7 +1567,10 @@ focus_tree = {
 		}
 		x = 39
 		y = 7
-
+		completion_reward = {
+			set_cosmetic_tag = EGY_IMP
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = EGY_referendum_in_sudan
@@ -763,7 +1584,10 @@ focus_tree = {
 		}
 		x = 37
 		y = 8
-
+		completion_reward = {
+			SUD = { country_event = generic.1 }
+			SUD = { every_owned_state = { add_core_of = EGY }	}
+		}
 	}
 	focus = {
 		id = EGY_border_clash_in_lybian_kufra
@@ -774,7 +1598,13 @@ focus_tree = {
 		}
 		x = 41
 		y = 8
-
+				completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = LBA
+						}
+					LBA = { every_owned_state = { add_core_of = EGY }	}
+				}
 	}
 	focus = {
 		id = EGY_referendum_in_palestine
@@ -785,7 +1615,10 @@ focus_tree = {
 		}
 		x = 43
 		y = 8
-
+		completion_reward = {
+			PAL = { country_event = generic.1 }
+			PAL = { every_owned_state = { add_core_of = EGY }	}
+		}	
 	}
 	focus = {
 		id = EGY_war_with_sudan
@@ -799,7 +1632,13 @@ focus_tree = {
 		}
 		x = 35
 		y = 8
-
+				completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = SUD
+						}
+					SUD = { every_owned_state = { add_core_of = EGY }	}
+				}
 	}
 	focus = {
 		id = EGY_british_support
@@ -813,7 +1652,11 @@ focus_tree = {
 		}
 		x = 39
 		y = 9
-
+		completion_reward = {
+			add_equipment_to_stockpile = { type = jet_fighter_eqipment amount = 50 producer = ENG }	
+			add_equipment_to_stockpile = { type = infantry_equipment amount = 4000 producer = ENG }	
+			add_equipment_to_stockpile = { type = mbt_equipment amount = 100 producer = ENG }	
+		}
 	}
 	focus = {
 		id = EGY_consolidate_the_parliament
@@ -824,7 +1667,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 10
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = EGY_fund_schools
@@ -835,7 +1680,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 10
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = EGY_invite_the_shah
@@ -847,7 +1694,12 @@ focus_tree = {
 		}
 		x = 39
 		y = 11
-
+		completion_reward = {
+			create_faction = "The Cairo Pact"
+			PER = {
+				country_event = generic.2
+			}
+		]
 	}
 	focus = {
 		id = EGY_secure_power
@@ -859,7 +1711,13 @@ focus_tree = {
 		}
 		x = 42
 		y = 4
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = repression
+				days = 365
+			}
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = EGY_ban_all_radical_parties
@@ -870,7 +1728,12 @@ focus_tree = {
 		}
 		x = 41
 		y = 5
-
+		completion_reward = {
+			add_ideas = {
+				communism_banned
+				fascism_banned
+			}
+		}
 	}
 	focus = {
 		id = Egy_kill_major_nasserists
@@ -881,7 +1744,13 @@ focus_tree = {
 		}
 		x = 43
 		y = 5
-
+			completion_reward = {
+					add_popularity = {
+							ideology = pan_arabism
+							popularity = -0.15
+						}
+						add_ideas = gulag_politic
+				}
 	}
 	focus = {
 		id = EGY_unthinkable_option
@@ -896,7 +1765,16 @@ focus_tree = {
 		}
 		x = 53
 		y = 2
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+			add_timed_idea = {
+				idea = internationalism
+				days = 500
+			}
+		}
 	}
 	focus = {
 		id = EGY_socialism_with_egyptian_ideals
@@ -951,7 +1829,9 @@ focus_tree = {
 		}
 		x = 53
 		y = 6
-
+		completion_reward = {
+			add_ideas = agrarian_reform
+		}
 	}
 	focus = {
 		id = EGY_east_german_military_cooperation
@@ -984,7 +1864,9 @@ focus_tree = {
 		}
 		x = 57
 		y = 4
-
+		completion_reward = {
+			add_ideas = gulag_politic
+		}
 	}
 	focus = {
 		id = EGY_enforce_athiesm
@@ -1006,7 +1888,9 @@ focus_tree = {
 		}
 		x = 57
 		y = 7
-
+		completion_reward = {
+			add_ideas = KOR_education_reform
+		}
 	}
 	focus = {
 		id = EGY_free_education_for_the_working_class
@@ -1017,7 +1901,9 @@ focus_tree = {
 		}
 		x = 55
 		y = 8
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = EGY_ban_the_right
@@ -1228,7 +2114,9 @@ focus_tree = {
 		}
 		x = 74
 		y = 2
-
+		completion_reward = {
+			army_experience = 50
+		}
 	}
 	focus = {
 		id = EGY_prepare_fortifications_for_sinai
@@ -1250,7 +2138,18 @@ focus_tree = {
 		}
 		x = 72
 		y = 4
-
+		completion_reward = {
+					add_equipment_to_stockpile = {
+							type = mbt_equipment
+							amount = 200
+							producer = YUG
+						}		
+					add_equipment_to_stockpile = {
+							type = lt_equipment
+							amount = 100
+							producer = YUG
+						}									
+		}
 	}
 	focus = {
 		id = EGY_doctrine_research_coalition_with_jordan
@@ -1261,7 +2160,30 @@ focus_tree = {
 		}
 		x = 76
 		y = 3
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+						add_opinion_modifier = {
+							target = JOR
+							modifier = large_increase
+						}
+						JOR = {
+							add_tech_bonus = {
+								name = land_doc_bonus
+								bonus = 0.5
+								uses = 1
+								category = land_doctrine
+							}
+							add_opinion_modifier = {
+								target = EGY
+								modifier = large_increase
+							}						
+						}
+				}
 	}
 	focus = {
 		id = EGY_american_arms_license
@@ -1272,6 +2194,57 @@ focus_tree = {
 		}
 		x = 76
 		y = 4
+			completion_reward = {
+					if = {
+						limit = {
+							USA = {
+								AND = {
+									has_tech = main_battle_tanks_5
+									has_tech = light_tanks_3
+									has_tech = heavy_tanks_3
+								}
+							}
+						}
+						USA = {
+							create_production_license = {
+								target = EGY
+								equipment = {
+									type = mbt_equipment_5
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = EGY
+								equipment = {
+									type = lt_equipment_3
+								}
+								cost_factor = 0
+							}
+							create_production_license = {
+								target = EGY 
+								equipment = {
+									type = ht_equipment_3
+								}
+								cost_factor = 0
+							}
+						}
+					}
+					add_equipment_to_stockpile = {
+							type = mbt_equipment_5
+							amount = 50
+							producer = USA
+						}
+					add_equipment_to_stockpile = {
+							type = lt_equipment_3
+							amount = 100
+							producer = USA
+						}
+					add_equipment_to_stockpile = {
+							type = ht_equipment_3
+							amount = 30
+							producer = USA
+						}
+				}
 
 	}
 	focus = {
@@ -1284,7 +2257,10 @@ focus_tree = {
 		}
 		x = 74
 		y = 5
-
+		completion_reward = {
+			add_war_support = 0.15
+			add_ideas = militarism_focus
+		}
 	}
 	focus = {
 		id = EGY_nasser_academy_for_military_science
@@ -1295,7 +2271,9 @@ focus_tree = {
 		}
 		x = 80
 		y = 2
-
+		completion_reward = {
+			army_experience = 50
+		}
 	}
 	focus = {
 		id = EGY_bring_in_a_foreign_commander
@@ -1306,7 +2284,9 @@ focus_tree = {
 		}
 		x = 78
 		y = 3
-
+		completion_reward = {
+			army_experience = 25
+		}
 	}
 	focus = {
 		id = EGY_yugoslavian_cooperation
@@ -1317,7 +2297,15 @@ focus_tree = {
 		}
 		x = 78
 		y = 4
-
+			completion_reward = {
+					add_equipment_to_stockpile = { type = infantry_equipment amount = 5000 producer = YUG }	
+					add_tech_bonus = {
+							name = infantry_artillery_bonus
+							bonus = 0.35
+							uses = 1
+							category = infantry_weapons
+						}
+				}
 	}
 	focus = {
 		id = EGY_artillery_modernization
@@ -1328,7 +2316,14 @@ focus_tree = {
 		}
 		x = 82
 		y = 3
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_artillery_bonus
+							bonus = 0.35
+							uses = 1
+							category = infantry_weapons
+						}
+				}
 	}
 	focus = {
 		id = EGY_train_palestinian_rebels
@@ -1363,7 +2358,19 @@ focus_tree = {
 		}
 		x = 77
 		y = 6
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = special_forces_bonus
+							bonus = 0.5
+							uses = 1
+							technology = paratroopers
+							technology = paratroopers2
+							technology = marines
+							technology = marines2
+							technology = tech_mountaineers
+							technology = tech_mountaineers2
+						}
+				}
 	}
 	focus = {
 		id = EGY_egyptian_navy
@@ -1374,7 +2381,9 @@ focus_tree = {
 		}
 		x = 89
 		y = 1
-
+		completion_reward = {
+			navy_experience = 50
+		}
 	}
 	focus = {
 		id = EGY_mediterranean_control
@@ -1385,7 +2394,41 @@ focus_tree = {
 		}
 		x = 86
 		y = 2
-
+			completion_reward = {
+					if = {
+							limit = {
+									NOT = {
+											any_owned_state = {
+													dockyard > 0
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+									any_owned_state = {
+											is_coastal = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+					}
 	}
 	focus = {
 		id = EGY_brand_new_naval_bases
@@ -1396,7 +2439,41 @@ focus_tree = {
 		}
 		x = 84
 		y = 3
-
+			completion_reward = {
+					if = {
+							limit = {
+									NOT = {
+											any_owned_state = {
+													dockyard > 0
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+									any_owned_state = {
+											is_coastal = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+					}
 	}
 	focus = {
 		id = EGY_coastal_preparations
@@ -1407,7 +2484,12 @@ focus_tree = {
 		}
 		x = 84
 		y = 4
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = coastal_buildup
+				days = 365
+			}
+		}
 	}
 	focus = {
 		id = EGY_invite_foreign_admiral
@@ -1418,7 +2500,9 @@ focus_tree = {
 		}
 		x = 88
 		y = 3
-
+		completion_reward = {
+			navy_experience = 25
+		}
 	}
 	focus = {
 		id = EGY_british_destroyers
@@ -1429,7 +2513,14 @@ focus_tree = {
 		}
 		x = 88
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = destroyer_bonus
+							bonus = 0.35
+							uses = 1
+							category = dd_tech
+						}
+				}
 	}
 	focus = {
 		id = EGY_naval_cooperation_with_saudis
@@ -1441,7 +2532,52 @@ focus_tree = {
 		}
 		x = 86
 		y = 5
-
+			completion_reward = {
+					EGY = {
+							add_opinion_modifier = {
+									target = SAU
+									modifier = large_increase
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+					SAU = {
+							add_opinion_modifier = {
+									target = EGY
+									modifier = large_increase
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+					}
 	}
 	focus = {
 		id = EGY_egyptian_naval_academy
@@ -1452,7 +2588,9 @@ focus_tree = {
 		}
 		x = 92
 		y = 2
-
+		completion_reward = {
+			navy_experience = 50
+		}
 	}
 	focus = {
 		id = EGY_the_defense_of_the_suez
@@ -1463,7 +2601,14 @@ focus_tree = {
 		}
 		x = 90
 		y = 3
-
+		completion_reward = {
+			743 = { 
+				add_building_construction = { type = bunker province = 1155 level = 2 instant_build = yes }
+				add_building_construction = { type = bunker province = 4073 level = 2 instant_build = yes }
+				add_building_construction = { type = bunker province = 9947 level = 2 instant_build = yes }
+				add_building_construction = { type = bunker province = 12049 level = 2 instant_build = yes }
+			}	
+		}
 	}
 	focus = {
 		id = EGY_the_british_doctrine
@@ -1474,7 +2619,14 @@ focus_tree = {
 		}
 		x = 90
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+				}
 	}
 	focus = {
 		id = EGY_peace_with_israel
