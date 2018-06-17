@@ -1,0 +1,96 @@
+focus_tree = {
+	id = iww_focus_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = IWW
+		}
+	}
+	focus = {
+		id = IWW_birth_of_the_IWW
+		icon = GFX_Communism1
+		cost = 5.00
+		x = 8
+		y = 0
+		avaliable = {
+			country_exists = IWW
+		}
+		completion_reward = {
+			add_manpower = 35000
+			add_stability = -0.3
+			add_war_support = 0.3
+		}
+	}
+	focus = {
+		id = IWW_worker_military_soviets
+		icon = GFX_goal_rhineland
+		cost = 7.00
+		x = 7
+		y = 1
+		prerequisite = {
+			focus = IWW_birth_of_the_IWW
+		}
+		mutually_exclusive = {
+			focus = IWW_officer_councils
+		}
+		completion_reward = {
+			add_manpower = 10000
+			add_stability = 0.1
+			army_experience = 10
+		}
+	}
+	focus = {
+		id = IWW_local_militias
+		icon = GFX_focus_generic_military_mission
+		cost = 7.00
+		x = 7
+		y = 2
+		prerequisite = {
+			focus = IWW_worker_military_soviets
+		}
+		completion_reward = {
+			add_ideas = IWW_local_militas
+		}
+	}
+	focus = {
+		id = IWW_officer_councils
+		icon = GFX_goal_generic_axis_build_infantry
+		cost = 7.00
+		x = 9
+		y = 1
+		prerequisite = {
+			focus = IWW_birth_of_the_IWW
+		}
+		mutually_exclusive = {
+			focus = IWW_worker_military_soviets
+		}
+		completion_reward = {
+			add_ideas = IWW_officer_councils
+		}
+	}
+	focus = {
+		id = IWW_experienced_soldiers
+		icon = GFX_goal_generic_special_forces
+		cost = 7.00
+		x = 9
+		y = 2
+		prerequisite = {
+			focus = IWW_officer_councils
+		}
+		completion_reward = {
+			add_ideas = IWW_experienced_soldiers
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 0.5
+				uses = 1
+				technology = paratroopers
+				technology = paratroopers2
+				technology = marines
+				technology = marines2
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+			}
+		}
+	}
+}
