@@ -1,5 +1,4 @@
 ﻿add_namespace = americancivilwar
-add_namespace = alabama
 
 country_event = {
 	id = americancivilwar.1
@@ -75,9 +74,6 @@ country_event = {
 		}
 		add_stability = -0.03
 		set_country_flag = martial_law
-		hidden_effect = {
-			#add_temporary_buff_to_units = { combat_offense = -0.95 combat_breakthrough = -0.55 org_damage_multiplier = -1.0 str_damage_multiplier = 0.25 war_support_reduction_on_damage = 0.2 cannot_retreat_while_attacking = 1.0 days = 32 } 
-		}
 	}
 }
 country_event = {
@@ -115,30 +111,29 @@ country_event = {
 			target = IWW
 		}
 		hidden_effect = {
-		IWW = {
-			transfer_state = 861
-			transfer_state = 862
-			transfer_state = 863
-			transfer_state = 864
-			transfer_state = 865
-			transfer_state = 358
-			transfer_state = 359
-			transfer_state = 357
-			# load_oob = "IWW_1970"
-			set_politics = {
-				ruling_party = trotskyism
-				elections_allowed = no
+			IWW = {
+				transfer_state = 861
+				transfer_state = 862
+				transfer_state = 863
+				transfer_state = 864
+				transfer_state = 865
+				transfer_state = 358
+				transfer_state = 359
+				transfer_state = 357
+				set_politics = {
+					ruling_party = trotskyism
+					elections_allowed = no
+				}
+				every_state = {
+					limit = {
+						OR = {
+						   is_fully_controlled_by = USA
+						   is_fully_controlled_by = IWW
+						}
+					}
+					add_core_of = IWW
+				}
 			}
-			set_party_name = { ideology = trotskyism long_name = "International Workers of the World - Left Communist Faction" name = "IWW - LC Faction" }
-			set_party_name = { ideology = communism long_name = "International Workers of the World - Marxist-Leninist Faction" name = "IWW - ML Faction" }
-			set_party_name = { ideology = conservative long_name = "New England Independence Party" name = "NEIP" }
-			set_party_name = { ideology = socialist long_name = "International Workers of the World - Democratic Socialist Faction" name = "IWW - DemSoc Faction" }
-			set_party_name = { ideology = Social_Democratic long_name = "Independent Democrats" name = "Independent Democrats" } 
-			set_party_name = { ideology = democratic long_name = "New Liberal Party" name = "NLP" }
-			set_party_name = { ideology = maoism long_name = "International Workers of the World - Maoist Faction" name = "IWW - Maoist Faction" }
-			set_party_name = { ideology = communism long_name = "Nazi Party New England" name = "NPNE" }
-			set_party_name = { ideology = nationalism long_name = "United Independence Party of New England" name = "UIP" }
-		}
 		}
 	}
 	option = {
@@ -148,29 +143,28 @@ country_event = {
 			target = IWW
 		}
 		hidden_effect = {
-		IWW = {
-			transfer_state = 861
-			transfer_state = 862
-			transfer_state = 863
-			transfer_state = 864
-			transfer_state = 865
-			transfer_state = 358
-			transfer_state = 359
-			# load_oob = "IWW_1970"
-			set_politics = {
-				ruling_party = trotskyism
-				elections_allowed = no
+			IWW = {
+				transfer_state = 861
+				transfer_state = 862
+				transfer_state = 863
+				transfer_state = 864
+				transfer_state = 865
+				transfer_state = 358
+				transfer_state = 359
+				set_politics = {
+					ruling_party = trotskyism
+					elections_allowed = no
+				}
+				every_state = {
+					limit = {
+					    OR = {
+						   is_fully_controlled_by = USA
+						   is_fully_controlled_by = IWW
+						}
+					}
+					add_core_of = IWW
+				}
 			}
-			set_party_name = { ideology = trotskyism long_name = "International Workers of the World - Left Communist Faction" name = "IWW - LC Faction" }
-			set_party_name = { ideology = communism long_name = "International Workers of the World - Marxist-Leninist Faction" name = "IWW - ML Faction" }
-			set_party_name = { ideology = conservative long_name = "New England Independence Party" name = "NEIP" }
-			set_party_name = { ideology = socialist long_name = "International Workers of the World - Democratic Socialist Faction" name = "IWW - DemSoc Faction" }
-			set_party_name = { ideology = Social_Democratic long_name = "Independent Democrats" name = "Independent Democrats" } 
-			set_party_name = { ideology = democratic long_name = "New Liberal Party" name = "NLP" }
-			set_party_name = { ideology = maoism long_name = "International Workers of the World - Maoist Faction" name = "IWW - Maoist Faction" }
-			set_party_name = { ideology = communism long_name = "Nazi Party New England" name = "NPNE" }
-			set_party_name = { ideology = nationalism long_name = "United Independence Party of New England" name = "UIP" }
-		}
 		}
 	}
 }
