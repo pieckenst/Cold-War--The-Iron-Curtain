@@ -72,6 +72,40 @@ political_actions = {
 			factor = 1
 		}
 	}
+	transfer_crimea = {
+
+		icon = generic_industry
+
+		available = {
+			has_civil_war = no
+			UKR = { exists = yes is_subject_of = ROOT has_civil_war = no }
+			has_full_control_of_state = 137
+			original_tag = SOV
+		}
+		visible = {
+			UKR = { exists = yes is_subject_of = ROOT }
+			owns_state = 137
+			original_tag = SOV
+		}
+
+		fire_only_once = yes
+
+
+		cost = 0
+
+		complete_effect = {
+		    add_political_power = 50
+			UKR = { transfer_state = 137 }
+		}
+		
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 100
+				date > 1954.2.18
+			}
+		}
+	}
 	usa_leave_nato = {
 
 		icon = generic_industry
