@@ -5,17 +5,7 @@ Our goal is to deliver the modding community of HOI4 a full Cold War scenario, i
 (summary work in progress)
 
 ## Tutorial
-(tutorial work in progress)
-
-### DEFCON
-
-### WMD
-
-### Helicopters
-
-### NATO
-
-### Financial Reserves
+View our full-length tutorial [here](./tutorial.md).
 
 ## Get the mod on the Steam Workshop
 https://steamcommunity.com/sharedfiles/filedetails/?id=1138310824
