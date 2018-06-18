@@ -1,5 +1,5 @@
 focus_tree = {
-	id = iww_focus_tree
+	id = IWW_focus_tree
 	country = {
 		factor = 0
 		modifier = {
@@ -7,90 +7,390 @@ focus_tree = {
 			tag = IWW
 		}
 	}
+	default = no
 	focus = {
-		id = IWW_birth_of_the_IWW
-		icon = GFX_Communism1
-		cost = 5.00
-		x = 8
+		id = IWW_Focus_On_Military
+		icon = GFX_focus_RAJ_indian_gurkhas
+		cost = 10.00
+		x = 7
+		y = 1
+			completion_reward = {
+					add_manpower = 35000
+					add_stability = -0.3
+					add_war_support = 0.3
+				}
+
+	}
+	focus = {
+		id = IWW_expansionist_focus
+		icon = GFX_focus_ger_break_anglo_french_colonial_hegemony
+		cost = 10.00
+		x = 19
+		y = 1
+			avaliable = {
+					always = false
+				}
+			completion_reward = {
+					set_major = yes
+					every_state = {
+							limit = {
+									is_fully_controlled_by = MEX
+								}
+							add_state_claim = PREV
+						}
+				}
+
+	}
+	focus = {
+		id = IWW_american_elections
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		x = 13
+		y = 1
+			completion_reward = {
+					add_stability = 0.25
+				}
+
+	}
+	focus = {
+		id = IWW_on_our_own
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_expansionist_focus
+		}
+		mutually_exclusive = {
+			focus = IWW_join_warsaw
+		}
+		x = 2
 		y = 0
-		avaliable = {
-			country_exists = IWW
-		}
-		completion_reward = {
-			add_manpower = 35000
-			add_stability = -0.3
-			add_war_support = 0.3
-		}
+		relative_position_id = IWW_join_warsaw
+			completion_reward = {
+					set_rule = {
+							can_create_factions = yes
+						}
+				}
+
 	}
 	focus = {
 		id = IWW_worker_military_soviets
-		icon = GFX_goal_rhineland
-		cost = 7.00
-		x = 7
-		y = 1
+		icon = GFX_goal_unknown
+		cost = 10.00
 		prerequisite = {
-			focus = IWW_birth_of_the_IWW
+			focus = IWW_Focus_On_Military
 		}
 		mutually_exclusive = {
 			focus = IWW_officer_councils
 		}
-		completion_reward = {
-			add_manpower = 10000
-			add_stability = 0.1
-			army_experience = 10
-		}
+		x = 6
+		y = 2
+			completion_reward = {
+					add_manpower = 10000
+					add_stability = 0.1
+					army_experience = 10
+				}
+
 	}
 	focus = {
 		id = IWW_local_militias
-		icon = GFX_focus_generic_military_mission
-		cost = 7.00
-		x = 7
-		y = 2
+		icon = GFX_goal_generic_military_sphere
+		cost = 10.00
 		prerequisite = {
 			focus = IWW_worker_military_soviets
 		}
-		completion_reward = {
-			add_ideas = IWW_local_militas
-		}
+		x = 6
+		y = 3
+			completion_reward = {
+					add_ideas = IWW_local_militas
+				}
+
 	}
 	focus = {
 		id = IWW_officer_councils
-		icon = GFX_goal_generic_axis_build_infantry
-		cost = 7.00
-		x = 9
-		y = 1
+		icon = GFX_focus_generic_strike_at_democracy1
+		cost = 10.00
 		prerequisite = {
-			focus = IWW_birth_of_the_IWW
+			focus = IWW_Focus_On_Military
 		}
 		mutually_exclusive = {
 			focus = IWW_worker_military_soviets
 		}
-		completion_reward = {
-			add_ideas = IWW_officer_councils
-		}
+		x = 8
+		y = 2
+			completion_reward = {
+					add_ideas = IWW_officer_councils
+				}
+
 	}
 	focus = {
 		id = IWW_experienced_soldiers
-		icon = GFX_goal_generic_special_forces
-		cost = 7.00
-		x = 9
-		y = 2
+		icon = GFX_focus_prc_infiltration
+		cost = 10.00
 		prerequisite = {
 			focus = IWW_officer_councils
 		}
-		completion_reward = {
-			add_ideas = IWW_experienced_soldiers
-			add_tech_bonus = {
-				name = special_forces_bonus
-				bonus = 0.5
-				uses = 1
-				technology = paratroopers
-				technology = paratroopers2
-				technology = marines
-				technology = marines2
-				technology = tech_mountaineers
-				technology = tech_mountaineers2
-			}
+		x = 8
+		y = 3
+			completion_reward = {
+					add_ideas = IWW_experienced_soldiers
+					add_tech_bonus = {
+							name = special_forces_bonus
+							bonus = 0.5
+							uses = 1
+							technology = paratroopers
+							technology = paratroopers2
+							technology = marines
+							technology = marines2
+							technology = tech_mountaineers
+							technology = tech_mountaineers2
+						}
+				}
+
+	}
+	focus = {
+		id = IWW_indestructible_soliders
+		icon = GFX_focus_generic_military_mission
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_local_militias
+			focus = IWW_experienced_soldiers
 		}
+		x = 7
+		y = 4
+			completion_reward = {
+					army_experience = 50
+					unlock_national_focus = IWW_expansionist_focus
+				}
+
+	}
+	focus = {
+		id = IWW_centralization
+		icon = GFX_focus_generic_self_management
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_american_elections
+		}
+		mutually_exclusive = {
+			focus = IWW_status_quo
+			focus = IWW_decentralization
+		}
+		x = 11
+		y = 2
+
+	}
+	focus = {
+		id = IWW_soviet_cooperation
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_centralization
+		}
+		x = 11
+		y = 3
+
+	}
+	focus = {
+		id = IWW_status_quo
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_american_elections
+		}
+		mutually_exclusive = {
+			focus = IWW_centralization
+			focus = IWW_decentralization
+		}
+		x = 13
+		y = 2
+
+	}
+	focus = {
+		id = IWW_uniting_the_IWW
+		icon = GFX_focus_generic_diplomatic_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_status_quo
+		}
+		x = 13
+		y = 3
+
+	}
+	focus = {
+		id = IWW_strong_and_free
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_uniting_the_IWW
+			focus = IWW_soviet_cooperation
+		}
+		mutually_exclusive = {
+			focus = IWW_locality_rule
+		}
+		x = 12
+		y = 4
+
+	}
+	focus = {
+		id = IWW_decentralization
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_american_elections
+		}
+		mutually_exclusive = {
+			focus = IWW_status_quo
+			focus = IWW_centralization
+		}
+		x = 15
+		y = 2
+
+	}
+	focus = {
+		id = IWW_trotskyism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_decentralization
+		}
+		x = 15
+		y = 3
+			completion_reward = {
+					add_popularity = {
+							ideology = trotskyism
+							popularity = 0.3
+						}
+				}
+
+	}
+	focus = {
+		id = IWW_locality_rule
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_uniting_the_IWW
+			focus = IWW_trotskyism
+		}
+		mutually_exclusive = {
+			focus = IWW_strong_and_free
+		}
+		x = 14
+		y = 4
+
+	}
+	focus = {
+		id = IWW_join_warsaw
+		icon = GFX_goal_support_communism
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_expansionist_focus
+		}
+		mutually_exclusive = {
+			focus = IWW_on_our_own
+		}
+		x = 18
+		y = 2
+			completion_reward = {
+					add_to_faction = "Warsaw Pact"
+				}
+
+	}
+	focus = {
+		id = IWW_support_soviet
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_join_warsaw
+			focus = IWW_on_our_own
+		}
+		mutually_exclusive = {
+			focus = IWW_support_china
+			focus = IWW_neutrality
+		}
+		x = 17
+		y = 4
+
+	}
+	focus = {
+		id = IWW_neutrality
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_join_warsaw
+			focus = IWW_on_our_own
+		}
+		mutually_exclusive = {
+			focus = IWW_support_soviet
+			focus = IWW_support_china
+		}
+		x = 19
+		y = 4
+
+	}
+	focus = {
+		id = IWW_support_china
+		icon = GFX_focus_chi_cooperation_with_the_communists
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_on_our_own
+			focus = IWW_join_warsaw
+		}
+		mutually_exclusive = {
+			focus = IWW_support_soviet
+			focus = IWW_neutrality
+		}
+		x = 21
+		y = 4
+
+	}
+	focus = {
+		id = IWW_social_nationalism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_strong_and_free
+		}
+		mutually_exclusive = {
+			focus = IWW_soviet_puppet
+			focus = IWW_independence
+		}
+		x = 11
+		y = 5
+
+	}
+	focus = {
+		id = IWW_soviet_puppet
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_strong_and_free
+			focus = IWW_locality_rule
+		}
+		mutually_exclusive = {
+			focus = IWW_social_nationalism
+			focus = IWW_independence
+		}
+		x = 13
+		y = 5
+			completion_reward = {
+					SOV = {
+							puppet = IWW
+						}
+				}
+
+	}
+	focus = {
+		id = IWW_independence
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IWW_locality_rule
+		}
+		mutually_exclusive = {
+			focus = IWW_soviet_puppet
+			focus = IWW_social_nationalism
+		}
+		x = 15
+		y = 5
+
 	}
 }
