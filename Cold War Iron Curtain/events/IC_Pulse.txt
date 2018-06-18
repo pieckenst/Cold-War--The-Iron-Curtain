@@ -4001,7 +4001,6 @@ country_event = {
             }
             country_event = sor.6
         }
-		
 		if = {
             limit = {
                 tag = USA
@@ -4011,12 +4010,22 @@ country_event = {
             }
             news_event = { id = usa.501 days = 16  }
         }
+		if = {
+            limit = {
+                tag = DOC
+				has_global_flag = south_kasai_seceded
+				has_global_flag = katanga_seceded
+				NOT = { country_exists = SKS country_exists = KAG country_exists = COG }
+            }
+            country_event = { id = congocrisis.7 days = 1  }
+        }
 		#if = {
 		#	limit = {
+		#       owns_state = 668
 		#		date > 1950.4.25
-		#		date < 1959.4.1
+		#		date < 1951.1.1
 		#	}
-		#	country_event = smr.1
+		#	country_event = smk.1
 		#}		
 	}
 }

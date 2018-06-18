@@ -1,5 +1,6 @@
 ﻿add_namespace = congocrisis
 
+#Emile Janssens
 country_event = {
 	id = congocrisis.1
 	title = congocrisis.1.t	
@@ -35,6 +36,7 @@ country_event = {
 	}
 }
 
+#Janssens fired
 country_event = {
 	id = congocrisis.2
 	title = congocrisis.2.t	
@@ -64,6 +66,7 @@ country_event = {
 	}
 }
 
+#Katanga secession
 country_event = {
 	id = congocrisis.3
 	title = congocrisis.3.t	
@@ -78,6 +81,8 @@ country_event = {
 		}
         KAG = { transfer_state = 538 }
 		declare_war_on = { target = KAG type = annex_everything }
+		BEL = { country_event = { id = congocrisis.4 hours = 1 } }
+		set_global_flag = katanga_seceded
 	}
 	option = {
 		name = congocrisis.3.b
@@ -88,6 +93,7 @@ country_event = {
 	}
 }
 
+#Belgium support Katanga?
 country_event = {
 	id = congocrisis.4
 	title = congocrisis.4.t	
@@ -122,6 +128,7 @@ country_event = {
 	}
 }
 
+#South Kasai secession
 country_event = {
 	id = congocrisis.5
 	title = congocrisis.5.t	
@@ -137,6 +144,7 @@ country_event = {
 		}
         SKS = { transfer_state = 1207 }
 		declare_war_on = { target = SKS type = annex_everything }
+		set_global_flag = south_kasai_seceded
 	}
 	option = {
 		name = congocrisis.5.b
@@ -144,5 +152,60 @@ country_event = {
 			factor = 0
 		}
         release = SKS
+	}
+}
+
+#Simba rebellion
+country_event = {
+	id = congocrisis.6
+	title = congocrisis.6.t	
+	desc = congocrisis.6.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = congocrisis.6.a
+		ai_chance = {
+			factor = 100
+		}
+        COG = { 
+		    transfer_state = 718 
+		    transfer_state = 826 
+			transfer_state = 827 
+			declare_war_on = { target = DOC type = annex_everything }
+			set_political_party = { ideology = communism popularity = 0.9 } 
+			set_politics = { ruling_party = communism elections_allowed = no } 
+	    }
+	}
+	option = {
+		name = congocrisis.6.b
+		ai_chance = {
+			factor = 0
+		}
+        COG = {
+		    change_tag_from = ROOT
+		    transfer_state = 718 
+		    transfer_state = 826 
+			transfer_state = 827 
+			declare_war_on = { target = DOC type = annex_everything }
+			set_political_party = { ideology = communism popularity = 0.9 } 
+			set_politics = { ruling_party = communism elections_allowed = no } 
+	    }
+	}
+}
+
+#Congo Crisis over
+country_event = {
+	id = congocrisis.7
+	title = congocrisis.7.t	
+	desc = congocrisis.7.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = congocrisis.5.a
+        add_political_power = 100
 	}
 }
