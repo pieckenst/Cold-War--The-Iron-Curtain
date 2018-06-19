@@ -5,7 +5,7 @@ Our goal is to deliver the modding community of HOI4 a full Cold War scenario, i
 (summary work in progress)
 
 ## Tutorial
-View our full-length tutorial [here](./tutorial.md).
+View our [full-length tutorial](./tutorial.md).
 
 ## Get the mod on the Steam Workshop
 https://steamcommunity.com/sharedfiles/filedetails/?id=1138310824
