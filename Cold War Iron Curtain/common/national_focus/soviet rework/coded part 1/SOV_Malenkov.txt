@@ -14,7 +14,10 @@ focus_tree = {
 		cost = 10.00
 		x = 12
 		y = 1
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.05
+		}			
 	}
 	focus = {
 		id = SOV_Execute_Zhukov
@@ -25,7 +28,11 @@ focus_tree = {
 		}
 		x = 12
 		y = 2
-
+		completion_reward = {
+			army_experience = -25
+			add_stability = -0.10
+			add_war_support = -0.10
+		}	
 	}
 	focus = {
 		id = SOV_Empower_Beria
@@ -36,7 +43,10 @@ focus_tree = {
 		}
 		x = 12
 		y = 3
-
+		completion_reward = {
+			add_ideas = increased_encryption
+			army_experience = 25
+		}
 	}
 	focus = {
 		id = SOV_Promote_the_Stalin_Cult
@@ -47,7 +57,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 4
-
+		completion_reward = {
+			add_ideas = total_loyalty
+		}
 	}
 	focus = {
 		id = SOV_Stomp_out_Discontent
@@ -58,7 +70,12 @@ focus_tree = {
 		}
 		x = 12
 		y = 5
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = repression
+				days = 900
+			}
+		}
 	}
 	focus = {
 		id = SOV_The_Orthodox_Revival
@@ -69,7 +86,10 @@ focus_tree = {
 		}
 		x = 8
 		y = 6
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = SOV_Continue_Stalinist_Polices
@@ -83,7 +103,10 @@ focus_tree = {
 		}
 		x = 7
 		y = 7
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = SOV_More_Power_to_the_Church
@@ -97,7 +120,9 @@ focus_tree = {
 		}
 		x = 9
 		y = 7
-
+		completion_reward = {
+			add_political_power = 400
+		}
 	}
 	focus = {
 		id = SOV_Limited_Cultural_Liberalization
@@ -108,7 +133,9 @@ focus_tree = {
 		}
 		x = 11
 		y = 6
-
+		completion_reward = {
+			add_ideas = art_and_liberalization
+		}
 	}
 	focus = {
 		id = SOV_Consumer_Goods_Investments
@@ -119,7 +146,13 @@ focus_tree = {
 		}
 		x = 13
 		y = 6
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = industry_rearrangement
+				days = 900
+			}
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = SOV_Encourage_Diplomacy
@@ -133,7 +166,10 @@ focus_tree = {
 		}
 		x = 12
 		y = 7
-
+		completion_reward = {
+			add_threat = -5
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = SOV_Red_Army_European_Strategic_Command_malenkov
@@ -144,7 +180,13 @@ focus_tree = {
 		}
 		x = 12
 		y = 8
-
+		completion_reward = {
+			every_country = {
+				limit = { is_subject_of = SOV }
+				add_manpower = 50000
+				army_experience = 50
+			}
+		}
 	}
 	focus = {
 		id = SOV_Economic_Restructuring
@@ -155,10 +197,12 @@ focus_tree = {
 		}
 		x = 10
 		y = 9
-
+		completion_reward = {
+			add_ideas = economic_liberalization
+		}
 	}
 	focus = {
-		id = SOV_Bolser_Socialist_Unity
+		id = SOV_Bolser_Socialist_Unity_2
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
@@ -166,7 +210,17 @@ focus_tree = {
 		}
 		x = 10
 		y = 10
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.15
+			every_country = {
+				limit = {
+					is_subject_of = SOV
+				}
+				add_political_power = 200
+				add_stability = 0.15
+			}
+		}
 	}
 	focus = {
 		id = SOV_Promote_Nuclear_Nonproliferation
@@ -177,10 +231,13 @@ focus_tree = {
 		}
 		x = 14
 		y = 9
-
+		completion_reward = {
+			add_threat = -10
+			add_stability = 0.15
+		}
 	}
 	focus = {
-		id = SOV_Traditional_Military_Investments
+		id = SOV_Traditional_Military_Investment
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
@@ -188,7 +245,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 10
-
+		completion_reward = {
+			add_ideas = SOV_military_primacy
+		}
 	}
 	focus = {
 		id = SOV_Expand_the_NKVD
@@ -199,7 +258,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 4
-
+		completion_reward = {
+			add_ideas = improved_espionage
+		}
 	}
 	focus = {
 		id = SOV_Free_the_Gulags
@@ -213,7 +274,10 @@ focus_tree = {
 		}
 		x = 12
 		y = 11
-
+		completion_reward = {
+			remove_ideas = gulag_politic_expanded
+			remove_ideas = gulag_politic
+		}
 	}
 	focus = {
 		id = SOV_Detente_with_the_West
@@ -224,7 +288,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 12
-
+		completion_reward = {
+			add_threat = -10
+		}
 	}
 	focus = {
 		id = SOV_Peace_and_Prosperity
@@ -235,7 +301,71 @@ focus_tree = {
 		}
 		x = 12
 		y = 14
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = SOV_Solidify_the_Old_Guard
@@ -246,7 +376,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 13
-
+		completion_reward = {
+			add_political_power = 300
+		}	
 	}
 	focus = {
 		id = SOV_Political_Purges
@@ -257,6 +389,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 5
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = -0.10
+		}			
 	}
 }
