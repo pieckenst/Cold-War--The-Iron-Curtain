@@ -2,10 +2,6 @@ focus_tree = {
 	id = KPA_60s
 	country = {
 		factor = 0
-		modifier = {
-			add = 10
-			tag = KPA
-		}
 	}
 	default = no
 	focus = {
@@ -395,7 +391,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 3
-
+		completion_reward = {
+			add_ideas = rural_vanguard
+		}
 	}
 	focus = {
 		id = KPA_Mobilize_the_Guard
@@ -409,7 +407,9 @@ focus_tree = {
 		}
 		x = 5
 		y = 4
-
+		completion_reward = {
+			add_ideas = TUR_mobilization_of_the_masses
+		}
 	}
 	focus = {
 		id = KPA_The_Special_Forces
@@ -1467,7 +1467,32 @@ focus_tree = {
 		}
 		x = 27
 		y = 1
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = KPA_Chongsan_ni_Method
@@ -1478,7 +1503,14 @@ focus_tree = {
 		}
 		x = 29
 		y = 1
-
+		completion_reward = {
+			add_stability = 0.05
+			add_tech_bonus = {
+				name = agri_tech_bonus
+				ahead_reduction = 1
+				category = agri_tech
+			}
+		}
 	}
 	focus = {
 		id = KPA_Industrialization
@@ -1489,7 +1521,68 @@ focus_tree = {
 		}
 		x = 31
 		y = 1
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}		
+		}
 	}
 	focus = {
 		id = KPA_Begin_the_Seven_Year_Plan
@@ -1506,7 +1599,68 @@ focus_tree = {
 		}
 		x = 29
 		y = 2
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}		
+		}
 	}
 	focus = {
 		id = KPA_Investments_in_Education
@@ -1530,7 +1684,11 @@ focus_tree = {
 		}
 		x = 29
 		y = 3
-
+		completion_reward = {
+			every_owned_state = {
+				add_manpower = 25000
+			}
+		}
 	}
 	focus = {
 		id = KPA_Medical_Investments
@@ -1544,7 +1702,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 4
-
+		completion_reward = {
+			add_ideas = access_to_health_care
+		}
 	}
 	focus = {
 		id = KPA_The_Pyongyang_Housing_Plan
@@ -1555,7 +1715,11 @@ focus_tree = {
 		}
 		x = 31
 		y = 3
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = KPA_Electrification_Campaign
@@ -1569,7 +1733,32 @@ focus_tree = {
 		}
 		x = 30
 		y = 4
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = KPA_Abolish_Agricultural_Taxes
@@ -1583,7 +1772,11 @@ focus_tree = {
 		}
 		x = 29
 		y = 5
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = KPA_Fighters_to_North_Vietnam
@@ -1597,7 +1790,12 @@ focus_tree = {
 		}
 		x = 34
 		y = 1
-
+		completion_reward = {
+			VIN = {
+				add_manpower = 50000
+				army_experience = 25
+			}
+		}
 	}
 	focus = {
 		id = KPA_Development_Aid_to_North_Vietnam
@@ -1608,7 +1806,70 @@ focus_tree = {
 		}
 		x = 34
 		y = 2
-
+		completion_reward = {
+			VIN = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}	
+				}
+		}
 	}
 	focus = {
 		id = KPA_Advisors_to_North_Korea
@@ -1622,7 +1883,12 @@ focus_tree = {
 		}
 		x = 33
 		y = 3
-
+		completion_reward = {
+			VIN = {
+				add_manpower = 50000
+				army_experience = 25
+			}
+		}
 	}
 	focus = {
 		id = KPA_Send_Expeditionary_Force
@@ -1650,7 +1916,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 1
-
+		completion_reward = {
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = KPA_Emphasize_the_Personality_Cult
@@ -1675,7 +1943,20 @@ focus_tree = {
 		}
 		x = 40
 		y = 1
-
+			completion_reward = {
+					CUB = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = CUB
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = KPA_Emphasize_Neutrality_in_the_Sino_Soviet_Split
@@ -1686,7 +1967,32 @@ focus_tree = {
 		}
 		x = 42
 		y = 1
-
+			completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = small_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = small_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = PRC
+									modifier = small_increase
+								}
+						}
+					PRC = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = small_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = KPA_Soviet_Korean_Dispute
@@ -1703,7 +2009,20 @@ focus_tree = {
 		}
 		x = 40
 		y = 2
-
+			completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_decrease
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_decrease
+								}
+						}
+					}
 	}
 	focus = {
 		id = KPA_Emphasize_Juche
@@ -1714,7 +2033,11 @@ focus_tree = {
 		}
 		x = 40
 		y = 3
-
+		completion_reward = {
+			add_ideas = Juche
+			add_war_support = 0.10
+			
+		}
 	}
 	focus = {
 		id = KPA_Purge_Anti_Juche_Officials
@@ -1728,7 +2051,11 @@ focus_tree = {
 		}
 		x = 38
 		y = 4
-
+		completion_reward = {
+			army_experience = -25
+			navy_experience = -25
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = KPA_The_Southern_Problem
@@ -1739,7 +2066,10 @@ focus_tree = {
 		}
 		x = 32
 		y = 6
-
+		completion_reward = {
+			add_war_support = 0.05
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = KPA_Military_Youth_Programs
@@ -1750,7 +2080,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 5
-
+		completion_reward = {
+			add_ideas = military_youth_focus
+		}
 	}
 	focus = {
 		id = KPA_Excessive_Military_Expenditures
@@ -1761,7 +2093,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 5
-
+		completion_reward = {
+			add_ideas = Excessive_Military_Expenditures
+		}
 	}
 	focus = {
 		id = KPA_Anti_Juche_Coup
@@ -1775,7 +2109,20 @@ focus_tree = {
 		}
 		x = 45
 		y = 4
-
+		completion_reward = {
+			kill_country_leader = yes
+			news_event = KPA_COUP.2 
+			create_country_leader = {
+				name = "Kim Chang-bong"
+				picture = "Kim_Chang_bong.dds"
+				ideology = stalinism
+			}
+			create_country_leader = {
+				name = "Kim Chang-bong"
+				picture = "Kim_Chang_bong.dds"
+				ideology = maoist
+			}
+		}
 	}
 	focus = {
 		id = KPA_The_Sino_Soviet_Split
@@ -1786,7 +2133,9 @@ focus_tree = {
 		}
 		x = 45
 		y = 5
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = KPA_Side_With_the_Soviets
@@ -1800,7 +2149,20 @@ focus_tree = {
 		}
 		x = 42
 		y = 6
-
+			completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = KPA_Side_with_Mao
@@ -1814,7 +2176,25 @@ focus_tree = {
 		}
 		x = 47
 		y = 6
-
+			completion_reward = {
+				set_politics = {
+					ruling_party = maoism
+					elections_allowed = no
+				}
+				add_popularity = { ideology = maoism popularity = 0.75 }
+					PRC = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = PRC
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = KPA_Condemn_Soviet_Revisionism
@@ -1825,7 +2205,20 @@ focus_tree = {
 		}
 		x = 47
 		y = 7
-
+			completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_decrease
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = KPA_Embrace_Maoist_Military_Theory
@@ -1836,7 +2229,10 @@ focus_tree = {
 		}
 		x = 45
 		y = 8
-
+		completion_reward = {
+			army_experience = 50
+			add_manpower = 50000
+		}
 	}
 	focus = {
 		id = KPA_Rappoachment_with_Albania
@@ -1847,7 +2243,20 @@ focus_tree = {
 		}
 		x = 47
 		y = 8
-
+		completion_reward = {
+					ALB = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = ALB
+									modifier = large_increase
+								}
+						}		
+		}
 	}
 	focus = {
 		id = KPA_Empower_the_Red_Guards
@@ -1858,7 +2267,9 @@ focus_tree = {
 		}
 		x = 49
 		y = 8
-
+			completion_reward = {
+					add_ideas = PRC_red_guards
+				}
 	}
 	focus = {
 		id = KPA_Korean_Cultural_Revolution
@@ -1875,7 +2286,9 @@ focus_tree = {
 		}
 		x = 47
 		y = 9
-
+		completion_reward = {
+			add_ideas = PRC_cultural_revolution
+		}
 	}
 	focus = {
 		id = KPA_Societal_Chaos
@@ -1886,7 +2299,10 @@ focus_tree = {
 		}
 		x = 47
 		y = 10
-
+		completion_reward = {
+			add_stability = -0.25
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = KPA_Chinese_Advisors
@@ -1897,7 +2313,9 @@ focus_tree = {
 		}
 		x = 49
 		y = 10
-
+		completion_reward = {
+			add_ideas = chinese_advisors
+		}
 	}
 	focus = {
 		id = KPA_Reform_the_Personality_Cult
@@ -1908,7 +2326,9 @@ focus_tree = {
 		}
 		x = 45
 		y = 10
-
+		completion_reward = {
+			remove_ideas = total_loyalty
+		}
 	}
 	focus = {
 		id = KPA_Scale_Back_the_Cultural_Revolution
@@ -1925,7 +2345,10 @@ focus_tree = {
 		}
 		x = 47
 		y = 11
-
+		completion_reward = {
+			remove_ideas = PRC_cultural_revolution
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = KPA_Further_Mobilization
@@ -1936,7 +2359,9 @@ focus_tree = {
 		}
 		x = 46
 		y = 12
-
+		completion_reward = {
+			add_ideas = military_expansion
+		}
 	}
 	focus = {
 		id = KPA_Chinese_Weapons
@@ -1947,7 +2372,28 @@ focus_tree = {
 		}
 		x = 48
 		y = 12
-
+			completion_reward = {
+					add_equipment_to_stockpile = {
+							type = infantry_equipment
+							amount = 3000
+							producer = PRC
+						}
+					add_equipment_to_stockpile = {
+							type = mbt_equipment
+							amount = 50
+							producer = PRC
+						}
+					add_equipment_to_stockpile = {
+							type = lt_equipment
+							amount = 100
+							producer = PRC
+						}
+					add_equipment_to_stockpile = {
+							type = artillery_equipment
+							amount = 150
+							producer = PRC
+						}
+				}
 	}
 	focus = {
 		id = KPA_Southern_Guerilla_Recruitment
@@ -1961,7 +2407,16 @@ focus_tree = {
 		}
 		x = 47
 		y = 13
-
+		completion_reward = {
+			KOR = {
+				add_stability = -0.10
+				add_war_support = -0.10
+				add_popularity = {
+					ideology = communism
+					popularity = 0.05
+				}				
+			}
+		}
 	}
 	focus = {
 		id = KPA_1960s_soviet_motorization_aid
@@ -1995,17 +2450,17 @@ focus_tree = {
 		y = 5
 			completion_reward = {
 					add_equipment_to_stockpile = {
-							type = main_battle_tanks_3
+							type = main_battle_tanks
 							amount = 150
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
-							type = lt_equipment_2
+							type = lt_equipment
 							amount = 300
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
-							type = ht_equipment_3
+							type = ht_equipment
 							amount = 100
 							producer = SOV
 						}
@@ -2077,7 +2532,23 @@ focus_tree = {
 		}
 		x = 38
 		y = 7
-
+		available = {
+			SOV = { has_country_leader = { ruling_only = yes name = "Leonid Breznhev" }	}
+		}
+			completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = small_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = small_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = KPA_Soviet_Rappoachment
@@ -2089,7 +2560,20 @@ focus_tree = {
 		}
 		x = 39
 		y = 8
-
+			completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = KPA_Relations_With_Romania
@@ -2100,7 +2584,20 @@ focus_tree = {
 		}
 		x = 38
 		y = 10
-
+			completion_reward = {
+					ROM = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = ROM
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = KPA_Relations_With_East_Germany
@@ -2111,7 +2608,20 @@ focus_tree = {
 		}
 		x = 40
 		y = 10
-
+			completion_reward = {
+					DDR = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = DDR
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = KPA_Restore_Ties_to_the_Eastern_Bloc
@@ -2122,7 +2632,68 @@ focus_tree = {
 		}
 		x = 39
 		y = 9
-
+			completion_reward = {
+					MON = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = MON
+									modifier = large_increase
+								}
+						}
+					POL = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = POL
+									modifier = large_increase
+								}
+						}
+					CZE = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = CZE
+									modifier = large_increase
+								}
+						}	
+					HUN = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = HUN
+									modifier = large_increase
+								}
+						}	
+					POL = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = POL
+									modifier = large_increase
+								}
+						}						
+				}		
 	}
 	focus = {
 		id = KPA_Resumption_Soviet_Weapon_Imports
@@ -2133,7 +2704,28 @@ focus_tree = {
 		}
 		x = 39
 		y = 12
-
+			completion_reward = {
+					add_equipment_to_stockpile = {
+							type = infantry_equipment
+							amount = 3000
+							producer = SOV
+						}
+					add_equipment_to_stockpile = {
+							type = mbt_equipment
+							amount = 50
+							producer = SOV
+						}
+					add_equipment_to_stockpile = {
+							type = lt_equipment
+							amount = 100
+							producer = SOV
+						}
+					add_equipment_to_stockpile = {
+							type = artillery_equipment
+							amount = 150
+							producer = SOV
+						}
+				}
 	}
 	focus = {
 		id = KPA_Increase_Mining_Production
@@ -2147,7 +2739,18 @@ focus_tree = {
 		}
 		x = 38
 		y = 6
-
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = chromium
+									amount = 25
+								}
+							add_resource = {
+									type = steel
+									amount = 25
+								}
+						}
+				}
 	}
 	focus = {
 		id = KPA_Dismantle_the_Personality_Cult
@@ -2158,7 +2761,10 @@ focus_tree = {
 		}
 		x = 42
 		y = 7
-
+		completion_reward = {
+			remove_ideas = total_loyalty
+			add_ideas = for_the_people
+		}
 	}
 	focus = {
 		id = KPA_Join_the_Warsaw_Pact
@@ -2343,7 +2949,7 @@ focus_tree = {
 		x = 36
 		y = 9
 		completion_reward = {
-			add_ideas = military_youth_focus
+			add_ideas = militarized_schools
 			add_ideas = militarism_focus
 			add_manpower = 50000
 		}
