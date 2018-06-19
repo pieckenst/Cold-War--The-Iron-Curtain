@@ -10,8 +10,8 @@ View our full-length tutorial [here](./tutorial.md).
 ## Get the mod on the Steam Workshop
 https://steamcommunity.com/sharedfiles/filedetails/?id=1138310824
 
-## Get the dev version
-https://youtu.be/nzkYqPVkR4M
+## Contributing
+View our [Contributing Guidelines](./CONTRIBUTING.md).
 
 ## Join us on Discord
 https://discord.gg/2bFfxa9
