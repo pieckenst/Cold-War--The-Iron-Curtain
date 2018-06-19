@@ -1,5 +1,7 @@
 ﻿add_namespace = KOR_Elections
 add_namespace = KPA_RAID
+add_namespace = KOR_RAID
+
 country_event = {
 	id = KOR_Elections.1963
 	title = "1963 Presidential Elections"
@@ -278,7 +280,7 @@ news_event = {
 news_event = {
 	id = KPA_RAID.4
 	title = "The Second Korean War"
-	desc = "After the recent events in North Korea, the North has mobilized its troops and began the Second Korean War......."
+	desc = "After the recent events in North and South Korea, the Second Korean War has began as Northern and Southern troops clashed throughout the DMZ......."
 	picture = GFX_News_Report_North_Korea_Raid
 	major = yes
 	
@@ -315,5 +317,81 @@ news_event = {
 	
 	option = {
 		name = "This will only embolden Kim Il-Sung"
+	}
+}
+
+country_event = {
+	id = KOR_RAID.1
+	title = "Assasination of Park Chung-hee"
+	desc = "South Korean President Park Chung-hee was assasinated in a raid on the Blue House by North Korean Commandos......."
+	picture = GFX_Report_North_Korea_Raid
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		complete_national_focus = KOR_60s_Park_Assasinated
+	}
+	
+	option = {
+		name = "Issue Diplomatic Threats"
+		add_threat = 30
+		news_event = KOR_RAID.4
+	}
+	
+	option = {
+		name = "Invade the North"
+		declare_war_on = {
+			target = KOR
+			type = annex_everything
+		}
+		complete_national_focus = KOR_60s_The_Second_Korean_War
+		news_event = KOR_RAID.4
+		news_event = KPA_RAID.4
+	}
+}
+country_event = {
+	id = KOR_RAID.2
+	title = "Failure of the Blue House Raid"
+	desc = ""
+	picture = GFX_Report_North_Korea_Raid
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		complete_national_focus = KOR_60s_Failure_of_the_Raid
+	}	
+	option = {
+		name = "Issue Diplomatic Threats"
+		add_threat = 15
+		news_event = KOR_RAID.3
+	}
+}
+news_event = {
+	id = KOR_RAID.3
+	title = "The Failed Blue House Raid"
+	desc = "South Korea is charging North Korea with launching an attempted assination attempt on President Park Chung-hee......."
+	picture = GFX_News_Report_North_Korea_Raid
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = "This will not be good for global stability"
+	}
+}
+news_event = {
+	id = KOR_RAID.4
+	title = "Assasination of Park Chung-hee"
+	desc = "South Korean President Park Chung-hee was assasinated in a raid on the Blue House by North Korean Commandos......."
+	picture = GFX_News_Report_North_Korea_Raid
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = "Will this restart the Korean War?"
 	}
 }
