@@ -17,6 +17,7 @@ We welcome many forms of contribution, such as:
 ### Development Responsibilities
 - Create issues for any major changes and enhancements that you wish to make. Discuss things transparently and get community feedback.
 - Start new features and major changes on new Git branches. Submit a Pull Request when it is safe to be merged into the main stream.
+- Summarize the changes made in the commit message, and break up large changes into multiple commits where applicable.
 - Test your code before pushing it.
 
 ### Community Responsibilities
@@ -57,4 +58,4 @@ At this point, you're ready to make your changes! Feel free to ask for help; eve
 # How to suggest a feature, change, or enhancement
 The aim of the mod is to provide a reasonably complex gameplay experience for the Cold War era. If your proposal does not fit within that scope, we may have to reject it.
 
-Wishing for a feature that doesn't exist in Iron Curtain? There are bound to be others out there with similar needs. Many of the features that Iron Curtain has today have been added due to user request. Check the [open issues](https://github.com/swf541/Cold-War--The-Iron-Curtain/issues) to see if it has already been requested, then [Open an issue](https://github.com/swf541/Cold-War--The-Iron-Curtain/issues/new/choose) which describes the feature you would like to see and how it should work.
+Wishing for a feature that doesn't exist in Iron Curtain? There are bound to be others out there with similar needs. Many of the features that Iron Curtain has today have been added due to user request. Check the [open issues](https://github.com/swf541/Cold-War--The-Iron-Curtain/issues) to see if it has already been requested, then [open an issue](https://github.com/swf541/Cold-War--The-Iron-Curtain/issues/new/choose) which describes the feature you would like to see and how it should work.
