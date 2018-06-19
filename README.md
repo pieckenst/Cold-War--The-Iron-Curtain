@@ -10,11 +10,8 @@ View our full-length tutorial [here](./tutorial.md).
 ## Get the mod on the Steam Workshop
 https://steamcommunity.com/sharedfiles/filedetails/?id=1138310824
 
-## Contributing
+## Contributing, bug reports, and feature requests
 View our [Contributing Guidelines](./CONTRIBUTING.md).
 
 ## Join us on Discord
 https://discord.gg/2bFfxa9
-
-### Found a bug, or think something should be added or changed?
-[Create a new issue](https://github.com/swf541/Cold-War--The-Iron-Curtain/issues) (please search first to prevent duplicates), or [Submit a Pull Request](https://github.com/swf541/Cold-War--The-Iron-Curtain/pulls) with your proposed changes.
