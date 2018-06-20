@@ -353,7 +353,7 @@ focus_tree = {
 		x = 5
 		y = 1
 		completion_reward = {
-			agrarian_reform
+			add_ideas = agrarian_reform
 		}
 	}
 	focus = {
@@ -1623,19 +1623,19 @@ focus_tree = {
 			focus = KPA_Embrace_Stalinism
 			focus = KPA_Nationalist_Opposition_Seize_Power
 			focus = KPA_The_Second_Arduous_March
-			focus - KPA_Adopt_Maoism
+			focus = KPA_Adopt_Maoism
 		}
 		x = 15
 		y = 10
 			completion_reward = {
-					add_ideas = KPA_Domoestic_Faction
-				}
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							is_historical_focus_on = yes
-							factor = 0
+					add_popularity = {
+							ideology = Social_Democratic
+							popularity = 0.25
 						}
+						add_popularity = {
+							ideology = socialist
+							popularity = 0.25
+						}					
 				}
 
 	}
@@ -2552,7 +2552,7 @@ focus_tree = {
 	}
 	focus = {
 		id = KPA_Promote_Protestantism
-		icon = GFX_GFX_protestant
+		icon = GFX_protestant
 		cost = 10.00
 		prerequisite = {
 			focus = KPA_The_Second_Peoples_Republic_of_Korea
@@ -3017,7 +3017,7 @@ focus_tree = {
 	}
 	focus = {
 		id = KPA_The_Second_Arduous_March
-		icon = GFX_GFX_Communism7
+		icon = GFX_Communism7
 		cost = 10.00
 		prerequisite = {
 			focus = KPA_Workers_Party_Coup_Attempt
@@ -3161,7 +3161,7 @@ focus_tree = {
 	}
 	focus = {
 		id = KPA_Soviet_Tensions
-		icon = GFX_GFX_Communism1
+		icon = GFX_Communism1
 		cost = 10.00
 		prerequisite = {
 			focus = KPA_Independent_Korea
@@ -3346,7 +3346,7 @@ focus_tree = {
 	}
 	focus = {
 		id = KPA_Adopt_Maoism
-		icon = GFX_GFX_Communism6
+		icon = GFX_Communism6
 		cost = 10.00
 		prerequisite = {
 			focus = KPA_Workers_Party_Coup_Attempt
@@ -4133,6 +4133,33 @@ focus_tree = {
 
 	}
 	focus = {
+		id = KPA_American_Rappoachment
+		icon = GFX_american_coat_of_arms
+		cost = 10.00
+		prerequisite = {
+			focus = KPA_Promote_Protestantism
+		}
+		prerequisite = {
+			focus = KPA_Southern_Rappoachment
+		}
+		x = 21
+		y = 14
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = KPA
+									modifier = large_increase
+								}
+						}
+					KPA = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+				}
+	}
+	focus = {
 		id = KPA_Western_Economic_Aid
 		icon = GFX_focus_chi_mission_to_the_us
 		cost = 10.00
@@ -4204,33 +4231,7 @@ focus_tree = {
 						}		
 		}
 	}
-	focus = {
-		id = KPA_American_Rappoachment
-		icon = GFX_american_coat_of_arms
-		cost = 10.00
-		prerequisite = {
-			focus = KPA_Promote_Protestantism
-		}
-		prerequisite = {
-			focus = KPA_Southern_Rappoachment
-		}
-		x = -1
-		y = 1
-			completion_reward = {
-					USA = {
-							add_opinion_modifier = {
-									target = KPA
-									modifier = large_increase
-								}
-						}
-					KPA = {
-							add_opinion_modifier = {
-									target = USA
-									modifier = large_increase
-								}
-						}
-				}
-	}
+
 	focus = {
 		id = KPA_Condemn_the_Soviets
 		icon = GFX_TheRussianBearCurtailed
