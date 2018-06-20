@@ -386,6 +386,43 @@ news_event = {
 		name = "Will this restart the Korean War?"
 	}
 }
+country_event = {
+	id = KPA_Coup.1
+	title = "Workers Party of Korea Attempts to Coup Kim Il-Sung
+	desc = "North Korean Dictator Kim Il-Sung was deposed and executed during a bloody coup in response to Sung's increasing isolationist and anti Soviet and Chinese rhetoric......"
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = "Successful Coup"
+		kill_country_leader = yes
+			create_country_leader = {
+				name = "Korean Workers Party Temporary Government"
+				picture = "WKP.dds"
+				ideology = stalinism
+			}
+			news_event = KPA_Coup.3
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}	
+	}
+	option = {
+		complete_national_focus = KPA_The_Second_Arduous_March
+		ai_chance = {
+			factor = 75
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}	
+	}
+}
+
 news_event = {
 	id = KPA_Coup.2
 	title = "Anti Juche Coup in the DPRK"
@@ -399,3 +436,17 @@ news_event = {
 		name = "An Interesting Development"
 	}
 }
+news_event = {
+	id = KPA_Coup.3
+	title = "Kim Il-Sung Ousted as Leader of the DPRK"
+	desc = "North Korean Dictator Kim Il-Sung was deposed and executed during a bloody coup in response to Sung's increasing isolationist and anti Soviet and Chinese rhetoric......"
+	picture = GFX_News_Report_North_Korea_Raid
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = "An Interesting Development"
+	}
+}
+
