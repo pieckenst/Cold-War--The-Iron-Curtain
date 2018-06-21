@@ -101,7 +101,12 @@ on_actions = {
 				set_variable ={overcome= nmn}
 				multiply_variable = { var = nmn value = 0.15 } 
             	add_to_variable = { var = money_rate value = nmn  }
-				add_to_variable = { var = money value = money_rate }
+		if = {
+			limit={
+				check_variable = { money < 2000000 }
+			}			
+			add_to_variable = { var = money value = money_rate }
+		}
             	#if ={
             	#limit={
             	# check_variable = { money_rate < -10 }
