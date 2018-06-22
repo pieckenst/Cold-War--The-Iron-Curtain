@@ -1,0 +1,64 @@
+﻿##################
+# Berlin Crisis Event Chain
+##################
+
+add_namespace = belgium
+
+# The Royal Question
+country_event = {
+	id = belgium.1
+	title = belgium.1.t
+	desc = belgium.1.d
+	picture = GFX_BEL_Royal_Question
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = belgium.1.a
+		add_stability = -0.10
+	}
+}
+
+# Accept King Leopold III back
+country_event = {
+	id = belgium.2
+	title = belgium.2.t
+	desc = belgium.2.d
+	picture = GFX_BEL_Leopold_III_back
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = belgium.2.a
+		custom_effect_tooltip = BEL_WALLOON_ANGER_UP
+		add_to_variable = { var = BEL_Walloon_Anger value = 10 }
+		custom_effect_tooltip = BEL_FLEMISH_ANGER_DOWN
+		add_to_variable = { var = BEL_Flemish_Anger value = -10 }
+		add_stability = -0.05
+		add_ideas = BEL_Walloon_General_Strike
+		hidden_effect = {
+			news_event = { days = 2 id = belgium.3}
+		}
+	}
+}
+
+# Leopold III back + General Strike in belgium
+news_event {
+	id = belgium.3
+	title = belgium.3.t
+	desc = belgium.3.d
+	picture = GFX_BEL_Leopold_III_back
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = belgium.3.a
+		trigger = { tag = BEL }
+	}
+
+	option = {
+		name = belgium.3.b
+		trigger = { NOT = { tag = BEL} }
+	}
+}
