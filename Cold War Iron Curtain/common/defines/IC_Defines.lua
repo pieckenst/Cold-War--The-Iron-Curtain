@@ -69,3 +69,6 @@ NDefines.NTechnology.MAX_TECH_SHARING_BONUS = 0.75 -- Max technology sharing bon
 
 NDefines.NTrade.RELATION_TRADE_FACTOR = 5 -- Trade factor is modified by Opinion value times this
 
+NDefines.NMilitary.MAX_ARMY_EXPERIENCE = 100000;
+NDefines.NMilitary.MAX_NAVY_EXPERIENCE = 100000;
+NDefines.NMilitary.MAX_AIR_EXPERIENCE = 100000;
