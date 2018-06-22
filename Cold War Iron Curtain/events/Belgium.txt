@@ -1,5 +1,5 @@
 ﻿##################
-# Berlin Crisis Event Chain
+# Belgium Events
 ##################
 
 add_namespace = belgium
@@ -43,7 +43,7 @@ country_event = {
 }
 
 # Leopold III back + General Strike in belgium
-news_event {
+news_event = {
 	id = belgium.3
 	title = belgium.3.t
 	desc = belgium.3.d
@@ -60,5 +60,49 @@ news_event {
 	option = {
 		name = belgium.3.b
 		trigger = { NOT = { tag = BEL} }
+	}
+}
+ # Hidden Declare War event
+country_event = {
+	id = belgium.4
+	title = belgium.4
+	desc = belgium.4
+	picture = GFX_BEL_Civil_War
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			FLA = { load_oob = FLA_1949 }
+			WAL = { load_oob = WAL_1949 }
+		}
+	}
+	
+	option = {
+		name = belgium.4.a
+		if = {
+			limit = {
+				BEL = { has_country_flag = BEL_Flemish_Civil_War }
+			}
+			FLA = {
+				declare_war_on = {
+					target = WAL
+					type = civil_war
+				}
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				BEL = { has_country_flag = BEL_Walloon_Civil_War }
+			}
+			WAL = {
+				declare_war_on = {
+					target = FLA
+					type = civil_war
+				}
+			}
+			break = yes
+		}
 	}
 }
