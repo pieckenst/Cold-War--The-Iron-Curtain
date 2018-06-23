@@ -45,6 +45,8 @@
 
 ### Financial Reserves
 
+### Power / Electricity
+
 ## Frequently Asked Questions
 - Help! I can't declare war!
   - You must be at [DEFCON](#defcon) 3 or lower to declare war.
