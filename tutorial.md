@@ -11,6 +11,7 @@
    - [Events](#events)
    - [Elections](#elections)
    - [WMDs](#wmds)
+   - [Power Grid](#power-grid)
    - [Buildings](#buildings)
    - [Helicopters](#helicopters)
    - [Space Race](#space-race)
@@ -67,6 +68,8 @@ Other:
 
 ### WMDs
 
+### Power Grid
+
 ### Buildings
 
 ### Helicopters
@@ -74,8 +77,6 @@ Other:
 ### Space Race
 
 ### Financial Reserves
-
-### Power / Electricity
 
 ## Frequently Asked Questions
 - Help! I can't declare war!
