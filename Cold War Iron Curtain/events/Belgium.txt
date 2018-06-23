@@ -39,6 +39,11 @@ country_event = {
 		hidden_effect = {
 			news_event = { days = 2 id = belgium.3}
 		}
+		create_country_leader = {
+			name = "King Leopold III"
+			picture = "Portrait_BEL_Leopold_III.dds"
+			ideology = royal_democrat
+		}
 	}
 }
 
@@ -62,7 +67,8 @@ news_event = {
 		trigger = { NOT = { tag = BEL} }
 	}
 }
- # Hidden Declare War event
+
+ # Declare War event
 country_event = {
 	id = belgium.4
 	title = belgium.4
@@ -73,6 +79,14 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
+			BEL = {
+				delete_unit_template_and_units = {
+					division_template = "Division d'Infanterie"
+					division_template = "Division de Cavalerie"
+					division_template = "Cavalerie Motorisée"
+					division_template = "Division Coloniale"
+				}
+			}
 			FLA = { load_oob = FLA_1949 }
 			WAL = { load_oob = WAL_1949 }
 		}
@@ -104,5 +118,163 @@ country_event = {
 			}
 			break = yes
 		}
+	}
+}
+
+# Ask the Population about Leopold III
+country_event = {
+	id = belgium.5
+	title = belgium.5.t
+	desc = belgium.5.d
+	picture = GFX_BEL_Leopold_III_back
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = belgium.5.a
+		custom_effect_tooltip = BEL_WALLOON_ANGER_DOWN
+		add_to_variable = { var = BEL_Walloon_Anger value = -5 }
+		custom_effect_tooltip = BEL_FLEMISH_ANGER_DOWN
+		add_to_variable = { var = BEL_Flemish_Anger value = -5 }
+		custom_effect_tooltip = BEL_NATIONAL_REFERENDUM
+		hidden_effect = {
+			country_event = belgium.6
+			country_event = { days = 41 id = belgium.7 }
+		}
+	}
+}
+
+# National Referendum
+country_event = {
+	id = belgium.6
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		random_list = {
+			50 = {
+				set_country_flag = BEL_Yes_Leopold
+				modifier = {
+					is_historical_focus_on = yes
+					add = 50
+				}
+			}
+			50 = {
+				set_country_flag = BEL_No_Leopold
+				modifier = {
+					is_historical_focus_on = yes
+					add = -50
+				}
+			}
+		}
+	}
+}
+
+# Leopold III came back
+country_event = {
+	id = belgium.7
+	title = belgium.7.t
+	desc = belgium.7.d
+	picture = GFX_BEL_Leopold_III_back
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = belgium.7.a
+		custom_effect_tooltip = BEL_WALLOON_ANGER_UP
+		add_to_variable = { var = BEL_Walloon_Anger value = 10 }
+		custom_effect_tooltip = BEL_FLEMISH_ANGER_DOWN
+		add_to_variable = { var = BEL_Flemish_Anger value = -10 }
+		add_stability = -0.05
+		add_ideas = BEL_Walloon_General_Strike
+		hidden_effect = {
+			news_event = { days = 2 id = belgium.3 }
+		}
+		create_country_leader = {
+			name = "King Leopold III"
+			picture = "Portrait_BEL_Leopold_III.dds"
+			ideology = royal_democrat
+		}
+	}
+}
+
+# Refuse Leopold III back
+country_event = {
+	id = belgium.8
+	title = belgium.8.t
+	desc = belgium.8.d
+	picture = GFX_BEL_Leopold_III_back
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = belgium.8.a
+		custom_effect_tooltip = BEL_WALLOON_ANGER_DOWN
+		add_to_variable = { var = BEL_Walloon_Anger value = -10 }
+		custom_effect_tooltip = BEL_FLEMISH_ANGER_UP
+		add_to_variable = { var = BEL_Flemish_Anger value = 10 }
+		add_stability = 0.05
+	}
+}
+
+# Referendum Results
+country_event = {
+	id = belgium.9
+	title = belgium.9.t
+	desc = {
+		text = belgium.9.d1
+		trigger = { has_country_flag = BEL_Yes_Leopold }
+	}
+	desc = {
+		text = belgium.9.d2
+		trigger = { has_country_flag = BEL_No_Leopold }
+	}
+	picture = GFX_BEL_Leopold_III_back
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = belgium.9.a
+		if = {
+			limit = {
+				has_country_flag = BEL_Yes_Leopold
+			}
+			custom_effect_tooltip = BEL_WALLOON_ANGER_UP
+			add_to_variable = { var = BEL_Walloon_Anger value = 5 }
+			custom_effect_tooltip = BEL_FLEMISH_ANGER_DOWN
+			add_to_variable = { var = BEL_Flemish_Anger value = -5 }
+			add_stability = 0.05
+			country_event = belgium.2
+		}
+		if = {
+			limit = {
+				has_country_flag = BEL_No_Leopold
+			}
+			custom_effect_tooltip = BEL_WALLOON_ANGER_DOWN
+			add_to_variable = { var = BEL_Walloon_Anger value = -10 }
+			custom_effect_tooltip = BEL_FLEMISH_ANGER_UP
+			add_to_variable = { var = BEL_Flemish_Anger value = -5 }
+			add_stability = 0.05
+		}
+	}
+}
+
+# Propose Coal and Steel Union
+country_event = {
+	id = belgium.10
+	title = belgium.10.t
+	desc = belgium.10.d
+	picture = GFX_BEL_Coal_Steel_Union
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = belgium.10.a
+		add_ideas = EU_ECSC_Project
+	}
+
+	option = {
+		name = belgium.10.b
 	}
 }

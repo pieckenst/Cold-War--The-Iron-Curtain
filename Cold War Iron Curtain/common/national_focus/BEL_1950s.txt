@@ -223,7 +223,6 @@ focus_tree = {
 			}
 			custom_effect_tooltip = BEL_FLANDERS_CIVIL_WAR
 		}
-
 	}
 	focus = {
 		id = BEL_Ask_The_Population
@@ -238,6 +237,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 1
+		completion_reward = {
+			country_event = belgium.5
+		}
 
 	}
 	focus = {
@@ -253,6 +255,10 @@ focus_tree = {
 		}
 		x = 6
 		y = 1
+		completion_reward = {
+			custom_effect_tooltip = BEL_KING_NOT_BACK
+			country_event = belgium.8
+		}
 
 	}
 	focus = {
@@ -264,6 +270,13 @@ focus_tree = {
 		}
 		x = 6
 		y = 2
+		completion_reward = {
+			custom_effect_tooltip = BEL_FLEMISH_ANGER_UP
+			add_to_variable = { var = BEL_Flemish_Anger value = 10 }
+			custom_effect_tooltip = BEL_WALLOON_ANGER_DOWN
+			add_to_variable = { var = BEL_Walloon_Anger value = -10 }
+			add_political_power = 150
+		}
 
 	}
 	focus = {
@@ -277,6 +290,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 3
+		completion_reward = {
+			country_event = belgium.9
+		}
 
 	}
 	focus = {
@@ -288,7 +304,18 @@ focus_tree = {
 		}
 		x = 6
 		y = 3
-
+		completion_reward = {
+			hidden_effect = {
+				release = FLA
+				release = WAL
+				country_event = { hours = 6 id = belgium.4 }
+				set_country_flag = BEL_Walloon_Civil_War
+			}
+			WAL = { 
+				change_tag_from = BEL
+			}
+			custom_effect_tooltip = BEL_WALLOON_CIVIL_WAR
+		}
 	}
 	focus = {
 		id = BEL_Recognize_Resistance_Members
@@ -299,7 +326,10 @@ focus_tree = {
 		}
 		x = 12
 		y = 1
-
+		completion_reward = {
+			add_stability = 0.05
+			add_manpower = 76000
+		}
 	}
 	focus = {
 		id = BEL_Accepts_Marshall_Plan
@@ -310,7 +340,48 @@ focus_tree = {
 		}
 		x = 14
 		y = 1
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_2
+				amount = 25000
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment_2
+				amount = 2500
+				producer = USA
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = BEL_Propose_Coal_and_Steel_Union
@@ -324,7 +395,13 @@ focus_tree = {
 		}
 		x = 13
 		y = 2
-
+		completion_reward = {
+			FRA = { country_event = belgium.10 }
+			WGR = { country_event = belgium.10 }
+			HOL = { country_event = belgium.10 }
+			LUX = { country_event = belgium.10 }
+			ITA = { country_event = belgium.10 }
+		}
 	}
 	focus = {
 		id = BEL_Persecute_Collaborators
@@ -335,7 +412,10 @@ focus_tree = {
 		}
 		x = 16
 		y = 1
-
+		completion_reward = {
+			add_stability = 0.10
+			add_manpower = -1000
+		}
 	}
 	focus = {
 		id = BEL_Collect_Resistance_Weapons
@@ -346,7 +426,13 @@ focus_tree = {
 		}
 		x = 18
 		y = 1
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 35000
+				producer = BEL
+			}
+		}
 	}
 	focus = {
 		id = BEL_Help_South_Korea
