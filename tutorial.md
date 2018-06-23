@@ -30,6 +30,36 @@
 ### Focus Trees
 
 ### Ideologies
+Democratic:
+   - Conservatism
+   - Centrism
+   - Socialism
+   - Libertarian
+   - Progressive
+   - Liberal Conservatism
+   - Christian Democratic
+   - Social Liberalism
+   
+Communist:
+   - Marxist-Leninism
+   - Maoism
+   - Trotskyism
+   - Market Socialism
+
+Radical Ideologies:
+   - Nationalism
+   - Fascism
+   - Islamism
+   - Radical-Shiaism
+   - Pan-Arabism
+   - National Socialism
+   
+Other:
+   - Monarchism
+   - Reactionaryism 
+   - Salafism
+   - Judaism
+   - Christianism
 
 ### Events
 
