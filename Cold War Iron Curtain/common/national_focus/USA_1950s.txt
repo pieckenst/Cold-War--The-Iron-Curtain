@@ -3578,7 +3578,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_the_korean_war_draft
-		icon = GFX_focus_yug_pan_slavic_congress
+		icon = GFX_focus_YUG_pan_slavic_congress
 		cost = 10.00
 		prerequisite = {
 			focus = USA_The_Korean_War
@@ -3760,17 +3760,18 @@ focus_tree = {
 		}
 		x = 44
 		y = 6
-			allow_branch = {
-					date < 1959.12.31
-				}
-				available = {
-					country_exists = CHI
-				}
-				completion_reward = {
-					diplomatic_relation = { country = CHI relation = guarantee active = yes }
-
-				}
-
+		allow_branch = {
+			date < 1959.12.31
+		}
+		available = {
+			country_exists = CHI
+		}
+		completion_reward = {
+			if = {
+				limit = { country_exists = CHI }
+				diplomatic_relation = { country = CHI relation = guarantee active = yes }
+			}
+		}
 	}
 	focus = {
 		id = USA_Develop_Taiwanese_Industry
@@ -4336,57 +4337,54 @@ focus_tree = {
 		}
 		x = 50
 		y = 4
-			available = {
-					country_exists = PRC
-					country_exists = CHI
-					has_global_flag = chinapeace_roc_accept
-					has_global_flag = chinapeace_prc_accept
-				}
-			allow_branch = {
-					date < 1959.12.31
-				}
-			completion_reward = {
+		available = {
+			country_exists = PRC
+			country_exists = CHI
+			has_global_flag = chinapeace_roc_accept
+			has_global_flag = chinapeace_prc_accept
+		}
+		allow_branch = {
+			date < 1959.12.31
+		}
+		completion_reward = {
+			PRC = {
+				transfer_state = 605
+				transfer_state = 283
+				transfer_state = 616
+				transfer_state = 604
+				transfer_state = 287
+				transfer_state = 619
+				transfer_state = 617
+				transfer_state = 601
+				transfer_state = 1206
+				if = {
+					limit = {
+						CHI = {
+							owns_state = 618
+						}
+					}
 					PRC = {
-							transfer_state = 605
-							transfer_state = 283
-							transfer_state = 616
-							transfer_state = 604
-							transfer_state = 283
-							transfer_state = 287
-							transfer_state = 619
-							transfer_state = 283
-							transfer_state = 617
-							transfer_state = 601
-							transfer_state = 1206
-							if = {
-									limit = {
-											CHI = {
-													owns_state = 618
-												}
-										}
-									PRC = {
-											transfer_state = 618
-										}
-								}
-							if = {
-									limit = {
-											CHI = {
-													owns_state = 871
-												}
-										}
-									PRC = {
-											transfer_state = 871
-										}
-								}
-						}
-					CHI = {
-							transfer_state = 613
-							transfer_state = 1128
-							transfer_state = 1129
-							transfer_state = 1130
-						}
+						transfer_state = 618
+					}
 				}
-
+				if = {
+					limit = {
+						CHI = {
+							owns_state = 871
+						}
+					}
+					PRC = {
+						transfer_state = 871
+					}
+				}
+			}
+			CHI = {
+				transfer_state = 613
+				transfer_state = 1128
+				transfer_state = 1129
+				transfer_state = 1130
+			}
+		}
 	}
 	focus = {
 		id = USA_Promote_De_Armament
@@ -8370,7 +8368,6 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = USA_Nixon_1960
 			focus = USA_JFK_1960
-			focus = USA_Nixon_1960
 		}
 		available = {
 			has_global_flag = humphrey_60
@@ -10322,8 +10319,7 @@ focus_tree = {
 			focus = USA_carrier_advancements
 		}
 		allow_branch = {
-		 date > 1959.12.31
-		 
+			date > 1959.12.31
  		}
 		x =  46
 		y = 5
@@ -10620,7 +10616,6 @@ focus_tree = {
 			focus = USA_The_Vietnam_War
 		}
 		mutually_exclusive = {
-			focus = USA_Give_Permission_to_the_Soviets
 			focus = USA_Give_Permission_to_the_Soviets
 			focus = USA_Invade_The_North
 			focus = USA_Abandon_South_Vietnam
