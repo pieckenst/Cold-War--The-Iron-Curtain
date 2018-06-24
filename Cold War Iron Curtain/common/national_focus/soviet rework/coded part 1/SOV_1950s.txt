@@ -8,6 +8,8 @@ focus_tree = {
 		}
 	}
 	default = no
+	
+	shared_focus = SOV_lessons_from_the_great_patriotic_war
 	focus = {
 		id = SOV_stalin_reforms
 		icon = GFX_Stalin_Cult
@@ -28,13 +30,14 @@ focus_tree = {
 	focus = {
 		id = SOV_Generalissimo_Stalin
 		icon = GFX_AppealtoStalin
-		cost = 1
+		cost = 1.00
 		x = 18
 		y = 0
-		completion_reward = {
-			add_political_power = 300
-			add_stability = 0.05
-		}
+			completion_reward = {
+					add_political_power = 300
+					add_stability = 0.05
+				}
+
 	}
 	focus = {
 		id = SOV_Proclaim_Victory_Over_Fascism
@@ -42,11 +45,12 @@ focus_tree = {
 		cost = 10.00
 		x = 17
 		y = 1
-		completion_reward = {
-			add_war_support = 0.15
-			add_stability = 0.15
-			add_political_power = 100
-		}
+			completion_reward = {
+					add_war_support = 0.15
+					add_stability = 0.15
+					add_political_power = 100
+				}
+
 	}
 	focus = {
 		id = SOV_Korea_Question
@@ -54,12 +58,13 @@ focus_tree = {
 		cost = 10.00
 		x = 21
 		y = 1
-				available = {
+			available = {
 					has_global_flag = korean_war_begun
 				}
-				bypass = {
+			bypass = {
 					has_global_flag = korean_war_begun
 				}
+
 	}
 	focus = {
 		id = SOV_egalitarian_beliefs
@@ -257,41 +262,17 @@ focus_tree = {
 		}
 		x = 4
 		y = 6
-		completion_reward = {
-			DDR = {
-				add_timed_idea = { idea = war_reparations days = 900 }
-			}
-			HUN = {
-				add_timed_idea = { idea = war_reparations days = 900 }
-			}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
+			completion_reward = {
+					DDR = {
+							add_timed_idea = {
+									idea = war_reparations
+									days = 900
 								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
+						}
+					HUN = {
+							add_timed_idea = {
+									idea = war_reparations
+									days = 900
 								}
 						}
 					random_owned_controlled_state = {
@@ -324,7 +305,38 @@ focus_tree = {
 									instant_build = yes
 								}
 						}
-		}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = SOV_Establish_European_Radar_Stations
@@ -335,20 +347,21 @@ focus_tree = {
 		}
 		x = 2
 		y = 7
-		completion_reward = {
-			every_country = {
-				limit = {
-					is_in_faction_with = SOV
+			completion_reward = {
+					every_country = {
+							limit = {
+									is_in_faction_with = SOV
+								}
+							capital_scope = {
+									add_building_construction = {
+											type = radar_station
+											level = 5
+											instant_build = yes
+										}
+								}
+						}
 				}
-				capital_scope = {
-					add_building_construction = {
-						type = radar_station
-						level = 5
-						instant_build = yes
-					}
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = SOV_Infrastructure_Effort
@@ -360,115 +373,116 @@ focus_tree = {
 		x = 4
 		y = 7
 			completion_reward = {
-							random_owned_controlled_state = {
-									limit = {
-											free_building_slots = {
-													building = infrastructure
-													size > 0
-												}
-											OR = {
-													is_in_home_area = yes
-													NOT = {
-															owner = {
-																	any_owned_state = {
-																			free_building_slots = {
-																					building = infrastructure
-																					size > 0
-																				}
-																			is_in_home_area = yes
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 0
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 0
 																		}
+																	is_in_home_area = yes
 																}
 														}
 												}
 										}
-									add_building_construction = {
-											type = infrastructure
-											level = 1
-											instant_build = yes
-										}
 								}
-							random_owned_controlled_state = {
-									limit = {
-											free_building_slots = {
-													building = infrastructure
-													size > 0
-												}
-											OR = {
-													is_in_home_area = yes
-													NOT = {
-															owner = {
-																	any_owned_state = {
-																			free_building_slots = {
-																					building = infrastructure
-																					size > 0
-																				}
-																			is_in_home_area = yes
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 0
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 0
 																		}
+																	is_in_home_area = yes
 																}
 														}
 												}
 										}
-									add_building_construction = {
-											type = infrastructure
-											level = 1
-											instant_build = yes
-										}
 								}
-							random_owned_controlled_state = {
-									limit = {
-											free_building_slots = {
-													building = infrastructure
-													size > 0
-												}
-											OR = {
-													is_in_home_area = yes
-													NOT = {
-															owner = {
-																	any_owned_state = {
-																			free_building_slots = {
-																					building = infrastructure
-																					size > 0
-																				}
-																			is_in_home_area = yes
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 0
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 0
 																		}
+																	is_in_home_area = yes
 																}
 														}
 												}
 										}
-									add_building_construction = {
-											type = infrastructure
-											level = 1
-											instant_build = yes
-										}
 								}
-							random_owned_controlled_state = {
-									limit = {
-											free_building_slots = {
-													building = infrastructure
-													size > 0
-												}
-											OR = {
-													is_in_home_area = yes
-													NOT = {
-															owner = {
-																	any_owned_state = {
-																			free_building_slots = {
-																					building = infrastructure
-																					size > 0
-																				}
-																			is_in_home_area = yes
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 0
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 0
 																		}
+																	is_in_home_area = yes
 																}
 														}
 												}
 										}
-									add_building_construction = {
-											type = infrastructure
-											level = 1
-											instant_build = yes
-										}
 								}
-							}
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = SOV_Institute_Nation_Wide_Workers_Programs
@@ -479,13 +493,14 @@ focus_tree = {
 		}
 		x = 6
 		y = 7
-		completion_reward = {
-			add_ideas = workers_culture
-		}
+			completion_reward = {
+					add_ideas = workers_culture
+				}
+
 	}
 	focus = {
 		id = SOV_Resume_the_1945_Five_Year_Plan
-		icon = GFX_GFX_Five_Year_Plan
+		icon = GFX_FactoryTown
 		cost = 10.00
 		prerequisite = {
 			focus = SOV_Establish_European_Radar_Stations
@@ -593,6 +608,7 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = SOV_Comecon_Investments
@@ -603,45 +619,48 @@ focus_tree = {
 		}
 		x = 4
 		y = 9
-		completion_reward = {
-			every_country = {
-				limit = { is_in_faction_with = SOV }
-				random_owned_controlled_state = {
-					limit = {
-						industrial_complex > 0
-						free_building_slots = {
-							building = industrial_complex
-							size > 1
-							include_locked = yes
+			completion_reward = {
+					every_country = {
+							limit = {
+									is_in_faction_with = SOV
+								}
+							random_owned_controlled_state = {
+									limit = {
+											industrial_complex > 0
+											free_building_slots = {
+													building = industrial_complex
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+									set_state_flag = SOV_finish_five_year_plan_2IC
+								}
+							random_owned_controlled_state = {
+									limit = {
+											industrial_complex > 0
+											free_building_slots = {
+													building = industrial_complex
+													size > 1
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+									set_state_flag = SOV_finish_five_year_plan_2IC
+								}
 						}
-					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = industrial_complex
-						level = 2
-						instant_build = yes
-					}
-					set_state_flag = SOV_finish_five_year_plan_2IC
 				}
-				random_owned_controlled_state = {
-					limit = {
-						industrial_complex > 0
-						free_building_slots = {
-							building = industrial_complex
-							size > 1
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = industrial_complex
-						level = 2
-						instant_build = yes
-					}
-					set_state_flag = SOV_finish_five_year_plan_2IC
-				}
-			}
-		}
+
 	}
 	focus = {
 		id = SOV_Turkish_Straits_Crisis
@@ -652,9 +671,10 @@ focus_tree = {
 		}
 		x = 9
 		y = 1
-		completion_reward = {
-			add_political_power = 200
-		}
+			completion_reward = {
+					add_political_power = 200
+				}
+
 	}
 	focus = {
 		id = SOV_Peaceful_Resolution
@@ -668,10 +688,11 @@ focus_tree = {
 		}
 		x = 8
 		y = 2
-		completion_reward = {
-			add_stability = 0.05
-			add_threat = -5
-		}
+			completion_reward = {
+					add_stability = 0.05
+					add_threat = -5
+				}
+
 	}
 	focus = {
 		id = SOV_Expand_the_Nuclear_Program
@@ -688,7 +709,8 @@ focus_tree = {
 							ahead_reduction = 0.75
 							category = nuclear
 						}
-					}
+				}
+
 	}
 	focus = {
 		id = SOV_Continue_Demands_for_Regime_Chang
@@ -702,12 +724,13 @@ focus_tree = {
 		}
 		x = 10
 		y = 2
-		completion_reward = {
-			declare_war_on = {
-				target = TUR
-				type = puppet_wargoal_focus
-			}			
-		}
+			completion_reward = {
+					declare_war_on = {
+							target = TUR
+							type = puppet_wargoal_focus
+						}
+				}
+
 	}
 	focus = {
 		id = SOV_Partition_of_Turkey
@@ -718,36 +741,48 @@ focus_tree = {
 		}
 		x = 10
 		y = 3
-		available = {
-			TUR = { is_subject_of = SOV }
-		}
-		completion_reward = {
-			GEO = {
-				transfer_state = 354
-				354 = { add_core_of = GEO }
-			}
-			ARM = {
-				transfer_state = 793
-				transfer_state = 353
-				transfer_state = 352
-				793 = { add_core_of = ARM }
-				353 = { add_core_of = ARM }
-				352 = { add_core_of = ARM }
-			}
-		}
+			available = {
+					TUR = {
+							is_subject_of = SOV
+						}
+				}
+			completion_reward = {
+					GEO = {
+							transfer_state = 354
+							354 = {
+									add_core_of = GEO
+								}
+						}
+					ARM = {
+							transfer_state = 793
+							transfer_state = 353
+							transfer_state = 352
+							793 = {
+									add_core_of = ARM
+								}
+							353 = {
+									add_core_of = ARM
+								}
+							352 = {
+									add_core_of = ARM
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = SOV_The_Greek_Civil_War
 		icon = GFX_Greek_Proclamation
-		cost = 1
+		cost = 1.00
 		prerequisite = {
 			focus = SOV_Generalissimo_Stalin
 		}
 		x = 13
 		y = 1
-		completion_reward = {
-			add_political_power = 200
-		}
+			completion_reward = {
+					add_political_power = 200
+				}
+
 	}
 	focus = {
 		id = SOV_Leave_them_to_their_Fate
@@ -761,10 +796,11 @@ focus_tree = {
 		}
 		x = 12
 		y = 2
-		completion_reward = {
-			add_stability = 0.05
-			add_threat = -5
-		}
+			completion_reward = {
+					add_stability = 0.05
+					add_threat = -5
+				}
+
 	}
 	focus = {
 		id = SOV_Intervene_in_the_Greek_Civil_War
@@ -778,14 +814,15 @@ focus_tree = {
 		}
 		x = 14
 		y = 2
-		completion_reward = {
-			PDG = {
-				add_to_war = {
-					targeted_alliance = GRE
-					enemy = GRE
+			completion_reward = {
+					PDG = {
+							add_to_war = {
+									targeted_alliance = GRE
+									enemy = GRE
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = SOV_Invite_Greece_to_COMECON
@@ -796,11 +833,12 @@ focus_tree = {
 		}
 		x = 14
 		y = 3
-		completion_reward = {
-			PDG = {
-				add_ideas = comecon_member
-			}
-		}
+			completion_reward = {
+					PDG = {
+							add_ideas = comecon_member
+						}
+				}
+
 	}
 	focus = {
 		id = SOV_Revival_of_the_Russian_Orthodox_Church
@@ -811,26 +849,27 @@ focus_tree = {
 		}
 		x = 17
 		y = 2
-		completion_reward = {
-			add_stability = 0.15
-			add_war_support = 0.15
-			add_political_power = 200
-		}
+			completion_reward = {
+					add_stability = 0.15
+					add_war_support = 0.15
+					add_political_power = 200
+				}
+
 	}
 	focus = {
 		id = SOV_Soviet_Socialist_Patriotism
-		icon = GFX_GFX_soviet_culture
+		icon = GFX_focus_generic_soviet_politics
 		cost = 10.00
 		prerequisite = {
 			focus = SOV_Revival_of_the_Russian_Orthodox_Church
 		}
 		x = 17
 		y = 3
-		completion_reward = {
-			add_ideas = ideological_fanaticism_focus
-		}
-	}
+			completion_reward = {
+					add_ideas = ideological_fanaticism_focus
+				}
 
+	}
 	focus = {
 		id = SOV_stalin_notes
 		icon = GFX_goal_generic_dangerous_deal
@@ -859,16 +898,16 @@ focus_tree = {
 		}
 		x = 20
 		y = 2
+			completion_reward = {
+					KPA = {
+							add_to_war = {
+									targeted_alliance = SOV
+									enemy = KOR
+								}
+							add_threat = 75
+						}
+				}
 
-		completion_reward = {
-			KPA = {
-				add_to_war = { 
-					targeted_alliance = SOV 
-					enemy = KOR 
-				}	
-				add_threat = 75			
-			}
-		}
 	}
 	focus = {
 		id = SOV_Indirect_Intervention
@@ -882,7 +921,7 @@ focus_tree = {
 		}
 		x = 22
 		y = 2
-		completion_reward = {
+			completion_reward = {
 					send_equipment = {
 							target = KPA
 							type = infantry_equipment
@@ -897,6 +936,7 @@ focus_tree = {
 							add_manpower = 50000
 						}
 				}
+
 	}
 	focus = {
 		id = SOV_an_iron_curtain
@@ -954,10 +994,11 @@ focus_tree = {
 		}
 		x = 28
 		y = 1
-		completion_reward = {
-			add_political_power = 300
-			add_stability = -0.05
-		}
+			completion_reward = {
+					add_political_power = 300
+					add_stability = -0.05
+				}
+
 	}
 	focus = {
 		id = SOV_Favour_Beria_and_Malenkov
@@ -968,12 +1009,13 @@ focus_tree = {
 		}
 		x = 28
 		y = 2
-		completion_reward = {
-			swap_ideas = {
-				add_idea = gulag_politic_expanded
-				remove_idea = gulag_politic
-			}		
-		}
+			completion_reward = {
+					swap_ideas = {
+							add_idea = gulag_politic_expanded
+							remove_idea = gulag_politic
+						}
+				}
+
 	}
 	focus = {
 		id = SOV_Purge_the_Lenningrad_Party_Leadership
@@ -984,14 +1026,15 @@ focus_tree = {
 		}
 		x = 27
 		y = 3
-		completion_reward = {
-			add_political_power = 200
-			add_stability = -0.05
-		}
+			completion_reward = {
+					add_political_power = 200
+					add_stability = -0.05
+				}
+
 	}
 	focus = {
 		id = SOV_the_doctors_plot
-		icon = GFX_GFX_Communism1
+		icon = GFX_Sacrifce_to_Progress
 		cost = 10.00
 		prerequisite = {
 			focus = SOV_Purge_the_Lenningrad_Party_Leadership
@@ -1025,7 +1068,7 @@ focus_tree = {
 
 	}
 	focus = {
-		id = SOV_blame_jewish_doctors
+		id = SOV_propaganda_against_judaism
 		icon = GFX_CrushResistance
 		cost = 10.00
 		prerequisite = {
@@ -1044,10 +1087,10 @@ focus_tree = {
 	}
 	focus = {
 		id = SOV_anti_western_propaganda
-		icon = GFX_GFX_Communism7
+		icon = GFX_Enemies_of_the_system
 		cost = 10.00
 		prerequisite = {
-			focus = SOV_blame_jewish_doctors
+			focus = SOV_propaganda_against_judaism
 		}
 		x = 27
 		y = 6
@@ -1068,12 +1111,13 @@ focus_tree = {
 		}
 		x = 29
 		y = 3
-		completion_reward = {
-			add_political_power = 200
-			GEO = {
-				add_stability = -0.10
-			}
-		}
+			completion_reward = {
+					add_political_power = 200
+					GEO = {
+							add_stability = -0.10
+						}
+				}
+
 	}
 	focus = {
 		id = SOV_Eastern_European_Stimulus_Package
@@ -1084,47 +1128,47 @@ focus_tree = {
 		}
 		x = 1
 		y = 10
-		completion_reward = {
-		
-			every_country = {
-				limit = {
-					is_in_faction_with = SOV
-				}
-					every_owned_state = {
-							add_extra_state_shared_building_slots = 1
-						}
-					random_owned_controlled_state = {
+			completion_reward = {
+					every_country = {
 							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
+									is_in_faction_with = SOV
+								}
+							every_owned_state = {
+									add_extra_state_shared_building_slots = 1
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
 																		}
-																	is_in_home_area = yes
 																}
 														}
 												}
 										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
 								}
 						}
-					}			
-		}
+				}
+
 	}
 	focus = {
 		id = SOV_Jumpstart_Belorussian_Industry
@@ -1136,72 +1180,73 @@ focus_tree = {
 		x = 3
 		y = 10
 			completion_reward = {
-				BLR = {
-					every_owned_state = {
-							add_extra_state_shared_building_slots = 1
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
+					BLR = {
+							every_owned_state = {
+									add_extra_state_shared_building_slots = 1
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
 																		}
-																	is_in_home_area = yes
 																}
 														}
 												}
 										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
 										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
 																		}
-																	is_in_home_area = yes
 																}
 														}
 												}
 										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
 								}
 						}
-					}
 				}
+
 	}
 	focus = {
 		id = SOV_Jumpstart_Baltic_and_Balkan_Industry
@@ -1212,253 +1257,254 @@ focus_tree = {
 		}
 		x = 7
 		y = 10
-		completion_reward = {
-			ALB = { 
-					every_owned_state = {
-							add_extra_state_shared_building_slots = 1
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
+			completion_reward = {
+					ALB = {
+							every_owned_state = {
+									add_extra_state_shared_building_slots = 1
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
 																		}
-																	is_in_home_area = yes
 																}
 														}
 												}
 										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 1
-									instant_build = yes
-								}
-						}			
-			}
-			HUN = { 
-					every_owned_state = {
-							add_extra_state_shared_building_slots = 1
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
 										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
+								}
+						}
+					HUN = {
+							every_owned_state = {
+									add_extra_state_shared_building_slots = 1
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
 																		}
-																	is_in_home_area = yes
 																}
 														}
 												}
 										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 1
-									instant_build = yes
-								}
-						}			
-			}
-			ROM = { 
-					every_owned_state = {
-							add_extra_state_shared_building_slots = 1
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
 										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
+								}
+						}
+					ROM = {
+							every_owned_state = {
+									add_extra_state_shared_building_slots = 1
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
 																		}
-																	is_in_home_area = yes
 																}
 														}
 												}
 										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 1
-									instant_build = yes
-								}
-						}			
-			}
-			BUL = { 
-					every_owned_state = {
-							add_extra_state_shared_building_slots = 1
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
 										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
+								}
+						}
+					BUL = {
+							every_owned_state = {
+									add_extra_state_shared_building_slots = 1
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
 																		}
-																	is_in_home_area = yes
 																}
 														}
 												}
 										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 1
-									instant_build = yes
-								}
-						}			
-			}
-			EST = { 
-					every_owned_state = {
-							add_extra_state_shared_building_slots = 1
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
 										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
+								}
+						}
+					EST = {
+							every_owned_state = {
+									add_extra_state_shared_building_slots = 1
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
 																		}
-																	is_in_home_area = yes
 																}
 														}
 												}
 										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 1
-									instant_build = yes
-								}
-						}			
-			}
-			LAT = { 
-					every_owned_state = {
-							add_extra_state_shared_building_slots = 1
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
 										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
+								}
+						}
+					LAT = {
+							every_owned_state = {
+									add_extra_state_shared_building_slots = 1
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
 																		}
-																	is_in_home_area = yes
 																}
 														}
 												}
 										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 1
-									instant_build = yes
-								}
-						}			
-			}
-			LIT = { 
-					every_owned_state = {
-							add_extra_state_shared_building_slots = 1
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
 										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
+								}
+						}
+					LIT = {
+							every_owned_state = {
+									add_extra_state_shared_building_slots = 1
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
 																		}
-																	is_in_home_area = yes
 																}
 														}
 												}
 										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 1
+											instant_build = yes
+										}
 								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 1
-									instant_build = yes
-								}
-						}			
-			}
-		}
+						}
+				}
+
 	}
 	focus = {
 		id = SOV_Invest_In_Ukranian_Reconstruction_Program
@@ -1470,71 +1516,72 @@ focus_tree = {
 		x = 5
 		y = 10
 			completion_reward = {
-				UKR = {
-					every_owned_state = {
-							add_extra_state_shared_building_slots = 1
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
+					UKR = {
+							every_owned_state = {
+									add_extra_state_shared_building_slots = 1
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
 																		}
-																	is_in_home_area = yes
 																}
 														}
 												}
 										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
 										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
+								}
+							random_owned_controlled_state = {
+									limit = {
+											free_building_slots = {
+													building = industrial_complex
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = industrial_complex
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
 																		}
-																	is_in_home_area = yes
 																}
 														}
 												}
 										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
 								}
 						}
-					}
 				}
+
 	}
 }
