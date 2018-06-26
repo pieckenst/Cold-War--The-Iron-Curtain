@@ -1,9 +1,9 @@
 focus_tree = {
 	id = SOV_Brezhnev
 	country = {
-		factor = 1
+		factor = 0
+		default = no
 	}
-	default = yes
 	shared_focus = SOV_lessons_from_the_great_patriotic_war
 	shared_focus = SOV_The_Eigth_Five_Year_Plan
 	focus = {
@@ -40,7 +40,7 @@ focus_tree = {
 		x = 10
 		y = 1
 			completion_reward = {
-					add_ideas = corruption_problems
+					add_ideas = SOV_government_corruption
 				}
 
 	}
@@ -54,8 +54,8 @@ focus_tree = {
 		x = 10
 		y = 2
 			completion_reward = {
-					add_ideas = endemic_corruption_problems
-					remove_ideas = corruption_problems
+					add_ideas = SOV_government_corruption_endemic
+					remove_ideas = SOV_government_corruption
 				}
 
 	}
@@ -194,7 +194,7 @@ focus_tree = {
 
 	}
 	focus = {
-		id = SOV_Purge_the_Politurbo
+		id = SOV_Purge_the_Politurbo_brez
 		icon = GFX_Backstab
 		cost = 10.00
 		prerequisite = {
@@ -1052,10 +1052,24 @@ focus_tree = {
 		icon = GFX_focus_generic_soviet_politics
 		cost = 7.50
 		prerequisite = {
-			focus = SOV_Aid_Anti_Colonialist_Struggles
+			focus = SOV_Develop_a_Personality_Cult
 		}
-		x = 22
-		y = 7
+		x = 12
+		y = 8
+			allow_branch = {
+					country_exists = USA
+					USA = {
+							has_stability < 0.5
+						}
+					has_stability > 0.5
+					NOT = {
+							USA = {
+									has_government = communism
+								}
+						}
+					has_government = communism
+					has_manpower > 10000			
+			}
 			available = {
 					country_exists = USA
 					USA = {
