@@ -25,6 +25,11 @@ NDefines.NBuildings.SUPPLY_PORT_LEVEL_THROUGHPUT = 10 -- Supply throughput per l
 
 NDefines.NCountry.EVENT_PROCESS_OFFSET = 2000000 -- Events are checked every X day per country or state (1 is ideal, but CPU heavy)
 NDefines.NCountry.POLITICAL_POWER_CAP = 2000000.0
+NDefines.NCountry.ARMY_SCORE_MULTIPLIER = 2.0 -- Based on number of armies.
+NDefines.NCountry.NAVY_SCORE_MULTIPLIER = 25.0 -- Based on number of navies.
+NDefines.NCountry.AIR_SCORE_MULTIPLIER = 0.01 -- Based on number of planes (which is typically a lot).
+NDefines.NCountry.INDUSTRY_SCORE_MULTIPLIER = 1.0 -- Based on number of factories.
+NDefines.NCountry.PROVINCE_SCORE_MULTIPLIER = 0.1 -- Based on number of controlled provinces.
 
 NDefines.NDiplomacy.BASE_PEACE_TAKE_UNCONTROLLED_STATE_FACTOR = 10.0 -- Base factor for taking state you do not control in %
 NDefines.NDiplomacy.CIVIL_WAR_INVOLVEMENT_MIN_TENSION = 0.0 -- base value of world tension to involve other sides to the civil war
