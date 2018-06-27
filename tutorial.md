@@ -11,6 +11,7 @@
    - [Events](#events)
    - [Elections](#elections)
    - [WMDs](#wmds)
+   - [Power Grid](#power-grid)
    - [Buildings](#buildings)
    - [Helicopters](#helicopters)
    - [Space Race](#space-race)
@@ -30,12 +31,45 @@
 ### Focus Trees
 
 ### Ideologies
+In order to represent the extremely complicated nature of political relations and ideologies during this time period, Iron Curtain includes all of the following ideologies:
+- Democratic:
+  - Conservatism
+  - Centrism
+  - Socialism
+  - Libertarian
+  - Progressive
+  - Liberal Conservatism
+  - Christian Democratic
+  - Social Liberalism
+   
+- Communist:
+  - Marxist-Leninism
+  - Maoism
+  - Trotskyism
+  - Market Socialism
+
+- Radical Ideologies:
+  - Nationalism
+  - Fascism
+  - Islamism
+  - Radical-Shiaism
+  - Pan-Arabism
+  - National Socialism
+   
+- Other:
+  - Monarchism
+  - Reactionaryism 
+  - Salafism
+  - Judaism
+  - Christianism
 
 ### Events
 
 ### Elections
 
 ### WMDs
+
+### Power Grid
 
 ### Buildings
 

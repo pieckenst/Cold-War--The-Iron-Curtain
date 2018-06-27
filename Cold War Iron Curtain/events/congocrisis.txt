@@ -12,7 +12,7 @@ country_event = {
 	option = {
 		name = congocrisis.1.a
 		ai_chance = {
-			factor = 100
+			factor = 99
 		}
 		country_event = { id = congocrisis.2 hours = 1 }
 		hidden_effect = {
@@ -22,7 +22,7 @@ country_event = {
 	option = {
 		name = congocrisis.1.b
 		ai_chance = {
-			factor = 0
+			factor = 1
 		}
 		start_civil_war = {
 			ruling_party = neutrality
@@ -155,7 +155,7 @@ country_event = {
 	}
 }
 
-#Simba rebellion
+#Free Republic of the Congo
 country_event = {
 	id = congocrisis.6
 	title = congocrisis.6.t	
@@ -174,12 +174,62 @@ country_event = {
 		    transfer_state = 826 
 			transfer_state = 827 
 			declare_war_on = { target = DOC type = annex_everything }
+	    }
+		SOV = {
+		    add_ai_strategy = {
+		        type = support
+		        id = "COG"
+		        value = 200
+	        }
+		}
+	}
+	option = {
+		name = congocrisis.6.b
+		ai_chance = {
+			factor = 0
+		}
+        COG = {
+		    change_tag_from = ROOT
+		    transfer_state = 718 
+		    transfer_state = 826 
+			transfer_state = 827 
+			declare_war_on = { target = DOC type = annex_everything }
+	    }
+		SOV = {
+		    add_ai_strategy = {
+		        type = support
+		        id = "COG"
+		        value = 200
+	        }
+		}
+	}
+}
+
+#Simba rebellion
+country_event = {
+	id = congocrisis.7
+	title = congocrisis.7.t	
+	desc = congocrisis.7.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = congocrisis.7.a
+		ai_chance = {
+			factor = 100
+		}
+        COG = { 
+		    transfer_state = 718 
+		    transfer_state = 826 
+			transfer_state = 827 
+			declare_war_on = { target = DOC type = annex_everything }
 			set_political_party = { ideology = communism popularity = 0.9 } 
 			set_politics = { ruling_party = communism elections_allowed = no } 
 	    }
 	}
 	option = {
-		name = congocrisis.6.b
+		name = congocrisis.7.b
 		ai_chance = {
 			factor = 0
 		}
@@ -197,15 +247,15 @@ country_event = {
 
 #Congo Crisis over
 country_event = {
-	id = congocrisis.7
-	title = congocrisis.7.t	
-	desc = congocrisis.7.d
+	id = congocrisis.8
+	title = congocrisis.8.t	
+	desc = congocrisis.8.d
 	
 	fire_only_once = yes
 	is_triggered_only = yes
 	
 	option = {
-		name = congocrisis.5.a
+		name = congocrisis.8.a
         add_political_power = 100
 	}
 }

@@ -4325,7 +4325,7 @@ country_event = {
 					has_cosmetic_tag = CEY_ENG_DOM
 					has_cosmetic_tag = CEY_ENG_DOM_FLAG
 					has_cosmetic_tag = SOR_ITA
-					has_cosmetic_tag = CSRHO
+					has_cosmetic_tag = ZIM_ENG
 					has_cosmetic_tag = MLT_ENG
 					has_cosmetic_tag = NYA_ENG
 					has_cosmetic_tag = LES_ENG
@@ -4388,11 +4388,75 @@ country_event = {
 		if = {
             limit = {
                 tag = DOC
-				has_global_flag = south_kasai_seceded
+				is_subject = no
+				NOT = { has_cosmetic_tag = DOC_BEL }
+				date > 1960.7.4
+				date < 1970.1.1
+				NOT = { has_global_flag = south_kasai_seceded has_global_flag = katanga_seceded has_global_flag = simba_rebellion has_global_flag = free_republic_of_the_congo }
+				has_country_leader = { name = "Joseph Kasa-Vubu" ruling_only = yes  }
+            }
+            country_event = { id = congocrisis.1 days = 1  }
+        }
+		if = {
+            limit = {
+                tag = DOC
+				has_global_flag = congo_crisis_historical
+				date > 1960.7.10
+				date < 1970.1.1
+				NOT = { has_global_flag = katanga_seceded country_exists = KAG }
+            }
+            country_event = { id = congocrisis.3 days = 1  }
+        }
+		if = {
+            limit = {
+                tag = DOC
+				has_global_flag = congo_crisis_historical
+				date > 1960.8.7
+				date < 1970.1.1
 				has_global_flag = katanga_seceded
-				NOT = { country_exists = SKS country_exists = KAG country_exists = COG }
+				country_exists = KAG
+				NOT = { has_global_flag = south_kasai_seceded country_exists = SKS }
+            }
+            country_event = { id = congocrisis.5 days = 1  }
+        }
+		if = {
+            limit = {
+                tag = DOC
+				has_global_flag = congo_crisis_historical
+				date > 1960.8.7
+				date < 1970.1.1
+				has_global_flag = katanga_seceded
+				has_global_flag = south_kasai_seceded
+				country_exists = KAG
+				country_exists = SKS
+				NOT = { has_global_flag = free_republic_of_the_congo has_global_flag = simba_rebellion country_exists = COG }
+            }
+            country_event = { id = congocrisis.6 days = 1  }
+			set_global_flag = free_republic_of_the_congo
+        }
+		if = {
+            limit = {
+                tag = DOC
+				OR = {
+				    has_global_flag = south_kasai_seceded
+				    has_global_flag = katanga_seceded
+				}
+				NOT = { has_global_flag = simba_rebellion country_exists = SKS country_exists = KAG country_exists = COG }
             }
             country_event = { id = congocrisis.7 days = 1  }
+			set_global_flag = simba_rebellion
+        }
+		if = {
+            limit = {
+                tag = DOC
+				OR = {
+				    has_global_flag = south_kasai_seceded
+				    has_global_flag = katanga_seceded
+				}
+				has_global_flag = simba_rebellion
+				NOT = { country_exists = SKS country_exists = KAG country_exists = COG }
+            }
+            country_event = { id = congocrisis.8 days = 1  }
         }
 		ROOT = {
 			clear_variable = power_consumption
@@ -4579,5 +4643,6 @@ country_event = {
 				}
 			}
 		}
+	}
 }
 

@@ -1145,7 +1145,7 @@ focus_tree = {
 			completion_reward = {
 					create_corps_commander = {
 							name = "Vo Nguyen Giap"
-							picture = "GFX_Giap.dds"
+							picture = "Giap.dds"
 							traits = {
 
 }
@@ -1269,16 +1269,18 @@ focus_tree = {
 		}
 		x = 25
 		y = 13
-			available = {
-					country_exists = VIE
+		available = {
+			country_exists = VIE
+		}
+		completion_reward = {
+			if = { 
+				limit = { country_exists = VIE }
+				diplomatic_relation = {
+					country = VIE
+					relation = non_aggression_pact
 				}
-			completion_reward = {
-					diplomatic_relation = {
-							country = VIE
-							relation = non_aggression_pact
-						}
-				}
-
+			}
+		}
 	}
 	focus = {
 		id = VIN_Economic_Treaty
@@ -1455,7 +1457,7 @@ focus_tree = {
 	}
 	focus = {
 		id = VIN_Socialist_Realism
-		icon = GFX_focus_yug_pan_slavic_congress
+		icon = GFX_focus_YUG_pan_slavic_congress
 		cost = 10.00
 		prerequisite = {
 			focus = VIN_Accept_the_Division
@@ -4125,19 +4127,21 @@ focus_tree = {
 		}
 		x = 22
 		y = 14
-			available = {
-					country_exists = PRC
+		available = {
+			country_exists = PRC
+		}
+		completion_reward = {
+			if = {
+				limit = { country_exists = PRC }
+				PRC = {
+					diplomatic_relation = {
+						country = VIN
+						relation = guarantee
+						active = yes
+					}
 				}
-			completion_reward = {
-					PRC = {
-							diplomatic_relation = {
-									country = VIN
-									relation = guarantee
-									active = yes
-								}
-						}
-				}
-
+			}
+		}
 	}
 	focus = {
 		id = VIN_Consolidate_Maoism

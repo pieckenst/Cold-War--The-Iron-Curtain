@@ -1704,19 +1704,21 @@ focus_tree = {
 		}
 		x = 80
 		y = 6
-			available = {
-					country_exists = PRC
+		available = {
+			country_exists = PRC
+		}
+		completion_reward = {
+			if = { 
+				limit = { country_exists = PRC }
+				PRC = {
+					diplomatic_relation = {
+						country = GRE
+						relation = guarantee
+						active = yes
+					}
 				}
-			completion_reward = {
-					PRC = {
-							diplomatic_relation = {
-									country = GRE
-									relation = guarantee
-									active = yes
-								}
-						}
-				}
-
+			}
+		}
 	}
 	focus = {
 		id = GRE_60s_Restore_Stability

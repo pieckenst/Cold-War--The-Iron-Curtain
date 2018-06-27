@@ -95,12 +95,151 @@ add_ideas = {
 	nato_member
 }
 
-1949.1.1 = {
-	add_ai_strategy = {
-		type = alliance
-		id = "USA"
-		value = 1000
+set_convoys = 200
+set_stability = 0.75
+
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
 	}
+	set_autonomy = {
+		target = DOC
+		autonomous_state = autonomy_protectorate
+		freedom_level = 0.4
+	}
+    set_autonomy = {
+		target = BUR
+		autonomous_state = autonomy_protectorate
+		freedom_level = 0.4
+	}		
+	else = {
+		puppet = DOC
+		puppet = BUR
+	}
+}
+
+1945.1.1 = {
+ DOC = {
+set_politics = {
+
+	parties = {
+        democratic = { popularity = 0 }
+        communism = { popularity = 0 }
+        fascism = { popularity = 0 }
+        nationalism = { popularity = 0 }
+        monarchism = { popularity = 0 }
+        neutrality = { popularity = 0 }
+        islamism = { popularity = 0 }
+		pan_arabism = { popularity = 0 }
+        radical_shiaism = { popularity = 0 }
+        Social_Democratic = { popularity = 0 }
+        Social_Liberalism = { popularity = 0 }
+        Salafism = { popularity = 0 }
+        Christianism = { popularity = 0 }
+        Liberal_Conservatism = { popularity = 19 }
+        Judaism = { popularity = 0 }
+        conservative = { popularity = 0 }
+        Christian_Democratic = { popularity = 81 }
+        socialist = { popularity = 0 }
+        centrist = { popularity = 0 }
+        liberal = { popularity = 0 }
+        trotskyism = { popularity = 0 }
+        maoism = { popularity = 0 }
+        National_Socialism = { popularity = 0 }
+	}
+	
+	ruling_party = Christian_Democratic
+	last_election = "1949.1.1"
+	election_frequency = 48
+	elections_allowed = no
+   }
+ }
+}
+
+1949.1.1 = {
+ DOC = {
+set_politics = {
+
+	parties = {
+        democratic = { popularity = 0 }
+        communism = { popularity = 0 }
+        fascism = { popularity = 0 }
+        nationalism = { popularity = 0 }
+        monarchism = { popularity = 0 }
+        neutrality = { popularity = 0 }
+        islamism = { popularity = 0 }
+		pan_arabism = { popularity = 0 }
+        radical_shiaism = { popularity = 0 }
+        Social_Democratic = { popularity = 0 }
+        Social_Liberalism = { popularity = 0 }
+        Salafism = { popularity = 0 }
+        Christianism = { popularity = 0 }
+        Liberal_Conservatism = { popularity = 19 }
+        Judaism = { popularity = 0 }
+        conservative = { popularity = 0 }
+        Christian_Democratic = { popularity = 81 }
+        socialist = { popularity = 0 }
+        centrist = { popularity = 0 }
+        liberal = { popularity = 0 }
+        trotskyism = { popularity = 0 }
+        maoism = { popularity = 0 }
+        National_Socialism = { popularity = 0 }
+	}
+	
+	ruling_party = Christian_Democratic
+	last_election = "1949.1.1"
+	election_frequency = 48
+	elections_allowed = no
+   }
+ }
+}
+
+create_country_leader = {
+	name = "Achille Van Acker"
+	picture = "Portrait_BEL_Achille_Van_Acker.dds"
+	ideology = socialism
+}
+create_country_leader = {
+	name = "Gaston Eyskens"
+	picture = "Portrait_BEL_Gaston_Eyskens.dds"
+	expire = "1965.1.1"
+	ideology = christian_democracy
+}
+
+create_country_leader = {
+	name = "Joseph Jacquemotte"
+	desc = "POLITICS_JOSEPH_JACQUEMOTTE_DESC"
+	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_1.dds"
+	expire = "1965.1.1"
+	ideology = marxism
+}
+
+create_corps_commander = {
+	name = "M.C.L. Keyaerts"
+	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_2.dds"
+	traits = { trait_mountaineer hill_fighter }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 4
+	planning_skill = 4
+	logistics_skill = 4
+}
+
+create_navy_leader = {
+	name = "Georges Timmermans"
+	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_navy_3.dds"
+	traits = { seawolf }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 4
+	planning_skill = 4
+	logistics_skill = 4
+}
+
+create_country_leader = {
+	name = "Prince Charles"
+	picture = "Portrait_BEL_Prince_Charles.dds"
+	ideology = royal_democrat
 }
 1945.1.1 = {
 	set_politics = {
@@ -130,6 +269,16 @@ add_ideas = {
 		last_election = "1939.4.2"
 		election_frequency = 48
 		elections_allowed = no
+	}
+
+	set_variable = {
+    	var = BEL_Walloon_Anger
+    	value = 30
+	}
+
+	set_variable = {
+    	var = BEL_Flemish_Anger
+    	value = 20
 	}
 }
 1949.1.1 = {
@@ -162,80 +311,23 @@ add_ideas = {
 		elections_allowed = yes
 	}
 }
-
-set_convoys = 200
-set_stability = 0.75
-
-if = {
-	limit = {
-		has_dlc = "Together for Victory"
-	}
-	set_autonomy = {
-		target = DOC
-		autonomous_state = autonomy_protectorate
-		freedom_level = 0.4
-	}
-    set_autonomy = {
-		target = BUR
-		autonomous_state = autonomy_protectorate
-		freedom_level = 0.4
-	}		
-	else = {
-		puppet = DOC
-		puppet = BUR
+1949.1.1 = {
+	add_ai_strategy = {
+		type = alliance
+		id = "USA"
+		value = 1000
 	}
 }
-
-create_country_leader = {
-	name = "Achille Van Acker"
-	picture = "Portrait_BEL_Achille_Van_Acker.dds"
-	ideology = socialism
-}
-create_country_leader = {
-	name = "Gaston Eyskens"
-	picture = "Portrait_BEL_Gaston_Eyskens.dds"
-	expire = "1965.1.1"
-	ideology = christian_democracy
-}
-
-create_country_leader = {
-	name = "Joseph Jacquemotte"
-	desc = "POLITICS_JOSEPH_JACQUEMOTTE_DESC"
-	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_1.dds"
-	expire = "1965.1.1"
-	ideology = anarchist_communism
-	traits = {
-		#
-	}
-}
-
-create_corps_commander = {
-	name = "M.C.L. Keyaerts"
-	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_2.dds"
-	traits = { trait_mountaineer hill_fighter }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 4
-	planning_skill = 4
-	logistics_skill = 4
-}
-
-create_navy_leader = {
-	name = "Georges Timmermans"
-	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_navy_3.dds"
-	traits = { seawolf }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 4
-	planning_skill = 4
-	logistics_skill = 4
-}
-
 1950.6.8 = {
 	create_country_leader = {
 		name = "Jean Duvieusart"
 		picture = "Portrait_BEL_Jean_Duvieusart.dds"
 		ideology = christian_democracy
+	}
+	create_country_leader = {
+		name = "King Leopold III"
+		picture = "Portrait_BEL_Leopold_III.dds"
+		ideology = royal_democrat
 	}
 }
 
@@ -244,6 +336,14 @@ create_navy_leader = {
 		name = "Joseph Pholien"
 		picture = "Portrait_BEL_Joseph_Pholien.dds"
 		ideology = christian_democracy
+	}
+}
+
+1951.7.17 = {
+	create_country_leader = {
+		name = "King Baudouin I"
+		picture = "Portrait_BEL_Baudouin_I.dds"
+		ideology = royal_democrat
 	}
 }
 

@@ -662,9 +662,6 @@ country_event = {
 	
 	option = { #Tanya_the_Evil
 	    name = "Yes we are that desperate"
-		ai_chance = {
-			factor = 80
-		}
         create_country_leader = {
 			name = "Tanya the Evil"
 			desc = ""
@@ -1286,12 +1283,22 @@ news_event = {
     title = "Honecker Takes Power"
     desc = Honecker.100.d
 	major = yes
-    picture = news_event_india_troops
+    picture = news_event_honecker
    
     is_triggered_only = yes
 	
-	option = { 
-	    name = "An interesting development"
+	option = {
+		name = "Honecker führt uns zum Sieg!"
+		trigger = {
+			TAG = DDR
+		}
+	}
+	
+	option = {
+		name = "Good for them"
+		trigger = {
+			NOT = { TAG = DDR }
+		}
 	}
 }
 news_event = {
