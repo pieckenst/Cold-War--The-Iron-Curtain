@@ -69,6 +69,7 @@ add_namespace = ROM
 add_namespace = smr
 add_namespace = sor
 add_namespace = saf
+add_namespace = par
 
 country_event = {
 	id = ic_pulse.1
@@ -2671,6 +2672,14 @@ country_event = {
 			}
 			country_event = { id = chernobyl.2 days = 22 random = 1 }
 		}
+			if = {
+            limit = {
+                tag = PAR
+                date > 1954.5.1
+                date < 1954.6.1
+            }
+            country_event = { id = par.1 days = 5 }
+        }
 		if = {
 			limit = {			
 				tag = CUB
