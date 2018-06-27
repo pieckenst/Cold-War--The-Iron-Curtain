@@ -335,6 +335,28 @@ focus_tree = {
 
 	}
 	focus = {
+		id = ALB_Decrease_relations_with_Yugoslavia
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		cost = 0.00
+		x = 35
+		y = 0
+			completion_reward = {
+					ALB = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = large_decrease
+								}
+						}
+					YUG = {
+							add_opinion_modifier = {
+									target = ALB
+									modifier = large_decrease
+								}
+						}
+				}
+
+	}
+	focus = {
 		id = ALB_equipment_effort
 		icon = GFX_goal_rhineland
 		cost = 10.00
@@ -1676,6 +1698,508 @@ focus_tree = {
 
 	}
 	focus = {
+		id = ALB_Support_Communists_in_Greece
+		icon = GFX_CommunistPride
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Decrease_relations_with_Yugoslavia
+		}
+		x = 34
+		y = 1
+			completion_reward = {
+					GRE = {
+							add_popularity = {
+									ideology = communism
+									popularity = 0.05
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = ALB_Hardcore_Stalinism
+		icon = GFX_AppealtoStalin
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Decrease_relations_with_Yugoslavia
+		}
+		x = 36
+		y = 1
+			completion_reward = {
+					add_ideas = gulag_politic
+				}
+
+	}
+	focus = {
+		id = ALB_First_part_of_bunkerisation
+		icon = GFX_FortificationEffort
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Support_Communists_in_Greece
+		}
+		prerequisite = {
+			focus = ALB_Hardcore_Stalinism
+		}
+		x = 35
+		y = 2
+			completion_reward = {
+					44 = {
+							add_building_construction = {
+									type = coastal_bunker
+									level = 1
+									province = 9780
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = coastal_bunker
+									level = 1
+									province = 9914
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = coastal_bunker
+									level = 1
+									province = 3884
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = coastal_bunker
+									level = 1
+									province = 11767
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = coastal_bunker
+									level = 1
+									province = 914
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = ALB_Consolidation_of_Hoxha_power
+		icon = GFX_CrushResistance
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_First_part_of_bunkerisation
+		}
+		x = 35
+		y = 3
+			completion_reward = {
+					add_political_power = 300
+					add_stability = -0.05
+				}
+
+	}
+	focus = {
+		id = ALB_Our_way_is_Hoxha
+		icon = GFX_Enemies_of_the_system
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Consolidation_of_Hoxha_power
+		}
+		mutually_exclusive = {
+			focus = ALB_Zog_coups_communists
+		}
+		x = 30
+		y = 4
+			completion_reward = {
+					add_ideas = total_loyalty
+				}
+
+	}
+	focus = {
+		id = ALB_Forts_on_Yugoslavian_border
+		icon = GFX_goal_continuous_non_factory_construct
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Our_way_is_Hoxha
+		}
+		x = 29
+		y = 5
+			completion_reward = {
+					44 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 9780
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 3896
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 11762
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 9875
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = ALB_Second_part_of_bunkerisation
+		icon = GFX_goal_generic_construct_military
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Our_way_is_Hoxha
+		}
+		x = 31
+		y = 5
+			completion_reward = {
+					44 = {
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 914
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 3448
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = bunker
+									level = 5
+									province = 6900
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = ALB_Death_of_Stalin
+		icon = GFX_GFX_franco_muerto
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Forts_on_Yugoslavian_border
+		}
+		prerequisite = {
+			focus = ALB_Second_part_of_bunkerisation
+		}
+		x = 30
+		y = 6
+			bypass = {
+					has_global_flag = stalin_dead
+				}
+			available = {
+					has_global_flag = stalin_dead
+				}
+
+	}
+	focus = {
+		id = ALB_Second_republic
+		icon = GFX_goal_support_democracy
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Death_of_Stalin
+		}
+		mutually_exclusive = {
+			focus = ALB_Denounce_Khrushchev
+		}
+		x = 36
+		y = 7
+			completion_reward = {
+					remove_ideas = total_loyalty
+					remove_ideas = gulag_politic
+				}
+
+	}
+	focus = {
+		id = ALB_Frasheri_takes_over
+		icon = GFX_DarkArms
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Second_republic
+		}
+		mutually_exclusive = {
+			focus = ALB_Alia_proclaims_liberal_Albania
+		}
+		x = 34
+		y = 8
+			completion_reward = {
+					set_politics = {
+							ruling_party = nationalism
+							elections_allowed = yes
+						}
+					add_popularity = {
+							ideology = nationalism
+							popularity = 0.5
+						}
+				}
+
+	}
+	focus = {
+		id = ALB_Alia_proclaims_liberal_Albania
+		icon = GFX_TorchofLiberty
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Second_republic
+		}
+		mutually_exclusive = {
+			focus = ALB_Frasheri_takes_over
+		}
+		x = 38
+		y = 8
+			completion_reward = {
+					set_politics = {
+							ruling_party = socialist
+							elections_allowed = no
+						}
+					add_popularity = {
+							ideology = socialist
+							popularity = 0.5
+						}
+				}
+
+	}
+	focus = {
+		id = ALB_Execute_Hoxha
+		icon = GFX_goal_demand_sudetenland
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Alia_proclaims_liberal_Albania
+		}
+		x = 38
+		y = 9
+			completion_reward = {
+					add_stability = 0.15
+					add_political_power = 150
+				}
+
+	}
+	focus = {
+		id = ALB_Recognize_West_Germany
+		icon = GFX_goal_WGR_deal
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Execute_Hoxha
+		}
+		x = 37
+		y = 10
+			completion_reward = {
+					ALB = {
+							add_opinion_modifier = {
+									target = WGR
+									modifier = large_increase
+								}
+						}
+					WGR = {
+							add_opinion_modifier = {
+									target = ALB
+									modifier = large_increase
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = ALB_Pro_American_stance
+		icon = GFX_goal_USA_deal
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Execute_Hoxha
+		}
+		x = 39
+		y = 10
+			completion_reward = {
+					ALB = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = ALB
+									modifier = large_increase
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = ALB_Join_NATO
+		icon = GFX_GFX_nato
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Recognize_West_Germany
+		}
+		prerequisite = {
+			focus = ALB_Pro_American_stance
+		}
+		x = 38
+		y = 11
+			completion_reward = {
+					add_ideas = nato_member
+				}
+
+	}
+	focus = {
+		id = ALB_Zog_coups_communists
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Consolidation_of_Hoxha_power
+		}
+		mutually_exclusive = {
+			focus = ALB_Our_way_is_Hoxha
+		}
+		x = 41
+		y = 4
+			completion_reward = {
+					set_politics = {
+							ruling_party = monarchism
+							elections_allowed = no
+						}
+					add_popularity = {
+							ideology = monarchism
+							popularity = 0.50
+						}
+				}
+
+	}
+	focus = {
+		id = ALB_Reconciliation_with_Yugoslavia
+		icon = GFX_goal_YUG_Proclamation
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Zog_coups_communists
+		}
+		x = 40
+		y = 5
+			completion_reward = {
+					YUG = {
+							add_opinion_modifier = {
+									target = ITA
+									modifier = large_increase
+								}
+						}
+					ITA = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = large_increase
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = ALB_Monarchy_returns
+		icon = GFX_goal_BEL_Crown
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Zog_coups_communists
+		}
+		x = 42
+		y = 5
+			completion_reward = {
+					remove_ideas = total_loyalty
+					remove_ideas = gulag_politic
+					add_ideas = militarism_focus
+				}
+
+	}
+	focus = {
+		id = ALB_Official_visit_to_Rome
+		icon = GFX_goal_ITA_deal
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Monarchy_returns
+		}
+		prerequisite = {
+			focus = ALB_Reconciliation_with_Yugoslavia
+		}
+		x = 41
+		y = 6
+			completion_reward = {
+					ALB = {
+							add_opinion_modifier = {
+									target = ITA
+									modifier = large_increase
+								}
+						}
+					ITA = {
+							add_opinion_modifier = {
+									target = ALB
+									modifier = large_increase
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = ALB_Spread_monarchy_over_our_neighbours
+		icon = GFX_focus_hun_elect_a_king
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Official_visit_to_Rome
+		}
+		x = 40
+		y = 7
+			completion_reward = {
+					YUG = {
+							add_timed_idea = {
+									idea = monarchist_influence
+									days = 365
+								}
+						}
+					GRE = {
+							add_timed_idea = {
+									idea = monarchist_influence
+									days = 365
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = ALB_Apply_for_NATO_membership
+		icon = GFX_GFX_nato
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Official_visit_to_Rome
+		}
+		x = 42
+		y = 7
+			completion_reward = {
+					add_ideas = ALB
+				}
+
+	}
+	focus = {
+		id = ALB_Monarchy_for_thousand_years
+		icon = GFX_focus_rom_royal_dictatorship
+		cost = 0.00
+		prerequisite = {
+			focus = ALB_Spread_monarchy_over_our_neighbours
+		}
+		prerequisite = {
+			focus = ALB_Apply_for_NATO_membership
+		}
+		x = 41
+		y = 8
+			completion_reward = {
+					add_ideas = ideological_fanaticism_focus
+				}
+
+	}
+	focus = {
 		id = ALB_prepare_for_invasion
 		icon = GFX_goal_generic_position_armies
 		cost = 10.00
@@ -1926,534 +2450,15 @@ focus_tree = {
 					add_ideas = reorganize_farms
 				}
 
-	}	
-	#POLITICAL
-	focus = {
-		id = ALB_Decrease_relations_with_Yugoslavia
-		icon = GFX_goal_unknown
-		cost = 0.00
-		x = 35
-		y = 0
-			completion_reward = {
-					ALB = {
-							add_opinion_modifier = {
-									target = YUG
-									modifier = large_decrease
-								}
-						}
-					YUG = {
-							add_opinion_modifier = {
-									target = ALB
-									modifier = large_decrease
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = ALB_Support_Communists_in_Greece
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Decrease_relations_with_Yugoslavia
-		}
-		x = 34
-		y = 1
-			completion_reward = {
-					GRE = {
-							add_popularity = {
-									ideology = communism
-									popularity = 0.05
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = ALB_Hardcore_Stalinism
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Decrease_relations_with_Yugoslavia
-		}
-		x = 36
-		y = 1
-			completion_reward = {
-					add_ideas = gulag_politic
-				}
-
-	}
-	focus = {
-		id = ALB_First_part_of_bunkerisation
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Support_Communists_in_Greece
-		}
-		prerequisite = {
-			focus = ALB_Hardcore_Stalinism
-		}
-		x = 35
-		y = 2
-			completion_reward = {
-					44 = {
-							add_building_construction = {
-									type = coastal_bunker
-									level = 1
-									province = 9780
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = coastal_bunker
-									level = 1
-									province = 9914
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = coastal_bunker
-									level = 1
-									province = 3884
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = coastal_bunker
-									level = 1
-									province = 11767
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = coastal_bunker
-									level = 1
-									province = 914
-									instant_build = yes
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = ALB_Consolidation_of_Hoxha_power
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_First_part_of_bunkerisation
-		}
-		x = 35
-		y = 3
-			completion_reward = {
-					add_political_power = 300
-					add_stability = -0.05
-				}
-
-	}
-	focus = {
-		id = ALB_Our_way_is_Hoxha
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Consolidation_of_Hoxha_power
-		}
-		mutually_exclusive = {
-			focus = ALB_Zog_coups_communists
-		}
-		x = 30
-		y = 4
-			completion_reward = {
-					add_ideas = total_loyalty
-				}
-
-	}
-	focus = {
-		id = ALB_Forts_on_Yugoslavian_border
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Our_way_is_Hoxha
-		}
-		x = 29
-		y = 5
-			completion_reward = {
-					44 = {
-							add_building_construction = {
-									type = bunker
-									level = 5
-									province = 9780
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = bunker
-									level = 5
-									province = 3896
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = bunker
-									level = 5
-									province = 11762
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = bunker
-									level = 5
-									province = 9875
-									instant_build = yes
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = ALB_Second_part_of_bunkerisation
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Our_way_is_Hoxha
-		}
-		x = 31
-		y = 5
-			completion_reward = {
-					44 = {
-							add_building_construction = {
-									type = bunker
-									level = 5
-									province = 914
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = bunker
-									level = 5
-									province = 3448
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = bunker
-									level = 5
-									province = 6900
-									instant_build = yes
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = ALB_Death_of_Stalin
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Forts_on_Yugoslavian_border
-		}
-		prerequisite = {
-			focus = ALB_Second_part_of_bunkerisation
-		}
-		x = 30
-		y = 6
-			bypass = {
-					has_global_flag = stalin_dead
-				}
-			available = {
-					has_global_flag = stalin_dead
-				}
-
-	}
-	focus = {
-		id = ALB_Second_republic
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Death_of_Stalin
-		}
-		mutually_exclusive = {
-			focus = ALB_Denounce_Khrushchev
-		}
-		x = 35
-		y = 7
-			completion_reward = {
-					remove_ideas = total_loyalty
-					remove_ideas = gulag_politic
-				}
-
-	}
-	focus = {
-		id = ALB_Frasheri_takes_over
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Second_republic
-		}
-		x = 33
-		y = 8
-			completion_reward = {
-					set_politics = {
-							ruling_party = nationalism
-							elections_allowed = yes
-						}
-					add_popularity = {
-							ideology = nationalism
-							popularity = 0.5
-						}
-				}
-
-	}
-	focus = {
-		id = ALB_Alia_proclaims_liberal_Albania
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Second_republic
-		}
-		x = 37
-		y = 8
-			completion_reward = {
-					set_politics = {
-							ruling_party = socialist
-							elections_allowed = no
-						}
-					add_popularity = {
-							ideology = socialist
-							popularity = 0.5
-						}
-				}
-
-	}
-	focus = {
-		id = ALB_Execute_Hoxha
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Alia_proclaims_liberal_Albania
-		}
-		x = 37
-		y = 9
-			completion_reward = {
-					add_stability = 0.15
-					add_political_power = 150
-				}
-
-	}
-	focus = {
-		id = ALB_Recognize_West_Germany
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Execute_Hoxha
-		}
-		x = 36
-		y = 10
-			completion_reward = {
-					ALB = {
-							add_opinion_modifier = {
-									target = WGR
-									modifier = large_increase
-								}
-						}
-					WGR = {
-							add_opinion_modifier = {
-									target = ALB
-									modifier = large_increase
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = ALB_Pro_American_stance
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Execute_Hoxha
-		}
-		x = 38
-		y = 10
-			completion_reward = {
-					ALB = {
-							add_opinion_modifier = {
-									target = USA
-									modifier = large_increase
-								}
-						}
-					USA = {
-							add_opinion_modifier = {
-									target = ALB
-									modifier = large_increase
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = ALB_Join_NATO
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Recognize_West_Germany
-		}
-		prerequisite = {
-			focus = ALB_Pro_American_stance
-		}
-		x = 37
-		y = 11
-			completion_reward = {
-					add_ideas = nato_member
-				}
-
-	}
-	focus = {
-		id = ALB_Zog_coups_communists
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Consolidation_of_Hoxha_power
-		}
-		mutually_exclusive = {
-			focus = ALB_Our_way_is_Hoxha
-		}
-		x = 40
-		y = 4
-			completion_reward = {
-					set_politics = {
-							ruling_party = monarchism
-							elections_allowed = no
-						}
-					add_popularity = {
-							ideology = monarchism
-							popularity = 0.50
-						}
-				}
-
-	}
-	focus = {
-		id = ALB_Reconciliation_with_Yugoslavia
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Zog_coups_communists
-		}
-		x = 39
-		y = 5
-			completion_reward = {
-					YUG = {
-							add_opinion_modifier = {
-									target = ITA
-									modifier = large_increase
-								}
-						}
-					ITA = {
-							add_opinion_modifier = {
-									target = YUG
-									modifier = large_increase
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = ALB_Monarchy_returns
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Zog_coups_communists
-		}
-		x = 41
-		y = 5
-			completion_reward = {
-					remove_ideas = total_loyalty
-					remove_ideas = gulag_politic
-					add_ideas = militarism_focus
-				}
-
-	}
-	focus = {
-		id = ALB_Official_visit_to_Rome
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Monarchy_returns
-		}
-		prerequisite = {
-			focus = ALB_Reconciliation_with_Yugoslavia
-		}
-		x = 40
-		y = 6
-			completion_reward = {
-					ALB = {
-							add_opinion_modifier = {
-									target = ITA
-									modifier = large_increase
-								}
-						}
-					ITA = {
-							add_opinion_modifier = {
-									target = ALB
-									modifier = large_increase
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = ALB_Spread_monarchy_over_our_neighbours
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Official_visit_to_Rome
-		}
-		x = 39
-		y = 7
-			completion_reward = {
-					YUG = {
-							add_timed_idea = {
-									idea = monarchist_influence
-									days = 365
-								}
-						}
-					GRE = {
-							add_timed_idea = {
-									idea = monarchist_influence
-									days = 365
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = ALB_Apply_for_NATO_membership
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Official_visit_to_Rome
-		}
-		x = 41
-		y = 7
-			completion_reward = {
-					add_ideas = ALB
-				}
-
-	}
-	focus = {
-		id = ALB_Monarchy_for_thousand_years
-		icon = GFX_goal_unknown
-		cost = 0.00
-		prerequisite = {
-			focus = ALB_Spread_monarchy_over_our_neighbours
-		}
-		prerequisite = {
-			focus = ALB_Apply_for_NATO_membership
-		}
-		x = 40
-		y = 8
-			completion_reward = {
-					add_ideas = ideological_fanaticism_focus
-				}
-
 	}
 	focus = {
 		id = ALB_Elections
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_election 
 		cost = 0.00
 		prerequisite = {
 			focus = ALB_Join_NATO
 		}
-		x = 37
+		x = 38
 		y = 12
 			completion_reward = {
 					set_politics = {
@@ -2465,27 +2470,28 @@ focus_tree = {
 	}
 	focus = {
 		id = ALB_Expansionism
-		icon = GFX_goal_unknown
+		icon = GFX_BurningGlobe
 		cost = 0.00
 		prerequisite = {
 			focus = ALB_Frasheri_takes_over
 		}
-		x = 33
+		x = 34
 		y = 9
 			completion_reward = {
 					add_ideas = ideological_fanaticism_focus
 					add_ideas = foreign_aggression_policy_6
+					add_ideas = defcon_system_3
 				}
 
 	}
 	focus = {
 		id = ALB_Demand_Kosovo
-		icon = GFX_goal_unknown
+		icon = GFX_Agression
 		cost = 0.00
 		prerequisite = {
 			focus = ALB_Expansionism
 		}
-		x = 34
+		x = 35
 		y = 10
 			completion_reward = {
 					YUG = {
@@ -2496,7 +2502,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ALB_Denounce_Khrushchev
-		icon = GFX_goal_unknown
+		icon = GFX_Stalin_Cult
 		cost = 0.00
 		prerequisite = {
 			focus = ALB_Death_of_Stalin
@@ -2527,7 +2533,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ALB_Turn_to_China
-		icon = GFX_goal_unknown
+		icon = GFX_focus_prc_proclaim_the_peoples_republic
 		cost = 0.00
 		prerequisite = {
 			focus = ALB_Denounce_Khrushchev
@@ -2548,7 +2554,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ALB_Adopt_Juche_from_North_Korea
-		icon = GFX_goal_unknown
+		icon = GFX_goal_KPA_Proclamation
 		cost = 0.00
 		prerequisite = {
 			focus = ALB_Turn_to_China
@@ -2561,13 +2567,13 @@ focus_tree = {
 
 	}
 	focus = {
-		id = ALB_Right_wing_republic
-		icon = GFX_goal_unknown
+		id = ALB_right_wing_republic
+		icon = GFX_goal_support_fascism
 		cost = 0.00
 		prerequisite = {
 			focus = ALB_Expansionism
 		}
-		x = 32
+		x = 33
 		y = 10
 			completion_reward = {
 					add_ideas = traditional_culture
@@ -2576,15 +2582,15 @@ focus_tree = {
 	}
 	focus = {
 		id = ALB_Neutrality
-		icon = GFX_goal_unknown
+		icon = GFX_GenericPolitical
 		cost = 0.00
 		prerequisite = {
-			focus = ALB_Right_wing_republic
+			focus = ALB_right_wing_republic
 		}
 		prerequisite = {
 			focus = ALB_Demand_Kosovo
 		}
-		x = 33
+		x = 34
 		y = 11
 			completion_reward = {
 					add_ideas = neutrality_idea
@@ -2593,12 +2599,12 @@ focus_tree = {
 	}
 	focus = {
 		id = ALB_Rule_over_Adriatic_sea
-		icon = GFX_goal_unknown
+		icon = GFX_StatusoftheAdmirality
 		cost = 0.00
 		prerequisite = {
 			focus = ALB_Neutrality
 		}
-		x = 33
+		x = 34
 		y = 12
 			completion_reward = {
 					navy_experience = 25
