@@ -8,6 +8,7 @@ focus_tree = {
 		}
 	}
 	default = no
+	continuous_focus_position = { x = 80 y = 2400 }
 	focus = {
 		id = WGR_Political_Sovereignty
 		icon = GFX_goal_anschluss
@@ -464,6 +465,66 @@ focus_tree = {
 			}
 	}
 	focus = {
+		id = WGR_Hannover
+		icon = GFX_focus_chi_british_cooperation
+		cost = 10.00
+		prerequisite = {
+			focus = WGR_traditionalism
+		}
+		x = 4
+		y = 10
+			completion_reward = {
+					set_party_name = { 
+						ideology = monarchism 
+						long_name = GER_neutrality_party_han_long 
+						name = GER_neutrality_party_han
+					}
+					create_country_leader = {
+						name = "Ernest Augustus I"
+						picture = "Portrait_WestGermany_Ernest_Augustus.dds"
+						ideology = absolute_monarchist
+					}
+					set_politics = {
+							ruling_party = monarchism
+							elections_allowed = no
+						}
+					add_popularity = {
+							ideology = monarchism
+							popularity = 0.50
+						}
+				}
+	}
+	focus = {
+		id = WGR_Wittelsbach
+		icon = GFX_UrbanWarfareHOI4
+		cost = 10.00
+		prerequisite = {
+			focus = WGR_traditionalism
+		}
+		x = 6
+		y = 10
+			completion_reward = {
+					set_party_name = { 
+						ideology = monarchism 
+						long_name = GER_neutrality_party_bav_long 
+						name = GER_neutrality_party_bav
+					}
+					create_country_leader = {
+						name = "Albrecht I"
+						picture = "Portrait_WestGermany_Albrecht_III.dds"
+						ideology = absolute_monarchist
+					}
+					set_politics = {
+							ruling_party = monarchism
+							elections_allowed = no
+						}
+					add_popularity = {
+							ideology = monarchism
+							popularity = 0.50
+						}
+				}
+	}
+	focus = {
 		id = WGR_Cooperate_with_NATO
 		icon = GFX_goal_support_democracy
 		cost = 10.00
@@ -609,36 +670,7 @@ focus_tree = {
 				}
 
 	}
-	focus = {
-		id = WGR_Wittelsbach
-		icon = GFX_UrbanWarfareHOI4
-		cost = 10.00
-		prerequisite = {
-			focus = WGR_traditionalism
-		}
-		x = 4
-		y = 10
-			completion_reward = {
-					set_party_name = { 
-						ideology = monarchism 
-						long_name = GER_neutrality_party_bav_long 
-						name = GER_neutrality_party_bav
-					}
-					create_country_leader = {
-						name = "Albrecht I"
-						picture = "Portrait_WestGermany_Albrecht_III.dds"
-						ideology = absolute_monarchist
-					}
-					set_politics = {
-							ruling_party = monarchism
-							elections_allowed = no
-						}
-					add_popularity = {
-							ideology = monarchism
-							popularity = 0.50
-						}
-				}
-	}
+
 	focus = {
 		id = WGR_christianity_not_socialism
 		icon = GFX_focus_generic_the_giant_wakes
@@ -646,6 +678,7 @@ focus_tree = {
 		prerequisite = {
 			focus = WGR_Wittelsbach
 			focus = WGR_Hohenzollern
+			focus = WGR_Hannover
 		}
 		x = 4
 		y = 11
@@ -1035,7 +1068,14 @@ focus_tree = {
 		}
 		x = 16
 		y = 3
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+			add_popularity = {
+				ideology = National_Socialism
+				popularity = 0.02
+			}			
+		}
 	}
 	focus = {
 		id = WGR_Begin_Assasination_Plot
@@ -1085,6 +1125,12 @@ focus_tree = {
 		completion_reward = {
 			kill_country_leader = yes
 			add_stability = -0.25
+			create_country_leader = {
+				name = "Ludwig Erhard"
+				picture = "Portrait_WestGermany_Ludwig_Erhard.dds"
+				expire = "1977.5.5"
+				ideology = christian_democracy
+			}
 		}		
 	}
 	focus = {
@@ -1096,7 +1142,10 @@ focus_tree = {
 		}
 		x = 18
 		y = 3
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = WGR_Petersburg_Agreement
@@ -1110,7 +1159,27 @@ focus_tree = {
 		}
 		x = 17
 		y = 4
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 2
+						}
+						42 = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+						51 = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = WGR_End_Denazificaiton
@@ -1121,7 +1190,14 @@ focus_tree = {
 		}
 		x = 17
 		y = 5
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+			add_popularity = {
+				ideology = National_Socialism
+				popularity = 0.02
+			}			
+		}
 	}
 	focus = {
 		id = WGR_Economic_Recovery
@@ -1132,10 +1208,44 @@ focus_tree = {
 		}
 		x = 17
 		y = 6
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 2
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
-		id = WGR_WGR_Konrad_Adenauer_53
+		id = WGR_Konrad_Adenauer_53
 		icon = GFX_GFX_industrial_methods
 		cost = 10.00
 		prerequisite = {
@@ -1143,19 +1253,23 @@ focus_tree = {
 		}
 		x = 17
 		y = 8
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = WGR_Spandau_Seven
 		icon = GFX_FascistSubterfuge
 		cost = 10.00
 		prerequisite = {
-			focus = WGR_WGR_Konrad_Adenauer_53
+			focus = WGR_Konrad_Adenauer_53
 		}
 		x = 18
 		y = 9
-		available = {
-			always = no
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+			add_threat = 2
 		}
 	}
 	focus = {
@@ -1163,11 +1277,46 @@ focus_tree = {
 		icon = GFX_CapitalistSystems
 		cost = 10.00
 		prerequisite = {
-			focus = WGR_WGR_Konrad_Adenauer_53
+			focus = WGR_Konrad_Adenauer_53
 		}
 		x = 16
 		y = 9
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					add_ideas = capitalism
+					}
 	}
 	focus = {
 		id = WGR_conservative_ventures
@@ -1181,7 +1330,71 @@ focus_tree = {
 		}
 		x = 17
 		y = 10
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = WGR_Continued_Economic_Development
@@ -1192,10 +1405,74 @@ focus_tree = {
 		}
 		x = 17
 		y = 11
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
-		id = WGR_Konrad_Adenauer_53
+		id = WGR_Konrad_Adenauer_57
 		icon = GFX_GFX_industrial_methods
 		cost = 10.00
 		prerequisite = {
@@ -1203,29 +1480,42 @@ focus_tree = {
 		}
 		x = 17
 		y = 13
-
+		completion_reward = {
+			available = {
+				always = no
+			}
+		}
 	}
 	focus = {
 		id = WGR_Return_of_Soviet_POWs
 		icon = GFX_TanksAcrosstheBorder
 		cost = 10.00
 		prerequisite = {
-			focus = WGR_Konrad_Adenauer_53
+			focus = WGR_Konrad_Adenauer_57
 		}
 		x = 18
 		y = 14
-
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.10
+			every_owned_state = {
+				add_manpower = 10000
+			}
+		}
 	}
 	focus = {
 		id = WGR_Pension_Reform
 		icon = GFX_CrushResistance
 		cost = 10.00
 		prerequisite = {
-			focus = WGR_Konrad_Adenauer_53
+			focus = WGR_Konrad_Adenauer_57
 		}
 		x = 16
 		y = 14
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = WGR_Oder_Neisse_Controversy
@@ -1479,7 +1769,7 @@ focus_tree = {
 		icon = GFX_goal_generic_major_alliance
 		cost = 10.00
 		prerequisite = {
-			focus = WGR_WGR_Konrad_Adenauer_53
+			focus = WGR_Konrad_Adenauer_53
 			focus = WGR_Erich_Ollenhauer_53
 		}
 		x = 21
@@ -1552,7 +1842,7 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = WGR_Erich_Ollenhauer_57
-			focus = WGR_Konrad_Adenauer_53
+			focus = WGR_Konrad_Adenauer_57
 		}
 		x = 21
 		y = 14
@@ -2051,7 +2341,8 @@ focus_tree = {
 		y = 16
 		completion_reward = {
 			SOV = {
-				country_event = soc_unif_ger.1
+				country_event = cw_stalinotes.200
+				remove_idea = nato_member
 			}
 		}
 	}
@@ -5438,6 +5729,7 @@ focus_tree = {
 		prerequisite = {
 			focus = WGR_Hohenzollern
 			focus = WGR_Wittelsbach
+			focus = WGR_Hannover
 		}
 		x = 2
 		y = 11

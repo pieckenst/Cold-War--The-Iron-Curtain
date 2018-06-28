@@ -4,6 +4,7 @@
 
 add_namespace = wgr
 add_namespace = wgr_news
+add_namespace = GER_ASSASIN
 
 # WGR in NATO
 country_event = {
@@ -588,6 +589,58 @@ country_event = {
 }
 
 country_event = {
+	id = wgr.2500
+	title = "The Election of 1949"
+	desc = "The Election of 1949"
+	
+	trigger = {	
+		tag = WGR
+		date > 1949.1.1
+		date < 1950.1.1
+	}	
+
+	is_triggered_only = yes
+	
+	immediate = {
+		complete_national_focus = WGR_Election_of_1949
+	}
+	
+	option = {
+		name = "Konrad Adenauer (CDU)"
+
+		set_politics = {
+			ruling_party = Christian_Democratic
+			elections_allowed = yes
+		}
+		add_popularity = { ideology = Christian_Democratic popularity = 0.1 }
+		complete_national_focus = WGR_Konrad_Adenauer_49
+		ai_chance = {
+			factor = 34
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+	}
+	option = {
+		name = "Erich Ollenhauer (SPD)"
+
+		set_politics = {
+			ruling_party = socialist
+			elections_allowed = yes
+		}
+		complete_national_focus = WGR_Kurt_Schumacher
+		add_popularity = { ideology = socialist popularity = 0.1 }
+		ai_chance = {
+			factor = 33
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+country_event = {
 	id = wgr.200
 	title = "The Election of 1953"
 	desc = "The Election of 1953"
@@ -599,7 +652,9 @@ country_event = {
 	}	
 
 	is_triggered_only = yes
-	
+	immediate = {
+		complete_national_focus = WGR_Election_of_1953
+	}	
 	option = {
 		name = "Konrad Adenauer (CDU)"
 
@@ -608,6 +663,7 @@ country_event = {
 			elections_allowed = yes
 		}
 		add_popularity = { ideology = Christian_Democratic popularity = 0.1 }
+		complete_national_focus = WGR_Konrad_Adenauer_53
 		ai_chance = {
 			factor = 34
 			modifier = {
@@ -630,6 +686,7 @@ country_event = {
 			ideology = democratic_socialist
 		}
 		add_popularity = { ideology = socialist popularity = 0.1 }
+		complete_national_focus = WGR_Erich_Ollenhauer_53
 		ai_chance = {
 			factor = 33
 			modifier = {
@@ -639,27 +696,43 @@ country_event = {
 		}
 	}
 	option = {
-		name = "Franz Blücher (FDP)"
+		trigger = {
+			has_completed_focus = WGR_Assasination_of_Adenauer
+		}
+		name = "Otto Remer (National Reich Party)"
 
 		set_politics = {
-			ruling_party = liberal
+			ruling_party = National_Socialism
 			elections_allowed = yes
 		}
-		create_country_leader = {
-			name = "Franz Blücher"
-			picture = "Portrait_WestGermany_Franz_Blucher.dds"
-			expire = "1959.3.26"
-			ideology = left_libertarianism
-		}
-		add_popularity = { ideology = liberal popularity = 0.2 }
+		add_popularity = { National_Socialism = socialist popularity = 0.1 }
+		complete_national_focus = WGR_Otto_Remer
 		ai_chance = {
-			factor = 33
-			modifier = {
-				is_historical_focus_on = yes
-				factor = 0
-			}
+			factor = 100
 		}
 	}
+#	option = {
+#		name = "Franz Blücher (FDP)"
+#
+#		set_politics = {
+#			ruling_party = liberal
+#			elections_allowed = yes
+#		}
+#		create_country_leader = {
+#			name = "Franz Blücher"
+#			picture = "Portrait_WestGermany_Franz_Blucher.dds"
+#			expire = "1959.3.26"
+#			ideology = left_libertarianism
+#		}
+#		add_popularity = { ideology = liberal popularity = 0.2 }
+#		ai_chance = {
+#			factor = 33
+#			modifier = {
+#				is_historical_focus_on = yes
+#				factor = 0
+#			}
+#		}
+#	}
 }
 
 country_event = {
@@ -674,7 +747,9 @@ country_event = {
 	}	
 
 	is_triggered_only = yes
-	
+	immediate = {
+		complete_national_focus = WGR_Election_of_1957
+	}		
 	option = {
 		name = "Konrad Adenauer (CDU)"
 
@@ -682,6 +757,7 @@ country_event = {
 			ruling_party = Christian_Democratic
 			elections_allowed = yes
 		}
+		complete_national_focus = WGR_Konrad_Adenauer_57
 		add_popularity = { ideology = Christian_Democratic popularity = 0.1 }
 		ai_chance = {
 			factor = 34
@@ -705,6 +781,7 @@ country_event = {
 			ideology = democratic_socialist
 		}
 		add_popularity = { ideology = socialist popularity = 0.1 }
+		complete_national_focus = WGR_Erich_Ollenhauer_57
 		ai_chance = {
 			factor = 33
 			modifier = {
@@ -713,27 +790,27 @@ country_event = {
 			}
 		}
 	}
-	option = {
-		name = "Reinhold Maier (FDP)"
-
-		set_politics = {
-			ruling_party = liberal
-			elections_allowed = yes
-		}
-		create_country_leader = {
-			name = "Reinhold Maier"
-			picture = "Portrait_WestGermany_Reinhold_Maier.dds"
-			ideology = left_libertarianism
-		}
-		add_popularity = { ideology = liberal popularity = 0.2 }
-		ai_chance = {
-			factor = 33
-			modifier = {
-				is_historical_focus_on = yes
-				factor = 0
-			}
-		}
-	}
+#	option = {
+#		name = "Reinhold Maier (FDP)"
+#
+#		set_politics = {
+#			ruling_party = liberal
+#			elections_allowed = yes
+#		}
+#		create_country_leader = {
+#			name = "Reinhold Maier"
+#			picture = "Portrait_WestGermany_Reinhold_Maier.dds"
+#			ideology = left_libertarianism
+#		}
+#		add_popularity = { ideology = liberal popularity = 0.2 }
+#		ai_chance = {
+#			factor = 33
+#			modifier = {
+#				is_historical_focus_on = yes
+#				factor = 0
+#			}
+#		}
+#	}
 }
 
 country_event = {
@@ -1514,5 +1591,51 @@ country_event = {
 				factor = 0
 			}
 		}
+	}
+}
+country_event = {
+	id = GER_ASSASIN.1
+	title = "Assasination Attempt on Konrad Adenauer"
+	desc = "Herut a militiant Zionist organization has launched a bomb plot against the Prime Minister"
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		complete_national_focus = WGR_Begin_Assasination_Plot
+	}
+	option = {
+		name = "Assasination Fails"
+		complete_national_focus = WGR_Assassination_Failed
+		ai_chance = {
+			factor = 75
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 100
+			}
+		}	
+	}
+	
+	option = {
+		name = "Assasination Successful"
+		complete_national_focus = WGR_Assasination_of_Adenauer
+		news_event = GER_ASSASIN.3
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}	
+	}
+}
+news_event = {
+	id = GER_ASSASIN.3
+	title = "Assasination of Konrad Adenauer"
+	desc = "Prime Minister Konrad Adenauer was assasinated after a bomb packaged inside a encyclopedia detoanted in his office. Shortly after the explosion several Israeli nationals were arrested in Paris connected to the act"
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = "A Tragic Development"
 	}
 }
