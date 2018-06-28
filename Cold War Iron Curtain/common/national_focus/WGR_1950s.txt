@@ -8,7 +8,7 @@ focus_tree = {
 		}
 	}
 	default = no
-	continuous_focus_position = { x = 80 y = 2400 }
+	continuous_focus_position = { x = 10000 y = 2400 }
 	focus = {
 		id = WGR_Political_Sovereignty
 		icon = GFX_goal_anschluss
@@ -415,12 +415,28 @@ focus_tree = {
 		icon = GFX_focus_ger_oppose_hitler
 		cost = 10.00
 		prerequisite = {
-			focus = WGR_Election_of_1953
+			focus = WGR_Otto_Remer
+		}
+		available = {
+			NOT = {
+				OR = { 
+					has_completed_focus = WGR_Operation_Xavier
+					has_completed_focus = WGR_educational_propaganda
+				}
+			}
 		}
 		x = 3
 		y = 8
-		available = {
-			always = no
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+			create_country_leader = {
+				name = "Temporary Military Administration"
+				picture = "Portrait_GER_Junta.tga"
+				ideology = military_junta
+			}
 		}
 	}
 	focus = {
@@ -446,12 +462,16 @@ focus_tree = {
 	}
 	focus = {
 		id = WGR_Hohenzollern
-		icon = GFX_focus_generic_treaty
+		icon = GFX_focus_ger_return_of_the_kaiser
 		cost = 10.00
 		prerequisite = {
 			focus = WGR_traditionalism
 		}
-		x = 2
+		mutually_exclusive = {
+			focus = WGR_Hannover
+			focus = WGR_Wittelsbach
+		}
+		x = 1
 		y = 10
 		completion_reward = {
 				set_politics = {
@@ -471,7 +491,11 @@ focus_tree = {
 		prerequisite = {
 			focus = WGR_traditionalism
 		}
-		x = 4
+		mutually_exclusive = {
+			focus = WGR_Hohenzollern
+			focus = WGR_Wittelsbach
+		}
+		x = 3
 		y = 10
 			completion_reward = {
 					set_party_name = { 
@@ -501,7 +525,11 @@ focus_tree = {
 		prerequisite = {
 			focus = WGR_traditionalism
 		}
-		x = 6
+		mutually_exclusive = {
+			focus = WGR_Hohenzollern
+			focus = WGR_Hannover
+		}
+		x = 5
 		y = 10
 			completion_reward = {
 					set_party_name = { 
@@ -1045,7 +1073,7 @@ focus_tree = {
 	}
 	focus = {
 		id = WGR_Konrad_Adenauer_49
-		icon = GFX_GFX_industrial_methods
+		icon = GFX_industrial_methods
 		cost = 10.00
 		prerequisite = {
 			focus = WGR_Election_of_1949
@@ -1149,7 +1177,7 @@ focus_tree = {
 	}
 	focus = {
 		id = WGR_Petersburg_Agreement
-		icon = GFX_GFX_Paper
+		icon = GFX_Paper
 		cost = 10.00
 		prerequisite = {
 			focus = WGR_Denounce_Denazification
@@ -1246,7 +1274,7 @@ focus_tree = {
 	}
 	focus = {
 		id = WGR_Konrad_Adenauer_53
-		icon = GFX_GFX_industrial_methods
+		icon = GFX_industrial_methods
 		cost = 10.00
 		prerequisite = {
 			focus = WGR_Election_of_1953
@@ -1473,7 +1501,7 @@ focus_tree = {
 	}
 	focus = {
 		id = WGR_Konrad_Adenauer_57
-		icon = GFX_GFX_industrial_methods
+		icon = GFX_industrial_methods
 		cost = 10.00
 		prerequisite = {
 			focus = WGR_Election_of_1957
@@ -1753,7 +1781,7 @@ focus_tree = {
 	}
 	focus = {
 		id = WGR_Erich_Ollenhauer_53
-		icon = GFX_goal_generic_soviet_construction
+		icon = GFX_goal_support_democracy
 		cost = 10.00
 		prerequisite = {
 			focus = WGR_Election_of_1953
@@ -1825,7 +1853,7 @@ focus_tree = {
 	}
 	focus = {
 		id = WGR_Erich_Ollenhauer_57
-		icon = GFX_goal_generic_soviet_construction
+		icon = GFX_goal_support_democracy
 		cost = 10.00
 		prerequisite = {
 			focus = WGR_Election_of_1957
@@ -2032,7 +2060,7 @@ focus_tree = {
 	}
 	focus = {
 		id = WGR_Ollenhauer_Plan
-		icon = GFX_focus_prc_agrarian_socialism
+		icon = GFX_goal_DDR_deal
 		cost = 10.00
 		prerequisite = {
 			focus = WGR_Erich_Ollenhauer_57
@@ -2329,7 +2357,7 @@ focus_tree = {
 	}
 	focus = {
 		id = WGR_Neutral_Unified_Germany
-		icon = GFX_GFX_gdr
+		icon = GFX_gdr
 		cost = 10.00
 		prerequisite = {
 			focus = WGR_Soviet_Outreach
@@ -2675,7 +2703,7 @@ focus_tree = {
 	}
 	focus = {
 		id = WGR_A_Western_SED
-		icon = GFX_GFX_Communism7
+		icon = GFX_Communism7
 		cost = 10.00
 		prerequisite = {
 			focus = WGR_Merge_the_SPD_and_KPD
@@ -5596,7 +5624,7 @@ focus_tree = {
 	}
 	focus = {
 		id = WGR_HIAG
-		icon = GFX_GFX_ss_officers_foundation
+		icon = GFX_ss_officers_foundation
 		cost = 10.00
 		prerequisite = {
 			focus = WGR_The_Ratlines
