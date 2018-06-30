@@ -4302,7 +4302,7 @@ country_event = {
 				OR = {
 					has_cosmetic_tag = GUY_ENG
 					has_cosmetic_tag = DOC_BEL
-					has_cosmetic_tag = BUR_BEl
+					has_cosmetic_tag = BUR_BEL
 					has_cosmetic_tag = TAZ_ENG
 					has_cosmetic_tag = PAP_AST
 					has_cosmetic_tag = KEN_ENG
@@ -4398,11 +4398,31 @@ country_event = {
 		if = {
             limit = {
                 tag = USA
-				 USA = { has_war_with = VIN } 
+				USA = { has_war_with = VIN } 
                 date > 1968.3.1
                 date < 1968.3.30
             }
             news_event = { id = usa.501 days = 16  }
+        }
+		if = {
+            limit = {
+                original_tag = BEL
+				country_exists = BUR
+				BUR = { is_subject_of = ROOT has_cosmetic_tag = BUR_BEL }
+		        date > 1962.6.30
+		        date < 1963.1.1
+            }
+            country_event = { id = belgiandecolonization.1 days = 1  }
+        }
+		if = {
+            limit = {
+                original_tag = BEL
+				country_exists = DOC
+				DOC = { is_subject_of = ROOT has_cosmetic_tag = DOC_BEL }
+		        date > 1960.6.29
+		        date < 1961.1.1
+            }
+            country_event = { id = belgiandecolonization.2 days = 1  }
         }
 		if = {
             limit = {
