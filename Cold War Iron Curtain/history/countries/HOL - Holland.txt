@@ -114,7 +114,6 @@ set_technology = {
 	tactical_bomber2 = 1
 	tactical_bomber3 = 1
 	tank_landing_craft = 1
-	tech_support = 1
 	transport = 1
 }
 
@@ -133,20 +132,21 @@ give_military_access = NOR
 give_military_access = POR
 give_military_access = FRA
 give_military_access = DEN
-	if = {
-		limit = {
-			has_dlc = "Together for Victory"
-		}
-		set_autonomy = {
-			target = INS
-			autonomous_state = autonomy_colony
-			freedom_level = 0.7
-		}
 
-		else = {
-			puppet = INS
-		}
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
 	}
+	set_autonomy = {
+		target = INS
+		autonomous_state = autonomy_colony
+		freedom_level = 0.7
+	}
+	else = {
+		puppet = INS
+	}
+}
+
 1945.1.1 = {
  INS = {
     set_politics = {
