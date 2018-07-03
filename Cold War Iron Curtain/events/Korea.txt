@@ -25,7 +25,6 @@ country_event = {
 		create_field_marshal = { 
 			name = "Matthew Ridgeway" 
 			picture = "Ridgeway.dds" 
-			traits = { } 
 			skill = 4 
 		}	
 		ai_chance = { 
@@ -64,7 +63,7 @@ country_event = {
 			}
 		}
 		create_faction = north_korean_faction
-                                add_timed_idea = { idea = VIN_peoples_army days = 182 }
+        add_timed_idea = { idea = VIN_peoples_army days = 182 }
 		declare_war_on = {
 			target = KOR
 			type = annex_everything
@@ -156,13 +155,15 @@ country_event = {
 		}
 		USA = { add_ideas = defcon_system_3 }
 		add_manpower = -150000
-		KOR = { add_manpower = 150000 }
-		KOR = { load_oob = KOR_american_armed_divisions_1 }
-		KOR = { add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 } }
-		KOR = { add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 50000 } }
-		KOR = { add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 } }
-		KOR = { add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 } }
-		KOR = { add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 } }
+		KOR = {
+			add_manpower = 150000
+			load_oob = KOR_american_armed_divisions_1
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 50000 }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 }
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 }
+		}
 		set_global_flag = korean_war_usa_enters
 		news_event = { hours = 6 id = korea.4 }
 	}
@@ -254,13 +255,16 @@ country_event = {
 			}
 		}
 		add_manpower = -160000
-		KPA = { add_manpower = 160000 }
-		KPA = { load_oob = PRC_communist_reinforcements_Korean_War_1 }
-		KPA = { add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 } }
-		KPA = { add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 50000 } }
-		KPA = { add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 } }
-		KPA = { add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 } }
-		KPA = { add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 } }
+		KPA = { 
+			add_manpower = 160000
+			load_oob = PRC_communist_reinforcements_Korean_War_1
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 }
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 50000 }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 } 
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 } 
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 }
+		}
 		set_global_flag = korean_war_china_enters
 		news_event = { hours = 6 id = korea.6 }
 	}
@@ -769,10 +773,12 @@ country_event = {
 		name = korea.16.o.a
 		white_peace = KOR
 		white_peace = USA
-		KPA = { dismantle_faction = yes }
 		news_event = { hours = 6 id = korea.30 }
+		KPA = { 
+			dismantle_faction = yes 
+			transfer_state = 525 transfer_state = 918 transfer_state = 920
+		}
 		KOR = { transfer_state = 866 transfer_state = 917 transfer_state = 919 }
-		KPA = { transfer_state = 525 transfer_state = 918 transfer_state = 920 } 
 		917 = { set_demilitarized_zone = yes set_state_flag = korea_dmz }
 		918 = { set_demilitarized_zone = yes set_state_flag = korea_dmz }
 		919 = { set_demilitarized_zone = yes set_state_flag = korea_dmz }
@@ -1267,14 +1273,15 @@ country_event = {
 			}
 		}
 		add_manpower = -15000
-		KOR = { add_manpower = 15000 }
-		#KOR = { load_oob = KOR_american_armed_divisions_2 }
-		KOR = { add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 } }
-
-		KOR = { add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 10000 } }
-		KOR = { add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 500 } }
-		KOR = { add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 5000 } }
-		KOR = { add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 500 } }
+		KOR = { 
+			add_manpower = 15000
+			# load_oob = KOR_american_armed_divisions_2
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 10000 }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 500 }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 5000 }
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 500 }
+		}
 		set_global_flag = korean_war_eng_enters
 		news_event = { hours = 6 id = korea.32 }
 	}
@@ -1465,14 +1472,15 @@ country_event = {
 			}
 		}
 		add_manpower = -175000
-		KOR = { add_manpower = 175000 }
-		KOR = { load_oob = KOR_American_Troops_1 }
-		KOR = { add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 } }
-
-		KOR = { add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 20000 } }
-		KOR = { add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 10000 } }
-		KOR = { add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 } }
-		KOR = { add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 } }
+		KOR = { 
+			add_manpower = 175000
+			load_oob = KOR_American_Troops_1
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 20000 }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 10000 }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 }
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 }
+		}
 		set_global_flag = korean_war_usa_reinforcements_1
 		news_event = { hours = 6 id = korea.36 }
 	}
@@ -1557,14 +1565,15 @@ country_event = {
 			}
 		}
 		add_manpower = -175000
-		KPA = { add_manpower = 175000 }
-		KPA = { load_oob = PRC_Communist_reinforcements_Korean_War_2 }
-		KPA = { add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 } }
-
-		KPA = { add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 25000 } }
-		KPA = { add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 } }
-		KPA = { add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 } }
-		KPA = { add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 } }
+		KPA = { 
+			add_manpower = 175000
+			load_oob = PRC_communist_reinforcements_Korean_War_2
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 25000 }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 }
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 }
+		}
 		set_global_flag = korean_war_chinese_reinforcements_1
 		news_event = { hours = 6 id = korea.38 }
 	}
@@ -1649,14 +1658,15 @@ country_event = {
 			}
 		}
 		add_manpower = -175000
-		KOR = { add_manpower = 175000 }
-		KOR = { load_oob = KOR_American_Troops_2 }
-		KOR = { add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 } }
-
-		KOR = { add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 20000 } }
-		KOR = { add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 10000 } }
-		KOR = { add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 } }
-		KOR = { add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 } }
+		KOR = { 
+			add_manpower = 175000
+			load_oob = KOR_American_Troops_2
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 20000 }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 10000 }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 }
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 }
+		}
 		set_global_flag = korean_war_usa_reinforcements_2
 		news_event = { hours = 6 id = korea.40 }
 	}
@@ -1741,14 +1751,15 @@ country_event = {
 			}
 		}
 		add_manpower = -175000
-		KPA = { add_manpower = 175000 }
-		KPA = { load_oob = PRC_Communist_reinforcements_Korean_War_3 }
-		KPA = { add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 } }
-
-		KPA = { add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 25000 } }
-		KPA = { add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 } }
-		KPA = { add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 } }
-		KPA = { add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 } }
+		KPA = { 
+			add_manpower = 175000
+			load_oob = PRC_communist_reinforcements_Korean_War_3
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 25000 }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 }
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 }
+		}
 		set_global_flag = korean_war_chinese_reinforcements_2
 		news_event = { hours = 6 id = korea.42 }
 	}
@@ -1833,14 +1844,15 @@ country_event = {
 			}
 		}
 		add_manpower = -175000
-		KOR = { add_manpower = 175000 }
-		KOR = { load_oob = KOR_American_Troops_3 }
-		KOR = { add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 } }
-
-		KOR = { add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 20000 } }
-		KOR = { add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 10000 } }
-		KOR = { add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 } }
-		KOR = { add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 } }
+		KOR = { 
+			add_manpower = 175000
+			load_oob = KOR_American_Troops_3
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 20000 }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 10000 }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 } 
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 }
+		}
 		set_global_flag = korean_war_usa_reinforcements_3
 		news_event = { hours = 6 id = korea.44 }
 	}
@@ -1925,14 +1937,15 @@ country_event = {
 			}
 		}
 		add_manpower = -175000
-		KPA = { add_manpower = 175000 }
-		KPA = { load_oob = PRC_Communist_reinforcements_Korean_War_4 }
-		KPA = { add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 } }
-
-		KPA = { add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 50000 } }
-		KPA = { add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 15000 } }
-		KPA = { add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 20000 } }
-		KPA = { add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 10000 } }
+		KPA = { 
+			add_manpower = 175000
+			load_oob = PRC_communist_reinforcements_Korean_War_4
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 50000 }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 15000 }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 20000 }
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 10000 }
+		}
 		set_global_flag = korean_war_chinese_reinforcements_3
 		news_event = { hours = 6 id = korea.46 }
 	}
