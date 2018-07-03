@@ -1,0 +1,164 @@
+scripted_gui = {
+	european_communities_member_topbar = {
+		context_type = player_context
+		
+		window_name = "european_communities_member_topbar_select"
+		
+		visible = {
+			has_idea = european_communities_member_idea
+		}
+		effects = {
+			european_communities_topbar_click = {
+				set_variable = { european_communities_main_show = 1 } 
+			}	
+		}
+	}
+	european_communities_menu_container = {
+		context_type = player_context
+		
+		window_name = "european_communities_menu"
+ 
+ 
+		visible = {
+			check_variable = { european_communities_main_show = 1 }
+		}
+		
+		effects = {
+			exitbutton_european_communities_menu_click = {
+				ROOT = { set_variable = { european_communities_main_show = 0.0 } }
+			}		
+			european_communities_entry_of_member_1_click = {
+				ROOT = { set_variable = { european_communities_main_show = 0.0 } }
+				ROOT = { set_variable = { european_communities_member_show = 1 } }
+				set_variable = { european_communities_target = eec_1 } 
+			}
+			european_communities_entry_of_member_2_click = {
+				ROOT = { set_variable = { european_communities_main_show = 0.0 } }
+				ROOT = { set_variable = { european_communities_member_show = 1 } }
+				set_variable = { european_communities_target = eec_2 } 
+			}				
+			european_communities_entry_of_member_3_click = {
+				ROOT = { set_variable = { european_communities_main_show = 0.0 } }
+				ROOT = { set_variable = { european_communities_member_show = 1 } }
+				set_variable = { european_communities_target = eec_3 } 
+			}			
+			european_communities_entry_of_member_4_click = {
+				ROOT = { set_variable = { european_communities_main_show = 0.0 } }
+				ROOT = { set_variable = { european_communities_member_show = 1 } }
+				set_variable = { european_communities_target = eec_4 } 
+			}
+			european_communities_entry_of_member_5_click = {
+				ROOT = { set_variable = { european_communities_main_show = 0.0 } }
+				ROOT = { set_variable = { european_communities_member_show = 1 } }
+				set_variable = { european_communities_target = eec_5 } 
+			}	
+			european_communities_entry_of_member_6_click = {
+				ROOT = { set_variable = { european_communities_main_show = 0.0 } }
+				ROOT = { set_variable = { european_communities_member_show = 1 } }
+				set_variable = { european_communities_target = eec_6 } 
+			}				
+			european_communities_entry_of_member_7_click = {
+				ROOT = { set_variable = { european_communities_main_show = 0.0 } }
+				ROOT = { set_variable = { european_communities_member_show = 1 } }
+				set_variable = { european_communities_target = eec_7 } 
+			}			
+		}
+		triggers = {
+			european_communities_entry_of_member_1__enabled = {
+				NOT = { has_country_flag = european_communities_member_1 }
+			}
+			european_communities_entry_of_member_1_visible = {
+				any_country = {
+					has_country_flag = european_communities_member_1
+				}				
+			}
+			european_communities_entry_of_member_2_enabled = {
+				NOT = { has_country_flag = european_communities_member_2 }
+			}
+			european_communities_entry_of_member_2_visible = {
+				any_country = {
+					has_country_flag = european_communities_member_2
+				}				
+			}
+			european_communities_entry_of_member_3_enabled = {
+				NOT = { has_country_flag = european_communities_member_3 }
+			}
+			european_communities_entry_of_member_3_visible = {
+				any_country = {
+					has_country_flag = european_communities_member_3
+				}				
+			}
+			european_communities_entry_of_member_4_enabled = {
+				NOT = { has_country_flag = european_communities_member_4 }
+			}
+			european_communities_entry_of_member_4_visible = {
+				any_country = {
+					has_country_flag = european_communities_member_4
+				}				
+			}
+			european_communities_entry_of_member_5_enabled = {
+				any_country = {
+					has_country_flag = european_communities_member_6
+				}			
+				NOT = { has_country_flag = european_communities_member_6 }
+			}
+			european_communities_entry_of_member_5_visible = {
+				any_country = {
+					has_country_flag = european_communities_member_6
+				}			
+				NOT = { has_country_flag = european_communities_member_6 }
+			}
+			european_communities_entry_of_member_6_enabled = {
+				any_country = {
+					has_country_flag = european_communities_member_6
+				}			
+				NOT = { has_country_flag = european_communities_member_6 }
+			}
+			european_communities_entry_of_member_6_visible = {
+				any_country = {
+					has_country_flag = european_communities_member_6
+				}				
+			}
+			european_communities_entry_of_member_7_visible = {
+				any_country = {
+					has_country_flag = european_communities_member_7
+				}				
+			}
+			european_communities_entry_of_member_7_enabled = {
+				any_country = {
+					has_country_flag = european_communities_member_7
+				}			
+				NOT = { has_country_flag = european_communities_member_7 }
+			}
+
+		}
+	}
+	european_communities_member_select_container = {
+		context_type = player_context
+		
+		window_name = "european_communities_member_selection"
+        
+		visible = {
+			check_variable = { european_communities_member_show = 1 }
+		}
+		effects = {
+			exitbutton_eec_member_click = {
+				ROOT = { set_variable = { european_communities_main_show = 1 } }
+				ROOT = { set_variable = { european_communities_member_show = 0.0 } }
+			}		
+			send_manpower_eec_click = {
+				ROOT = { add_manpower = -10000 }
+				var:european_communities_target = { 
+					add_manpower = 10000
+				}
+			}
+
+		}
+		triggers = {
+			send_manpower_eec_click_enabled = {
+				ROOT = { has_manpower > 10000 }
+			}
+		}
+	}
+}
+
