@@ -191,6 +191,9 @@ focus_tree = {
 		prerequisite = {
 			focus = BEL_Accept_King_Back
 		}
+		available = {
+			NOT = { tag = WAL }
+		}
 		x = 2
 		y = 2
 		completion_reward = {
@@ -207,6 +210,9 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = BEL_Strengthen_Flanders
+		}
+		bypass = {
+			country_exists = FLA
 		}
 		x = 2
 		y = 3
@@ -268,6 +274,9 @@ focus_tree = {
 		prerequisite = {
 			focus = BEL_Refuse_King_Back
 		}
+		available = {
+			NOT = { tag = FLA }
+		}
 		x = 6
 		y = 2
 		completion_reward = {
@@ -301,6 +310,9 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = BEL_Strengthen_Wallonia
+		}
+		bypass = {
+			country_exists = WAL
 		}
 		x = 6
 		y = 3
@@ -337,6 +349,12 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = BEL_Recover_From_WW2
+		}
+		available = {
+			country_exists = USA
+		}
+		bypass = {
+			NOT = { country_exists = USA }
 		}
 		x = 14
 		y = 1
@@ -393,6 +411,11 @@ focus_tree = {
 		prerequisite = {
 			focus = BEL_Recognize_Resistance_Members
 		}
+		bypass = {
+			any_country = {
+				has_idea = EU_ECSC_Project
+			}
+		}
 		x = 13
 		y = 2
 		completion_reward = {
@@ -444,9 +467,24 @@ focus_tree = {
 		prerequisite = {
 			focus = BEL_Collect_Resistance_Weapons
 		}
+		available = {
+			country_exists = KOR
+		}
+		bypass = {
+			NOT = { country_exists = KOR }
+		}
 		x = 17
 		y = 2
-
+		completion_reward = {
+			KOR = { 
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 10000
+					producer = BEL
+				}
+				country_event = belgium.12
+			}
+		}
 	}
 	focus = {
 		id = BEL_Promote_Euorpean_Unity
@@ -461,7 +499,17 @@ focus_tree = {
 		}
 		x = 13
 		y = 3
-
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_idea = EU_ECSC_Project
+				}
+				add_opinion_modifier = {
+					target = BEL
+					modifier = small_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = BEL_Create_ECSC
@@ -472,6 +520,17 @@ focus_tree = {
 		}
 		x = 11
 		y = 4
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_idea = EU_ECSC_Project
+				}
+				country_event = { id = belgium.13 hours = 3 }
+			}
+			hidden_effect = {
+				news_event = { id = belgium.15 hours = 24 }
+			}
+		}
 
 	}
 	focus = {
@@ -483,6 +542,13 @@ focus_tree = {
 		}
 		x = 9
 		y = 5
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = nuclear
+			}
+		}
 
 	}
 	focus = {
@@ -498,7 +564,12 @@ focus_tree = {
 		}
 		x = 17
 		y = 3
-
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.2
+			}
+		}
 	}
 	focus = {
 		id = BEL_Leave_NATO
@@ -509,7 +580,13 @@ focus_tree = {
 		}
 		x = 20
 		y = 4
-
+		completion_reward = {
+			remove_idea = nato_member
+			custom_effect_tooltip = BEL_LEAVE_NATO
+			hidden_effect = {
+				news_event = { id = belgium.16 days = 1 }
+			}
+		}
 	}
 	focus = {
 		id = BEL_An_absolutly_stong_leader
@@ -525,7 +602,13 @@ focus_tree = {
 		}
 		x = 19
 		y = 5
-
+		completion_reward = {
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.2
+			}
+			add_timed_idea = { idea = monarchism_drift_4 days = 360 }
+		}
 	}
 	focus = {
 		id = BEL_The_Way_it_should_have_been
@@ -541,7 +624,13 @@ focus_tree = {
 		}
 		x = 16
 		y = 5
-
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.3
+			}
+			add_timed_idea = { idea = fascism_drift_2 days = 360 }
+		}
 	}
 	focus = {
 		id = BEL_Rex_is_back
@@ -555,7 +644,27 @@ focus_tree = {
 		}
 		x = 15
 		y = 6
-
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+			add_timed_idea = { idea = fascism_drift_4 days = 360 }
+			set_party_name = { 
+				ideology = fascism 
+				long_name = "Parti Rexiste" 
+				name = "Rex" 
+			}
+			create_country_leader = {
+				name = "Léon Degrelle"
+				picture = "Portrait_BEL_Leon_Degrelle.dds"
+				ideology = rexism
+			}
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}
+		}
 	}
 	focus = {
 		id = BEL_VNV_in_power
@@ -569,7 +678,27 @@ focus_tree = {
 		}
 		x = 17
 		y = 6
-
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+			add_timed_idea = { idea = fascism_drift_4 days = 360 }
+			set_party_name = { 
+				ideology = fascism 
+				long_name = "Vlaams Nationaal Verbond" 
+				name = "VNV" 
+			}
+			create_country_leader = {
+				name = "Hendrik Elias"
+				picture = "Portrait_BEL_Hendrik_Elias.dds"
+				ideology = fascism_ideology
+			}
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}
+		}
 	}
 	focus = {
 		id = BEL_Empower_the_King
@@ -580,7 +709,17 @@ focus_tree = {
 		}
 		x = 19
 		y = 6
-
+		completion_reward = {
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.35
+			}
+			add_timed_idea = { idea = monarchism_drift_3 days = 360 }
+			set_politics = {
+				ruling_party = monarchism
+				elections_allowed = no
+			}
+		}
 	}
 	focus = {
 		id = BEL_What_the_People_want
