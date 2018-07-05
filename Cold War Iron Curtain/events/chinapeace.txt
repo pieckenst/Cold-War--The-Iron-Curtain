@@ -53,9 +53,18 @@ country_event = {
 	
 	option = {
 		name = chinapeace.3.a
-		PRC = { white_peace = CHI diplomatic_relation = { country = CHI relation = non_aggression_pact } }
-		CHI = { white_peace = PRC diplomatic_relation = { country = PRC relation = non_aggression_pact } }
-		USA = { give_guarantee = CHI give_guarantee = PRC }
+		if = {
+			limit = {
+				county_exists = PRC
+			}
+			PRC = { white_peace = CHI diplomatic_relation = { country = CHI relation = non_aggression_pact } }
+		}
+		if = {
+			limit = {
+				county_exists = CHI
+			}
+			CHI = { white_peace = PRC diplomatic_relation = { country = PRC relation = non_aggression_pact } }
+		}
 		set_global_flag = chinapeace_armistice
 	}
 	

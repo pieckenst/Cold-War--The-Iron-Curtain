@@ -272,9 +272,166 @@ country_event = {
 	option = {
 		name = belgium.10.a
 		add_ideas = EU_ECSC_Project
+		hidden_effect = {
+			BEL = { country_event = { id = belgium.11 hours = 6 }
+		}
+		ai_chance = {
+			factor = 1
+		}
 	}
 
 	option = {
 		name = belgium.10.b
+		ai_chance = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+
+# X accepted to join
+country_event = {
+	id = belgium.11
+	title = belgium.11.t
+	desc = belgium.11.d
+	picture = GFX_BEL_Coal_Steel_Union
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = belgium.11.a
+	}
+}
+
+# Equipment sent to Korea
+country_event = {
+	id = belgium.12
+	title = belgium.12.t
+	desc = belgium.12.d
+	picture = GFX_report_event_BEL_flag
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = belgium.12.a
+	}
+}
+
+# Create ECSC
+country_event = {
+	id = belgium.13
+	title = belgium.13.t
+	desc = belgium.13.d
+	picture = GFX_report_event_BEL_ECSC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = belgium.13.a
+		add_ideas = Member_of_ECSC
+		hidden_effect = {
+			BEL = { country_event = { id = belgium.14 hours = 3 }
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = belgium.13.b
+		ai_chance = {
+			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+
+# X accepted to join ECSC
+country_event = {
+	id = belgium.14
+	title = belgium.14.t
+	desc = belgium.14.d
+	picture = GFX_report_event_BEL_ECSC
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = belgium.14.a
+	}
+}
+
+# Formations of the ECSC
+news_event = {
+	id = belgium.15
+	title = belgium.15.t
+	desc = belgium.15.d
+	picture = GFX_news_event_ECSC_created
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = belgium.14.a
+		trigger = {
+			has_idea = Member_of_ECSC
+		}
+	}
+
+	option = {
+		name = belgium.14.b
+		trigger = {
+			NOT = {
+				has_idea = Member_of_ECSC
+			}
+		}
+	}
+}
+
+# Belgium leaves NATO
+news_event = {
+	id = belgium.16
+	title = belgium.16.t
+	desc = belgium.16.d
+	picture = GFX_news_event_BEL_Leave_Nato
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = belgium.16.a
+		trigger = {
+			has_idea = nato_member
+		}
+	}
+
+	option = {
+		name = belgium.16.b
+		trigger = {
+			tag = SOV
+			is_in_faction_with = SOV
+		}
+	}
+
+	option = {
+		name = belgium.16.e
+		trigger = {
+			tag = Bel
+		}
+	}
+
+	option = {
+		name = belgium.16.c
+		trigger = {
+			NOT = {
+				has_idea = has_idea = nato_member
+				tag = SOV
+				is_in_faction_with = SOV
+				tag = BEL
+			}
+		}
 	}
 }
