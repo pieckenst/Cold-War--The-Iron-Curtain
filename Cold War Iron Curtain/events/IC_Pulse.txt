@@ -4476,7 +4476,7 @@ country_event = {
 				NOT = { has_global_flag = south_kasai_seceded has_global_flag = katanga_seceded has_global_flag = simba_rebellion has_global_flag = free_republic_of_the_congo }
 				has_country_leader = { name = "Joseph Kasa-Vubu" ruling_only = yes  }
             }
-            country_event = { id = congocrisis.1 days = 1  }
+            country_event = { id = congo.1 days = 1  }
         }
 		if = {
             limit = {
@@ -4486,7 +4486,7 @@ country_event = {
 				date < 1970.1.1
 				NOT = { has_global_flag = katanga_seceded country_exists = KAG }
             }
-            country_event = { id = congocrisis.3 days = 1  }
+            country_event = { id = congo.3 days = 1  }
         }
 		if = {
             limit = {
@@ -4498,7 +4498,7 @@ country_event = {
 				country_exists = KAG
 				NOT = { has_global_flag = south_kasai_seceded country_exists = SKS }
             }
-            country_event = { id = congocrisis.5 days = 1  }
+            country_event = { id = congo.5 days = 1  }
         }
 		if = {
             limit = {
@@ -4512,19 +4512,21 @@ country_event = {
 				country_exists = SKS
 				NOT = { has_global_flag = free_republic_of_the_congo has_global_flag = simba_rebellion country_exists = COG }
             }
-            country_event = { id = congocrisis.6 days = 1  }
+            country_event = { id = congo.6 days = 1  }
 			set_global_flag = free_republic_of_the_congo
         }
 		if = {
             limit = {
                 tag = DOC
+				date > 1964.1.1
+				date < 1970.1.1
 				OR = {
 				    has_global_flag = south_kasai_seceded
 				    has_global_flag = katanga_seceded
 				}
 				NOT = { has_global_flag = simba_rebellion country_exists = SKS country_exists = KAG country_exists = COG }
             }
-            country_event = { id = congocrisis.7 days = 1  }
+            country_event = { id = congo.7 days = 1  }
 			set_global_flag = simba_rebellion
         }
 		if = {
@@ -4537,7 +4539,18 @@ country_event = {
 				has_global_flag = simba_rebellion
 				NOT = { country_exists = SKS country_exists = KAG country_exists = COG }
             }
-            country_event = { id = congocrisis.8 days = 1  }
+            country_event = { id = congo.8 days = 1  }
+			set_global_flag = congo_crisis_over
+        }
+		if = {
+            limit = {
+                tag = DOC
+				date > 1965.11.23
+				date < 1970.1.1
+				has_global_flag = congo_crisis_over
+				NOT = { country_exists = SKS country_exists = KAG country_exists = COG }
+            }
+            country_event = { id = congo.9 days = 1  }
         }
 		if = {
             limit = {
