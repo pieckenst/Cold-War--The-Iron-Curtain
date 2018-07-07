@@ -7,6 +7,7 @@ add_namespace = egypte
 #Invitation to the League Arabe
 country_event = {
 	id = egypte.1
+	title = "Placeholder"
 	title = {
 		text = egypte.1.t1
 		trigger = { FROM = { tag = EGY } }
@@ -48,7 +49,7 @@ country_event = {
 				add_to_faction = ROOT
 			}
 		}
-		EGY = { country_event = diplomatic_response.1 }
+		EGY = { country_event = generic.3 }
 		ai_chance = {
 			factor = 10
 			modifier = {
@@ -67,7 +68,7 @@ country_event = {
 	
 	option = {	#We reject
 		name = egypte.1.o2
-		EGY = { country_event = diplomatic_response.2 }
+		EGY = { country_event = generic.4 }
 		ai_chance = {
 			factor = 10
 			modifier = {
@@ -90,7 +91,6 @@ country_event = {
 				tag = SAU
 				add = -10
 			}
-
 			modifier = {
 				tag = IRQ
 				add = -10
@@ -143,9 +143,8 @@ country_event = {
 	#Surrender and offer territory
 	option = {
 		name = egypte.4.a
-
 		ISR = {
-			country_event = { id = egypte.5 }
+			country_event = egypte.5
 		}
 		custom_effect_tooltip = egypte.4.a_tt
 		effect_tooltip = {
@@ -157,9 +156,18 @@ country_event = {
 			}
 			transfer_state = 805
 			transfer_state = 453
-
+		}
+		ai_chance = {
+			factor = 9
 		}
 	}
+	option = {
+		name = "No we continue fighting!"
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
 }
 
 #Israel response to egypte surrender
@@ -174,7 +182,6 @@ country_event = {
 	#Accept surrender
 	option = {
 		name = egypte.5.a
-
 		white_peace = EGY
 		transfer_state = 805
 		transfer_state = 453
@@ -196,7 +203,6 @@ country_event = {
 	#Surrender and offer territory
 	option = {
 		name = egypte.6.a
-
 		ENG = {
 			country_event = { id = egypte.7 }
 		}
@@ -208,6 +214,16 @@ country_event = {
 					message = EGY_agree_peace 
 				} 
 			}
+		}
+		ai_chance = {
+			factor = 9
+		}
+	}
+
+	option = {
+		name = "No we fight!"
+		ai_chance = {
+			factor = 1
 		}
 	}
 }
@@ -224,7 +240,6 @@ country_event = {
 	#Accept surrender
 	option = {
 		name = egypte.7.a
-
 		white_peace = EGY
 	}
 }
@@ -245,7 +260,6 @@ country_event = {
 	#Surrender and offer territory
 	option = {
 		name = egypte.8.a
-
 		ISR = {
 			country_event = { id = egypte.9 }
 		}
@@ -257,7 +271,16 @@ country_event = {
 					message = EGY_agree_peace 
 				} 
 			}
+		}
+		ai_chance = {
+			factor = 9
+		}
+	}
 
+	option = {
+		name = "No we fight!"
+		ai_chance = {
+			factor = 1
 		}
 	}
 }
@@ -274,10 +297,8 @@ country_event = {
 	#Accept surrender
 	option = {
 		name = egypte.9.a
-
 		white_peace = EGY
 		white_peace = PAL
-
 	}
 }
 
@@ -291,16 +312,16 @@ country_event = {
 	
 	option = {	#We accept
 		name = egypte.10.a
-		EGY = { set_cosmetic_tag = UAR_EGY }
 		SYR = {
 			every_owned_state = {
 				add_core_of = EGY 
 			}
 		}
 		EGY = {
+			set_cosmetic_tag = UAR_EGY
 			annex_country = { target = SYR transfer_troops = yes } 
 			create_faction = "The United Arab Republics"
-			country_event = diplomatic_response.1 
+			country_event = generic.3
 		}
 		ai_chance = {
 			factor = 10
@@ -320,7 +341,7 @@ country_event = {
 	
 	option = {	#We reject
 		name = egypte.10.b
-		EGY = { country_event = diplomatic_response.2 }
+		EGY = { country_event = generic.4 }
 		ai_chance = {
 			factor = 1
 		}

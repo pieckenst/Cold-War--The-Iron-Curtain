@@ -137,3 +137,108 @@ country_event = {
 		}
 	}
 }
+
+# PRC loses Border War
+country_event = {
+	id = prcb.1
+	title = prcb.1.t
+	desc = prcb.1.d
+	picture = GFX_report_event_chinese_soldiers_fighting
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = POR
+	}
+
+	immediate = {
+		hidden_effect = {
+			873 = {
+				set_border_war = no
+			}
+		}
+	}
+	
+	option = {
+		name = "Dishonorable"
+		add_political_power = -100
+		add_stability = -0.05
+		RAJ = { country_event = prcb.2 }
+	}
+}
+
+# RAJ wins Border War
+country_event = {
+	id = prcb.2
+	title = "Victory at Border War"
+	desc = goa.15.d
+	picture = GFX_report_event_chinese_soldiers_fighting
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "Wonderful"
+		add_political_power = 100
+		add_stability = 0.05
+	}
+}
+
+# RAJ loses Border War
+country_event = {
+	id = prcb.3
+	title = "Is this loss"
+	desc = goa.16.d
+	picture = GFX_report_event_chinese_soldiers_fighting
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = RAJ
+	}
+
+	immediate = {
+		hidden_effect = {
+			873 = {
+				set_border_war = no
+			}
+		}
+	}
+	
+	option = {
+		name = "Dishonorable"
+		add_political_power = -100
+		add_stability = -0.05
+		PRC = { country_event = prcb.4 }
+	}
+}
+
+# POR wins Border War
+country_event = {
+	id = prcb.4
+	title = "Victory"
+	desc = goa.17.d
+	picture = GFX_report_event_chinese_soldiers_fighting
+	
+	is_triggered_only = yes
+
+	option = {
+		name = goa.17.a
+		add_political_power = 100
+		add_stability = 0.05
+		PRC = { transfer_state = 873 }
+	}
+}
+
+# Goa War
+country_event = {
+	id = prcb.11
+	title = "We are being attacked!"
+	desc = goa.1.d
+	picture = GFX_report_event_chinese_soldiers_fighting
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "How do they dare?"
+	}
+}

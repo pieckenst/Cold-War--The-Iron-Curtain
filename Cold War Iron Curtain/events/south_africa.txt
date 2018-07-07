@@ -9,16 +9,53 @@ country_event = {
 	desc = cw_saf.1.d
 	picture = GFX
 	
-	is_triggered_only = no
+	is_triggered_only = yes
 	fire_only_once = yes
 	trigger = {
-	tag = SAF
-	date > 1953.1.1 
+	  tag = SAF
+	  date > 1953.1.1 
+	  date < 1954.1.1 
 	}
 	
+	immediate = {
+		complete_national_focus = SAF_Election_of_1953
+	}
+	
+	option = { #Union Victory
+		name = "Liberal Victory"
+		complete_national_focus = SAF_Ballinger_52
+		add_popularity ={
+		ideology = conservative
+		popularity = 0.05
+		}
+			create_country_leader = {
+				name = "Margaret Ballinger"
+				picture = " Portrait_SAF_Ballinger.dds"
+				ideology = Social_Liberalism
+			}
+		ai_chance = { 
+			factor = 26 
+		}
+	}	
+	option = { #Union Victory
+		name = "Union Victory"
+		complete_national_focus = SAF_Koos_Straus_52
+		add_popularity ={
+		ideology = conservative
+		popularity = 0.05
+		}
+			create_country_leader = {
+				name = "Koos Straus"
+				picture = "Portrait_SAF_Straus.dds"
+				ideology = conservatism
+			}
+		ai_chance = { 
+			factor = 26 
+		}
+	}
 	option = { #Nat Victory
-		name = cw_saf.1.a
-		set_country_flag = saf_nat_53
+		name = "Nationalist Victory"
+		complete_national_focus = SAF_National_Party_Victory
 		add_popularity ={
 		ideology = neutrality
 		popularity = 0.05
@@ -32,6 +69,65 @@ country_event = {
 		}
 	}
 }
+country_event = {
+	id = cw_saf.20
+	title = "Election of 1958"
+	desc = "Election of 1958"
+	picture = GFX
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+	tag = SAF
+	date > 1958.1.1 
+	date < 1959.1.1 
+	}
+	
+	immediate = {
+		complete_national_focus = SAF_Election_of_1953
+	}
+	
+	option = { #Union Victory
+		name = "Liberal Victory"
+		complete_national_focus = SAF_Ballinger_58
+		add_popularity ={
+		ideology = conservative
+		popularity = 0.05
+		}
+			create_country_leader = {
+				name = "Margaret Ballinger"
+				picture = " Portrait_SAF_Ballinger.dds"
+				ideology = Social_Liberalism
+			}
+		ai_chance = { 
+			factor = 26 
+		}
+	}	
+	option = { #Union Victory
+		name = "Union Victory"
+		complete_national_focus = SAF_De_Villiers_Graaff
+		add_popularity ={
+		ideology = conservative
+		popularity = 0.05
+		}
+			create_country_leader = {
+				name = "De Villiers Graaff"
+				picture = "Portrait_SAF_Graaff.dds"
+				ideology = conservatism
+			}
+		ai_chance = { 
+			factor = 26 
+		}
+	}
+	option = { #Nat Victory
+		name = "Nationalist Victory"
+		complete_national_focus = SAF_verwoerd
+		add_popularity ={
+			ideology = neutrality
+			popularity = 0.05
+		}
+	}
+}
 # Malan Resigns
 country_event = {
 	id = cw_saf.2
@@ -42,9 +138,9 @@ country_event = {
 	is_triggered_only = no
 	fire_only_once = yes
 	trigger = {
-	tag = SAF
-	date > 1954.6.1 
-	has_country_flag = saf_nat_53
+	  tag = SAF
+	  date > 1954.6.1
+	  date < 1954.7.1 
 	}
 	
 	option = { #kk
@@ -52,16 +148,15 @@ country_event = {
 		set_country_flag = saf_strijdom
 		clr_country_flag = saf_malan
 		hidden_effect = {
-		kill_country_leader = yes
+			kill_country_leader = yes
 		}
-create_country_leader = {
-	name = "Johannes Strijdom"
-	desc = "POLITICS_STRIJDOM_DESC"
-	picture = "Strijdom.dds"
-	expire = "1990.1.1"
-	ideology = reactionary
-}
-
+		create_country_leader = {
+			name = "Johannes Strijdom"
+			desc = "POLITICS_STRIJDOM_DESC"
+			picture = "Strijdom.dds"
+			expire = "1990.1.1"
+			ideology = reactionary
+		}
 	}
 }
 #Strijdom's Death
@@ -71,29 +166,87 @@ country_event = {
 	desc = cw_saf.3.d
 	picture = GFX
 	
-	is_triggered_only = no
+	is_triggered_only = yes
 	fire_only_once = yes
-	trigger = {
-	tag = SAF
-	date > 1958.8.1 
-	has_country_flag = saf_nat_53
-	has_country_flag = saf_strijdom
-	}
 	
 	option = { #kk
 		name = cw_saf.3.a
 		set_country_flag = saf_verwoerd
 		clr_country_flag = saf_strijdom
 		hidden_effect = {
-		kill_country_leader = yes
+			kill_country_leader = yes
 		}
-create_country_leader = {
-	name = "Hendrik Verwoerd"
-	desc = "POLITICS_VERWOERD_DESC"
-	picture = "Verwoerd.dds"
-	expire = "1990.1.1"
-	ideology = reactionary
+		create_country_leader = {
+			name = "Hendrik Verwoerd"
+			desc = "POLITICS_VERWOERD_DESC"
+			picture = "Verwoerd.dds"
+			expire = "1990.1.1"
+			ideology = reactionary
+		}
+	}
 }
+
+add_namespace = saf
+
+country_event = {
+	id = saf.100
+	title = "The Commonwealth"
+	desc = "Are we part of it or not?"
+	picture = GFX
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	
+	option = { #kk
+		name = "We cannot stay forever"
+		set_autonomy = { target = SAF autonomy_state = autonomy_free } 
+	}
+	option = { #kk
+		name = "Whatever"
+	}
+}
+
+country_event = {
+	id = saf.101
+	title = "Sharpeville massacre"
+	desc = saf.101.d
+	picture = GFX
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	
+	option = { #kk
+		name = "This is not good"
+	}
+}
+
+country_event = {
+	id = saf.500
+	title = "South Africa Demands Lesotho and Swaziland"
+	desc = "Are we part of it or no?"
+	picture = GFX
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	
+	option = { #kk
+		name = "Transfer Lesotho and Swaziland"
+		SAF = {
+			annex_country = {
+				target = LES
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = SWA
+				transfer_troops = yes
+			}
+		}
+	}
+	option = { #kk
+		name = "Reject the Demands"
 
 	}
 }

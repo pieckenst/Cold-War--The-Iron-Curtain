@@ -10,6 +10,10 @@ on_actions = {
 			100 = usa.19723
 		}
 		random_events = {
+			100 = cw_saf.20
+			100 = cw_saf.1
+		}
+		random_events = {
 			100 = election.1
 		}
 		random_events = {
@@ -17,10 +21,18 @@ on_actions = {
 			100 = MEX.2
 		}
 		random_events = {
+			100 = wgr.2500
 			100 = wgr.200
 			100 = wgr.201
 			100 = wgr.202
 			100 = wgr.204
+			100 = wgr.205
+			100 = wgr.206
+			100 = wgr.207
+			100 = wgr.208
+			100 = wgr.209
+			100 = wgr.210
+			100 = wgr.211
 		}
 		random_events = {
 			100 = ita.200
@@ -30,6 +42,11 @@ on_actions = {
 			100 = fin.200
 			100 = fin.201
 			100 = fin.202
+		}
+		random_events = {
+			100 = KOR_Elections.1963
+			100 = KOR_Elections.1967
+			100 = KOR_Elections.1971
 		}
 	}
 
@@ -125,8 +142,8 @@ on_actions = {
 	on_border_war_lost = {
 		effect = {
 			owner = {
-				country_event = { id = goa.14 }
-				country_event = { id = goa.16 }
+				country_event = goa.14 
+				country_event = goa.16
 			}
 		}	
 	}
@@ -206,7 +223,7 @@ on_actions = {
 	# When a new faction is formed
 	on_faction_formed = {
 		effect = {
-			news_event = { id = news.159 }
+			news_event = news.159
 		}
 	}
 	
@@ -347,7 +364,11 @@ on_actions = {
 
 	#Not run on a specific country.
 	on_startup = {
+
 		effect = {
+			every_country = {
+				country_event = ic_pulse.1
+			}
             random_country = {
                 limit = { is_ai = yes has_war = no }
                 set_country_flag = ic_pulse_one_flag
@@ -408,10 +429,6 @@ on_actions = {
 					targeted_alliance = MAL
 					enemy = MLA
 				}
-				add_to_war = {
-					targeted_alliance = RAJ
-					enemy = CPI
-				}
 			}
 
 			every_country = {
@@ -437,16 +454,12 @@ on_actions = {
 					}
 				}
 				add_to_war = {
-					targeted_alliance = RAJ
-					enemy = CPI
-				}
-				add_to_war = {
 					targeted_alliance = MAL
 					enemy = MLA
 				}
 			}
 			COL = {
-				country_event = { id = COL_pol.1 }
+				country_event = COL_pol.1
 			}
 		}
 	}
