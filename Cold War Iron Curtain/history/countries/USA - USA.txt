@@ -15,8 +15,8 @@ set_technology = {
 	hardware_I = 1
 	radio = 1
 	radar_0 = 1
-	experimental_rockets = 1
-	improved_rocket_engines = 1
+
+	
 	advanced_rocket_engines = 1
 	liquid_propelled_rocket = 1
 	jet_engines = 1
@@ -54,8 +54,8 @@ set_technology = {
 	tactical_bomber2 = 1
 	tactical_bomber3 = 1
 	jet_CAS1 = 1
-	jet_fighter1 = 1
-	jet_fighter2 = 1
+	jet_multirole1 = 1
+	jet_multirole2 = 1
 	jet_interceptor1 = 1
 	jet_interceptor2 = 1
 	jet_strategic_bomber1 = 1
@@ -68,9 +68,9 @@ set_technology = {
 	cv_fighter1 = 1
 	cv_fighter2 = 1
 	cv_fighter3 = 1
-	cv_fighter4 = 1
+	cv_jet_multirole1 = 1
 	cv_jet_CAS1 = 1
-	cv_jet_fighter1 = 1
+	cv_jet_multirole2 = 1
 	cv_naval_bomber1 = 1
 	cv_naval_bomber2 = 1
 	cv_naval_bomber3 = 1
@@ -128,15 +128,33 @@ set_technology = {
 	motorised_infantry_2 = 1
 
 	## Artillery ##
-	gw_artillery = 1
+	# 1942
+	artillery_1 = 1
+	l_artillery_1 = 1
+	h_artillery_1 = 1
+	anti_tank_1 = 1
+	anti_air_1 = 1
 	selfpropart1 = 1
-	selfpropart2 = 1
-	selfpropart3 = 1
 	sp_rocket1 = 1
+	
+	# 1944
+	artillery_ammo_1 = 1
+	at_upgrade_1 = 1
+	aa_upgrade_1 = 1
+	ac_upgrade_1 = 1
+	selfpropart2 = 1
+	
+	# 1947
+	artillery_2 = 1
+	l_artillery_2 = 1
+	h_artillery_2 = 1
+	anti_air_2 = 1
+	at_ammo_1 = 1
+	selfpropart3 = 1
 	sp_rocket2 = 1
+
+	# 1949
 	sp_aa1 = 1
-	interwar_antitank = 1
-	interwar_antiair = 1
 
 	## Infantry ##
 	team_weapons_1 = 1
@@ -175,7 +193,6 @@ set_technology = {
 #add_to_faction = DEN
 #add_to_faction = ICE
 #add_to_faction = LUX
-#add_to_faction = TTP
 
 give_guarantee = CAN
 give_guarantee = MEX
@@ -293,12 +310,13 @@ add_ideas = {
 	home_of_the_free
 	organized_crime_problem
 	taft_hartley_act
-	foreign_aggression_policy_6
+	foreign_aggression_policy_3
 	nato_member
 	social_security_act
-	segregation_question_military
+	segregation_question
 	population_growth_steady
 	UN_Security_Council_Member_Perm
+	defcon_system_5
 }
 
 
@@ -312,15 +330,9 @@ if = {
 		autonomous_state = autonomy_mnna
 		freedom_level = 0.4
 	}
-	set_autonomy = {
-		target = TTP
-		autonomous_state = autonomy_colony
-		freedom_level = 0.4
-	}
 
 	else = {
 		puppet = JAP	
-		puppet = TTP
 	}
 }
 
@@ -371,14 +383,14 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "William D. Pelley"
-	picture = "Portrait_USA_William_Dudley_Pelley.dds"
+	name = "James H. Madole"
+	picture = "Portrait_USA_Madole.dds"
 	ideology = fascism_ideology
 }
 
 create_country_leader = {
-	name = "Earl Browder"
-	picture = "Portrait_USA_Generic_1.dds"
+	name = "Gus Hall"
+	picture = "Portrait_USA_Gus_Hall.dds"
 	ideology = marxism
 }
 
@@ -934,6 +946,7 @@ oob = "USA_1960"
 		software_I = 1
 		software_II = 1
 		radio = 1
+		radar_0 = 1
 		radar_I = 1
 		radar_II = 1
 		coms_I = 1
@@ -951,23 +964,23 @@ oob = "USA_1960"
 		naval_reactor = 1
 		nukes = 1
 		fission1949 = 1
-		fission1951 = 1
+		
 		fission1952 = 1
 		fission1953 = 1
 		fission1954 = 1
-		fission1955 = 1
+		
 		fission1956 = 1
 		fission1958 = 1
-		fusion1952 = 1
+		
 		fusion1954 = 1
-		fusion1955 = 1
-		fusion1956 = 1
-		fusion1957 = 1
+		
+		
+		
 		fusion1958 = 1
-		experimental_rockets = 1
+	
 		rocket_engines = 1
 		jet_engines = 1
-		improved_rocket_engines = 1
+		
 		advanced_rocket_engines = 1
 		srbm1 = 1
 		srbm2 = 1
@@ -980,7 +993,9 @@ oob = "USA_1960"
 
 		## Space ##
 		liquid_propelled_rocket = 1
-		# needs to be added
+		hybrid_propelled_rocket = 1
+		space_satellite = 1
+		astronaut_program = 1
 		
 		## Helicopters & Missiles ##
 		early_helicopter = 1
@@ -994,9 +1009,9 @@ oob = "USA_1960"
 		cruisemissile_3 = 1
 		navalcruisemissile_1 = 1
 		coastalmissile_1 = 1
-		navalasm_1 = 1
+		
 		navalaam_1 = 1
-		navalaam_2 = 1
+		
 		aam_1 = 1
 		aam_2 = 1
 		aam_3 = 1
@@ -1020,7 +1035,6 @@ oob = "USA_1960"
 		naval_bomber3 = 1
 		naval_bomber4 = 1
 		naval_bomber5 = 1
-		naval_bomber6 = 1
 		strategic_bomber1 = 1
 		strategic_bomber2 = 1
 		strategic_bomber3 = 1
@@ -1030,10 +1044,10 @@ oob = "USA_1960"
 		jet_CAS1 = 1
 		jet_CAS2 = 1
 		jet_CAS3 = 1
-		jet_fighter1 = 1
-		jet_fighter2 = 1
-		jet_fighter3 = 1
-		jet_fighter4 = 1
+		jet_multirole1 = 1
+		jet_multirole2 = 1
+		jet_multirole3 = 1
+		jet_multirole4 = 1
 		jet_interceptor1 = 1
 		jet_interceptor2 = 1
 		jet_interceptor3 = 1
@@ -1052,19 +1066,18 @@ oob = "USA_1960"
 		cv_fighter1 = 1
 		cv_fighter2 = 1
 		cv_fighter3 = 1
-		cv_fighter4 = 1
 		cv_jet_CAS1 = 1
 		cv_jet_CAS2 = 1
 		cv_jet_CAS3 = 1
-		cv_jet_fighter1 = 1
-		cv_jet_fighter2 = 1
-		cv_jet_fighter3 = 1
+		cv_jet_multirole1 = 1
+		cv_jet_multirole2 = 1
+		cv_jet_multirole3 = 1
+		cv_jet_multirole4 = 1
 		cv_naval_bomber1 = 1
 		cv_naval_bomber2 = 1
 		cv_naval_bomber3 = 1
 		cv_naval_bomber4 = 1
 		cv_naval_bomber5 = 1
-		cv_naval_bomber6 = 1
 		transport1 = 1
 		transport2 = 1
 		transport3 = 1
@@ -1081,7 +1094,7 @@ oob = "USA_1960"
 		improved_destroyer = 1
 		advanced_destroyer = 1
 		modern_destroyer = 1
-		late_destroyer = 1
+		first_ddg = 1
 		early_battleship = 1
 		battleship_2 = 1
 		battleship_3 = 1
@@ -1115,31 +1128,56 @@ oob = "USA_1960"
 		heavy_tanks_1 = 1
 		heavy_tanks_2 = 1
 		heavy_tanks_3 = 1
+		heavy_tanks_4 = 1
 		light_tanks_1 = 1
 		light_tanks_2 = 1
+		light_tanks_3 = 1
+		light_tanks_4 = 1
 		main_battle_tanks = 1
 		main_battle_tanks_1 = 1
 		main_battle_tanks_2 = 1
 		main_battle_tanks_3 = 1
 		main_battle_tanks_4 = 1
+		armored_engineering_1 = 1
+		armored_engineering_2 = 1
+		armored_engineering_3 = 1
+		armored_engineering_4 = 1
+		armored_engineering_5 = 1
 		super_heavy_tanks_1 = 1
 		super_heavy_tanks_2 = 1
+		super_heavy_tanks_3 = 1
 		mechanized_heavy_infantry = 1
 		mechanized_heavy_infantry2  = 1
+		mechanized_heavy_infantry3  = 1
 		mechanized_infantry = 1
 		mechanized_infantry2 = 1
+		mechanized_infantry3 = 1
+		mechanized_infantry4 = 1
+		mechanized_infantry5 = 1
+		tankdestroyer1 = 1
+		tankdestroyer2 = 1
+		tankdestroyer3 = 1
+		tankdestroyer4 = 1
+		tankdestroyer5 = 1
+		recon_mechanized_1 = 1
+		recon_mechanized_2 = 1
+		recon_mechanized_3 = 1
+		recon_mechanized_4 = 1
+		recon_mechanized_5 = 1
 		motorised_infantry = 1
 		motorised_infantry_2 = 1
+		motorised_infantry_3 = 1
 
 		## Artillery ##
 		gw_artillery = 1
 		selfpropart1 = 1
 		selfpropart2 = 1
 		selfpropart3 = 1
+		selfpropart4 = 1
+		selfpropart5 = 1
 		sp_rocket1 = 1
 		sp_rocket2 = 1
 		sp_rocket3 = 1
-		sp_rocket4 = 1
 		sp_aa1 = 1
 		sp_aa2 = 1
 		interwar_antitank = 1
@@ -1178,13 +1216,6 @@ oob = "USA_1960"
 		tech_military_police = 1
 		tech_signal_company = 1
 		tech_maintenance_company = 1
-		tech_engineers2 = 1
-		tech_recon2 = 1
-		tech_field_hospital2 = 1
-		tech_logistics_company2 = 1
-		tech_military_police2 = 1
-		tech_signal_company2 = 1
-		tech_maintenance_company2 = 1
 	}
 }
 
@@ -1232,18 +1263,18 @@ oob = "USA_1960"
 	}
 }
 
-1969.1.20 = {
+1973.1.1 = {
 	set_politics = {
 
 		parties = {
 			democratic = { 
-				popularity = 45
+				popularity = 37.5
 			}
 			socialist = {
 				popularity = 0		
 			}
 			conservative = {
-				popularity = 50
+				popularity = 60
 			}
 			fascism = {
 				popularity = 4
@@ -1256,7 +1287,7 @@ oob = "USA_1960"
 		}
 	
 		ruling_party = conservative
-		last_election = "1969.1.20"
+		last_election = "1972.11.7"
 		election_frequency = 48
 		elections_allowed = yes
 	

@@ -1,0 +1,302 @@
+﻿add_namespace = congo
+
+#Emile Janssens
+country_event = {
+	id = congo.1
+	title = congo.1.t	
+	desc = congo.1.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = congo.1.a
+		ai_chance = {
+			factor = 99
+		}
+		country_event = { id = congo.2 hours = 1 }
+		hidden_effect = {
+			set_global_flag = congo_crisis_historical
+		}
+	}
+	option = {
+		name = congo.1.b
+		ai_chance = {
+			factor = 1
+		}
+		start_civil_war = {
+			ruling_party = neutrality
+			ideology = nationalism
+			size = 0.5
+			states = { 538 1207 827 826 718 }
+		}
+		hidden_effect = {
+			set_global_flag = congo_crisis_unhistorical
+		}
+	}
+}
+
+#Janssens fired
+country_event = {
+	id = congo.2
+	title = congo.2.t	
+	desc = congo.2.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = congo.2.a
+		remove_unit_leader = 581
+		create_field_marshal = {
+	        name = "Victor Lundula"
+		    picture = "Victor_Lundula.dds"
+	        skill = 2
+	        id = 582
+        }
+		create_country_leader = {
+	        name = "Victor Lundula"
+	        picture = "Victor_Lundula.dds"
+	        ideology = military_junta
+        }
+		set_party_name = {
+	        ideology = neutrality
+	        long_name = "ANC"
+	        name = "Armée Nationale Congolaise"
+	    }
+	}
+}
+
+#Katanga secession
+country_event = {
+	id = congo.3
+	title = congo.3.t	
+	desc = congo.3.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = congo.3.a
+		ai_chance = {
+			factor = 100
+		}
+        KAG = { transfer_state = 538 }
+		declare_war_on = { target = KAG type = annex_everything }
+		BEL = { country_event = { id = congo.4 hours = 1 } }
+		set_global_flag = katanga_seceded
+	}
+	option = {
+		name = congo.3.b
+		ai_chance = {
+			factor = 0
+		}
+        release = KAG
+	}
+}
+
+#Belgium support Katanga?
+country_event = {
+	id = congo.4
+	title = congo.4.t	
+	desc = congo.4.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = congo.4.a
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = -20
+		KAG = { add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 10000 } }
+		add_ai_strategy = {
+		    type = support
+		    id = "KAG"
+		    value = 200
+	    }
+	    add_ai_strategy = {
+		    type = send_volunteers_desire
+		    id = "KAG"
+		    value = 200
+	    }
+	}
+	option = {
+		name = congo.4.b
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#South Kasai secession
+country_event = {
+	id = congo.5
+	title = congo.5.t	
+	desc = congo.5.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = congo.5.a
+		ai_chance = {
+			factor = 100
+		}
+        SKS = { transfer_state = 1207 }
+		declare_war_on = { target = SKS type = annex_everything }
+		set_global_flag = south_kasai_seceded
+	}
+	option = {
+		name = congo.5.b
+		ai_chance = {
+			factor = 0
+		}
+        release = SKS
+	}
+}
+
+#Free Republic of the Congo
+country_event = {
+	id = congo.6
+	title = congo.6.t	
+	desc = congo.6.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = congo.6.a
+		ai_chance = {
+			factor = 100
+		}
+        COG = { 
+		    transfer_state = 718 
+		    transfer_state = 826 
+			transfer_state = 827 
+			declare_war_on = { target = DOC type = annex_everything }
+	    }
+		CUB = {
+		    add_ai_strategy = {
+		        type = support
+		        id = "COG"
+		        value = 200
+	        }
+		}
+		SOV = {
+		    add_ai_strategy = {
+		        type = support
+		        id = "COG"
+		        value = 200
+	        }
+		}
+	}
+	option = {
+		name = congo.6.b
+		ai_chance = {
+			factor = 0
+		}
+        COG = {
+		    change_tag_from = ROOT
+		    transfer_state = 718 
+		    transfer_state = 826 
+			transfer_state = 827 
+			declare_war_on = { target = DOC type = annex_everything }
+	    }
+		SOV = {
+		    add_ai_strategy = {
+		        type = support
+		        id = "COG"
+		        value = 200
+	        }
+		}
+	}
+}
+
+#Simba rebellion
+country_event = {
+	id = congo.7
+	title = congo.7.t	
+	desc = congo.7.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = congo.7.a
+		ai_chance = {
+			factor = 100
+		}
+        COG = { 
+		    transfer_state = 718 
+		    transfer_state = 826 
+			transfer_state = 827 
+			declare_war_on = { target = DOC type = annex_everything }
+			set_political_party = { ideology = communism popularity = 0.9 } 
+			set_politics = { ruling_party = communism elections_allowed = no } 
+	    }
+	}
+	option = {
+		name = congo.7.b
+		ai_chance = {
+			factor = 0
+		}
+        COG = {
+		    change_tag_from = ROOT
+		    transfer_state = 718 
+		    transfer_state = 826 
+			transfer_state = 827 
+			declare_war_on = { target = DOC type = annex_everything }
+			set_political_party = { ideology = communism popularity = 0.9 } 
+			set_politics = { ruling_party = communism elections_allowed = no } 
+	    }
+	}
+}
+
+#Congo Crisis over
+country_event = {
+	id = congo.8
+	title = congo.8.t	
+	desc = congo.8.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = congo.8.a
+        add_political_power = 100
+	}
+}
+
+#1965 Mobutu Coup
+country_event = {
+	id = congo.9
+	title = congo.9.t	
+	desc = congo.9.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = congo.7.a
+		ai_chance = {
+			factor = 100
+		}
+		set_global_flag = mobutu_coup
+        set_politics = { ruling_party = nationalism elections_allowed = no }
+		add_popularity = { ideology = nationalism popularity = 0.8 }
+	}
+	option = {
+		name = congo.7.b
+		ai_chance = {
+			factor = 0
+		}
+		set_global_flag = mobutu_civil_war
+        start_civil_war = {
+			ruling_party = Liberal_Conservatism
+			ideology = nationalism
+			size = 0.7
+			states = { 538 1207 827 826 718 }
+		}
+	}
+}

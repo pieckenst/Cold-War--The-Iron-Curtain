@@ -3,6 +3,7 @@
 ########################
 
 add_namespace = fra
+add_namespace = algeria_war
 
 # The Reunification of Austria
 country_event = {
@@ -64,15 +65,16 @@ country_event = {
 #presidential election of '53
 country_event = {
 	id = fra.3
-	title = fra.3.t
+	title = "Election of 1953"
 	desc = fra.3.d
 
-	is_triggered_only = no
+	is_triggered_only = yes
 	fire_only_once = yes
 	
 	trigger = {
 	tag = FRA
 	date > 1953.12.15
+	date < 1955.12.15
 	NOT = { 
 	OR = {
 	has_completed_focus = FRA_commie
@@ -399,5 +401,52 @@ news_event = {
 
 	option = {
 		name = "Interesting."
+	}
+}
+
+country_event = {
+	id = algeria_war.1
+	title = "The Algerian War of Independence"
+	desc = "After major demonstrations in Algiers and other cities, the native population in Algeria has launched a revolutionary struggle against our rightful rule!"
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = "Algeria is French!"
+		set_global_flag = algeria_war
+		ALG = {
+		    load_oob = ALG_1949
+			transfer_state = 513
+			transfer_state = 514
+			transfer_state = 1147
+			transfer_state = 1148
+			transfer_state = 1149
+			transfer_state = 1150
+			transfer_state = 1151
+			transfer_state = 1152
+			transfer_state = 1153
+			transfer_state = 1154
+			transfer_state = 1156
+			transfer_state = 1157
+		}	
+		declare_war_on = { target = ALG type = annex_everything }	
+	}
+}
+
+country_event = {
+	id = algeria_war.2
+	title = "America Demands we Make Peace with Algeria"
+	desc = "America Demands we Make Peace with Algeria"
+	is_triggered_only = yes
+
+	option = {
+		name = "We Must Concede to the Americans"
+		annex_country = { target = ALG }	
+		release = ALG		
+	}
+	option = {
+		name = "Reject the Americans Offer"
+
 	}
 }

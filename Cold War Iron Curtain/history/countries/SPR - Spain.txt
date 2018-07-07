@@ -30,7 +30,7 @@ set_technology = {
 	cv_fighter1 = 1
 	cv_fighter2 = 1
 	cv_fighter3 = 1
-	cv_fighter4 = 1
+	cv_jet_multirole1 = 1
 	cv_jet_CAS1 = 1
 	cv_naval_bomber1 = 1
 	cv_naval_bomber2 = 1
@@ -43,13 +43,16 @@ set_technology = {
 	early_fighter = 1
 	early_light_cruiser = 1
 	early_submarine = 1
-	ww_pc = 1 	radio = 1 	experimental_rockets = 1
+	ww_pc = 1 
+	radio = 1 
+
 	fighter1 = 1
 	fighter2 = 1
 	fighter3 = 1
 	frigate_1 = 1
 	frigate_2 = 1
-	infantry_equip_1 = 1 	iw_armored_vehicles = 1
+	infantry_equip_1 = 1 
+	iw_armored_vehicles = 1
 	gw_artillery = 1
 	selfpropart1 = 1
 	sp_aa1 = 1
@@ -63,13 +66,13 @@ set_technology = {
 	heavy_tanks_2 = 1
 	improved_destroyer = 1
 	improved_light_cruiser = 1
-	improved_rocket_engines = 1
+	
 	interwar_antiair = 1
 	infantry_equip_2 = 1
 	jet_CAS1 = 1
 	jet_engines = 1
-	jet_fighter1 = 1
-	jet_fighter2 = 1
+	jet_multirole1 = 1
+	jet_multirole2 = 1
 	jet_interceptor1 = 1
 	jet_interceptor2 = 1
 	jet_strategic_bomber1 = 1
@@ -99,9 +102,6 @@ set_technology = {
 	naval_bomber3 = 1
 	naval_bomber4 = 1
 	
-	nuclear_cg_2 = 1
-	
-
 	rocket_engines = 1
 	sp_rocket1 = 1
 	sp_rocket2 = 1
@@ -114,7 +114,6 @@ set_technology = {
 	tactical_bomber2 = 1
 	tactical_bomber3 = 1
 	tank_landing_craft = 1
-	tech_support = 1
 	transport = 1
 }
 
@@ -158,6 +157,42 @@ set_stability = 0.5
 
 set_global_flag = scw_over
 
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = RIF
+		autonomous_state = autonomy_protectorate
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = SRW
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = GEQ
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}	
+	
+	else = {
+		puppet = RIF
+		puppet = SRW
+		puppet = GEQ
+	}
+}
+
+1956.1.1 = {
+    set_autonomy = { target = RIF autonomy_state = autonomy_free } 
+}
+1958.1.1 = {
+    set_autonomy = { target = SRW autonomy_state = autonomy_free } 
+}
+1968.1.1 = {
+    set_autonomy = { target = GEQ autonomy_state = autonomy_free } 
+}
 
 create_country_leader = {
 	name = "José Giral"
@@ -308,13 +343,8 @@ create_equipment_variant = {
 	}
 	create_country_leader = {
 		name = "Adolfo Suarez"
-		desc = "POLITICS_MANUEL_AZANA_DESC"
 		picture = "gfx/leaders/SPR/Adolfo.dds"
-		expire = "1981.2.25"
 		ideology = christian_democracy
-		traits = {
-			#
-		}
 	}	
 }
 

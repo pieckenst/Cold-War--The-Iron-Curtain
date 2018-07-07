@@ -861,7 +861,7 @@ focus_tree = {
 					create_country_leader = {
 							name = "Augusto De Marsanich"
 							desc = ""
-							picture = "gfx/leaders/ITA/Portrait_ITA_Augusto_De_Marsanich.tga"
+							picture = "gfx/leaders/ITA/Portrait_ITA_Augusto_De_Marsanich.dds"
 							expire = "1965.1.1"
 							ideology = falangism
 							traits = {
@@ -1053,7 +1053,7 @@ focus_tree = {
 					create_country_leader = {
 							name = "Umberto II"
 							desc = ""
-							picture = "gfx/leaders/ITA/Portrait_ITA_Umberto_II.tga"
+							picture = "gfx/leaders/ITA/Portrait_ITA_Umberto_II.dds"
 							expire = "1965.1.1"
 							ideology = absolute_monarchist
 							traits = {
@@ -1104,7 +1104,7 @@ focus_tree = {
 					create_country_leader = {
 							name = "Augusto De Marsanich"
 							desc = ""
-							picture = "gfx/leaders/ITA/Portrait_ITA_Augusto_De_Marsanich.tga"
+							picture = "gfx/leaders/ITA/Portrait_ITA_Augusto_De_Marsanich.dds"
 							expire = "1973.1.1"
 							ideology = absolute_monarchist
 							traits = {
@@ -1268,7 +1268,7 @@ focus_tree = {
 					create_country_leader = {
 							name = "Amedeo I"
 							desc = ""
-							picture = "Amedeo.tga"
+							picture = "Amedeo.dds"
 							expire = "1965.1.1"
 							ideology = absolute_monarchist
 							traits = {
@@ -1816,18 +1816,26 @@ focus_tree = {
 		}
 		x = 20
 		y = 4
-			available = {
-					has_full_control_of_state = 559
-				}
-			bypass = {
-					SOR = {
-							owns_state = 559
-						}
-				}
-				completion_reward = {
-					SOR = { transfer_state = 559 }
-				}
-
+		available = {
+			has_full_control_of_state = 559
+			has_full_control_of_state = 1243
+			has_full_control_of_state = 1240
+		}
+		bypass = {
+			SOR = {
+				owns_state = 559
+				owns_state = 1243
+				owns_state = 1240
+			}
+		}
+		completion_reward = {
+			SOR = { 
+			    transfer_state = 559
+			    transfer_state = 1243
+			    transfer_state = 1240 
+			}
+				
+		}
 	}
 	focus = {
 		id = ITA_recognize_trieste
@@ -1838,25 +1846,25 @@ focus_tree = {
 		}
 		x = 20
 		y = 6
-			available = {
-					TRI = {
-							exists = yes
-						}
-					NOT = {
-							has_war_with = TRI
-						}
+		available = {
+			TRI = {
+				exists = yes
+			}
+			NOT = {
+				has_war_with = TRI
+			}
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		completion_reward = {
+			TRI = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = ITA_recognition_focus
 				}
-			cancel_if_invalid = yes
-			continue_if_invalid = no
-			completion_reward = {
-					TRI = {
-							add_opinion_modifier = {
-									target = ROOT
-									modifier = ITA_recognition_focus
-								}
-						}
-				}
-
+			}
+		}	
 	}
 	focus = {
 		id = ITA_protect_trieste
@@ -2891,15 +2899,8 @@ focus_tree = {
 		x = 41
 		y = 1
 			available_if_capitulated = yes
-			bypass = {
-
-}
 			cancel_if_invalid = yes
 			continue_if_invalid = no
-			available_if_capitulated = yes
-			complete_tooltip = {
-
-}
 			completion_reward = {
 					add_tech_bonus = {
 							name = CHL_light_cruiser_effort
@@ -2950,15 +2951,8 @@ focus_tree = {
 		x = 43
 		y = 1
 			available_if_capitulated = yes
-			bypass = {
-
-}
 			cancel_if_invalid = yes
 			continue_if_invalid = no
-			available_if_capitulated = yes
-			complete_tooltip = {
-
-}
 			completion_reward = {
 					add_tech_bonus = {
 							name = CHL_heavy_cruiser_effort

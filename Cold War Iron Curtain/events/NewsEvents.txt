@@ -7,6 +7,57 @@
 
 add_namespace = news
 
+# Faction Founded!
+news_event = {
+	id = news.159
+	title = news.159.t
+	desc = {
+		text = news.159.d_01
+		trigger = { FROM = { has_government = neutrality } }
+	}
+	desc = {
+		text = news.159.d_02
+		trigger = { FROM = { has_government = democratic } }
+	}
+	desc = {
+		text = news.159.d_03
+		trigger = { FROM = { has_government = fascism } }
+	}
+	desc = {
+		text = news.159.d_04
+		trigger = { FROM = { has_government = communism } }
+	}
+
+	picture = GFX_news_event_009
+	
+	major = yes
+
+	is_triggered_only = yes
+	
+	option = {
+		trigger = {
+			NOT = { tag = FROM }
+			NOT = { is_in_faction_with = FROM }
+		}
+		name = news.159.a
+		every_other_country = {
+			limit = { is_in_faction_with = FROM }
+			custom_effect_tooltip = news.159.tt
+		}
+	}
+	option = {
+		trigger = { tag = FROM }
+		name = news.159.b
+	}
+	option = {
+		trigger = {
+			NOT = { tag = FROM }
+			is_in_faction_with = FROM
+		}
+		name = news.159.c
+	}
+}
+
 # Cuban Missile Crisis
 news_event = {
 	id = news.289
@@ -292,6 +343,7 @@ news_event = {
 	immediate = {
 		hidden_effect = {
 			set_country_flag = china_in_taiwan
+			set_global_flag = roc_taiwan
 		}
 	}
 
@@ -648,12 +700,12 @@ news_event = {
 
 	option = {
 		name = news.1023.a
-		trigger = { tag = FBU }
+		trigger = { has_cosmetic_tag = ENG_FBU }
 	}
 
 	option = {
 		name = news.1023.b
-		trigger = { NOT = { tag = FBU } }
+		trigger = { NOT = { has_cosmetic_tag = ENG_FBU } }
 	}
 
 
@@ -714,7 +766,6 @@ news_event = {
 news_event = {
 	id = news.1026
 	title = news.1026.t
-	fire_only_once = yes
 	desc = {
 		trigger = { MLA = { controls_state = 784 } }
 		text = news.1026.d
@@ -749,7 +800,6 @@ news_event = {
 news_event = {
 	id = news.1027
 	title = news.1027.t
-	fire_only_once = yes
 	is_triggered_only = yes
 	desc = {
 		trigger = { MLA = { controls_state = 784 } }

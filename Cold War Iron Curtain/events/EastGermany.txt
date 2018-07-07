@@ -662,9 +662,6 @@ country_event = {
 	
 	option = { #Tanya_the_Evil
 	    name = "Yes we are that desperate"
-		ai_chance = {
-			factor = 80
-		}
         create_country_leader = {
 			name = "Tanya the Evil"
 			desc = ""
@@ -704,14 +701,14 @@ country_event = {
     is_triggered_only = yes
 	
 	option = { #Donitz
-	    name = ddr.22.o1
+	    name = "Remer"
 		ai_chance = {
-			factor = 80
+			factor = 10
 		}
         create_country_leader = {
-			name = "Karl Donitz"
+			name = "Otto Ernst Remer"
 			desc = ""
-			picture = "Portrait_DDR_Karl_Donitz.dds"
+			picture = "Portrait_DDR_Remer.dds"
 			expire = "1992.1.1"
 			ideology = nazism
 			traits = {
@@ -722,14 +719,14 @@ country_event = {
 	}
 	
 	option = { #Speer
-	    name = ddr.22.o2
+	    name = "Eichmann"
 		ai_chance = {
 			factor = 10
 		}
         create_country_leader = {
-			name = "Albert Speer"
+			name = "Adolf Eichmann"
 			desc = ""
-			picture = "Portrait_DDR_Albert_Speer.dds"
+			picture = "Portrait_DDR_Eichmann.dds"
 			expire = "1992.1.1"
 			ideology = nazism
 			traits = {
@@ -754,6 +751,14 @@ country_event = {
 			}
 		}
 		remove_ideas = ddr_idea_lack_of_leadership
+	}
+	
+	option = { #von Krosigk
+	    name = "Someone else?"
+		ai_chance = {
+			factor = 10
+		}
+        ROOT = { country_event = ddr.100 }
 	}
 }
 
@@ -1209,7 +1214,7 @@ country_event = {
 	option = {
 		name = ddr.39.a
 		WGR  = { country_event = { id = wgr.10 hours = 6 } }
-		WGR  = { country_event = { id = ddr.40 days = 1 } }
+		WGR  = { news_event = { id = ddr.40 days = 1 } }
 	}
 	option = {
 		name = ddr.39.b
@@ -1278,12 +1283,22 @@ news_event = {
     title = "Honecker Takes Power"
     desc = Honecker.100.d
 	major = yes
-    picture = news_event_india_troops
+    picture = news_event_honecker
    
     is_triggered_only = yes
 	
-	option = { 
-	    name = "An interesting development"
+	option = {
+		name = "Honecker führt uns zum Sieg!"
+		trigger = {
+			TAG = DDR
+		}
+	}
+	
+	option = {
+		name = "Good for them"
+		trigger = {
+			NOT = { TAG = DDR }
+		}
 	}
 }
 news_event = {
@@ -1415,7 +1430,7 @@ country_event = {
 		name = "Agree to the Proposal"
 		FROM = {
 			annex_country = { target = ROOT transfer_troops = yes } 
-			news_event NDP.2
+			news_event = NDP.2
 			set_cosmetic_tag = DDR_Became_Germany
 		}
 		
@@ -1499,7 +1514,7 @@ country_event = {
 		WGR = {
 			change_tag_from = DDR 
 			annex_country = { target = ROOT transfer_troops = yes } 
-			news_event NDP.2
+			news_event = NDP.2
 			set_cosmetic_tag = DDR_Became_Germany
 		}
 		
@@ -1554,5 +1569,75 @@ country_event = {
 		}
 		name = "Leave the Warsaw Pact"
 		complete_national_focus = DDR_Leave_the_Warsaw_Pact
+	}
+}
+
+country_event = {
+    id = ddr.100
+    title = "More"
+    Desc = "More leaders"
+    picture = news_event_india_troops
+   
+    is_triggered_only = yes
+	
+	option = { #Donitz
+	    name = "Angel of death"
+		ai_chance = {
+			factor = 10
+		}
+        create_country_leader = {
+			name = "Josef Mengele"
+			desc = ""
+			picture = "Portrait_DDR_Mengele.dds"
+			expire = "1992.1.1"
+			ideology = nazism
+			traits = {
+				
+			}
+		}
+		remove_ideas = ddr_idea_lack_of_leadership
+	}
+	
+	option = { #Speer
+	    name = "Butcher of Lyon"
+		ai_chance = {
+			factor = 10
+		}
+        create_country_leader = {
+			name = "Klaus Barbie"
+			desc = ""
+			picture = "Portrait_DDR_Barbie.dds"
+			expire = "1992.1.1"
+			ideology = nazism
+			traits = {
+				
+			}
+		}
+		remove_ideas = ddr_idea_lack_of_leadership
+	}
+	option = { #von Krosigk
+	    name = "The insane one"
+		ai_chance = {
+			factor = 10
+		}
+        create_country_leader = {
+			name = "Rudolf Hess"
+			desc = ""
+			picture = "Portrait_DDR_Hess.dds"
+			expire = "1992.1.1"
+			ideology = nazism
+			traits = {
+				
+			}
+		}
+		remove_ideas = ddr_idea_lack_of_leadership
+	}
+	
+	option = { #von Krosigk
+	    name = "Previous ones"
+		ai_chance = {
+			factor = 10
+		}
+        ROOT = { country_event = ddr.22 }
 	}
 }

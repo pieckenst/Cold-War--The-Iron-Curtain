@@ -60,6 +60,9 @@ focus_tree = {
 		id = Failure_of_the_Great_Leap_Forward
 		icon = GFX_goal_anti_comintern_pact
 		cost = 10.00
+		prerequisite = {
+			focus = PRC_Finish_the_Great_Leap_Forward
+		}
 		x = 17
 		y = 1
 			completion_reward = {
@@ -358,12 +361,22 @@ focus_tree = {
 		x = 5
 		y = 1
 			completion_reward = {
-					create_wargoal = {
-							type = annex_everything
-							target = RAJ
-						}
-				}
-
+				start_border_war = {
+                    change_state_after_war = yes
+                    attacker = {
+                        state = 287
+                        num_provinces = 12
+                        on_win = prcb.4
+                        on_lose = prcb.1
+                    }		
+                    defender = {
+                        state = 873
+                        num_provinces = 1
+                        on_win = prcb.2
+                        on_lose = prcb.3
+                    }
+	            }
+	        }
 	}
 	focus = {
 		id = PRC_Sino_Pakistan_Agreement
@@ -462,7 +475,7 @@ focus_tree = {
 					ANG = {
 							add_timed_idea = {
 									idea = maoist_drift
-									days = 800
+									days = 200
 								}
 						}
 					POR = {
@@ -506,7 +519,7 @@ focus_tree = {
 					CAM = {
 							add_timed_idea = {
 									idea = maoist_drift
-									days = 800
+									days = 200
 								}
 						}
 				}
@@ -525,7 +538,7 @@ focus_tree = {
 					ZIM = {
 							add_timed_idea = {
 									idea = maoist_drift
-									days = 800
+									days = 200
 								}
 						}
 				}
@@ -544,7 +557,7 @@ focus_tree = {
 					MZB = {
 							add_timed_idea = {
 									idea = maoist_drift
-									days = 800
+									days = 200
 								}
 						}
 					POR = {
@@ -566,7 +579,7 @@ focus_tree = {
 					LOS = {
 							add_timed_idea = {
 									idea = maoist_drift
-									days = 800
+									days = 200
 								}
 						}
 				}
@@ -585,7 +598,7 @@ focus_tree = {
 					SAF = {
 							add_timed_idea = {
 									idea = maoist_drift
-									days = 500
+									days = 200
 								}
 						}
 				}
@@ -1056,7 +1069,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construction2
 		cost = 10.00
 		prerequisite = {
-			focus = Failure_of_the_Great_Leap_Forward
+			focus = PRC_Finish_the_Great_Leap_Forward
 		}
 		x = 19
 		y = 1
@@ -2232,7 +2245,7 @@ focus_tree = {
 		y = 5
 			completion_reward = {
 					add_political_power = 300
-					add_threat = -10
+					add_threat = -5
 				}
 
 	}
@@ -3260,7 +3273,7 @@ focus_tree = {
 			completion_reward = {
 					add_political_power = 300
 					PRC = {
-							add_threat = 20
+							add_threat = 6
 						}
 				}
 

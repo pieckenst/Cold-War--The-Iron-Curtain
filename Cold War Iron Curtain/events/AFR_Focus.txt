@@ -3,84 +3,53 @@
 # African Colonial Nations can trigger this event through their focus tree. It is sent to their overlord.
 country_event = {
 	id = africa.1
+	title = "Placeholder"
 	title = {
-		text = "Uganda demands independance"
+		text = "Uganda demands independence"
 		trigger = { FROM = { tag = UGA } }
 	}
 	title = {
-		text = "Kenya demands independance"
+		text = "Kenya demands independence"
 		trigger = { FROM = { tag = KEN } }
 	}
 	title = {
-		text = "Nysaland demands independance"
+		text = "Nyasaland demands independence"
 		trigger = { FROM = { tag = NYA } }
 	}
 	title = {
-		text = "Zambia demands independance"
+		text = "Zambia demands independence"
 		trigger = { FROM = { tag = ZAM } }
 	}
 	title = {
-		text = "Nigeria demands independance"
+		text = "Nigeria demands independence"
 		trigger = { FROM = { tag = NIA } }
 	}
 	title = {
-		text = "Mali demands independance"
-		trigger = { FROM = { tag = MLI } }
-	}
-	title = {
-		text = "Niger demands independance"
-		trigger = { FROM = { tag = NIG } }
-	}
-	title = {
-		text = "Burkina Faso demands independance"
-		trigger = { FROM = { tag = BRK } }
-	}
-	title = {
-		text = "Benin demands independance"
-		trigger = { FROM = { tag = BEN } }
-	}
-	title = {
-		text = "Côte d'Invoire demands independance"
-		trigger = { FROM = { tag = CTD } }
-	}
-	title = {
-		text = "Togo demands independance"
-		trigger = { FROM = { tag = TOG } }
-	}
-	title = {
-		text = "Mauritiana demands independance"
-		trigger = { FROM = { tag = MAU } }
-	}
-	title = {
-		text = "Guinea demands independance"
-		trigger = { FROM = { tag = GUI } }
-	}
-	title = {
-		text = "Senegal demands independance"
+		text = "West Africa demands independence"
 		trigger = { FROM = { tag = SEN } }
 	}
 	title = {
-		text = "Chad demands independance"
-		trigger = { FROM = { tag = CHA } }
+		text = "Equatorial Africa demands independence"
+		trigger = { FROM = { tag = ROC } }
 	}
 	title = {
-		text = "Lesotho demands independance"
+		text = "Lesotho demands independence"
 		trigger = { FROM = { tag = LES } }
 	}
 	title = {
-		text = "Gambia demands independance"
+		text = "The Gambia demands independence"
 		trigger = { FROM = { tag = GAM } }
 	}
 	title = {
-		text = "Sierra Leone demands independance"
+		text = "Sierra Leone demands independence"
 		trigger = { FROM = { tag = SLE } }
 	}
 	title = {
-		text = "Djibuti demands independance"
+		text = "Djibuti demands independence"
 		trigger = { FROM = { tag = DJB } }
 	}
 	title = {
-		text = "The Democratic Republic of Congo demands independance"
+		text = "Belgian Congo demands independence"
 		trigger = { FROM = { tag = DOC } }
 	}
 	desc = africa.1.d
@@ -88,7 +57,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = "Allow their independance"
+		name = "Allow their independence"
 		ai_chance = {
 			factor = 100
 		}
@@ -98,17 +67,15 @@ country_event = {
 			remove_from_faction = FROM
 			if = {
 				limit = {
-					is_in_faction_with = USA
-				}
-				USA = {
-					remove_from_faction = FROM
-				}			
-			}
-			if = {
-				limit = {
 					has_war_with = VIN
 				}
 				white_peace = VIN			
+			}
+			if = {
+				limit = {
+					has_war_with = MLA
+				}
+				white_peace = MLA		
 			}
 			if = {
 				limit = {
@@ -118,7 +85,7 @@ country_event = {
 			}
 			if = {
 				limit = {
-						tag = UGA
+					tag = UGA
 				}
 				set_autonomy = { target = UGA autonomy_state = autonomy_free }	
 				set_politics = {
@@ -128,7 +95,6 @@ country_event = {
 				create_country_leader = {
 					name = "Milton Obote"
 					picture = "gfx/leaders/AFR/Obote.dds"
-					expire = "1999.1.1"
 					ideology = liberalism
 				}
 			}
@@ -144,7 +110,6 @@ country_event = {
 				create_country_leader = {
 					name = "Jomo Kenyatta"
 					picture = "Jomo.dds"
-					expire = "1999.1.1"
 					ideology = liberalism
 				}
 			}
@@ -171,7 +136,6 @@ country_event = {
 				create_country_leader = {
 					name = "Kenneth Kaunda"
 					picture = "Kenneth.dds"
-					expire = "1999.1.1"
 					ideology = liberalism
 				}
 			}
@@ -187,127 +151,6 @@ country_event = {
 				create_country_leader = {
 					name = "Nnamdi Azikiwe"
 					picture = "gfx/leaders/AFR/Azikiwe.dds"
-					expire = "1999.1.1"
-					ideology = liberalism
-				}
-			}
-			if = {
-				limit = {
-					tag = MLI
-				}
-				set_autonomy = { target = MLI autonomy_state = autonomy_free }	
-				set_politics = {
-					ruling_party = democratic
-					elections_allowed = yes
-				}
-				create_country_leader = {
-					name = "Modibo Keita"
-					picture = "gfx/leaders/AFR/Keïta.dds"
-					expire = "1999.1.1"
-					ideology = liberalism
-				}
-			}
-			if = {
-				limit = {
-					tag = NIG
-				}
-				set_autonomy = { target = NIG autonomy_state = autonomy_free }	
-				set_politics = {
-					ruling_party = democratic
-					elections_allowed = yes
-				}
-				create_country_leader = {
-					name = "Hamani Diori"
-					desc = ""
-					picture = "gfx/leaders/AFR/Diori.dds"
-					expire = "1999.1.1"
-					ideology = liberalism
-				}
-			}
-			if = {
-				limit = {
-					tag = BRK
-				}
-				set_autonomy = { target = BRK autonomy_state = autonomy_free }	
-				set_politics = {
-					ruling_party = democratic
-					elections_allowed = yes
-				}
-				create_country_leader = {
-					name = "Maurice Yaméogo"
-					picture = "gfx/leaders/AFR/Portrait_Africa_Generic_1.dds"
-					expire = "1999.1.1"
-					ideology = liberalism
-				}
-			}
-			if = {
-				limit = {
-					tag = BEN
-				}
-				set_autonomy = { target = BEN autonomy_state = autonomy_free }	
-				set_politics = {
-					ruling_party = democratic
-					elections_allowed = yes
-				}
-				create_country_leader = {
-					name = "Hubert Maga"
-					picture = "gfx/leaders/AFR/Portrait_Africa_Generic_1.dds"
-					expire = "1999.1.1"
-					ideology = liberalism
-				}
-			}
-			if = {
-				limit = {
-					tag = CTD
-				}
-				set_autonomy = { target = CTD autonomy_state = autonomy_free }	
-				retire_country_leader = yes
-				set_politics = {
-					ruling_party = neutrality
-					elections_allowed = no
-				}
-			}
-			if = {
-				limit = {
-					tag = TOG
-				}
-				set_autonomy = { target = TOG autonomy_state = autonomy_free }	
-				set_politics = {
-					ruling_party = democratic
-					elections_allowed = yes
-				}
-				create_country_leader = {
-					name = "Sylvanus Olympio"
-					picture = "gfx/leaders/AFR/Olympio.dds"
-					expire = "1999.1.1"
-					ideology = liberalism
-				}
-			}
-			if = {
-				limit = {
-					tag = MAU
-				}
-				set_autonomy = { target = MAU autonomy_state = autonomy_free }	
-
-				retire_country_leader = yes
-				set_politics = {
-					ruling_party = neutrality
-					elections_allowed = no
-				}
-			}
-			if = {
-				limit = {
-					tag = GUI
-				}
-				set_autonomy = { target = GUI autonomy_state = autonomy_free }	
-				set_politics = {
-					ruling_party = democratic
-					elections_allowed = yes
-				}
-				create_country_leader = {
-					name = "Ahmed Sékou Touré"
-					picture = "gfx/leaders/AFR/Touré"
-					expire = "2005.1.1"
 					ideology = liberalism
 				}
 			}
@@ -316,6 +159,14 @@ country_event = {
 					tag = SEN
 				}
 				set_autonomy = { target = SEN autonomy_state = autonomy_free }	
+				release = MLI
+				release = MAU
+				release = GUI
+				release = TOG
+				release = CTD
+				release = BRK
+				release = BEN
+				release = NIG
 				set_politics = {
 					ruling_party = democratic
 					elections_allowed = yes
@@ -323,15 +174,98 @@ country_event = {
 				create_country_leader = {
 					name = "Léopold Sédar Senghor"
 					picture = "gfx/leaders/AFR/Senghor"
-					expire = "2005.1.1"
 					ideology = liberalism
 				}
+				GUI = {
+				    set_politics = {
+					    ruling_party = democratic
+					    elections_allowed = yes
+				    }
+				    create_country_leader = {
+					    name = "Ahmed Sékou Touré"
+					    picture = "gfx/leaders/AFR/Touré"
+					    ideology = liberalism
+					}
+				}
+				MAU = {
+				    retire_country_leader = yes
+				    set_politics = {
+					    ruling_party = neutrality
+					    elections_allowed = no
+				    }
+				}
+				TOG = {
+				    set_politics = {
+					    ruling_party = democratic
+					    elections_allowed = yes
+				    }
+				    create_country_leader = {
+					    name = "Sylvanus Olympio"
+					    picture = "gfx/leaders/AFR/Olympio.dds"
+					    ideology = liberalism
+				    }
+			    }
+				CTD = {
+				    retire_country_leader = yes
+				    set_politics = {
+					    ruling_party = neutrality
+					    elections_allowed = no
+				    }
+			    }
+				BEN = {
+				    set_politics = {
+					    ruling_party = democratic
+					    elections_allowed = yes
+				    }
+				    create_country_leader = {
+					    name = "Hubert Maga"
+					    picture = "gfx/leaders/AFR/Portrait_Africa_Generic_1.dds"
+					    ideology = liberalism
+				    }
+			    }
+				BRK = {
+				    set_politics = {
+					    ruling_party = democratic
+					    elections_allowed = yes
+				    }
+				    create_country_leader = {
+					    name = "Maurice Yaméogo"
+					    picture = "gfx/leaders/AFR/Portrait_Africa_Generic_1.dds"
+					    ideology = liberalism
+				    }
+				}
+				NIG = {
+				    set_politics = {
+					    ruling_party = democratic
+					    elections_allowed = yes
+				    }
+				    create_country_leader = {
+					    name = "Hamani Diori"
+					    picture = "gfx/leaders/AFR/Diori.dds"
+					    ideology = liberalism
+				    }
+			    }
+				MLI = {
+				    set_politics = {
+					    ruling_party = democratic
+					    elections_allowed = yes
+				    }
+				    create_country_leader = {
+					    name = "Modibo Keita"
+					    picture = "gfx/leaders/AFR/Keïta.dds"
+					    ideology = liberalism
+				    }
+			    }
 			}
 			if = {
-				limit = { tag = CHA }
+				limit = { tag = ROC }
 				release = CAR
-            	release = ROC
-                release = GAB				
+            	release = CHA
+                release = GAB	
+                set_politics = {
+					ruling_party = conservative
+					elections_allowed = yes
+				}				
 			}
 			if = {
 				limit = { tag = LES }
@@ -423,7 +357,7 @@ country_event = {
 	}
 }
 
-# Independance Refused
+# independence Refused
 country_event = {
 	id = africa.2
 	title = africa.2.t
@@ -443,14 +377,6 @@ country_event = {
 				has_idea = nato_member
 			}
 			remove_ideas = nato_member
-		}
-		if = {
-			limit = {
-				is_in_faction_with = USA
-			}
-			USA = {
-				remove_from_faction = ROOT
-			}			
 		}
 		add_political_power = 250
 		add_war_support = 0.3
@@ -508,7 +434,7 @@ country_event = {
 	}
 }
 
-# Independance Allowed
+# independence Allowed
 country_event = {
 	id = africa.3
 	title = africa.3.t
@@ -529,7 +455,7 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = "Demand Independance"
+		name = "Demand independence"
 		OVERLORD = { country_event = africa.1 }
 	}
 }

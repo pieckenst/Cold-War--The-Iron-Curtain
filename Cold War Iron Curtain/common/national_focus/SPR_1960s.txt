@@ -177,6 +177,7 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = SPR_1960s_soviet_alignment
+			focus = SPR_1960s_american_alignment
 		}
 		x = 12
 		y = 0
@@ -218,6 +219,7 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = SPR_1960s_soviet_alignment
+			focus = SPR_1960s_non_aligned
 		}
 		x = 28
 		y = 0
@@ -1623,7 +1625,7 @@ focus_tree = {
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
-							type = jet_fighter_equipment_3
+							type = jet_multirole_equipment_3
 							amount = 800
 							producer = SOV
 						}
@@ -2083,7 +2085,7 @@ focus_tree = {
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
-							type = jet_fighter_equipment_3
+							type = jet_multirole_equipment_3
 							amount = 800
 							producer = USA
 						}
@@ -2725,8 +2727,9 @@ focus_tree = {
 		x = 26
 		y = 6
 			completion_reward = {
+				USA = {
 					create_production_license = {
-							target = USA
+							target = SPR
 							cost_factor = 1.0
 							equipment = {
 									type = motorized_equipment_2
@@ -2734,7 +2737,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SPR
 							cost_factor = 1.0
 							equipment = {
 									type = mechanized_equipment_3
@@ -2742,7 +2745,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SPR
 							cost_factor = 1.0
 							equipment = {
 									type = main_battle_tanks_3
@@ -2750,7 +2753,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SPR
 							cost_factor = 1.0
 							equipment = {
 									type = lt_equipment_2
@@ -2758,7 +2761,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SPR
 							cost_factor = 1.0
 							equipment = {
 									type = ht_equipment_3
@@ -2766,7 +2769,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SPR
 							cost_factor = 1.0
 							equipment = {
 									type = assault_rifle_equipment_2
@@ -2774,7 +2777,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SPR
 							cost_factor = 1.0
 							equipment = {
 									type = CAS_equipment_5
@@ -2782,15 +2785,15 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SPR
 							cost_factor = 1.0
 							equipment = {
-									type = jet_fighter_equipment_3
+									type = jet_multirole_equipment_3
 									version = 0
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SPR
 							cost_factor = 1.0
 							equipment = {
 									type = jet_tac_bomber_equipment_3
@@ -2798,7 +2801,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = SPR
 							cost_factor = 1.0
 							equipment = {
 									type = jet_strat_bomber_equipment_3
@@ -2806,6 +2809,7 @@ focus_tree = {
 								}
 						}
 				}
+			}
 
 	}	
 	#Political
@@ -3250,7 +3254,7 @@ focus_tree = {
 						}
 					create_country_leader = {
 							name = "Adolfo Suárez"
-							picture = "SPR_Adolfo_Suárez.dds"
+							picture = "SPR_Adolfo_Suarez.dds"
 							expire = "2004.1.1"
 							ideology = christian_democracy
 						}
@@ -3544,20 +3548,15 @@ focus_tree = {
 		x = 53
 		y = 4
 			completion_reward = {
-					set_party_name = {
-							ideology = conservative
-							long_name = "People's Party"
-							name = "People's Party"
-						}
-					set_politics = {
-							ruling_party = conservative
+			set_politics = {
+							ruling_party = fascism
 							elections_allowed = yes
 						}
 					create_country_leader = {
 							name = "Manuel Fraga Iribarne"
 							picture = "SPR_Manuel_Fraga_Iribarne.dds"
 							expire = "2020.1.1"
-							ideology = conservatism
+							ideology = falangism
 						}
 				}
 
@@ -3607,15 +3606,20 @@ focus_tree = {
 		x = 57
 		y = 4
 			completion_reward = {
+						set_party_name = {
+							ideology = conservative
+							long_name = "Partido Populista"
+							name = "Partido Populista"
+						}
 					set_politics = {
-							ruling_party = fascism
+							ruling_party = conservative
 							elections_allowed = yes
 						}
 					create_country_leader = {
 							name = "Carlos Arias Navarro"
 							picture = "SPR_Carlos_Arias_Navarro.dds"
 							expire = "2020.1.1"
-							ideology = falangism
+							ideology = conservatism
 						}
 				}
 
@@ -4030,7 +4034,7 @@ focus_tree = {
 		y = 8
 			completion_reward = {
 					POR = {
-							country_event = SPR.2500
+							country_event = generic.5
 						}
 				}
 
@@ -4054,7 +4058,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPR_60s_Death_of_Franco
-		icon = GFX_focus_RAJ_lions_of_the_great_war
+		icon = GFX_franco_muerto
 		cost = 10.00
 		prerequisite = {
 			focus = SPR_60s_Liberation_of_Cuba

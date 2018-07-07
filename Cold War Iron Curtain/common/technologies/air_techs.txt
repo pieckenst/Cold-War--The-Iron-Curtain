@@ -18,7 +18,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = naval_bomber1
+			leads_to_tech = heavy_fighter1
 			research_cost_coeff = 1
 		}
 		
@@ -26,7 +26,7 @@ technologies = {
 		start_year = 1933
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 2 }
+			position = { x = 2 y = 2 }
 		}
 		
 		categories = {
@@ -94,7 +94,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 4 }
+			position = { x = 2 y = 4 }
 		}
 		
 		categories = {
@@ -164,7 +164,7 @@ technologies = {
 		start_year = 1940
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 6 }
+			position = { x = 2 y = 6 }
 		}
 		folder = {
 			name = secret_weapons_folder
@@ -229,7 +229,7 @@ technologies = {
 		}
 		
 		path = {	
-			leads_to_tech = jet_fighter1
+			leads_to_tech = jet_multirole1
 			research_cost_coeff = 1
 		}
 		
@@ -243,7 +243,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 8 }
+			position = { x = 2 y = 8 }
 		}
 		
 		categories = {
@@ -292,24 +292,24 @@ technologies = {
 			}
 			modifier = {
 				factor = 0
-				has_tech = jet_fighter1
+				has_tech = jet_multirole1
 			}
 		}
 	}
 	
-	jet_fighter1 = {
+	jet_multirole1 = {
 
 		enable_equipments = {
-				jet_fighter_equipment_1
+				jet_multirole_equipment_1
 		}
 			
 		path = {
-			leads_to_tech = jet_fighter2
+			leads_to_tech = jet_multirole2
 			research_cost_coeff = 1
 		}
 
 		sub_technologies = {
-			cv_fighter4
+			cv_jet_multirole1
 		}
 		
 		dependencies = {
@@ -317,9 +317,84 @@ technologies = {
 		}
 				
 		research_cost = 3
-		start_year = 1945
+		start_year = 1946
 		
 
+		folder = {
+			name = air_techs_folder
+			position = { x = -1 y = 10 }
+		}
+		
+		categories = {
+			light_air
+			jet_technology
+			air_equipment
+			light_fighter
+			cat_mr_fighter
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cv_jet_multirole1 = {
+
+		enable_equipments = {
+			cv_jet_multirole_equipment_1
+		}
+	
+		research_cost = 1 #Carrier Variant
+		start_year = 1946
+		
+		categories = {
+			naval_air
+			air_equipment
+			light_fighter
+			cat_mr_fighter
+		}
+		
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 1
+				OR = {
+					has_tech = early_carrier
+					has_tech = light_carrier1
+				}
+			}
+			modifier = {
+				add = 3
+				has_navy_size = { type = carrier size > 0 }
+			}
+			modifier = {
+				factor = 0
+				has_tech = jet_multirole2
+			}
+		}
+	}
+	
+	jet_multirole2 = {
+
+		enable_equipments = {
+			jet_multirole_equipment_2
+		}
+		
+		on_research_complete = {
+			add_ideas = jet_multirole_cost_increase_2
+		}
+		
+		path = {
+			leads_to_tech = jet_multirole3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 1948
+
+		sub_technologies = {
+			cv_jet_multirole2
+		}
+		
 		folder = {
 			name = air_techs_folder
 			position = { x = -1 y = 12 }
@@ -330,25 +405,25 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_mr_fighter
 		}
-
+		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	cv_fighter4 = {
+	cv_jet_multirole2 = {
 
 		enable_equipments = {
-			cv_fighter_equipment_4
+			cv_jet_multirole_equipment_2
 		}
-	
-		research_cost = 1 #Carrier Variant
-		start_year = 1945
+		
+		research_cost = 1
+		start_year = 1948
 		
 		categories = {
 			naval_air
+			jet_technology
 			air_equipment
 			light_fighter
 			cat_mr_fighter
@@ -369,34 +444,45 @@ technologies = {
 			}
 			modifier = {
 				factor = 0
-				has_tech = jet_fighter2
+				has_tech = jet_multirole3
 			}
 		}
 	}
 	
-	jet_fighter2 = {
+	jet_multirole3 = {
 
 		enable_equipments = {
-			jet_fighter_equipment_2
+			jet_multirole_equipment_3
 		}
 		
 		on_research_complete = {
-			add_ideas = jet_fighter_cost_increase_2
+			swap_ideas = {
+				remove_idea = jet_multirole_cost_increase_2
+				add_idea = jet_multirole_cost_increase_3
+			}
 		}
 		
 		path = {
-			leads_to_tech = jet_fighter3
+			leads_to_tech = jet_multirole4
 			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = jet_interceptor3
+			research_cost_coeff = 1.5
+		}
+
+		path = {
+			leads_to_tech = jet_CAS2
+			research_cost_coeff = 1.5
 		}
 		
 		research_cost = 2
-		start_year = 1947
-
-		sub_technologies = {
-			cv_jet_fighter1
-		}
-
+		start_year = 1950
 		
+		sub_technologies = {
+			cv_jet_multirole3
+		}
 		folder = {
 			name = air_techs_folder
 			position = { x = -1 y = 14 }
@@ -407,7 +493,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_mr_fighter
 		}
 		
@@ -415,90 +500,10 @@ technologies = {
 			factor = 1
 		}
 	}
-	cv_jet_fighter1 = {
+	cv_jet_multirole3 = {
 
 		enable_equipments = {
-			cv_jet_fighter_equipment_1
-		}
-		
-		research_cost = 1
-		start_year = 1947
-		
-		categories = {
-			naval_air
-			jet_technology
-			air_equipment
-			light_fighter
-			cat_jet_fighter
-			cat_mr_fighter
-		}
-		
-		ai_will_do = {
-			factor = 0
-			modifier = {
-				add = 1
-				OR = {
-					has_tech = early_carrier
-					has_tech = light_carrier1
-				}
-			}
-			modifier = {
-				add = 3
-				has_navy_size = { type = carrier size > 0 }
-			}
-			modifier = {
-				factor = 0
-				has_tech = jet_fighter3
-			}
-		}
-	}
-	
-	jet_fighter3 = {
-
-		enable_equipments = {
-			jet_fighter_equipment_3
-		}
-		
-		on_research_complete = {
-			swap_ideas = {
-				remove_idea = jet_fighter_cost_increase_2
-				add_idea = jet_fighter_cost_increase_3
-			}
-		}
-		
-		path = {
-			leads_to_tech = jet_fighter4
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 2
-		start_year = 1950
-		
-		sub_technologies = {
-			cv_jet_fighter2
-		}
-		folder = {
-			name = air_techs_folder
-			position = { x = -1 y = 16 }
-		}
-		
-		categories = {
-			light_air
-			jet_technology
-			air_equipment
-			light_fighter
-			cat_jet_fighter
-			cat_mr_fighter
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	cv_jet_fighter2 = {
-
-		enable_equipments = {
-			cv_jet_fighter_equipment_2
+			cv_jet_multirole_equipment_3
 		}
 			
 		research_cost = 1
@@ -509,7 +514,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_mr_fighter
 		}
 		
@@ -528,26 +532,26 @@ technologies = {
 			}
 			modifier = {
 				factor = 0
-				has_tech = jet_fighter4
+				has_tech = jet_multirole4
 			}
 		}
 	}
 
-	jet_fighter4 = {
+	jet_multirole4 = {
 
 		enable_equipments = {
-			jet_fighter_equipment_4
+			jet_multirole_equipment_4
 		}
 		
 		on_research_complete = {
 			swap_ideas = {
-				remove_idea = jet_fighter_cost_increase_3
-				add_idea = jet_fighter_cost_increase_4
+				remove_idea = jet_multirole_cost_increase_3
+				add_idea = jet_multirole_cost_increase_4
 			}
 		}
 		
 		path = {
-			leads_to_tech = jet_fighter5
+			leads_to_tech = jet_multirole5
 			research_cost_coeff = 1
 		}
 		
@@ -555,7 +559,91 @@ technologies = {
 		start_year = 1955
 
 		sub_technologies = {
-			cv_jet_fighter3
+			cv_jet_multirole4
+		}
+		
+		folder = {
+			name = air_techs_folder
+			position = { x = -1 y = 16 }
+		}
+		
+		categories = {
+			light_air
+			jet_technology
+			air_equipment
+			light_fighter
+			cat_mr_fighter
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cv_jet_multirole4 = {
+
+		enable_equipments = {
+			cv_jet_multirole_equipment_4
+		}
+				
+		research_cost = 1
+		start_year = 1955
+		
+		categories = {
+			naval_air
+			jet_technology
+			air_equipment
+			light_fighter
+			cat_mr_fighter
+		}
+		
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 1
+				OR = {
+					has_tech = early_carrier
+					has_tech = light_carrier1
+				}
+			}
+			modifier = {
+				add = 3
+				has_navy_size = { type = carrier size > 0 }
+			}
+			modifier = {
+				factor = 0
+				has_tech = jet_multirole5
+			}
+		}
+	}
+
+	jet_multirole5 = {
+
+		enable_equipments = {
+			jet_multirole_equipment_5
+		}
+		
+		on_research_complete = {
+			swap_ideas = {
+				remove_idea = jet_multirole_cost_increase_4
+				add_idea = jet_multirole_cost_increase_5
+			}
+		}
+		
+		path = {
+			leads_to_tech = jet_multirole6
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = jump_jet1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 3
+		start_year = 1960
+
+		sub_technologies = {
+			cv_jet_multirole5
 		}
 		
 		folder = {
@@ -568,7 +656,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_mr_fighter
 		}
 		
@@ -576,21 +663,20 @@ technologies = {
 			factor = 1
 		}
 	}
-	cv_jet_fighter3 = {
+	cv_jet_multirole5 = {
 
 		enable_equipments = {
-			cv_jet_fighter_equipment_3
+			cv_jet_multirole_equipment_5
 		}
-				
-		research_cost = 1
-		start_year = 1955
+		
+		research_cost = 1.5
+		start_year = 1960
 		
 		categories = {
 			naval_air
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_mr_fighter
 		}
 		
@@ -609,39 +695,44 @@ technologies = {
 			}
 			modifier = {
 				factor = 0
-				has_tech = jet_fighter5
+				has_tech = jet_multirole6
 			}
 		}
 	}
 
-	jet_fighter5 = {
+	jet_multirole6 = {
 
 		enable_equipments = {
-			jet_fighter_equipment_5
+			jet_multirole_equipment_6
 		}
 		
 		on_research_complete = {
 			swap_ideas = {
-				remove_idea = jet_fighter_cost_increase_4
-				add_idea = jet_fighter_cost_increase_5
+				remove_idea = jet_multirole_cost_increase_5
+				add_idea = jet_multirole_cost_increase_6
 			}
 		}
 		
 		path = {
-			leads_to_tech = jet_fighter6
+			leads_to_tech = jet_multirole7
 			research_cost_coeff = 1
 		}
-		
+
 		path = {
-			leads_to_tech = jump_jet1
-			research_cost_coeff = 1
+			leads_to_tech = jet_interceptor6
+			research_cost_coeff = 1.5
+		}
+
+		path = {
+			leads_to_tech = jet_CAS5
+			research_cost_coeff = 1.5
 		}
 		
 		research_cost = 3
-		start_year = 1960
+		start_year = 1965
 
 		sub_technologies = {
-			cv_jet_fighter4
+			cv_jet_multirole6
 		}
 		
 		folder = {
@@ -654,7 +745,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_mr_fighter
 		}
 		
@@ -662,21 +752,20 @@ technologies = {
 			factor = 1
 		}
 	}
-	cv_jet_fighter4 = {
+	cv_jet_multirole6 = {
 
 		enable_equipments = {
-			cv_jet_fighter_equipment_4
+			cv_jet_multirole_equipment_6
 		}
 		
 		research_cost = 1.5
-		start_year = 1960
+		start_year = 1965
 		
 		categories = {
 			naval_air
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_mr_fighter
 		}
 		
@@ -695,34 +784,34 @@ technologies = {
 			}
 			modifier = {
 				factor = 0
-				has_tech = jet_fighter6
+				has_tech = jet_multirole7
 			}
 		}
 	}
 
-	jet_fighter6 = {
+	jet_multirole7 = {
 
 		enable_equipments = {
-			jet_fighter_equipment_6
+			jet_multirole_equipment_7
 		}
 		
 		on_research_complete = {
 			swap_ideas = {
-				remove_idea = jet_fighter_cost_increase_5
-				add_idea = jet_fighter_cost_increase_6
+				remove_idea = jet_multirole_cost_increase_6
+				add_idea = jet_multirole_cost_increase_7
 			}
 		}
 		
 		path = {
-			leads_to_tech = jet_fighter7
+			leads_to_tech = jet_multirole8
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 3
-		start_year = 1965
+		research_cost = 4
+		start_year = 1970
 
 		sub_technologies = {
-			cv_jet_fighter5
+			cv_jet_multirole7
 		}
 		
 		folder = {
@@ -735,7 +824,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_mr_fighter
 		}
 		
@@ -743,21 +831,20 @@ technologies = {
 			factor = 1
 		}
 	}
-	cv_jet_fighter5 = {
+	cv_jet_multirole7 = {
 
 		enable_equipments = {
-			cv_jet_fighter_equipment_5
+			cv_jet_multirole_equipment_7
 		}
 		
-		research_cost = 1.5
-		start_year = 1965
+		research_cost = 2
+		start_year = 1970
 		
 		categories = {
 			naval_air
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_mr_fighter
 		}
 		
@@ -776,26 +863,26 @@ technologies = {
 			}
 			modifier = {
 				factor = 0
-				has_tech = jet_fighter7
+				has_tech = jet_multirole8
 			}
 		}
 	}
 
-	jet_fighter7 = {
+	jet_multirole8 = {
 
 		enable_equipments = {
-			jet_fighter_equipment_7
+			jet_multirole_equipment_8
 		}
 		
 		on_research_complete = {
 			swap_ideas = {
-				remove_idea = jet_fighter_cost_increase_6
-				add_idea = jet_fighter_cost_increase_7
+				remove_idea = jet_multirole_cost_increase_7
+				add_idea = jet_multirole_cost_increase_8
 			}
 		}
 		
 		path = {
-			leads_to_tech = jet_fighter8
+			leads_to_tech = jet_multirole9
 			research_cost_coeff = 1
 		}
 		
@@ -803,7 +890,96 @@ technologies = {
 		start_year = 1975
 
 		sub_technologies = {
-			cv_jet_fighter6
+			cv_jet_multirole8
+		}
+		
+		folder = {
+			name = air_techs_folder
+			position = { x = -1 y = 24 }
+		}
+		
+		categories = {
+			light_air
+			jet_technology
+			air_equipment
+			light_fighter
+			cat_mr_fighter
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cv_jet_multirole8 = {
+
+		enable_equipments = {
+			cv_jet_multirole_equipment_8
+		}
+		
+		research_cost = 2
+		start_year = 1975
+		
+		categories = {
+			naval_air
+			jet_technology
+			air_equipment
+			light_fighter
+			cat_mr_fighter
+		}
+		
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 1
+				OR = {
+					has_tech = early_carrier
+					has_tech = light_carrier1
+				}
+			}
+			modifier = {
+				add = 3
+				has_navy_size = { type = carrier size > 0 }
+			}
+			modifier = {
+				factor = 0
+				has_tech = jet_multirole9
+			}
+		}
+	}	
+
+	jet_multirole9 = {
+
+		enable_equipments = {
+			jet_multirole_equipment_9
+		}
+		
+		on_research_complete = {
+			swap_ideas = {
+				remove_idea = jet_multirole_cost_increase_8
+				add_idea = jet_multirole_cost_increase_9
+			}
+		}
+		
+		path = {
+			leads_to_tech = jet_multirole10
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = jet_interceptor9
+			research_cost_coeff = 1.5
+		}
+
+		path = {
+			leads_to_tech = jet_CAS8
+			research_cost_coeff = 1.5
+		}
+		
+		research_cost = 4
+		start_year = 1980
+
+		sub_technologies = {
+			cv_jet_multirole9
 		}
 		
 		folder = {
@@ -816,7 +992,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_mr_fighter
 		}
 		
@@ -824,21 +999,20 @@ technologies = {
 			factor = 1
 		}
 	}
-	cv_jet_fighter6 = {
+	cv_jet_multirole9 = {
 
 		enable_equipments = {
-			cv_jet_fighter_equipment_6
+			cv_jet_multirole_equipment_9
 		}
 		
 		research_cost = 2
-		start_year = 1975
+		start_year = 1980
 		
 		categories = {
 			naval_air
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_mr_fighter
 		}
 		
@@ -857,34 +1031,34 @@ technologies = {
 			}
 			modifier = {
 				factor = 0
-				has_tech = jet_fighter8
+				has_tech = jet_multirole10
 			}
 		}
 	}
 
-	jet_fighter8 = {
+	jet_multirole10 = {
 
 		enable_equipments = {
-			jet_fighter_equipment_8
+			jet_multirole_equipment_10
 		}
 		
 		on_research_complete = {
 			swap_ideas = {
-				remove_idea = jet_fighter_cost_increase_7
-				add_idea = jet_fighter_cost_increase_8
+				remove_idea = jet_multirole_cost_increase_9
+				add_idea = jet_multirole_cost_increase_10
 			}
 		}
-		
+				
 		path = {
-			leads_to_tech = jet_fighter9
+			leads_to_tech = mr_stealth
 			research_cost_coeff = 1
 		}
 		
 		research_cost = 4
-		start_year = 1980
+		start_year = 1985
 
 		sub_technologies = {
-			cv_jet_fighter7
+			cv_jet_multirole10
 		}
 		
 		folder = {
@@ -897,7 +1071,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_mr_fighter
 		}
 		
@@ -905,91 +1078,10 @@ technologies = {
 			factor = 1
 		}
 	}
-	cv_jet_fighter7 = {
+	cv_jet_multirole10 = {
 
 		enable_equipments = {
-			cv_jet_fighter_equipment_7
-		}
-		
-		research_cost = 2
-		start_year = 1980
-		
-		categories = {
-			naval_air
-			jet_technology
-			air_equipment
-			light_fighter
-			cat_jet_fighter
-			cat_mr_fighter
-		}
-		
-		ai_will_do = {
-			factor = 0
-			modifier = {
-				add = 1
-				OR = {
-					has_tech = early_carrier
-					has_tech = light_carrier1
-				}
-			}
-			modifier = {
-				add = 3
-				has_navy_size = { type = carrier size > 0 }
-			}
-			modifier = {
-				factor = 0
-				has_tech = jet_fighter9
-			}
-		}
-	}	
-
-	jet_fighter9 = {
-
-		enable_equipments = {
-			jet_fighter_equipment_9
-		}
-		
-		on_research_complete = {
-			swap_ideas = {
-				remove_idea = jet_fighter_cost_increase_8
-				add_idea = jet_fighter_cost_increase_9
-			}
-		}
-		
-		path = {
-			leads_to_tech = jet_fighter10
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 4
-		start_year = 1985
-
-		sub_technologies = {
-			cv_jet_fighter8
-		}
-		
-		folder = {
-			name = air_techs_folder
-			position = { x = -1 y = 30 }
-		}
-		
-		categories = {
-			light_air
-			jet_technology
-			air_equipment
-			light_fighter
-			cat_jet_fighter
-			cat_mr_fighter
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	cv_jet_fighter8 = {
-
-		enable_equipments = {
-			cv_jet_fighter_equipment_8
+			cv_jet_multirole_equipment_10
 		}
 		
 		research_cost = 2
@@ -1000,88 +1092,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
-			cat_mr_fighter
-		}
-		
-		ai_will_do = {
-			factor = 0
-			modifier = {
-				add = 1
-				OR = {
-					has_tech = early_carrier
-					has_tech = light_carrier1
-				}
-			}
-			modifier = {
-				add = 3
-				has_navy_size = { type = carrier size > 0 }
-			}
-			modifier = {
-				factor = 0
-				has_tech = jet_fighter10
-			}
-		}
-	}
-
-	jet_fighter10 = {
-
-		enable_equipments = {
-			jet_fighter_equipment_10
-		}
-		
-		on_research_complete = {
-			swap_ideas = {
-				remove_idea = jet_fighter_cost_increase_9
-				add_idea = jet_fighter_cost_increase_10
-			}
-		}
-				
-		path = {
-			leads_to_tech = mr_stealth
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 4
-		start_year = 1990
-
-		sub_technologies = {
-			cv_jet_fighter9
-		}
-		
-		folder = {
-			name = air_techs_folder
-			position = { x = -1 y = 32 }
-		}
-		
-		categories = {
-			light_air
-			jet_technology
-			air_equipment
-			light_fighter
-			cat_jet_fighter
-			cat_mr_fighter
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	cv_jet_fighter9 = {
-
-		enable_equipments = {
-			cv_jet_fighter_equipment_9
-		}
-		
-		research_cost = 2
-		start_year = 1990
-		
-		categories = {
-			naval_air
-			jet_technology
-			air_equipment
-			light_fighter
-			cat_jet_fighter
 			cat_mr_fighter
 		}
 		
@@ -1109,7 +1119,12 @@ technologies = {
 				
 		path = {
 			leads_to_tech = cas_stealth
-			research_cost_coeff = 2
+			research_cost_coeff = 1.5
+		}
+
+		path = {
+			leads_to_tech = jump_stealth
+			research_cost_coeff = 1.5
 		}
 		
 		sub_technologies = {
@@ -1129,7 +1144,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_mr_fighter
 		}
 		
@@ -1151,7 +1165,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_mr_fighter
 		}
 		
@@ -1187,11 +1200,11 @@ technologies = {
 		}
 		
 		research_cost = 3
-		start_year = 1945
+		start_year = 1946
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 12 }
+			position = { x = 2 y = 10 }
 		}
 		
 		categories = {
@@ -1199,7 +1212,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			cat_heavy_fighter
-			cat_jet_fighter
 			cat_int_fighter
 		}
 
@@ -1221,11 +1233,11 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1947
+		start_year = 1948
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 14 }
+			position = { x = 2 y = 12 }
 		}
 		
 		categories = {
@@ -1233,7 +1245,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			cat_heavy_fighter
-			cat_jet_fighter
 			cat_int_fighter
 		}
 		
@@ -1253,13 +1264,18 @@ technologies = {
 			leads_to_tech = jet_interceptor4
 			research_cost_coeff = 1
 		}
+
+		path = {
+			leads_to_tech = jet_multirole3
+			research_cost_coeff = 1.5
+		}
 		
 		research_cost = 2
 		start_year = 1950
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 16 }
+			position = { x = 2 y = 14 }
 		}
 		
 		categories = {
@@ -1267,7 +1283,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			cat_heavy_fighter
-			cat_jet_fighter
 			cat_int_fighter
 		}
 		
@@ -1293,7 +1308,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 18 }
+			position = { x = 2 y = 16 }
 		}
 		
 		categories = {
@@ -1301,7 +1316,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			cat_heavy_fighter
-			cat_jet_fighter
 			cat_int_fighter
 		}
 		
@@ -1332,7 +1346,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 20 }
+			position = { x = 2 y = 18 }
 		}
 		
 		categories = {
@@ -1340,7 +1354,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			cat_heavy_fighter
-			cat_jet_fighter
 			cat_int_fighter
 		}
 		
@@ -1360,13 +1373,18 @@ technologies = {
 			leads_to_tech = jet_interceptor7
 			research_cost_coeff = 1
 		}
+
+		path = {
+			leads_to_tech = jet_multirole6
+			research_cost_coeff = 1.5
+		}
 		
 		research_cost = 3
 		start_year = 1965
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 22 }
+			position = { x = 2 y = 20 }
 		}
 		
 		categories = {
@@ -1374,7 +1392,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			cat_heavy_fighter
-			cat_jet_fighter
 			cat_int_fighter
 		}
 		
@@ -1400,7 +1417,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 24 }
+			position = { x = 2 y = 22 }
 		}
 		
 		categories = {
@@ -1408,7 +1425,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			cat_heavy_fighter
-			cat_jet_fighter
 			cat_int_fighter
 		}
 		
@@ -1434,7 +1450,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 26 }
+			position = { x = 2 y = 24 }
 		}
 		
 		categories = {
@@ -1442,7 +1458,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			cat_heavy_fighter
-			cat_jet_fighter
 			cat_int_fighter
 		}
 		
@@ -1462,13 +1477,18 @@ technologies = {
 			leads_to_tech = stealth_fighter
 			research_cost_coeff = 1
 		}
+
+		path = {
+			leads_to_tech = jet_multirole9
+			research_cost_coeff = 1.5
+		}
 	
 		research_cost = 4
 		start_year = 1980
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 28 }
+			position = { x = 2 y = 26 }
 		}
 		
 		categories = {
@@ -1476,7 +1496,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			cat_heavy_fighter
-			cat_jet_fighter
 			cat_int_fighter
 		}
 		
@@ -1515,7 +1534,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 34 }
+			position = { x = 2 y = 32 }
 		}
 		
 		categories = {
@@ -1523,7 +1542,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			cat_heavy_fighter
-			cat_jet_fighter
 			cat_int_fighter
 		}
 		
@@ -1546,7 +1564,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			cat_heavy_fighter
-			cat_jet_fighter
 			cat_int_fighter
 		}
 		
@@ -1567,7 +1584,7 @@ technologies = {
 	jump_jet1 = {
 
 		enable_equipments = {
-				jump_jet_equipment_1
+			jump_jet_equipment_1
 		}
 		
 		path = {
@@ -1580,7 +1597,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 5 y = 24 }
+			position = { x = 5 y = 22 }
 		}
 		
 		categories = {
@@ -1588,7 +1605,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_vtol_fighter
 		}
 
@@ -1625,7 +1641,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 5 y = 26 }
+			position = { x = 5 y = 24 }
 		}
 		
 		categories = {
@@ -1633,7 +1649,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_vtol_fighter
 		}
 		
@@ -1670,7 +1685,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 5 y = 28 }
+			position = { x = 5 y = 26 }
 		}
 		
 		categories = {
@@ -1678,7 +1693,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_vtol_fighter
 		}
 		
@@ -1715,7 +1729,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 5 y = 30 }
+			position = { x = 5 y = 28 }
 		}
 		
 		categories = {
@@ -1723,7 +1737,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_vtol_fighter
 		}
 		
@@ -1749,15 +1762,10 @@ technologies = {
 		enable_equipments = {
 			jump_stealth_equipment_1
 		}
-				
-		path = {
-			leads_to_tech = cas_stealth
-			research_cost_coeff = 2
-		}
 			
 		path = {
 			leads_to_tech = mr_stealth
-			research_cost_coeff = 2
+			research_cost_coeff = 1.5
 		}
 				
 		research_cost = 6
@@ -1773,7 +1781,6 @@ technologies = {
 			jet_technology
 			air_equipment
 			light_fighter
-			cat_jet_fighter
 			cat_vtol_fighter
 		}
 		
@@ -2009,10 +2016,10 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1945
+		start_year = 1946
 		folder = {
 			name = air_techs_folder
-			position = { x = -4 y = 12 }
+			position = { x = -4 y = 10 }
 		}
 		
 		sub_technologies = {
@@ -2037,7 +2044,7 @@ technologies = {
 		}
 	
 		research_cost = 1 #Carrier Variant
-		start_year = 1945
+		start_year = 1946
 		
 		categories = {
 			naval_air
@@ -2077,10 +2084,10 @@ technologies = {
 		}
 		
 		research_cost = 3
-		start_year = 1947
+		start_year = 1948
 		folder = {
 			name = air_techs_folder
-			position = { x = -4 y = 14 }
+			position = { x = -4 y = 12 }
 		}
 		
 		dependencies = {
@@ -2110,7 +2117,7 @@ technologies = {
 		}
 	
 		research_cost = 1 #Carrier Variant
-		start_year = 1947
+		start_year = 1948
 		
 		categories = {
 			naval_air
@@ -2150,12 +2157,17 @@ technologies = {
 			leads_to_tech = jet_CAS3
 			research_cost_coeff = 1
 		}
+
+		path = {
+			leads_to_tech = jet_multirole3
+			research_cost_coeff = 1.5
+		}
 		
 		research_cost = 2
 		start_year = 1950
 		folder = {
 			name = air_techs_folder
-			position = { x = -4 y = 16 }
+			position = { x = -4 y = 14 }
 		}
 		
 		sub_technologies = {
@@ -2226,7 +2238,7 @@ technologies = {
 		start_year = 1955
 		folder = {
 			name = air_techs_folder
-			position = { x = -4 y = 18 }
+			position = { x = -4 y = 16 }
 		}
 		
 		sub_technologies = {
@@ -2297,7 +2309,7 @@ technologies = {
 		start_year = 1960
 		folder = {
 			name = air_techs_folder
-			position = { x = -4 y = 20 }
+			position = { x = -4 y = 18 }
 		}
 		
 		sub_technologies = {
@@ -2362,12 +2374,17 @@ technologies = {
 			leads_to_tech = jet_CAS6
 			research_cost_coeff = 1
 		}
+
+		path = {
+			leads_to_tech = jet_multirole6
+			research_cost_coeff = 1.5
+		}
 		
 		research_cost = 3
 		start_year = 1965
 		folder = {
 			name = air_techs_folder
-			position = { x = -4 y = 22 }
+			position = { x = -4 y = 20 }
 		}
 		
 		sub_technologies = {
@@ -2437,7 +2454,7 @@ technologies = {
 		start_year = 1970
 		folder = {
 			name = air_techs_folder
-			position = { x = -4 y = 24 }
+			position = { x = -4 y = 22 }
 		}
 		
 		sub_technologies = {
@@ -2507,7 +2524,7 @@ technologies = {
 		start_year = 1975
 		folder = {
 			name = air_techs_folder
-			position = { x = -4 y = 26 }
+			position = { x = -4 y = 24 }
 		}
 		
 		sub_technologies = {
@@ -2572,12 +2589,17 @@ technologies = {
 		start_year = 1980
 		folder = {
 			name = air_techs_folder
-			position = { x = -4 y = 28 }
+			position = { x = -4 y = 26 }
 		}
 				
 		path = {
 			leads_to_tech = cas_stealth
 			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = jet_multirole9
+			research_cost_coeff = 1.5
 		}
 		
 		sub_technologies = {
@@ -2636,12 +2658,7 @@ technologies = {
 				
 		path = {
 			leads_to_tech = mr_stealth
-			research_cost_coeff = 2
-		}
-				
-		path = {
-			leads_to_tech = jump_stealth
-			research_cost_coeff = 2
+			research_cost_coeff = 1.5
 		}
 		
 		research_cost = 6
@@ -2680,7 +2697,7 @@ technologies = {
 		start_year = 1936
 		folder = {
 			name = air_techs_folder
-			position = { x = 4 y = 4 }
+			position = { x = -2 y = 4 }
 		}
 		
 		sub_technologies = {
@@ -2747,7 +2764,7 @@ technologies = {
 		start_year = 1940
 		folder = {
 			name = air_techs_folder
-			position = { x = 4 y = 6 }
+			position = { x = -2 y = 6 }
 		}
 		
 		sub_technologies = {
@@ -2814,7 +2831,7 @@ technologies = {
 		start_year = 1944
 		folder = {
 			name = air_techs_folder
-			position = { x = 4 y = 8 }
+			position = { x = -2 y = 8 }
 		}
 		
 		sub_technologies = {	
@@ -2878,11 +2895,11 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1947
+		start_year = 1948
 		
 		folder = {
 			name = air_techs_folder
-			position = { x = 8 y = 14 }
+			position = { x = -2 y = 12 }
 		}
 			
 		sub_technologies = {
@@ -2906,7 +2923,7 @@ technologies = {
 		}
 		
 		research_cost = 1
-		start_year = 1947
+		start_year = 1948
 		
 		categories = {
 			naval_air
@@ -2950,10 +2967,10 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1950
+		start_year = 1955
 		folder = {
 			name = air_techs_folder
-			position = { x = 8 y = 16 }
+			position = { x = -2 y = 16 }
 		}
 		
 		sub_technologies = {
@@ -2977,7 +2994,7 @@ technologies = {
 		}
 			
 		research_cost = 1
-		start_year = 1950
+		start_year = 1955
 
 		categories = {
 			naval_air
@@ -3017,10 +3034,10 @@ technologies = {
 		}
 		
 		research_cost = 3
-		start_year = 1955
+		start_year = 1965
 		folder = {
 			name = air_techs_folder
-			position = { x = 8 y = 18 }
+			position = { x = -2 y = 20 }
 		}
 		
 		sub_technologies = {
@@ -3044,7 +3061,7 @@ technologies = {
 		}
 				
 		research_cost = 1.5
-		start_year = 1955
+		start_year = 1965
 		
 		categories = {
 			naval_air
@@ -3087,7 +3104,7 @@ technologies = {
 		start_year = 1975
 		folder = {
 			name = air_techs_folder
-			position = { x = 8 y = 26 }
+			position = { x = -2 y = 24 }
 		}
 		
 		sub_technologies = {
@@ -3150,7 +3167,7 @@ technologies = {
 		start_year = 2005
 		folder = {
 			name = air_techs_folder
-			position = { x = 8 y = 36 }
+			position = { x = -2 y = 36 }
 		}
 
 		sub_technologies = {
@@ -3209,11 +3226,15 @@ technologies = {
 		}
 	
 		path = {
-			leads_to_tech = heavy_fighter1
+			leads_to_tech = naval_bomber1
 			research_cost_coeff = 1
 		}
 		path = {
 			leads_to_tech = tactical_bomber1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = strategic_bomber1
 			research_cost_coeff = 1
 		}
 		
@@ -3221,7 +3242,7 @@ technologies = {
 		start_year = 1933
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 2 }
+			position = { x = 4 y = 2 }
 		}
 		
 		categories = {
@@ -3251,7 +3272,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 4 }
+			position = { x = 4 y = 4 }
 		}
 		
 		categories = {
@@ -3280,7 +3301,7 @@ technologies = {
 		start_year = 1940
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 6 }
+			position = { x = 4 y = 6 }
 		}
 		
 		categories = {
@@ -3309,7 +3330,7 @@ technologies = {
 		start_year = 1944
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 8 }
+			position = { x = 4 y = 8 }
 		}
 		
 		categories = {
@@ -3339,11 +3360,11 @@ technologies = {
 		}
 
 		research_cost = 3
-		start_year = 1945
+		start_year = 1946
 		
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 12 }
+			position = { x = 4 y = 10 }
 		}
 		
 		categories = {
@@ -3373,7 +3394,7 @@ technologies = {
 		start_year = 1950
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 16 }
+			position = { x = 4 y = 14 }
 		}
 		
 		categories = {
@@ -3403,7 +3424,7 @@ technologies = {
 		start_year = 1955
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 18 }
+			position = { x = 4 y = 16 }
 		}
 		
 		categories = {
@@ -3433,7 +3454,7 @@ technologies = {
 		start_year = 1965
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 22 }
+			position = { x = 4 y = 20 }
 		}
 		
 		categories = {
@@ -3463,7 +3484,7 @@ technologies = {
 		start_year = 1970
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 24 }
+			position = { x = 4 y = 22 }
 		}
 		
 		categories = {
@@ -3490,7 +3511,7 @@ technologies = {
 		}
 		
 		path = {
-			leads_to_tech = stealth_tactical_bomber
+			leads_to_tech = stealth_tactical_bomber1
 			research_cost_coeff = 1
 		}
 		
@@ -3498,7 +3519,7 @@ technologies = {
 		start_year = 1975
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 26 }
+			position = { x = 4 y = 24 }
 		}
 		
 		categories = {
@@ -3519,17 +3540,16 @@ technologies = {
 			jet_tac_bomber_equipment_7
 		}
 
-		
 		path = {
-		leads_to_tech = jet_tactical_bomber8
-		research_cost_coeff = 1
+			leads_to_tech = jet_tactical_bomber8
+			research_cost_coeff = 1
 		}
 		
 		research_cost = 4
 		start_year = 1985
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 30 }
+			position = { x = 4 y = 28 }
 		}
 		
 		categories = {
@@ -3549,13 +3569,12 @@ technologies = {
 		enable_equipments = {
 			jet_tac_bomber_equipment_8
 		}
-
 		
 		research_cost = 6
 		start_year = 2005
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 36 }
+			position = { x = 4 y = 36 }
 		}
 		
 		categories = {
@@ -3570,18 +3589,47 @@ technologies = {
 		}
 	}
 	
-	stealth_tactical_bomber = {
+	stealth_tactical_bomber1 = {
 
 		enable_equipments = {
 			stealth_tactical_bomber_equipment_1
 		}
 
+		path = {
+			leads_to_tech = stealth_tactical_bomber2
+			research_cost_coeff = 1
+		}
 		
 		research_cost = 5
-		start_year = 1983
+		start_year = 1980
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 28 }
+			position = { x = 1 y = 26 }
+		}
+		
+		categories = {
+			medium_air
+			jet_technology
+			air_equipment
+			tactical_bomber
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	stealth_tactical_bomber2 = {
+
+		enable_equipments = {
+			stealth_tactical_bomber_equipment_2
+		}
+		
+		research_cost = 5
+		start_year = 2005
+		folder = {
+			name = air_techs_folder
+			position = { x = 1 y = 36 }
 		}
 		
 		categories = {
@@ -3613,7 +3661,7 @@ technologies = {
 		start_year = 1936
 		folder = {
 			name = air_techs_folder
-			position = { x = -2 y = 4 }
+			position = { x = 5 y = 4 }
 		}
 		
 		categories = {
@@ -3642,7 +3690,7 @@ technologies = {
 		start_year = 1940
 		folder = {
 			name = air_techs_folder
-			position = { x = -2 y = 6 }
+			position = { x = 5 y = 6 }
 		}
 		
 		categories = {
@@ -3663,7 +3711,7 @@ technologies = {
 		}
 		
 		#path = {
-		#	leads_to_tech = jet_fighter1
+		#	leads_to_tech = jet_multirole1
 		#	research_cost_coeff = 1.2
 		#}
 
@@ -3671,7 +3719,7 @@ technologies = {
 		start_year = 1944
 		folder = {
 			name = air_techs_folder
-			position = { x = -2 y = 8 }
+			position = { x = 5 y = 8 }
 		}
 		
 		categories = {
@@ -3703,7 +3751,7 @@ technologies = {
 		start_year = 1936
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 4 }
+			position = { x = 7 y = 4 }
 		}
 		
 		categories = {
@@ -3745,7 +3793,7 @@ technologies = {
 		start_year = 1940
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 6 }
+			position = { x = 7 y = 6 }
 		}
 		
 		categories = {
@@ -3787,7 +3835,7 @@ technologies = {
 		start_year = 1944
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 8 }
+			position = { x = 7 y = 8 }
 		}
 		
 		categories = {
@@ -3826,7 +3874,7 @@ technologies = {
 		}
 
 		research_cost = 3
-		start_year = 1947
+		start_year = 1948
 
 		dependencies = {
 			jet_engines = 1
@@ -3834,7 +3882,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 14 }
+			position = { x = 7 y = 12 }
 		}
 		
 		categories = {
@@ -3882,7 +3930,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 16 }
+			position = { x = 7 y = 14 }
 		}
 		
 		categories = {
@@ -3935,7 +3983,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 18 }
+			position = { x = 7 y = 16 }
 		}
 		
 		categories = {
@@ -3983,7 +4031,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = -1 y = 20 }
+			position = { x = 7 y = 18 }
 		}
 		
 		categories = {
@@ -4016,10 +4064,12 @@ technologies = {
 		enable_equipments = {
 			jet_strat_bomber_equipment_5
 		}
+
 		path = {
-			leads_to_tech = stealth_strategic_bomber
+			leads_to_tech = stealth_strategic_bomber1
 			research_cost_coeff = 1
 		}
+
 		research_cost = 3
 		start_year = 1975
 
@@ -4029,7 +4079,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = -1 y = 26 }
+			position = { x = 7 y = 24 }
 		}
 		
 		categories = {
@@ -4057,10 +4107,15 @@ technologies = {
 		}
 	}
 	
-	stealth_strategic_bomber = {
+	stealth_strategic_bomber1 = {
 
 		enable_equipments = {
 			stealth_strategic_bomber_equipment_1
+		}
+
+		path = {
+			leads_to_tech = stealth_strategic_bomber2
+			research_cost_coeff = 1
 		}
 
 		research_cost = 5
@@ -4072,7 +4127,42 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = -1 y = 34 }
+			position = { x = 7 y = 32 }
+		}
+		
+		categories = {
+			heavy_air
+			jet_technology
+			air_equipment
+			cat_strategic_bomber
+		}
+		
+		ai_will_do = {
+			factor = 0
+			
+			modifier = {
+				add = 5
+				tag = USA
+			}
+		}
+	}
+
+	stealth_strategic_bomber2 = {
+
+		enable_equipments = {
+			stealth_strategic_bomber_equipment_2
+		}
+
+		research_cost = 5
+		start_year = 2005
+
+		dependencies = {
+			jet_engines = 1
+		}
+
+		folder = {
+			name = air_techs_folder
+			position = { x = 7 y = 36 }
 		}
 		
 		categories = {
@@ -4117,7 +4207,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 20 }
+			position = { x = 10 y = 18 }
 		}
 		
 		categories = {
@@ -4165,7 +4255,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 2 y = 24 }
+			position = { x = 10 y = 22 }
 		}
 		
 		categories = {
@@ -4198,6 +4288,11 @@ technologies = {
 		enable_equipments = {
 			mach3stratbomber_equipment_1
 		}
+
+		path = {
+			leads_to_tech = mach6stratbomber
+			research_cost_coeff = 1
+		}
 		
 		research_cost = 4
 		start_year = 1970
@@ -4208,7 +4303,50 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 4 y = 22 }
+			position = { x = 13 y = 20 }
+		}
+		
+		categories = {
+			heavy_air
+			jet_technology
+			air_equipment
+			cat_strategic_bomber
+		}
+		
+		ai_will_do = {
+			factor = 0
+			
+			modifier = {
+				add = 0.5
+				is_major = yes
+			}
+			modifier = {
+				add = 5
+				tag = SOV
+			}
+			modifier = {
+				add = 5
+				tag = USA
+			}
+		}
+	}
+
+	mach6stratbomber = {
+
+		enable_equipments = {
+			mach6stratbomber_equipment_1
+		}
+		
+		research_cost = 4
+		start_year = 2005
+
+		dependencies = {
+			jet_engines = 1
+		}
+
+		folder = {
+			name = air_techs_folder
+			position = { x = 13 y = 36 }
 		}
 		
 		categories = {
@@ -4249,11 +4387,11 @@ technologies = {
 		}
 				
 		research_cost = 2
-		start_year = 1936
+		start_year = 1933
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 4 }
+			position = { x = 2 y = 2 }
 		}
 		
 		categories = {
@@ -4279,11 +4417,11 @@ technologies = {
 		}
 		
 		research_cost = 1
-		start_year = 1944
+		start_year = 1936
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 8 }
+			position = { x = 2 y = 4 }
 		}
 		
 		categories = {
@@ -4309,11 +4447,11 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1947
+		start_year = 1940
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 14 }
+			position = { x = 2 y = 6 }
 		}
 		
 		categories = {
@@ -4339,11 +4477,11 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 1950
+		start_year = 1946
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 16 }
+			position = { x = 2 y = 10 }
 		}
 		
 		categories = {
@@ -4373,7 +4511,7 @@ technologies = {
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 18 }
+			position = { x = 2 y = 16 }
 		}
 		
 		categories = {
@@ -4399,11 +4537,11 @@ technologies = {
 		}
 		
 		research_cost = 3
-		start_year = 1960
+		start_year = 1965
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 20 }
+			position = { x = 2 y = 20 }
 		}
 		
 		categories = {
@@ -4433,11 +4571,11 @@ technologies = {
 		}
 		
 		research_cost = 3
-		start_year = 1965
+		start_year = 1975
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 22 }
+			position = { x = 2 y = 24 }
 		}
 		
 		categories = {
@@ -4463,11 +4601,11 @@ technologies = {
 		}
 		
 		research_cost = 3
-		start_year = 1975
+		start_year = 1985
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 26 }
+			position = { x = 2 y = 28 }
 		}
 		
 		categories = {
@@ -4493,11 +4631,11 @@ technologies = {
 		}
 	
 		research_cost = 3
-		start_year = 1980
+		start_year = 1995
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 28 }
+			position = { x = 2 y = 32 }
 		}
 		
 		categories = {
@@ -4518,11 +4656,11 @@ technologies = {
 		}
 	
 		research_cost = 3
-		start_year = 1990
+		start_year = 2005
 
 		folder = {
 			name = air_techs_folder
-			position = { x = 0 y = 32 }
+			position = { x = 2 y = 36 }
 		}
 		
 		categories = {

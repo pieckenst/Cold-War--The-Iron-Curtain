@@ -186,7 +186,27 @@ ideas = {
 					instant = yes
 					build_cost_ic = -0.10
 				}
-				jet_fighter_equipment = {
+				heavy_fighter_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				jet_multirole_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				cv_jet_multirole_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				jet_interceptor_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				cv_stealth_fighter = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				CAS_equipment = {
 					instant = yes
 					build_cost_ic = -0.10
 				}
@@ -194,7 +214,15 @@ ideas = {
 					instant = yes
 					build_cost_ic = -0.10
 				}
-				CAS_equipment = {
+				jet_CAS_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				cv_jet_CAS_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				jump_jet_equipment = {
 					instant = yes
 					build_cost_ic = -0.10
 				}
@@ -206,10 +234,6 @@ ideas = {
 					instant = yes
 					build_cost_ic = -0.10
 				}
-				rocket_interceptor_equipment = {
-					instant = yes
-					build_cost_ic = -0.10
-				}
 				tac_bomber_equipment = {
 					instant = yes
 					build_cost_ic = -0.10
@@ -218,11 +242,7 @@ ideas = {
 					instant = yes
 					build_cost_ic = -0.10
 				}
-				jet_strat_bomber_equipment = {
-					instant = yes
-					build_cost_ic = -0.10
-				}
-				heavy_fighter_equipment = {
+				stealth_tactical_bomber_equipment = {
 					instant = yes
 					build_cost_ic = -0.10
 				}
@@ -230,7 +250,51 @@ ideas = {
 					instant = yes
 					build_cost_ic = -0.10
 				}
+				jet_strat_bomber_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				stealth_strategic_bomber_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				mach2stratbomber_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				mach3stratbomber_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
 				transport_plane_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				cargo_helicopter_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				utility_helicopter_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				scout_helicopter_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				attack_helicopter_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				naval_helicopter_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				cruisemissile_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+				coastalmissile_equipment = {
 					instant = yes
 					build_cost_ic = -0.10
 				}
@@ -238,7 +302,11 @@ ideas = {
 					instant = yes
 					build_cost_ic = -0.10
 				}
-			}		
+				rocket_interceptor_equipment = {
+					instant = yes
+					build_cost_ic = -0.10
+				}
+			}
 		}
 	}
 
@@ -548,7 +616,31 @@ ideas = {
 				stability_factor = 0.05
 			}
 		}
+		Domino_Theory = {
+			
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = generic_pp_unity_bonus
 	
+			rule = {
+				can_create_factions = yes
+			}
+	
+			modifier = {
+				war_support_factor = 0.05
+				army_core_attack_factor = 0.1
+				army_core_defence_factor = 0.1
+			}
+		}
 		ideological_fanaticism_focus = {
 			
 			
@@ -718,7 +810,23 @@ ideas = {
 				foreign_subversive_activites = -0.75
 			}			
 		}
+		Communist_Control_Act = {
+			picture = anti_soviet_pact
+			allowed = {
+				always = no
+			}
 
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			modifier = {
+				war_support_factor = 0.05
+				communism_drift = -0.05
+			}
+		}
 		communism_banned = {
 			picture = anti_soviet_pact
 			allowed = {

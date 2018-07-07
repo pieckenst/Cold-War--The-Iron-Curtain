@@ -8,19 +8,26 @@ country_event = {
 	picture = GFX_report_event_soviet_invasion_map
 	
 	is_triggered_only = yes
+	fire_only_once = yes
 	
-	option = {
-		name = cambodia.1.o.a
+	immediate = {
 		set_global_flag = cambodian_civil_war
-		CMB = { transfer_state = 985 }	
+		CMB = { transfer_state = 840 }	
 		CMB = { set_politics = { ruling_party = maoism elections_allowed = no } }
 		CMB = { 
 			load_oob = CMB_1967	
 			declare_war_on = {
-				target = CMB
+				target = CAM
 				type = annex_everything
 			}
 		}
+	}
+	option = { 
+		name = "Side with the Communists"
+		CMB = { change_tag_from = CAM }
+	}
+	option = {
+		name = "Side with the Republicans"
 	}
 }
 country_event = {

@@ -2,7 +2,10 @@ focus_tree = {
 	id = CAM_1960s
 	country = {
 		factor = 0
-
+		modifier = {	#For mid game tag switch
+			add = 10
+			tag = CMB
+		}
 	}
 	default = no
 	focus = {
@@ -173,6 +176,7 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = CAM_1960s_soviet_alignment
+			focus = CAM_1960s_american_alignment
 		}
 		x = 12
 		y = 0
@@ -213,6 +217,7 @@ focus_tree = {
 		icon = GFX_goal_support_democracy
 		cost = 10.00
 		mutually_exclusive = {
+			focus = CAM_1960s_non_aligned
 			focus = CAM_1960s_soviet_alignment
 		}
 		x = 28
@@ -912,7 +917,20 @@ focus_tree = {
 		}
 		x = 6
 		y = 1
-
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = steel
+									amount = 25
+								}
+						}
+					random_owned_state = {
+							add_resource = {
+									type = chromium
+									amount = 25
+								}
+						}
+				}
 	}
 	focus = {
 		id = CAM_1960s_steel_industry
@@ -923,7 +941,14 @@ focus_tree = {
 		}
 		x = 6
 		y = 2
-
+			completion_reward = {
+					random_owned_state = {
+							add_resource = {
+									type = steel
+									amount = 50
+								}
+						}
+				}
 	}
 	focus = {
 		id = CAM_1960s_oil_development
@@ -1616,7 +1641,7 @@ focus_tree = {
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
-							type = jet_fighter_equipment_3
+							type = jet_multirole_equipment_3
 							amount = 800
 							producer = SOV
 						}
@@ -2076,7 +2101,7 @@ focus_tree = {
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
-							type = jet_fighter_equipment_3
+							type = jet_multirole_equipment_3
 							amount = 800
 							producer = USA
 						}
@@ -2718,8 +2743,9 @@ focus_tree = {
 		x = 26
 		y = 6
 			completion_reward = {
+				USA = {
 					create_production_license = {
-							target = USA
+							target = ROOT
 							cost_factor = 1.0
 							equipment = {
 									type = motorized_equipment_2
@@ -2727,7 +2753,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = ROOT
 							cost_factor = 1.0
 							equipment = {
 									type = mechanized_equipment_3
@@ -2735,70 +2761,71 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = ROOT
 							cost_factor = 1.0
 							equipment = {
-									type = main_battle_tanks_3
+									type = main_battle_tanks_2
 									version = 0
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = ROOT
 							cost_factor = 1.0
 							equipment = {
-									type = lt_equipment_2
+									type = lt_equipment_1
 									version = 0
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = ROOT
 							cost_factor = 1.0
 							equipment = {
-									type = ht_equipment_3
+									type = ht_equipment_2
 									version = 0
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = ROOT
 							cost_factor = 1.0
 							equipment = {
-									type = assault_rifle_equipment_2
+									type = infantry_equipment
 									version = 0
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = ROOT
 							cost_factor = 1.0
 							equipment = {
-									type = CAS_equipment_5
+									type = CAS_equipment_4
 									version = 0
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = ROOT
 							cost_factor = 1.0
 							equipment = {
-									type = jet_fighter_equipment_3
+									type = jet_multirole_equipment_2
 									version = 0
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = ROOT
 							cost_factor = 1.0
 							equipment = {
-									type = jet_tac_bomber_equipment_3
+									type = jet_tac_bomber_equipment_2
 									version = 0
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = ROOT
 							cost_factor = 1.0
 							equipment = {
-									type = jet_strat_bomber_equipment_3
+									type = jet_strat_bomber_equipment_2
 									version = 0
 								}
 						}
 				}
+			}
 
 	}	
 	#Political
@@ -3585,6 +3612,10 @@ focus_tree = {
 		y = 13
 		completion_reward = {
 			country_event = cambodia.1
+			set_politics = {
+				ruling_party = nationalism
+				elections_allowed = no
+			}
 		}
 	}
 	focus = {
@@ -3806,7 +3837,6 @@ focus_tree = {
 		y = 7
 		completion_reward = {
 			kill_country_leader = yes	
-			country_event = cambodia.4000
 		}
 	}
 	focus = {

@@ -4,2871 +4,19 @@ focus_tree = {
 		factor = 0
 	}
 	default = no
-	focus = {
-		id = GRE_1960s_naval_effort
-		icon = GFX_goal_generic_construct_naval_dockyard
-		cost = 10.00
-		x = 34
-		y = 0
-			available_if_capitulated = yes
-			available = {
-					any_state = {
-							is_coastal = yes
-							is_controlled_by = ROOT
-						}
-				}
-			complete_tooltip = {
-					navy_experience = 25
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-							type = dockyard
-							level = 3
-							instant_build = yes
-						}
-				}
-			completion_reward = {
-					navy_experience = 25
-					if = {
-							limit = {
-									NOT = {
-											any_owned_state = {
-													dockyard > 0
-													free_building_slots = {
-															building = dockyard
-															size > 2
-															include_locked = yes
-														}
-												}
-										}
-									any_owned_state = {
-											is_coastal = yes
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											is_coastal = yes
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-							set_country_flag = naval_effort_built
-						}
-					if = {
-							limit = {
-									NOT = {
-											has_country_flag = naval_effort_built
-										}
-									any_owned_state = {
-											dockyard > 0
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											dockyard > 0
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-							set_country_flag = naval_effort_built
-						}
-					if = {
-							limit = {
-									NOT = {
-											has_country_flag = naval_effort_built
-										}
-									NOT = {
-											any_owned_state = {
-													free_building_slots = {
-															building = dockyard
-															size > 2
-															include_locked = yes
-														}
-												}
-										}
-								}
-							random_state = {
-									limit = {
-											controller = {
-													tag = ROOT
-												}
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_industrial_effort
-		icon = GFX_goal_generic_production
-		cost = 10.00
-		x = 4
-		y = 0
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = industrial_bonus
-							bonus = 0.5
-							uses = 1
-							category = industry
-						}
-				}
-			ai_will_do = {
-					factor = 3
-					modifier = {
-							factor = 0
-							date < 1939.1.1
-							OR = {
-									tag = GXC
-									tag = YUN
-									tag = SHX
-									tag = XSM
-									tag = BEL
-									tag = LUX
-									tag = HOL
-									tag = DEN
-									num_of_controlled_states < 2
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_non_aligned
-		icon = GFX_goal_generic_neutrality_focus
-		cost = 10.00
-		mutually_exclusive = {
-			focus = GRE_1960s_soviet_alignment
-		}
-		x = 12
-		y = 0
-			completion_reward = {
-					add_political_power = 120
-					add_stability = 0.10
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_soviet_alignment
-		icon = GFX_goal_support_communism
-		cost = 10.00
-		mutually_exclusive = {
-			focus = GRE_1960s_non_aligned
-			focus = GRE_1960s_american_alignment
-		}
-		x = 20
-		y = 0
-			completion_reward = {
-					GRE = {
-							add_opinion_modifier = {
-									target = SOV
-									modifier = large_increase
-								}
-						}
-					SOV = {
-							add_opinion_modifier = {
-									target = GRE
-									modifier = large_increase
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_alignment
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		mutually_exclusive = {
-			focus = GRE_1960s_soviet_alignment
-		}
-		x = 28
-		y = 0
-			completion_reward = {
-					GRE = {
-							add_opinion_modifier = {
-									target = USA
-									modifier = large_increase
-								}
-						}
-					USA = {
-							add_opinion_modifier = {
-									target = GRE
-									modifier = large_increase
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_equipment_effort
-		icon = GFX_goal_generic_small_arms
-		cost = 10.00
-		x = 9
-		y = 2
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = infantry_weapons_bonus
-							bonus = 0.5
-							uses = 1
-							category = infantry_weapons
-							category = artillery
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_construction_effort
-		icon = GFX_goal_generic_construct_civ_factory
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_industrial_effort
-		}
-		x = 2
-		y = 1
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 2
-				}
-			bypass = {
-					custom_trigger_tooltip = {
-							tooltip = construction_effort_tt
-							all_owned_state = {
-									free_building_slots = {
-											building = industrial_complex
-											size < 1
-											include_locked = yes
-										}
-								}
-						}
-				}
-			complete_tooltip = {
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-							type = industrial_complex
-							level = 1
-							instant_build = yes
-						}
-				}
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 1
-							add_building_construction = {
-									type = industrial_complex
-									level = 1
-									instant_build = yes
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_construction_effort_2
-		icon = GFX_goal_generic_construct_civ_factory
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_construction_effort
-		}
-		x = 2
-		y = 2
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 2
-				}
-			bypass = {
-					custom_trigger_tooltip = {
-							tooltip = construction_effort_tt
-							all_owned_state = {
-									free_building_slots = {
-											building = industrial_complex
-											size < 1
-											include_locked = yes
-										}
-								}
-						}
-				}
-			complete_tooltip = {
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-							type = industrial_complex
-							level = 1
-							instant_build = yes
-						}
-				}
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 1
-							add_building_construction = {
-									type = industrial_complex
-									level = 1
-									instant_build = yes
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_infrastructure_effort
-		icon = GFX_goal_generic_construct_infrastructure
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_construction_effort_2
-		}
-		x = 2
-		y = 3
-			available_if_capitulated = yes
-			bypass = {
-					custom_trigger_tooltip = {
-							tooltip = infrastructure_effort_tt
-							all_owned_state = {
-									free_building_slots = {
-											building = infrastructure
-											size < 1
-										}
-								}
-						}
-				}
-			complete_tooltip = {
-					add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-					add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-				}
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = infrastructure
-											size > 0
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = infrastructure
-																			size > 0
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_building_construction = {
-									type = infrastructure
-									level = 1
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = infrastructure
-											size > 1
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = infrastructure
-																			size > 1
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_construction_effort_3
-		icon = GFX_goal_generic_construct_civ_factory
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_infrastructure_effort
-		}
-		x = 2
-		y = 4
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 2
-				}
-			bypass = {
-					custom_trigger_tooltip = {
-							tooltip = construction_effort_tt
-							all_owned_state = {
-									free_building_slots = {
-											building = industrial_complex
-											size < 2
-											include_locked = yes
-										}
-								}
-						}
-				}
-			complete_tooltip = {
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-							type = industrial_complex
-							level = 2
-							instant_build = yes
-						}
-				}
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 1
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 1
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_production_effort
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_industrial_effort
-		}
-		x = 4
-		y = 1
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 2
-				}
-			bypass = {
-					custom_trigger_tooltip = {
-							tooltip = production_effort_tt
-							all_owned_state = {
-									free_building_slots = {
-											building = arms_factory
-											size < 1
-											include_locked = yes
-										}
-								}
-						}
-				}
-			complete_tooltip = {
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-				}
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = arms_factory
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = arms_factory
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 1
-							add_building_construction = {
-									type = arms_factory
-									level = 1
-									instant_build = yes
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_production_effort_2
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_production_effort
-		}
-		x = 4
-		y = 2
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 2
-				}
-			bypass = {
-					custom_trigger_tooltip = {
-							tooltip = production_effort_tt
-							all_owned_state = {
-									free_building_slots = {
-											building = arms_factory
-											size < 1
-											include_locked = yes
-										}
-								}
-						}
-				}
-			complete_tooltip = {
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-				}
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = arms_factory
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = arms_factory
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 1
-							add_building_construction = {
-									type = arms_factory
-									level = 1
-									instant_build = yes
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_production_effort_3
-		icon = GFX_goal_generic_construct_mil_factory
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_production_effort_2
-		}
-		x = 4
-		y = 3
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 2
-				}
-			bypass = {
-					custom_trigger_tooltip = {
-							tooltip = production_effort_tt
-							all_owned_state = {
-									free_building_slots = {
-											building = arms_factory
-											size < 1
-											include_locked = yes
-										}
-								}
-						}
-				}
-			complete_tooltip = {
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-						}
-				}
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = arms_factory
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = arms_factory
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 1
-							add_building_construction = {
-									type = arms_factory
-									level = 1
-									instant_build = yes
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_infrastructure_effort_2
-		icon = GFX_goal_generic_construct_infrastructure
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_infrastructure_effort
-		}
-		prerequisite = {
-			focus = GRE_1960s_production_effort_3
-		}
-		x = 4
-		y = 4
-			available_if_capitulated = yes
-			bypass = {
-					custom_trigger_tooltip = {
-							tooltip = infrastructure_effort_tt
-							all_owned_state = {
-									free_building_slots = {
-											building = infrastructure
-											size < 1
-										}
-								}
-						}
-				}
-			complete_tooltip = {
-					add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-					add_building_construction = {
-							type = infrastructure
-							level = 1
-							instant_build = yes
-						}
-				}
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = infrastructure
-											size > 0
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = infrastructure
-																			size > 0
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_building_construction = {
-									type = infrastructure
-									level = 1
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = infrastructure
-											size > 1
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = infrastructure
-																			size > 1
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_secret_weapons
-		icon = GFX_goal_generic_secret_weapon
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_infrastructure_effort_2
-		}
-		prerequisite = {
-			focus = GRE_1960s_construction_effort_3
-		}
-		x = 1
-		y = 5
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = secret_bonus
-							bonus = 0.5
-							uses = 4
-							category = electronics
-							category = nuclear
-							category = rocketry
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_nuclear_effort
-		icon = GFX_focus_wonderweapons
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_infrastructure_effort_2
-		}
-		prerequisite = {
-			focus = GRE_1960s_construction_effort_3
-		}
-		x = 3
-		y = 5
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = nuclear_bonus
-							ahead_reduction = 0.5
-							category = nuclear
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_extra_tech_slot
-		icon = GFX_focus_research
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_infrastructure_effort_2
-		}
-		prerequisite = {
-			focus = GRE_1960s_construction_effort_3
-		}
-		x = 5
-		y = 5
-			available_if_capitulated = yes
-			completion_reward = {
-					add_research_slot = 1
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_mining_development
-		icon = GFX_goal_generic_construction2
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_industrial_effort
-		}
-		x = 6
-		y = 1
-
-	}
-	focus = {
-		id = GRE_1960s_steel_industry
-		icon = GFX_goal_generic_construction2
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_mining_development
-		}
-		x = 6
-		y = 2
-
-	}
-	focus = {
-		id = GRE_1960s_oil_development
-		icon = GFX_goal_generic_oil_refinery
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_steel_industry
-		}
-		x = 6
-		y = 3
-			completion_reward = {
-					random_owned_state = {
-							add_resource = {
-									type = oil
-									amount = 50
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_chromium_development
-		icon = GFX_goal_generic_construction2
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_oil_development
-		}
-		x = 6
-		y = 4
-
-	}
-	focus = {
-		id = GRE_1960s_equipment_effort_2
-		icon = GFX_goal_generic_army_artillery
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_equipment_effort
-		}
-		x = 9
-		y = 4
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = infantry_artillery_bonus
-							bonus = 0.5
-							uses = 1
-							category = infantry_weapons
-							category = artillery
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_equipment_effort_3
-		icon = GFX_goal_generic_army_artillery2
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_equipment_effort_2
-		}
-		x = 9
-		y = 6
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = infantry_artillery_bonus
-							ahead_reduction = 1
-							uses = 1
-							category = infantry_weapons
-							category = artillery
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_army_effort
-		icon = GFX_goal_generic_allies_build_infantry
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_non_aligned
-		}
-		x = 10
-		y = 1
-			available_if_capitulated = yes
-			completion_reward = {
-					army_experience = 5
-					add_tech_bonus = {
-							name = land_doc_bonus
-							bonus = 0.5
-							uses = 1
-							category = land_doctrine
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_doctrine_effort
-		icon = GFX_goal_generic_army_doctrines
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_army_effort
-		}
-		x = 10
-		y = 3
-			available_if_capitulated = yes
-			completion_reward = {
-					army_experience = 5
-					add_tech_bonus = {
-							name = land_doc_bonus
-							bonus = 0.5
-							uses = 1
-							category = land_doctrine
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_doctrine_effort_2
-		icon = GFX_goal_generic_army_doctrines
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_doctrine_effort
-		}
-		x = 10
-		y = 5
-			available_if_capitulated = yes
-			completion_reward = {
-					army_experience = 5
-					add_tech_bonus = {
-							name = land_doc_bonus
-							bonus = 0.5
-							uses = 1
-							category = land_doctrine
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_motorization_effort
-		icon = GFX_goal_generic_army_motorized
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_army_effort
-		}
-		x = 11
-		y = 2
-			bypass = {
-					has_tech = motorised_infantry
-				}
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = motorized_bonus
-							bonus = 0.75
-							technology = motorised_infantry
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_mechanization_effort
-		icon = GFX_goal_generic_build_tank
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_motorization_effort
-		}
-		x = 11
-		y = 4
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = motorized_bonus
-							ahead_reduction = 0.5
-							uses = 1
-							category = motorized_equipment
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_armor_effort
-		icon = GFX_goal_generic_army_tanks
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_mechanization_effort
-		}
-		x = 11
-		y = 6
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = armor_bonus
-							bonus = 0.5
-							uses = 2
-							category = armor
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_special_forces
-		icon = GFX_goal_generic_special_forces
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_equipment_effort_3
-		}
-		prerequisite = {
-			focus = GRE_1960s_doctrine_effort_2
-		}
-		prerequisite = {
-			focus = GRE_1960s_armor_effort
-		}
-		x = 10
-		y = 7
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = special_forces_bonus
-							bonus = 0.5
-							uses = 1
-							technology = paratroopers
-							technology = paratroopers2
-							technology = marines
-							technology = marines2
-							technology = tech_mountaineers
-							technology = tech_mountaineers2
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_aviation_effort
-		icon = GFX_goal_generic_build_airforce
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_non_aligned
-		}
-		x = 14
-		y = 1
-			available_if_capitulated = yes
-			complete_tooltip = {
-					air_experience = 25
-					if = {
-							limit = {
-									has_country_flag = aviation_effort_AB
-								}
-							add_building_construction = {
-									type = air_base
-									level = 2
-									instant_build = yes
-								}
-						}
-					add_tech_bonus = {
-							name = air_doc_bonus
-							bonus = 0.5
-							uses = 1
-							category = air_doctrine
-						}
-				}
-			completion_reward = {
-					air_experience = 25
-					if = {
-							limit = {
-									capital_scope = {
-											NOT = {
-													free_building_slots = {
-															building = air_base
-															size > 1
-														}
-												}
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											free_building_slots = {
-													building = air_base
-													size > 1
-												}
-										}
-									add_building_construction = {
-											type = air_base
-											level = 2
-											instant_build = yes
-										}
-									ROOT = {
-											set_country_flag = aviation_effort_AB
-										}
-								}
-						}
-					if = {
-							limit = {
-									capital_scope = {
-											free_building_slots = {
-													building = air_base
-													size > 1
-												}
-										}
-								}
-							capital_scope = {
-									add_building_construction = {
-											type = air_base
-											level = 2
-											instant_build = yes
-										}
-									ROOT = {
-											set_country_flag = aviation_effort_AB
-										}
-								}
-						}
-					add_tech_bonus = {
-							name = air_doc_bonus
-							bonus = 0.5
-							uses = 1
-							category = air_doctrine
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_fighter_focus
-		icon = GFX_goal_generic_air_fighter
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_aviation_effort
-		}
-		mutually_exclusive = {
-			focus = GRE_1960s_bomber_focus
-		}
-		x = 13
-		y = 2
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = fighter_bonus
-							bonus = 0.5
-							uses = 2
-							technology = early_fighter
-							technology = fighter1
-							technology = fighter2
-							technology = fighter3
-							technology = heavy_fighter1
-							technology = heavy_fighter2
-							technology = heavy_fighter3
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_bomber_focus
-		icon = GFX_goal_generic_air_bomber
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_aviation_effort
-		}
-		mutually_exclusive = {
-			focus = GRE_1960s_fighter_focus
-		}
-		x = 15
-		y = 2
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = bomber_bonus
-							bonus = 0.5
-							uses = 2
-							technology = strategic_bomber1
-							technology = strategic_bomber2
-							technology = strategic_bomber3
-							category = tactical_bomber
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_aviation_effort_2
-		icon = GFX_goal_generic_air_doctrine
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_bomber_focus
-			focus = GRE_1960s_fighter_focus
-		}
-		x = 14
-		y = 3
-			available_if_capitulated = yes
-			complete_tooltip = {
-					air_experience = 25
-					if = {
-							limit = {
-									has_country_flag = aviation_effort_2_AB
-								}
-							add_building_construction = {
-									type = air_base
-									level = 2
-									instant_build = yes
-								}
-						}
-					add_tech_bonus = {
-							name = air_doc_bonus
-							bonus = 0.5
-							uses = 1
-							category = air_doctrine
-						}
-				}
-			completion_reward = {
-					air_experience = 25
-					if = {
-							limit = {
-									capital_scope = {
-											OR = {
-													NOT = {
-															is_controlled_by = ROOT
-														}
-													NOT = {
-															free_building_slots = {
-																	building = air_base
-																	size > 1
-																}
-														}
-												}
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											free_building_slots = {
-													building = air_base
-													size > 1
-												}
-										}
-									add_building_construction = {
-											type = air_base
-											level = 2
-											instant_build = yes
-										}
-									ROOT = {
-											set_country_flag = aviation_effort_2_AB
-										}
-								}
-						}
-					if = {
-							limit = {
-									capital_scope = {
-											is_controlled_by = ROOT
-											free_building_slots = {
-													building = air_base
-													size > 1
-												}
-										}
-								}
-							capital_scope = {
-									add_building_construction = {
-											type = air_base
-											level = 2
-											instant_build = yes
-										}
-									ROOT = {
-											set_country_flag = aviation_effort_2_AB
-										}
-								}
-						}
-					add_tech_bonus = {
-							name = air_doc_bonus
-							bonus = 0.5
-							uses = 1
-							category = air_doctrine
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_CAS_effort
-		icon = GFX_goal_generic_CAS
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_aviation_effort_2
-		}
-		x = 13
-		y = 4
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = CAS_bonus
-							bonus = 0.5
-							ahead_reduction = 1
-							uses = 1
-							category = cas_bomber
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_NAV_effort
-		icon = GFX_goal_generic_air_naval_bomber
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_aviation_effort_2
-		}
-		x = 15
-		y = 4
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = nav_bomber_bonus
-							bonus = 0.5
-							ahead_reduction = 1
-							uses = 1
-							category = naval_bomber
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_rocket_effort
-		icon = GFX_focus_rocketry
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_CAS_effort
-		}
-		prerequisite = {
-			focus = GRE_1960s_NAV_effort
-		}
-		x = 14
-		y = 5
-			available_if_capitulated = yes
-			completion_reward = {
-					add_tech_bonus = {
-							name = jet_rocket_bonus
-							ahead_reduction = 0.5
-							uses = 2
-							category = rocketry
-							category = jet_technology
-						}
-				}
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							factor = 0.25
-							always = yes
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_soviet_advisors
-		icon = GFX_focus_generic_military_mission
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_soviet_alignment
-		}
-		x = 18
-		y = 1
-			completion_reward = {
-					add_ideas = soviet_advisors
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_surplus_soviet_equipment
-		icon = GFX_goal_continuous_reduce_training_time
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_soviet_advisors
-		}
-		x = 17
-		y = 2
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_2
-							amount = 2000
-							producer = SOV
-						}
-					add_equipment_to_stockpile = {
-							type = main_battle_tanks_3
-							amount = 150
-							producer = SOV
-						}
-					add_equipment_to_stockpile = {
-							type = lt_equipment_2
-							amount = 300
-							producer = SOV
-						}
-					add_equipment_to_stockpile = {
-							type = ht_equipment_3
-							amount = 100
-							producer = SOV
-						}
-				}
-
-	}
-
-	focus = {
-		id = GRE_1960s_soviet_trainer_pilots
-		icon = GFX_goal_generic_air_doctrine
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_soviet_alignment
-		}
-		x = 22
-		y = 1
-			completion_reward = {
-					air_experience = 25
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_personel_exchanges
-		icon = GFX_focus_generic_little_entente
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_soviet_trainer_pilots
-		}
-		prerequisite = {
-			focus = GRE_1960s_soviet_advisors
-		}
-		x = 20
-		y = 2
-			completion_reward = {
-					add_manpower = 50000
-					army_experience = 5
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_soviet_army_doctrine
-		icon = GFX_focus_generic_join_comintern
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_personel_exchanges
-		}
-		prerequisite = {
-			focus = GRE_1960s_surplus_soviet_equipment
-		}
-		x = 19
-		y = 3
-			completion_reward = {
-					army_experience = 5
-					add_tech_bonus = {
-							name = land_doc_bonus
-							bonus = 0.75
-							uses = 2
-							category = land_doctrine
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_more_surplus_equipment
-		icon = GFX_focus_secret_rearmament
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_soviet_army_doctrine
-		}
-		x = 17
-		y = 4
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_2
-							amount = 2000
-							producer = SOV
-						}
-					add_equipment_to_stockpile = {
-							type = main_battle_tanks_3
-							amount = 150
-							producer = SOV
-						}
-					add_equipment_to_stockpile = {
-							type = lt_equipment_2
-							amount = 300
-							producer = SOV
-						}
-					add_equipment_to_stockpile = {
-							type = ht_equipment_3
-							amount = 100
-							producer = SOV
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_soviet_fighters
-		icon = GFX_goal_generic_air_fighter
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_soviet_trainer_pilots
-		}
-		x = 23
-		y = 2
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = CAS_equipment_5
-							amount = 200
-							producer = SOV
-						}
-					add_equipment_to_stockpile = {
-							type = jet_fighter_equipment_3
-							amount = 800
-							producer = SOV
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_soviet_bombers
-		icon = GFX_goal_generic_air_bomber
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_soviet_fighters
-		}
-		prerequisite = {
-			focus = GRE_1960s_personel_exchanges
-		}
-		x = 21
-		y = 3
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = jet_strat_bomber_equipment_3
-							amount = 200
-							producer = SOV
-						}
-					add_equipment_to_stockpile = {
-							type = jet_tac_bomber_equipment_3
-							amount = 800
-							producer = SOV
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_soviet_air_doctrine
-		icon = GFX_focus_generic_join_comintern
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_soviet_fighters
-		}
-		prerequisite = {
-			focus = GRE_1960s_personel_exchanges
-		}
-		x = 23
-		y = 3
-			completion_reward = {
-					add_tech_bonus = {
-							name = air_doc_bonus
-							bonus = 0.5
-							uses = 3
-							category = air_doctrine
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_soviet_airfield_development
-		icon = GFX_goal_generic_air_doctrine
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_soviet_air_doctrine
-		}
-		prerequisite = {
-			focus = GRE_1960s_soviet_bombers
-		}
-		x = 21
-		y = 4
-			completion_reward = {
-					air_experience = 25
-					if = {
-							limit = {
-									capital_scope = {
-											OR = {
-													NOT = {
-															is_controlled_by = ROOT
-														}
-													NOT = {
-															free_building_slots = {
-																	building = air_base
-																	size > 1
-																}
-														}
-												}
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											free_building_slots = {
-													building = air_base
-													size > 1
-												}
-										}
-									add_building_construction = {
-											type = air_base
-											level = 5
-											instant_build = yes
-										}
-									ROOT = {
-											set_country_flag = aviation_effort_2_AB
-										}
-								}
-						}
-					if = {
-							limit = {
-									capital_scope = {
-											is_controlled_by = ROOT
-											free_building_slots = {
-													building = air_base
-													size > 1
-												}
-										}
-								}
-							capital_scope = {
-									add_building_construction = {
-											type = air_base
-											level = 5
-											instant_build = yes
-										}
-									ROOT = {
-											set_country_flag = aviation_effort_2_AB
-										}
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_soviet_anti_air_defenses
-		icon = GFX_focus_generic_air_defense
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_soviet_air_doctrine
-		}
-		prerequisite = {
-			focus = GRE_1960s_soviet_bombers
-		}
-		x = 23
-		y = 4
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = anti_air_building
-											size > 3
-										}
-								}
-							add_building_construction = {
-									type = anti_air_building
-									level = 2
-									instant_build = yes
-								}
-							ROOT = {
-									set_country_flag = aviation_effort_2_AB
-								}
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = anti_air_building
-											size > 3
-										}
-								}
-							add_building_construction = {
-									type = anti_air_building
-									level = 2
-									instant_build = yes
-								}
-							ROOT = {
-									set_country_flag = aviation_effort_2_AB
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_research_advances_air
-		icon = GFX_goal_continuous_air_production
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_soviet_airfield_development
-		}
-		prerequisite = {
-			focus = GRE_1960s_soviet_anti_air_defenses
-		}
-		x = 22
-		y = 5
-			completion_reward = {
-					add_tech_bonus = {
-							name = TUR_fighter_modernisation
-							bonus = 0.5
-							uses = 2
-							category = light_fighter
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_soviet_scuds
-		icon = GFX_focus_rocketry
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_research_advances_air
-		}
-		x = 22
-		y = 6
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = cruisemissile_2
-							amount = 400
-							producer = SOV
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_advisors
-		icon = GFX_focus_generic_military_mission
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_alignment
-		}
-		x = 26
-		y = 1
-			completion_reward = {
-					add_ideas = american_advisors
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_surplus_equipment
-		icon = GFX_goal_generic_small_arms
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_advisors
-		}
-		x = 25
-		y = 2
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_2
-							amount = 2000
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = main_battle_tanks_3
-							amount = 150
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = lt_equipment_2
-							amount = 300
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = ht_equipment_3
-							amount = 100
-							producer = USA
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_aircraft_training
-		icon = GFX_goal_generic_air_doctrine
-		cost = 10.00
-
-		prerequisite = {
-			focus = GRE_1960s_american_alignment
-		}
-		x = 30
-		y = 1
-			completion_reward = {
-					air_experience = 25
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_weapon_sale
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_aircraft_training
-		}
-		prerequisite = {
-			focus = GRE_1960s_american_advisors
-		}
-		x = 28
-		y = 2
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_2
-							amount = 2000
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = main_battle_tanks_3
-							amount = 150
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = lt_equipment_2
-							amount = 300
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = ht_equipment_3
-							amount = 100
-							producer = USA
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_doctrine
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_weapon_sale
-		}
-		prerequisite = {
-			focus = GRE_1960s_american_surplus_equipment
-		}
-		x = 27
-		y = 3
-			completion_reward = {
-					army_experience = 5
-					add_tech_bonus = {
-							name = land_doc_bonus
-							bonus = 0.75
-							uses = 2
-							category = land_doctrine
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_intelligence_aid
-		icon = GFX_focus_generic_military_mission
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_doctrine
-		}
-
-		x = 26
-		y = 4
-			completion_reward = {
-					add_ideas = american_intel_sharing
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_tanks
-		icon = GFX_goal_generic_army_tanks
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_intelligence_aid
-		}
-		x = 25
-		y = 5
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = main_battle_tanks_3
-							amount = 150
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = lt_equipment_2
-							amount = 300
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = ht_equipment_3
-							amount = 100
-							producer = USA
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_weapon_sale_Copy
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_weapon_sale
-		}
-		x = 28
-		y = 4
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_2
-							amount = 2000
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = main_battle_tanks_3
-							amount = 150
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = lt_equipment_2
-							amount = 300
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = ht_equipment_3
-							amount = 100
-							producer = USA
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_weapon_sale_Copy_Copy
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_weapon_sale_Copy
-		}
-		x = 28
-		y = 6
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = assault_rifle_equipment_2
-							amount = 2000
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = main_battle_tanks_3
-							amount = 150
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = lt_equipment_2
-							amount = 300
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = ht_equipment_3
-							amount = 100
-							producer = USA
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_fighters
-		icon = GFX_goal_generic_air_fighter
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_aircraft_training
-		}
-		x = 31
-		y = 2
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = CAS_equipment_5
-							amount = 200
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = jet_fighter_equipment_3
-							amount = 800
-							producer = USA
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_bombers
-		icon = GFX_goal_generic_air_bomber
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_weapon_sale
-		}
-		prerequisite = {
-			focus = GRE_1960s_american_fighters
-		}
-		x = 29
-		y = 3
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = jet_strat_bomber_equipment_3
-							amount = 200
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = jet_tac_bomber_equipment_3
-							amount = 800
-							producer = USA
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_doctrine_air
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_fighters
-		}
-		x = 31
-		y = 3
-			completion_reward = {
-					add_tech_bonus = {
-							name = air_doc_bonus
-							bonus = 0.5
-							uses = 3
-							category = air_doctrine
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_anti_air_defences
-		icon = GFX_focus_generic_air_defense
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_bombers
-		}
-		prerequisite = {
-			focus = GRE_1960s_american_doctrine_air
-		}
-		x = 30
-		y = 4
-			completion_reward = {
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = anti_air_building
-											size > 3
-										}
-								}
-							add_building_construction = {
-									type = anti_air_building
-									level = 2
-									instant_build = yes
-								}
-							ROOT = {
-									set_country_flag = aviation_effort_2_AB
-								}
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = anti_air_building
-											size > 3
-										}
-								}
-							add_building_construction = {
-									type = anti_air_building
-									level = 2
-									instant_build = yes
-								}
-							ROOT = {
-									set_country_flag = aviation_effort_2_AB
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_rocket_tech
-		icon = GFX_focus_rocketry
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_anti_air_defences
-		}
-		x = 29
-		y = 5
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = cruisemissile_2
-							amount = 400
-							producer = USA
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_airfield_development
-		icon = GFX_goal_generic_air_doctrine
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_anti_air_defences
-		}
-		x = 31
-		y = 5
-			completion_reward = {
-					air_experience = 25
-					if = {
-							limit = {
-									capital_scope = {
-											OR = {
-													NOT = {
-															is_controlled_by = ROOT
-														}
-													NOT = {
-															free_building_slots = {
-																	building = air_base
-																	size > 1
-																}
-														}
-												}
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											free_building_slots = {
-													building = air_base
-													size > 1
-												}
-										}
-									add_building_construction = {
-											type = air_base
-											level = 5
-											instant_build = yes
-										}
-									ROOT = {
-											set_country_flag = aviation_effort_2_AB
-										}
-								}
-						}
-					if = {
-							limit = {
-									capital_scope = {
-											is_controlled_by = ROOT
-											free_building_slots = {
-													building = air_base
-													size > 1
-												}
-										}
-								}
-							capital_scope = {
-									add_building_construction = {
-											type = air_base
-											level = 5
-											instant_build = yes
-										}
-									ROOT = {
-											set_country_flag = aviation_effort_2_AB
-										}
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_mic_contracts
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_rocket_tech
-		}
-		prerequisite = {
-			focus = GRE_1960s_american_airfield_development
-		}
-		x = 30
-		y = 6
-			completion_reward = {
-					add_ideas = american_mic_advisors
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_reform_officer_corps
-		icon = GFX_goal_generic_special_forces
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_mic_contracts
-		}
-		x = 28
-		y = 7
-			completion_reward = {
-					remove_ideas = incompetent_officer_corps
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_flexible_navy
-		icon = GFX_goal_generic_build_navy
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_naval_effort
-		}
-		mutually_exclusive = {
-			focus = GRE_1960s_large_navy
-		}
-		x = 33
-		y = 1
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							factor = 0
-							all_owned_state = {
-									OR = {
-											is_coastal = no
-											dockyard < 1
-										}
-								}
-						}
-				}
-			completion_reward = {
-					add_tech_bonus = {
-							name = sub_op_bonus
-							bonus = 0.5
-							uses = 2
-							technology = convoy_interdiction_ti
-							technology = unrestricted_submarine_warfare
-							technology = wolfpacks
-							technology = advanced_submarine_warfare
-							technology = combined_operations_raiding
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_large_navy
-		icon = GFX_goal_generic_navy_doctrines_tactics
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_naval_effort
-		}
-		mutually_exclusive = {
-			focus = GRE_1960s_flexible_navy
-		}
-		x = 35
-		y = 1
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							factor = 0
-							all_owned_state = {
-									OR = {
-											is_coastal = no
-											dockyard < 1
-										}
-								}
-						}
-				}
-			completion_reward = {
-					add_tech_bonus = {
-							name = fleet_in_being_bonus
-							bonus = 0.5
-							uses = 2
-							category = fleet_in_being_tree
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_submarine_effort
-		icon = GFX_goal_generic_navy_submarine
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_flexible_navy
-			focus = GRE_1960s_large_navy
-		}
-		x = 33
-		y = 2
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							factor = 0
-							all_owned_state = {
-									OR = {
-											is_coastal = no
-											dockyard < 1
-										}
-								}
-						}
-				}
-			completion_reward = {
-					add_tech_bonus = {
-							name = ss_bonus
-							bonus = 0.5
-							ahead_reduction = 1
-							uses = 1
-							technology = early_submarine
-							technology = basic_submarine
-							technology = improved_submarine
-							technology = advanced_submarine
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_destroyer_effort
-		icon = GFX_goal_generic_wolf_pack
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_submarine_effort
-		}
-		x = 33
-		y = 3
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							factor = 0
-							all_owned_state = {
-									OR = {
-											is_coastal = no
-											dockyard < 1
-										}
-								}
-						}
-				}
-			completion_reward = {
-					add_tech_bonus = {
-							name = dd_bonus
-							bonus = 0.5
-							ahead_reduction = 1
-							uses = 1
-							technology = early_destroyer
-							technology = basic_destroyer
-							technology = improved_destroyer
-							technology = advanced_destroyer
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_reform_officer_corps_2
-		icon = GFX_goal_generic_special_forces
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_special_forces
-		}
-		prerequisite = {
-			focus = GRE_1960s_rocket_effort
-		}
-		prerequisite = {
-			focus = GRE_1960s_special_forces
-		}
-		prerequisite = {
-			focus = GRE_1960s_rocket_effort
-		}
-		prerequisite = {
-			focus = GRE_1960s_special_forces
-		}
-		prerequisite = {
-			focus = GRE_1960s_rocket_effort
-		}
-		prerequisite = {
-			focus = GRE_1960s_special_forces
-		}
-		prerequisite = {
-			focus = GRE_1960s_rocket_effort
-		}
-		x = 12
-		y = 8
-			completion_reward = {
-					remove_ideas = incompetent_officer_corps
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_cruiser_effort
-		icon = GFX_goal_generic_navy_cruiser
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_large_navy
-			focus = GRE_1960s_flexible_navy
-		}
-		x = 35
-		y = 2
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							factor = 0
-							all_owned_state = {
-									OR = {
-											is_coastal = no
-											dockyard < 1
-										}
-								}
-						}
-				}
-			completion_reward = {
-					add_tech_bonus = {
-							name = cr_bonus
-							bonus = 0.5
-							ahead_reduction = 1
-							uses = 1
-							technology = improved_light_cruiser
-							technology = advanced_light_cruiser
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_capital_ships_effort
-		icon = GFX_goal_generic_navy_battleship
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_cruiser_effort
-		}
-		x = 35
-		y = 3
-			available_if_capitulated = yes
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							factor = 0
-							all_owned_state = {
-									OR = {
-											is_coastal = no
-											dockyard < 1
-										}
-								}
-						}
-				}
-			completion_reward = {
-					navy_experience = 25
-					add_tech_bonus = {
-							name = capital_ships_bonus
-							bonus = 0.5
-							ahead_reduction = 1
-							uses = 1
-							technology = battle_cruiser_1
-							technology = early_battleship
-							technology = battleship_2
-							technology = battleship_3
-							technology = early_carrier
-							technology = basic_carrier
-							technology = improved_carrier
-							technology = advanced_carrier
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_extra_tech_slot_2
-		icon = GFX_focus_research
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_extra_tech_slot
-		}
-		prerequisite = {
-			focus = GRE_1960s_nuclear_effort
-		}
-		prerequisite = {
-			focus = GRE_1960s_secret_weapons
-		}
-		x = 3
-		y = 6
-			available = {
-					num_of_factories > 50
-				}
-			cancel_if_invalid = no
-			continue_if_invalid = yes
-			available_if_capitulated = yes
-			completion_reward = {
-					add_research_slot = 1
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_soviet_motorization_aid
-		icon = GFX_goal_generic_army_motorized
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_soviet_army_doctrine
-		}
-
-		x = 19
-		y = 4
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = motorized_equipment_2
-							amount = 500
-							producer = SOV
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_soviet_tanks
-		icon = GFX_goal_generic_army_tanks
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_soviet_motorization_aid
-		}
-		prerequisite = {
-			focus = GRE_1960s_more_surplus_equipment
-		}
-		x = 17
-		y = 5
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = main_battle_tanks_3
-							amount = 150
-							producer = SOV
-						}
-					add_equipment_to_stockpile = {
-							type = lt_equipment_2
-							amount = 300
-							producer = SOV
-						}
-					add_equipment_to_stockpile = {
-							type = ht_equipment_3
-							amount = 100
-							producer = SOV
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_soviet_mechanized_equipment
-		icon = GFX_goal_generic_build_tank
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_more_surplus_equipment
-		}
-		prerequisite = {
-			focus = GRE_1960s_soviet_motorization_aid
-		}
-		x = 19
-		y = 5
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = mechanized_equipment_3
-							amount = 500
-							producer = SOV
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_backwards_engineer_soviet_designs
-		icon = GFX_focus_secret_rearmament
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_soviet_mechanized_equipment
-		}
-		prerequisite = {
-			focus = GRE_1960s_soviet_tanks
-		}
-		x = 18
-		y = 6
-			completion_reward = {
-					add_ideas = soviet_military_desgins
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_purge_officer_corps
-		icon = GFX_goal_generic_special_forces
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_backwards_engineer_soviet_designs
-		}
-		prerequisite = {
-			focus = GRE_1960s_soviet_scuds
-		}
-		x = 20
-		y = 7
-			completion_reward = {
-					remove_ideas = incompetent_officer_corps
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_mechanized_equipment
-		icon = GFX_goal_generic_build_tank
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_intelligence_aid
-		}
-		x = 27
-		y = 5
-			completion_reward = {
-					add_equipment_to_stockpile = {
-							type = mechanized_equipment_3
-							amount = 500
-							producer = USA
-						}
-					add_equipment_to_stockpile = {
-							type = motorized_equipment_2
-							amount = 500
-							producer = SOV
-						}
-				}
-
-	}
-	focus = {
-		id = GRE_1960s_american_license_agreements
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_1960s_american_mechanized_equipment
-		}
-		prerequisite = {
-			focus = GRE_1960s_american_tanks
-		}
-		x = 26
-		y = 6
-			completion_reward = {
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = motorized_equipment_2
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = mechanized_equipment_3
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = main_battle_tanks_3
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = lt_equipment_2
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = ht_equipment_3
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = assault_rifle_equipment_2
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = CAS_equipment_5
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = jet_fighter_equipment_3
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = jet_tac_bomber_equipment_3
-									version = 0
-								}
-						}
-					create_production_license = {
-							target = USA
-							cost_factor = 1.0
-							equipment = {
-									type = jet_strat_bomber_equipment_3
-									version = 0
-								}
-						}
-				}
-
-	}		
-	#Political
-	focus = {
-		id = GRE_60s_Rising_star
-		icon = GFX_goal_unknown
-		cost = 10.00
-		x = 50
-		y = 0
-			completion_reward = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
-								}
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Turbulent_times
-		icon = GFX_goal_unknown
-		cost = 10.00
-		x = 59
-		y = 0
-		completion_reward = {
-			add_political_power = 150
-			add_stability = -0.10
-		}
-	}
-	focus = {
-		id = GRE_60s_Papadopoulos_coup
-		icon = GFX_goal_unknown
-		cost = 10.00
-		mutually_exclusive = {
-			focus = GRE_60s_Return_of_Communists
-		}
-		x = 71
-		y = 0
-			completion_reward = {
-					set_politics = {
-							ruling_party = neutrality
-							elections_allowed = no
-						}
-				}
-	}
-	focus = {
-		id = GRE_60s_Return_of_Communists
-		icon = GFX_goal_unknown
-		cost = 10.00
-		mutually_exclusive = {
-			focus = GRE_60s_Papadopoulos_coup
-		}
-		x = 83
-		y = 0
-			completion_reward = {
-					set_politics = {
-							ruling_party = communism
-							elections_allowed = no
-						}
-				}
-	}
+	
+	shared_focus = GRE_1960s_naval_effort
+	
+	shared_focus = GRE_1960s_industrial_effort
+	
+	shared_focus = GRE_1960s_non_aligned
+	
+	shared_focus = GRE_1960s_soviet_alignment
+	
+	shared_focus = GRE_1960s_american_alignment
 	focus = {
 		id = GRE_60s_Improvements_of_infrastracture
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_construct_infrastructure
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Rising_star
@@ -2893,10 +41,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Highway_Thessaloniki_Istanbul
-		icon = GFX_goal_unknown
+		icon = GFX_goal_tripartite_pact
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Improvements_of_infrastracture
@@ -2921,10 +70,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Modern_railways
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_army_motorized
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Highway_Thessaloniki_Istanbul
@@ -2949,10 +99,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
-		id = GRE_60s_Advanced_Tourism
-		icon = GFX_goal_unknown
+		id = GRE_60s_encourage_tourism
+		icon = GFX_goal_generic_intelligence_exchange
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Rising_star
@@ -2977,13 +128,14 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_More_resorts_for_vacations
-		icon = GFX_goal_unknown
+		icon = GFX_goal_continuous_non_factory_construct
 		cost = 10.00
 		prerequisite = {
-			focus = GRE_60s_Advanced_Tourism
+			focus = GRE_60s_encourage_tourism
 		}
 		x = 49
 		y = 2
@@ -3005,10 +157,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_New_ski_resorts
-		icon = GFX_goal_unknown
+		icon = GFX_goal_continuous_repairments
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_More_resorts_for_vacations
@@ -3033,10 +186,86 @@ focus_tree = {
 								}
 						}
 				}
+
+	}
+	focus = {
+		id = GRE_60s_Rising_star
+		icon = GFX_focus_generic_the_giant_wakes
+		cost = 10.00
+		x = 50
+		y = 0
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Turbulent_times
+		icon = GFX_goal_BEL_FederalParliament
+		cost = 10.00
+		x = 59
+		y = 0
+			completion_reward = {
+					add_political_power = 150
+					add_stability = -0.10
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Papadopoulos_coup
+		icon = GFX_goal_generic_military_sphere
+		cost = 10.00
+		mutually_exclusive = {
+			focus = GRE_60s_Return_of_Communists
+		}
+		available = {
+					always = no
+				}
+		x = 71
+		y = 0
+			completion_reward = {
+					set_politics = {
+							ruling_party = neutrality
+							elections_allowed = no
+						}
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Return_of_Communists
+		icon = GFX_GFX_Communism3
+		cost = 10.00
+		mutually_exclusive = {
+			focus = GRE_60s_Papadopoulos_coup
+		}
+		available = {
+					always = no
+				}
+		x = 83
+		y = 0
+			completion_reward = {
+					set_politics = {
+							ruling_party = communism
+							elections_allowed = no
+						}
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Economic_cooperation_with_neighbors
-		icon = GFX_goal_unknown
+		icon = GFX_SAU_develop_the_heavy_industry
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Rising_star
@@ -3061,10 +290,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Steel_factories
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_steel
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Economic_cooperation_with_neighbors
@@ -3079,10 +309,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Import_oil_from_Middle_East
-		icon = GFX_goal_unknown
+		icon = GFX_SAU_develop_ploesti_oil_fields
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Steel_factories
@@ -3097,46 +328,50 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Promotion_of_Greek_culture
-		icon = GFX_goal_unknown
+		icon = GFX_goal_continuous_def_against_influence
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Rising_star
 		}
 		x = 53
 		y = 1
-		completion_reward = {
-			add_ideas = KOR_education_reform
-		}
+			completion_reward = {
+					add_ideas = KOR_education_reform
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Rebuild_Hellenistic_monuments
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_construct_civ_factory
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Promotion_of_Greek_culture
 		}
 		x = 53
 		y = 2
-		completion_reward = {
-			add_political_power = 150
-			add_war_support = 0.10
-		}
+			completion_reward = {
+					add_political_power = 150
+					add_war_support = 0.10
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Modern_and_ancient_culture
-		icon = GFX_goal_unknown
+		icon = GFX_goal_continuous_increase_nu
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Rebuild_Hellenistic_monuments
 		}
 		x = 53
 		y = 3
-		completion_reward = {
-			add_research_slot = 1
-		}	
+			completion_reward = {
+					add_research_slot = 1
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Hellenic_economy_rises
@@ -3164,7 +399,7 @@ focus_tree = {
 									level = 2
 									instant_build = yes
 								}
-							}
+						}
 					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
@@ -3172,39 +407,88 @@ focus_tree = {
 									level = 2
 									instant_build = yes
 								}
-							}
 						}
+				}
+
 	}
 	focus = {
 		id = GRE_60s_1961_elections
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_election 
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Turbulent_times
 		}
 		x = 59
 		y = 1
-		available = {
-			always = no
+			available = {
+					always = no
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Karamanlis
+		icon = GFX_karamanlis_election
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_1961_elections
 		}
+		mutually_exclusive = {
+			focus = GRE_60s_Papandreou
+		}
+		x = 56
+		y = 2
+			available = {
+					always = no
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Continued_reforms
+		icon = GFX_focus_generic_self_management
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Karamanlis
+		}
+		x = 56
+		y = 3
+			completion_reward = {
+					add_political_power = 150
+					add_stability = 0.05
+				}
+
+	}
+	focus = {
+		id = GRE_60s_Women_rights
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_60s_Continued_reforms
+		}
+		x = 56
+		y = 4
+			completion_reward = {
+					add_ideas = womens_rights
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Royal_Counter_Coup_Attempt
-		icon = GFX_goal_unknown
+		icon = GFX_focus_rom_royal_dictatorship
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Papadopoulos_coup
 		}
 		x = 71
 		y = 1
-		completion_reward = {
-			add_political_power = 150
-			add_stability = -0.10
-		}
+			completion_reward = {
+					add_political_power = 150
+					add_stability = -0.10
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Expel_royal_family
-		icon = GFX_goal_unknown
+		icon = GFX_focus_rom_abdicate
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Royal_Counter_Coup_Attempt
@@ -3219,24 +503,26 @@ focus_tree = {
 					add_stability = -0.05
 					add_political_power = 300
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Proclaim_Hellenic_Republic
-		icon = GFX_goal_unknown
+		icon = GFX_Greek_Proclamation
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Expel_royal_family
 		}
 		x = 64
 		y = 3
-		completion_reward = {
-			set_cosmetic_tag = GRE_REPUBLIC
-			add_political_power = 150
-		}
+			completion_reward = {
+					set_cosmetic_tag = GRE_REPUBLIC
+					add_political_power = 150
+				}
+
 	}
 	focus = {
 		id = GRE_60s_De_jure_Monarchy
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_home_defense
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Royal_Counter_Coup_Attempt
@@ -3251,10 +537,11 @@ focus_tree = {
 					add_stability = 0.05
 					add_political_power = 150
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Press_censorship
-		icon = GFX_goal_unknown
+		icon = GFX_GFX_Communism7
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Expel_royal_family
@@ -3265,10 +552,11 @@ focus_tree = {
 			completion_reward = {
 					add_ideas = press_censorship_5
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Militarised_economy
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_construct_mil_factory
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Press_censorship
@@ -3337,66 +625,69 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Oust_opposition
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_support_the_left_right
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Militarised_economy
 		}
 		x = 66
 		y = 5
-		completion_reward = {
-			add_political_power = 150
-			add_timed_idea = {
-				idea = repression
-				days = 365
-			}	
-		}
+			completion_reward = {
+					add_political_power = 150
+					add_timed_idea = {
+							idea = repression
+							days = 365
+						}
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Gizikis_as_new_head_of_state
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_military_mission
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Oust_opposition
 		}
 		x = 66
 		y = 6
-		completion_reward = {
-			create_country_leader = { 
-				name = "Phaedon Gizikis"
-				picture = "Portrait_Phaedon_Gizikis.dds"
-				ideology = military_junta
-			}
-		
-		}
+			completion_reward = {
+					create_country_leader = {
+							name = "Phaedon Gizikis"
+							picture = "Portrait_Phaedon_Gizikis.dds"
+							ideology = military_junta
+						}
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Successful_Counter_Coup
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_support_the_left_right
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Royal_Counter_Coup_Attempt
 		}
 		mutually_exclusive = {
-			focus = GRE_60s_De_jure_Monarchy
 			focus = GRE_60s_Expel_royal_family
+			focus = GRE_60s_De_jure_Monarchy
 		}
 		x = 71
 		y = 2
 			completion_reward = {
-				add_stability = 0.10
+					add_stability = 0.10
 					set_politics = {
 							ruling_party = monarchism
 							elections_allowed = no
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Restore_Democratic_Rule
-		icon = GFX_goal_unknown
+		icon = GFX_goal_support_democracy
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Successful_Counter_Coup
@@ -3412,10 +703,11 @@ focus_tree = {
 							elections_allowed = yes
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Appoint_Karamanlis_as_PM
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_improve_relations
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Restore_Democratic_Rule
@@ -3428,10 +720,11 @@ focus_tree = {
 							elections_allowed = yes
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Reinstate_Liberal_Reforms
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Appoint_Karamanlis_as_PM
@@ -3441,10 +734,11 @@ focus_tree = {
 			completion_reward = {
 					add_ideas = rights_for_people
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Absolute_Monarchy
-		icon = GFX_goal_unknown
+		icon = GFX_focus_rom_royal_dictatorship
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Successful_Counter_Coup
@@ -3454,14 +748,15 @@ focus_tree = {
 		}
 		x = 73
 		y = 3
-		completion_reward = {
-			add_ideas = ideological_fanaticism_focus
-			add_political_power = 150
-		}
+			completion_reward = {
+					add_ideas = ideological_fanaticism_focus
+					add_political_power = 150
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Junta_Trials
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_military_academy
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Restore_Democratic_Rule
@@ -3469,87 +764,92 @@ focus_tree = {
 		}
 		x = 71
 		y = 4
-		completion_reward = {
-			add_political_power = 150
-			add_stability = 0.10
-		}
+			completion_reward = {
+					add_political_power = 150
+					add_stability = 0.10
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Purge_the_Military
-		icon = GFX_goal_unknown
+		icon = GFX_focus_RAJ_indian_gurkhas
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Junta_Trials
 		}
 		x = 71
 		y = 5
-		completion_reward = {
-			army_experience = -50
-			add_political_power = 150
-			add_manpower = -2500
-		}
+			completion_reward = {
+					army_experience = -50
+					add_political_power = 150
+					add_manpower = -2500
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Reward_the_Navy_and_Airforce
-		icon = GFX_goal_unknown
+		icon = GFX_SAU_foreign_loans
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Purge_the_Military
 		}
 		x = 71
 		y = 6
-		completion_reward = {
-			navy_experience = 25
-			air_experience = 25
-							random_owned_controlled_state = {
-									limit = {
-											is_coastal = yes
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
+			completion_reward = {
+					navy_experience = 25
+					air_experience = 25
+					random_owned_controlled_state = {
+							limit = {
+									is_coastal = yes
+									free_building_slots = {
+											building = dockyard
+											size > 2
+											include_locked = yes
 										}
 								}
-		}
+							add_extra_state_shared_building_slots = 3
+							add_building_construction = {
+									type = dockyard
+									level = 3
+									instant_build = yes
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Strengthen_Ties_to_the_Church
-		icon = GFX_goal_unknown
+		icon = GFX_GFX_protestant
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Absolute_Monarchy
 		}
 		x = 73
 		y = 4
-		completion_reward = {
-			add_stability = 0.15
-			add_political_power = 150
-		}
+			completion_reward = {
+					add_stability = 0.15
+					add_political_power = 150
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Consolidate_our_Position
-		icon = GFX_goal_unknown
+		icon = GFX_goal_demand_sudetenland
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Strengthen_Ties_to_the_Church
 		}
 		x = 74
 		y = 5
-		completion_reward = {
-			add_stability = 0.15
-			add_political_power = 150
-		}
+			completion_reward = {
+					add_stability = 0.15
+					add_political_power = 150
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Encourage_Traditionalism
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_national_unity
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Consolidate_our_Position
@@ -3559,10 +859,11 @@ focus_tree = {
 			completion_reward = {
 					add_ideas = traditional_culture
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Harder_stance_on_Cyprus
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_propaganda
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Expel_royal_family
@@ -3571,7 +872,7 @@ focus_tree = {
 		x = 76
 		y = 3
 			completion_reward = {
-					GRE = {
+					ROOT = {
 							add_opinion_modifier = {
 									target = TUR
 									modifier = small_decrease
@@ -3579,11 +880,11 @@ focus_tree = {
 						}
 					TUR = {
 							add_opinion_modifier = {
-									target = GRE
+									target = ROOT
 									modifier = small_decrease
 								}
 						}
-					GRE = {
+					ROOT = {
 							add_opinion_modifier = {
 									target = CYP
 									modifier = small_decrease
@@ -3591,15 +892,16 @@ focus_tree = {
 						}
 					CYP = {
 							add_opinion_modifier = {
-									target = GRE
+									target = ROOT
 									modifier = small_decrease
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Hostilities_with_Turkey
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_occupy_states_ongoing_war
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Harder_stance_on_Cyprus
@@ -3607,7 +909,7 @@ focus_tree = {
 		x = 76
 		y = 4
 			completion_reward = {
-					GRE = {
+					ROOT = {
 							add_opinion_modifier = {
 									target = TUR
 									modifier = large_decrease
@@ -3615,106 +917,115 @@ focus_tree = {
 						}
 					TUR = {
 							add_opinion_modifier = {
-									target = GRE
+									target = ROOT
 									modifier = large_decrease
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Ultimatum_to_Makarios
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_treaty
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Hostilities_with_Turkey
 		}
 		x = 76
 		y = 5
-		completion_reward = {
-			CYP = { country_event = CYP.1 }
-		}
+			completion_reward = {
+					CYP = {
+							country_event = CYP.1
+						}
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Push_for_unification
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_diplomatic_treaty
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Ultimatum_to_Makarios
 		}
 		x = 76
 		y = 6
-		completion_reward = {
-			add_stability = 0.15
-			add_war_support = 0.15
-			add_political_power = 150
-		}	
+			completion_reward = {
+					add_stability = 0.15
+					add_war_support = 0.15
+					add_political_power = 150
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Coup_against_Makarios
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_military_sphere
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Gizikis_as_new_head_of_state
 			focus = GRE_60s_Reward_the_Navy_and_Airforce
 			focus = GRE_60s_Push_for_unification
 		}
-		bypass = {
-			NOT = {
-				country_exists = CYP
-			}
-		}
 		x = 71
 		y = 7
-		completion_reward = {
-			CYP = {
-				country_event = CYP.2
-			}
-		}
+			bypass = {
+					NOT = {
+							country_exists = CYP
+						}
+				}
+			completion_reward = {
+					CYP = {
+							country_event = CYP.2
+						}
+				}
+
 	}
 	focus = {
 		id = GRE_60s_King_just_as_figure
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_military_mission
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_De_jure_Monarchy
 		}
 		x = 78
 		y = 3
-		completion_reward = {
-			add_political_power = 150
-			add_stability = 0.05
-		}
+			completion_reward = {
+					add_political_power = 150
+					add_stability = 0.05
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Execute_royalty
-		icon = GFX_goal_unknown
+		icon = GFX_goal_tfv_sever_ties_with_uk
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Return_of_Communists
 		}
 		x = 83
 		y = 1
-		completion_reward = {
-			add_political_power = 150
-			add_stability = -0.15
-		}
+			completion_reward = {
+					add_political_power = 150
+					add_stability = -0.15
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Divided_government
-		icon = GFX_goal_unknown
+		icon = GFX_goal_BEL_FederalParliament
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Execute_royalty
 		}
 		x = 83
 		y = 2
-		completion_reward = {
-			add_political_power = 300
-		}
+			completion_reward = {
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Maoists
-		icon = GFX_goal_unknown
+		icon = GFX_focus_prc_maoism
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Divided_government
@@ -3725,20 +1036,21 @@ focus_tree = {
 		}
 		x = 80
 		y = 3
-		completion_reward = {
-			set_politics = {
-				ruling_party = maoism
-				elections_allowed = no
-			}
-			add_timed_idea = {
-				idea = maoist_drift
-				days = 700
-			}
-		}
+			completion_reward = {
+					set_politics = {
+							ruling_party = maoism
+							elections_allowed = no
+						}
+					add_timed_idea = {
+							idea = maoist_drift
+							days = 700
+						}
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Titoists
-		icon = GFX_goal_unknown
+		icon = GFX_goal_YUG_Proclamation
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Divided_government
@@ -3749,20 +1061,21 @@ focus_tree = {
 		}
 		x = 83
 		y = 3
-		completion_reward = {
-			set_politics = {
-				ruling_party = Social_Democratic
-				elections_allowed = no
-			}
-			add_timed_idea = {
-				idea = Market_Socialist_Drift
-				days = 700
-			}
-		}
+			completion_reward = {
+					set_politics = {
+							ruling_party = Social_Democratic
+							elections_allowed = no
+						}
+					add_timed_idea = {
+							idea = Market_Socialist_Drift
+							days = 700
+						}
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Compromise_about_Macedonia
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_diplomatic_treaty
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Titoists
@@ -3770,7 +1083,7 @@ focus_tree = {
 		x = 83
 		y = 4
 			completion_reward = {
-					GRE = {
+					ROOT = {
 							add_opinion_modifier = {
 									target = YUG
 									modifier = large_increase
@@ -3778,15 +1091,16 @@ focus_tree = {
 						}
 					YUG = {
 							add_opinion_modifier = {
-									target = GRE
+									target = ROOT
 									modifier = large_increase
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Economic_Cooperation_with_Yugoslavia
-		icon = GFX_goal_unknown
+		icon = GFX_GFX_Paper
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Compromise_about_Macedonia
@@ -3808,85 +1122,44 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Join_Non_Aligned_Movement
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_defence
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Economic_Cooperation_with_Yugoslavia
 		}
 		x = 83
 		y = 6
-		completion_reward = {
-			YUG = { add_to_faction = GRE }
-		}
+			completion_reward = {
+					YUG = {
+							add_to_faction = ROOT
+						}
+				}
+
 	}	
 	focus = {
-		id = GRE_60s_Karamanlis
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_1961_elections
-		}
-		mutually_exclusive = {
-			focus = GRE_60s_Papandreou
-		}
-		x = 56
-		y = 2
-		available = {
-			always = no
-		}
-	}
-	focus = {
-		id = GRE_60s_Continued_reforms
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Karamanlis
-		}
-		x = 56
-		y = 3
-		completion_reward = {
-			add_political_power = 150
-			add_stability = 0.05
-		}
-	}
-	focus = {
-		id = GRE_60s_Women_rights
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_60s_Continued_reforms
-		}
-		x = 56
-		y = 4
-		completion_reward = {
-			add_ideas = womens_rights
-		}
-	}
-	focus = {
 		id = GRE_60s_Papandreou
-		icon = GFX_goal_unknown
+		icon = GFX_Papandreou_election
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_1961_elections
-		}
-		prerequisite = {
-			focus = GRE_60s_1963_elections
 		}
 		mutually_exclusive = {
 			focus = GRE_60s_Karamanlis
 		}
 		x = 62
 		y = 2
-		available = {
-			always = no
-		}
+			available = {
+					always = no
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Denounce_Zurich_agreements
-		icon = GFX_goal_unknown
+		icon = GFX_focus_renounce_the_treaty_of_triannon
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Papandreou
@@ -3919,10 +1192,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Reinforced_Conservatism
-		icon = GFX_goal_unknown
+		icon = GFX_goal_BEL_FederalParliament
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Denounce_Zurich_agreements
@@ -3935,10 +1209,11 @@ focus_tree = {
 							days = 900
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_1963_elections
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Women_rights
@@ -3946,13 +1221,14 @@ focus_tree = {
 		}
 		x = 59
 		y = 5
-		available = {
-			always = no
-		}
+			available = {
+					always = no
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Karamanlis_63
-		icon = GFX_goal_unknown
+		icon = GFX_karamanlis_election
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_1963_elections
@@ -3962,13 +1238,14 @@ focus_tree = {
 		}
 		x = 56
 		y = 6
-		available = {
-			always = no
-		}
+			available = {
+					always = no
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Papandreou_63
-		icon = GFX_goal_unknown
+		icon = GFX_Papandreou_election
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_1963_elections
@@ -3978,13 +1255,14 @@ focus_tree = {
 		}
 		x = 62
 		y = 6
-		available = {
-			always = no
-		}
+			available = {
+					always = no
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Claims_on_Cyprus
-		icon = GFX_goal_unknown
+		icon = GFX_cyprus
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Papandreou_63
@@ -4005,24 +1283,26 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Deliberalisation
-		icon = GFX_goal_unknown
+		icon = GFX_goal_support_fascism
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Claims_on_Cyprus
 		}
 		x = 62
 		y = 8
-		completion_reward = {
-			add_political_power = 300
-			remove_ideas = rights_for_people
-		}
+			completion_reward = {
+					add_political_power = 300
+					remove_ideas = rights_for_people
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Colder_relations_with_Ankara
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_air_defense
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Deliberalisation
@@ -4043,10 +1323,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Threats_to_Turkey
-		icon = GFX_goal_unknown
+		icon = GFX_goal_continuous_reduce_training_time
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Coup_against_Makarios
@@ -4067,10 +1348,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Deescalation_of_situation
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_little_entente
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Threats_to_Turkey
@@ -4094,10 +1376,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Invasion_on_Turkey
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_occupy_states_ongoing_war
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Threats_to_Turkey
@@ -4111,13 +1394,14 @@ focus_tree = {
 					create_wargoal = {
 							type = take_state_focus
 							target = TUR
-							generator = { 339 340 341 342 }
+							generator = { 339  340  341  342 }
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Socialist_economy
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_trade
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Karamanlis_63
@@ -4138,10 +1422,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_King_is_not_happy
-		icon = GFX_goal_unknown
+		icon = GFX_focus_rom_royal_dictatorship
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Socialist_economy
@@ -4149,14 +1434,15 @@ focus_tree = {
 		}
 		x = 59
 		y = 8
-		completion_reward = {
-			add_political_power = 200
-			add_stability = -0.05
-		}
+			completion_reward = {
+					add_political_power = 200
+					add_stability = -0.05
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Removing_sanctions_on_Soviets
-		icon = GFX_goal_unknown
+		icon = GFX_focus_chi_mission_to_the_soviet_union
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Socialist_economy
@@ -4177,10 +1463,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Amnesty_to_civil_war_communists
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Removing_sanctions_on_Soviets
@@ -4188,8 +1475,8 @@ focus_tree = {
 		x = 56
 		y = 9
 			completion_reward = {
-				add_political_power = -150
-				add_stability = -0.05
+					add_political_power = -150
+					add_stability = -0.05
 					GRE = {
 							add_opinion_modifier = {
 									target = YUG
@@ -4203,10 +1490,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_King_is_furious
-		icon = GFX_goal_unknown
+		icon = GFX_focus_rom_abdicate
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Amnesty_to_civil_war_communists
@@ -4217,27 +1505,29 @@ focus_tree = {
 		}
 		x = 59
 		y = 10
-		completion_reward = {
-			add_political_power = 200
-			add_stability = -0.05
-		}
+			completion_reward = {
+					add_political_power = 200
+					add_stability = -0.05
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Coup_of_Communists
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_soviet_politics
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Amnesty_to_civil_war_communists
 		}
 		x = 56
 		y = 10
-		completion_reward = {
-			complete_national_focus = GRE_60s_Return_of_Communists
-		}
+			completion_reward = {
+					complete_national_focus = GRE_60s_Return_of_Communists
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Coup_of_colonels
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_military_mission
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Colder_relations_with_Ankara
@@ -4247,13 +1537,14 @@ focus_tree = {
 		}
 		x = 61
 		y = 11
-		completion_reward = {
-			complete_national_focus = GRE_60s_Papadopoulos_coup
-		}
+			completion_reward = {
+					complete_national_focus = GRE_60s_Papadopoulos_coup
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Stalinists
-		icon = GFX_goal_unknown
+		icon = GFX_stalin
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Divided_government
@@ -4264,16 +1555,17 @@ focus_tree = {
 		}
 		x = 86
 		y = 3
-		completion_reward = {
-			set_politics = {
-				ruling_party = communism
-				elections_allowed = no
-			}
-		}
+			completion_reward = {
+					set_politics = {
+							ruling_party = communism
+							elections_allowed = no
+						}
+				}
+
 	}
 	focus = {
 		id = GRE_60s_Revoke_claims_on_Northern_epirus
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_major_alliance
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Stalinists
@@ -4294,10 +1586,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Economic_Cooperation_with_China
-		icon = GFX_goal_unknown
+		icon = GFX_focus_chi_one_china_policy
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Maoists
@@ -4319,10 +1612,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Hostility_with_Soviet_Union
-		icon = GFX_goal_unknown
+		icon = GFX_goal_anti_comintern_pact
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Revoke_claims_on_Northern_epirus
@@ -4343,10 +1637,11 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = GRE_60s_Support_to_North_Korea
-		icon = GFX_goal_unknown
+		icon = GFX_goal_KPA_Proclamation
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Economic_Cooperation_with_China
@@ -4354,26 +1649,27 @@ focus_tree = {
 		x = 80
 		y = 5
 			completion_reward = {
-				KPA = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
+					KPA = {
+							random_owned_controlled_state = {
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
 								}
 						}
 				}
-			}
+
 	}
 	focus = {
 		id = GRE_60s_Help_Albania_economy
-		icon = GFX_goal_unknown
+		icon = GFX_goal_continuous_increase_nu
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Hostility_with_Soviet_Union
@@ -4381,26 +1677,27 @@ focus_tree = {
 		x = 86
 		y = 6
 			completion_reward = {
-				ALB = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-							add_building_construction = {
-									type = infrastructure
-									level = 2
-									instant_build = yes
+					ALB = {
+							random_owned_controlled_state = {
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+									add_building_construction = {
+											type = infrastructure
+											level = 2
+											instant_build = yes
+										}
 								}
 						}
 				}
-			}
+
 	}
 	focus = {
 		id = GRE_60s_China_guarantee_us
-		icon = GFX_goal_unknown
+		icon = GFX_goal_PRC_deal
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Support_to_North_Korea
@@ -4411,20 +1708,30 @@ focus_tree = {
 			country_exists = PRC
 		}
 		completion_reward = {
-			PRC = { diplomatic_relation = { country = GRE relation = guarantee active = yes } }
+			if = { 
+				limit = { country_exists = PRC }
+				PRC = {
+					diplomatic_relation = {
+						country = GRE
+						relation = guarantee
+						active = yes
+					}
+				}
+			}
 		}
 	}
 	focus = {
 		id = GRE_60s_Restore_Stability
-		icon = GFX_goal_unknown
+		icon = GFX_focus_generic_the_giant_wakes
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_60s_Reinstate_Liberal_Reforms
 		}
 		x = 68
 		y = 6
-		completion_reward = {
-			add_stability = 0.15
-		}
+			completion_reward = {
+					add_stability = 0.15
+				}
+
 	}
 }

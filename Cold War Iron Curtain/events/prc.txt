@@ -339,7 +339,7 @@ country_event = {
 			}
 		}
 		PRC = { 
-			country_event = { id = prc.15 }
+			country_event = prc.15
 			effect_tooltip = { puppet = CAM }
 		}
 	}
@@ -348,7 +348,7 @@ country_event = {
 		name = prc.14.b
 		ai_chance = { factor = 40 }
 		PRC = { 
-			country_event = { id = prc.16 }
+			country_event = prc.16
 			effect_tooltip = {
 				create_wargoal = {
 					type = take_state
@@ -422,7 +422,7 @@ country_event = {
 			}
 		}
 		PRC = { 
-			country_event = { id = prc.18 }
+			country_event = prc.18
 			effect_tooltip = { puppet = VIN }
 		}
 	}
@@ -431,7 +431,7 @@ country_event = {
 		name = prc.17.b
 		ai_chance = { factor = 40 }
 		PRC = { 
-			country_event = { id = prc.19 }
+			country_event = prc.19
 			effect_tooltip = {
 				create_wargoal = {
 					type = take_state
@@ -551,10 +551,10 @@ country_event = {
 	option = {
 		name = generic.1.b
 		PRC = {
-				create_wargoal = {
-							type = annex_everything
-							target = POR
-						}		
+			create_wargoal = {
+				type = annex_everything
+				target = POR
+			}		
 		}
 	  ai_chance = {
 		  factor = 50
@@ -583,10 +583,10 @@ country_event = {
 	option = {
 		name = generic.1.b
 		PRC = {
-				create_wargoal = {
-							type = annex_everything
-							target = ENG
-						}		
+			create_wargoal = {
+				type = annex_everything
+				target = ENG
+			}		
 		}
 	  ai_chance = {
 		  factor = 50
@@ -607,13 +607,9 @@ country_event = {
 		add_popularity = { ideology = communism popularity = 0.5 }	
         create_country_leader = {
 			name = "Peng Dehuai"
-			desc = ""
 			picture = "Portrait_PRC_Peng_Dehuai"
 			expire = "1992.1.1"
 			ideology = stalinism
-			traits = {
-				
-			}
 		}
 	}
 }
@@ -719,5 +715,25 @@ news_event = {
 	
 	option = {
 		name = prc.75.a
+	}
+}
+country_event = {
+    id = prc.70
+    title = "Lin Biao Executes Military Coup in the PRC"
+    Desc = "Lin Biao Executes Military Coup in the PRC"
+    picture = news_event_india_troops
+   
+    is_triggered_only = yes
+	
+	option = { 
+	    name = "Execute the Coup"
+		set_politics = { ruling_party = neutrality elections_allowed = no }	
+		add_popularity = { ideology = neutrality popularity = 0.5 }	
+        create_country_leader = {
+			name = "Lin Biao"
+			picture = "Portrait_PRC_Lin_Biao"
+			expire = "1992.1.1"
+			ideology = military_junta
+		}
 	}
 }

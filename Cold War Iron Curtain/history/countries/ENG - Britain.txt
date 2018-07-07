@@ -16,8 +16,8 @@ set_technology = {
 	hardware_I = 1
 	radio = 1
 	radar_0 = 1
-	experimental_rockets = 1
-	improved_rocket_engines = 1
+
+	
 	advanced_rocket_engines = 1
 	liquid_propelled_rocket = 1
 	jet_engines = 1
@@ -51,8 +51,8 @@ set_technology = {
 	tactical_bomber2 = 1
 	tactical_bomber3 = 1
 	jet_CAS1 = 1
-	jet_fighter1 = 1
-	jet_fighter2 = 1
+	jet_multirole1 = 1
+	jet_multirole2 = 1
 	jet_interceptor1 = 1
 	jet_interceptor2 = 1
 	jet_strategic_bomber1 = 1
@@ -65,9 +65,9 @@ set_technology = {
 	cv_fighter1 = 1
 	cv_fighter2 = 1
 	cv_fighter3 = 1
-	cv_fighter4 = 1
+	cv_jet_multirole1 = 1
 	cv_jet_CAS1 = 1
-	cv_jet_fighter1 = 1
+	cv_jet_multirole1 = 1
 	cv_naval_bomber1 = 1
 	cv_naval_bomber2 = 1
 	cv_naval_bomber3 = 1
@@ -264,14 +264,13 @@ if = {
 		autonomous_state = autonomy_dominion
 		freedom_level = 0.6
 	}
-
 	set_autonomy = {
-		target = TAZ
-		autonomous_state = autonomy_protectorate
+		target = NFL
+		autonomous_state = autonomy_dominion
 		freedom_level = 0.6
 	}
 	set_autonomy = {
-		target = LBA
+		target = TAZ
 		autonomous_state = autonomy_protectorate
 		freedom_level = 0.6
 	}
@@ -296,7 +295,7 @@ if = {
 		freedom_level = 0.6
 	}
 	set_autonomy = {
-		target = CEY
+		target = SLK		
 		autonomous_state = autonomy_dominion
 		freedom_level = 0.6
 	}
@@ -355,6 +354,46 @@ if = {
 		autonomous_state = autonomy_protectorate
 		freedom_level = 0.6
 	}
+	set_autonomy = {
+		target = BHR
+		autonomous_state = autonomy_protectorate
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = QAT
+		autonomous_state = autonomy_protectorate
+		freedom_level = 0.4
+	}
+		set_autonomy = {
+		target = GHA
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+    set_autonomy = {
+		target = SGP
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+    set_autonomy = {
+		target = TAT
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+    set_autonomy = {
+		target = NBR
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = SWK
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+    set_autonomy = {
+		target = BLZ
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
 	
 	else = {
 		puppet = KUW
@@ -369,17 +408,13 @@ if = {
 		puppet = ZIM
 		puppet = ZAM
 		puppet = NYA
-		puppet = LBA
 		puppet = NIA
 		puppet = BOT
-		puppet = NIA
-		puppet = UGA
 		puppet = BRU
 		puppet = CAN
 		puppet = NZL
 		puppet = AST
 		puppet = SAF
-		puppet = PAK
 		puppet = RAJ
 		puppet = BSL
         puppet = BCM
@@ -395,6 +430,16 @@ if = {
 		puppet = HOK
 		puppet = JOR
 		puppet = WGR
+		puppet = NFL
+		puppet = BHR
+		puppet = QAT
+		puppet = GHA
+		puppet = SGP
+		puppet = TAT
+		puppet = NBR
+		puppet = SWK
+		puppet = BLZ
+		puppet = SLK
 	}
 }
 add_ideas = {
@@ -421,26 +466,54 @@ if = {
     autonomous_state = autonomy_dominion
     freedom_level = 0.6
   }
-    set_autonomy = {
+  set_autonomy = {
     target = PAK
     autonomous_state = autonomy_dominion
     freedom_level = 0.6
   }
   	else = {
-		puppet = PAK
 		puppet = RAJ
+		puppet = PAK
 	}
   }
-}
+  PAK = {
+set_politics = {
 
+	parties = {
+        democratic = { popularity = 26 }
+        communism = { popularity = 4 }
+        fascism = { popularity = 0 }
+        nationalism = { popularity = 0 }
+        monarchism = { popularity = 0 }
+        neutrality = { popularity = 0 }
+        islamism = { popularity = 18 }
+        radical_shiaism = { popularity = 0 }
+        pan_arabism = {popularity = 0}
+        Social_Democratic = { popularity = 0 }
+        Social_Liberalism = { popularity = 0 }
+        Salafism = { popularity = 0 }
+        Christianism = { popularity = 0 }
+        Liberal_Conservatism = { popularity = 0 }
+        Judaism = { popularity = 0 }
+        conservative = { popularity = 52 }
+        Christian_Democratic = { popularity = 0 }
+        socialist = { popularity = 0 }
+        centrist = { popularity = 0 }
+        liberal = { popularity = 0 }
+        trotskyism = { popularity = 0 }
+        maoism = { popularity = 0 }
+        National_Socialism = { popularity = 0 }
 
-1949.1.1 = {
-	CPI = {
-		declare_war_on = {
-			target = RAJ
-			type = civil_war
-		}
 	}
+	
+	ruling_party = conservative
+	last_election = "1945.1.1"
+	election_frequency = 48
+	elections_allowed = no
+  }
+ }
+}
+1949.1.1 = {
 	MLA = { 
 		declare_war_on = {
 			target = MAL
@@ -449,22 +522,320 @@ if = {
 	}
 	set_autonomy = { target = JOR autonomy_state = autonomy_free }	
 	set_autonomy = { target = WGR autonomy_state = autonomy_free }	
+	set_autonomy = { target = NFL autonomy_state = autonomy_free }	
 	ENG = { 
-		add_to_war = { targeted_alliance = RAJ enemy = CPI }
 		add_to_war = { targeted_alliance = MAL enemy = MLA } 
 	}
 }
 
 1951.1.1 = {
-	set_autonomy = { target = LBA autonomy_state = autonomy_free }	
+	white_peace = MLA
+    set_autonomy = { target = RAJ autonomy_state = autonomy_free }		
+}
+1956.1.1 = {
+	set_autonomy = { target = PAK autonomy_state = autonomy_free }	
+}
+1957.1.1 = {
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+  set_autonomy = {
+    target = GHA
+    autonomous_state = autonomy_dominion
+    freedom_level = 0.6
+  }
+  	else = {
+		puppet = GHA
+	}
+  }
 }
 1958.1.1 = {
 	set_autonomy = { target = MAL autonomy_state = autonomy_free }	
 }
 1960.1.1 = {
-	set_autonomy = { target = SUD autonomy_state = autonomy_free }	
+	load_focus_tree = ENG_60s
+oob = "ENG_1960"
+	set_autonomy = { target = SUD autonomy_state = autonomy_free }
+    set_autonomy = { target = CYP autonomy_state = autonomy_free }
+
+	set_technology = {
+
+		## Engineering + Industry ##
+		ww_production = 1
+		ww_construction = 1
+		ww_oil = 1
+		logistics_I = 1
+		logistics_II = 1
+		production_efficiency_I = 1
+		production_efficiency_II = 1
+		management_I = 1
+		management_II = 1
+		agriculture_I = 1
+		civil_engineering_I = 1
+		civil_engineering_II = 1
+		excavation_I = 1
+		materials_I = 1
+		chemistry_I = 1
+		ww_pc = 1
+		hardware_I = 1
+		hardware_II = 1
+		hardware_III = 1
+		software_I = 1
+		software_II = 1
+		radio = 1
+		radar_0 = 1
+		radar_I = 1
+		radar_II = 1
+		coms_I = 1
+		decryption_I = 1
+		enc_I = 1
+
+		## WMD ##
+		chemical_weapons = 1
+		chemical_weapons_2 = 1
+		atomic_research = 1
+		nuclear_reactor = 1
+		naval_reactor = 1
+		nukes = 1
+		fission1949 = 1
+		
+		fission1952 = 1
+		
+	
+		rocket_engines = 1
+		jet_engines = 1
+		
+		advanced_rocket_engines = 1
+
+		## Space ##
+		liquid_propelled_rocket = 1
+		hybrid_propelled_rocket = 1
+		
+		## Helicopters & Missiles ##
+		early_helicopter = 1
+		utility_helicopter_1 = 1
+		utility_helicopter_2 = 1
+		cargo_helicopter_1 = 1
+		naval_helicopter_1 = 1
+		naval_helicopter_2 = 1
+		cruisemissile_1 = 1
+		cruisemissile_2 = 1
+		cruisemissile_3 = 1
+		navalcruisemissile_1 = 1
+		coastalmissile_1 = 1
+		
+		navalaam_1 = 1
+		
+		aam_1 = 1
+		aam_2 = 1
+		aam_3 = 1
+		agm_1 = 1
+		
+		## Air ##
+		early_bomber = 1
+		early_fighter = 1
+		fighter1 = 1
+		fighter2 = 1
+		fighter3 = 1
+		heavy_fighter1 = 1
+		heavy_fighter2 = 1
+		heavy_fighter3 = 1
+		CAS1 = 1
+		CAS2 = 1
+		CAS3 = 1
+		CAS4 = 1
+		naval_bomber1 = 1
+		naval_bomber2 = 1
+		naval_bomber3 = 1
+		naval_bomber4 = 1
+		naval_bomber5 = 1
+		strategic_bomber1 = 1
+		strategic_bomber2 = 1
+		strategic_bomber3 = 1
+		tactical_bomber1 = 1
+		tactical_bomber2 = 1
+		tactical_bomber3 = 1
+		jet_CAS1 = 1
+		jet_CAS2 = 1
+		jet_CAS3 = 1
+		jet_multirole1 = 1
+		jet_multirole2 = 1
+		jet_multirole3 = 1
+		jet_multirole4 = 1
+		jet_interceptor1 = 1
+		jet_interceptor2 = 1
+		jet_interceptor3 = 1
+		jet_interceptor4 = 1
+		jet_strategic_bomber1 = 1
+		jet_strategic_bomber2 = 1
+		jet_strategic_bomber3 = 1
+		jet_tactical_bomber1 = 1
+		jet_tactical_bomber2 = 1
+		jet_tactical_bomber3 = 1
+		cv_CAS1 = 1
+		cv_CAS2 = 1
+		cv_CAS3 = 1
+		cv_CAS4 = 1
+		cv_early_fighter = 1
+		cv_fighter1 = 1
+		cv_fighter2 = 1
+		cv_fighter3 = 1
+		cv_jet_CAS1 = 1
+		cv_jet_CAS2 = 1
+		cv_jet_CAS3 = 1
+		cv_jet_multirole1 = 1
+		cv_jet_multirole2 = 1
+		cv_jet_multirole3 = 1
+		cv_jet_multirole4 = 1
+		cv_naval_bomber1 = 1
+		cv_naval_bomber2 = 1
+		cv_naval_bomber3 = 1
+		cv_naval_bomber4 = 1
+		cv_naval_bomber5 = 1
+		transport1 = 1
+		transport2 = 1
+		transport3 = 1
+		transport4 = 1
+		transport5 = 1
+
+		## Navy ##
+		frigate_1 = 1
+		frigate_2 = 1
+		frigate_3 = 1
+		frigate_4 = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		improved_destroyer = 1
+		advanced_destroyer = 1
+		modern_destroyer = 1
+		early_battleship = 1
+		battleship_2 = 1
+		battleship_3 = 1
+		battleship_4 = 1
+		battle_cruiser_1 = 1
+		battle_cruiser_2 = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		improved_light_cruiser = 1
+		advanced_light_cruiser = 1
+		early_submarine = 1
+		basic_submarine = 1
+		improved_submarine = 1
+		ssn_1 = 1
+		ballistic_submarine_1 = 1
+		transport = 1
+		landing_craft = 1
+		tank_landing_craft = 1
+		early_carrier = 1
+		basic_carrier = 1
+		improved_carrier = 1
+		super_carrier1 = 1
+		light_carrier1 = 1
+		light_carrier2 = 1
+		
+		## Armor ## 
+		iw_armored_vehicles = 1
+		amphibious1 = 1
+		amphibious2 = 1
+		heavy_tanks_1 = 1
+		heavy_tanks_2 = 1
+		heavy_tanks_3 = 1
+		heavy_tanks_4 = 1
+		light_tanks_1 = 1
+		light_tanks_2 = 1
+		light_tanks_3 = 1
+		light_tanks_4 = 1
+		main_battle_tanks = 1
+		main_battle_tanks_1 = 1
+		main_battle_tanks_2 = 1
+		main_battle_tanks_3 = 1
+		main_battle_tanks_4 = 1
+		armored_engineering_1 = 1
+		armored_engineering_2 = 1
+		armored_engineering_3 = 1
+		armored_engineering_4 = 1
+		armored_engineering_5 = 1
+		super_heavy_tanks_1 = 1
+		super_heavy_tanks_2 = 1
+		super_heavy_tanks_3 = 1
+		mechanized_heavy_infantry = 1
+		mechanized_heavy_infantry2  = 1
+		mechanized_heavy_infantry3  = 1
+		mechanized_infantry = 1
+		mechanized_infantry2 = 1
+		mechanized_infantry3 = 1
+		mechanized_infantry4 = 1
+		mechanized_infantry5 = 1
+		tankdestroyer1 = 1
+		tankdestroyer2 = 1
+		tankdestroyer3 = 1
+		tankdestroyer4 = 1
+		tankdestroyer5 = 1
+		recon_mechanized_1 = 1
+		recon_mechanized_2 = 1
+		recon_mechanized_3 = 1
+		recon_mechanized_4 = 1
+		recon_mechanized_5 = 1
+		motorised_infantry = 1
+		motorised_infantry_2 = 1
+		motorised_infantry_3 = 1
+
+		## Artillery ##
+		gw_artillery = 1
+		selfpropart1 = 1
+		selfpropart2 = 1
+		selfpropart3 = 1
+		selfpropart4 = 1
+		selfpropart5 = 1
+		sp_rocket1 = 1
+		sp_rocket2 = 1
+		sp_rocket3 = 1
+		sp_aa1 = 1
+		sp_aa2 = 1
+		interwar_antitank = 1
+		antitank1 = 1
+		antitank2 = 1
+		interwar_antiair = 1
+		antiair1 = 1
+		antiair2 = 1
+		antiair3 = 1
+
+		## Infantry ##
+		team_weapons_1 = 1
+		team_weapons_2 = 1
+		infantry_equip_1 = 1 
+		infantry_equip_2 = 1
+		lmg_infantry_weapons1 = 1
+		explosives_1 = 1
+		antitank_1 = 1
+		specialist_1 = 1
+		specialist_2 = 1
+		protection_1 = 1
+		tech_mountaineers = 1
+		marines = 1
+		paratroopers = 1
+		tech_mountaineers2 = 1
+		marines2 = 1
+		paratroopers2 = 1
+		night_vision = 1
+
+		## Support ##
+		tech_support = 1
+		tech_engineers = 1
+		tech_recon = 1
+		tech_field_hospital = 1
+		tech_logistics_company = 1
+		tech_military_police = 1
+		tech_signal_company = 1
+		tech_maintenance_company = 1
+		
+	}
+}
+1960.10.1 = {
+	set_autonomy = { target = GHA autonomy_state = autonomy_free }
 	set_autonomy = { target = NIA autonomy_state = autonomy_free }
-    set_autonomy = { target = CYP autonomy_state = autonomy_free }		
+
 }
 1961.1.1 = {
     set_autonomy = { target = SAF autonomy_state = autonomy_free } 
@@ -474,6 +845,13 @@ if = {
 }
 1962.1.1 = {
     set_autonomy = { target = JAM autonomy_state = autonomy_free } 	
+    set_autonomy = { target = TAT autonomy_state = autonomy_free } 	
+    set_autonomy = { target = UGA autonomy_state = autonomy_free } 	
+}
+1963.1.1 = {
+    set_autonomy = { target = SGP autonomy_state = autonomy_free } 	
+    set_autonomy = { target = SWK autonomy_state = autonomy_free } 	
+    set_autonomy = { target = NBR autonomy_state = autonomy_free } 	
 }
 1964.1.1 = {
     set_autonomy = { target = MLT autonomy_state = autonomy_free } 
@@ -499,8 +877,16 @@ if = {
 }
 1971.1.1 = {
 	set_autonomy = { target = OMA autonomy_state = autonomy_free }
-    set_autonomy = { target = UAE autonomy_state = autonomy_free }		
+    set_autonomy = { target = UAE autonomy_state = autonomy_free }	
+	set_autonomy = { target = QAT autonomy_state = autonomy_free }
+    set_autonomy = { target = BHR autonomy_state = autonomy_free }	
+    set_autonomy = { target = KUW autonomy_state = autonomy_free }		
 }
+
+1972.1.1 = {
+    set_autonomy = { target = SLK autonomy_state = autonomy_free }    
+}
+
 1975.12.12 = {
     set_autonomy = { target = KEN autonomy_state = autonomy_free }    
 }
@@ -509,8 +895,16 @@ if = {
     set_autonomy = { target = SOL autonomy_state = autonomy_free }    
 }
 
+1981.1.1 = {
+    set_autonomy = { target = BLZ autonomy_state = autonomy_free }    
+}
+
 1982.1.1 = {
     set_autonomy = { target = CAN autonomy_state = autonomy_free }    
+}
+
+1984.1.1 = {  
+    set_autonomy = { target = BRU autonomy_state = autonomy_free } 
 }
 
 1986.1.1 = {
@@ -562,7 +956,12 @@ create_country_leader = {
 	ideology = royal_democrat
 	expire = "1952.2.6"
 }
-
+create_country_leader = {
+	name = "Ted Grant"
+	picture = "Portrait_Britain_Ted_Grant.dds"
+	ideology = trotskyism_ideology
+	expire = "1952.2.6"
+}
 create_country_leader = {
 	name = "Oswald Mosley"
 	picture = "Portrait_Britain_OswaldMosley.dds"

@@ -1,18 +1,15 @@
 ﻿add_namespace = belgiandecolonization
 
+#Ruanda-Urundi
 country_event = {
 	id = belgiandecolonization.1
 	title = belgiandecolonization.1.t	
 	desc = belgiandecolonization.1.d
 	picture = GFX_report_event_german_volunteers
 	
+	is_triggered_only = yes
 	fire_only_once = yes
 	
-	trigger = {
-		original_tag = BEL
-		date > 1962.7.1
-		date < 1963.1.1
-	}
 	option = {
 		name = belgiandecolonization.1.a
 		ai_chance = {
@@ -31,6 +28,41 @@ country_event = {
 		custom_effect_tooltip = belgiandecolonization.1.b.tt
 		hidden_effect = {
 			set_global_flag = bel_class_b_mandate_available
+		}
+	}
+}
+
+#Belgian Congo
+country_event = {
+	id = belgiandecolonization.2
+	title = belgiandecolonization.2.t	
+	desc = belgiandecolonization.2.d
+	picture = GFX_report_event_german_volunteers
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = belgiandecolonization.2.a
+		ai_chance = {
+			factor = 100
+		}
+		news_event = { id = belgiandecolonization.113 hours = 1 } }
+		set_autonomy = { target = DOC autonomy_state = autonomy_free }	
+		DOC = {
+			drop_cosmetic_tag = yes
+			set_politics = {
+				ruling_party = Liberal_Conservatism
+				elections_allowed = yes
+			}
+			add_popularity ={
+		        ideology = Liberal_Conservatism
+		        popularity = 0.80
+		    }
+			add_popularity ={
+		        ideology = nationalism
+		        popularity = 0.20
+		    }
 		}
 	}
 }
@@ -109,5 +141,20 @@ news_event = {
 	is_triggered_only = yes
 	option = {
 		name = belgiandecolonization.112.a
+	}
+}
+news_event = {
+	id = belgiandecolonization.113
+	title = belgiandecolonization.113.t	
+	desc = belgiandecolonization.113.d
+
+	major = yes	
+
+	picture = GFX_news_event_019
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgiandecolonization.113.a
 	}
 }

@@ -149,21 +149,6 @@ focus_tree = {
 				}
 			ai_will_do = {
 					factor = 3
-					modifier = {
-							factor = 0
-							date < 1939.1.1
-							OR = {
-									tag = GXC
-									tag = YUN
-									tag = SHX
-									tag = XSM
-									tag = BEL
-									tag = LUX
-									tag = HOL
-									tag = DEN
-									num_of_controlled_states < 2
-								}
-						}
 				}
 
 	}
@@ -173,6 +158,7 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = POR_1960s_soviet_alignment
+			focus = POR_1960s_american_alignment
 		}
 		x = 12
 		y = 0
@@ -214,6 +200,7 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = POR_1960s_soviet_alignment
+			focus = POR_1960s_non_aligned
 		}
 		x = 28
 		y = 0
@@ -1619,7 +1606,7 @@ focus_tree = {
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
-							type = jet_fighter_equipment_3
+							type = jet_multirole_equipment_3
 							amount = 800
 							producer = SOV
 						}
@@ -2079,7 +2066,7 @@ focus_tree = {
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
-							type = jet_fighter_equipment_3
+							type = jet_multirole_equipment_3
 							amount = 800
 							producer = USA
 						}
@@ -2721,8 +2708,9 @@ focus_tree = {
 		x = 26
 		y = 6
 			completion_reward = {
+				USA = {
 					create_production_license = {
-							target = USA
+							target = POR
 							cost_factor = 1.0
 							equipment = {
 									type = motorized_equipment_2
@@ -2730,7 +2718,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = POR
 							cost_factor = 1.0
 							equipment = {
 									type = mechanized_equipment_3
@@ -2738,7 +2726,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = POR
 							cost_factor = 1.0
 							equipment = {
 									type = main_battle_tanks_3
@@ -2746,7 +2734,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = POR
 							cost_factor = 1.0
 							equipment = {
 									type = lt_equipment_2
@@ -2754,7 +2742,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = POR
 							cost_factor = 1.0
 							equipment = {
 									type = ht_equipment_3
@@ -2762,7 +2750,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = POR
 							cost_factor = 1.0
 							equipment = {
 									type = assault_rifle_equipment_2
@@ -2770,7 +2758,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = POR
 							cost_factor = 1.0
 							equipment = {
 									type = CAS_equipment_5
@@ -2778,15 +2766,15 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = POR
 							cost_factor = 1.0
 							equipment = {
-									type = jet_fighter_equipment_3
+									type = jet_multirole_equipment_3
 									version = 0
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = POR
 							cost_factor = 1.0
 							equipment = {
 									type = jet_tac_bomber_equipment_3
@@ -2794,7 +2782,7 @@ focus_tree = {
 								}
 						}
 					create_production_license = {
-							target = USA
+							target = POR
 							cost_factor = 1.0
 							equipment = {
 									type = jet_strat_bomber_equipment_3
@@ -2802,6 +2790,7 @@ focus_tree = {
 								}
 						}
 				}
+			}
 
 	}	
 	#Portugal Political
@@ -3683,7 +3672,7 @@ focus_tree = {
 
 	}
 	focus = {
-		id = POR_Unite_Iberia?
+		id = POR_Unite_Iberia
 		icon = GFX_goal_support_communism
 		cost = 10.00
 		prerequisite = {
@@ -4668,7 +4657,13 @@ focus_tree = {
 		x = 40
 		y = 7
 			completion_reward = {
-					country_event = POR.600
+	create_country_leader = {
+		name = "Marcelo Caetano"
+		picture = "Marcelo_Caetano.dds"
+		expire = "1983.1.1"
+		ideology = fascism_ideology
+	}
+	add_political_power = 150
 				}
 
 	}
