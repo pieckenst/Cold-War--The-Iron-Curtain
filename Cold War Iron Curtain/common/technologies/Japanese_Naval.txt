@@ -1488,6 +1488,88 @@ technologies = {
 		}
 	}
 
+	JAP_transport = {
+
+		transport_capacity = -0.5
+		naval_invasion_capacity = 10
+		
+		path = {
+			leads_to_tech = JAP_landing_craft 
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 0.5
+		start_year = 1922
+		
+		folder = {
+			name = JAP_naval_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0.5
+				NOT = { has_war = yes }
+			}
+			
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+			
+			modifier = {
+				factor = 2
+				tag = JAP
+			}
+			
+			modifier = {
+				factor = 2
+				tag = ENG
+			}
+		}
+		
+		categories = {
+			naval_equipment
+			tp_tech
+		}
+	}
+	
+	JAP_landing_craft = {
+
+		invasion_preparation = -0.5
+		amphibious_invasion_defence = 0.15
+		naval_invasion_capacity = 40
+
+		path = {
+			leads_to_tech = JAP_tank_landing_craft 
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 1940
+		
+		folder = {
+			name = JAP_naval_folder
+			position = { x = 0 y = 3 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0.5
+				NOT = { has_war = yes }
+			}
+		}
+		
+		categories = {
+			naval_equipment
+			tp_tech
+		}
+	}
+
 	JAP_tank_landing_craft = {
 
 		amphibious_invasion = 0.25
@@ -1499,7 +1581,7 @@ technologies = {
 		
 		folder = {
 			name = JAP_naval_folder
-			position = { x = 0 y = 0 }
+			position = { x = 0 y = 6 }
 		}
 		
 		ai_will_do = {
