@@ -735,7 +735,13 @@ focus_tree = {
 		}
 		x = 21
 		y = 5
-
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+			add_timed_idea = { idea = communism_drift_3 days = 360 }
+		}
 	}
 	focus = {
 		id = BEL_Nationalize_the_Industry
@@ -746,7 +752,43 @@ focus_tree = {
 		}
 		x = 21
 		y = 6
-
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+			add_timed_idea = { idea = communism_drift_2 days = 360 }
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = BEL_Reclaim_Dutch_Territory
@@ -760,7 +802,14 @@ focus_tree = {
 		}
 		x = 18
 		y = 7
-
+		completion_reward = {
+			create_wargoal = {
+				target = HOL
+				type = take_state_focus
+				generator = { 7 }
+			}
+			add_state_core = 7
+		}
 	}
 	focus = {
 		id = BEL_Call_out_the_People
@@ -772,7 +821,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 7
-
+		completion_reward = {
+			add_ideas = BEL_Call_out_the_people
+		}
 	}
 	focus = {
 		id = BEL_Reclaim_Luxembourg
@@ -786,7 +837,14 @@ focus_tree = {
 		}
 		x = 16
 		y = 8
-
+		completion_reward = {
+			create_wargoal = {
+				target = LUX
+				type = take_state_focus
+				generator = { 8 }
+			}
+			add_state_core = 8
+		}
 	}
 	focus = {
 		id = BEL_Reclaim_French_Territory
@@ -800,7 +858,14 @@ focus_tree = {
 		}
 		x = 20
 		y = 8
-
+		completion_reward = {
+			create_wargoal = {
+				target = FRA
+				type = take_state_focus
+				generator = { 8 }
+			}
+		}
+		add_state_core = 8
 	}
 	focus = {
 		id = BEL_The_Belgian_Peoples_Unions
@@ -813,7 +878,9 @@ focus_tree = {
 		}
 		x = 21
 		y = 9
-
+		completion_reward = {
+			set_cosmetic_tag = BEL_COM
+		}
 	}
 	focus = {
 		id = BEL_The_Belgian_Kingdom
@@ -826,7 +893,9 @@ focus_tree = {
 		}
 		x = 19
 		y = 9
-
+		completion_reward = {
+			set_cosmetic_tag = BEL_MON # Add Flags to cosmetic tags
+		}
 	}
 	focus = {
 		id = BEL_Real_Neutrality
