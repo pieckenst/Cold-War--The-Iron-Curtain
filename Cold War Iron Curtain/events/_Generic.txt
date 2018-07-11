@@ -739,3 +739,63 @@ country_event = {
 		name = generic.21.a
 	}	
 }
+
+# NATO: Can I join NATO? 80/20 chance
+country_event = {
+	id = generic.22
+	title = generic.22.t
+	desc = generic.22.d
+
+	is_triggered_only = yes
+
+	# Yes
+	option = {
+		name = generic.22.a
+		FROM = {
+			country_event = { id = generic.23 hours = 6 }
+			add_ideas = nato_member
+		}
+		ai_chance = {
+			factor = 8
+		}
+	}	
+
+	# No
+	option = {
+		name = generic.22.a
+		FROM = {
+			country_event = { id = generic.24 hours = 6 }
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+}
+
+# NATO: Country said yes
+country_event = {
+	id = generic.23
+	title = generic.23.t
+	desc = generic.23.d
+
+	is_triggered_only = yes
+
+	# Very good
+	option = {
+		name = generic.23.a
+	}	
+}
+
+# NATO: Country said no
+country_event = {
+	id = generic.24
+	title = generic.24.t
+	desc = generic.24.d
+
+	is_triggered_only = yes
+
+	# Aww
+	option = {
+		name = generic.24.a
+	}	
+}

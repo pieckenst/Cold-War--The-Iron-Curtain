@@ -122,14 +122,11 @@ focus_tree = {
 									producer = USA
 								}
 						}
-					if = {
-							limit = {
-									has_completed_focus = WGR_Cooparate_with_Warsaw_pact
-								}
+					else = {
 							add_equipment_to_stockpile = {
 									type = jet_multirole_equipment_2
 									amount = 300
-									producer = SOV
+									producer = WGR
 								}
 						}
 				}
@@ -1509,12 +1506,13 @@ focus_tree = {
 		prerequisite = {
 			focus = WGR_Election_of_1957
 		}
+		available = {
+			always = no
+		}
 		x = 17
 		y = 13
 		completion_reward = {
-			available = {
-				always = no
-			}
+			
 		}
 	}
 	focus = {
@@ -1806,10 +1804,8 @@ focus_tree = {
 		x = 21
 		y = 9
 			available = {
-					OR = {
-							has_completed_focus = WGR_Reinforcing_Democracy
-							has_completed_focus = WGR_stay_with_NATO
-						}
+				has_completed_focus = WGR_stay_with_NATO
+			}
 				}
 			completion_reward = {
 					every_other_country = {
@@ -2373,7 +2369,7 @@ focus_tree = {
 		completion_reward = {
 			SOV = {
 				country_event = cw_stalinotes.200
-				remove_idea = nato_member
+				remove_ideas = nato_member
 			}
 		}
 	}
@@ -5203,7 +5199,6 @@ focus_tree = {
 		y = 7
 			available = {
 					date > 1958.1.1
-					has_tech = navalasm_1
 				}
 			completion_reward = {
 					if = {
