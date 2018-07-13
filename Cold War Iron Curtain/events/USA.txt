@@ -5445,9 +5445,26 @@ news_event = {
 	fire_only_once = no
 	major = yes
 	
+	trigger = {
+		NOT = {
+			has_country_flag = mccarthy_setup
+		}
+	}
+	
+	immediate = {
+		set_country_flag = mccarthy_setup
+	}
+	
 	option = {
 		name = "A concerning development"
-		add_ideas = mccarthyism
+		
+		if = {
+			limit = {
+				tag = USA
+			}
+			add_ideas = mccarthyism
+		}
+		
 	}
 }
 
