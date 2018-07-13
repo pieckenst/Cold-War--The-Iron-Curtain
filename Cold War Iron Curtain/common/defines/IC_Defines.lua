@@ -21,7 +21,7 @@ NDefines.NBuildings.INFRASTRUCTURE_RESOURCE_BONUS= 0.2
 NDefines.NBuildings.MAX_BUILDING_LEVELS = 200
 NDefines.NBuildings.MAX_SHARED_SLOTS = 50
 NDefines.NBuildings.RADAR_RANGE_MAX = 220 -- Range is interpolated between building levels 1-15.
-NDefines.NBuildings.SUPPLY_PORT_LEVEL_THROUGHPUT = 10 -- Supply throughput per level of naval base. Vanilla value is 3.
+NDefines.NBuildings.SUPPLY_PORT_LEVEL_THROUGHPUT = 20 -- Supply throughput per level of naval base. Vanilla value is 3.
 
 NDefines.NCountry.EVENT_PROCESS_OFFSET = 2000000 -- Events are checked every X day per country or state (1 is ideal, but CPU heavy)
 NDefines.NCountry.POLITICAL_POWER_CAP = 2000000.0
@@ -30,6 +30,8 @@ NDefines.NCountry.NAVY_SCORE_MULTIPLIER = 25.0 -- Based on number of navies.
 NDefines.NCountry.AIR_SCORE_MULTIPLIER = 0.01 -- Based on number of planes (which is typically a lot).
 NDefines.NCountry.INDUSTRY_SCORE_MULTIPLIER = 1.0 -- Based on number of factories.
 NDefines.NCountry.PROVINCE_SCORE_MULTIPLIER = 0.1 -- Based on number of controlled provinces.
+NDefines.NCountry.POLITICAL_POWER_CAP = 10000.0					-- Max amount of political power country should have
+
 
 NDefines.NDiplomacy.BASE_PEACE_TAKE_UNCONTROLLED_STATE_FACTOR = 10.0 -- Base factor for taking state you do not control in %
 NDefines.NDiplomacy.CIVIL_WAR_INVOLVEMENT_MIN_TENSION = 0.0 -- base value of world tension to involve other sides to the civil war
