@@ -60,6 +60,13 @@ NDefines.NGame.END_DATE = "2050.5.23.12"
 NDefines.NGame.START_DATE = "1945.5.23.12"
 
 NDefines.NMilitary.MAX_DIVISION_SUPPORT_WIDTH = 2 -- Max width of support in division designer.
+NDefines.NMilitary.MAX_ARMY_EXPERIENCE = 9999999;
+NDefines.NMilitary.MAX_NAVY_EXPERIENCE = 9999999;
+NDefines.NMilitary.MAX_AIR_EXPERIENCE = 9999999;
+NDefines.NMilitary.CORPS_COMMANDER_DIVISIONS_CAP = 36
+NDefines.NMilitary.CORPS_COMMANDER_ARMIES_CAP = -1
+NDefines.NMilitary.FIELD_MARSHAL_DIVISIONS_CAP = 0
+NDefines.NMilitary.FIELD_MARSHAL_ARMIES_CAP = 8
 
 NDefines.NNavy.CARRIER_STACK_PENALTY = 8 -- The most efficient is 4 carriers in combat. 5+ brings the penalty to the amount of wings in battle.
 NDefines.NNavy.CARRIER_STACK_PENALTY_EFFECT = 0.1 -- Each carrier above the optimal amount decreases the amount of airplanes being able to takeoff by such %.
@@ -74,6 +81,3 @@ NDefines.NTechnology.MAX_TECH_SHARING_BONUS = 0.75 -- Max technology sharing bon
 
 NDefines.NTrade.RELATION_TRADE_FACTOR = 5 -- Trade factor is modified by Opinion value times this
 
-NDefines.NMilitary.MAX_ARMY_EXPERIENCE = 100000;
-NDefines.NMilitary.MAX_NAVY_EXPERIENCE = 100000;
-NDefines.NMilitary.MAX_AIR_EXPERIENCE = 100000;
