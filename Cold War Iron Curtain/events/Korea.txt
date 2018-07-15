@@ -63,7 +63,6 @@ country_event = {
 			}
 		}
 		create_faction = north_korean_faction
-        add_timed_idea = { idea = VIN_peoples_army days = 182 }
 		declare_war_on = {
 			target = KOR
 			type = annex_everything
@@ -71,7 +70,7 @@ country_event = {
 
 		hidden_effect = {
 			KOR = { add_ideas = { cold_war_civil_war_ideological_idea } }
-			KPA = { add_ideas = { cold_war_civil_war_ideological_idea } }
+			KPA = { add_ideas = { cold_war_civil_war_ideological_idea } add_timed_idea = { idea = VIN_peoples_army days = 182 } }
 			USA = { add_ideas = { cold_war_civil_war_ideological_idea } }
 			set_global_flag = korean_war_begun
 			news_event = { hours = 6 id = korea.2 }
@@ -104,11 +103,11 @@ news_event = {
 		name = korea.2.o.a
 		trigger = {
 			NOT = {
-				TAG = KPA
-				TAG = PRC
-				TAG = KOR
-				TAG = SOV
-				TAG = USA
+				tag = KPA
+				tag = PRC
+				tag = KOR
+				tag = SOV
+				tag = USA
 			}
 		}
 	}
@@ -116,19 +115,19 @@ news_event = {
 		name = korea.2.o.b
 		trigger = { 
 			OR = {
-				TAG = KPA
-				TAG = PRC
-				TAG = SOV }
+				tag = KPA
+				tag = PRC
+				tag = SOV }
 		}
 		set_country_flag = korean_war_confirmed
 	}
 	option = {
 		name = korea.2.o.c
-		trigger = { TAG = KOR }
+		trigger = { tag = KOR }
 	}
 	option = {
 		name = korea.2.o.d
-		trigger = { TAG = USA }
+		trigger = { tag = USA }
 		set_country_flag = korean_war_confirmed
 	}
 }
@@ -158,11 +157,11 @@ country_event = {
 		KOR = {
 			add_manpower = 150000
 			load_oob = KOR_american_armed_divisions_1
-			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 }
-			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 50000 }
-			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 }
-			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 }
-			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 }
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 producer = USA }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 50000 producer = USA }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 producer = USA }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000  producer = USA}
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000  producer = USA }
 		}
 		set_global_flag = korean_war_usa_enters
 		news_event = { hours = 6 id = korea.4 }
@@ -194,11 +193,11 @@ news_event = {
 		name = korea.4.o.a
 		trigger = {
 			NOT = {
-				TAG = KPA
-				TAG = PRC
-				TAG = KOR
-				TAG = SOV
-				TAG = USA
+				tag = KPA
+				tag = PRC
+				tag = KOR
+				tag = SOV
+				tag = USA
 			}
 		}
 	}
@@ -206,18 +205,18 @@ news_event = {
 		name = korea.4.o.b
 		trigger = { 
 			OR = {
-				TAG = KPA
-				TAG = PRC
-				TAG = SOV }
+				tag = KPA
+				tag = PRC
+				tag = SOV }
 		}
 	}
 	option = {
 		name = korea.4.o.c
-		trigger = { TAG = KOR }
+		trigger = { tag = KOR }
 	}
 	option = {
 		name = korea.4.o.d
-		trigger = { TAG = USA }
+		trigger = { tag = USA }
 	}
 }
 
@@ -258,12 +257,12 @@ country_event = {
 		KPA = { 
 			add_manpower = 160000
 			load_oob = PRC_communist_reinforcements_Korean_War_1
-			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 }
-			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 }
-			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 50000 }
-			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 } 
-			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 } 
-			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 }
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000  producer = PRC }
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000  producer = PRC }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 50000 producer = PRC }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 producer = PRC } 
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 producer = PRC } 
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 producer = PRC }
 		}
 		set_global_flag = korean_war_china_enters
 		news_event = { hours = 6 id = korea.6 }
@@ -295,11 +294,11 @@ news_event = {
 		name = korea.6.o.a
 		trigger = {
 			NOT = {
-				TAG = KPA
-				TAG = PRC
-				TAG = KOR
-				TAG = SOV
-				TAG = USA
+				tag = KPA
+				tag = PRC
+				tag = KOR
+				tag = SOV
+				tag = USA
 			}
 			has_global_flag = korean_war_usa_enters
 		}
@@ -308,11 +307,11 @@ news_event = {
 		name = korea.6.o.b
 		trigger = { 
 			NOT = {
-				TAG = KPA
-				TAG = PRC
-				TAG = KOR
-				TAG = SOV
-				TAG = USA
+				tag = KPA
+				tag = PRC
+				tag = KOR
+				tag = SOV
+				tag = USA
 			}
 			NOT = { has_global_flag = korean_war_usa_enters }
 		}
@@ -321,22 +320,22 @@ news_event = {
 		name = korea.6.o.c
 		trigger = { 
 			OR = {
-				TAG = KPA
-				TAG = SOV 
+				tag = KPA
+				tag = SOV 
 			}
 		}
 	}
 	option = {
 		name = korea.6.o.d
-		trigger = { TAG = KOR }
+		trigger = { tag = KOR }
 	}
 	option = {
 		name = korea.6.o.e
-		trigger = { TAG = USA }
+		trigger = { tag = USA }
 	}
 	option = {
 		name = korea.6.o.d
-		trigger = { TAG = PRC }
+		trigger = { tag = PRC }
 	}
 }
 
@@ -779,13 +778,15 @@ country_event = {
 			transfer_state = 525 transfer_state = 918 transfer_state = 920
 		}
 		KOR = { transfer_state = 866 transfer_state = 917 transfer_state = 919 }
-		917 = { set_demilitarized_zone = yes set_state_flag = korea_dmz }
-		918 = { set_demilitarized_zone = yes set_state_flag = korea_dmz }
-		919 = { set_demilitarized_zone = yes set_state_flag = korea_dmz }
-		920 = { set_demilitarized_zone = yes set_state_flag = korea_dmz }
 		SOV = { give_guarantee = KPA }
 		PRC = { give_guarantee = KPA }
-		USA = { give_guarantee = KOR }                    
+		USA = { give_guarantee = KOR } 
+        effect_tooltip = { 
+		    917 = { set_demilitarized_zone = yes }
+		    918 = { set_demilitarized_zone = yes }
+		    919 = { set_demilitarized_zone = yes }
+		    920 = { set_demilitarized_zone = yes }
+		}
 	}
 }
 
@@ -893,18 +894,18 @@ news_event = {
 		name = korea.20.o.a
 		trigger = {
 			NOT = {
-				TAG = KOR
-				TAG = USA
-				TAG = KPA
-				TAG = PRC
-				TAG = SOV
+				tag = KOR
+				tag = USA
+				tag = KPA
+				tag = PRC
+				tag = SOV
 			}
 		}
 	}
 	option = {
 		name = korea.20.o.b
 		trigger = { 
-			TAG = KPA
+			tag = KPA
 		}
 		country_event = { hours = 6 id = korea.16 }
 	}
@@ -912,16 +913,16 @@ news_event = {
 		name = korea.20.o.b
 		trigger = { 
 			OR = {
-				TAG = PRC
-				TAG = SOV }
+				tag = PRC
+				tag = SOV }
 		}
 	}
 	option = {
 		name = korea.11.o.a
 		trigger = { 
 			OR = {
-				TAG = KOR
-				TAG = USA }
+				tag = KOR
+				tag = USA }
 		}
 	}
 }
@@ -1100,21 +1101,21 @@ news_event = {
 		name = korea.26.o.a
 		trigger = {
 			NOT = {
-				TAG = USA
-				TAG = KPA
+				tag = USA
+				tag = KPA
 			}
 		}
 	}
 	option = {
 		name = korea.26.o.b
 		trigger = {
-			TAG = USA
+			tag = USA
 		}
 	}
 	option = {
 		name = korea.26.o.a
 		trigger = {
-			TAG = KPA
+			tag = KPA
 		}
 		country_event = { id = korea.28 }
 	}
@@ -1135,21 +1136,21 @@ news_event = {
 		name = korea.26.o.a
 		trigger = {
 			NOT = {
-				TAG = PRC
-				TAG = KOR
+				tag = PRC
+				tag = KOR
 			}
 		}
 	}
 	option = {
 		name = korea.26.o.b
 		trigger = {
-			TAG = PRC
+			tag = PRC
 		}
 	}
 	option = {
 		name = korea.26.o.a
 		trigger = {
-			TAG = KOR
+			tag = KOR
 		}
 		country_event = { id = korea.29 }
 	}
@@ -1199,11 +1200,10 @@ country_event = {
 	option = {
 		name = korea.28.o.a
 		annex_country = { target = KPA }
-		PRC = { dismantle_faction = yes }
 	}
 }
 
-# Korean War Declaration - News
+# Korean War Armistice - News
 news_event = {
 	id = korea.30
 	title = korea.30.t
@@ -1214,42 +1214,44 @@ news_event = {
 	
 	is_triggered_only = yes
 	
+	immediate = {
+	    917 = { set_demilitarized_zone = yes }
+		918 = { set_demilitarized_zone = yes }
+		919 = { set_demilitarized_zone = yes }
+		920 = { set_demilitarized_zone = yes }
+	}
+		
 	option = {
 		name = korea.30.o.a
 		trigger = {
 			NOT = {
-				TAG = KPA
-				TAG = PRC
-				TAG = KOR
-				TAG = SOV
-				TAG = USA
+				tag = KPA
+				tag = PRC
+				tag = KOR
+				tag = SOV
+				tag = USA
 			}
 		}
 	}
 	option = {
 		name = korea.30.o.b
-		trigger = { 
-		TAG = KPA
-		}
+		trigger = { original_tag = KPA }
 	}
 	option = {
 		name = korea.30.o.c
-		trigger = { TAG = KOR }
+		trigger = { original_tag = KOR }
 	}
 	option = {
 		name = korea.30.o.d
-		trigger = { TAG = USA }
-		
+		trigger = { original_tag = USA }
 	}
-		option = {
+	option = {
 		name = korea.30.o.e
-		trigger = { TAG = SOV }
-		
+		trigger = { original_tag = SOV }
 	}
-		option = {
+	option = {
 		name = korea.30.o.f
-		trigger = { TAG = PRC }
-		
+		trigger = { original_tag = PRC }
 	}
 }
 
@@ -1276,11 +1278,11 @@ country_event = {
 		KOR = { 
 			add_manpower = 15000
 			# load_oob = KOR_american_armed_divisions_2
-			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 }
-			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 10000 }
-			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 500 }
-			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 5000 }
-			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 500 }
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 producer = ENG }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 10000 producer = ENG }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 500 producer = ENG }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 5000 producer = ENG }
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 500 producer = ENG }
 		}
 		set_global_flag = korean_war_eng_enters
 		news_event = { hours = 6 id = korea.32 }
@@ -1312,11 +1314,11 @@ news_event = {
 		name = korea.32.o.a
 		trigger = {
 			NOT = {
-				TAG = KPA
-				TAG = PRC
-				TAG = KOR
-				TAG = SOV
-				TAG = ENG
+				tag = KPA
+				tag = PRC
+				tag = KOR
+				tag = SOV
+				tag = ENG
 			}
 		}
 	}
@@ -1324,18 +1326,18 @@ news_event = {
 		name = korea.32.o.b
 		trigger = { 
 			OR = {
-				TAG = KPA
-				TAG = PRC
-				TAG = SOV }
+				tag = KPA
+				tag = PRC
+				tag = SOV }
 		}
 	}
 	option = {
 		name = korea.32.o.c
-		trigger = { TAG = KOR }
+		trigger = { tag = KOR }
 	}
 	option = {
 		name = korea.32.o.d
-		trigger = { TAG = ENG }
+		trigger = { tag = ENG }
 	}
 }
 
@@ -1372,8 +1374,8 @@ country_event = {
 				factor = 1
 			}
 		}
-		send_equipment = { target = KPA type = infantry_equipment_1 amount = 20000 }
-		send_equipment = { target = KPA type = fighter_equipment_1 amount = 400 }
+		send_equipment = { target = KPA type = infantry_equipment_1 amount = 20000 producer = SOV }
+		send_equipment = { target = KPA type = fighter_equipment_1 amount = 400 producer = SOV }
 		set_global_flag = korean_war_soviets_enter
 		news_event = { hours = 6 id = korea.34 }
 	}
@@ -1404,11 +1406,11 @@ news_event = {
 		name = korea.34.o.a
 		trigger = {
 			NOT = {
-				TAG = KPA
-				TAG = PRC
-				TAG = KOR
-				TAG = SOV
-				TAG = USA
+				tag = KPA
+				tag = PRC
+				tag = KOR
+				tag = SOV
+				tag = USA
 			}
 			has_global_flag = korean_war_usa_enters
 		}
@@ -1417,11 +1419,11 @@ news_event = {
 		name = korea.34.o.b
 		trigger = { 
 			NOT = {
-				TAG = KPA
-				TAG = PRC
-				TAG = KOR
-				TAG = SOV
-				TAG = USA
+				tag = KPA
+				tag = PRC
+				tag = KOR
+				tag = SOV
+				tag = USA
 			}
 			NOT = { has_global_flag = korean_war_usa_enters }
 		}
@@ -1430,29 +1432,29 @@ news_event = {
 		name = korea.34.o.c
 		trigger = { 
 			OR = {
-				TAG = KPA
-				TAG = PRC 
+				tag = KPA
+				tag = PRC 
 			}
 		}
 	}
 	option = {
 		name = korea.34.o.d
-		trigger = { TAG = KOR }
+		trigger = { tag = KOR }
 	}
 	option = {
 		name = korea.34.o.e
-		trigger = { TAG = USA }
+		trigger = { tag = USA }
 	}
 	option = {
 		name = korea.34.o.d
-		trigger = { TAG = SOV }
+		trigger = { tag = SOV }
 	}
 }
 
 # Korean War - More US Troops 1
 country_event = {
 	id = korea.35
-	title = "More Men needed in Korea"
+	title = "Additional forces needed in Korea"
 	desc = "North Korean and Chinese troops have advanced into South Korea. If we don't send more men, the communist North will win!"
 
 	picture = GFX_report_event_soviet_invasion_map
@@ -1463,7 +1465,7 @@ country_event = {
 
 	
 	option = {
-		name = "Send More!"
+		name = "Send more!"
 		ai_chance = {
 			factor = 90
 			modifier = {
@@ -1475,11 +1477,11 @@ country_event = {
 		KOR = { 
 			add_manpower = 175000
 			load_oob = KOR_American_Troops_1
-			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 }
-			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 20000 }
-			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 10000 }
-			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 }
-			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 }
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 producer = USA }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 20000 producer = USA }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 10000 producer = USA }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 producer = USA }
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 producer = USA }
 		}
 		set_global_flag = korean_war_usa_reinforcements_1
 		news_event = { hours = 6 id = korea.36 }
@@ -1511,11 +1513,11 @@ news_event = {
 		name = "Interesting."
 		trigger = {
 			NOT = {
-				TAG = KPA
-				TAG = PRC
-				TAG = KOR
-				TAG = SOV
-				TAG = USA
+				tag = KPA
+				tag = PRC
+				tag = KOR
+				tag = SOV
+				tag = USA
 			}
 			has_global_flag = korean_war_usa_enters
 		}
@@ -1524,8 +1526,8 @@ news_event = {
 		name = "Shit"
 		trigger = { 
 			OR = {
-				TAG = KPA
-				TAG = PRC 
+				tag = KPA
+				tag = PRC 
 			}
 		}
 	}
@@ -1533,14 +1535,14 @@ news_event = {
 		name = "The More the Better"
 		trigger = { 
 			OR = {
-				TAG = KOR
-				TAG = USA 
+				tag = KOR
+				tag = USA 
 			}
 		}
 	}
 	option = {
 		name = "We should do something"
-		trigger = { TAG = SOV }
+		trigger = { tag = SOV }
 	}
 }
 
@@ -1548,7 +1550,7 @@ news_event = {
 country_event = {
 	id = korea.37
 	title = "More Men needed in Korea"
-	desc = "South Korean and American troops have advanced into North Korea. If we don't send more men, the democratic scums will win!"
+	desc = "South Korean and American troops have advanced into North Korea. If we don't send more forces, the capitalist scum will win!"
 
 	picture = GFX_report_event_soviet_invasion_map
 	is_triggered_only = yes
@@ -1561,18 +1563,18 @@ country_event = {
 			factor = 90
 			modifier = {
 				is_historical_focus_on = yes
-				factor = 1
+				factor = 100
 			}
 		}
 		add_manpower = -175000
 		KPA = { 
 			add_manpower = 175000
 			load_oob = PRC_communist_reinforcements_Korean_War_2
-			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 }
-			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 25000 }
-			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 }
-			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 }
-			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 }
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 producer = PRC }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 25000 producer = PRC }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 producer = PRC }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 producer = PRC }
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 producer = PRC }
 		}
 		set_global_flag = korean_war_chinese_reinforcements_1
 		news_event = { hours = 6 id = korea.38 }
@@ -1604,11 +1606,11 @@ news_event = {
 		name = "Interesting."
 		trigger = {
 			NOT = {
-				TAG = KPA
-				TAG = PRC
-				TAG = KOR
-				TAG = SOV
-				TAG = USA
+				tag = KPA
+				tag = PRC
+				tag = KOR
+				tag = SOV
+				tag = USA
 			}
 			has_global_flag = korean_war_usa_enters
 		}
@@ -1617,8 +1619,8 @@ news_event = {
 		name = "The More the Better"
 		trigger = { 
 			OR = {
-				TAG = KPA
-				TAG = PRC 
+				tag = KPA
+				tag = PRC 
 			}
 		}
 	}
@@ -1626,14 +1628,14 @@ news_event = {
 		name = "Shit"
 		trigger = { 
 			OR = {
-				TAG = KOR
-				TAG = USA 
+				tag = KOR
+				tag = USA 
 			}
 		}
 	}
 	option = {
 		name = "Good Move"
-		trigger = { TAG = SOV }
+		trigger = { tag = SOV }
 	}
 }
 
@@ -1661,11 +1663,11 @@ country_event = {
 		KOR = { 
 			add_manpower = 175000
 			load_oob = KOR_American_Troops_2
-			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 }
-			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 20000 }
-			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 10000 }
-			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 }
-			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 }
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 producer = USA }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 20000 producer = USA }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 10000 producer = USA }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 producer = USA }
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 producer = USA }
 		}
 		set_global_flag = korean_war_usa_reinforcements_2
 		news_event = { hours = 6 id = korea.40 }
@@ -1697,11 +1699,11 @@ news_event = {
 		name = "Interesting."
 		trigger = {
 			NOT = {
-				TAG = KPA
-				TAG = PRC
-				TAG = KOR
-				TAG = SOV
-				TAG = USA
+				tag = KPA
+				tag = PRC
+				tag = KOR
+				tag = SOV
+				tag = USA
 			}
 			has_global_flag = korean_war_usa_enters
 		}
@@ -1710,8 +1712,8 @@ news_event = {
 		name = "Shit"
 		trigger = { 
 			OR = {
-				TAG = KPA
-				TAG = PRC 
+				tag = KPA
+				tag = PRC 
 			}
 		}
 	}
@@ -1719,14 +1721,14 @@ news_event = {
 		name = "The More the Better"
 		trigger = { 
 			OR = {
-				TAG = KOR
-				TAG = USA 
+				tag = KOR
+				tag = USA 
 			}
 		}
 	}
 	option = {
 		name = "We should do something"
-		trigger = { TAG = SOV }
+		trigger = { tag = SOV }
 	}
 }
 
@@ -1754,11 +1756,11 @@ country_event = {
 		KPA = { 
 			add_manpower = 175000
 			load_oob = PRC_communist_reinforcements_Korean_War_3
-			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 }
-			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 25000 }
-			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 }
-			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 }
-			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 }
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 25000 producer = PRC }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 25000 producer = PRC }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 1000 producer = PRC }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 producer = PRC }
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 producer = PRC }
 		}
 		set_global_flag = korean_war_chinese_reinforcements_2
 		news_event = { hours = 6 id = korea.42 }
@@ -1790,11 +1792,11 @@ news_event = {
 		name = "Interesting."
 		trigger = {
 			NOT = {
-				TAG = KPA
-				TAG = PRC
-				TAG = KOR
-				TAG = SOV
-				TAG = USA
+				tag = KPA
+				tag = PRC
+				tag = KOR
+				tag = SOV
+				tag = USA
 			}
 			has_global_flag = korean_war_usa_enters
 		}
@@ -1803,8 +1805,8 @@ news_event = {
 		name = "The More the Better"
 		trigger = { 
 			OR = {
-				TAG = KPA
-				TAG = PRC 
+				tag = KPA
+				tag = PRC 
 			}
 		}
 	}
@@ -1812,14 +1814,14 @@ news_event = {
 		name = "Shit"
 		trigger = { 
 			OR = {
-				TAG = KOR
-				TAG = USA 
+				tag = KOR
+				tag = USA 
 			}
 		}
 	}
 	option = {
 		name = "Good Move"
-		trigger = { TAG = SOV }
+		trigger = { tag = SOV }
 	}
 }
 
@@ -1847,11 +1849,11 @@ country_event = {
 		KOR = { 
 			add_manpower = 175000
 			load_oob = KOR_American_Troops_3
-			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 }
-			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 20000 }
-			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 10000 }
-			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 } 
-			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 }
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 producer = USA }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 20000 producer = USA }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 10000 producer = USA }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 10000 producer = USA } 
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 5000 producer = USA }
 		}
 		set_global_flag = korean_war_usa_reinforcements_3
 		news_event = { hours = 6 id = korea.44 }
@@ -1883,11 +1885,11 @@ news_event = {
 		name = "Interesting."
 		trigger = {
 			NOT = {
-				TAG = KPA
-				TAG = PRC
-				TAG = KOR
-				TAG = SOV
-				TAG = USA
+				tag = KPA
+				tag = PRC
+				tag = KOR
+				tag = SOV
+				tag = USA
 			}
 			has_global_flag = korean_war_usa_enters
 		}
@@ -1896,8 +1898,8 @@ news_event = {
 		name = "Shit"
 		trigger = { 
 			OR = {
-				TAG = KPA
-				TAG = PRC 
+				tag = KPA
+				tag = PRC 
 			}
 		}
 	}
@@ -1905,14 +1907,14 @@ news_event = {
 		name = "The More the Better"
 		trigger = { 
 			OR = {
-				TAG = KOR
-				TAG = USA 
+				tag = KOR
+				tag = USA 
 			}
 		}
 	}
 	option = {
 		name = "We should do something"
-		trigger = { TAG = SOV }
+		trigger = { tag = SOV }
 	}
 }
 
@@ -1933,18 +1935,18 @@ country_event = {
 			factor = 90
 			modifier = {
 				is_historical_focus_on = yes
-				factor = 1
+				factor = 100
 			}
 		}
 		add_manpower = -175000
 		KPA = { 
 			add_manpower = 175000
 			load_oob = PRC_communist_reinforcements_Korean_War_4
-			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 }
-			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 50000 }
-			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 15000 }
-			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 20000 }
-			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 10000 }
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 50000 producer = PRC }
+			add_equipment_to_stockpile = { type = anti_tank_infantry_equipment_1 amount = 50000 producer = PRC }
+			add_equipment_to_stockpile = { type = mbt_equipment_1 amount = 15000 producer = PRC }
+			add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 20000 producer = PRC }
+			add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 10000 producer = PRC }
 		}
 		set_global_flag = korean_war_chinese_reinforcements_3
 		news_event = { hours = 6 id = korea.46 }
@@ -1976,11 +1978,11 @@ news_event = {
 		name = "Interesting."
 		trigger = {
 			NOT = {
-				TAG = KPA
-				TAG = PRC
-				TAG = KOR
-				TAG = SOV
-				TAG = USA
+				tag = KPA
+				tag = PRC
+				tag = KOR
+				tag = SOV
+				tag = USA
 			}
 			has_global_flag = korean_war_usa_enters
 		}
@@ -1989,8 +1991,8 @@ news_event = {
 		name = "The More the Better"
 		trigger = { 
 			OR = {
-				TAG = KPA
-				TAG = PRC 
+				tag = KPA
+				tag = PRC 
 			}
 		}
 	}
@@ -1998,21 +2000,21 @@ news_event = {
 		name = "Shit"
 		trigger = { 
 			OR = {
-				TAG = KOR
-				TAG = USA 
+				tag = KOR
+				tag = USA 
 			}
 		}
 	}
 	option = {
 		name = "Good Move"
-		trigger = { TAG = SOV }
+		trigger = { tag = SOV }
 	}
 }
 
 country_event = {
 	id = korea.47
-	title = "Building forts at the frontline"
-	desc = "This is our final attemp to stop the enemy from breaking through our lines!"
+	title = "Frontline Fortifications"
+	desc = "Our top advisors have suggested that to prevent enemy breakthrough and the collapse of our nation, we have to quickly fortify the frontline areas."
 
 	picture = GFX_report_event_soviet_invasion_map
 	
@@ -2024,12 +2026,12 @@ country_event = {
 	}
 	
 	option = {
-		name = "Build these forts"
+		name = "Good idea!"
 		ai_chance = {
 			factor = 90
 			modifier = {
 				is_historical_focus_on = yes
-				factor = 1
+				factor = 100
 			}
 		}
 		919 = {
@@ -2066,8 +2068,8 @@ country_event = {
 
 country_event = {
 	id = korea.48
-	title = "Building forts at the frontline"
-	desc = "This is our final attemp to stop the enemy from breaking through our lines!"
+	title = "Frontline Fortifications"
+	desc = "Our top advisors have suggested that to prevent enemy breakthrough and the collapse of our nation, we have to quickly fortify the frontline areas."
 
 	picture = GFX_report_event_soviet_invasion_map
 	
@@ -2079,12 +2081,12 @@ country_event = {
 	}
 	
 	option = {
-		name = "Build these forts"
+		name = "Good idea!"
 		ai_chance = {
 			factor = 90
 			modifier = {
 				is_historical_focus_on = yes
-				factor = 1
+				factor = 100
 			}
 		}
 		920 = {
