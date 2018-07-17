@@ -10,6 +10,9 @@ View our [full-length tutorial](./tutorial.md).
 ## Get the mod on the Steam Workshop
 https://steamcommunity.com/sharedfiles/filedetails/?id=1138310824
 
+## Code of Conduct
+View our [Code of Conduct](./CODE_OF_CONDUCT.md).
+
 ## Contributing, bug reports, and feature requests
 View our [Contributing Guidelines](./CONTRIBUTING.md).
 
