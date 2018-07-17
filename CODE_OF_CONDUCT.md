@@ -38,6 +38,7 @@ The following behaviors are considered harassment and are unacceptable within ou
 *   Deliberate intimidation, stalking or following (online or in person).
 *   Advocating for, or encouraging, any of the above behavior.
 *   Sustained disruption of community events, including talks and presentations.
+*   Ignoring the [Contributing Guidelines](./CONTRIBUTING.md).
 
 ## 5. Consequences of Unacceptable Behavior
 
@@ -49,7 +50,7 @@ If a community member engages in unacceptable behavior, the community administra
 
 ## 6. Reporting Guidelines
 
-If you are subject to or witness unacceptable behavior, or have any other concerns, please notify a community administrator as soon as possible. .
+If you are subject to or witness unacceptable behavior, or have any other concerns, please notify a community administrator as soon as possible.
 
 ## 7. Addressing Grievances
 
