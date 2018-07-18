@@ -70,6 +70,7 @@ add_namespace = smr
 add_namespace = sor
 add_namespace = saf
 add_namespace = par
+add_namespace = FFC
 
 country_event = {
 	id = ic_pulse.1
@@ -79,6 +80,20 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		if = {
+			limit = {
+				tag = SEN
+				date > 1958.1.1
+			}
+			country_event = FFC.1
+		}
+		if = {
+			limit = {
+				tag = ROC
+				date > 1958.1.1
+			}
+			country_event = FFC.2
+		}
 		if = {
 			limit = {
 				NOT = {
