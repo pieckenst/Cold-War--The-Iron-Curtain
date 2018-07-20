@@ -17,7 +17,9 @@ focus_tree = {
 		}
 		x = 142
 		y = 1
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = CUB_bay_of_pigs_victory
@@ -28,7 +30,9 @@ focus_tree = {
 		}
 		x = 144
 		y = 1
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = CUB_victorious_blaze
@@ -36,7 +40,9 @@ focus_tree = {
 		cost = 10.00
 		x = 113
 		y = 1
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = CUB_national_industrialization
@@ -52,8 +58,21 @@ focus_tree = {
 		cost = 10.00
 		x = 177
 		y = 1
-		
-
+		available = {
+			SOV = {
+				has_completed_focus = SOV_The_Cuban_Missle_Crisis
+			}
+		}
+		bypass = {
+			NOT = {
+				SOV = {
+					has_country_leader = {
+						name = "Nikita Khrushchev"
+						ruling_only = yes
+					}	
+				}
+			}
+		}	
 	}
 	focus = {
 		id = CUB_an_night_to_remember
@@ -83,7 +102,9 @@ focus_tree = {
 		}
 		x = 111
 		y = 3
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = CUB_crusades_against_corruption
@@ -94,7 +115,9 @@ focus_tree = {
 		}
 		x = 109
 		y = 4
-
+		completion_reward = {
+			remove_ideas = SOV_government_corruption
+		}
 	}
 	focus = {
 		id = CUB_political_intensity
@@ -313,7 +336,20 @@ focus_tree = {
 		}
 		x = 113
 		y = 8
-
+			completion_reward = {
+					CUB = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = CUB
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = CUB_the_progressive_movement
@@ -1121,7 +1157,14 @@ focus_tree = {
 		}
 		x = 106
 		y = 17
-
+		completion_reward = {
+			SAF = {
+				add_timed_idea = { 
+					add_idea = internationalism
+					days = 500
+				}
+			}
+		}
 	}
 	focus = {
 		id = CUB_state_visit_to_algiers
@@ -1132,7 +1175,20 @@ focus_tree = {
 		}
 		x = 104
 		y = 16
-
+			completion_reward = {
+					CUB = {
+							add_opinion_modifier = {
+									target = ALG
+									modifier = large_increase
+								}
+						}
+					ALG = {
+							add_opinion_modifier = {
+									target = CUB
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = CUB_support_the_congo
@@ -1143,6 +1199,25 @@ focus_tree = {
 		}
 		x = 101
 		y = 16
+		available = {
+			any_country = {
+				limit = {
+					original_tag = COG
+					has_government = communism
+				}
+			}
+		}
+		completion_reward = {
+			random_country = {
+				limit = {
+					original_tag = COG
+					has_government = communism
+				}
+			}
+			add_manpower = 50000
+			add_political_power = 200
+			add_ideas = cuban_advisors
+		}
 
 	}
 	focus = {
@@ -1165,7 +1240,11 @@ focus_tree = {
 		}
 		x = 103
 		y = 10
-
+			completion_reward = {
+					YUG = {
+							country_event = generic.8
+						}
+				}
 	}
 	focus = {
 		id = CUB_crackdown_on_infamous_corruption
@@ -1177,7 +1256,9 @@ focus_tree = {
 		}
 		x = 143
 		y = 7
-
+		completion_reward = {
+			remove_ideas = SOV_government_corruption
+		}
 	}
 	focus = {
 		id = CUB_the_education_womb
@@ -1525,7 +1606,20 @@ focus_tree = {
 		}
 		x = 138
 		y = 17
-
+			completion_reward = {
+					CUB = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						}
+					FRA = {
+							add_opinion_modifier = {
+									target = CUB
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = CUB_expel_anti_american_influence
@@ -1628,7 +1722,20 @@ focus_tree = {
 		}
 		x = 96
 		y = 12
-
+			completion_reward = {
+					CUB = {
+							add_opinion_modifier = {
+									target = PRC
+									modifier = large_increase
+								}
+						}
+					PRC = {
+							add_opinion_modifier = {
+									target = CUB
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = CUB_allegations_against_castro
