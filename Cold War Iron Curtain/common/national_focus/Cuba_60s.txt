@@ -128,11 +128,8 @@ focus_tree = {
 		x = 113
 		y = 2
 		completion_reward = {
-			create_country_leader = {
-				name = "Fidel Castro"
-				picture = "fidel_castro.dds"
-				ideology = marxism
-			}
+			add_political_power = 100
+			add_stability = 0.05
 		}
 	}
 	focus = {
@@ -328,7 +325,9 @@ focus_tree = {
 		}
 		x = 110
 		y = 7
-
+		completion_reward = {
+			add_ideas = paramilitarism_focus
+		}
 	}
 	focus = {
 		id = CUB_the_crazied_devil_che_guervara
@@ -343,7 +342,17 @@ focus_tree = {
 		}
 		x = 98
 		y = 8
-
+		completion_reward = {
+			set_politics = { ruling_party = maoism elections_allowed = no }
+			add_popularity = {
+				ideology = maoism
+				popularity = 0.40
+			}	
+			add_timed_idea = {
+				idea = maoist_drift
+				days = 600
+			}
+		}
 	}
 	focus = {
 		id = CUB_a_revoultionary_regiment
@@ -382,7 +391,13 @@ focus_tree = {
 		}
 		x = 103
 		y = 8
-
+		completion_reward = {
+			create_country_leader = {
+				name = "Raul Castro"
+				picture = "raul_castro.dds"
+				ideology = marxism
+			}
+		}
 	}
 	focus = {
 		id = CUB_mafia_witch_hunts
@@ -394,7 +409,14 @@ focus_tree = {
 		}
 		x = 100
 		y = 9
-
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 300
+			every_owned_state = {
+				add_manpower = -1000
+			}
+			army_experience = 50
+		}
 	}
 	focus = {
 		id = CUB_state_visit_to_the_USA
@@ -410,13 +432,13 @@ focus_tree = {
 					CUB = {
 							add_opinion_modifier = {
 									target = USA
-									modifier = large_increase
+									modifier = small_increase
 								}
 						}
 					USA = {
 							add_opinion_modifier = {
 									target = CUB
-									modifier = large_increase
+									modifier = small_increase
 								}
 						}
 				}
@@ -434,7 +456,17 @@ focus_tree = {
 		}
 		x = 118
 		y = 8
-
+		completion_reward = {
+			set_politics = { ruling_party = democratic elections_allowed = yes }
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.35
+			}	
+			add_timed_idea = {
+				idea = liberty_ethos
+				days = 600
+			}
+		}
 	}
 	focus = {
 		id = CUB_increase_wages_for_the_middle_class
@@ -445,7 +477,9 @@ focus_tree = {
 		}
 		x = 116
 		y = 9
-
+		completion_reward = {
+			add_ideas = increase_the_wages
+		}
 	}
 	focus = {
 		id = CUB_introduce_a_welfare_state
@@ -456,7 +490,9 @@ focus_tree = {
 		}
 		x = 115
 		y = 10
-
+		completion_reward = {
+			add_ideas = the_american_welfare_state
+		}
 	}
 	focus = {
 		id = CUB_environmental_supervision
@@ -470,7 +506,10 @@ focus_tree = {
 		}
 		x = 117
 		y = 11
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = CUB_moderate_socialism
@@ -763,7 +802,14 @@ focus_tree = {
 		}
 		x = 141
 		y = 5
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = repression
+				days = 365
+			}
+			add_political_power = 200
+			add_ideas = communism_banned
+		}
 	}
 	focus = {
 		id = CUB_cuban_isolationism
@@ -778,7 +824,9 @@ focus_tree = {
 		}
 		x = 146
 		y = 4
-
+		completion_reward = {
+			add_ideas = neutrality_idea
+		}
 	}
 	focus = {
 		id = CUB_prosecution_against_batista
@@ -916,7 +964,9 @@ focus_tree = {
 		}
 		x = 161
 		y = 5
-
+		completion_reward = {
+			create_faction = "Posadist Fifth International"
+		}
 	}
 	focus = {
 		id = CUB_consolidate_cuban_waters
@@ -1002,7 +1052,9 @@ focus_tree = {
 		}
 		x = 177
 		y = 2
-
+		completion_reward = {
+			SOV = { give_guarantee = CUB }
+		}
 	}
 	focus = {
 		id = CUB_cuban_missiles
@@ -1013,7 +1065,23 @@ focus_tree = {
 		}
 		x = 177
 		y = 3
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = rocket_site
+											size > 3
+										}
+								}
+							add_building_construction = {
+									type = rocket_site
+									level = 2
+									instant_build = yes
+								}
+							}
+			
+			
+		}
 	}
 	focus = {
 		id = CUB_consolidation_of_the_caribbean
@@ -1027,7 +1095,9 @@ focus_tree = {
 		}
 		x = 175
 		y = 4
-
+		completion_reward = {
+			add_ideas = military_expansion
+		}
 	}
 	focus = {
 		id = CUB_goal_against_the_domician
@@ -1038,7 +1108,13 @@ focus_tree = {
 		}
 		x = 174
 		y = 5
-
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = DOM
+						}
+						DOM = { every_owned_state = { add_core_of = CUB }	}
+					}
 	}
 	focus = {
 		id = CUB_attack_haiti
@@ -1049,7 +1125,13 @@ focus_tree = {
 		}
 		x = 176
 		y = 5
-
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = HAI
+						}
+						HAI = { every_owned_state = { add_core_of = CUB }	}
+					}
 	}
 	focus = {
 		id = CUB_prepare_for_an_us_counterattack
@@ -1063,7 +1145,9 @@ focus_tree = {
 		}
 		x = 179
 		y = 4
-
+		completion_reward = {
+			add_ideas = recruitment_propaganda
+		}	
 	}
 	focus = {
 		id = CUB_anti_aircraft
@@ -1074,7 +1158,40 @@ focus_tree = {
 		}
 		x = 178
 		y = 5
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = anti_air_building
+											size > 3
+										}
+								}
+							add_building_construction = {
+									type = anti_air_building
+									level = 2
+									instant_build = yes
+								}
+							ROOT = {
+									set_country_flag = aviation_effort_2_AB
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = anti_air_building
+											size > 3
+										}
+								}
+							add_building_construction = {
+									type = anti_air_building
+									level = 2
+									instant_build = yes
+								}
+							ROOT = {
+									set_country_flag = aviation_effort_2_AB
+								}
+						}
+				}
 	}
 	focus = {
 		id = CUB_prime_minister_castro
@@ -1089,7 +1206,13 @@ focus_tree = {
 		}
 		x = 108
 		y = 8
-
+		completion_reward = {
+			create_country_leader = {
+				name = "Fidel Castro"
+				picture = "fidel_castro.dds"
+				ideology = marxism
+			}
+		}
 	}
 	focus = {
 		id = CUB_agarian_land_reform
@@ -1101,7 +1224,9 @@ focus_tree = {
 		}
 		x = 106
 		y = 9
-
+		completion_reward = {
+			add_ideas = agrarian_reform
+		}
 	}
 	focus = {
 		id = CUB_finacial_distribution
@@ -1112,7 +1237,26 @@ focus_tree = {
 		}
 		x = 110
 		y = 9
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									industrial_complex > 0
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					add_political_power = 150
+					add_stability = 0.05
+				}
 	}
 	focus = {
 		id = CUB_military_isolation
@@ -1123,7 +1267,10 @@ focus_tree = {
 		}
 		x = 103
 		y = 9
-
+		completion_reward = {
+			army_experience = 25
+			add_ideas = neutrality_idea
+		}
 	}
 	focus = {
 		id = CUB_closer_ties_with_the_prc
@@ -1134,7 +1281,21 @@ focus_tree = {
 		}
 		x = 98
 		y = 10
-
+			completion_reward = {
+					add_ideas = chinese_advisors
+					CUB = {
+							add_opinion_modifier = {
+									target = PRC
+									modifier = large_increase
+								}
+						}
+					PRC = {
+							add_opinion_modifier = {
+									target = CUB
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = CUB_closer_ties_with_the_USSR
@@ -1145,7 +1306,21 @@ focus_tree = {
 		}
 		x = 108
 		y = 10
-
+			completion_reward = {
+					add_ideas = soviet_advisors
+					CUB = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = CUB
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = CUB_venture_in_africa
@@ -1156,7 +1331,9 @@ focus_tree = {
 		}
 		x = 106
 		y = 15
-
+		completion_reward = {
+			add_ideas = foreign_aggression_policy_6
+		}
 	}
 	focus = {
 		id = CUB_state_visit_to_santiago
@@ -1167,7 +1344,20 @@ focus_tree = {
 		}
 		x = 115
 		y = 16
-
+			completion_reward = {
+					CUB = {
+							add_opinion_modifier = {
+									target = CHL
+									modifier = large_increase
+								}
+						}
+					CHL = {
+							add_opinion_modifier = {
+									target = CUB
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = CUB_the_shining_path
@@ -1232,7 +1422,7 @@ focus_tree = {
 		completion_reward = {
 			SAF = {
 				add_timed_idea = { 
-					add_idea = internationalism
+					add_idea = maoist_drift
 					days = 500
 				}
 			}
