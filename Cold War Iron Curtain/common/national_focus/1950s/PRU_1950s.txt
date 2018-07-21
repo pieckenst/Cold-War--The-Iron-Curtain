@@ -14,28 +14,66 @@ focus_tree = {
 		cost = 5.00
 		x = 2
 		y = 0
-         completion_reward = {
-            army_experience = 30
-        } 
+			completion_reward = {
+					army_experience = 30
+				}
+
 	}
 	focus = {
-        id = PRU_Ecuadorian_Peruvian_War_Lessons
-        icon = GFX_goal_generic_army_doctrines
-        cost = 10.00
-        prerequisite = {
-            focus = PRU_Army_Begin
-        }
-        x = 2
-        y = 1
-        completion_reward = {
-             add_tech_bonus = {
-                            name = land_doc_bonus
-                            bonus = 0.3
-                            uses = 1
-                            category = land_doctrine
-			}
-        }
-    }
+		id = PRU_Navy_Begin
+		icon = GFX_goal_generic_build_navy
+		cost = 10.00
+		x = 8
+		y = 0
+		completion_reward = {
+					navy_experience = 30
+				}
+	}
+	focus = {
+		id = PRU_Air_Begin
+		icon = GFX_goal_generic_build_airforce
+		cost = 10.00
+		x = 17
+		y = 0
+		completion_reward = {
+					air_experience = 10
+				}
+	}
+	focus = {
+		id = PRU_Declare_Ley_De_Seguridad_Interna
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		x = 25
+		y = 0
+
+	}
+	focus = {
+		id = PRU_Diplomacy
+		icon = GFX_goal_generic_neutrality_focus
+		cost = 10.00
+		x = 38
+		y = 0
+
+	}
+	focus = {
+		id = PRU_Ecuadorian_Peruvian_War_Lessons
+		icon = GFX_goal_generic_army_doctrines
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Army_Begin
+		}
+		x = 2
+		y = 1
+			completion_reward = {
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.3
+							uses = 1
+							category = land_doctrine
+						}
+				}
+
+	}
 	focus = {
 		id = PRU_Weapons_Factories
 		icon = GFX_goal_generic_small_arms
@@ -45,7 +83,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 2
-		completion_reward = {	
+			completion_reward = {
 					random_owned_state = {
 							limit = {
 									free_building_slots = {
@@ -76,28 +114,10 @@ focus_tree = {
 									instant_build = yes
 								}
 						}
-	
-                    }
-	}	
-	focus = {
-		id = PRU_Modernize_The_Calvary
-		icon = GFX_goal_generic_army_motorized
-		cost = 10.00
-		prerequisite = {
-			focus = PRU_Ecuadorian_Peruvian_War_Lessons
-		}
-		x = 4
-		y = 2
-        completion_reward = {
-                    add_tech_bonus = {
-                            name = motorized_bonus
-                            ahead_reduction = 0.4
-                            uses = 1
-                            category = motorized_equipment
-                        }
-				    }
+				}
+
 	}
-    focus = {
+	focus = {
 		id = PRU_Artillery_Factories
 		icon = GFX_goal_generic_army_artillery2
 		cost = 10.00
@@ -106,7 +126,7 @@ focus_tree = {
 		}
 		x = 2
 		y = 3
-        completion_reward = {	
+			completion_reward = {
 					random_owned_state = {
 							limit = {
 									free_building_slots = {
@@ -137,10 +157,10 @@ focus_tree = {
 									instant_build = yes
 								}
 						}
-	
-                    }
+				}
+
 	}
-    focus = {
+	focus = {
 		id = PRU_Focus_on_Factories
 		icon = GFX_goal_generic_construct_mil_factory
 		cost = 20.00
@@ -154,8 +174,8 @@ focus_tree = {
 			focus = PRU_Focus_on_Doctrines
 		}
 		x = 1
-		y = 4	
-        completion_reward = {	
+		y = 4
+			completion_reward = {
 					random_owned_state = {
 							limit = {
 									free_building_slots = {
@@ -184,67 +204,42 @@ focus_tree = {
 									type = arms_factory
 									level = 1
 									instant_build = yes
-							}
+								}
 							random_owned_state = {
-							limit = {
-									free_building_slots = {
-											building = arms_factory
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = arms_factory
-																			size > 0
-																			include_locked = yes
+									limit = {
+											free_building_slots = {
+													building = arms_factory
+													size > 0
+													include_locked = yes
+												}
+											OR = {
+													is_in_home_area = yes
+													NOT = {
+															owner = {
+																	any_owned_state = {
+																			free_building_slots = {
+																					building = arms_factory
+																					size > 0
+																					include_locked = yes
+																				}
+																			is_in_home_area = yes
 																		}
-																	is_in_home_area = yes
 																}
 														}
 												}
 										}
+									add_extra_state_shared_building_slots = 2
+									add_building_construction = {
+											type = arms_factory
+											level = 2
+											instant_build = yes
+										}
 								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = arms_factory
-									level = 2
-									instant_build = yes
-								}	
-	                        }
-	
-	                    }
-	            }
+						}
+				}
+
 	}
-    focus = {
-		id = PRU_Focus_on_Doctrines
-		icon = GFX_goal_generic_army_doctrines
-		cost = 20.00
-		prerequisite = {
-			focus = PRU_Modernize_The_Calvary
-		}
-		prerequisite = {
-			focus = PRU_Artillery_Factories
-		}
-		mutually_exclusive = {
-			focus = PRU_Focus_on_Factories
-			focus = PRU_Focus_on_Factories
-		}
-		x = 3
-		y = 4
-        completion_reward = {
-                    add_tech_bonus = {
-                            name = land_doc_bonus
-                            bonus = 0.5
-                            uses = 1
-                            category = land_doctrine
-			}
-		}
-	}
-    focus = {
+	focus = {
 		id = PRU_Continue_Building_More_Factories
 		icon = GFX_goal_generic_construct_mil_factory
 		cost = 10.00
@@ -253,7 +248,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 5
-        completion_reward = {	
+			completion_reward = {
 					random_owned_state = {
 							limit = {
 									free_building_slots = {
@@ -284,61 +279,10 @@ focus_tree = {
 									instant_build = yes
 								}
 						}
-	
-                    }
+				}
+
 	}
-    focus = {
-		id = PRU_Build_Radar_Stations
-		icon = GFX_goal_generic_radar
-		cost = 13.00
-		prerequisite = {
-			focus = PRU_Focus_on_Doctrines
-		}
-		x = 4
-		y = 5
-        completion_reward = {
-            492 = {
-                add_building_construction = {
-                    type = radar_station
-                    level = 1
-                    instant_build = yes
-                }
-            }
-            303  = {
-                add_building_construction = {
-                    type = radar_station
-                    level = 1
-                    instant_build = yes
-                }
-            }
-			1133  = {
-                add_building_construction = {
-                    type = radar_station
-                    level = 1
-                    instant_build = yes
-                }
-            }
-        }
-	}
-    focus = {
-		id = PRU_Upgrade_Tanks
-		icon = GFX_goal_generic_army_tanks
-		cost = 10.00
-		prerequisite = {
-			focus = PRU_Build_Radar_Stations
-		}
-		x = 3
-		y = 6
-        completion_reward = {
-            add_tech_bonus = {
-                name = armor_bonus
-                bonus = 0.3
-                uses = 1
-                category = armor
-            }
-        }
-	}
-    focus = {
+	focus = {
 		id = PRU_Improve_the_production
 		icon = GFX_goal_generic_production
 		cost = 10.00
@@ -347,11 +291,112 @@ focus_tree = {
 		}
 		x = 1
 		y = 6
-		completion_reward = {
-		    add_timed_idea = { days = 360 idea = improve_peruvian_production }
-			}
-    }
-    focus = {
+			completion_reward = {
+					add_timed_idea = {
+							days = 360
+							idea = improve_peruvian_production
+						}
+				}
+
+	}
+	focus = {
+		id = PRU_Modernize_The_Calvary
+		icon = GFX_goal_generic_army_motorized
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Ecuadorian_Peruvian_War_Lessons
+		}
+		x = 4
+		y = 2
+			completion_reward = {
+					add_tech_bonus = {
+							name = motorized_bonus
+							ahead_reduction = 0.4
+							uses = 1
+							category = motorized_equipment
+						}
+				}
+
+	}
+	focus = {
+		id = PRU_Focus_on_Doctrines
+		icon = GFX_goal_generic_army_doctrines
+		cost = 20.00
+		prerequisite = {
+			focus = PRU_Modernize_The_Calvary
+		}
+		prerequisite = {
+			focus = PRU_Artillery_Factories
+		}
+		mutually_exclusive = {
+			focus = PRU_Focus_on_Factories
+		}
+		x = 3
+		y = 4
+			completion_reward = {
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+				}
+
+	}
+	focus = {
+		id = PRU_Build_Radar_Stations
+		icon = GFX_goal_generic_radar
+		cost = 13.00
+		prerequisite = {
+			focus = PRU_Focus_on_Doctrines
+		}
+		x = 4
+		y = 5
+			completion_reward = {
+					492 = {
+							add_building_construction = {
+									type = radar_station
+									level = 1
+									instant_build = yes
+								}
+						}
+					303 = {
+							add_building_construction = {
+									type = radar_station
+									level = 1
+									instant_build = yes
+								}
+						}
+					1133 = {
+							add_building_construction = {
+									type = radar_station
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = PRU_Upgrade_Tanks
+		icon = GFX_goal_generic_army_tanks
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Build_Radar_Stations
+		}
+		x = 3
+		y = 6
+			completion_reward = {
+					add_tech_bonus = {
+							name = armor_bonus
+							bonus = 0.3
+							uses = 1
+							category = armor
+						}
+				}
+
+	}
+	focus = {
 		id = PRU_Bolognesi_Memories
 		icon = GFX_goal_generic_national_unity
 		cost = 10.00
@@ -361,29 +406,12 @@ focus_tree = {
 		}
 		x = 2
 		y = 7
-        completion_reward = {
-		    add_timed_idea = { days = 930 idea = bolognesi_memories }
-	    }
-	}	
-	focus = {
-		id = PRU_A_new_Ejercito
-		icon = GFX_focus_generic_little_entente
-		cost = 10.00
-		prerequisite = {
-			focus = PRU_Bolognesi_Memories
-		}
-		x = 2
-		y = 8
-        completion_reward = {
-		    add_timed_idea = { days = 720 idea = A_New_Peruvian_Ejercito}
-        }	
-	}
-	focus = {
-		id = PRU_Navy_Begin
-		icon = GFX_goal_generic_build_navy
-		cost = 10.00
-		x = 8
-		y = 0
+			completion_reward = {
+					add_timed_idea = {
+							days = 930
+							idea = bolognesi_memories
+						}
+				}
 
 	}
 	focus = {
@@ -409,17 +437,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = PRU_Invest_in_Escuela_Naval_Del_Peru
-		icon = GFX_goal_generic_navy_doctrines_tactics
-		cost = 10.00
-		prerequisite = {
-			focus = PRU_World_War_two_Naval_Lessons
-		}
-		x = 9
-		y = 2
-
-	}
-	focus = {
 		id = PRU_Upgrade_Our_Submarines
 		icon = GFX_goal_generic_navy_submarine
 		cost = 10.00
@@ -429,7 +446,7 @@ focus_tree = {
 		x = 6
 		y = 3
 
-	}	
+	}
 	focus = {
 		id = PRU_Upgrade_Our_Cruisers
 		icon = GFX_goal_generic_navy_cruiser
@@ -437,8 +454,22 @@ focus_tree = {
 		prerequisite = {
 			focus = PRU_Upgrade_Our_Submarines
 		}
+		prerequisite = {
+			focus = PRU_Upgrade_Our_Submarines
+		}
 		x = 7
 		y = 4
+
+	}
+	focus = {
+		id = PRU_Invest_in_Escuela_Naval_Del_Peru
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_World_War_two_Naval_Lessons
+		}
+		x = 9
+		y = 2
 
 	}
 	focus = {
@@ -467,17 +498,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = PRU_Upgrade_Our_Cruisers
-		icon = GFX_goal_generic_navy_cruiser
-		cost = 10.00
-		prerequisite = {
-			focus = PRU_Upgrade_Our_Submarines
-		}
-		x = 7
-		y = 4
-
-	}
-	focus = {
 		id = PRU_Train_Marines
 		icon = GFX_goal_generic_amphibious_assault
 		cost = 10.00
@@ -500,14 +520,6 @@ focus_tree = {
 		}
 		x = 8
 		y = 5
-
-	}
-	focus = {
-		id = PRU_Air_Begin
-		icon = GFX_goal_generic_build_airforce
-		cost = 10.00
-		x = 17
-		y = 0
 
 	}
 	focus = {
@@ -536,17 +548,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = PRU_Quinonez_Memories
-		icon = GFX_goal_generic_national_unity
-		cost = 10.00
-		prerequisite = {
-			focus = PRU_Ecuadorian_Peruvian_War_Air_Lessons
-		}
-		x = 16
-		y = 2
-
-	}
-	focus = {
 		id = PRU_Strategic_Bombers
 		icon = GFX_goal_generic_air_bomber
 		cost = 10.00
@@ -555,6 +556,17 @@ focus_tree = {
 		}
 		x = 13
 		y = 3
+
+	}
+	focus = {
+		id = PRU_Quinonez_Memories
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Ecuadorian_Peruvian_War_Air_Lessons
+		}
+		x = 16
+		y = 2
 
 	}
 	focus = {
@@ -583,17 +595,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = PRU_Build_Air_Bases
-		icon = GFX_goal_generic_air_production
-		cost = 10.00
-		prerequisite = {
-			focus = PRU_Improve_air_production
-		}
-		x = 13
-		y = 5
-
-	}
-	focus = {
 		id = PRU_Naval_Aircraft_Production
 		icon = GFX_goal_generic_air_naval_bomber
 		cost = 10.00
@@ -601,6 +602,17 @@ focus_tree = {
 			focus = PRU_Improve_air_production
 		}
 		x = 15
+		y = 5
+
+	}
+	focus = {
+		id = PRU_Build_Air_Bases
+		icon = GFX_goal_generic_air_production
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Improve_air_production
+		}
+		x = 13
 		y = 5
 
 	}
@@ -630,17 +642,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = PRU_Axis_Air_Lessons
-		icon = GFX_goal_generic_air_fighter
-		cost = 10.00
-		prerequisite = {
-			focus = PRU_World_War_Two_Air_Lessons
-		}
-		x = 20
-		y = 2
-
-	}
-	focus = {
 		id = PRU_Allies_Radar_Station
 		icon = GFX_goal_generic_radar
 		cost = 10.00
@@ -648,17 +649,6 @@ focus_tree = {
 			focus = PRU_Allies_Air_Lessons
 		}
 		x = 18
-		y = 3
-
-	}
-	focus = {
-		id = PRU_Axis_CAS_Planes
-		icon = GFX_goal_generic_CAS
-		cost = 10.00
-		prerequisite = {
-			focus = PRU_Axis_Air_Lessons
-		}
-		x = 20
 		y = 3
 
 	}
@@ -671,6 +661,28 @@ focus_tree = {
 		}
 		x = 17
 		y = 4
+
+	}
+	focus = {
+		id = PRU_Axis_Air_Lessons
+		icon = GFX_goal_generic_air_fighter
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_World_War_Two_Air_Lessons
+		}
+		x = 20
+		y = 2
+
+	}
+	focus = {
+		id = PRU_Axis_CAS_Planes
+		icon = GFX_goal_generic_CAS
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Axis_Air_Lessons
+		}
+		x = 20
+		y = 3
 
 	}
 	focus = {
@@ -712,14 +724,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = PRU_Declare_Ley_De_Seguridad_Interna
-		icon = GFX_goal_generic_forceful_treaty
-		cost = 10.00
-		x = 25
-		y = 0
-
-	}
-	focus = {
 		id = PRU_Persecution_of_Haya_de_La_Torre
 		icon = GFX_focus_SAF_colonialist_crusade
 		cost = 10.00
@@ -741,7 +745,7 @@ focus_tree = {
 		y = 2
 
 	}
-		focus = {
+	focus = {
 		id = PRU_The_Economic_Problem
 		icon = GFX_goal_generic_consumer_goods
 		cost = 10.00
@@ -964,21 +968,13 @@ focus_tree = {
 
 	}
 	focus = {
-		id = PRU_Diplomacy
-		icon = GFX_goal_generic_neutrality_focus
-		cost = 10.00
-		x = 41
-		y = 0
-
-	}	
-	focus = {
 		id = PRU_Odrias_Diplomacy
 		icon = GFX_focus_generic_military_mission
 		cost = 10.00
 		prerequisite = {
 			focus = PRU_Diplomacy
 		}
-		x = 41
+		x = 38
 		y = 1
 
 	}
@@ -989,7 +985,7 @@ focus_tree = {
 		prerequisite = {
 			focus = PRU_Odrias_Diplomacy
 		}
-		x = 41
+		x = 38
 		y = 2
 
 	}
@@ -1003,7 +999,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = PRU_Help_North_Korea
 		}
-		x = 40
+		x = 37
 		y = 3
 
 	}
@@ -1017,7 +1013,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = PRU_Help_South_Korea
 		}
-		x = 42
+		x = 39
 		y = 3
 
 	}
@@ -1029,7 +1025,7 @@ focus_tree = {
 			focus = PRU_Help_South_Korea
 			focus = PRU_Help_North_Korea
 		}
-		x = 41
+		x = 38
 		y = 5
 
 	}
@@ -1041,7 +1037,7 @@ focus_tree = {
 			focus = PRU_Help_South_Korea
 			focus = PRU_Help_North_Korea
 		}
-		x = 39
+		x = 36
 		y = 4
 
 	}
@@ -1053,7 +1049,7 @@ focus_tree = {
 			focus = PRU_Help_South_Korea
 			focus = PRU_Help_North_Korea
 		}
-		x = 43
+		x = 40
 		y = 4
 
 	}
@@ -1070,7 +1066,7 @@ focus_tree = {
 		prerequisite = {
 			focus = PRU_Diplomacy_With_Ecuador
 		}
-		x = 41
+		x = 38
 		y = 6
 
 	}
@@ -1081,7 +1077,7 @@ focus_tree = {
 		prerequisite = {
 			focus = PRU_Soberany_In_The_Sea
 		}
-		x = 41
+		x = 38
 		y = 7
 
 	}
@@ -1095,7 +1091,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = PRU_Haya_Torre_No
 		}
-		x = 40
+		x = 37
 		y = 8
 
 	}
@@ -1109,7 +1105,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = PRU_Haya_Torre_Return
 		}
-		x = 42
+		x = 39
 		y = 8
 
 	}
@@ -1121,8 +1117,39 @@ focus_tree = {
 			focus = PRU_Haya_Torre_Return
 			focus = PRU_Haya_Torre_No
 		}
-		x = 41
+		x = 38
 		y = 9
+
+	}
+	focus = {
+		id = PRU_A_new_Ejercito
+		icon = GFX_focus_generic_little_entente
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Bolognesi_Memories
+		}
+		x = 2
+		y = 8
+			completion_reward = {
+					add_timed_idea = {
+							days = 720
+							idea = A_New_Peruvian_Ejercito
+						}
+				}
+
+	}
+	focus = {
+		id = PRU_Upgrade_Our_Cruisers
+		icon = GFX_goal_generic_navy_cruiser
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Upgrade_Our_Submarines
+		}
+		prerequisite = {
+			focus = PRU_Upgrade_Our_Submarines
+		}
+		x = 7
+		y = 4
 
 	}
 	focus = {
@@ -1350,7 +1377,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = PRU_Belaunde_Diplomacy
 		}
-		x = 39
+		x = 36
 		y = 10
 
 	}
@@ -1364,7 +1391,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = PRU_Ugarteche_Diplomacy
 		}
-		x = 43
+		x = 40
 		y = 10
 
 	}
@@ -1379,4 +1406,281 @@ focus_tree = {
 		y = 15
 
 	}
+	focus = {
+		id = PRU_repeal_law_on_internal_security
+		icon = GFX_focus_renounce_the_treaty_of_triannon
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Manuel_Prado_win
+		}
+		x = 18
+		y = 18
+
 	}
+	focus = {
+		id = PRU_law_on_industrial_promotion
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_repeal_law_on_internal_security
+		}
+		x = 18
+		y = 19
+
+	}
+	focus = {
+		id = PRU_national_fund_on_economical_development
+		icon = GFX_focus_generic_self_management
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Manuel_Prado_win
+		}
+		x = 22
+		y = 18
+
+	}
+	focus = {
+		id = PRU_the_southern_plan
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_irac
+		}
+		x = 20
+		y = 20
+
+	}
+	focus = {
+		id = PRU_break_diplomatic_relations_with_cuba
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_turbulent_times
+		}
+		x = 18
+		y = 21
+
+	}
+	focus = {
+		id = PRU_turbulent_times
+		icon = GFX_goal_generic_attack_allies
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_law_on_industrial_promotion
+		}
+		x = 18
+		y = 20
+
+	}
+	focus = {
+		id = PRU_chimbote_steel_plan
+		icon = GFX_focus_generic_steel
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Manuel_Prado_win
+		}
+		x = 20
+		y = 18
+
+	}
+	focus = {
+		id = PRU_irac
+		icon = GFX_focus_prc_agrarian_socialism
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_chimbote_steel_plan
+		}
+		x = 20
+		y = 19
+
+	}
+	focus = {
+		id = PRU_education_reform
+		icon = GFX_focus_research
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_national_fund_on_economical_development
+		}
+		x = 22
+		y = 19
+
+	}
+	focus = {
+		id = PRU_support_housing
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_the_southern_plan
+		}
+		x = 20
+		y = 21
+
+	}
+	focus = {
+		id = PRU_decentralization
+		icon = GFX_focus_generic_self_management
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_education_reform
+		}
+		x = 22
+		y = 20
+
+	}
+	focus = {
+		id = PRU_uphold_incan_traditions
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Belaunde_Terry_Win
+		}
+		x = 30
+		y = 18
+
+	}
+	focus = {
+		id = PRU_fight_against_radical_leftism
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Belaunde_Terry_Win
+		}
+		x = 28
+		y = 18
+
+	}
+	focus = {
+		id = PRU_improve_relations_with_us
+		icon = GFX_focus_chi_mission_to_the_us
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_Belaunde_Terry_Win
+		}
+		x = 32
+		y = 18
+
+	}
+	focus = {
+		id = PRU_improved_housing
+		icon = GFX_goal_generic_construct_civilian
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_fight_against_radical_leftism
+		}
+		x = 28
+		y = 19
+
+	}
+	focus = {
+		id = PRU_grand_highway_system
+		icon = GFX_goal_generic_construction
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_improved_housing
+		}
+		x = 28
+		y = 20
+
+	}
+	focus = {
+		id = PRU_protect_minority_rights
+		icon = GFX_focus_generic_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_uphold_incan_traditions
+		}
+		x = 30
+		y = 19
+
+	}
+	focus = {
+		id = PRU_uphold_democracy
+		icon = GFX_goal_generic_national_unity
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_protect_minority_rights
+		}
+		x = 30
+		y = 20
+
+	}
+	focus = {
+		id = PRU_increased_pensions
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_improve_relations_with_us
+		}
+		x = 32
+		y = 19
+
+	}
+	focus = {
+		id = PRU_modernize_lima
+		icon = GFX_goal_generic_construction
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_increased_pensions
+		}
+		x = 32
+		y = 20
+
+	}
+	focus = {
+		id = PUR_increased_science_funding
+		icon = GFX_focus_research
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_modernize_lima
+		}
+		x = 32
+		y = 21
+		completion_reward = {
+					add_research_slot = 1
+				}
+	}
+	focus = {
+		id = PRU_embrace_technocracy
+		icon = GFX_focus_generic_self_management
+		cost = 10.00
+		prerequisite = {
+			focus = PRU_uphold_democracy
+		}
+		x = 30
+		y = 21
+		completion_reward = {
+					add_political_power = 100
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					add_ideas = Market_Based_Pricing
+				}
+	}
+}
