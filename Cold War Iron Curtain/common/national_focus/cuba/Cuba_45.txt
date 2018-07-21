@@ -9,500 +9,811 @@ focus_tree = {
 	}
 	default = no
 	focus = {
-		id = CUB_grau_adminstration
-		icon = GFX_CUB_Grau_adminstration
+		id = CUB_1945_grau_adminstration
+		icon = GFX_CUB_1945_Grau_adminstration
 		cost = 10.00
 		x = 18
 		y = 2
-
+		completion_reward = {
+			add_political_power = 100
+		}
 	}
 	focus = {
-		id = CUB_the_1948_cuban_election
+		id = CUB_1945_the_1948_cuban_election
 		icon = GFX_focus_generic_election
 		cost = 10.00
 		x = 48
 		y = 2
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
-		id = CUB_the_hun_days
+		id = CUB_1945_the_hun_days
 		icon = GFX_goal_BEL_FederalParliament
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_grau_adminstration
+			focus = CUB_1945_grau_adminstration
 		}
 		x = 18
 		y = 3
-
+		completion_reward = {
+			add_political_power = 100
+		}
 	}
 	focus = {
-		id = CUB_support_for_natpro
+		id = CUB_1945_support_for_natpro
 		icon = GFX_goal_generic_propaganda
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_the_hun_days
+			focus = CUB_1945_the_hun_days
 		}
 		x = 12
 		y = 4
-
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}			
+		}
 	}
 	focus = {
-		id = CUB_focus_against_the_liberals
-		icon = GFX_GFX_Paper
+		id = CUB_1945_focus_against_the_liberals
+		icon = GFX_Paper
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_support_for_natpro
+			focus = CUB_1945_support_for_natpro
 		}
 		mutually_exclusive = {
-			focus = CUB_focus_against_the_conservatives
+			focus = CUB_1945_focus_against_the_conservatives
 		}
 		x = 10
 		y = 5
-
+		completion_reward = {
+			add_popularity = {
+				ideology = Social_Liberalism
+				popularity = -0.10
+			}		
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}		
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.05
+			}					
+		} 
 	}
 	focus = {
-		id = CUB_focus_against_the_conservatives
+		id = CUB_1945_focus_against_the_conservatives
 		icon = GFX_goal_generic_forceful_treaty
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_support_for_natpro
+			focus = CUB_1945_support_for_natpro
 		}
 		mutually_exclusive = {
-			focus = CUB_focus_against_the_liberals
+			focus = CUB_1945_focus_against_the_liberals
 		}
 		x = 14
 		y = 5
-
+		completion_reward = {
+			add_popularity = {
+				ideology = conservative
+				popularity = -0.10
+			}		
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}		
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.05
+			}					
+		} 
 	}
 	focus = {
-		id = CUB_perform_rallies_in_southern_cuba
+		id = CUB_1945_perform_rallies_in_southern_cuba
 		icon = GFX_focus_renounce_the_treaty_of_triannon
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_focus_against_the_liberals
-			focus = CUB_focus_against_the_conservatives
+			focus = CUB_1945_focus_against_the_liberals
+			focus = CUB_1945_focus_against_the_conservatives
 		}
 		x = 12
 		y = 6
-
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}				
+		} 
 	}
 	focus = {
-		id = CUB_junta_start
+		id = CUB_1945_junta_start
 		icon = GFX_Army_disorder
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_the_hun_days
+			focus = CUB_1945_the_hun_days
 		}
 		x = 18
 		y = 4
+		completion_reward = {
+			set_politics = { ruling_party = neutrality elections_allowed = no }
 
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.35
+			}					
+		}
 	}
 	focus = {
-		id = CUB_limit_militaristic_control
+		id = CUB_1945_limit_militaristic_control
 		icon = GFX_goal_generic_defence
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_junta_start
+			focus = CUB_1945_junta_start
 		}
 		mutually_exclusive = {
-			focus = CUB_appease_the_armed_forces
+			focus = CUB_1945_appease_the_armed_forces
 		}
 		x = 16
 		y = 6
-
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.05
+			add_war_support = -0.05
+			army_experience = 10
+		}
 	}
 	focus = {
-		id = CUB_appease_the_armed_forces
+		id = CUB_1945_appease_the_armed_forces
 		icon = GFX_goal_generic_allies_build_infantry
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_junta_start
+			focus = CUB_1945_junta_start
 		}
 		mutually_exclusive = {
-			focus = CUB_limit_militaristic_control
+			focus = CUB_1945_limit_militaristic_control
 		}
 		x = 20
 		y = 6
-
+		completion_reward = {
+			add_ideas = military_expansion
+		}
 	}
 	focus = {
-		id = CUB_the_continuation_of_natpro
+		id = CUB_1945_the_continuation_of_natpro
 		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_the_hun_days
+			focus = CUB_1945_the_hun_days
 		}
 		x = 24
 		y = 4
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
-		id = CUB_raise_the_minimum_wage
+		id = CUB_1945_raise_the_minimum_wage
 		icon = GFX_SAU_foreign_loans
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_the_continuation_of_natpro
+			focus = CUB_1945_the_continuation_of_natpro
 		}
 		x = 22
 		y = 5
-
+		completion_reward = {
+			add_ideas = raise_the_wages
+		}
 	}
 	focus = {
-		id = CUB_nationalization_of_the_cuban_electric_industry
+		id = CUB_1945_nationalization_of_the_cuban_electric_industry
 		icon = GFX_goal_generic_construct_civ_factory
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_the_continuation_of_natpro
+			focus = CUB_1945_the_continuation_of_natpro
 		}
 		x = 24
 		y = 6
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = coal_plant
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = coal_plant
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = coal_plant
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = coal_plant
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = coal_plant
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = coal_plant
+									level = 1
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
-		id = CUB_establish_longer_working_periods
+		id = CUB_1945_establish_longer_working_periods
 		icon = GFX_SAU_develop_the_heavy_industry
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_the_continuation_of_natpro
+			focus = CUB_1945_the_continuation_of_natpro
 		}
 		x = 26
 		y = 5
 
 	}
 	focus = {
-		id = CUB_victory_for_the_socialists
-		icon = GFX_CUB_communist1
+		id = CUB_1945_victory_for_the_socialists
+		icon = GFX_CUB_1945_communist1
 		cost = 0.00
 		prerequisite = {
-			focus = CUB_the_1948_cuban_election
+			focus = CUB_1945_the_1948_cuban_election
 		}
 		x = 37
 		y = 3
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
-		id = CUB_power_to_the_CNOC
+		id = CUB_1945_power_to_the_CNOC
 		icon = GFX_focus_generic_soviet_politics
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_victory_for_the_socialists
+			focus = CUB_1945_victory_for_the_socialists
 		}
 		x = 35
 		y = 4
-
+		completion_reward = {
+			add_ideas = strengthened_labor_unions
+		}
 	}
 	focus = {
-		id = CUB_nationalize_industries
+		id = CUB_1945_nationalize_industries
 		icon = GFX_goal_generic_trade
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_victory_for_the_socialists
+			focus = CUB_1945_victory_for_the_socialists
 		}
 		x = 39
 		y = 4
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
-		id = CUB_propaganda_encursion
-		icon = GFX_GFX_Communism7
+		id = CUB_1945_propaganda_encursion
+		icon = GFX_Communism7
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_nationalize_industries
+			focus = CUB_1945_nationalize_industries
 		}
 		prerequisite = {
-			focus = CUB_power_to_the_CNOC
+			focus = CUB_1945_power_to_the_CNOC
 		}
 		x = 35
 		y = 5
-
+		completion_reward = {
+			add_popularity = { ideology = socialist popularity = 0.15 }	
+		}
 	}
 	focus = {
-		id = CUB_remove_private_property
+		id = CUB_1945_remove_private_property
 		icon = GFX_focus_generic_strike_at_democracy2
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_nationalize_industries
+			focus = CUB_1945_nationalize_industries
 		}
 		prerequisite = {
-			focus = CUB_power_to_the_CNOC
+			focus = CUB_1945_power_to_the_CNOC
 		}
 		x = 39
 		y = 5
-
+		completion_reward = {
+			add_ideas = land_reform
+		}
 	}
 	focus = {
-		id = CUB_proclaim_the_one_party_state
-		icon = GFX_GFX_Communism1
+		id = CUB_1945_proclaim_the_one_party_state
+		icon = GFX_Communism1
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_remove_private_property
+			focus = CUB_1945_remove_private_property
 		}
 		prerequisite = {
-			focus = CUB_propaganda_encursion
+			focus = CUB_1945_propaganda_encursion
 		}
 		x = 37
 		y = 6
-
+		completion_reward = {
+					add_popularity = { ideology = socialist popularity = 0.15 }	
+					set_politics = {
+							ruling_party = socialist
+							elections_allowed = no
+					}
+			}
 	}
 	focus = {
-		id = CUB_split
-		icon = GFX_CUB_orthodox
+		id = CUB_1945_split
+		icon = GFX_CUB_1945_orthodox
 		cost = 0.00
 		prerequisite = {
-			focus = CUB_the_1948_cuban_election
+			focus = CUB_1945_the_1948_cuban_election
 		}
 		x = 44
 		y = 3
-
+		available = {
+			always = no
+		}
+		#NATIONALIST ROUTE
 	}
 	focus = {
-		id = CUB_crusade_against_corruption
+		id = CUB_1945_crusade_against_corruption
 		icon = GFX_focus_generic_support_the_left_right
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_split
+			focus = CUB_1945_split
 		}
 		x = 42
 		y = 4
-
+		completion_reward = {
+			remove_ideas = SOV_government_corruption
+		}
 	}
 	focus = {
-		id = CUB_privatization_of_enterprises
+		id = CUB_1945_privatization_of_enterprises
 		icon = GFX_goal_generic_construct_civ_factory
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_split
+			focus = CUB_1945_split
 		}
 		x = 46
 		y = 4
-
+		completion_reward = {
+			add_ideas = capitalism
+		}
 	}
 	focus = {
-		id = CUB_reformation_of_the_house
+		id = CUB_1945_reformation_of_the_house
 		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_privatization_of_enterprises
+			focus = CUB_1945_privatization_of_enterprises
 		}
 		prerequisite = {
-			focus = CUB_crusade_against_corruption
+			focus = CUB_1945_crusade_against_corruption
 		}
 		x = 42
 		y = 5
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
-		id = CUB_nationalization_of_cuban_railways
+		id = CUB_1945_nationalization_of_cuban_railways
 		icon = GFX_goal_generic_construct_infrastructure
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_crusade_against_corruption
+			focus = CUB_1945_crusade_against_corruption
 		}
 		prerequisite = {
-			focus = CUB_privatization_of_enterprises
+			focus = CUB_1945_privatization_of_enterprises
 		}
 		x = 46
 		y = 5
-
+		completion_reward = {
+						every_owned_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}						
+						}
+		}
 	}
 	focus = {
-		id = CUB_true_national_identity
+		id = CUB_1945_true_national_identity
 		icon = GFX_focus_generic_strike_at_democracy1
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_reformation_of_the_house
+			focus = CUB_1945_reformation_of_the_house
 		}
 		prerequisite = {
-			focus = CUB_nationalization_of_cuban_railways
+			focus = CUB_1945_nationalization_of_cuban_railways
 		}
 		x = 44
 		y = 6
-
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 200
+			add_war_support = 0.05
+		}
 	}
 	focus = {
-		id = CUB_an_authentic_victory
+		id = CUB_1945_an_authentic_victory
 		icon = GFX_Goal_i_am_in_your_bed
 		cost = 0.00
 		prerequisite = {
-			focus = CUB_the_1948_cuban_election
+			focus = CUB_1945_the_1948_cuban_election
 		}
 		x = 52
 		y = 3
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
-		id = CUB_the_raise_of_civil_liberties
+		id = CUB_1945_the_raise_of_civil_liberties
 		icon = GFX_goal_generic_improve_relations
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_an_authentic_victory
+			focus = CUB_1945_an_authentic_victory
 		}
 		x = 50
 		y = 4
-
+		completion_reward = {
+			add_ideas = rights_for_people
+		}
 	}
 	focus = {
-		id = CUB_establishment_of_the_national_bank
+		id = CUB_1945_establishment_of_the_national_bank
 		icon = GFX_focus_generic_industry_2
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_an_authentic_victory
+			focus = CUB_1945_an_authentic_victory
 		}
 		x = 54
 		y = 4
-
+		completion_reward = {
+			add_ideas = national_bank
+		}
 	}
 	focus = {
-		id = CUB_preservation_of_the_ap
+		id = CUB_1945_preservation_of_the_ap
 		icon = GFX_focus_generic_concessions
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_establishment_of_the_national_bank
-		}
-		prerequisite = {
-			focus = CUB_establishment_of_the_national_bank
+			focus = CUB_1945_establishment_of_the_national_bank
 		}
 		x = 50
 		y = 5
-
+			completion_reward = {
+					add_popularity = {
+						ideology = democratic
+						popularity = 0.10
+					}	
+					add_political_power = 100
+				}
 	}
 	focus = {
-		id = CUB_establish_tribunal_accounts
+		id = CUB_1945_establish_tribunal_accounts
 		icon = GFX_goal_BEL_FederalParliament
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_the_raise_of_civil_liberties
-		}
-		prerequisite = {
-			focus = CUB_the_raise_of_civil_liberties
+			focus = CUB_1945_the_raise_of_civil_liberties
 		}
 		x = 54
 		y = 5
-
+		completion_reward = {
+			add_stability = 0.05
+					random_owned_controlled_state = {
+							limit = {
+									industrial_complex > 0
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+		}		
 	}
 	focus = {
-		id = CUB_the_cordial_president
+		id = CUB_1945_the_cordial_president
 		icon = GFX_focus_renounce_the_treaty_of_triannon
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_preservation_of_the_ap
+			focus = CUB_1945_preservation_of_the_ap
 		}
 		prerequisite = {
-			focus = CUB_establish_tribunal_accounts
+			focus = CUB_1945_establish_tribunal_accounts
 		}
 		x = 52
 		y = 6
 
 	}
 	focus = {
-		id = CUB_victory_for_cuban_liberal
+		id = CUB_1945_victory_for_cuban_liberal
 		icon = GFX_Goal_im_gonna_touch_ya_in_my_election_bed
 		cost = 0.00
 		prerequisite = {
-			focus = CUB_the_1948_cuban_election
+			focus = CUB_1945_the_1948_cuban_election
 		}
 		x = 59
 		y = 3
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
-		id = CUB_government_control
+		id = CUB_1945_government_control
 		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_victory_for_cuban_liberal
+			focus = CUB_1945_victory_for_cuban_liberal
 		}
 		x = 57
 		y = 4
 
 	}
 	focus = {
-		id = CUB_increase_taxes
+		id = CUB_1945_increase_taxes
 		icon = GFX_focus_generic_industry_2
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_victory_for_cuban_liberal
+			focus = CUB_1945_victory_for_cuban_liberal
 		}
 		x = 61
 		y = 4
-
+		completion_reward = {
+			add_ideas = tax_increase
+		}
 	}
 	focus = {
-		id = CUB_meeting_with_dp
+		id = CUB_1945_meeting_with_dp
 		icon = GFX_goal_USA_deal
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_increase_taxes
+			focus = CUB_1945_increase_taxes
 		}
 		prerequisite = {
-			focus = CUB_government_control
+			focus = CUB_1945_government_control
 		}
 		x = 57
 		y = 5
-
+			completion_reward = {
+					add_popularity = {
+						ideology = Social_Liberalism
+						popularity = 0.025
+					}						
+					CUB = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = CUB
+									modifier = small_increase
+								}
+						}
+				}
 	}
 	focus = {
-		id = CUB_liberalize_industries
+		id = CUB_1945_liberalize_industries
 		icon = GFX_focus_generic_the_giant_wakes
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_government_control
+			focus = CUB_1945_government_control
 		}
 		prerequisite = {
-			focus = CUB_increase_taxes
+			focus = CUB_1945_increase_taxes
 		}
 		x = 61
 		y = 5
-
+		completion_reward = {
+			add_ideas = embrace_free_trade
+					random_owned_controlled_state = {
+							limit = {
+									industrial_complex > 0
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+		}
 	}
 	focus = {
-		id = CUB_edu_cuba
+		id = CUB_1945_edu_cuba
 		icon = GFX_focus_research2
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_meeting_with_dp
+			focus = CUB_1945_meeting_with_dp
 		}
 		prerequisite = {
-			focus = CUB_liberalize_industries
+			focus = CUB_1945_liberalize_industries
 		}
 		x = 59
 		y = 6
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
-		id = CUB_the_continuation_of_natpro
+		id = CUB_1945_the_continuation_of_natpro
 		icon = GFX_focus_generic_self_management
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_the_hun_days
+			focus = CUB_1945_the_hun_days
 		}
 		x = 24
 		y = 4
-
+		completion_reward = {
+			add_political_power = 100
+					add_popularity = {
+						ideology = democratic
+						popularity = 0.025
+					}		
+		}
 	}
 	focus = {
-		id = CUB_support_from_the_republican_party
+		id = CUB_1945_support_from_the_republican_party
 		icon = GFX_focus_chi_mission_to_the_us
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_perform_rallies_in_southern_cuba
+			focus = CUB_1945_perform_rallies_in_southern_cuba
 		}
 		x = 12
 		y = 7
-
+			completion_reward = {
+					add_popularity = {
+						ideology = democratic
+						popularity = 0.025
+					}						
+					CUB = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = CUB
+									modifier = small_increase
+								}
+						}
+				}
 	}
 	focus = {
-		id = CUB_automony_to_the_university_of_havanna
+		id = CUB_1945_automony_to_the_university_of_havanna
 		icon = GFX_focus_research
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_nationalization_of_the_cuban_electric_industry
+			focus = CUB_1945_nationalization_of_the_cuban_electric_industry
 		}
 		prerequisite = {
-			focus = CUB_raise_the_minimum_wage
+			focus = CUB_1945_raise_the_minimum_wage
 		}
 		prerequisite = {
-			focus = CUB_establish_longer_working_periods
+			focus = CUB_1945_establish_longer_working_periods
 		}
 		x = 24
 		y = 7
@@ -511,29 +822,50 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = CUB_supposed_unity
+		id = CUB_1945_supposed_unity
 		icon = GFX_focus_generic_concessions
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_limit_militaristic_control
-			focus = CUB_appease_the_armed_forces
+			focus = CUB_1945_limit_militaristic_control
+			focus = CUB_1945_appease_the_armed_forces
 		}
 		x = 18
 		y = 7
-
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.05
+		}
 	}
 	focus = {
-		id = CUB_a_new_and_free_cuba
+		id = CUB_1945_a_new_and_free_cuba
 		icon = GFX_Cuba_Proclamation
 		cost = 10.00
 		prerequisite = {
-			focus = CUB_true_national_identity
-			focus = CUB_the_cordial_president
-			focus = CUB_edu_cuba
-			focus = CUB_proclaim_the_one_party_state
+			focus = CUB_1945_true_national_identity
+			focus = CUB_1945_the_cordial_president
+			focus = CUB_1945_edu_cuba
+			focus = CUB_1945_proclaim_the_one_party_state
 		}
 		x = 48
 		y = 7
-
+		completion_reward = {
+			add_stability = 0.05
+					random_owned_controlled_state = {
+							limit = {
+									industrial_complex > 0
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+		}		
 	}
 }
