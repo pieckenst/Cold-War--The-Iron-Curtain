@@ -527,3 +527,204 @@ country_event = {
 		}
 	}
 }
+country_event = {
+
+	id = cuba.3000
+	title = "Battle of the Sierra Mountain Range"
+	desc = "cuba.3000.d"
+	picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "July Movement Victory"
+		news_event = cuba.3001
+		ai_chance = {
+			factor = 0.75
+		}
+	}
+	option = {
+		name = "Batista Victory"
+		news_event = cuba.3010
+		ai_chance = {
+			factor = 0.25
+		}
+	}
+}
+news_event = {
+
+	id = cuba.3001
+	title = "Batista Flees the Country"
+	desc = "cuba.3001.d"
+	picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Great News"
+		news_event = cuba.3002
+	}
+}
+news_event = {
+
+	id = cuba.3002
+	title = "Successful Revolution"
+	desc = "cuba.3002.d"
+	#picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Great News"
+		news_event = cuba.3003
+	}
+}
+news_event = {
+
+	id = cuba.3003
+	title = "Successful Revolution"
+	desc = "cuba.3003.d"
+	#picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Great News"
+		news_event = cuba.3003
+	}
+}
+news_event = {
+
+	id = cuba.3004
+	title = "Sightings in Havana"
+	desc = "cuba.3004.d"
+	#picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Ignore the Lights"
+		news_event = cuba.3005
+		ai_chance = {
+			factor = 0.80
+		}
+	}
+	option = {
+		name = "Obsess over the Sightings"
+		news_event = cuba.3006
+		ai_chance = {
+			factor = 0.20
+		}
+	}
+}
+news_event = {
+
+	id = cuba.3005
+	title = "Establish the Provisional Government"
+	desc = "cuba.3005.d"
+	#picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "A blow against the capitalist oppressors"
+		set_country_flag = focus_tree_60_reset
+		load_focus_tree = Cuba_60s
+		add_popularity = { ideology = communism popularity = 0.35 }
+		set_politics = { ruling_party = communism elections_allowed = no }
+		set_party_name = { ideology = communism long_name = "Partido Comunista de Cuba" name = "Partido Comunista de Cuba" }
+
+	}
+}
+news_event = {
+
+	id = cuba.3006
+	title = "An Night to Remember"
+	desc = "cuba.3006.d"
+	#picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Long Live Posadas"
+		set_country_flag = focus_tree_60_reset
+		load_focus_tree = Cuba_60s
+		complete_national_focus = CUB_an_night_to_remember
+		add_popularity = { ideology = trotskyism popularity = 0.35 }
+		set_politics = { ruling_party = trotskyism elections_allowed = no }
+		create_country_leader = {
+			name = "Juan Posadas"
+			picture = "posadas.dds"
+			ideology = posadism
+		}
+	}
+}
+news_event = {
+
+	id = cuba.3010
+	title = "Batista Consolidates Power"
+	desc = "cuba.3010.d"
+	#picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Concerning"
+		news_event = cuba.3011
+	}
+}
+news_event = {
+
+	id = cuba.3011
+	title = "Surge in Anti-Batista Resentment"
+	desc = "cuba.3011.d"
+	#picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Concerning Developments....."
+		news_event = cuba.3012
+	}
+}
+news_event = {
+
+	id = cuba.3012
+	title = "American Backed Anti-Batista Coup"
+	desc = "cuba.3012.d"
+	#picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "José Miró Cardona"
+		set_country_flag = focus_tree_60_reset
+		load_focus_tree = Cuba_60s
+		complete_national_focus = CUB_the_final_revoultion
+		add_popularity = { ideology = conservative popularity = 0.35 }
+		set_politics = { ruling_party = conservative elections_allowed = yes }
+		create_country_leader = {
+			name = "José Miró Cardona"
+			picture = "Cardona.dds"
+			ideology = conservatism
+		}
+		ai_chance = {
+			factor = 0.50
+		}
+	}
+	option = {
+		name = "José Miró Cardona"
+		set_country_flag = focus_tree_60_reset
+		load_focus_tree = Cuba_60s
+		complete_national_focus = CUB_the_final_revoultion
+		add_popularity = { ideology = neutrality popularity = 0.20 }
+		create_country_leader = {
+			name = "Ramón Barquín"
+			picture = "Barquin.dds"
+			ideology = military_junta
+		}
+		ai_chance = {
+			factor = 0.50
+		}
+	}
+}
