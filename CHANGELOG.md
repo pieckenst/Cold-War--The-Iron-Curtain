@@ -11,7 +11,27 @@
 - New Law for Nuclear Production (Prevents the AI/ Player from Using Nukes Early Game)
 - Expanded American Elections up til 2016
 - Added More American Election Options (Martin Luther King Jr for example)
+- Removed Manipur and Tripura
 
+## History
+- Fixed many flags
+- Added the Tangier International Zone
+- Fixed the leader of pakistan, buthan and Burma
+- Added the Mali Federation
+- Added the Republic of Upper Volta
+- Fixed the name and the flag of Venezuela 
+- Chiang Kai-shek is not the leader of the ROC in 1949 just and ROC goes to taiwan he becomes the leader
+- Fixed the Syrian leader
+- Fixed Tunisia in 1960
+- Added the protectorate of Palestine
+- Portugal is now nationalist
+- Fixed the parties and the communist leader in 1960 of cuba
+- Cyprus is not independent in 1960
+- Fixed the governor of Nigeria in 1960
+- Fixed the parties, added new leaders and fixed the flag of Canada
+- Fixed the leader of Iceland
+- Fixed the name of some socialist republics
+- Added many leader for Africa
 
 ## Map
 - Province border changes all around the world for accuracy
