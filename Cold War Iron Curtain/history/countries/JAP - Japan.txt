@@ -2,13 +2,16 @@
 
 oob = "JAP_1949"
 
-set_stability = 0.65
-
 set_research_slots = 4
 
 add_ideas = {
-	JAP_Article9_Restrictions
-	population_growth_explosion
+		unstable_economy
+		us_intervention
+		firebombing
+		article_nine
+		JAP_Article9_Restrictions
+		population_growth_explosion
+		volunteer_only
 }
 1949.1.1 = {
 	add_ai_strategy = {
@@ -166,48 +169,9 @@ set_politics = {
 	}
 	
 	ruling_party = democratic
-	last_election = "1949.1.1"
+	last_election = "1945.1.1"
 	election_frequency = 48
 	elections_allowed = no
-}
-
-1952.1.1 = {
-	set_politics = {
-
-		parties = {
-			Liberal_Conservatism = { 
-				popularity = 60
-			}
-
-			fascism = {
-				popularity = 10
-			}
-			
-			socialist = {
-				popularity = 20
-				#banned = no #default is no
-			}
-			monarchism = {
-				popularity = 10
-			}
-		}
-		
-		ruling_party = Liberal_Conservatism
-		last_election = "1951.1.1"
-		election_frequency = 48
-		elections_allowed = yes
-	}
-}
-1949.1.1 = {
-	add_ideas = {
-		unstable_economy
-		us_intervention
-		firebombing
-		article_nine
-		JAP_Article9_Restrictions
-		population_growth_explosion
-		volunteer_only
-	}
 }
 
 create_country_leader = {
@@ -251,21 +215,8 @@ create_country_leader = {
 }
 create_country_leader = {
 	name = "Sanzō Nosaka"
-	desc = ""
 	picture = "Nosaka.dds"
-	expire = "1991.1.1"
-	ideology = market_socialism
-	traits = {
-	}
-}
-create_country_leader = {
-	name = "Inejiro Asanuma"
-	desc = ""
-	picture = "Inejiro_Asanuma.dds"
-	expire = "1989.1.1"
 	ideology = marxism
-	traits = {
-	}
 }
 create_country_leader = {
 	name = "Inejiro Asanuma"
@@ -281,6 +232,7 @@ create_country_leader = {
 	name = "Douglas MacArthur"
 	desc = "POLITICS_DOUGLAS_MACARTHUR_DESC"
 	picture = "gfx/leaders/USA/Portrait_USA_Douglas_MacArthur.dds"
+	expire = "1952.1.1"
 	ideology = democratic_america
 }
 
@@ -387,46 +339,123 @@ create_country_leader = {
 		#	obsolete = yes
 		#}	
 	}
-1960.1.1 = {
+1945.1.1 = {
+set_politics = {
+
+	parties = {
+        democratic = { popularity = 100 }
+        communism = { popularity = 0 }
+        fascism = { popularity = 0 }
+        nationalism = { popularity = 0 }
+        monarchism = { popularity = 0 }
+        neutrality = { popularity = 0 }
+        islamism = { popularity = 0 }
+        radical_shiaism = { popularity = 0 }
+        pan_arabism = {popularity = 0}
+        Social_Democratic = { popularity = 0 }
+        Social_Liberalism = { popularity = 0 }
+        Salafism = { popularity = 0 }
+        Christianism = { popularity = 0 }
+        Liberal_Conservatism = { popularity = 0 }
+        Judaism = { popularity = 0 }
+        conservative = { popularity = 0 }
+        Christian_Democratic = { popularity = 0 }
+        socialist = { popularity = 0 }
+        centrist = { popularity = 0 }
+        liberal = { popularity = 0 }
+        trotskyism = { popularity = 0 }
+        maoism = { popularity = 0 }
+        National_Socialism = { popularity = 0 }
+	}
+	
+	ruling_party = democratic
+	last_election = "1945.1.1"
+	election_frequency = 48
+	elections_allowed = no
+ }
+}
+1952.1.1 = {
 	remove_ideas = {
 		unstable_economy
 		us_intervention
 		firebombing
-		JAP_Article9_Restrictions
-		volunteer_only
 	}
+		set_politics = {
 
+			parties = {
+				Liberal_Conservatism = { 
+					popularity = 87
+				}
+
+				fascism = {
+					popularity = 13
+				}
+				
+				communism = {
+					popularity = 0
+					#banned = no #default is no
+				}
+				democratic = {
+					popularity = 0
+				}
+			}
+			
+			ruling_party = Liberal_Conservatism
+			last_election = "1949.1.1"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+
+}
+1960.1.1 = {
 set_politics = {
 
 	parties = {
-		Liberal_Conservatism = { 
-			popularity = 87
-		}
+        democratic = { popularity = 0 }
+        communism = { popularity = 3 }
+        fascism = { popularity = 0 }
+        nationalism = { popularity = 0 }
+        monarchism = { popularity = 4 }
+        neutrality = { popularity = 0 }
+        islamism = { popularity = 0 }
+        radical_shiaism = { popularity = 0 }
+        pan_arabism = {popularity = 0}
+        Social_Democratic = { popularity = 9 }
+        Social_Liberalism = { popularity = 0 }
+        Salafism = { popularity = 0 }
+        Christianism = { popularity = 0 }
+        Liberal_Conservatism = { popularity = 60 }
+        Judaism = { popularity = 0 }
+        conservative = { popularity = 0 }
+        Christian_Democratic = { popularity = 0 }
+        socialist = { popularity = 24 }
+        centrist = { popularity = 0 }
+        liberal = { popularity = 0 }
+        trotskyism = { popularity = 0 }
+        maoism = { popularity = 0 }
+        National_Socialism = { popularity = 0 }
 
-		fascism = {
-			popularity = 13
-		}
-		
-		communism = {
-			popularity = 0
-			#banned = no #default is no
-		}
-		pan_arabism = {
-			popularity = 0
-			banned = yes
-		}
 	}
 	
 	ruling_party = Liberal_Conservatism
-	last_election = "1960.1.1"
-	election_frequency = 48
+	last_election = "1958.11.20"
+	election_frequency = 24
 	elections_allowed = yes
 }
 	create_country_leader = {
 		name = "Nobusuke Kishi"
 		picture = "Nobusuke_Kishi.dds"
-		expire = "1954.1.1"
 		ideology = liberal_conservatism
+	}
+	create_country_leader = {
+		name = "Jōtarō Kawakami "
+		picture = "Jotaro_Kawakami .dds"
+		ideology = socialism
+	}
+	create_country_leader = {
+		name = "Suehiro Nishio"
+		picture = "Suehiro_Nishio.dds"
+		ideology = social_democrat
 	}
 }
 1972.1.1 = {
