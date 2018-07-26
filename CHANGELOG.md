@@ -12,6 +12,8 @@
 - Expanded American Elections up til 2016
 - Added More American Election Options (Martin Luther King Jr for example)
 - Removed Manipur and Tripura
+- New Rocketry Tab
+- Simplified WMD Tab
 
 ## History
 - Fixed many flags
@@ -19,19 +21,19 @@
 - Fixed the leader of pakistan, buthan and Burma
 - Added the Mali Federation
 - Added the Republic of Upper Volta
-- Fixed the name and the flag of Venezuela 
-- Chiang Kai-shek is not the leader of the ROC in 1949 just and ROC goes to taiwan he becomes the leader
+- Fixed the name and flag of Venezuela 
+- Chiang Kai-shek is not the leader of the ROC in 1949, he becomes leader again after the retreat to Taiwan
 - Fixed the Syrian leader
 - Fixed Tunisia in 1960
-- Added the protectorate of Palestine
-- Portugal is now nationalist
+- Added the Protectorate of Palestine
+- Portugal is now Nationalist instead of Fascist
 - Fixed the parties and the communist leader in 1960 of cuba
 - Cyprus is not independent in 1960
 - Fixed the governor of Nigeria in 1960
 - Fixed the parties, added new leaders and fixed the flag of Canada
 - Fixed the leader of Iceland
-- Fixed the name of some socialist republics
-- Added many leader for Africa
+- Fixed the name of some SSR's
+- Added many leaders for African Nations
 
 ## Map
 - Province border changes all around the world for accuracy
