@@ -4,6 +4,14 @@
 - Miscellaneous improvements to localization and graphics
 - New map font
 - Dropping a nuke now gives 10 world tension to the nation that dropped it
+- Financial Reserves Removed
+- Electricity System Added
+- Removed Many Unbalanced National Laws
+- Some Minor Improvements to Performance
+- New Law for Nuclear Production (Prevents the AI/ Player from Using Nukes Early Game)
+- Expanded American Elections up til 2016
+- Added More American Election Options (Martin Luther King Jr for example)
+
 
 ## Map
 - Province border changes all around the world for accuracy
@@ -14,16 +22,24 @@
 ### New
 - Bulgaria (1960s)
 - Cuba (1960s)
+- Cuba (1950s)
 - North Korea (1960s)
-- North Vietnam (1960s)
 - South Korea (1960s)
-- West Germany (1960s)
-- generic focus tree for minors
-### Expanded / Reworked
-- France (1950s)
-- Italy (1950s)
-- Soviet Union
+- Soviet Stalin 
+- Soviet Brezhnev 
+- Soviet Beria 
+- Soviet Khruschev
+- Soviet Malenkov
+- South Africa (1960s)
+- Federation of Rhodesia and Nyasaland (1950s)
+- Egypt (1960s)
+- Belgium (1950s)
 
+### Expanded / Reworked
+- West Germany (1950s)
+- North Korea (1950s)
+- Greece (1950s)
+- Albania (1950s)
 ---
 
 # v3.11.3 - The 60s
