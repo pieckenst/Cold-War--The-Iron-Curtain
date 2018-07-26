@@ -16,9 +16,10 @@
 - Simplified WMD Tab
 
 ## History
+- Added Southwest Africa as a puppet of South Africa (Namibia) 
 - Fixed many flags
 - Added the Tangier International Zone
-- Fixed the leader of pakistan, buthan and Burma
+- Fixed the leader of Pakistan, Bhutan and Burma
 - Added the Mali Federation
 - Added the Republic of Upper Volta
 - Fixed the name and flag of Venezuela 
@@ -62,6 +63,7 @@
 - North Korea (1950s)
 - Greece (1950s)
 - Albania (1950s)
+- South Africa (1950s)
 ---
 
 # v3.11.3 - The 60s
