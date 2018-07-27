@@ -5,7 +5,7 @@
 - New map font
 - Dropping a nuke now gives 10 world tension to the nation that dropped it
 - Financial Reserves Removed
-- Electricity System Added
+- Electricity System Added (Coal, Fission, Fusion)
 - Removed Many Unbalanced National Laws
 - Some Minor Improvements to Performance
 - New Law for Nuclear Production (Prevents the AI/ Player from Using Nukes Early Game)
@@ -14,6 +14,7 @@
 - Removed Manipur and Tripura
 - New Rocketry Tab
 - Simplified WMD Tab
+- Minor GFX Compression
 
 ## History
 - Added Southwest Africa as a puppet of South Africa (Namibia) 
