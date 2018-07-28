@@ -745,8 +745,8 @@ focus_tree = {
 
 	}
 	focus = {
-		id = BUL_60s_Affirm_communist_rule
-		icon = GFX_Communism1
+		id = BUL_60s_Maoist_Coup_Plot
+		icon = GFX_focus_chi_mission_to_the_soviet_union
 		cost = 10.00
 		prerequisite = {
 			focus = BUL_60s_Zhivkov_as_new_Head_of_State
@@ -754,10 +754,27 @@ focus_tree = {
 		x = 13
 		y = 6
 			completion_reward = {
+					add_political_power = 200
 					add_popularity = {
-							ideology = communism
+							ideology = maoism
 							popularity = 0.15
 						}
+				}
+
+	}
+	focus = {
+		id = BUL_60s_Prepare_the_Coup
+		icon = GFX_Army_disorder
+		cost = 10.00
+		prerequisite = {
+			focus = BUL_60s_Maoist_Coup_Plot
+		}
+		x = 10
+		y = 7
+			completion_reward = {
+					add_political_power = 200
+					add_stability = -0.05
+					add_war_support = 0.10
 				}
 
 	}
@@ -766,14 +783,14 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = BUL_60s_Affirm_communist_rule
+			focus = BUL_60s_Prepare_the_Coup
 		}
 		mutually_exclusive = {
 			focus = BUL_60s_Approach_to_Yugoslavia
 			focus = BUL_60s_Stay_close_to_Soviets
 		}
-		x = 9
-		y = 7
+		x = 8
+		y = 8
 			completion_reward = {
 					add_stability = -0.10
 					set_autonomy = {
@@ -799,8 +816,8 @@ focus_tree = {
 		prerequisite = {
 			focus = BUL_60s_Albanian_example
 		}
-		x = 8
-		y = 8
+		x = 7
+		y = 9
 			completion_reward = {
 					ALB = {
 							country_event = generic.2
@@ -815,13 +832,105 @@ focus_tree = {
 		prerequisite = {
 			focus = BUL_60s_Albanian_example
 		}
-		x = 10
-		y = 8
+		x = 9
+		y = 9
 			completion_reward = {
 					YUG = {
 							every_owned_state = {
 									add_core_of = BUL
 								}
+						}
+				}
+
+	}
+	focus = {
+		id = BUL_60s_Approach_to_Yugoslavia
+		icon = GFX_goal_YUG_Proclamation
+		cost = 10.00
+		prerequisite = {
+			focus = BUL_60s_Prepare_the_Coup
+		}
+		mutually_exclusive = {
+			focus = BUL_60s_Albanian_example
+			focus = BUL_60s_Stay_close_to_Soviets
+		}
+		x = 12
+		y = 8
+			completion_reward = {
+					add_stability = -0.10
+					set_autonomy = {
+							target = BUL
+							autonomy_state = autonomy_free
+						}
+					remove_ideas = comecon_member
+					set_politics = {
+							ruling_party = Social_Democratic
+							elections_allowed = no
+						}
+					add_popularity = {
+							ideology = Social_Democratic
+							popularity = 0.65
+						}
+					BUL = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = large_increase
+								}
+						}
+					YUG = {
+							add_opinion_modifier = {
+									target = BUL
+									modifier = large_increase
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = BUL_60s_Liberalisation_of_communism
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 10.00
+		prerequisite = {
+			focus = BUL_60s_Approach_to_Yugoslavia
+		}
+		x = 11
+		y = 9
+			completion_reward = {
+					add_ideas = capitalism
+					add_ideas = rights_for_people
+					add_ideas = Social_Dividends
+				}
+
+	}
+	focus = {
+		id = BUL_60s_Ask_for_Macedonia
+		icon = GFX_goal_generic_major_alliance
+		cost = 10.00
+		prerequisite = {
+			focus = BUL_60s_Approach_to_Yugoslavia
+		}
+		x = 13
+		y = 9
+			completion_reward = {
+					YUG = {
+							country_event = BUL.250
+						}
+				}
+
+	}
+	focus = {
+		id = BUL_60s_Affirm_communist_rule
+		icon = GFX_Communism1
+		cost = 10.00
+		prerequisite = {
+			focus = BUL_60s_Maoist_Coup_Plot
+		}
+		x = 16
+		y = 7
+			completion_reward = {
+					add_popularity = {
+							ideology = communism
+							popularity = 0.15
 						}
 				}
 
@@ -837,8 +946,8 @@ focus_tree = {
 			focus = BUL_60s_Albanian_example
 			focus = BUL_60s_Approach_to_Yugoslavia
 		}
-		x = 13
-		y = 7
+		x = 16
+		y = 8
 			completion_reward = {
 					BUL = {
 							add_opinion_modifier = {
@@ -862,8 +971,8 @@ focus_tree = {
 		prerequisite = {
 			focus = BUL_60s_Stay_close_to_Soviets
 		}
-		x = 13
-		y = 8
+		x = 16
+		y = 9
 			completion_reward = {
 					add_political_power = 200
 				}
@@ -876,8 +985,8 @@ focus_tree = {
 		prerequisite = {
 			focus = BUL_60s_Status_Quo
 		}
-		x = 12
-		y = 9
+		x = 15
+		y = 10
 			completion_reward = {
 					BUL = {
 							add_opinion_modifier = {
@@ -903,8 +1012,8 @@ focus_tree = {
 		prerequisite = {
 			focus = BUL_60s_Status_Quo
 		}
-		x = 14
-		y = 9
+		x = 17
+		y = 10
 			completion_reward = {
 					random_owned_controlled_state = {
 							limit = {
@@ -979,8 +1088,8 @@ focus_tree = {
 		prerequisite = {
 			focus = BUL_60s_4th_Five_Year_Plan
 		}
-		x = 13
-		y = 10
+		x = 16
+		y = 11
 			completion_reward = {
 					every_owned_state = {
 							add_manpower = -25000
@@ -998,65 +1107,6 @@ focus_tree = {
 									modifier = large_decrease
 								}
 						}
-				}
-
-	}
-	focus = {
-		id = BUL_60s_Approach_to_Yugoslavia
-		icon = GFX_goal_YUG_Proclamation
-		cost = 10.00
-		prerequisite = {
-			focus = BUL_60s_Affirm_communist_rule
-		}
-		mutually_exclusive = {
-			focus = BUL_60s_Albanian_example
-			focus = BUL_60s_Stay_close_to_Soviets
-		}
-		x = 17
-		y = 7
-			completion_reward = {
-					add_stability = -0.10
-					set_autonomy = {
-							target = BUL
-							autonomy_state = autonomy_free
-						}
-					remove_ideas = comecon_member
-					set_politics = {
-							ruling_party = Social_Democratic
-							elections_allowed = no
-						}
-					add_popularity = {
-							ideology = Social_Democratic
-							popularity = 0.65
-						}
-					BUL = {
-							add_opinion_modifier = {
-									target = YUG
-									modifier = large_increase
-								}
-						}
-					YUG = {
-							add_opinion_modifier = {
-									target = BUL
-									modifier = large_increase
-								}
-						}
-				}
-
-	}
-	focus = {
-		id = BUL_60s_Liberalisation_of_communism
-		icon = GFX_goal_generic_war_with_comintern
-		cost = 10.00
-		prerequisite = {
-			focus = BUL_60s_Approach_to_Yugoslavia
-		}
-		x = 16
-		y = 8
-			completion_reward = {
-					add_ideas = capitalism
-					add_ideas = rights_for_people
-					add_ideas = Social_Dividends
 				}
 
 	}
@@ -1170,90 +1220,6 @@ focus_tree = {
 }
 						}
 					complete_national_focus = BUL_60s_Coronation_of_Michael_Petrovic_Njegos
-				}
-
-	}
-	focus = {
-		id = BUL_60s_Ask_for_Macedonia
-		icon = GFX_goal_generic_major_alliance
-		cost = 10.00
-		prerequisite = {
-			focus = BUL_60s_Approach_to_Yugoslavia
-		}
-		x = 18
-		y = 8
-			completion_reward = {
-					YUG = {
-							country_event = BUL.250
-						}
-				}
-
-	}
-	focus = {
-		id = BUL_60s_Membership_in_Non_Aligned_pact
-		icon = GFX_goal_generic_alliance
-		cost = 10.00
-		prerequisite = {
-			focus = BUL_60s_Liberalisation_of_communism
-		}
-		prerequisite = {
-			focus = BUL_60s_Ask_for_Macedonia
-		}
-		x = 17
-		y = 9
-			completion_reward = {
-					YUG = {
-							country_event = generic.8
-						}
-				}
-
-	}
-	focus = {
-		id = BUL_60s_Establish_relations_with_West
-		icon = GFX_goal_USA_deal
-		cost = 10.00
-		prerequisite = {
-			focus = BUL_60s_Membership_in_Non_Aligned_pact
-		}
-		x = 17
-		y = 10
-			completion_reward = {
-					BUL = {
-							add_opinion_modifier = {
-									target = USA
-									modifier = large_increase
-								}
-						}
-					USA = {
-							add_opinion_modifier = {
-									target = BUL
-									modifier = large_increase
-								}
-						}
-					BUL = {
-							add_opinion_modifier = {
-									target = ENG
-									modifier = large_increase
-								}
-						}
-					ENG = {
-							add_opinion_modifier = {
-									target = BUL
-									modifier = large_increase
-								}
-						}
-					BUL = {
-							add_opinion_modifier = {
-									target = FRA
-									modifier = large_increase
-								}
-						}
-					FRA = {
-							add_opinion_modifier = {
-									target = BUL
-									modifier = large_increase
-								}
-						}
 				}
 
 	}
@@ -2697,6 +2663,74 @@ focus_tree = {
 
 	}
 	focus = {
+		id = BUL_60s_Membership_in_Non_Aligned_pact
+		icon = GFX_goal_generic_alliance
+		cost = 10.00
+		prerequisite = {
+			focus = BUL_60s_Liberalisation_of_communism
+		}
+		prerequisite = {
+			focus = BUL_60s_Ask_for_Macedonia
+		}
+		x = 12
+		y = 10
+			completion_reward = {
+					YUG = {
+							country_event = generic.8
+						}
+				}
+
+	}
+	focus = {
+		id = BUL_60s_Establish_relations_with_West
+		icon = GFX_goal_USA_deal
+		cost = 10.00
+		prerequisite = {
+			focus = BUL_60s_Membership_in_Non_Aligned_pact
+		}
+		x = 12
+		y = 11
+			completion_reward = {
+					BUL = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = BUL
+									modifier = large_increase
+								}
+						}
+					BUL = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = BUL
+									modifier = large_increase
+								}
+						}
+					BUL = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						}
+					FRA = {
+							add_opinion_modifier = {
+									target = BUL
+									modifier = large_increase
+								}
+						}
+				}
+
+	}
+	focus = {
 		id = BUL_60s_Operation_Trakiya
 		icon = GFX_goal_unknown
 		cost = 10.00
@@ -2706,8 +2740,8 @@ focus_tree = {
 		prerequisite = {
 			focus = BUL_60s_Alliance_with_Albania
 		}
-		x = 9
-		y = 9
+		x = 8
+		y = 10
 			completion_reward = {
 					declare_war_on = {
 							target = YUG
@@ -2728,8 +2762,8 @@ focus_tree = {
 		prerequisite = {
 			focus = BUL_60s_Operation_Trakiya
 		}
-		x = 9
-		y = 10
+		x = 8
+		y = 11
 			completion_reward = {
 					every_owned_state = {
 							add_extra_state_shared_building_slots = 2
@@ -2927,7 +2961,7 @@ focus_tree = {
 			focus = BUL_60s_Establish_relations_with_West
 		}
 		x = 13
-		y = 11
+		y = 12
 			completion_reward = {
 					add_stability = 0.15
 				}
