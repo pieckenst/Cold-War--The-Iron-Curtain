@@ -102,7 +102,7 @@ set_technology = {
 	naval_bomber3 = 1
 	naval_bomber4 = 1
 	
-	rocket_engines = 1
+		rocket_engines = 1
 	advanced_rocket_engines = 1
 	sp_rocket1 = 1
 	sp_rocket2 = 1
@@ -125,27 +125,29 @@ add_ideas = {
 }
 
 set_convoys = 100
+1945.1.1 = {
+	set_politics = {
 
-set_politics = {
-
-	parties = {
-		Liberal_Conservatism = { 
-			popularity = 20
-		}
-		socialist = {
-			popularity = 22
-		}
-		conservative = {
-			popularity = 42
-		}
-		fascism = {
-			popularity = 0
-		}	
-		communism = {
-			popularity = 4
-		}
-		centrist = {
-			popularity = 12
+		parties = {
+			Liberal_Conservatism = { 
+				popularity = 20
+			}
+			socialist = {
+				popularity = 22
+			}
+			conservative = {
+				popularity = 42
+			}
+			fascism = {
+				popularity = 0
+			}
+			
+			communism = {
+				popularity = 4
+			}
+			centrist = {
+				popularity = 12
+			}
 		}
 		
 		ruling_party = conservative
@@ -154,13 +156,14 @@ set_politics = {
 		elections_allowed = yes
 	}
 }
-
 create_country_leader = {
 	name = "Éamon de Valera"
 	picture = "Valera.dds"
 	ideology = liberal_conservatism
+	traits = {
+		#
+	}	
 }
-
 1949.1.1 = {
 	set_politics = {
 
@@ -201,18 +204,27 @@ create_country_leader = {
 create_country_leader = {
 	name = "Gearóid Ó Cuinneagáin"
 	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_land_5.dds"
+	expire = "1965.1.1"
 	ideology = fascism_ideology
+	traits = {
+		#
+	}
 }
 
 create_country_leader = {
 	name = "Tomás Mac Giolla"
 	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
+	expire = "1965.1.1"
 	ideology = marxism
+	traits = {
+		#
+	}
 }
 
 create_country_leader = {
 	name = "William Norton"
 	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+	expire = "1965.1.1"
 	ideology = centrism
 }
 
@@ -289,6 +301,7 @@ create_field_marshal = {
 	create_country_leader = {
 		name = "Sean Lemass"
 		picture = "Lemass.dds"
+		expire = "1971.1.1"
 		ideology = conservatism
 	}
 }
@@ -296,6 +309,7 @@ create_field_marshal = {
 	create_country_leader = {
 		name = "Jack Lynch"
 		picture = "Lynch.dds"
+		expire = "1971.1.1"
 		ideology = conservatism
 	}
 }
@@ -325,34 +339,45 @@ create_field_marshal = {
 
 	create_country_leader = {
 		name = "Charles Haughey"
-		picture = "Charlie.dds"
+		picture = "gfx/leaders/IRE/Charlie.dds"
+		expire = "1992.2.11"
 		ideology = conservatism
 	}
 
 
 create_country_leader = {
 	name = "John A.Costello"
-	picture = "John_Costello.dds"
+	desc = ""
+	picture = "John_Costello .dds"
 	ideology = conservatism
 }
 
 create_country_leader = {
 	name = "Eoin O'Duffy"
+	desc = "POLITICS_EOIN_ODUFFY_DESC"
 	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_land_5.dds"
+	expire = "1965.1.1"
 	ideology = fascism_ideology
 }
 
 create_country_leader = {
 	name = "James Larkin"
+	desc = "POLITICS_JAMES_LARKIN_DESC"
 	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
+	expire = "1965.1.1"
 	ideology = marxism
 }
 
 create_country_leader = {
 	name = "William Norton"
+	desc = "POLITICS_JAMES_LARKIN_DESC"
 	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+	expire = "1965.1.1"
 	ideology = centrism
 }
+
+
+
 
 create_corps_commander = {
 	name = "Liam Archer"
@@ -368,7 +393,7 @@ create_corps_commander = {
 create_field_marshal = {
 	name = "Eoin O'Duffy"
 	portrait_path = "EoinO'D"
-	traits = { }
+	traits = { Cavalry_Expert Skilled_Staffer Cavalry_Leader }
 	skill = 3
 	attack_skill = 4
 	defense_skill = 5
