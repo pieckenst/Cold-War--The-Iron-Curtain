@@ -83,3 +83,5 @@ NDefines.NTechnology.MAX_TECH_SHARING_BONUS = 0.75 -- Max technology sharing bon
 
 NDefines.NTrade.RELATION_TRADE_FACTOR = 5 -- Trade factor is modified by Opinion value times this
 
+NDefines.NFocus.FOCUS_POINT_DAYS = 5 -- Each point takes a week
+NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 15 -- This much progress can be saved while not having a focus selected
