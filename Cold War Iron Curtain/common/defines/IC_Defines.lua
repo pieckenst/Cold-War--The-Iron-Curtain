@@ -85,3 +85,6 @@ NDefines.NTrade.RELATION_TRADE_FACTOR = 5 -- Trade factor is modified by Opinion
 
 NDefines.NFocus.FOCUS_POINT_DAYS = 5 -- Each point takes a week
 NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 15 -- This much progress can be saved while not having a focus selected
+
+NDefines.NGame.LAG_DAYS_FOR_LOWER_SPEED = 100
+NDefines.NGame.LAG_DAYS_FOR_PAUSE = 50
