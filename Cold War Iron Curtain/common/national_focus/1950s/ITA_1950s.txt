@@ -8,6 +8,7 @@ focus_tree = {
 		}
 	}
 	default = no
+	continuous_focus_position = { x = 100 y = 7000 }
 	focus = {
 		id = ITA_reconstruction
 		icon = GFX_goal_generic_consumer_goods
@@ -1282,6 +1283,20 @@ focus_tree = {
 					transfer_state = 559
 					transfer_state = 1243
 					transfer_state = 1240
+					release_puppet = SOR
+					SOR = {
+						set_cosmetic_tag = SOR_ITA
+						set_politics = {
+							ruling_party = neutrality
+							elections_allowed = no
+							}
+							create_country_leader = {
+								name = "Giovanni Fornari"
+								picture = "UN.dds"
+								expire = "1953.1.1"
+								ideology = colonial_regime
+								}
+						}
 				}
 
 	}
@@ -2173,6 +2188,9 @@ focus_tree = {
 		available = {
 			always = no
 		}
+		completion_reward = {
+			complete_national_focus = ITA_PCI_Coalition
+		}
 	}
 	focus = {
 		id = ITA_Anti_Corruption_Investigations
@@ -2277,7 +2295,17 @@ focus_tree = {
 		}
 		x = 31
 		y = 1
-
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}	
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.05
+			}			
+		}
 	}
 	focus = {
 		id = ITA_Establish_Doctrine_of_the_Alliance
@@ -2291,7 +2319,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 2
-
+		completion_reward = {
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = ITA_Prime_Minister_Palmiro_Togliatti
@@ -2305,7 +2335,21 @@ focus_tree = {
 		}
 		x = 29
 		y = 3
-
+		completion_reward = {
+				set_politics = {
+					ruling_party = communism
+					elections_allowed = no
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.25
+				}
+			create_country_leader = {
+				name = "Palmiro Togliatti"
+				picture = "Portrait_ITA_Palmire_Togliatti.dds"
+				ideology = marxism
+			}		
+		}
 	}
 	focus = {
 		id = ITA_Seek_Closer_Ties_to_the_Soviets
@@ -2316,7 +2360,20 @@ focus_tree = {
 		}
 		x = 27
 		y = 4
-
+			completion_reward = {
+					ITA = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						}
+					FRA = {
+							add_opinion_modifier = {
+									target = ITA
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = ITA_Prime_Minister_Pietro_Nenni
@@ -2330,7 +2387,21 @@ focus_tree = {
 		}
 		x = 31
 		y = 3
-
+		completion_reward = {
+				set_politics = {
+					ruling_party = socialist
+					elections_allowed = no
+				}
+				add_popularity = {
+					ideology = socialist
+					popularity = 0.25
+				}
+			create_country_leader = {
+				name = "Pietro Nenni"
+				picture = "Portrait_ITA_Pietro_Nenni.dds"
+				ideology = market_socialism
+			}		
+		}
 	}
 	focus = {
 		id = ITA_Establish_One_Party_State
@@ -2342,7 +2413,31 @@ focus_tree = {
 		}
 		x = 30
 		y = 4
-
+		completion_reward = {
+			add_political_power = 200
+			if = {
+				limit = {
+					has_government = socialist
+				}
+				add_popularity = {
+					ideology = socialist
+					popularity = 0.25
+				}
+				add_ideas = communism_banned
+				add_stability = -0.05
+			}
+			if = {
+				limit = {
+					has_government = communism
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.25
+				}
+				add_ideas = socialism_banned
+				add_stability = -0.05
+			}
+		}
 	}
 	focus = {
 		id = ITA_First_Five_Year_Plan
@@ -2353,7 +2448,99 @@ focus_tree = {
 		}
 		x = 30
 		y = 5
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = ITA_Nationalization_Campaign
@@ -2364,7 +2551,99 @@ focus_tree = {
 		}
 		x = 30
 		y = 6
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = coal_plant
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = coal_plant
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = coal_plant
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = coal_plant
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = coal_plant
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = coal_plant
+									level = 1
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = ITA_Land_Reform
@@ -2401,7 +2680,11 @@ focus_tree = {
 		}
 		x = 33
 		y = 4
-
+		completion_reward = {
+			add_ideas = rights_for_people
+			add_political_power = 100
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = ITA_Ties_to_Yugoslavia
@@ -2412,7 +2695,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 5
-
+		completion_reward = {
+			add_ideas = yugoslavian_advisors
+		}
 	}
 	focus = {
 		id = ITA_Italian_Path_to_Socialism
@@ -2423,7 +2708,9 @@ focus_tree = {
 		}
 		x = 34
 		y = 5
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 	focus = {
 		id = ITA_Join_the_Non_Aligned_Movement
@@ -2437,8 +2724,12 @@ focus_tree = {
 		}
 		x = 33
 		y = 6
-
-	}
+			completion_reward = {
+					YUG = {
+							add_to_faction = ROOT
+						}
+				}
+	}	
 	focus = {
 		id = ITA_Increase_Standards_of_Living
 		icon = GFX_goal_unknown
@@ -2448,7 +2739,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 7
-
+		completion_reward = {
+			add_ideas = the_american_welfare_state
+		}
 	}
 	focus = {
 		id = ITA_Social_Dividends
@@ -2475,7 +2768,20 @@ focus_tree = {
 		}
 		x = 33
 		y = 8
-
+			completion_reward = {
+					ITA = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_decrease
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = ITA
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = ITA_Promote_Heavy_Industry
@@ -2486,7 +2792,68 @@ focus_tree = {
 		}
 		x = 34
 		y = 9
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = ITA_Increase_Economic_Ties_with_Yugoslavia
@@ -2496,8 +2863,133 @@ focus_tree = {
 			focus = ITA_Condemn_Soviet_Imperialism
 		}
 		x = 32
-		y = 9
-
+		y = 9	
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = coal_plant
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = coal_plant
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = coal_plant
+									level = 1
+									instant_build = yes
+								}
+						}
+						YUG = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = coal_plant
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = coal_plant
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = coal_plant
+									level = 1
+									instant_build = yes
+								}
+						}						
+					}
+		}
 	}
 	focus = {
 		id = ITA_Promote_Socialist_Arts
@@ -4520,7 +5012,7 @@ focus_tree = {
 		x = 7
 		y = 16
 		completion_reward = {
-			set_politics = {
+				set_politics = {
 					ruling_party = fascism
 					elections_allowed = no
 				}
