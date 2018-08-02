@@ -321,31 +321,32 @@ add_namespace = ita
 
 country_event = {
 	id = ita.200
-	title = "The Election of 1955"
-	desc = "The Election of 1955"
+	title = "The Election of 1953"
+	desc = "The Election of 1953"
 	picture = GFX_report_event_elections
 	
 	trigger = {
 		tag = ITA
-		date > 1955.1.1
-		date < 1956.1.1
+		date > 1953.1.1
+		date < 1954.1.1
 	}	
 
 	is_triggered_only = yes
 	
+	immediate = {
+		complete_national_focus = ITA_Election_of_1953
+	}
+	
 	option = {
-		name = "Giovanni Gronchi (DC)"
+		name = "Form a Centrist Coalition"
 
 		set_politics = {
 			ruling_party = Christian_Democratic
 			elections_allowed = yes
 		}
-		create_country_leader = {
-			name = "Giovanni Gronchi"
-			picture = "ITA_Gronchi.dds"
-			ideology = christian_democracy
-		}
-		add_popularity = { ideology = Christian_Democratic popularity = 0.1 }
+		complete_national_focus = ITA_Centrist_Coalition
+		complete_national_focus = ITA_Prime_Minister_Mario_Scelba
+		add_popularity = { ideology = Christian_Democratic popularity = 0.05 }
 		ai_chance = {
 			factor = 50
 			modifier = {
@@ -355,14 +356,15 @@ country_event = {
 		}
 	}
 	option = {
-		name = "Luigi Einaudi (PLI)"
+		name = "Form a Right Wing Coalition"
 
 		set_politics = {
-			ruling_party = Liberal_Conservatism
+			ruling_party = Christian_Democratic
 			elections_allowed = yes
 		}
-		
-		add_popularity = { ideology = Liberal_Conservatism popularity = 0.1 }
+		complete_national_focus = ITA_Right_Wing_Coalition
+		add_popularity = { ideology = fascism popularity = 0.05 }
+		add_popularity = { ideology = monarchism popularity = 0.05 }
 		ai_chance = {
 			factor = 20
 			modifier = {
@@ -372,14 +374,15 @@ country_event = {
 		}
 	}
 	option = {
-		name = "Palmiro Togliatti (PCI)"
+		name = "Form a Marxist Coalition"
 
 		set_politics = {
-			ruling_party = communism
+			ruling_party = socialist
 			elections_allowed = yes
 		}
-
-		add_popularity = { ideology = communism popularity = 0.1 }
+		complete_national_focus = ITA_Marxist_Victory
+		add_popularity = { ideology = communism popularity = 0.05 }
+		add_popularity = { ideology = socialist popularity = 0.05 }
 		ai_chance = {
 			factor = 10
 			modifier = {
@@ -388,30 +391,80 @@ country_event = {
 			}
 		}
 	}
+}
+country_event = {
+	id = ita.250
+	title = "The Election of 1958"
+	desc = "The Election of 1958"
+	picture = GFX_report_event_elections
 	
-		option = {
-		name = "Cesare Merzagora (DC)"
+	trigger = {
+		tag = ITA
+		date > 1958.1.1
+		date < 1959.1.1
+	}	
+
+	is_triggered_only = yes
+	
+	immediate = {
+		complete_national_focus = ITA_1958_Elections
+	}
+	
+	option = {
+		name = "Form a Centrist Coalition"
 
 		set_politics = {
 			ruling_party = Christian_Democratic
 			elections_allowed = yes
 		}
-		create_country_leader = {
-			name = "Cesare Merzagora"
-			picture = "ITA_Merzagora.dds"
-			ideology = christian_democracy
-		}
-		add_popularity = { ideology = Christian_Democratic popularity = 0.1 }
+		complete_national_focus = ITA_Centrist_Coalition2
+		complete_national_focus = ITA_Prime_Minister_Fernando_Tambroni
+		add_popularity = { ideology = Christian_Democratic popularity = 0.05 }
 		ai_chance = {
-			factor = 20
+			factor = 50
 			modifier = {
 				is_historical_focus_on = yes
 				factor = 1
 			}
 		}
 	}
-}
+	option = {
+		name = "Form a Far Right Coalition (MSI-PNM)"
 
+		set_politics = {
+			ruling_party = Christian_Democratic
+			elections_allowed = yes
+		}
+		complete_national_focus = ITA_Far_Right_Coalition
+		add_popularity = { ideology = fascism popularity = 0.1 }
+		add_popularity = { ideology = monarchism popularity = 0.1 }
+		ai_chance = {
+			factor = 20
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+	option = {
+		name = "Form a Center Left Coalition (DC+PSI)"
+
+		set_politics = {
+			ruling_party = Christian_Democratic
+			elections_allowed = yes
+		}
+		complete_national_focus = ITA_Center_Left_Coalition
+		add_popularity = { ideology = Christian_Democratic popularity = 0.05 }
+		add_popularity = { ideology = socialist popularity = 0.05 }
+		ai_chance = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
 country_event = {
 	id = ita.201
 	title = "The Election of 1962"
