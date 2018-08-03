@@ -927,6 +927,9 @@ focus_tree = {
 		}
 		x = 13
 		y = 1
+			available = {
+					always = no
+				}
 			completion_reward = {
 					add_to_variable = {
 							var = diplomatic_tension_alg
@@ -2003,7 +2006,17 @@ focus_tree = {
 		}
 		x = 22
 		y = 4
-
+			completion_reward = {
+					set_politics = {
+							ruling_party = Social_Liberalism
+							elections_allowed = yes
+						}
+					create_country_leader = {
+							name = "Henri Queuille"
+							picture = "gfx/leaders/ITA/Portrait_FRA_Queuille.tga"
+							ideology = social_liberal
+						}
+				}
 	}
 	focus = {
 		id = FRA_truth_rec
@@ -2069,7 +2082,17 @@ focus_tree = {
 		}
 		x = 22
 		y = 10
-
+			completion_reward = {
+					set_politics = {
+							ruling_party = Social_Liberalism
+							elections_allowed = yes
+						}
+					create_country_leader = {
+							name = "Rene Mayer"
+							picture = "gfx/leaders/ITA/Portrait_FRA_Mayer.tga"
+							ideology = social_liberal
+						}
+				}
 	}
 	focus = {
 		id = FRA_Joseph_Laniel
@@ -2080,7 +2103,17 @@ focus_tree = {
 		}
 		x = 22
 		y = 11
-
+			completion_reward = {
+					set_politics = {
+							ruling_party = Liberal_Conservatism
+							elections_allowed = yes
+						}
+					create_country_leader = {
+							name = "Joesph Laniel"
+							picture = "gfx/leaders/ITA/Portrait_FRA_Laniel.tga"
+							ideology = liberal_conservatism
+						}
+				}
 	}
 	focus = {
 		id = FRA_Pierre_Mendes_France
@@ -2091,7 +2124,17 @@ focus_tree = {
 		}
 		x = 22
 		y = 12
-
+			completion_reward = {
+					set_politics = {
+							ruling_party = Social_Liberalism
+							elections_allowed = yes
+						}
+					create_country_leader = {
+							name = "Pierre Mendès France"
+							picture = "gfx/leaders/ITA/Portrait_FRA_Mendes_France.tga"
+							ideology = social_liberal
+						}
+				}
 	}
 	focus = {
 		id = FRA_Communist_Support
@@ -2102,7 +2145,14 @@ focus_tree = {
 		}
 		x = 21
 		y = 13
-
+		completion_reward = {
+					add_popularity = {
+							ideology = communism
+							popularity = 0.02
+						}		
+						add_stability = 0.10
+						add_political_power = 100
+		}
 	}
 	focus = {
 		id = FRA_geneva_conf
@@ -2284,7 +2334,9 @@ focus_tree = {
 		}
 		x = 25
 		y = 20
-
+		completion_reward = {
+			add_ideas = recruitment_propaganda
+		}
 	}
 	focus = {
 		id = FRA_Left_Wing_Coalition
@@ -2295,7 +2347,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 7
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = FRA_Dirigisme_Economics
@@ -2306,7 +2360,101 @@ focus_tree = {
 		}
 		x = 27
 		y = 8
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = FRA_the_new_army
@@ -2356,7 +2504,9 @@ focus_tree = {
 		}
 		x = 29
 		y = 8
-
+		completion_reward = {
+			add_ideas = access_to_health_care
+		}
 	}
 	focus = {
 		id = FRA_Education_Funding
@@ -2370,7 +2520,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 9
-
+		completion_reward = {
+			add_ideas = KOR_education_reform
+		}
 	}
 	focus = {
 		id = FRA_com_viet_free
@@ -2436,7 +2588,10 @@ focus_tree = {
 		}
 		x = 27
 		y = 10
-
+			completion_reward = {
+					add_ideas = city_economies
+					add_ideas = urban_planning
+				}
 	}
 	focus = {
 		id = FRA_Nationalization_Campaign
@@ -2450,7 +2605,99 @@ focus_tree = {
 		}
 		x = 28
 		y = 11
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = coal_plant
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = coal_plant
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = coal_plant
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = coal_plant
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = coal_plant
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = coal_plant
+									level = 1
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = FRA_Infrastructure_Spending
@@ -2461,7 +2708,19 @@ focus_tree = {
 		}
 		x = 29
 		y = 12
-
+			completion_reward = {
+					every_owned_state = {
+							limit = {
+									is_on_continent = europe
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+										type = infrastructure
+										level = 2
+										instant_build = yes
+									}
+						}
+				}
 	}
 	focus = {
 		id = FRA_pass_ammunition
@@ -3724,7 +3983,9 @@ focus_tree = {
 		}
 		x = 27
 		y = 20
-
+		completion_reward = {
+			add_timed_idea = { idea = tax_cuts days = 2400 }		
+		}
 	}
 	focus = {
 		id = FRA_Promote_French_Nationalism
@@ -3738,7 +3999,10 @@ focus_tree = {
 		}
 		x = 26
 		y = 21
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = FRA_Liberal_Colonial_Reform
@@ -3749,7 +4013,17 @@ focus_tree = {
 		}
 		x = 18
 		y = 18
-
+		completion_reward = {
+			every_country = {
+				limit = {
+					OVERLORD = FRA
+				}
+				add_autonomy_ratio = {
+					value = 50
+				}		
+			}
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = FRA_Housing_Expansion
@@ -3898,7 +4172,7 @@ focus_tree = {
 		x = 29
 		y = 25
 			completion_reward = {
-					country_event = ressurection.1
+					news_event = ressurection.1
 				}
 
 	}
@@ -4393,7 +4667,32 @@ focus_tree = {
 		}
 		x = 16
 		y = 14
-
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SYR
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = LEB
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = VIN
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = LOS
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = CAM
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = VIE
+			}
+		}
 	}
 	focus = {
 		id = FRA_Preserve_the_Empire
@@ -4965,7 +5264,7 @@ focus_tree = {
 		x = 39
 		y = 32
 			completion_reward = {
-					add_ideas = society_militarization
+					add_ideas = militarized_schools
 				}
 
 	}
@@ -5209,7 +5508,7 @@ focus_tree = {
 		x = 48
 		y = 29
 			completion_reward = {
-					add_ideas = divine_monarchy
+					add_ideas = ideological_fanaticism_focus
 				}
 
 	}
@@ -5253,7 +5552,7 @@ focus_tree = {
 		y = 31
 			completion_reward = {
 					IRE = {
-							country_event = french_elections.1704
+							country_event = french_elections.1706
 						}
 				}
 
