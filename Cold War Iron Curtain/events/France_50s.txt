@@ -6,6 +6,102 @@ add_namespace = frenchrev
 add_namespace = degalle
 
 country_event = {
+	id = french_elections.1705
+	title = "France Demands Bavaria"
+	desc = "France Demands Bavaria"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agreed"
+		release = BAV
+		FRA = {
+			puppet = BAV
+		}
+	}
+	option = {
+		name = "Decline"
+	}
+}
+country_event = {
+	id = french_elections.1706
+	title = "France Demands Personal Union"
+	desc = "France Demands Bavaria"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agreed"
+		FRA = {
+			puppet = ROOT
+		}
+	}
+	option = {
+		name = "Decline"
+	}
+}
+country_event = {
+	id = french_elections.1702
+	title = "The Royal Question"
+	desc = "Which Royal House?"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Bonapartist"
+		complete_national_focus = FRA_Bonapartist
+	}
+	option = {
+		name = "Orleanist"
+		complete_national_focus = FRA_Orleanist
+	}
+	option = {
+		name = "Legitimist"
+		complete_national_focus = FRA_Legitimist
+	}
+	option = {
+		name = "Jacobite"
+		complete_national_focus = FRA_Jacobite
+	}
+}
+
+news_event = {
+	id = ressurection.1
+	title = "Operation Ressurection"
+	desc = ressurection.1.d
+	picture = GFX_news_event_Japanese_Palace #Change
+
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = "Concerning"
+	}
+}
+news_event = {
+	id = frenchrev.1
+	title = "The Second French Revolution"
+	desc = frenchrev.1.d
+	picture = GFX_news_event_Japanese_Palace #Change
+
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = "Concerning"
+	}
+}
+news_event = {
+	id = degalle.1000
+	title = "Return of DeGalle"
+	desc = degalle.1.d
+	picture = GFX_news_event_Japanese_Palace #Change
+
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = "Concerning"
+	}
+}
+country_event = {
 	id = fra_elections.1
 	title = "1951 French Legislative Election"
 	desc = "1951 French Legislative Election"
@@ -103,7 +199,7 @@ country_event = {
 	}
 }
 
-country_event = {	#IC PULSE EVENT
+country_event = {	
 	id = fra_crisis.2
 	title = "1958 May Crisis"
 	desc = "fra_crisis_2_desc"
@@ -112,11 +208,6 @@ country_event = {	#IC PULSE EVENT
 	fire_only_once = yes
 	is_triggered_only = yes
 	
-	trigger = {
-		tag = FRA
-		date > 1958.4.1
-		date < 1959.1.1
-	}	
 
 	immediate = {
 		complete_national_focus = FRA_1958_Crisis
@@ -157,4 +248,164 @@ country_event = {	#IC PULSE EVENT
 			}
 		}
 	}
+}
+
+country_event = {
+	id = algeria.1000
+	title = "Day of Tomatoes"
+	desc = algeria.1000.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Crackdown on Algeria"
+	}
+	option = {
+		name = "Release Algeria"
+		release = ALG
+	}
+}
+country_event = {	#NEEDS PULSE SET
+	id = algeria.1001
+	title = "Start of the Algerian War"
+	desc = algeria.1001.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Crackdown on Algeria"
+		complete_national_focus = FRA_The_Algerian_War
+	}
+}
+country_event = {	#NEEDS PULSE SET
+	id = algeria.1002
+	title = "Philippeville Massacre"
+	desc = algeria.1002.d
+
+	is_triggered_only = yes
+	immediate = {
+		complete_national_focus = FRA_Philippeville_Massacre
+	}
+	option = {
+		name = "Continue the Crackdown"
+		add_war_support = 0.10
+		add_stability = -0.05
+	}
+	option = {
+		name = "Grant Autonomy"
+		release_puppet = ALG
+	}
+	option = {
+		name = "Release Algeria"
+		release = ALG
+	}	
+}
+country_event = {	#NEEDS PULSE SET
+	id = algeria.1003
+	title = "La Main Rouge"
+	desc = algeria.1003.d
+
+	is_triggered_only = yes
+	
+	immediate = {
+		complete_national_focus = FRA_La_Main_Rouge
+	}
+
+	option = {
+		name = "Establish the Organization"
+		add_ideas = death_squads
+	}
+	option = {
+		name = "This goes too far"
+		add_political_power = 100
+	}
+	option = {
+		name = "Grant Autonomy"
+		release_puppet = ALG
+	}
+	option = {
+		name = "Release Algeria"
+		release = ALG
+	}		
+}
+country_event = {	
+	id = algeria.1004
+	title = "Rule by Decree"
+	desc = algeria.1004.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Restore Order"
+	}
+	option = {
+		name = "Grant Autonomy"
+		release_puppet = ALG
+	}
+	option = {
+		name = "Release Algeria"
+		release = ALG
+	}		
+}
+country_event = {	#NEEDS PULSE SET
+	id = algeria.1005
+	title = "Battle of Algiers"
+	desc = algeria.1005.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Restore Order to Algeirs!"
+	}
+	#option = {
+	#	name = "Partition Algeria"
+	#	
+	#}
+	option = {
+		name = "Withdraw from Algeria"
+		release = ALG
+	}		
+}
+country_event = {	
+	id = fra_elections.50
+	title = "French Parliamentary Elections 1959"
+	desc = "French Parliamentary Elections 1959"
+
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = FRA
+		has_completed_focus = FRA_Constitutional
+		date > 1959.1.1
+		date < 1960.1.1
+	}
+
+	immediate = {
+		complete_national_focus = FRA_PrimeMinister_1959
+	}
+	
+	option = {
+		name = "DeGaulle Victory"
+		complete_national_focus = FRA_PM_Degaulle
+		create_country_leader = {
+			name = "Charles de Gaulle"
+			desc = "POLITICS_DE_GAULLE_DESC"
+			picture = "Portrait_France_Charles_de_Gaulle.dds"
+			expire = "1970.11.9"
+			ideology = gaullist
+		}
+		set_politics = { ruling_party = conservative elections_allowed = yes }
+	}
+
+	option = {
+		name = "Mitterrand Victory"
+		complete_national_focus = FRA_PM_Mitterrand
+		create_country_leader = {
+			name = "François Mitterrand"
+			picture = "Portrait_France_Francois_Mitterrand.dds"
+			expire = "1996.1.8"
+			ideology = socialism
+		}
+		set_politics = { ruling_party = socialist elections_allowed = yes }
+	}		
 }
