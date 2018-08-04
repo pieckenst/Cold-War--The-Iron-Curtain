@@ -119,12 +119,27 @@ country_event = {
 
 	option = { # Fight them
 		name = cwu.4.a
-		start_civil_war = {
-			ruling_party = communism
-			ideology = democratic
-			size = 0.1
-			states = { 86 }
-		}
+		if = {
+			limit = {
+				owns_state = 86
+			}
+			start_civil_war = {
+				ruling_party = communism
+				ideology = democratic
+				size = 0.1
+				states = { 86 }
+			}
+		}	
+		if = {
+			limit = {
+				NOT = { owns_state = 86 }
+			}
+			start_civil_war = {
+				ruling_party = communism
+				ideology = democratic
+				size = 0.5
+			}
+		}	
 		hidden_effect = {
 			set_country_flag = pol_fight_democrats
 			news_event = cwu.5
