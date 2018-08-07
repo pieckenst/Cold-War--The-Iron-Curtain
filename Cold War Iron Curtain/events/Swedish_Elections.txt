@@ -99,3 +99,103 @@ country_event = {
 		}
 	}
 }
+
+# Swedish general election, 1952
+country_event = {
+	id = SWE_Elections.2
+	title = "Swedish general election, 1952"
+	desc = "Swedish general election, 1952"
+	picture = GFX_report_event_brazil_election_1950
+
+	is_triggered_only = yes
+
+	trigger = {
+		original_tag = SWE
+		date > 1952.1.1
+		date < 1953.1.1
+	}
+	
+	immediate = {
+		set_global_flag = swedish_elections_1952
+	}
+
+	#Socialdemokraterna
+	option = {
+		name = "Socialdemokraterna - Erlander"
+		set_politics = {
+			ruling_party = Social_Democratic
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 100
+			}
+		}
+	}
+	
+	#Högerpartiet
+	option = {
+		name = "Högerpartiet - Hjalmarson"
+		set_politics = {
+			ruling_party = Liberal_Conservatism
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+	
+	#Folkpartiet
+	option = {
+		name = "Folkpartiet - Ohlin"
+		set_politics = {
+			ruling_party = Social_Liberalism
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+	
+	#Bondeförbundet
+	option = {
+		name = "Bondeförbundet - Hedlund"
+		set_politics = {
+			ruling_party = centrist
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+	
+	#Vänsterpartiet Kommunisterna
+	option = {
+		name = "Vänsterpartiet Kommunisterna - Hagberg"
+		set_politics = {
+			ruling_party = socialist
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
