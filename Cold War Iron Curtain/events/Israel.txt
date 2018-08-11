@@ -129,3 +129,30 @@ country_event = {
 		name = israel.3.o1
 	}
 }
+
+#Six-Day War
+country_event = {
+	id = israel.4
+	title = "Arab Invasion Imminent"
+	desc = "The Mossad has detected major troop movements by Jordan, Egypt & Syria on our borders. the Prime Minister recognizes this as a major threat, should we act preemptively or let them come to us?"
+	
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = "Launch a preemptive strike, they will never expect it!"
+	    declare_war_on = { target = EGY type = annex_everything }
+		declare_war_on = { target = JOR type = annex_everything }
+		declare_war_on = { target = SYR type = annex_everything }
+	}
+	
+	option = {
+		name = "Let them come to us!"
+		hidden_effect = {
+		    EGY = { declare_war_on = { target = ISR type = annex_everything } }
+		    JOR = { declare_war_on = { target = ISR type = annex_everything } }
+		    SYR = { declare_war_on = { target = ISR type = annex_everything } }
+	    }
+	}
+}
