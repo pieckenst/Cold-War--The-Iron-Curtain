@@ -1,11 +1,6 @@
 ﻿capital = 1233
 
 oob = "SAF_1949"
-set_country_flag = saf_malan
-add_ideas = {
-	population_growth_explosion
-	foreign_aggression_policy_6
-}
 
 # Starting tech
 set_technology = {
@@ -44,6 +39,16 @@ set_technology = {
 
 set_convoys = 48
 
+set_cosmetic_tag = SAF_ENG
+
+set_country_flag = saf_malan
+set_country_flag = cos_tag_drop
+
+add_ideas = {
+	population_growth_explosion
+	foreign_aggression_policy_6
+}
+
 if = {
 	limit = {
 		has_dlc = "Together for Victory"
@@ -61,37 +66,73 @@ if = {
 set_politics = {
 
 	parties = {
-		democratic = { 
-			popularity = 45
-		}
+        democratic = { popularity = 0 }
+        communism = { popularity = 2 }
+        fascism = { popularity = 0 }
+        nationalism = { popularity = 40 }
+        monarchism = { popularity = 0 }
+        neutrality = { popularity = 0 }
+        islamism = { popularity = 0 }
+        radical_shiaism = { popularity = 0 }
+        pan_arabism = {popularity = 0}
+        Social_Democratic = { popularity = 5 }
+        Social_Liberalism = { popularity = 0 }
+        Salafism = { popularity = 0 }
+        Christianism = { popularity = 0 }
+        Liberal_Conservatism = { popularity = 0 }
+        Judaism = { popularity = 0 }
+        conservative = { popularity = 50 }
+        Christian_Democratic = { popularity = 0 }
+        socialist = { popularity = 1 }
+        centrist = { popularity = 0 }
+        liberal = { popularity = 0 }
+        trotskyism = { popularity = 0 }
+        maoism = { popularity = 0 }
+        National_Socialism = { popularity = 2 }
 
-		fascism = {
-			popularity = 0
-		}
-		socialist = {
-			popularity = 3
-		}
-		neutrality = {
-			popularity = 52
-		}			
-		communism = {
-			popularity = 0
-			#banned = no #default is no
-		}
 	}
-		
-	ruling_party = neutrality
-	last_election = "1948.5.18"
-	election_frequency = 60
+	
+	ruling_party = conservative
+	last_election = "1943.1.1"
+	election_frequency = 48
 	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "Jan Christiaan Smuts"
+	picture = "Jan_Smuts.dds"
+	ideology = conservatism
 }
 
 create_country_leader = {
 	name = "Daniel François Malan"
 	desc = "POLITICS_DF_MALAN_DESC"
-	picture = "Daniel.dds"
-	expire = "1965.1.1"
-	ideology = reactionary
+	picture = "Daniel_Malan.dds"
+	ideology = nationalist_ideology
+}
+
+create_country_leader = {
+	name = "Walter Madeley"
+	picture = "Walter_Madeley.dds"
+	ideology = social_democrat
+}
+
+create_country_leader = {
+	name = "Nicolaas Havenga"
+	picture = "Nicolaas_Havenga.dds"
+	ideology = national_socialism
+}
+
+create_country_leader = {
+	name = "Alfred Bathini Xuma"
+	picture = "Alfred_Xuma.dds"
+	ideology = african_socialism
+}
+
+create_country_leader = {
+	name = "Moses Mauane Kotane"
+	picture = "Moses_Kotane.dds"
+	ideology = leninism
 }
 
 create_corps_commander = {
@@ -105,149 +146,125 @@ create_corps_commander = {
 	logistics_skill = 4
 }
 
-create_navy_leader = {
-	name = "Guy Hallifax"
-	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_navy_2.dds"
-	traits = { }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 3
-}
-1960.1.1 = {
-add_ideas = saf_apartheid_1
-load_focus_tree = SAF_1960s
-set_country_flag = focus_tree_60_reset
-
+1949.1.1 = {
 set_politics = {
 
 	parties = {
-		neutrality = { 
-			popularity = 50.3
-		}
-
-		conservative = {
-			popularity = 40
-		}
-		socialist = {
-			popularity = 0.2
-		}
-		nationalism = {
-			popularity = 6
-		}
-
-		fascism = {
-			popularity = 2.5
-		}			
-		communism = {
-			popularity = 2
-			#banned = no #default is no
-		}
+        democratic = { popularity = 0 }
+        communism = { popularity = 2 }
+        fascism = { popularity = 0 }
+        nationalism = { popularity = 49 }
         monarchism = { popularity = 0 }
+        neutrality = { popularity = 0 }
         islamism = { popularity = 0 }
         radical_shiaism = { popularity = 0 }
         pan_arabism = {popularity = 0}
-        Social_Democratic = { popularity = 0 }
+        Social_Democratic = { popularity = 3 }
         Social_Liberalism = { popularity = 0 }
         Salafism = { popularity = 0 }
         Christianism = { popularity = 0 }
         Liberal_Conservatism = { popularity = 0 }
         Judaism = { popularity = 0 }
+        conservative = { popularity = 40 }
         Christian_Democratic = { popularity = 0 }
+        socialist = { popularity = 2 }
         centrist = { popularity = 0 }
         liberal = { popularity = 0 }
         trotskyism = { popularity = 0 }
         maoism = { popularity = 0 }
-        National_Socialism = { popularity = 0 }
+        National_Socialism = { popularity = 4 }
+
 	}
-		
-	ruling_party = neutrality
-	last_election = "1956.4.16"
-	election_frequency = 60
-	elections_allowed = yes
+	
+	ruling_party = nationalism
+	last_election = "1943.1.1"
+	election_frequency = 48
+	elections_allowed = no
 }
-	create_country_leader = {
-		name = "Hendrik Verwoerd"
-		picture = "Verwoerd.dds"
-		expire = "1980.1.1"
-		ideology = reactionary
+
+create_country_leader = {
+	name = "John Christie"
+	picture = "John_Christie.dds"
+	ideology = social_democrat
+}
+
+create_country_leader = {
+	name = "James Moroka"
+	picture = "James_Moroka.dds"
+	ideology = african_socialism
+ }
+}
+
+1960.1.1 = {
+add_ideas = saf_apartheid_1
+load_focus_tree = SAF_1960s
+set_country_flag = focus_tree_60_reset
+set_politics = {
+
+	parties = {
+        democratic = { popularity = 0 }
+        communism = { popularity = 3 }
+        fascism = { popularity = 0 }
+        nationalism = { popularity = 50 }
+        monarchism = { popularity = 0 }
+        neutrality = { popularity = 0 }
+        islamism = { popularity = 0 }
+        radical_shiaism = { popularity = 0 }
+        pan_arabism = {popularity = 0}
+        Social_Democratic = { popularity = 1 }
+        Social_Liberalism = { popularity = 0 }
+        Salafism = { popularity = 0 }
+        Christianism = { popularity = 0 }
+        Liberal_Conservatism = { popularity = 0 }
+        Judaism = { popularity = 0 }
+        conservative = { popularity = 40 }
+        Christian_Democratic = { popularity = 0 }
+        socialist = { popularity = 5 }
+        centrist = { popularity = 0 }
+        liberal = { popularity = 1 }
+        trotskyism = { popularity = 0 }
+        maoism = { popularity = 0 }
+        National_Socialism = { popularity = 0 }
+
 	}
 	
-	create_country_leader = {
-		name = "De Villiers Graaff"
-		picture = "Graaff.dds"
-		ideology = conservatism
-	}
-	
-	create_country_leader = {
-		name = "Moses Kotane"
-		picture = "Kotane.dds"
-		ideology = leninism
-	}
-	
-	create_country_leader = {
-		name = "Constand Viljoen"
-		picture = "Viljoen.dds"
-		ideology = fascism_ideology
-	}
-	
-	create_country_leader = {
-		name = "Eugène Terre'Blanche"
-		picture = "Blanche.dds"
-		ideology = neo_nazism
-	}
+	ruling_party = nationalism
+	last_election = "1943.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "Hendrik Verwoerd"
+	picture = "Hendrik_Verwoerd.dds"
+	ideology = nationalist_ideology
+}
+
+create_country_leader = {
+	name = "De Villiers Graaff"
+	picture = "De_Graaff.dds"
+	ideology = conservatism
+}
+
+create_country_leader = {
+	name = "Margaret Ballinger"
+	picture = "Margaret_Ballinger.dds"
+	ideology = left_libertarianism
+}
+
+create_country_leader = {
+	name = "Alex Hepple"
+	picture = "Alex_Hepple.dds"
+	ideology = social_democrat
+}
+
+create_country_leader = {
+	name = "Albert Lutuli"
+	picture = "Albert_Lutuli.dds"
+	ideology = african_socialism
+ }
 }
 
 1966.1.1 = {
 	set_autonomy = { target = NAM autonomy_state = autonomy_free }
-}
-
-1973.1.1 = {
-	create_country_leader = {
-		name = "John Vorster"
-		picture = "Vorster.dds"
-		expire = "1980.1.1"
-		ideology = reactionary
-	}
-}
-1980.1.1 = {
-	set_politics = {
-
-		parties = {
-			conservative = { 
-				popularity = 64.80
-			}
-
-			democratic = {
-				popularity = 16.70
-			}
-			
-			socialist = {
-				popularity = 12.10
-			}
-			
-			neutrality = {
-				popularity = 6.40
-			}
-			
-		}
-		
-		ruling_party = conservative
-		last_election = "1977.11.30"
-		election_frequency = 39
-		elections_allowed = yes
-	}
-
-
-	create_country_leader = {
-		name = "Marais Viljoen"
-		desc = "POLITICS_J_B_M_HERTZOG_DESC"
-		picture = "gfx/leaders/SAF/Marais.dds"
-		expire = "1984.9.4"
-		ideology = conservatism
-		traits = {
-			#
-		}
-	}
 }
