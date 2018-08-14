@@ -1895,7 +1895,10 @@ focus_tree = {
 		}
 		x = 46
 		y = 10
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = ENG_Conservative_Victory_1955
@@ -1906,7 +1909,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 12
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = ENG_Nuclear_Energy_Research
@@ -1917,7 +1922,14 @@ focus_tree = {
 		}
 		x = 47
 		y = 13
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = nuclear_bonus
+							bonus = 0.5
+							uses = 1
+							category = nuclear
+						}
+				}
 	}
 	focus = {
 		id = ENG_Conservative_Victory_1959
@@ -1928,7 +1940,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 20
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = ENG_Research_Grants
@@ -1939,7 +1953,9 @@ focus_tree = {
 		}
 		x = 47
 		y = 21
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = ENG_Encourage_Productivity
@@ -4457,7 +4473,20 @@ focus_tree = {
 		}
 		x = 33
 		y = 13
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = RAJ
+									modifier = large_increase
+								}
+						}
+					RAJ = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+					}
 	}
 	focus = {
 		id = ENG_Retake_Ireland
@@ -4487,7 +4516,38 @@ focus_tree = {
 		}
 		x = 40
 		y = 17
-
+			completion_reward = {
+				FRA = {
+					add_opinion_modifier = {
+						target = BEL
+						modifier = WGR_Formation_of_the_ECSC_opinion
+					}
+				}
+				WGR = {
+					add_opinion_modifier = {
+						target = BEL
+						modifier = WGR_Formation_of_the_ECSC_opinion
+					}
+				}
+				LUX = {
+					add_opinion_modifier = {
+						target = BEL
+						modifier = WGR_Formation_of_the_ECSC_opinion
+					}
+				}
+				HOL = {
+					add_opinion_modifier = {
+						target = BEL
+						modifier = WGR_Formation_of_the_ECSC_opinion
+					}
+				}
+				ITA = {
+					add_opinion_modifier = {
+						target = BEL
+						modifier = WGR_Formation_of_the_ECSC_opinion
+					}
+				}
+			}
 	}
 	focus = {
 		id = ENG_The_Commonwealth
@@ -4517,7 +4577,20 @@ focus_tree = {
 		}
 		x = 44
 		y = 17
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = large_decrease
+								}
+						}
+					SAF = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+						}
+					}
 	}
 	focus = {
 		id = ENG_Crackdown_on_Inflation
@@ -4528,7 +4601,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 13
-
+		completion_reward = {
+			add_timed_idea = { idea = combat_inflation days = 1020 }
+		}
 	}
 	focus = {
 		id = ENG_Recognize_the_PRC
@@ -4542,7 +4617,20 @@ focus_tree = {
 		}
 		x = 42
 		y = 14
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = PRC
+									modifier = large_increase
+								}
+						}
+					PRC = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+					}
 	}
 	focus = {
 		id = ENG_Relations_with_the_Soviets
@@ -4553,7 +4641,20 @@ focus_tree = {
 		}
 		x = 44
 		y = 16
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = small_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = small_increase
+								}
+						}
+					}
 	}
 	focus = {
 		id = ENG_Push_for_Neutral_Germany
@@ -4575,7 +4676,46 @@ focus_tree = {
 		}
 		x = 42
 		y = 15
-
+		completion_reward = {
+			every_country = {
+				limit = {
+					is_subject_of = ENG
+				}
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}				
+			}
+		}
 	}
 	focus = {
 		id = ENG_Combat_Inflation
@@ -4586,7 +4726,9 @@ focus_tree = {
 		}
 		x = 42
 		y = 16
-
+		completion_reward = {
+			add_timed_idea = { idea = combat_inflation days = 1020 }
+		}
 	}
 	focus = {
 		id = ENG_Protect_Privacy_Rights
@@ -4611,7 +4753,14 @@ focus_tree = {
 		}
 		x = 41
 		y = 21
-
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_idea = nato_member
+				}
+			}
+			add_to_tech_sharing_group = british_sharing
+		}	
 	}
 	focus = {
 		id = ENG_Rural_Revitalization
@@ -4622,7 +4771,18 @@ focus_tree = {
 		}
 		x = 42
 		y = 23
-
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					 OR = {
+						region = 1
+						region = 2
+						region = 3
+					 }
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = ENG_Promote_Western_Nuclear_Cooperation
@@ -4694,7 +4854,13 @@ focus_tree = {
 		}
 		x = 36
 		y = 18
-
+		completion_reward = {
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.15
+			}
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = ENG_Industrial_Subsidies
@@ -4705,7 +4871,38 @@ focus_tree = {
 		}
 		x = 37
 		y = 21
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = ENG_Price_Controls
@@ -4719,7 +4916,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 22
-
+		completion_reward = {
+			add_ideas = agricultural_price_controls
+		}
 	}
 	focus = {
 		id = ENG_Increased_Taxation
@@ -4730,7 +4929,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 23
-
+		completion_reward = {
+			add_ideas = tax_increase
+		}
 	}
 	focus = {
 		id = ENG_Expand_Scottish_Housing
@@ -4803,7 +5004,10 @@ focus_tree = {
 		}
 		x = 48
 		y = 22
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = ENG_Economic_Perseverance
