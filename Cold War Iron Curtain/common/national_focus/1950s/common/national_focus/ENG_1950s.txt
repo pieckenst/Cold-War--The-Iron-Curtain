@@ -56,7 +56,7 @@ focus_tree = {
 		x = 65
 		y = 0
 			completion_reward = {
-					army_experience = 5
+					army_experience = 15
 				}
 
 	}
@@ -981,7 +981,6 @@ focus_tree = {
 		}
 		x = 32
 		y = 1
-
 	}
 	focus = {
 		id = ENG_Push_for_Regime_Change
@@ -1021,7 +1020,20 @@ focus_tree = {
 		}
 		x = 32
 		y = 3
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = ISR
+									modifier = large_increase
+								}
+						}
+					ISR = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = ENG_Resist_Decolonization
@@ -1032,7 +1044,10 @@ focus_tree = {
 		}
 		x = 32
 		y = 4
-
+		completion_reward = {
+			set_global_flag = god_save_the_queen
+			add_threat = 10
+		}
 	}
 	focus = {
 		id = ENG_Patriot
@@ -1057,7 +1072,20 @@ focus_tree = {
 		}
 		x = 33
 		y = 5
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						}
+					FRA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = ENG_Preserve_Arab_Colonies
@@ -1107,7 +1135,20 @@ focus_tree = {
 		}
 		x = 30
 		y = 7
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = large_increase
+								}
+						}
+					SAF = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = ENG_Statute
@@ -1212,7 +1253,7 @@ focus_tree = {
 		x = 33
 		y = 9
 			completion_reward = {
-					puppet = AST
+					AST = { country_event = generic.5 }
 				}
 
 	}
@@ -1226,7 +1267,7 @@ focus_tree = {
 		x = 34
 		y = 10
 			completion_reward = {
-					puppet = NZL
+					NZL = { country_event = generic.5 }
 				}
 
 	}
@@ -1239,7 +1280,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 12
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = ENG_Reduce_Global_Tensions
@@ -4249,7 +4292,7 @@ focus_tree = {
 		x = 31
 		y = 9
 			completion_reward = {
-					puppet = CAN
+					CAN = { country_event = generic.5 }
 				}
 
 	}
@@ -4263,7 +4306,7 @@ focus_tree = {
 		x = 30
 		y = 10
 			completion_reward = {
-					puppet = SAF
+					SAF = { country_event = generic.5 }
 				}
 
 	}
@@ -4618,7 +4661,23 @@ focus_tree = {
 		}
 		x = 38
 		y = 16
-
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					region = 3
+				}
+					add_building_construction = {
+							type = infrastructure
+							level = 3
+							instant_build = yes
+						}
+					add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+			}
+		}
 	}
 	focus = {
 		id = ENG_Forward_with_Labour
@@ -4682,7 +4741,14 @@ focus_tree = {
 		}
 		x = 46
 		y = 16
-
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					region = 3
+				}
+				add_extra_state_shared_building_slots = 3
+			}
+		}
 	}
 	focus = {
 		id = ENG_Highland_Infrastructure
@@ -4693,7 +4759,18 @@ focus_tree = {
 		}
 		x = 46
 		y = 17
-
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					region = 3
+				}
+					add_building_construction = {
+							type = infrastructure
+							level = 3
+							instant_build = yes
+						}
+			}
+		}
 	}
 	focus = {
 		id = ENG_Defend_Competitive_Enterprise
@@ -4737,6 +4814,21 @@ focus_tree = {
 		}
 		x = 48
 		y = 23
-
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						region = 1
+						region = 2
+					}
+				}
+					add_building_construction = {
+							type = infrastructure
+							level = 1
+							instant_build = yes
+						}
+						add_extra_state_shared_building_slots = 2
+			}
+		}
 	}
 }
