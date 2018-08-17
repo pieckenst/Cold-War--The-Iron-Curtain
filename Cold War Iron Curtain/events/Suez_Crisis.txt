@@ -329,3 +329,237 @@ country_event = {
 		name = egypt.70.b
 	}
 }
+# Occupation of Suez
+country_event = {
+	id = egypt.120
+	title = "Coalition Occupation of Suez"
+	desc = egypt.69.d
+	picture = GFX_report_event_british_artillery
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+
+	immediate = {
+		complete_national_focus = ENG_Suez_Crisis
+		clr_global_flag = suez_crisis
+	}
+	option = {
+		name = "Bow to Internaitonal Pressure"
+		white_peace = EGY
+		white_peace = PAL
+		FRA = {
+			white_peace = EGY
+			white_peace = PAL
+		}
+		ISR = {
+			white_peace = EGY
+			white_peace = PAL
+		}
+		complete_national_focus = ENG_Withdrawal_from_Suez
+		complete_national_focus = ENG_Humiliation
+		complete_national_focus = ENG_Empires_End
+	}	
+	option = {
+		name = "Defy Internaitonal Pressure"
+		SOV = {
+			country_event = egypt.121
+		}
+		USA = {
+			country_event = egypt.122
+		}
+	}
+}
+
+country_event = {
+	id = egypt.121
+	title = "Britain Rejects Diplomatic Pressure"
+	desc = egypt.69.d
+	picture = GFX_report_event_british_artillery
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "Diplomatic Condemnations"
+		complete_national_focus = ENG_Victory_in_Suez
+		ENG = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = large_decrease
+			}
+		}
+		SOV = {
+			add_opinion_modifier = {
+				target = ENG
+				modifier = large_decrease
+			}
+		}
+		SOV = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier = large_decrease
+			}
+		}
+		FRA = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = large_decrease
+			}
+		}
+		SOV = {
+			add_opinion_modifier = {
+				target = ISR
+				modifier = large_decrease
+			}
+		}
+		ISR = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = large_decrease
+			}
+		}
+	}	
+	option = {
+		name = "Join the War"
+		set_global_flag = suez_war_sov
+		add_to_war = { 
+			targeted_alliance = EGY 
+			enemy = ENG
+			hostility_reason = asked_to_join
+		}		
+	}
+}
+
+country_event = {
+	id = egypt.122
+	title = "Britain Rejects Diplomatic Pressure"
+	desc = egypt.69.d
+	picture = GFX_report_event_british_artillery
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "Diplomatic Condemnations"
+		USA = {
+			add_opinion_modifier = {
+				target = ENG
+				modifier = small_decrease
+			}
+		}
+		ENG = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = small_decrease
+			}
+		}
+		USA = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier = small_decrease
+			}
+		}
+		FRA = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = small_decrease
+			}
+		}
+		USA = {
+			add_opinion_modifier = {
+				target = ISR
+				modifier = small_decrease
+			}
+		}
+		ISR = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = small_decrease
+			}
+		}
+	}	
+	option = {
+		name = "Diplomatic Acceptance"
+		USA = {
+			add_opinion_modifier = {
+				target = ENG
+				modifier = small_increase
+			}
+		}
+		ENG = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = small_increase
+			}
+		}
+		USA = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier = small_increase
+			}
+		}
+		FRA = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = small_increase
+			}
+		}
+		USA = {
+			add_opinion_modifier = {
+				target = ISR
+				modifier = small_increase
+			}
+		}
+		ISR = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = small_increase
+			}
+		}
+	}
+	option = {
+		name = "Remove Britain and France from NATO"
+		ENG = {
+			remove_ideas = nato_member
+			add_opinion_modifier = {
+				target = USA
+				modifier = large_decrease
+			}
+		}
+		USA = {
+			add_opinion_modifier = {
+				target = ENG
+				modifier = large_decrease
+			}
+		}
+		USA = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier = large_decrease
+			}
+		}
+		FRA = {
+			remove_ideas = nato_member
+			add_opinion_modifier = {
+				target = USA
+				modifier = large_decrease
+			}
+		}
+		USA = {
+			add_opinion_modifier = {
+				target = ISR
+				modifier = large_decrease
+			}
+		}
+		ISR = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = large_decrease
+			}
+		}
+	}	
+}
