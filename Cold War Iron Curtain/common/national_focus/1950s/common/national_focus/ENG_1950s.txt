@@ -5706,7 +5706,65 @@ focus_tree = {
 			add_ideas = tax_increase
 		}
 	}
-
+	focus = {
+		id = ENG_Expand_Scottish_Housing
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = ENG_Industrial_Modernization
+		}
+		x = 46
+		y = 16
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					region = 3
+				}
+				add_extra_state_shared_building_slots = 3
+			}
+		}
+	}
+	focus = {
+		id = ENG_Highland_Infrastructure
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = ENG_Expand_Scottish_Housing
+		}
+		x = 46
+		y = 17
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					region = 3
+				}
+					add_building_construction = {
+							type = infrastructure
+							level = 3
+							instant_build = yes
+						}
+			}
+		}
+	}
+	focus = {
+		id = ENG_Defend_Competitive_Enterprise
+		icon = GFX_goal_unknown
+		cost = 10.00
+		x = 48
+		y = 18
+		prerequisite = {
+			focus = ENG_Infrastructure_and Dockyard_Investments
+		}
+		prerequisite = {
+			focus = ENG_Highland_Infrastructure
+		}
+		prerequisite = {
+			focus = ENG_Defend_Native_Industry
+		}
+		completion_reward = {
+			add_ideas = capitalism
+		}
+	}
 	focus = {
 		id = ENG_Unemployment_Reform
 		icon = GFX_goal_unknown
@@ -5748,66 +5806,6 @@ focus_tree = {
 						}
 						add_extra_state_shared_building_slots = 2
 			}
-		}
-	}
-	focus = {
-		id = ENG_Highland_Infrastructure
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = ENG_Expand_Scottish_Housing
-		}
-		x = 46
-		y = 17
-		completion_reward = {
-			every_owned_state = {
-				limit = {
-					region = 3
-				}
-					add_building_construction = {
-							type = infrastructure
-							level = 3
-							instant_build = yes
-						}
-			}
-		}
-	}
-	focus = {
-		id = ENG_Expand_Scottish_Housing
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = ENG_Industrial_Modernization
-		}
-		x = 46
-		y = 16
-		completion_reward = {
-			every_owned_state = {
-				limit = {
-					region = 3
-				}
-				add_extra_state_shared_building_slots = 3
-			}
-		}
-	}
-	focus = {
-		id = ENG_Defend_Competitive_Enterprise
-		icon = GFX_goal_unknown
-		cost = 10.00
-		x = 48
-		y = 18
-		prerequisite = {
-			focus = ENG_Infrastructure_and_Dockyard_Investments
-		}
-		prerequisite = {
-			focus = ENG_Highland_Infrastructure
-		}
-		prerequisite = {
-			focus = ENG_Defend_Native_Industry
-		}
-
-		completion_reward = {
-			add_ideas = capitalism
 		}
 	}
 }
