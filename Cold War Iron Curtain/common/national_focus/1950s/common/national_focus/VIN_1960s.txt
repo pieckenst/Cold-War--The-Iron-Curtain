@@ -59,7 +59,9 @@ focus_tree = {
 		cost = 10.00
 		x = 72
 		y = 0
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = VIN_1960s_Nationalist_faction_wins
@@ -371,7 +373,10 @@ focus_tree = {
 		}
 		x = 49
 		y = 2
-
+		completion_reward = {
+			add_ideas = agricultural_mismanagement
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = VIN_1960s_Collective_farming
@@ -404,7 +409,16 @@ focus_tree = {
 		}
 		x = 51
 		y = 4
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}		
+		}
 	}
 	focus = {
 		id = VIN_1960s_A_new_airport
@@ -440,7 +454,10 @@ focus_tree = {
 		}
 		x = 53
 		y = 11
-
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+			add_offsite_building = { type = industrial_complex level = 3 }
+		}
 	}
 	focus = {
 		id = VIN_1960s_New_military_tactics
@@ -451,7 +468,15 @@ focus_tree = {
 		}
 		x = 53
 		y = 12
-
+			completion_reward = {
+					army_experience = 5
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_PRC_guns
@@ -634,7 +659,9 @@ focus_tree = {
 		}
 		x = 66
 		y = 5
-
+		completion_reward = {
+			add_ideas = press_censorship_5
+		}
 	}
 	focus = {
 		id = VIN_1960s_Militarization
@@ -659,7 +686,24 @@ focus_tree = {
 		}
 		x = 72
 		y = 1
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_Communist
@@ -1026,6 +1070,7 @@ focus_tree = {
 		y = 6
 			completion_reward = {
 					add_ideas = land_reform
+					remove_ideas = agricultural_mismanagement
 				}
 
 	}
