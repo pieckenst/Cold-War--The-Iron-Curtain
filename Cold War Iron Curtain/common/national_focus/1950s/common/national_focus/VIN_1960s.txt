@@ -114,7 +114,15 @@ focus_tree = {
 		}
 		x = 41
 		y = 3
-
+			completion_reward = {
+					army_experience = 5
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_Ready_for_War
@@ -136,7 +144,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 4
-
+		completion_reward = {
+			add_ideas = rural_vanguard
+		}
 	}
 	focus = {
 		id = VIN_1960s_Militarized_schools
@@ -147,7 +157,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 5
-
+		completion_reward = {
+			add_ideas = militarized_schools
+		}
 	}
 	focus = {
 		id = VIN_1960s_Better_equipment
@@ -472,7 +484,9 @@ focus_tree = {
 		}
 		x = 57
 		y = 2
-
+		completion_reward = {
+			add_ideas = egalitarian_beliefs
+		}
 	}
 	focus = {
 		id = VIN_1960s_Empower_unions
@@ -483,10 +497,12 @@ focus_tree = {
 		}
 		x = 56
 		y = 3
-
+		completion_reward = {
+			add_ideas = strengthened_labor_unions
+		}
 	}
 	focus = {
-		id = VIN_1960s_Strengthen_workers'_rights
+		id = VIN_1960s_Strengthen_workers_rights
 		icon = GFX_goal_generic_production
 		cost = 10.00
 		prerequisite = {
@@ -501,14 +517,21 @@ focus_tree = {
 		icon = GFX_goal_continuous_naval_production
 		cost = 10.00
 		prerequisite = {
-			focus = VIN_1960s_Strengthen_workers'_rights
+			focus = VIN_1960s_Strengthen_workers_rights
 		}
 		prerequisite = {
 			focus = VIN_1960s_Empower_unions
 		}
 		x = 57
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = industrial_bonus
+							bonus = 0.5
+							uses = 1
+							category = industry
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_Hanoi_University
@@ -519,7 +542,9 @@ focus_tree = {
 		}
 		x = 57
 		y = 5
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = VIN_1960s_Factories_in_the_rural_area
@@ -541,7 +566,9 @@ focus_tree = {
 		}
 		x = 64
 		y = 2
-
+		completion_reward = {
+			add_ideas = KOR_education_reform
+		}
 	}
 	focus = {
 		id = VIN_1960s_Anti_capitalist_propaganda
@@ -641,9 +668,14 @@ focus_tree = {
 		prerequisite = {
 			focus = VIN_1960s_To_arms
 		}
+		available = { 
+			has_completed_focus = VIN_1960s_Purge_the_opposition
+		}
 		x = 70
 		y = 2
-
+		completion_reward = {
+			
+		}
 	}
 	focus = {
 		id = VIN_1960s_Liberate_Laos
@@ -654,7 +686,16 @@ focus_tree = {
 		}
 		x = 70
 		y = 3
-
+			completion_reward = {
+					create_wargoal = {
+							type = puppet_wargoal_focus
+							target = LOS
+						}
+					create_wargoal = {
+							type = puppet_wargoal_focus
+							target = LAS
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_Liberate_Cambodia
@@ -665,7 +706,12 @@ focus_tree = {
 		}
 		x = 70
 		y = 4
-
+			completion_reward = {
+					create_wargoal = {
+							type = puppet_wargoal_focus
+							target = CAM
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_Liberate_Siam
@@ -676,7 +722,12 @@ focus_tree = {
 		}
 		x = 70
 		y = 5
-
+			completion_reward = {
+					create_wargoal = {
+							type = puppet_wargoal_focus
+							target = SIA
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_Liberate_Myanmar
@@ -687,7 +738,12 @@ focus_tree = {
 		}
 		x = 69
 		y = 6
-
+			completion_reward = {
+					create_wargoal = {
+							type = puppet_wargoal_focus
+							target = MYR
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_Liberate_Peninsular_Malyasia
@@ -698,7 +754,12 @@ focus_tree = {
 		}
 		x = 71
 		y = 6
-
+			completion_reward = {
+					create_wargoal = {
+							type = puppet_wargoal_focus
+							target = MAL
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_Indochina_Socialist_Federation
@@ -712,7 +773,9 @@ focus_tree = {
 		}
 		x = 70
 		y = 7
-
+		completion_reward = {
+			create_faction = "Indochina Socialist Federation"
+		}
 	}
 	focus = {
 		id = VIN_1960s_Nationalist
@@ -723,7 +786,9 @@ focus_tree = {
 		}
 		x = 74
 		y = 2
-
+		completion_reward = {
+			add_ideas = TUR_revanchism_focus
+		}
 	}
 	focus = {
 		id = VIN_1960s_Invade_Laos
@@ -734,7 +799,31 @@ focus_tree = {
 		}
 		x = 74
 		y = 3
-
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = LOS
+						}
+					create_wargoal = {
+							type = annex_everything
+							target = LAS
+						}
+					LAO = {
+							every_owned_state = {
+									add_core_of = VIN
+								}
+						}
+					LAS = {
+							every_owned_state = {
+									add_core_of = VIN
+								}
+						}
+					LOS = {
+							every_owned_state = {
+									add_core_of = VIN
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_Invade_Cambodia
@@ -745,7 +834,17 @@ focus_tree = {
 		}
 		x = 74
 		y = 4
-
+		completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = CAM
+						}
+					CAM = {
+							every_owned_state = {
+									add_core_of = VIN
+								}
+						}		
+		}
 	}
 	focus = {
 		id = VIN_1960s_Invade_Siam
@@ -756,7 +855,17 @@ focus_tree = {
 		}
 		x = 73
 		y = 5
-
+		completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = SIA
+						}
+					SIA = {
+							every_owned_state = {
+									add_core_of = VIN
+								}
+						}		
+		}
 	}
 	focus = {
 		id = VIN_1960s_Demand_Peninsular_Malaysia
@@ -767,7 +876,9 @@ focus_tree = {
 		}
 		x = 75
 		y = 5
-
+		completion_reward = {
+			MLA = { country_event = generic.1 }
+		}
 	}
 	focus = {
 		id = VIN_1960s_Demand_South_China
@@ -781,7 +892,9 @@ focus_tree = {
 		}
 		x = 74
 		y = 6
-
+		completion_reward = {
+			PRC = { country_event = vietnam_exp.1 }
+		}
 	}
 	focus = {
 		id = VIN_1960s_Empire_of_Vietnam
@@ -792,7 +905,10 @@ focus_tree = {
 		}
 		x = 74
 		y = 7
-
+		completion_reward = {
+			set_cosmetic_tag = GR_VIE
+			add_war_support = 0.10
+		}
 	}
 	focus = {
 		id = VIN_1960s_Housing_for_the_poor
@@ -849,7 +965,7 @@ focus_tree = {
 		x = 37
 		y = 4
 			completion_reward = {
-					adD_ideas = recruitment_propaganda
+					add_ideas = recruitment_propaganda
 				}
 
 	}
@@ -862,7 +978,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 5
-
+		completion_reward = {
+			add_ideas = military_expansion
+		}
 	}
 	focus = {
 		id = VIN_1960s_Strengthen_military_production
@@ -1006,7 +1124,28 @@ focus_tree = {
 		}
 		x = 49
 		y = 12
-
+			completion_reward = {
+					add_equipment_to_stockpile = {
+							type = infantry_equipment
+							amount = 5000
+							producer = SOV
+						}
+					add_equipment_to_stockpile = {
+							type = main_battle_tanks_3
+							amount = 500
+							producer = SOV
+						}
+					add_equipment_to_stockpile = {
+							type = lt_equipment_2
+							amount = 200
+							producer = SOV
+						}
+					add_equipment_to_stockpile = {
+							type = motorized_equipment_2
+							amount = 500
+							producer = SOV
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_Mobilize_militia
@@ -1034,7 +1173,9 @@ focus_tree = {
 		}
 		x = 51
 		y = 15
-
+		completion_reward = {
+			add_timed_idea = { idea = strike_back days = 800 }
+		}
 	}
 	focus = {
 		id = VIN_1960s_Fighting_spirit
