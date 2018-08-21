@@ -2751,6 +2751,39 @@ foreign_politics = {
 }
 
 economy_decisions = {
+	take_out_a_loan = {
+
+		icon = generic_construction
+
+        allowed = {
+            always = yes
+        }
+
+        cost = 100
+        fire_only_once = no
+
+        days_re_enable = 365
+
+        available = {
+           is_subject = no
+		   check_variable = { money < 1999500 }
+        }
+
+        visible = {
+		   is_subject = no	
+		}
+        complete_effect = {
+			add_to_variable = { var = money value = 500 }
+			add_to_variable = { var = debt value = 550 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = -10
+				check_variable = { money > 0 }
+			}
+		}
+    }
 	infrastructure_building_slot = {
 
 		icon = generic_construction
