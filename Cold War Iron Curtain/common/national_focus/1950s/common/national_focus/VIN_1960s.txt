@@ -135,7 +135,24 @@ focus_tree = {
 		}
 		x = 37
 		y = 3
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_Nationalist_militias
@@ -172,7 +189,15 @@ focus_tree = {
 		}
 		x = 41
 		y = 6
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_weapons_bonus
+							bonus = 0.5
+							uses = 1
+							category = infantry_weapons
+							category = artillery
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_Peaceful_unification
@@ -186,7 +211,11 @@ focus_tree = {
 		}
 		x = 43
 		y = 10
-
+		completion_reward = {
+			add_threat = -5
+			add_political_power = 100
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = VIN_1960s_Send_diplomats
@@ -197,7 +226,11 @@ focus_tree = {
 		}
 		x = 41
 		y = 11
-
+		completion_reward = {
+			add_threat = -5
+			add_political_power = 100
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = VIN_1960s_Establish_communication_channel
@@ -208,7 +241,20 @@ focus_tree = {
 		}
 		x = 41
 		y = 12
-
+			completion_reward = {
+					VIN = {
+							add_opinion_modifier = {
+									target = VIE
+									modifier = small_increase
+								}
+						}
+					VIE = {
+							add_opinion_modifier = {
+									target = VIN
+									modifier = small_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_Promote_Vietnamese_Unity
@@ -219,7 +265,10 @@ focus_tree = {
 		}
 		x = 41
 		y = 13
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = VIN_1960s_Political_pressure
@@ -230,7 +279,28 @@ focus_tree = {
 		}
 		x = 41
 		y = 14
-
+		completion_reward = {
+			VIE = {
+				if = {
+					limit = {
+						VIN = { has_government = nationalism }
+					}
+					add_popularity = {
+						ideology = nationalism
+						popularity = 0.15
+					}
+				}
+				if = {
+					limit = {
+						VIN = { has_government = communism }
+					}
+					add_popularity = {
+						ideology = communism
+						popularity = 0.15
+					}
+				}	
+			}
+		}
 	}
 	focus = {
 		id = VIN_1960s_Nationalist_propaganda
@@ -241,7 +311,13 @@ focus_tree = {
 		}
 		x = 44
 		y = 2
-
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = {
+				ideology = nationalism
+				popularity = 0.15
+			}
+		}
 	}
 	focus = {
 		id = VIN_1960s_Strict_two_children_policy
@@ -252,7 +328,10 @@ focus_tree = {
 		}
 		x = 44
 		y = 3
-
+		completion_reward = {
+			remove_ideas = population_growth_explosion
+			add_ideas = population_growth_rapid
+		}
 	}
 	focus = {
 		id = VIN_1960s_Work_is_glory
@@ -274,7 +353,9 @@ focus_tree = {
 		}
 		x = 44
 		y = 5
-
+		completion_reward = {
+			add_ideas = SOV_military_primacy
+		}
 	}
 	focus = {
 		id = VIN_1960s_Military_first
@@ -285,7 +366,9 @@ focus_tree = {
 		}
 		x = 44
 		y = 6
-
+		completion_reward = {
+			add_ideas = Excessive_Military_Expenditures
+		}
 	}
 	focus = {
 		id = VIN_1960s_Anti_Red_policy
@@ -296,7 +379,9 @@ focus_tree = {
 		}
 		x = 44
 		y = 7
-
+		completion_reward = {
+			add_ideas = communism_banned
+		}
 	}
 	focus = {
 		id = VIN_1960s_Proud_and_strong
@@ -307,7 +392,11 @@ focus_tree = {
 		}
 		x = 44
 		y = 8
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 		id = VIN_1960s_Unification_propaganda
@@ -351,7 +440,12 @@ focus_tree = {
 		}
 		x = 45
 		y = 14
-
+		completion_reward = {
+			VIE = {
+				add_stability = -0.10
+			}
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = VIN_1960s_3rd_National_Party_Congress
@@ -362,7 +456,13 @@ focus_tree = {
 		}
 		x = 57
 		y = 1
-
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = VIN_1960s_Land_reform
@@ -374,8 +474,7 @@ focus_tree = {
 		x = 49
 		y = 2
 		completion_reward = {
-			add_ideas = agricultural_mismanagement
-			add_political_power = 100
+			add_ideas = land_reform
 		}
 	}
 	focus = {
@@ -387,7 +486,10 @@ focus_tree = {
 		}
 		x = 47
 		y = 3
-
+		completion_reward = {
+			add_ideas = agricultural_mismanagement
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = VIN_1960s_Reinforce_demilitarize_zone
@@ -429,7 +531,15 @@ focus_tree = {
 		}
 		x = 51
 		y = 5
-
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}		
+			}
+		}
 	}
 	focus = {
 		id = VIN_1960s_Military_solution
@@ -443,7 +553,17 @@ focus_tree = {
 		}
 		x = 51
 		y = 10
-
+			completion_reward = {
+					army_experience = 50
+					add_tech_bonus = {
+							name = infantry_weapons_bonus
+							ahead_reduction = 1
+							bonus = 0.5
+							uses = 2
+							category = infantry_weapons
+							category = artillery
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_Mobilize_our_industry
@@ -487,7 +607,13 @@ focus_tree = {
 		}
 		x = 53
 		y = 13
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 5000
+				producer = PRC
+			}		
+		}
 	}
 	focus = {
 		id = VIN_1960s_Smuggle_weapons
@@ -498,7 +624,23 @@ focus_tree = {
 		}
 		x = 53
 		y = 14
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2500
+				producer = PRC
+			}		
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2500
+				producer = SOV
+			}	
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 500
+				producer = SOV
+			}	
+		}
 	}
 	focus = {
 		id = VIN_1960s_Empower_women
@@ -535,7 +677,10 @@ focus_tree = {
 		}
 		x = 58
 		y = 3
-
+		completion_reward = {
+			remove_ideas = strengthened_labor_unions
+			add_ideas = strengthened_labor_unions_2
+		}
 	}
 	focus = {
 		id = VIN_1960s_New_technologies_in_production
@@ -580,7 +725,24 @@ focus_tree = {
 		}
 		x = 57
 		y = 6
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_Fight_illiteracy
@@ -615,7 +777,9 @@ focus_tree = {
 		}
 		x = 62
 		y = 4
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = VIN_1960s_Establish_the_youth_union
@@ -626,7 +790,9 @@ focus_tree = {
 		}
 		x = 62
 		y = 5
-
+		completion_reward = {
+			add_ideas = add_ideas = military_youth_focus
+		}
 	}
 	focus = {
 		id = VIN_1960s_State_atheism
@@ -637,7 +803,9 @@ focus_tree = {
 		}
 		x = 66
 		y = 3
-
+		completion_reward = {
+			add_ideas = state_atheism
+		}
 	}
 	focus = {
 		id = VIN_1960s_Population_control
@@ -648,7 +816,10 @@ focus_tree = {
 		}
 		x = 66
 		y = 4
-
+		completion_reward = {
+			remove_ideas = population_growth_explosion
+			add_ideas = population_growth_steady
+		}
 	}
 	focus = {
 		id = VIN_1960s_Establish_censorship
@@ -675,7 +846,24 @@ focus_tree = {
 		}
 		x = 64
 		y = 6
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = VIN_1960s_To_arms
@@ -1069,7 +1257,8 @@ focus_tree = {
 		x = 49
 		y = 6
 			completion_reward = {
-					add_ideas = land_reform
+					add_ideas = agrarian_reform
+					remove_ideas = land_reform
 					remove_ideas = agricultural_mismanagement
 				}
 
@@ -1176,17 +1365,17 @@ focus_tree = {
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
-							type = main_battle_tanks_3
+							type = main_battle_tanks
 							amount = 500
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
-							type = lt_equipment_2
+							type = lt_equipment
 							amount = 200
 							producer = SOV
 						}
 					add_equipment_to_stockpile = {
-							type = motorized_equipment_2
+							type = motorized_equipment
 							amount = 500
 							producer = SOV
 						}
