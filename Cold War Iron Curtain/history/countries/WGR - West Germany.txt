@@ -140,7 +140,8 @@ set_technology = {
 
 set_research_slots = 4
 set_convoys = 50
-set_stability = 0.7
+set_stability = 0.8
+set_war_support = 0.1
 
 
 set_cosmetic_tag = ENG_GER
@@ -149,22 +150,22 @@ set_politics = {
 
 	parties = {
         democratic = { popularity = 0 }
-        communism = { popularity = 5 }
-        fascism = { popularity = 10 }
+        communism = { popularity = 0 }
+        fascism = { popularity = 0 }
         nationalism = { popularity = 0 }
-        monarchism = { popularity = 25 }
-        neutrality = { popularity = 30 }
+        monarchism = { popularity = 0 }
+        neutrality = { popularity = 100 }
         islamism = { popularity = 0 }
         radical_shiaism = { popularity = 0 }
         pan_arabism = {popularity = 0}
-        Social_Democratic = { popularity = 5 }
+        Social_Democratic = { popularity = 0 }
         Social_Liberalism = { popularity = 0 }
         Salafism = { popularity = 0 }
         Christianism = { popularity = 0 }
         Liberal_Conservatism = { popularity = 0 }
         Judaism = { popularity = 0 }
         conservative = { popularity = 0 }
-        Christian_Democratic = { popularity = 25 }
+        Christian_Democratic = { popularity = 0 }
         socialist = { popularity = 0 }
         centrist = { popularity = 0 }
         liberal = { popularity = 0 }
@@ -178,9 +179,10 @@ set_politics = {
 	election_frequency = 48
 	elections_allowed = no
 }
+
 create_country_leader = {
 	name = "Bernard Montgomery"
-	picture = "Portrait_ENG_Montgomery.dds"
+	picture = "gfx/leaders/ENG/Portrait_ENG_Montgomery.dds"
 	ideology = military_junta
 	expire = 1949.1.1
 }
@@ -190,45 +192,39 @@ create_country_leader = {
     oob = "WGR_1949"
 	drop_cosmetic_tag = yes
 
-	set_politics = {
+set_politics = {
 
-		parties = {
-			liberal = { 
-				popularity = 12.94
-			}
-			fascism = {
-				popularity = 1.24
-			}
-			democratic = {
-				popularity = 4.23
-			}
-			Liberal_Conservatism = {
-				popularity = 4.23
-			}
-			communism = {
-				popularity = 3.75
-			}
-			centrist = {
-				popularity = 2.49
-			}
-			Social_Democratic = {
-				popularity = 32.59	
-			}
-			Christian_Democratic = {
-				popularity = 34.58	
-			}
-			neutrality = {
-				popularity = 3.99
-			}
-		}
-		
-		ruling_party = Christian_Democratic
-		last_election = "1945.8.14"
-		election_frequency = 48
-		elections_allowed = yes
-
+	parties = {
+        democratic = { popularity = 0 }
+        communism = { popularity = 0 }
+        fascism = { popularity = 0 }
+        nationalism = { popularity = 0 }
+        monarchism = { popularity = 0 }
+        neutrality = { popularity = 100 }
+        islamism = { popularity = 0 }
+        radical_shiaism = { popularity = 0 }
+        pan_arabism = {popularity = 0}
+        Social_Democratic = { popularity = 0 }
+        Social_Liberalism = { popularity = 0 }
+        Salafism = { popularity = 0 }
+        Christianism = { popularity = 0 }
+        Liberal_Conservatism = { popularity = 0 }
+        Judaism = { popularity = 0 }
+        conservative = { popularity = 0 }
+        Christian_Democratic = { popularity = 0 }
+        socialist = { popularity = 0 }
+        centrist = { popularity = 0 }
+        liberal = { popularity = 0 }
+        trotskyism = { popularity = 0 }
+        maoism = { popularity = 0 }
+        National_Socialism = { popularity = 0 }
 	}
-
+	
+	ruling_party = neutrality
+	last_election = "1945.8.14"
+	election_frequency = 48
+	elections_allowed = no
+}
 
 	add_ideas = {
 		Occupation
@@ -240,32 +236,42 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Otto Ernst Remer"
-	picture = "Otto_Remer.dds"
-	expire = "1965.1.1"
-	ideology = neo_nazism
+	name = "Bundestag"
+	picture = "Bundestag.dds"
+	expire = "1949.8.1"
+	ideology = Independent
 }
 
 create_country_leader = {
 	name = "Konrad Adenauer"
 	desc = "pol_desc_konrad"
-	picture = "Portrait_WestGermany_Konrad_Adenauer.dds"
-	expire = "1967.4.19"
+	picture = "Konrad_Adenauer.dds"
 	ideology = christian_democracy
 }
 
 create_country_leader = {
 	name = "Kurt Schumacher"
-	picture = "Portrait_WestGermany_Kurt_Schumacher.dds"
-	expire = "1952.8.2"
+	picture = "Kurt_Schumacher.dds"
 	ideology = social_democrat
 }
 
 create_country_leader = {
 	name = "Franz Blücher"
-	picture = "Portrait_WestGermany_Franz_Blucher.dds"
-	expire = "1959.3.26"
-	ideology = left_libertarianism
+	picture = "Franz_Blucher.dds"
+	ideology = social_liberal
+}
+
+create_country_leader = {
+	name = "Heinrich Hellwege"
+	picture = "Heinrich_Hellwege.dds"
+	ideology = conservatism
+}
+
+create_country_leader = {
+	name = "Otto Ernst Remer"
+	picture = "gfx/leaders/WGR/NAZI/Otto_Remer.dds"
+	expire = "1965.1.1"
+	ideology = neo_nazism
 }
 
 create_country_leader = {
@@ -276,13 +282,13 @@ create_country_leader = {
 
 create_country_leader = {
 	name = "Andreas Baader"
-	picture = "Portrait_WestGermany_Anders_Baader.dds"
+	picture = "Anders_Baader.dds"
 	ideology = maoist
 }
 
 create_country_leader = {
-	name = "Ernst Thälmann"
-	picture = "Portrait_WestGermany_Ernst_Tahlmann.dds"
+	name = "Wilhelm Pieck"
+	picture = "gfx/leaders/DDR/Wilhelm_Pieck.dds"
 	ideology = stalinism
 }	
 
@@ -297,60 +303,6 @@ create_equipment_variant = {
 		ship_anti_air_upgrade = 2
 	}
 	obsolete = yes
-}
-
-1953.9.6 = {
-	set_politics = {
-		parties = {
-			liberal = { 
-				popularity = 10.42
-			}
-			fascism = {
-				popularity = 5.30
-			}
-			democratic = {
-				popularity = 2.95
-			}
-			Liberal_Conservatism = {
-				popularity = 0
-			}
-			communism = {
-				popularity = 0
-			}
-			centrist = {
-				popularity = 0.59
-			}
-			Social_Democratic = {
-				popularity = 31.83
-			}
-			Christian_Democratic = {
-				popularity = 48.92
-			}
-			neutrality = {
-				popularity = 0
-			}
-		}
-		
-		ruling_party = Christian_Democratic
-		last_election = "1953.9.6"
-		election_frequency = 48
-		elections_allowed = yes
-	}
-
-	create_country_leader = {
-		name = "Erich Ollenhauer"
-		picture = "Portrait_WestGermany_Erich_Ollenhauer.dds"
-		expire = "1963.12.14"
-		ideology = democratic_socialist
-	}
-
-#	remove_ideas = fascism_drift_1
-#	remove_ideas = centrist_drift_1
-#	swap_ideas = { remove_idea = liberal_drift_3 add_idea = liberal_drift_2 }
-}
-
-1955.1.1 = {
-    add_ideas = nato_member
 }
 
 1956.1.1 = {
@@ -450,418 +402,4 @@ create_corps_commander = {
 	set_party_name = { ideology = communism long_name = "Deutsche Kommunistische Partei" name = DKP }
 	set_party_name = { ideology = nationalism long_name = "Deutsche Partei" name = DP }
 
-}
-
-1961.9.17 = {
-	set_politics = {
-		parties = {
-			liberal = {
-				popularity = 13.43
-			}
-			democratic = {
-				popularity = 0
-			}
-			Social_Democratic = {
-				popularity = 38.08
-			}
-			Christian_Democratic = {
-				popularity = 48.50
-			}
-		}
-		
-		ruling_party = Christian_Democratic
-		last_election = "1961.9.17"
-		election_frequency = 48
-		elections_allowed = yes
-	}
-
-	create_country_leader = {
-		name = "Willy Brandt"
-		picture = "Portrait_WestGermany_Willy_Brandt.dds"
-		expire = "1992.10.8"
-		ideology = democratic_socialist
-	}
-
-	create_country_leader = {
-		name = "Erich Mende"
-		picture = "Portrait_WestGermany_Erich_Mende.dds"
-		expire = "1998.5.6"
-		ideology = left_libertarianism
-	}
-
-#	swap_ideas = { remove_idea = liberal_drift_3 add_idea = liberal_drift_2 }
-}
-
-1963.10.17 = {
-	create_country_leader = {
-		name = "Ludwig Erhard"
-		picture = "Portrait_WestGermany_Ludwig_Erhard.dds"
-		expire = "1977.5.5"
-		ideology = christian_democracy
-	}
-}
-
-1965.9.19 = {
-	set_politics = {
-		parties = {
-			liberal = {
-				popularity = 9.88
-			}
-			Social_Democratic = {
-				popularity = 40.73
-			}
-			Christian_Democratic = {
-				popularity = 49.40
-			}
-		}
-		
-		ruling_party = Christian_Democratic
-		last_election = "1965.9.19"
-		election_frequency = 48
-		elections_allowed = yes
-	}
-
-	set_party_name = { ideology = National_Socialism long_name = "Nationaldemokratische Partei Deutschlands" name = NDPD }
-}
-
-1966.12.1 = {
-	create_country_leader = {
-		name = "Kurt Georg Kiesinger"
-		picture = "Portrait_WestGermany_Kurt_Georg_Kiesinger.dds"
-		expire = "1988.3.9"
-		ideology = christian_democracy
-	}
-}
-
-1969.10.22 = {
-	set_politics = {
-		parties = {
-			liberal = {
-				popularity = 2.05
-			}
-			Social_Democratic = {
-				popularity = 49.16
-			}
-			Christian_Democratic = {
-				popularity = 48.79
-			}
-		}
-		
-		ruling_party = Social_Democratic
-		last_election = "1969.10.22"
-		election_frequency = 48
-		elections_allowed = yes
-	}
-
-	create_country_leader = {
-		name = "Walter Scheel"
-		picture = "Portrait_WestGermany_Walter_Scheel.dds"
-		expire = "2016.8.24"
-		ideology = left_libertarianism
-	}
-}
-
-1972.10.19 = {
-	set_politics = {
-		parties = {
-			liberal = {
-				popularity = 8.27
-			}
-			Social_Democratic = {
-				popularity = 46.37
-			}
-			Christian_Democratic = {
-				popularity = 45.36
-			}
-		}
-		
-		ruling_party = Social_Democratic
-		last_election = "1972.10.19"
-		election_frequency = 48
-		elections_allowed = yes
-	}
-
-	create_country_leader = {
-		name = "Rainer Barzel"
-		picture = "Portrait_WestGermany_Rainer_Barzel.dds"
-		expire = "2006.8.26"
-		ideology = christian_democracy
-	}
-
-create_corps_commander = {
-	name = "Ulrich de Maiziere"
-	picture = "Portrait_WGR_Maiziere.dds"
-	skill = 2
-	attack_skill = 1
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Wolf Graf von Baudissin"
-	picture = "Portrait_WGR_Baudissin.dds"
-	skill = 2
-	attack_skill = 2
-	defense_skill = 1
-	planning_skill = 2
-	logistics_skill = 1
-}
-
-#	swap_ideas = { remove_idea = socialist_drift_5 add_idea = socialist_drift_4 }
-#	swap_ideas = { remove_idea = Christian_Democratic_drift_4 add_idea = Christian_Democratic_drift_5 }
-}
-
-1973.6.12 = {
-	create_country_leader = {
-		name = "Helmut Schmidt"
-		picture = "Portrait_WestGermany_Helmut_Schmidt.dds"
-		expire = "2015.11.10"
-		ideology = social_democrat
-	}
-}
-
-1974.5.16 = {
-	create_country_leader = {
-		name = "Helmut Kohl"
-		picture = "Portrait_WestGermany_Helmut_Kohl.dds"
-		expire = "2017.6.16"
-		ideology = christian_democracy
-	}
-}
-
-1976.10.3 = {
-	set_politics = {
-		parties = {
-			liberal = {
-				popularity = 7.86
-			}
-			Social_Democratic = {
-				popularity = 43.15
-			}
-			Christian_Democratic = {
-				popularity = 48.99
-			}
-		}
-		
-		ruling_party = Christian_Democratic
-		last_election = "1976.10.3"
-		election_frequency = 48
-		elections_allowed = yes
-	}
-
-	create_country_leader = {
-		name = "Hans-Dietrich Genscher"
-		picture = "Portrait_WestGermany_Hans_Dieter_Genscher.dds"
-		expire = "2016.3.31"
-		ideology = left_libertarianism
-	}
-
-#	swap_ideas = { remove_idea = socialist_drift_4 add_idea = socialist_drift_5 }
-#	swap_ideas = { remove_idea = Christian_Democratic_drift_5 add_idea = Christian_Democratic_drift_4 }
-}
-
-1980.10.5 = {
-	set_politics = {
-		parties = {
-			liberal = {
-				popularity = 6.66
-			}
-			Social_Democratic = {
-				popularity = 47.86
-			}
-			Christian_Democratic = {
-				popularity = 45.47
-			}
-		}
-		
-		ruling_party = Social_Democratic
-		last_election = "1980.10.5"
-		election_frequency = 48
-		elections_allowed = yes
-	}
-
-	create_country_leader = {
-		name = "Franz-Josef Strauss"
-		picture = "Portrait_WestGermany_Franz_Josef_Strauss.dds"
-		expire = "1988.10.3"
-		ideology = christian_democracy
-	}
-
-#	swap_ideas = { remove_idea = socialist_drift_5 add_idea = socialist_drift_4 }
-#	swap_ideas = { remove_idea = Christian_Democratic_drift_4 add_idea = Christian_Democratic_drift_5 }
-}
-
-1981.10.5 = {
-	create_country_leader = {
-		name = "Helmut Kohl"
-		picture = "Portrait_WestGermany_Helmut_Kohl.dds"
-		expire = "2017.6.16"
-		ideology = christian_democracy
-	}
-}
-
-1983.3.6 = {
-	set_politics = {
-		parties = {
-			liberal = {
-				popularity = 6.83
-			}
-			democratic = {
-				popularity = 5.42
-			}
-			Social_Democratic = {
-				popularity = 38.76
-			}
-			Christian_Democratic = {
-				popularity = 49.00
-			}
-		}
-		
-		ruling_party = Christian_Democratic
-		last_election = "1983.3.6"
-		election_frequency = 48
-		elections_allowed = yes
-	}
-	
-	create_country_leader = {
-		name = "Petra Kelly"
-		picture = "Portrait_WestGermany_Petra_Kelly.dds"
-		expire = "1992.10.1"
-		ideology = green
-	}
-
-	create_country_leader = {
-		name = "Hans-Jochen Vogel"
-		picture = "Portrait_WestGermany_Hans_Jochen_Vogel.dds"
-		ideology = social_democrat
-	}
-
-}
-
-1987.1.25 = {
-	set_politics = {
-		parties = {
-			liberal = {
-				popularity = 9.26
-			}
-			democratic = {
-				popularity = 8.45
-			}
-			Social_Democratic = {
-				popularity = 37.42
-			}
-			Christian_Democratic = {
-				popularity = 44.87
-			}
-		}
-		
-		ruling_party = Christian_Democratic
-		last_election = "1987.1.25"
-		election_frequency = 48
-		elections_allowed = yes
-	}
-
-	create_country_leader = {
-		name = "Johannes Rau"
-		picture = "Portrait_WestGermany_Johannes_Rau.dds"
-		expire = "2006.1.27"
-		ideology = democratic_socialist
-	}
-
-	create_country_leader = {
-		name = "Martin Bangemann"
-		picture = "Portrait_WestGermany_Martin_Bangemann.dds"
-		ideology = left_libertarianism
-	}
-
-#	swap_ideas = { remove_idea = liberal_drift_1 add_idea = liberal_drift_2 }
-#	add_ideas = Social_Democratic_drift_1
-}
-
-1990.12.2 = {
-	set_politics = {
-		parties = {
-			liberal = {
-				popularity = 11.93
-			}
-			democratic = {
-				popularity = 1.21
-			}
-			Social_Democratic = {
-				popularity = 0
-			}
-			Social_Democratic = {
-				popularity = 38.67
-			}
-			Christian_Democratic = {
-				popularity = 48.19
-			}
-		}
-		
-		ruling_party = Christian_Democratic
-		last_election = "1990.12.2"
-		election_frequency = 48
-		elections_allowed = yes
-	}
-
-	create_country_leader = {
-		name = "Otto Graf Lambsdorff"
-		picture = "Portrait_WestGermany_Otto_Graf_Lambsdorff.dds"
-		expire = "2009.12.5"
-		ideology = left_libertarianism
-	}
-
-	create_country_leader = {
-		name = "Gregor Gysi"
-		picture = "Portrait_WestGermany_Gregor_Gysi.dds"
-		ideology = social_democrat
-	}
-
-#	swap_ideas = { remove_idea = liberal_drift_2 add_idea = liberal_drift_1 }
-}
-
-1994.10.16 = {
-capital = 742
-	set_politics = {
-		parties = {
-			liberal = {
-				popularity = 6.99
-			}
-			democratic = {
-				popularity = 7.29
-			}
-			socialist = {
-				popularity = 0
-			}
-			Social_Democratic = {
-				popularity = 41.96
-			}
-			Christian_Democratic = {
-				popularity = 43.75
-			}
-		}
-		
-		ruling_party = Christian_Democratic
-		last_election = "1990.12.2"
-		election_frequency = 48
-		elections_allowed = yes
-	}
-
-	create_country_leader = {
-		name = "Antje Vollmer"
-		picture = "Portrait_WestGermany_Antje_Vollmer.dds"
-		ideology = green
-	}
-
-	create_country_leader = {
-		name = "Klaus Kinkel"
-		picture = "Portrait_WestGermany_Klaus_Kinkel.dds"
-		ideology = left_libertarianism
-	}
-        create_country_leader = {
-		name = "Georg Friedrich I"
-		picture = "Georg_Friedrich.dds"
-		ideology = absolute_monarchist
-	}
 }
