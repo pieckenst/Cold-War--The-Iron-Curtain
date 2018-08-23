@@ -46,7 +46,7 @@ focus_tree = {
 	focus = {
 		id = USA_housing_act_of_1949
 		icon = GFX_goal_support_democracy
-		cost = 5.00
+		cost = 2.00
 		x = 8
 		y = 13
 		prerequisite = {
@@ -64,7 +64,7 @@ focus_tree = {
 	focus = {
 		id = USA_Internal_Affairs
 		icon = GFX_focus_chi_mission_to_the_us
-		cost = 5.00
+		cost = 2.00
 		x = 6
 		y = 7
 			allow_branch = {
@@ -474,7 +474,7 @@ focus_tree = {
 	focus = {
 		id = USA_fair_society
 		icon = GFX_goal_support_democracy
-		cost = 5.00
+		cost = 2.00
 		prerequisite = {
 			focus = USA_Internal_Affairs
 		}
@@ -491,7 +491,7 @@ focus_tree = {
 	focus = {
 		id = USA_compromise_with_congress
 		icon = GFX_focus_generic_self_management
-		cost = 5.00
+		cost = 2.00
 		prerequisite = {
 			focus = USA_fair_society
 		}
@@ -572,7 +572,7 @@ focus_tree = {
 	focus = {
 		id = USA_the_bully_pulpit
 		icon = GFX_goal_support_democracy
-		cost = 5.00
+		cost = 2.00
 		prerequisite = {
 			focus = USA_fair_society
 		}
@@ -593,7 +593,7 @@ focus_tree = {
 	focus = {
 		id = USA_expansion_of_social_security
 		icon = GFX_goal_support_democracy
-		cost = 5.00
+		cost = 2.00
 		prerequisite = {
 			focus = USA_the_bully_pulpit
 			focus = USA_compromise_with_congress
@@ -611,7 +611,7 @@ focus_tree = {
 	focus = {
 		id = USA_crack_down_on_strikes
 		icon = GFX_goal_support_democracy
-		cost = 5.00
+		cost = 2.00
 		prerequisite = {
 			focus = USA_expansion_of_social_security
 		}
@@ -1704,6 +1704,11 @@ focus_tree = {
 							country_exists = GRE
 						}
 				}
+				bypass = {
+						NOT = {
+							country_exists = GRE
+						}			
+				}
 			allow_branch = {
 					date < 1959.12.31
 				}
@@ -1737,6 +1742,11 @@ focus_tree = {
 					NOT = {
 							country_exists = GRE
 						}
+				}
+				bypass = {
+						NOT = {
+							country_exists = GRE
+						}			
 				}
 			allow_branch = {
 					date < 1959.12.31
@@ -1845,6 +1855,11 @@ focus_tree = {
 		}
 		x = 29
 		y = 2
+				bypass = {
+						NOT = {
+							country_exists = TUR
+						}			
+				}
 			allow_branch = {
 					date < 1959.12.31
 				}
@@ -5308,7 +5323,7 @@ focus_tree = {
 	focus = {
 		id = USA_the_treaty_ports
 		icon = GFX_focus_SAF_colonialist_crusade
-		cost = 10.00
+		cost = 2
 		prerequisite = {
 			focus = USA_end_of_colonization
 		}
@@ -5325,32 +5340,14 @@ focus_tree = {
 					date < 1959.12.31
 				}
 			completion_reward = {
-					if = {
-							limit = {
-									has_country_flag = china_in_taiwan
-								}
-							PRC = {
-									transfer_state = 326
-								}
-							PRC = {
-									transfer_state = 729
-								}
-						}
-					else = {
-							CHI = {
-									transfer_state = 326
-								}
-							CHI = {
-									transfer_state = 729
-								}
-						}
+					add_political_power = 100
 				}
 
 	}
 	focus = {
 		id = USA_Return_Treaty_Ports_to_the_Peoples_Republic_of_China
 		icon = GFX_focus_prc_proclaim_the_peoples_republic
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = USA_the_treaty_ports
 		}
@@ -5372,7 +5369,7 @@ focus_tree = {
 	focus = {
 		id = USA_Return_Treaty_Ports_to_the_Republic_of_China
 		icon = GFX_focus_chi_cooperation_with_the_nationalists
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = USA_the_treaty_ports
 		}
@@ -5721,7 +5718,7 @@ focus_tree = {
 	focus = {
 		id = USA_arm_militarist_honduras
 		icon = GFX_focus_generic_little_entente
-		cost = 10.00
+		cost = 2.00
 		prerequisite = {
 			focus = USA_support_honduras_coup
 		}
@@ -6319,7 +6316,7 @@ focus_tree = {
 	focus = {
 		id = USA_brennan_plan
 		icon = GFX_goal_generic_construction2
-		cost = 5.00
+		cost = 2.00
 		prerequisite = {
 			focus = USA_repeal_taft_hartley
 			focus = USA_crack_down_on_strikes
@@ -7991,7 +7988,7 @@ focus_tree = {
 	focus = {
 		id = USA_the_CIA
 		icon = GFX_focus_generic_strike_at_democracy1
-		cost = 10.00
+		cost = 1.00
 		allow_branch = {
 		 date > 1959.12.31
 		 
@@ -8000,6 +7997,13 @@ focus_tree = {
 		y = 0
 		completion_reward = {
 			add_political_power = 300
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 10
+			}
 		}
 	}
 	focus = {
@@ -8283,6 +8287,7 @@ focus_tree = {
 			OR = {
 				has_global_flag = humphrey_64
 				has_global_flag = lbj_64
+				has_global_flag = lutherking_64
 			}
 		}
 		allow_branch = {
@@ -8695,12 +8700,14 @@ focus_tree = {
 			OR = {
 				has_global_flag = lbj_68
 				has_global_flag = humphrey_68
+				has_global_flag = lutherking_68
 			}
 		}
 			bypass = {
 				OR = {
 					has_global_flag = lbj_68
 					has_global_flag = humphrey_68
+					has_global_flag = lutherking_68
 				}
 			}
 	}
@@ -9341,7 +9348,7 @@ focus_tree = {
 	focus = {
 		id = USA_External_Affairs
 		icon = GFX_focus_generic_strike_at_democracy1
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = USA_the_CIA
 		}
@@ -9353,6 +9360,13 @@ focus_tree = {
 		y = 1
 		completion_reward = {
 			add_political_power = 300
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 10
+			}
 		}
 	}
 	focus = {
@@ -9378,7 +9392,7 @@ focus_tree = {
 	focus = {
 		id = USA_Bay_Of_Pigs_Invasion
 		icon = GFX_focus_generic_strike_at_democracy1
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = USA_External_Affairs
 		}
@@ -9390,6 +9404,13 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			CUB = { country_event = bay_of_pigs.1 }
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 10
+			}
 		}
 	}
 	focus = {
@@ -9411,8 +9432,18 @@ focus_tree = {
  		}
 		x =  23
 		y = 3
+		available = {
+			country_exists = CUB
+		}
 		completion_reward = {
 			puppet = CUB
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
 		}
 	}
 	focus = {

@@ -71,6 +71,11 @@ add_namespace = sor
 add_namespace = saf
 add_namespace = par
 add_namespace = FFC
+add_namespace = GER_ASSASIN
+add_namespace = PMR
+add_namespace = fra_crisis
+add_namespace = vat
+
 
 country_event = {
 	id = ic_pulse.1
@@ -90,6 +95,35 @@ country_event = {
 		}
 		if = {
 			limit = {
+				OR = {
+					tag = ENG
+					tag = FRA
+					tag = ISR
+				}
+				has_global_flag = suez_crisis
+				controls_state = 743
+			}
+			country_event = egypt.120
+		}
+		if = {
+			limit = {
+				tag = FRA
+				date > 1958.4.1
+				date < 1959.1.1
+				has_completed_focus = FRA_Guy_Mollet
+			}
+			country_event = fra_crisis.2
+		}		
+		
+		if = {
+			limit = {
+				tag = ROM
+				owns_state = 949
+			}
+			country_event = PMR.1
+        }
+		if = {
+			limit = {
 				tag = ROC
 				is_subject_of = FRA
 				date > 1958.1.1
@@ -98,361 +132,14 @@ country_event = {
 		}
 		if = {
 			limit = {
-				NOT = {
-					has_government = conservative
-				}
-				not = { tag = GRE }
-				not = { tag = ENG }
-				not = { tag = BRA }
-				has_elections = no
-				has_civil_war = no
-				has_stability < 0.4
-				conservative > 0.5
+				tag = WGR
+				has_completed_focus = WGR_Konrad_Adenauer_49
+				date > 1952.1.1
+				date < 1953.1.1
 			}
-			start_civil_war = {
-				ideology = conservative
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = Liberal_Conservatism
-				}
-				not = { tag = GRE }
-				not = { tag = ENG }
-				not = { tag = BRA }
-				has_elections = no
-				has_civil_war = no
-				has_stability < 0.4
-				Liberal_Conservatism > 0.5
-			}
-			start_civil_war = {
-				ideology = Liberal_Conservatism
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = Christian_Democratic
-				}
-				not = { tag = GRE }
-				not = { tag = ENG }
-				not = { tag = BRA }
-				has_elections = no
-				has_civil_war = no
-				has_stability < 0.4
-				Christian_Democratic > 0.5
-			}
-			start_civil_war = {
-				ideology = Christian_Democratic
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = socialist
-				}
-				not = { tag = GRE }
-				not = { tag = ENG }
-				not = { tag = BRA }
-				has_elections = no
-				has_civil_war = no
-				has_stability < 0.4
-				socialist > 0.5
-			}
-			start_civil_war = {
-				ideology = socialist
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = Social_Liberalism
-				}
-				not = { tag = GRE }
-				not = { tag = ENG }
-				not = { tag = BRA }
-				has_elections = no
-				has_civil_war = no
-				has_stability < 0.4
-				Social_Liberalism > 0.5
-			}
-			start_civil_war = {
-				ideology = Social_Liberalism
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = democratic
-				}
-				not = { tag = GRE }
-				not = { tag = ENG }
-				not = { tag = BRA }
-				has_elections = no
-				has_civil_war = no
-				has_stability < 0.4
-				democratic > 0.5
-			}
-			start_civil_war = {
-				ideology = democratic
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = centrist
-				}
-				not = { tag = GRE }
-				not = { tag = ENG }
-				not = { tag = BRA }
-				has_elections = no
-				has_civil_war = no
-				has_stability < 0.4
-				centrist > 0.5
-			}
-			start_civil_war = {
-				ideology = centrist
-				size = 0.5
-			}
-		}
-		
-		if = {
-			limit = {
-				NOT = {
-					has_government = liberal
-				}
-				not = { tag = GRE }
-				not = { tag = ENG }
-				not = { tag = BRA }
-				has_elections = no
-				has_civil_war = no
-				has_stability < 0.4
-				liberal > 0.5
-			}
-			start_civil_war = {
-				ideology = liberal
-				size = 0.5
-			}
-		}
-		
-		#EXTREMIST CIVIL WARS
-		if = {
-			limit = {
-				NOT = {
-					has_government = Social_Democratic
-				}
-				has_civil_war = no
-				has_stability < 0.4
-				Social_Democratic > 0.5
-			}
-			start_civil_war = {
-				ideology = Social_Democratic
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = communism
-				}
-				has_civil_war = no
-				has_stability < 0.4
-				communism > 0.5
-			}
-			start_civil_war = {
-				ideology = communism
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = trotskyism
-				}
-				has_civil_war = no
-				has_stability < 0.4
-				trotskyism > 0.5
-			}
-			start_civil_war = {
-				ideology = trotskyism
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = maoism
-				}
-				has_civil_war = no
-				has_stability < 0.4
-				maoism > 0.5
-			}
-			start_civil_war = {
-				ideology = maoism
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = National_Socialism
-				}
-				has_civil_war = no
-				has_stability < 0.4
-				National_Socialism > 0.5
-			}
-			start_civil_war = {
-				ideology = National_Socialism
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = fascism
-				}
-				has_civil_war = no
-				has_stability < 0.4
-				fascism > 0.5
-			}
-			start_civil_war = {
-				ideology = fascism
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = nationalism
-				}
-				has_civil_war = no
-				has_stability < 0.4
-				nationalism > 0.5
-			}
-			start_civil_war = {
-				ideology = nationalism
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = monarchism
-				}
-				has_civil_war = no
-				has_stability < 0.4
-				monarchism > 0.5
-			}
-			start_civil_war = {
-				ideology = monarchism
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = neutrality
-				}
-				has_civil_war = no
-				has_stability < 0.4
-				neutrality > 0.5
-			}
-			start_civil_war = {
-				ideology = neutrality
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = islamism
-				}
-				has_civil_war = no
-				has_stability < 0.4
-				islamism > 0.5
-			}
-			start_civil_war = {
-				ideology = islamism
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = radical_shiaism
-				}
-				has_civil_war = no
-				has_stability < 0.4
-				radical_shiaism > 0.5
-			}
-			start_civil_war = {
-				ideology = radical_shiaism
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = pan_arabism
-				}
-				has_civil_war = no
-				has_stability < 0.4
-				pan_arabism > 0.5
-			}
-			start_civil_war = {
-				ideology = pan_arabism
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = Salafism
-				}
-				has_civil_war = no
-				has_stability < 0.4
-				Salafism > 0.5
-			}
-			start_civil_war = {
-				ideology = Salafism
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = Judaism
-				}
-				has_civil_war = no
-				has_stability < 0.4
-				Judaism > 0.5
-			}
-			start_civil_war = {
-				ideology = Judaism
-				size = 0.5
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					has_government = Christianism
-				}
-				has_civil_war = no
-				has_stability < 0.4
-				Christianism > 0.5
-			}
-			start_civil_war = {
-				ideology = Christianism
-				size = 0.5
-			}
-		}
+			country_event = GER_ASSASIN.1
+		}		
+
 		if = {
 			limit = {
 				OR = {
@@ -466,6 +153,25 @@ country_event = {
 					has_government = communism
 					has_government = National_Socialism
 					has_government = maoism
+				}
+				NOT = {
+					has_country_flag = cos_tag_drop
+				}
+			}
+			set_country_flag = cos_tag_drop
+			drop_cosmetic_tag = yes
+		}
+
+		if = {
+			limit = {
+				OR = {
+					tag = SAF
+				}
+				OR = {
+					has_government = fascism
+					has_government = trotskyism
+					has_government = nationalism
+					has_government = National_Socialism
 				}
 				NOT = {
 					has_country_flag = cos_tag_drop
@@ -507,11 +213,13 @@ country_event = {
 						NOT = { tag = KPA }
 						NOT = { tag = BUL }
 						NOT = { tag = EGY }
-						NOT = { tag = NIA }
 						NOT = { tag = ROM }
 						NOT = { tag = SOR }
 						NOT = { tag = SWE }
 						NOT = { tag = SWI }
+						NOT = { tag = YUG }
+						NOT = { tag = CUB }
+						NOT = { tag = ZIM }
 					}
 					load_focus_tree = generic_focus
 					set_country_flag = focus_tree_60_reset
@@ -548,6 +256,8 @@ country_event = {
 							tag = KPA
 							tag = BUL
 							tag = EGY
+							tag = CUB
+							tag = ZIM
 						}
 					}
 					set_country_flag = focus_tree_60_reset
@@ -556,6 +266,12 @@ country_event = {
 							tag = ENG
 						}
 						load_focus_tree = ENG_60s
+					}
+					if = {
+						limit = {
+							tag = CUB
+						}
+						load_focus_tree = Cuba_60s
 					}
 					if = {
 						limit = {
@@ -676,6 +392,12 @@ country_event = {
 							tag = EGY
 						}
 						load_focus_tree = egypt_60s_focus
+					}
+					if = {
+						limit = {
+							tag = ZIM
+						}
+						load_focus_tree = 60s_ZIM
 					}
 					
 				}
@@ -1380,6 +1102,7 @@ country_event = {
 						has_civil_war = no
 						date > 1965.12.3
 						date < 1966.10.15
+						has_elections = yes
 						NOT = { has_country_flag = french_elections_1965 }
 					}
 					country_event = french_elections.2
@@ -1390,6 +1113,7 @@ country_event = {
 						has_civil_war = no
 						date > 1969.6.13
 						date < 1969.10.15
+						has_elections = yes
 						NOT = { has_country_flag = french_elections_1969 }
 					}
 					country_event = french_elections.3
@@ -1568,7 +1292,8 @@ country_event = {
 						date > 1953.6.15
 						date < 1953.9.1
 						NOT = { has_global_flag = berlin_uprising_1952 }
-						has_capitulated = no					
+						has_capitulated = no		
+						NOT = { has_completed_focus = DDR_allow_liberals_in_government }						
 					}
 					country_event = cwu.1
 				}
@@ -1578,7 +1303,8 @@ country_event = {
 						date > 1961.12.9
 						BCM = { 
 							is_subject_of = ROOT
-							owns_state = 1105 owns_state = 1106
+							owns_state = 1105 
+							owns_state = 1106
 						}
 					}
 					country_event = cameroon.3
@@ -1817,6 +1543,62 @@ country_event = {
 					}
 					country_event = NATO.4
 				}	
+				if = {
+					limit = {
+						tag = FRA
+						date > 1954.11.1
+						date < 1955.1.1
+						NOT = {
+							OR = {
+								country_exists = ALG
+								has_war_with = ALG
+							}
+						}
+					}
+					country_event = algeria.1001
+				}		
+				if = {
+					limit = {
+						tag = FRA
+						date > 1955.8.1
+						date < 1956.1.1
+						NOT = {
+							OR = {
+								country_exists = ALG
+								has_war_with = ALG
+							}
+						}
+					}
+					country_event = algeria.1002
+				}		
+				if = {
+					limit = {
+						tag = FRA
+						date > 1955.12.1
+						date < 1956.2.1
+						NOT = {
+							OR = {
+								country_exists = ALG
+								has_war_with = ALG
+							}
+						}
+					}
+					country_event = algeria.1003
+				}		
+				if = {
+					limit = {
+						tag = FRA
+						date > 1956.9.1
+						date < 1957.1.1
+						NOT = {
+							OR = {
+								country_exists = ALG
+								has_war_with = ALG
+							}
+						}
+					}
+					country_event = algeria.1005
+				}		
 				if = {
 					limit = {
 						tag = ENG 
@@ -2675,6 +2457,8 @@ country_event = {
 			load_focus_tree = FRA_1960s
 			set_global_flag = FRA_60_loaded
 		}
+
+
 		if = {
 			limit = {
 				tag = ENG
@@ -4473,12 +4257,14 @@ country_event = {
 					has_cosmetic_tag = ROC_FRA
 					has_cosmetic_tag = DJB_FRA
                     has_cosmetic_tag = TUN_FRA
+					has_cosmetic_tag = LOS_FRA
+					has_cosmetic_tag = CAM_FRA
+					has_cosmetic_tag = VIE_FRA
 					has_cosmetic_tag = DRY_ENG
 					has_cosmetic_tag = CYP_ENG
 					has_cosmetic_tag = BOT_ENG
 					has_cosmetic_tag = GAM_ENG
 					has_cosmetic_tag = NIA_ENG
-					has_cosmetic_tag = UAE_ENG
 					has_cosmetic_tag = SWA_ENG
 					has_cosmetic_tag = SLE_ENG
 					has_cosmetic_tag = SOL_ENG
@@ -4501,6 +4287,13 @@ country_event = {
 					has_cosmetic_tag = CEY_ENG
 					has_cosmetic_tag = CEY_ENG_DOM
 					has_cosmetic_tag = CEY_ENG_DOM_FLAG
+					has_cosmetic_tag = PAK_ENG
+					has_cosmetic_tag = RAJ_ENG
+					has_cosmetic_tag = SAF_ENG
+					has_cosmetic_tag = IND_ENG
+					has_cosmetic_tag = NZL_ENG
+					has_cosmetic_tag = SKK_RAJ
+					has_cosmetic_tag = SKK_ENG
 					has_cosmetic_tag = SOR_ITA
 					has_cosmetic_tag = ZIM_ENG
 					has_cosmetic_tag = MLT_ENG
@@ -4524,6 +4317,7 @@ country_event = {
 					has_cosmetic_tag = SRW_SPR
 					has_cosmetic_tag = GEQ_SPR
 					has_cosmetic_tag = NAM_SAF
+					has_cosmetic_tag = ANG_POR
 				}
 			}
            drop_cosmetic_tag = yes
@@ -4679,198 +4473,26 @@ country_event = {
             }
             country_event = { id = britishdecolonization.1 days = 1 }
         }
-		ROOT = {
-			clear_variable = power_consumption
-			clear_variable = power_production
-		
-            set_variable = { power_consumption_max = 10000 }
-            clamp_variable = { var = power_consumption min = 0 max = power_consumption_max }
-			
-			set_variable = { power_consumption = num_of_factories}
-			add_to_variable = { power_consumption = num_of_controlled_states }
-			
-			set_variable = { power_production = 0 }
-			
-
-			
-			every_owned_state = {
-				limit = {
-					coal_plant > 0
-					coal_plant < 2
-				}
-				ROOT = {
-					add_to_variable = { power_production = 5 }
-				}
-			}
-			every_owned_state = {
-				limit = {
-					coal_plant > 1
-					coal_plant < 3
-				}
-				ROOT = {
-					add_to_variable = { power_production = 10 }
-				}
-			}			
-			every_owned_state = {
-				limit = {
-					coal_plant > 2
-					coal_plant < 4
-				}
-				ROOT = {
-					add_to_variable = { power_production = 15 }
-				}
-			}		
-			every_owned_state = {
-				limit = {
-					coal_plant > 3
-				}
-				ROOT = {
-					add_to_variable = { power_production = 20 }
-				}
-			}
-			every_owned_state = {
-				limit = {
-					nuclear_power_reactor > 0
-					nuclear_power_reactor < 2
-				}
-				ROOT = {
-					add_to_variable = { power_production = 20 }
-				}
-			}
-			every_owned_state = {
-				limit = {
-					nuclear_power_reactor > 1
-					nuclear_power_reactor < 3
-				}
-				ROOT = {
-					add_to_variable = { power_production = 40 }
-				}
-			}			
-			every_owned_state = {
-				limit = {
-					nuclear_power_reactor > 2
-					nuclear_power_reactor < 4
-				}
-				ROOT = {
-					add_to_variable = { power_production = 60 }
-				}
-			}		
-			every_owned_state = {
-				limit = {
-					nuclear_power_reactor > 3
-					nuclear_power_reactor < 5
-				}
-				ROOT = {
-					add_to_variable = { power_production = 80 }
-				}
-			}	
-			every_owned_state = {
-				limit = {
-					nuclear_power_reactor > 4
-					nuclear_power_reactor < 6
-				}
-				ROOT = {
-					add_to_variable = { power_production = 100 }
-				}
-			}	
-			every_owned_state = {
-				limit = {
-					nuclear_power_reactor > 5
-				}
-				ROOT = {
-					add_to_variable = { power_production = 120 }
-				}
-			}
-			every_owned_state = {
-				limit = {
-					nuclear_fusion_reactor > 0
-				}
-				ROOT = {
-					add_to_variable = { power_production = 1000 }
-				}
-			}
-			clear_variable = power_rate
-			set_variable = { power_rate = power_production }
-			subtract_from_variable = { power_rate = power_consumption } 
-			if = {
-				limit = {
-					check_variable = {
-						power_production > power_consumption
-					}
-				}
-				add_ideas = power_grid4
-				remove_ideas = {
-					power_grid3
-					power_grid2
-					power_grid1
-				}
-			}
-			if = {
-				limit = {
-					check_variable = {
-						power_consumption > power_production
-					}
-				}
-					multiply_variable = {
-						var = power_consumption
-						value = 0.75
-					}
-					if = {
-						limit = {
-							check_variable = {
-								power_production > power_consumption
-							}						
-						}
-						add_ideas = power_grid3
-						remove_ideas = {
-							power_grid2
-							power_grid4
-							power_grid1
-						}
-					}
-					multiply_variable = {
-						var = power_consumption
-						value = 3
-					}		
-					divide_variable = {
-						var = power_consumption
-						value = 3
-					}	
-					multiply_variable = {
-						var = power_consumption
-						value = 0.5
-					}		
-					if = {
-						limit = {
-							NOT = { has_idea = power_grid3 }
-							check_variable = {
-								power_production > power_consumption
-							}		
-						}
-						add_ideas = power_grid2
-						remove_ideas = {
-							power_grid3
-							power_grid4
-							power_grid1
-						}
-					}
-					if = {
-						limit = {
-							NOT = { has_idea = power_grid3 }
-							NOT = { has_idea = power_grid2 }
-							check_variable = {
-								power_production < power_consumption
-							}		
-						}
-						add_ideas = power_grid1
-						remove_ideas = {
-							power_grid3
-							power_grid4
-							power_grid2
-						}
-					}
-				}
-			}
-		}
+		if = {
+            limit = {
+                original_tag = ISR
+				country_exists = EGY
+				country_exists = JOR
+				country_exists = SYR
+		        date > 1967.6.4
+				date < 1970.1.1
+            }
+            country_event = { id = israel.4 days = 1 }
+        }
+		if = {
+            limit = {
+                original_tag = VTC
+				country_exists = VTC
+		        date > 1958.11.1
+				date < 1958.10.1
+            }
+            country_event = { id = vat.1 days = 1 }
+        }
 	}
+}
 

@@ -847,7 +847,10 @@ focus_tree = {
 		}
 		x = 30
 		y = 8
-
+		completion_reward = {
+					custom_effect_tooltip = "We don't pursue the Balkan Union."
+					add_political_power = 150
+				}
 	}
 	focus = {
 		id = a_romanian_puppet
@@ -963,7 +966,20 @@ focus_tree = {
 		}
 		x = 36
 		y = 6
-
+		completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = dennounce_soviet
+								}
+						}
+						YUG = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = dennounce_soviet
+								}
+						}
+				}
 	}
 	focus = {
 		id = YUG_claims_on_albania
@@ -974,7 +990,12 @@ focus_tree = {
 		}
 		x = 36
 		y = 7
-
+		completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = ALB
+						}
+				}
 	}
 	focus = {
 		id = YUG_ties_with_others
@@ -996,7 +1017,32 @@ focus_tree = {
 		}
 		x = 37
 		y = 3
-
+		completion_reward = {
+					YUG = {
+							add_opinion_modifier = {
+									target = IRQ
+									modifier = small_increase
+								}
+						}
+				IRQ = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = small_increase
+								}
+						}
+						YUG = {
+							add_opinion_modifier = {
+									target = PER
+									modifier = small_increase
+								}
+						}
+				PER = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = small_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = reconstruction_efforts
@@ -1299,7 +1345,20 @@ focus_tree = {
 		}
 		x = 39
 		y = 3
-
+		completion_reward = {
+					YUG = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = small_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = YUG_ask_western_halp
@@ -3222,7 +3281,7 @@ focus_tree = {
 		x = 1
 		y = 5
 			completion_reward = {
-					add_ideas = YUG_idea_american_aid
+					add_timed_idea = { idea = YUG_idea_american_aid  days = 1460 }
 				}
 
 	}

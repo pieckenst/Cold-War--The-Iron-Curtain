@@ -16,7 +16,7 @@ country_event = {
 		name = cwu.1.a
 		start_civil_war = {
 			ruling_party = communism
-			ideology = democratic
+			ideology = Social_Democratic
 			size = 0.3
 			states = { 62 68 65 }
 		}
@@ -36,11 +36,11 @@ country_event = {
 	option = { # Give in to their demands
 		name = cwu.1.b
 		set_politics = {
-			ruling_party = democratic
+			ruling_party = Social_Democratic
 			elections_allowed = yes
 			parties = {
 				communism = { popularity = 0 }
-				democratic = { popularity = 40 }
+				Social_Democratic = { popularity = 40 }
 				socialist = { popularity = 23 }
 				conservative = { popularity = 12 }
 				fascism = { popularity = 2 }
@@ -119,20 +119,34 @@ country_event = {
 
 	option = { # Fight them
 		name = cwu.4.a
-		start_civil_war = {
-			ruling_party = communism
-			ideology = democratic
-			size = 0.1
-			states = { 86 }
-		}
+		if = {
+			limit = {
+				owns_state = 86
+			}
+			start_civil_war = {
+				ruling_party = communism
+				ideology = neutrality
+				size = 0.1
+				states = { 86 }
+			}
+		}	
+		if = {
+			limit = {
+				NOT = { owns_state = 86 }
+			}
+			start_civil_war = {
+				ruling_party = communism
+				ideology = neutrality
+				size = 0.5
+			}
+		}	
 		hidden_effect = {
 			set_country_flag = pol_fight_democrats
 			news_event = cwu.5
 			create_country_leader = {
-				name = "Poznan Workers"
-				picture = "Portrait_POL_Workers.dds"
-				expire = "1956.12.1"
-				ideology = progressive
+				name = "August Zaleski"
+				picture = "August_Zaleski.dds"
+				ideology = Independent
 			}
 		}
 		ai_chance = { factor = 1 modifier = { is_historical_focus_on = no factor = 80 } }
@@ -140,36 +154,61 @@ country_event = {
 
 	option = { # Give in to their demands
 		name = cwu.4.b
-		set_politics = {
-			ruling_party = democratic
-			elections_allowed = yes
-			last_election = "1956.6.28"
-			parties = {
-				communism = { popularity = 0 }
-				democratic = { popularity = 40 }
-				socialist = { popularity = 23 }
-				conservative = { popularity = 12 }
-				fascism = { popularity = 12 }
-				nationalism = { popularity = 3 }
-				centrist = { popularity = 20 }
-			}
-		}
-		set_autonomy = { target = POL autonomy_state = autonomy_free }	
-		hidden_effect = {
-			set_country_flag = pol_become_democratic
-			news_event = cwu.5
-		}
-		ai_chance = {
-			factor = 0
-			modifier = {
-				is_historical_focus_on = no
-				factor = 20
-			}
-		}
-	}
+	   set_politics = {
 
-	immediate = {
-		set_global_flag = poznan_uprising_1956 
+		parties = {
+			democratic = { popularity = 0 }
+			communism = { popularity = 50 }
+			fascism = { popularity = 0 }
+			nationalism = { popularity = 0 }
+			monarchism = { popularity = 0 }
+			neutrality = { popularity = 45 }
+			islamism = { popularity = 0 }
+			radical_shiaism = { popularity = 0 }
+			pan_arabism = {popularity = 0}
+			Social_Democratic = { popularity = 0 }
+			Social_Liberalism = { popularity = 0 }
+			Salafism = { popularity = 0 }
+			Christianism = { popularity = 0 }
+			Liberal_Conservatism = { popularity = 0 }
+			Judaism = { popularity = 0 }
+			conservative = { popularity = 0 }
+			Christian_Democratic = { popularity = 0 }
+			socialist = { popularity = 2 }
+			centrist = { popularity = 0 }
+			liberal = { popularity = 0 }
+			trotskyism = { popularity = 1 }
+			maoism = { popularity = 2 }
+			National_Socialism = { popularity = 0 }
+
+			}
+		
+			ruling_party = communism
+			last_election = "1945.1.1"
+			election_frequency = 48
+			elections_allowed = no
+
+			hidden_effect = {
+				create_country_leader = {
+					name = "August Zaleski"
+					picture = "August_Zaleski.dds"
+					ideology = Independent
+				}
+				set_country_flag = pol_become_democratic
+				news_event = cwu.5
+			}
+			ai_chance = {
+				factor = 0
+				modifier = {
+					is_historical_focus_on = no
+					factor = 20
+				}
+			}
+		}
+
+		immediate = {
+			set_global_flag = poznan_uprising_1956 
+		}
 	}
 }
 

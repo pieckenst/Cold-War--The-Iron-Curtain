@@ -109,15 +109,15 @@ set_technology = {
 	heavy_tanks_1 = 1
 	heavy_tanks_2 = 1
 	heavy_tanks_3 = 1
-	armored_engineering_1 = 1
-	armored_engineering_2 = 1
-	armored_engineering_3 = 1
+	
+	
+	
 	mechanized_infantry = 1
 	mechanized_infantry2 = 1
 	mechanized_infantry3 = 1
-	recon_mechanized_1 = 1
-	recon_mechanized_2 = 1
-	recon_mechanized_3 = 1
+	
+	
+	
 	mechanized_heavy_infantry = 1
 	amphibious1 = 1
 	motorised_infantry = 1
@@ -156,18 +156,54 @@ set_technology = {
 }
 
 set_convoys = 745
-give_guarantee = TNG
-give_guarantee = TRI
-give_guarantee = WGR
+
+  ENG = { diplomatic_relation = { country = WGR relation = guarantee  active = yes } }
+  ENG = { diplomatic_relation = { country = TRI relation = guarantee  active = yes } }
+  ENG = { diplomatic_relation = { country = TNG relation = guarantee  active = yes } }
+  ENG = { diplomatic_relation = { country = POR relation = guarantee  active = yes } }
+
+  ENG = { diplomatic_relation = { country = FRA relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = CAN relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = HOL relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = BEl relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = LUX relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = ITA relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = ICE relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = NOR relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = DEN relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = USA relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = POR relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = WGR relation = military_access active = yes } }
+
+1956.1.1 = {
+  ENG = { diplomatic_relation = { country = TUR relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = GRE relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = WGR relation = guarantee  active = no } }
+}
+
+1990.1.1 = {
+  ENG = { diplomatic_relation = { country = SPR relation = military_access active = yes } }
+}
+
+2000.1.1 = {
+  ENG = { diplomatic_relation = { country = CZE relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = HUN relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = POL relation = military_access active = yes } }
+}
+
+2008.1.1 = {
+  ENG = { diplomatic_relation = { country = BUL relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = EST relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = LAT relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = LIT relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = ROM relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = SLO relation = military_access active = yes } }
+  ENG = { diplomatic_relation = { country = SLV relation = military_access active = yes } }
+}
 
 if = {
 	limit = {
 		has_dlc = "Together for Victory"
-	}
-	set_autonomy = {
-		target = OMA
-		autonomous_state = autonomy_protectorate
-		freedom_level = 0.4
 	}
 	set_autonomy = {
 		target = WGR
@@ -180,7 +216,7 @@ if = {
 		freedom_level = 0.4
 	}	
 	set_autonomy = {
-		target = UAE
+		target = PAL
 		autonomous_state = autonomy_protectorate
 		freedom_level = 0.4
 	}
@@ -216,8 +252,9 @@ if = {
 	}
 	set_autonomy = {
 		target = MAL
-		autonomous_state = autonomy_protectorate
+		autonomous_state = autonomy_dominion
 		freedom_level = 0.4
+		
 	}
 	set_autonomy = {
 		target = ZIM
@@ -256,7 +293,7 @@ if = {
 	}
 	set_autonomy = {
 		target = LES
-		autonomous_state = autonomy_protectorate
+		autonomous_state = autonomy_colony
 		freedom_level = 0.6
 	}
 	set_autonomy = {
@@ -301,7 +338,7 @@ if = {
 	}
 	set_autonomy = {
 		target = UGA
-		autonomous_state = autonomy_protectorate
+		autonomous_state = autonomy_colony
 		freedom_level = 0.6
 	}
 	set_autonomy = {
@@ -331,8 +368,8 @@ if = {
 	}
     set_autonomy = {
 		target = BCM
-		autonomous_state = autonomy_protectorate
-		freedom_level = 0.6
+		autonomous_state = autonomy_mandate
+		freedom_level = 0.3
 	}
 	set_autonomy = {
 		target = MLT
@@ -394,11 +431,14 @@ if = {
 		autonomous_state = autonomy_colony
 		freedom_level = 0.4
 	}
+	set_autonomy = {
+		target = SKK
+		autonomous_state = autonomy_protectorate
+		freedom_level = 0.6
+	}
 	
 	else = {
 		puppet = KUW
-		puppet = UAE
-		puppet = OMA
 		puppet = CYP
 		puppet = SUD
 		puppet = KEN
@@ -429,6 +469,7 @@ if = {
 		puppet = JAM
 		puppet = HOK
 		puppet = JOR
+		puppet = PAL
 		puppet = WGR
 		puppet = NFL
 		puppet = BHR
@@ -440,14 +481,15 @@ if = {
 		puppet = SWK
 		puppet = BLZ
 		puppet = SLK
+		puppet = SKK
 	}
 }
 add_ideas = {
 	cold_war_civil_war_ideological_idea
 	population_growth_steady
 	nato_member
-	foreign_aggression_policy_6
 	UN_Security_Council_Member_Perm
+	ENG_george_vi
 }
 
 add_ai_strategy = {
@@ -521,8 +563,11 @@ set_politics = {
 		}
 	}
 	set_autonomy = { target = JOR autonomy_state = autonomy_free }	
+	set_autonomy = { target = PAL autonomy_state = autonomy_free }	
 	set_autonomy = { target = WGR autonomy_state = autonomy_free }	
 	set_autonomy = { target = NFL autonomy_state = autonomy_free }	
+	set_autonomy = { target = SKK autonomy_state = autonomy_free }	
+    set_autonomy = { target = NZL autonomy_state = autonomy_free }     
 	ENG = { 
 		add_to_war = { targeted_alliance = MAL enemy = MLA } 
 	}
@@ -750,11 +795,11 @@ oob = "ENG_1960"
 		main_battle_tanks_2 = 1
 		main_battle_tanks_3 = 1
 		main_battle_tanks_4 = 1
-		armored_engineering_1 = 1
-		armored_engineering_2 = 1
-		armored_engineering_3 = 1
-		armored_engineering_4 = 1
-		armored_engineering_5 = 1
+		
+		
+		
+		
+		
 		super_heavy_tanks_1 = 1
 		super_heavy_tanks_2 = 1
 		super_heavy_tanks_3 = 1
@@ -771,11 +816,11 @@ oob = "ENG_1960"
 		tankdestroyer3 = 1
 		tankdestroyer4 = 1
 		tankdestroyer5 = 1
-		recon_mechanized_1 = 1
-		recon_mechanized_2 = 1
-		recon_mechanized_3 = 1
-		recon_mechanized_4 = 1
-		recon_mechanized_5 = 1
+		
+		
+		
+		
+		
 		motorised_infantry = 1
 		motorised_infantry_2 = 1
 		motorised_infantry_3 = 1
@@ -880,8 +925,6 @@ oob = "ENG_1960"
 	set_autonomy = { target = SWA autonomy_state = autonomy_free }	
 }
 1971.1.1 = {
-	set_autonomy = { target = OMA autonomy_state = autonomy_free }
-    set_autonomy = { target = UAE autonomy_state = autonomy_free }	
 	set_autonomy = { target = QAT autonomy_state = autonomy_free }
     set_autonomy = { target = BHR autonomy_state = autonomy_free }	
     set_autonomy = { target = KUW autonomy_state = autonomy_free }		
@@ -912,8 +955,7 @@ oob = "ENG_1960"
 }
 
 1986.1.1 = {
-    set_autonomy = { target = AST autonomy_state = autonomy_free }
-    set_autonomy = { target = NZL autonomy_state = autonomy_free }      
+    set_autonomy = { target = AST autonomy_state = autonomy_free } 
 }
 
 1997.1.1 = {
@@ -1735,6 +1777,14 @@ create_country_leader = {
 	}
 }
 
+1983.1.1 = {
+	create_country_leader = {
+		name = "Neil Kinnock"
+		picture = "Neil_Kinnock.dds"
+		ideology = social_democrat
+	}
+}
+
 1990.10.28 = {
 	create_country_leader = {
 		name = "John Major"
@@ -1742,3 +1792,35 @@ create_country_leader = {
 		ideology = conservatism
   	}
  }
+ 
+1994.1.1 = {
+	create_country_leader = {
+		name = "Tony Blair"
+		picture = "Tony_Blair.dds"
+		ideology = social_democrat
+	}
+}
+ 
+1997.1.1 = {
+    create_country_leader = {
+	    name = "William Hague"
+	    picture = "William_Hague.dds"
+	    ideology = conservatism
+    }
+}
+
+2005.1.1 = {
+    create_country_leader = {
+	    name = "David Cameron"
+	    picture = "David_Cameron.dds"
+	    ideology = conservatism
+    }
+}
+
+2007.1.1 = {
+	create_country_leader = {
+		name = "Gordon Brown"
+		picture = "Gordon_Brown.dds"
+		ideology = social_democrat
+	}
+}

@@ -221,6 +221,20 @@ focus_tree = {
 			hidden_effect = {
 				release = FLA
 				release = WAL
+				if = {
+			        limit = {
+				        WGR = { owns_state = 51 }
+			        }
+			        WGR = { transfer_state = 891 }
+					891 = { remove_core_of = WAL }
+		        }
+				if = {
+			        limit = {
+				        DDR = { owns_state = 51 }
+			        }
+			        DDR = { transfer_state = 891 }
+					891 = { remove_core_of = WAL }
+		        }
 				country_event = { hours = 6 id = belgium.4 }
 				set_country_flag = BEL_Flemish_Civil_War
 			}
@@ -320,6 +334,20 @@ focus_tree = {
 			hidden_effect = {
 				release = FLA
 				release = WAL
+				if = {
+			        limit = {
+				        WGR = { owns_state = 51 }
+			        }
+			        WGR = { transfer_state = 891 }
+					891 = { remove_core_of = WAL }
+		        }
+				if = {
+			        limit = {
+				        DDR = { owns_state = 51 }
+			        }
+			        DDR = { transfer_state = 891 }
+					891 = { remove_core_of = WAL }
+		        }
 				country_event = { hours = 6 id = belgium.4 }
 				set_country_flag = BEL_Walloon_Civil_War
 			}
@@ -911,7 +939,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 5
-
+		completion_reward = {
+			add_ideas = neutrality_idea
+		}
 	}
 	focus = {
 		id = BEL_Cancel_all_Diplomatic_Relations
@@ -922,7 +952,10 @@ focus_tree = {
 		}
 		x = 23
 		y = 6
-
+		completion_reward = {
+			add_ideas = deterrence
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = BEL_Military_Defence_Capabilities
@@ -933,7 +966,38 @@ focus_tree = {
 		}
 		x = 23
 		y = 7
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = BEL_Close_Borders
@@ -944,7 +1008,9 @@ focus_tree = {
 		}
 		x = 25
 		y = 6
-
+		completion_reward = {
+			add_ideas = closed_economy
+		}
 	}
 	focus = {
 		id = BEL_Fortify_Borders
@@ -955,7 +1021,9 @@ focus_tree = {
 		}
 		x = 25
 		y = 7
-
+		completion_reward = {
+			add_timed_idea = { idea = fortification_build_up days = 900 }
+		}
 	}
 	focus = {
 		id = BEL_Our_own_Nuclear_Program
@@ -969,7 +1037,13 @@ focus_tree = {
 		}
 		x = 24
 		y = 8
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = nuclear_bonus
+							ahead_reduction = 0.75
+							category = nuclear
+						}
+				}
 	}
 	focus = {
 		id = BEL_Neutral_Belgian_State
@@ -991,7 +1065,20 @@ focus_tree = {
 		}
 		x = 32
 		y = 1
-
+		completion_reward = {
+			34 = {
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}	
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}								
+			}
+		}
 	}
 	focus = {
 		id = BEL_Expand_Steel_Industry
@@ -1002,7 +1089,14 @@ focus_tree = {
 		}
 		x = 32
 		y = 2
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = {
+					type = steel
+					amount = 40
+				}		
+			}
+		}
 	}
 	focus = {
 		id = BEL_Expand_Liege_Coal_Industry
@@ -1013,7 +1107,38 @@ focus_tree = {
 		}
 		x = 30
 		y = 3
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = coal_plant
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = coal_plant
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = coal_plant
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = BEL_German_Speaking_Industry
@@ -1024,7 +1149,20 @@ focus_tree = {
 		}
 		x = 28
 		y = 4
-
+		completion_reward = {
+			891 = {
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}	
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}									
+			}
+		}
 	}
 	focus = {
 		id = BEL_Fund_FN_Herstal
@@ -1035,7 +1173,15 @@ focus_tree = {
 		}
 		x = 32
 		y = 4
-
+		completion_reward = {
+			capital_scope = {	
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}									
+			}
+		}
 	}
 	focus = {
 		id = BEL_Modernize_Flanders
@@ -1046,7 +1192,20 @@ focus_tree = {
 		}
 		x = 34
 		y = 1
-
+		completion_reward = {
+			6 = {
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}	
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}									
+			}
+		}
 	}
 	focus = {
 		id = BEL_Strike_Against_Unemployment
@@ -1057,7 +1216,15 @@ focus_tree = {
 		}
 		x = 34
 		y = 2
-
+		completion_reward = {
+			random_owned_controlled_state = {	
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}									
+			}
+		}
 	}
 	focus = {
 		id = BEL_Modernize_Military_Indusrty
@@ -1069,7 +1236,15 @@ focus_tree = {
 		}
 		x = 33
 		y = 3
-
+		completion_reward = {
+			capital_scope = {	
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}									
+			}
+		}
 	}
 	focus = {
 		id = BEL_Expand_Port_Anvers
@@ -1080,7 +1255,15 @@ focus_tree = {
 		}
 		x = 36
 		y = 3
-
+		completion_reward = {
+			capital_scope = {	
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}									
+			}
+		}
 	}
 	focus = {
 		id = BEL_Rebuild_Dockyards
@@ -1091,7 +1274,15 @@ focus_tree = {
 		}
 		x = 34
 		y = 4
-
+		completion_reward = {
+			capital_scope = {	
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}									
+			}
+		}
 	}
 	focus = {
 		id = BEL_Scientific_Advances
@@ -1113,7 +1304,14 @@ focus_tree = {
 		}
 		x = 35
 		y = 6
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = Industry
+							bonus = 0.5
+							uses = 1
+							category = industry
+						}
+				}
 	}
 	focus = {
 		id = BEL_Focus_on_Computers
@@ -1124,7 +1322,14 @@ focus_tree = {
 		}
 		x = 31
 		y = 6
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = Computers
+				bonus = 0.5
+				uses = 1
+				category = electronics
+			}		
+		}
 	}
 	focus = {
 		id = BEL_Chromium_in_Flanders
@@ -1135,7 +1340,14 @@ focus_tree = {
 		}
 		x = 36
 		y = 5
-
+		completion_reward = {
+			capital_scope = {
+				add_resource = {
+					type = chromium
+					amount = 50
+				}
+			}
+		}
 	}
 	focus = {
 		id = BEL_Seek_For_Oil
@@ -1146,7 +1358,14 @@ focus_tree = {
 		}
 		x = 38
 		y = 4
-
+		completion_reward = {
+			capital_scope = {
+				add_resource = {
+					type = oil
+					amount = 50
+				}
+			}
+		}
 	}
 	focus = {
 		id = BEL_Request_American_Support
@@ -1157,7 +1376,14 @@ focus_tree = {
 		}
 		x = 44
 		y = 1
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = Leadership_Reforms
+							uses = 1
+							bonus = 0.5
+							category = land_doctrine
+						}
+				}
 	}
 	focus = {
 		id = BEL_Lessons_from_WW2
@@ -1168,7 +1394,14 @@ focus_tree = {
 		}
 		x = 42
 		y = 2
-
+				completion_reward = {
+					add_tech_bonus = {
+							name = Leadership_Reforms
+							uses = 2
+							bonus = 0.5
+							category = land_doctrine
+						}
+				}
 	}
 	focus = {
 		id = BEL_American_Advisors
@@ -1179,7 +1412,9 @@ focus_tree = {
 		}
 		x = 42
 		y = 3
-
+		completion_reward = {
+			add_ideas = american_advisors
+		}
 	}
 	focus = {
 		id = BEL_Focus_on_MBTs
@@ -1190,7 +1425,14 @@ focus_tree = {
 		}
 		x = 44
 		y = 2
-
+		completion_reward = {
+			add_tech_bonus = {
+					name = "MBT Focus"
+					uses = 1
+					bonus = 0.5
+					category = cat_medium_armor
+				}		
+		}
 	}
 	focus = {
 		id = BEL_Air_Bases
@@ -1201,7 +1443,15 @@ focus_tree = {
 		}
 		x = 44
 		y = 3
-
+		completion_reward = {
+			random_owned_controlled_state = {
+									add_building_construction = {
+											type = air_base
+											level = 5
+											instant_build = yes
+										}			
+			}
+		}
 	}
 	focus = {
 		id = BEL_ThirtyFirst_Squadron
@@ -1212,7 +1462,14 @@ focus_tree = {
 		}
 		x = 42
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = "Thirty First Squadron Investment"
+							bonus = 0.75
+							uses = 2
+							category = light_fighter
+						}
+					}
 	}
 	focus = {
 		id = BEL_tenth_Tactical_Wing
@@ -1223,7 +1480,14 @@ focus_tree = {
 		}
 		x = 44
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = "Tactical Air Investment"
+							bonus = 0.75
+							uses = 2
+							category = heavy_air
+						}
+					}
 	}
 	focus = {
 		id = BEL_Light_Planes
@@ -1237,7 +1501,14 @@ focus_tree = {
 		}
 		x = 44
 		y = 5
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = "Light Plane Investment"
+							bonus = 0.75
+							uses = 2
+							category = light_fighter
+						}
+					}
 	}
 	focus = {
 		id = BEL_The_Third_Paratroopers_Battailion
@@ -1248,7 +1519,14 @@ focus_tree = {
 		}
 		x = 46
 		y = 1
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = special_forces_bonus
+							bonus = 0.5
+							uses = 1
+							category = para_tech
+						}
+				}
 	}
 	focus = {
 		id = BEL_Artillery_Effort
@@ -1259,7 +1537,14 @@ focus_tree = {
 		}
 		x = 46
 		y = 2
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_artillery_bonus
+							bonus = 0.35
+							uses = 1
+							category = infantry_weapons
+						}
+				}
 	}
 	focus = {
 		id = BEL_Military_Infastructure
@@ -1270,7 +1555,16 @@ focus_tree = {
 		}
 		x = 46
 		y = 3
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = BEL_Mechanized_Effort
@@ -1281,7 +1575,14 @@ focus_tree = {
 		}
 		x = 46
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = "Mechanized EfforT"
+							uses = 1
+							bonus = 0.5
+							category = cat_mechanized_equipment
+						}
+				}
 	}
 	focus = {
 		id = BEL_More_FN_Herstal_Support
@@ -1292,7 +1593,17 @@ focus_tree = {
 		}
 		x = 48
 		y = 1
-
+			completion_reward = {
+					army_experience = 25
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 3
+							add_building_construction = {
+									type = arms_factory
+									level = 3
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = BEL_Modernized_Infantry
@@ -1303,7 +1614,14 @@ focus_tree = {
 		}
 		x = 48
 		y = 2
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_artillery_bonus
+							bonus = 0.35
+							uses = 1
+							category = infantry_weapons
+						}
+				}
 	}
 	focus = {
 		id = BEL_Naval_Bases
@@ -1314,7 +1632,15 @@ focus_tree = {
 		}
 		x = 48
 		y = 3
-
+		completion_reward = {
+			capital_scope = {
+						add_building_construction = {
+									type = naval_base
+									level = 3
+									instant_build = yes
+								}			
+			}
+		}
 	}
 	focus = {
 		id = BEL_Navy_Focus
@@ -1325,7 +1651,109 @@ focus_tree = {
 		}
 		x = 48
 		y = 4
-
+			completion_reward = {
+					navy_experience = 25
+					if = {
+							limit = {
+									NOT = {
+											any_owned_state = {
+													dockyard > 0
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+									any_owned_state = {
+											is_coastal = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_global_flag = naval_effort_built
+										}
+									any_owned_state = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_global_flag = naval_effort_built
+										}
+									NOT = {
+											any_owned_state = {
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+								}
+							random_state = {
+									limit = {
+											controller = {
+													tag = ROOT
+												}
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+				}
 	}
 	focus = {
 		id = BEL_Light_Ships
@@ -1339,7 +1767,15 @@ focus_tree = {
 		}
 		x = 48
 		y = 5
-
+			completion_reward = {
+					navy_experience = 5
+					add_tech_bonus = {
+							name = submarine_tech_bonus
+							bonus = 0.5
+							uses = 1
+							category = ss_tech 
+						}
+				}
 	}
 	focus = {
 		id = BEL_King_Baudouin
@@ -1350,7 +1786,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 4
-
+		completion_reward = {
+			add_ideas = King_Baudouin
+		}
 	}
 	focus = {
 		id = BEL_School_Question
@@ -1361,7 +1799,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 5
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = BEL_Subsidize_Free_Schools
@@ -1378,7 +1818,25 @@ focus_tree = {
 		}
 		x = 2
 		y = 6
-
+		completion_reward = {
+			add_ideas = education_reform_2 
+							random_owned_controlled_state = {
+									limit = {
+											industrial_complex > 0
+											free_building_slots = {
+													building = industrial_complex
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = industrial_complex
+											level = 2
+											instant_build = yes
+										}
+								}
+							}
 	}
 	focus = {
 		id = BEL_Subsidize_State_Schools
@@ -1392,7 +1850,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 6
-
+		completion_reward = {
+			add_ideas = KOR_education_reform
+		}
 	}
 	focus = {
 		id = BEL_Create_Debating_Comissions
@@ -1403,7 +1863,10 @@ focus_tree = {
 		}
 		x = 2
 		y = 7
-
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = BEL_Convert_Free_to_State_Schools
@@ -1414,7 +1877,10 @@ focus_tree = {
 		}
 		x = 6
 		y = 7
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = BEL_Reorganize_Technical_Schools
@@ -1425,7 +1891,14 @@ focus_tree = {
 		}
 		x = 2
 		y = 8
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = Industry
+							bonus = 0.5
+							uses = 1
+							category = industry
+						}
+				}
 	}
 	focus = {
 		id = BEL_Fund_Military_Schools
@@ -1436,7 +1909,10 @@ focus_tree = {
 		}
 		x = 6
 		y = 8
-
+		completion_reward = {
+			army_experience = 40
+			add_war_support = 0.10
+		}
 	}
 	focus = {
 		id = BEL_Reorganize_Schools
@@ -1448,7 +1924,10 @@ focus_tree = {
 		}
 		x = 4
 		y = 9
-
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = BEL_Conclude_School_Peace
@@ -1459,7 +1938,10 @@ focus_tree = {
 		}
 		x = 4
 		y = 10
-
+		completion_reward = {
+			add_stability = 0.10
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = BEL_Unity_in_the_ECSC
@@ -1470,7 +1952,43 @@ focus_tree = {
 		}
 		x = 11
 		y = 5
-
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_idea = EU_ECSC_Project
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+						OR = {
+							is_in_home_area = yes
+							NOT = {
+								owner = {
+									any_owned_state = {
+										free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+										is_in_home_area = yes
+									}
+								}
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
 	}
 	focus = {
 		id = BEL_European_Economy_Projects
@@ -1481,7 +1999,43 @@ focus_tree = {
 		}
 		x = 13
 		y = 5
-
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_idea = EU_ECSC_Project
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+						OR = {
+							is_in_home_area = yes
+							NOT = {
+								owner = {
+									any_owned_state = {
+										free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+										is_in_home_area = yes
+									}
+								}
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
 	}
 	focus = {
 		id = BEL_Automic_Energy_Community_Proposal
@@ -1492,7 +2046,14 @@ focus_tree = {
 		}
 		x = 9
 		y = 6
-
+			completion_reward = {
+					every_country = {
+						limit = {
+							has_idea = EU_ECSC_Project
+						}
+						add_to_tech_sharing_group = EURATOM_research
+					}
+				}
 	}
 	focus = {
 		id = BEL_Economic_Community_Proposal
@@ -1503,7 +2064,10 @@ focus_tree = {
 		}
 		x = 13
 		y = 6
-
+		completion_reward = {
+			add_threat = -5
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = BEL_Treaty_of_Rome
@@ -1520,29 +2084,38 @@ focus_tree = {
 		}
 		x = 11
 		y = 7
-
-	}
-	focus = {
-		id = BEL_The_European_Union
-		icon = GFX_goal_EU_Union
-		cost = 10.00
-		prerequisite = {
-			focus = BEL_Treaty_of_Rome
-		}
-		x = 11
-		y = 8
-
-	}
-	focus = {
-		id = BEL_BeNeLux_Customs_Union
-		icon = GFX_goal_BEL_BeNeLux
-		cost = 10.00
-		prerequisite = {
-			focus = BEL_The_European_Union
-		}
-		x = 10
-		y = 9
-
+			completion_reward = {
+				FRA = {
+					add_opinion_modifier = {
+						target = BEL
+						modifier = WGR_Formation_of_the_ECSC_opinion
+					}
+				}
+				WGR = {
+					add_opinion_modifier = {
+						target = BEL
+						modifier = WGR_Formation_of_the_ECSC_opinion
+					}
+				}
+				LUX = {
+					add_opinion_modifier = {
+						target = BEL
+						modifier = WGR_Formation_of_the_ECSC_opinion
+					}
+				}
+				HOL = {
+					add_opinion_modifier = {
+						target = BEL
+						modifier = WGR_Formation_of_the_ECSC_opinion
+					}
+				}
+				ITA = {
+					add_opinion_modifier = {
+						target = BEL
+						modifier = WGR_Formation_of_the_ECSC_opinion
+					}
+				}
+			}
 	}
 	focus = {
 		id = BEL_The_Belgian_Reich
@@ -1555,7 +2128,11 @@ focus_tree = {
 		}
 		x = 17
 		y = 9
-
+		completion_reward = {
+			set_cosmetic_tag = BEL_FAC
+			add_war_support = 0.05
+			add_ideas = militarism_focus
+		}
 	}
 	focus = {
 		id = BEL_Focus_on_Material
@@ -1566,7 +2143,16 @@ focus_tree = {
 		}
 		x = 33
 		y = 6
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}		
+		}
 	}
 	focus = {
 		id = BEL_Further_Scientific_Research
@@ -1583,7 +2169,9 @@ focus_tree = {
 		}
 		x = 33
 		y = 7
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = BEL_Tungsten_in_Wallonia
@@ -1594,7 +2182,14 @@ focus_tree = {
 		}
 		x = 30
 		y = 5
-
+		completion_reward = {
+			34 = {
+				add_resource = {
+					type = tungsten
+					amount = 40
+				}			
+			}
+		}
 	}
 	focus = {
 		id = BEL_New_Vehicle_Fleet
@@ -1605,7 +2200,16 @@ focus_tree = {
 		}
 		x = 50
 		y = 2
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}		
+		}
 	}
 	focus = {
 		id = BEL_Heavy_Ships
@@ -1619,7 +2223,17 @@ focus_tree = {
 		}
 		x = 50
 		y = 5
-
+			completion_reward = {
+					navy_experience = 25
+					add_tech_bonus = {
+							name = capital_ships_bonus
+							bonus = 0.5
+							ahead_reduction = 1
+							uses = 1
+							technology = battle_cruiser_2
+							category = cv_tech
+						}
+				}
 	}
 	focus = {
 		id = BEL_Heavy_Planes
@@ -1633,7 +2247,15 @@ focus_tree = {
 		}
 		x = 42
 		y = 5
-
+			completion_reward = {
+					air_experience = 5
+					add_tech_bonus = {
+							name = heavy_air_bonus
+							bonus = 0.5
+							uses = 1
+							category = heavy_air 
+						}
+				}
 	}
 	focus = {
 		id = BEL_European_Defence_Community
@@ -1644,7 +2266,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 9
-
+		completion_reward = {
+			add_ideas = Member_of_European_Defense_Community
+		}
 	}
 	focus = {
 		id = BEL_WarPropaganda
@@ -1656,6 +2280,8 @@ focus_tree = {
 		}
 		x = 16
 		y = 7
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 }

@@ -18,3 +18,11 @@ View our [Contributing Guidelines](./CONTRIBUTING.md).
 
 ## Join us on Discord
 https://discord.gg/2bFfxa9
+
+Devs
+Dont touch following countries without authorization
+Congo
+Sweeden
+Finland
+America
+Ireland

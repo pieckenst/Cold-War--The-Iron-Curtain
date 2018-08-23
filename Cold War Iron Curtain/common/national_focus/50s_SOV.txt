@@ -121,7 +121,8 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					add_ideas = agricultural_mismanagement
-					add_political_power = 120
+					add_political_power = 300
+					add_stability = 0.05
 				}
 
 	}
@@ -140,7 +141,8 @@ focus_tree = {
 		y = 2
 			completion_reward = {
 					add_ideas = traditional_farms
-					add_political_power = -120
+					add_political_power = -200
+					add_stability = -0.15
 				}
 
 	}
@@ -162,6 +164,7 @@ focus_tree = {
 							ideology = communism
 							popularity = 0.1
 						}
+						add_stability = 0.15
 				}
 
 	}
@@ -179,7 +182,12 @@ focus_tree = {
 		x = 6
 		y = 3
 			completion_reward = {
+					add_popularity = {
+							ideology = communism
+							popularity = -0.15
+						}
 					add_ideas = capitalism
+					add_stability = -0.15
 				}
 
 	}
@@ -822,12 +830,14 @@ focus_tree = {
 		y = 2
 		available = {
 			country_exists = PDG
+			country_exists = GRE
 		}
 		completion_reward = {
 				declare_war_on = {
 					target = GRE
 					type = annex_everything
 				}
+				add_to_faction = PDG
 			}
 
 	}
@@ -841,6 +851,7 @@ focus_tree = {
 		x = 12
 		y = 3
 			completion_reward = {
+					set_autonomy = { target = PDG autonomy_state = autonomy_easternbloc }
 					PDG = {
 							add_ideas = comecon_member
 						}
@@ -944,14 +955,22 @@ focus_tree = {
 		}
 		x = 20
 		y = 2
+		available = {
+			country_exists = KOR
+		}
+		bypass = {
+			NOT = { country_exists = KOR }
+		}
 			completion_reward = {
+					add_threat = 75
 					KPA = {
-							add_to_war = {
-									targeted_alliance = SOV
-									enemy = KOR
-								}
-							add_threat = 75
-						}
+						dismantle_faction = yes
+						country_event = generic.2
+					}
+					declare_war_on = {
+						target = KOR
+						type = puppet_wargoal_focus
+					}
 				}
 
 	}

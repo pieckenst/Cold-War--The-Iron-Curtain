@@ -84,7 +84,7 @@ country_event = {
 	
 	option = {
 		name = cuba.5.a
-		create_faction = "Carribean Alligence"
+		create_faction = "Caribbean Alligence"
 	}
 }
 
@@ -484,5 +484,233 @@ country_event = {
 		hidden_effect = { BOL = { add_popularity = { ideology = fascism popularity = 0.5 } } }
 		hidden_effect = { BOL = { set_politics = { ruling_party = fascism elections_allowed = no } } }
 		set_rule = { can_send_volunteers = yes }
+	}
+}
+
+country_event = {
+
+	id = cuba.1000
+	title = "Request Guantanamo Bay"
+	desc = "Cuba Requests the Return of Guantanamo Bay"
+	picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Transfer Guantanamo"
+		CUB = { transfer_state = 889  }
+	}
+	option = {
+		name = "Decline"
+	}
+}
+country_event = {
+
+	id = cuba.1001
+	title = "Cuban Posadism"
+	desc = "There is a organized Posadist Guerilla movement within the country, we can ignore it or embrace it....."
+	picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "What an Irrational Ideology"
+		ai_chance = {
+			factor = 0.9
+		}
+	}
+	option = {
+		name = "Communism has it quirks."
+		complete_national_focus = CUB_an_night_to_remember
+		ai_chance = {
+			factor = 0.1
+		}
+	}
+}
+country_event = {
+
+	id = cuba.3000
+	title = "Battle of the Sierra Mountain Range"
+	desc = "cuba.3000.d"
+	picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "The Second Liberation Day"
+		news_event = cuba.3001
+		ai_chance = {
+			factor = 0.60
+		}
+	}
+	option = {
+		name = "Batista's Great Victory"
+		news_event = cuba.3010
+		ai_chance = {
+			factor = 0.40
+		}
+	}
+}
+news_event = {
+
+	id = cuba.3001
+	title = "Batista Flees the Country"
+	desc = "cuba.3001.d"
+	picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Coward"
+		news_event = cuba.3002
+	}
+}
+news_event = {
+
+	id = cuba.3002
+	title = "Successful Revolution"
+	desc = "cuba.3002.d"
+	#picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Interesting Development..."
+		news_event = cuba.3003
+	}
+}
+news_event = {
+
+	id = cuba.3004
+	title = "Sightings in Havana"
+	desc = "cuba.3004.d"
+	#picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "It's Just an American Jet!"
+		news_event = cuba.3005
+		ai_chance = {
+			factor = 0.80
+		}
+	}
+	option = {
+		name = "Maybe It's Something Else..."
+		news_event = cuba.3006
+		ai_chance = {
+			factor = 0.20
+		}
+	}
+}
+news_event = {
+
+	id = cuba.3005
+	title = "A Cuban Provisional Government"
+	desc = "cuba.3005.d"
+	#picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "A Blow Against Capitalist Oppressors"
+		set_country_flag = focus_tree_60_reset
+		load_focus_tree = Cuba_60s
+		add_popularity = { ideology = communism popularity = 0.35 }
+		set_politics = { ruling_party = communism elections_allowed = no }
+		set_party_name = { ideology = communism long_name = "Partido Comunista de Cuba" name = "Partido Comunista de Cuba" }
+
+	}
+}
+news_event = {
+
+	id = cuba.3006
+	title = "An Night to Remember"
+	desc = "cuba.3006.d"
+	#picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Viva Posadas"
+		set_country_flag = focus_tree_60_reset
+		load_focus_tree = Cuba_60s
+		complete_national_focus = CUB_an_night_to_remember
+		add_popularity = { ideology = trotskyism popularity = 0.35 }
+		set_politics = { ruling_party = trotskyism elections_allowed = no }
+		create_country_leader = {
+			name = "Juan Posadas"
+			picture = "posadas.dds"
+			ideology = posadism
+		}
+	}
+}
+news_event = {
+
+	id = cuba.3010
+	title = "The Consolidation of Power"
+	desc = "cuba.3010.d"
+	#picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Concerning"
+		news_event = cuba.3011
+	}
+}
+news_event = {
+
+	id = cuba.3011
+	title = "Rumors In the Armed Forces"
+	desc = "cuba.3011.d"
+	#picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Concerning Developments....."
+		news_event = cuba.3012
+	}
+}
+news_event = {
+
+	id = cuba.3012
+	title = "American Backed Anti-Batista Coup"
+	desc = "cuba.3012.d"
+	#picture = GFX_report_event_fascist_gathering
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "José Miró Cardona"
+		set_country_flag = focus_tree_60_reset
+		load_focus_tree = Cuba_60s
+		complete_national_focus = CUB_the_final_revoultion
+		add_popularity = { ideology = conservative popularity = 0.10 }
+		set_politics = { ruling_party = conservative elections_allowed = yes }
+		create_country_leader = {
+			name = "José Miró Cardona"
+			picture = "Cardona.dds"
+			ideology = conservatism
+		}
+		ai_chance = {
+			factor = 0.50
+		}
+	}
+	option = {
+		name = "Ramón Barquín"
+		set_country_flag = focus_tree_60_reset
+		load_focus_tree = Cuba_60s
+		complete_national_focus = CUB_the_final_revoultion
+		add_popularity = { ideology = neutrality popularity = 0.40 }
+		create_country_leader = {
+			name = "Ramón Barquín"
+			picture = "Barquin.dds"
+			ideology = military_junta
+		}
+		ai_chance = {
+			factor = 0.50
+		}
 	}
 }
