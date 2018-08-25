@@ -20,9 +20,14 @@ View our [Contributing Guidelines](./CONTRIBUTING.md).
 https://discord.gg/2bFfxa9
 
 Devs
-Dont touch following countries without authorization
-Congo
-Sweeden
+Dont touch following countries without authorization:
+Congo (both)
+Rwanda
+Burundi
+Nepal
+Sweden
 Finland
 America
 Ireland
+
+Map edits need to be strictly authorized by Generalis
