@@ -8,6 +8,15 @@
 		}
 	}
 	default = no
+	shared_focus = GRE_1960s_naval_effort
+	
+	shared_focus = GRE_1960s_industrial_effort
+	
+	shared_focus = GRE_1960s_non_aligned
+	
+	shared_focus = GRE_1960s_soviet_alignment
+	
+	shared_focus = GRE_1960s_american_alignment	
 	focus = {
 		id = MZB_MANU_Remnants
 		icon = GFX_goal_unknown
@@ -66,9 +75,14 @@
 		y = 13
 		
 		available = {
-		
+			has_army_size = {
+				size > 30
+			}		
 		}
-
+		completion_reward = {
+			add_war_support = 0.05
+			add_manpower = 50000
+		}
 	}
 
 	focus = {
@@ -310,7 +324,18 @@
 		}
 		x = 47
 		y = 7
-
+		completion_reward = {
+			create_corps_commander = {
+				name = "Filipe Samuel Magala"
+				picture = "Magala.dds"
+				traits = { trickster brilliant_strategist }
+				skill = 4
+				attack_skill = 4
+				defense_skill = 3
+				planning_skill = 4
+				logistics_skill = 5
+			}		
+		}
 	}
 	focus = {
 		id = MZB_Establish_a_Multiparty_Democracy
@@ -321,7 +346,13 @@
 		}
 		x = 48
 		y = 8
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = socialist
+				elections_allowed = yes
+			}
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = MZB_Promote_Democratic_Socialism
@@ -335,7 +366,13 @@
 		}
 		x = 47
 		y = 9
-
+		completion_reward = {
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.20
+			}		
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = MZB_Yugoslavian_Aid
@@ -559,7 +596,13 @@
 		}
 		x = 57
 		y = 14
-
+		completion_reward = {
+			add_manpower = 50000
+			POR = {
+				add_stability = -0.05
+				add_war_support = -0.05
+			}
+		}
 	}
 	focus = {
 		id = MZB_Modern_Doctrines
@@ -654,7 +697,12 @@
 		}
 		x = 60
 		y = 5
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = MZB_war_of_anti_imperialism
+				days = 900
+			}
+		}
 	}
 	focus = {
 		id = MZB_Attack_Infrastructure
@@ -668,7 +716,89 @@
 		}
 		x = 58
 		y = 6
-
+		completion_reward = {
+			if = {
+				limit = {
+					544 = { is_fully_controlled_by = MZB }
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+			}
+			if = {
+				limit = {
+					1143 = { is_fully_controlled_by = MZB }
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+			}
+			if = {
+				limit = {
+					1141 = { is_fully_controlled_by = MZB }
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+			}
+			if = {
+				limit = {
+					1140 = { is_fully_controlled_by = MZB }
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+			}
+			if = {
+				limit = {
+					1139 = { is_fully_controlled_by = MZB }
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+			}
+			if = {
+				limit = {
+					1138 = { is_fully_controlled_by = MZB }
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+			}
+			if = {
+				limit = {
+					1137 = { is_fully_controlled_by = MZB }
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+			}
+			if = {
+				limit = {
+					1136 = { is_fully_controlled_by = MZB }
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+			}
+			if = {
+				limit = {
+					1135 = { is_fully_controlled_by = MZB }
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+			}			
+		}
 	}
 	focus = {
 		id = MZB_Northern_Guerillas
@@ -679,7 +809,22 @@
 		}
 		x = 60
 		y = 6
-
+		completion_reward = {
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.75 start_equipment_factor = 0.5"
+					owner = MZB
+				}
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.75 start_equipment_factor = 0.5"
+					owner = MZB
+				}
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.75 start_equipment_factor = 0.5"
+					owner = MZB
+				}
+			}		
+		}
 	}
 	focus = {
 		id = MZB_Appeal_For_Diplomatic_Condemnations
@@ -824,7 +969,22 @@
 		}
 		x = 60
 		y = 9
-
+		completion_reward = {
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.75 start_equipment_factor = 0.5"
+					owner = MZB
+				}
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.75 start_equipment_factor = 0.5"
+					owner = MZB
+				}
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.75 start_equipment_factor = 0.5"
+					owner = MZB
+				}
+			}		
+		}
 	}
 	focus = {
 		id = MZB_Southern_Guerillas
@@ -835,7 +995,22 @@
 		}
 		x = 60
 		y = 10
-
+		completion_reward = {
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.75 start_equipment_factor = 0.5"
+					owner = MZB
+				}
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.75 start_equipment_factor = 0.5"
+					owner = MZB
+				}
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.75 start_equipment_factor = 0.5"
+					owner = MZB
+				}
+			}		
+		}
 	}
 	focus = {
 		id = MZB_Oust_the_Portugese
@@ -846,7 +1021,22 @@
 		}
 		x = 58
 		y = 16
-
+		available = {
+			544 = { is_fully_controlled_by = MZB }
+			1143 = { is_fully_controlled_by = MZB }
+			1141 = { is_fully_controlled_by = MZB }
+			1140 = { is_fully_controlled_by = MZB }
+			1139 = { is_fully_controlled_by = MZB }
+			1138 = { is_fully_controlled_by = MZB }
+			1137 = { is_fully_controlled_by = MZB }
+			1136 = { is_fully_controlled_by = MZB }
+			1135 = { is_fully_controlled_by = MZB }
+		}
+		completion_reward = {
+			POR = {
+				country_event = MZB.101
+			}
+		}
 	}
 	focus = {
 		id = MZB_Soviet_Arms
@@ -980,7 +1170,22 @@
 		}
 		x = 60
 		y = 11
-
+		completion_reward = {
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.75 start_equipment_factor = 0.5"
+					owner = MZB
+				}
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.75 start_equipment_factor = 0.5"
+					owner = MZB
+				}
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.75 start_equipment_factor = 0.5"
+					owner = MZB
+				}
+			}		
+		}
 	}
 	focus = {
 		id = MZB_Soviet_Artillery
@@ -1011,7 +1216,12 @@
 		}
 		x = 58
 		y = 15
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = strike_back
+				days = 365
+			}
+		}
 	}
 	focus = {
 		id = MZB_Peace_Offer
