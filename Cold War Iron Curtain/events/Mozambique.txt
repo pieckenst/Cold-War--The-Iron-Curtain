@@ -1,10 +1,12 @@
-MZB.100	#FRELIMO Peace Offer
 
 add_namespace = MZB
 country_event = {
   id = MZB.1
 	title = "Mozambiquan Indepence War"
 	desc = MZB.100.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
 	immediate = {
 		MZB = {
 			transfer_state = 1137
@@ -38,9 +40,11 @@ country_event = {
 				}				
 			}
 		}
-		POR = {
-			declare_war_on = { target = MZB type = annex_everything }	
+		set_autonomy = {
+			target = MZB
+			autonomy_state = autonomy_free
 		}
+		declare_war_on = { target = MZB type = annex_everything }	
 		set_global_flag = Mozambiquan_War
 	}
 	option = {
