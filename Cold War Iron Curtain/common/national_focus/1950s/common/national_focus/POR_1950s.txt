@@ -37,7 +37,9 @@ focus_tree = {
 		cost = 10.00
 		x = 79
 		y = 8
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = POR_Royalist_Coup
@@ -51,7 +53,12 @@ focus_tree = {
 		}
 		x = 62
 		y = 1
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = monarchism
+				elections_allowed = no
+			}		
+		}
 	}
 	focus = {
 		id = POR_Restore_the_Monarchy
@@ -62,7 +69,11 @@ focus_tree = {
 		}
 		x = 62
 		y = 2
-
+		completion_reward = {
+			add_timed_idea = { idea = monarchism_drift_4 days = 360 }
+			add_political_power = 200
+			set_cosmetic_tag = MON_POR
+		}
 	}
 	focus = {
 		id = POR_Deus_Patria_Rei
@@ -73,7 +84,9 @@ focus_tree = {
 		}
 		x = 62
 		y = 3
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 	focus = {
 		id = POR_Return_to_Glory
@@ -87,7 +100,9 @@ focus_tree = {
 		}
 		x = 54
 		y = 4
-
+		completion_reward = {
+			add_ideas = TUR_revanchism_focus
+		}
 	}
 	focus = {
 		id = POR_Subjugate_the_Labour_Unions
@@ -98,7 +113,9 @@ focus_tree = {
 		}
 		x = 49
 		y = 5
-
+		completion_reward = {
+			add_ideas = Subjugation_of_the_Labour_Unions
+		}
 	}
 	focus = {
 		id = POR_Purge_Fascist_Symphasizers
@@ -109,7 +126,14 @@ focus_tree = {
 		}
 		x = 48
 		y = 6
-
+			completion_reward = {
+					add_popularity = {
+							ideology = monarchism
+							popularity = 0.25
+						}
+						army_experience = -25
+						add_manpower = -10000
+				}
 	}
 	focus = {
 		id = POR_Absolute_Monarchism
@@ -120,7 +144,17 @@ focus_tree = {
 		}
 		x = 50
 		y = 6
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = monarchism
+				elections_allowed = no
+			}		
+			add_political_power = 200
+			add_timed_idea = {
+				idea = repression
+				days = 365
+			}
+		}
 	}
 	focus = {
 		id = POR_Ask_Brtain_for_our_old_colonies
@@ -131,7 +165,9 @@ focus_tree = {
 		}
 		x = 52
 		y = 5
-
+		completion_reward = {
+			ENG = { country_event = POR.850 }
+		}
 	}
 	focus = {
 		id = POR_Expand_into_India
@@ -142,7 +178,12 @@ focus_tree = {
 		}
 		x = 56
 		y = 5
-
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = RAJ
+						}
+			}
 	}
 	focus = {
 		id = POR_Promote_Brazilian_Monarchists
@@ -153,7 +194,9 @@ focus_tree = {
 		}
 		x = 58
 		y = 5
-
+		completion_reward = {
+			BRA = { add_timed_idea = { idea = monarchism_drift_4 days = 360 } }
+		}
 	}
 	focus = {
 		id = POR_Restore_Parliamentary_Democracy
@@ -167,7 +210,9 @@ focus_tree = {
 		}
 		x = 68
 		y = 4
-
+		completion_reward = {
+			country_event = por.3
+		}
 	}
 	focus = {
 		id = POR_PM_Delgado
@@ -178,7 +223,9 @@ focus_tree = {
 		}
 		x = 65
 		y = 5
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = POR_End_the_Estado_Novo_mon
@@ -189,7 +236,9 @@ focus_tree = {
 		}
 		x = 65
 		y = 6
-
+		completion_reward = {
+			add_ideas = fascism_banned
+		}
 	}
 	focus = {
 		id = POR_Increase_Colonial_Garrisons_mon
@@ -200,7 +249,10 @@ focus_tree = {
 		}
 		x = 64
 		y = 7
-
+		completion_reward = {
+			add_manpower = 50000
+			army_experience = 25
+		}
 	}
 	focus = {
 		id = POR_Strengthen_Ties_with_America_mon
@@ -211,7 +263,20 @@ focus_tree = {
 		}
 		x = 66
 		y = 7
-
+		completion_reward = {
+					POR = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = POR
+									modifier = large_increase
+								}
+						}			
+		}
 	}
 	focus = {
 		id = POR_Military_Expansion_mon
@@ -225,7 +290,9 @@ focus_tree = {
 		}
 		x = 65
 		y = 8
-
+		completion_reward = {
+			add_ideas = military_expansion
+		}
 	}
 	focus = {
 		id = POR_Recruitment_Propaganda
@@ -236,7 +303,9 @@ focus_tree = {
 		}
 		x = 66
 		y = 9
-
+		completion_reward = [
+			add_ideas = recruitment_propaganda
+		}
 	}
 	focus = {
 		id = POR_Access_to_Healthcare
@@ -247,7 +316,9 @@ focus_tree = {
 		}
 		x = 64
 		y = 9
-
+		completion_reward = {
+			add_ideas = access_to_health_care
+		}
 	}
 	focus = {
 		id = POR_American_Economic_Investments
@@ -261,7 +332,68 @@ focus_tree = {
 		}
 		x = 65
 		y = 10
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = POR_Relations_with_South_Africa
@@ -272,7 +404,20 @@ focus_tree = {
 		}
 		x = 66
 		y = 11
-
+			completion_reward = {
+					SAF = {
+							add_opinion_modifier = {
+									target = POR
+									modifier = large_increase
+								}
+						}
+					POR = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = POR_British_Investments
@@ -283,7 +428,68 @@ focus_tree = {
 		}
 		x = 64
 		y = 11
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = POR_Encourage_Immigration_to_Portugese_Africa
@@ -297,7 +503,17 @@ focus_tree = {
 		}
 		x = 65
 		y = 12
-
+		completion_reward = {
+			every_owned_state = {
+					limit = {
+						OR = {
+							is_core_of = ANG
+							is_core_of = MZB
+						}
+					}
+				add_manpower = 10000
+			}
+		}
 	}
 	focus = {
 		id = POR_Rights_for_the_People_mon
@@ -308,7 +524,10 @@ focus_tree = {
 		}
 		x = 68
 		y = 5
-
+		completion_reward = {
+			add_ideas = rights_for_people
+			remove_ideas = repression 
+		}
 	}
 	focus = {
 		id = POR_Capitalism
@@ -319,7 +538,9 @@ focus_tree = {
 		}
 		x = 68
 		y = 6
-
+		completion_reward = {
+			add_ideas = capitalism
+		}
 	}
 	focus = {
 		id = POR_Government_Reform_mon
@@ -330,7 +551,10 @@ focus_tree = {
 		}
 		x = 68
 		y = 7
-
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = POR_Lift_Ban_on_Communist_Party
@@ -341,7 +565,9 @@ focus_tree = {
 		}
 		x = 68
 		y = 8
-
+		completion_reward = {
+			remove_ideas = communism_banned
+		}
 	}
 	focus = {
 		id = POR_Lift_Press_Censorship
@@ -352,7 +578,9 @@ focus_tree = {
 		}
 		x = 68
 		y = 9
-
+		completion_reward = {
+			add_ideas = default_media_laws_0
+		}
 	}
 	focus = {
 		id = POR_Embrace_the_Free_Markets
@@ -363,7 +591,9 @@ focus_tree = {
 		}
 		x = 68
 		y = 10
-
+		completion_reward = {
+			add_ideas = embrace_free_trade
+		}
 	}
 	focus = {
 		id = POR_Modernize_the_Country_mon
@@ -374,8 +604,101 @@ focus_tree = {
 		}
 		x = 1
 		y = 1
-		relative_position_id = POR_Embrace_the_Free_Markets
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = POR_PM_Soares
@@ -386,8 +709,10 @@ focus_tree = {
 		}
 		x = 71
 		y = 5
-
-	}
+		available = {
+			always = no
+		}
+	}		
 	focus = {
 		id = POR_Join_ECSC
 		icon = GFX_goal_unknown
@@ -397,7 +722,9 @@ focus_tree = {
 		}
 		x = 70
 		y = 6
-
+		completion_reward = {
+			add_ideas = Member_of_ECSC
+		}
 	}
 	focus = {
 		id = POR_Formation_of_the_Socialist_Party
@@ -408,7 +735,12 @@ focus_tree = {
 		}
 		x = 72
 		y = 6
-
+		completion_reward = {
+					add_popularity = {
+							ideology = socialist
+							popularity = 0.25
+						}
+				}
 	}
 	focus = {
 		id = POR_Free_the_Colonies
@@ -422,7 +754,12 @@ focus_tree = {
 		}
 		x = 71
 		y = 7
-
+		completion_reward = {
+			add_stability = 0.15
+			release = GEQ
+			release = ANG
+			release = MZB
+		}
 	}
 	focus = {
 		id = POR_Housing_Expansion
@@ -433,7 +770,11 @@ focus_tree = {
 		}
 		x = 71
 		y = 8
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+				}
 	}
 	focus = {
 		id = POR_Western_European_Economic_Investments
@@ -444,7 +785,68 @@ focus_tree = {
 		}
 		x = 70
 		y = 9
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = POR_Socialized_Health_Care
@@ -455,7 +857,9 @@ focus_tree = {
 		}
 		x = 72
 		y = 9
-
+		completion_reward = {
+			add_ideas = socialized_health_care
+		}	
 	}
 	focus = {
 		id = POR_Increase_French_Relations
@@ -469,7 +873,20 @@ focus_tree = {
 		}
 		x = 71
 		y = 10
-
+		completion_reward = {
+					POR = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						}
+					FRA = {
+							add_opinion_modifier = {
+									target = POR
+									modifier = large_increase
+								}
+						}			
+		}
 	}
 	focus = {
 		id = POR_French_Military_Contracts
@@ -480,7 +897,24 @@ focus_tree = {
 		}
 		x = 70
 		y = 11
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = arms_factory
+									level = 1
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = POR_Empower_Labour_Unions
@@ -491,7 +925,9 @@ focus_tree = {
 		}
 		x = 72
 		y = 11
-
+		completion_reward = {
+			add_ideas = strengthened_labor_unions
+		}
 	}
 	focus = {
 		id = POR_Sign_the_Treaty_of_Rome
@@ -505,7 +941,38 @@ focus_tree = {
 		}
 		x = 71
 		y = 12
-
+			completion_reward = {
+				BEL = {
+					add_opinion_modifier = {
+						target = POR
+						modifier = WGR_Formation_of_the_ECSC_opinion
+					}
+				}
+				FRA = {
+					add_opinion_modifier = {
+						target = POR
+						modifier = WGR_Formation_of_the_ECSC_opinion
+					}
+				}
+				LUX = {
+					add_opinion_modifier = {
+						target = POR
+						modifier = WGR_Formation_of_the_ECSC_opinion
+					}
+				}
+				HOL = {
+					add_opinion_modifier = {
+						target = POR
+						modifier = WGR_Formation_of_the_ECSC_opinion
+					}
+				}
+				ITA = {
+					add_opinion_modifier = {
+						target = POR
+						modifier = WGR_Formation_of_the_ECSC_opinion
+					}
+				}
+			}
 	}
 	focus = {
 		id = POR_Presidential_Elections_of_1951
@@ -533,7 +1000,9 @@ focus_tree = {
 		}
 		x = 76
 		y = 2
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = POR_Patria
@@ -603,7 +1072,10 @@ focus_tree = {
 		}
 		x = 76
 		y = 5
-
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = POR_Expand_PIDE
@@ -634,7 +1106,10 @@ focus_tree = {
 		}
 		x = 77
 		y = 6
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.02
+		}
 	}
 	focus = {
 		id = POR_Manuel_Quintao_Meireles
@@ -645,7 +1120,9 @@ focus_tree = {
 		}
 		x = 82
 		y = 2
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = POR_Force_Salazar_Out
@@ -656,16 +1133,10 @@ focus_tree = {
 		}
 		x = 82
 		y = 3
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							is_historical_focus_on = yes
-							factor = 0
-						}
-				}
-			completion_reward = {
-					add_ideas = traditionalist_influence
-				}
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.15
+		}
 
 	}
 	focus = {
@@ -677,10 +1148,9 @@ focus_tree = {
 		}
 		x = 80
 		y = 4
-			completion_reward = {
-					remove_ideas = traditionalist_influence
-					add_ideas = christian_dem_drift
-				}
+		completion_reward = {
+			remove_ideas = gulag_politic
+		}
 
 	}
 	focus = {
@@ -692,7 +1162,17 @@ focus_tree = {
 		}
 		x = 82
 		y = 4
-
+		completion_reward = {
+			every_owned_state = {
+					limit = {
+						OR = {
+							is_core_of = ANG
+							is_core_of = MZB
+						}
+					}
+				add_manpower = 10000
+			}
+		}
 	}
 	focus = {
 		id = POR_End_Censorship
@@ -703,7 +1183,9 @@ focus_tree = {
 		}
 		x = 82
 		y = 5
-
+		completion_reward = {
+			add_ideas = default_media_laws_0
+		}
 	}
 	focus = {
 		id = POR_End_Electoral_Suppression
@@ -714,7 +1196,9 @@ focus_tree = {
 		}
 		x = 80
 		y = 5
-
+		completion_reward = {
+			remove_ideas = repression 
+		}
 	}
 	focus = {
 		id = POR_Criticize_the_Estado_Novo
@@ -728,7 +1212,16 @@ focus_tree = {
 		}
 		x = 81
 		y = 6
-
+		completion_reward = {
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.2
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.2
+			}
+		}
 	}
 	focus = {
 		id = POR_Western_Economic_Aid
@@ -1062,8 +1555,14 @@ focus_tree = {
 		x = 91
 		y = 1
 			completion_reward = {
-					add_political_power = 300
-					add_stability = 0.15
+					annex_country = {
+						target = ANG
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = MZB
+						transfer_troops = yes
+					}
 				}
 
 	}
@@ -1076,7 +1575,10 @@ focus_tree = {
 		}
 		x = 91
 		y = 2
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = POR_African_Citizenship
@@ -1087,7 +1589,10 @@ focus_tree = {
 		}
 		x = 90
 		y = 3
-
+		completion_reward = {
+			add_political_power = -100
+			add_stability = 0.10
+		}
 	}
 	focus = {
 		id = POR_Reject_African_Citzenship
@@ -1098,7 +1603,11 @@ focus_tree = {
 		}
 		x = 92
 		y = 3
-
+		completion_reward = {
+			add_political_power = 300
+			add_stability = -0.10
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 		id = POR_Attract_Portugese_Immigrants
@@ -1112,7 +1621,17 @@ focus_tree = {
 		}
 		x = 91
 		y = 4
-
+		completion_reward = {
+			every_owned_state = {
+					limit = {
+						OR = {
+							is_core_of = ANG
+							is_core_of = MZB
+						}
+					}
+				add_manpower = 10000
+			}
+		}
 	}
 	focus = {
 		id = POR_The_Roaring_50s
@@ -1123,7 +1642,36 @@ focus_tree = {
 		}
 		x = 91
 		y = 5
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					OR = {
+						is_core_of = ANG
+						is_core_of = MZB
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}		
+			}
+			random_owned_controlled_state = {
+				limit = {
+					OR = {
+						is_core_of = ANG
+						is_core_of = MZB
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}		
+			}
+		}
 	}
 	focus = {
 		id = POR_Coerce_the_Local_Pop
@@ -1134,7 +1682,10 @@ focus_tree = {
 		}
 		x = 91
 		y = 6
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.02
+		}
 	}
 	focus = {
 		id = POR_Colonial_Education_Investments
@@ -1148,7 +1699,9 @@ focus_tree = {
 		}
 		x = 89
 		y = 7
-
+		completion_reward = {
+			add_ideas = Bantu_Education_Act
+		}
 	}
 	focus = {
 		id = POR_Anti_Foriegn_Workers_Campaign
@@ -1162,7 +1715,10 @@ focus_tree = {
 		}
 		x = 88
 		y = 8
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = POR_Colonial_Communist_Movements
@@ -1176,7 +1732,10 @@ focus_tree = {
 		}
 		x = 93
 		y = 7
-
+		completion_reward = {
+			add_stability = -0.05
+			add_war_support = -0.05
+		}
 	}
 	focus = {
 		id = POR_Soviet_Ideology
@@ -1190,7 +1749,16 @@ focus_tree = {
 		}
 		x = 92
 		y = 8
-
+		completion_reward = {
+			1137 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POR_Soviet_Aid
@@ -1201,7 +1769,16 @@ focus_tree = {
 		}
 		x = 92
 		y = 9
-
+		completion_reward = {
+			1139 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POR_african_famine_crisis
@@ -1247,7 +1824,16 @@ focus_tree = {
 		}
 		x = 94
 		y = 8
-
+		completion_reward = {
+			1136 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POR_Chinese_Aid
@@ -1258,7 +1844,16 @@ focus_tree = {
 		}
 		x = 94
 		y = 9
-
+		completion_reward = {
+			1139 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POR_Local_Weapons_Production
@@ -1270,7 +1865,16 @@ focus_tree = {
 		}
 		x = 93
 		y = 10
-
+		completion_reward = {
+			1137 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = POR_Relieve_Famine
@@ -1437,7 +2041,11 @@ focus_tree = {
 		}
 		x = 54
 		y = 5
-
+		completion_reward = {
+			SPR = {
+				country_event = POR.855
+			}
+		}
 	}
 	focus = {
 		id = POR_Remember_the_Origins
@@ -1448,7 +2056,10 @@ focus_tree = {
 		}
 		x = 54
 		y = 6
-
+		completion_reward = {
+			171 = { add_core_of = POR } 
+			174 = { add_core_of = POR } 
+		}
 	}
 	focus = {
 		id = POR_Demand_Galicia
@@ -1459,7 +2070,11 @@ focus_tree = {
 		}
 		x = 54
 		y = 7
-
+		completion_reward = {
+			SPR = {
+				country_event = POR.856
+			}
+		}
 	}
 	focus = {
 		id = POR_Capitalist_Reforms
@@ -1470,7 +2085,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 8
-
+		completion_reward = {
+			add_ideas = capitalism
+		}
 	}
 	focus = {
 		id = POR_Destroy_Spain
@@ -1481,7 +2098,12 @@ focus_tree = {
 		}
 		x = 54
 		y = 8
-
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = SPR
+			}
+		}
 	}
 	focus = {
 		id = POR_Reform_the_Imperial_Army
@@ -1495,7 +2117,9 @@ focus_tree = {
 		}
 		x = 49
 		y = 7
-
+		completion_reward = {
+			add_ideas = imperial_army
+		}
 	}
 	focus = {
 		id = POR_Promote_Traditional_Culture
@@ -1506,7 +2130,9 @@ focus_tree = {
 		}
 		x = 50
 		y = 8
-
+		completion_reward = {
+			add_ideas = traditional_culture
+		}
 	}
 	focus = {
 		id = POR_Promote_the_Aristocracy
@@ -1520,7 +2146,9 @@ focus_tree = {
 		}
 		x = 49
 		y = 9
-
+		completion_reward = {
+			add_ideas = The_Old_Order
+		}
 	}
 	focus = {
 		id = POR_Back_Brazilian_Royalist_Coup
@@ -1531,7 +2159,9 @@ focus_tree = {
 		}
 		x = 58
 		y = 6
-
+		completion_reward = {
+			BRA = { country_event = POR.900 }
+		}
 	}
 	focus = {
 		id = POR_Success_of_Coup
@@ -1545,7 +2175,9 @@ focus_tree = {
 		}
 		x = 56
 		y = 7
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = POR_Failure_of_the_Coup
@@ -1559,7 +2191,9 @@ focus_tree = {
 		}
 		x = 60
 		y = 7
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = POR_Reform_the_United_Kingdom_of_Portugal_and_Brazil
@@ -1570,7 +2204,9 @@ focus_tree = {
 		}
 		x = 56
 		y = 8
-
+		completion_reward = {
+			BRA = { country_event = POR.901 }
+		}
 	}
 	focus = {
 		id = POR_Brazil_Accepts
@@ -1581,7 +2217,9 @@ focus_tree = {
 		}
 		x = 55
 		y = 9
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = POR_Brazil_Rejects
@@ -1592,7 +2230,9 @@ focus_tree = {
 		}
 		x = 57
 		y = 9
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = POR_The_Capital_Question
@@ -1604,7 +2244,9 @@ focus_tree = {
 		}
 		x = 56
 		y = 11
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = POR_Retake_the_Cisplatina
@@ -1615,7 +2257,13 @@ focus_tree = {
 		}
 		x = 55
 		y = 10
-
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = URG
+			}
+			URG = { every_owned_state = { add_core_of = POR }	}
+		}
 	}
 	focus = {
 		id = POR_The_Hard_Way
@@ -1626,7 +2274,10 @@ focus_tree = {
 		}
 		x = 57
 		y = 10
-
+		completion_reward = {
+			add_war_support = 0.05
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = POR_Sponsor_a_Royalist_Uprising
@@ -1637,7 +2288,15 @@ focus_tree = {
 		}
 		x = 60
 		y = 8
-
+		completion_reward = {
+			BRA = {
+				start_civil_war = {
+					ruling_party = monarchism
+					size = 0.7
+					only_own_territory = no
+				}
+			}
+		}	
 	}
 	focus = {
 		id = POR_The_Dual_Empire
@@ -1648,7 +2307,10 @@ focus_tree = {
 		}
 		x = 60
 		y = 9
-
+		completion_reward = {
+			annex_country = { target = yes transfer_troops = yes }
+			set_cosmetic_tag = DUAL_POR
+		}	
 	}
 	focus = {
 		id = POR_The_Pink_Map
@@ -1659,7 +2321,11 @@ focus_tree = {
 		}
 		x = 52
 		y = 6
-
+		completion_reward = {
+			ENG = {
+				country_event = POR.851
+			}
+		}
 	}
 	focus = {
 		id = POR_Mocambique_National_African_Union_Uprising
@@ -1670,7 +2336,9 @@ focus_tree = {
 		}
 		x = 93
 		y = 11
-
+		completion_reward = {
+			country_event = MZB.1
+		}
 	}
 	focus = {
 		id = POR_Art_of_Tolerance
@@ -1684,7 +2352,10 @@ focus_tree = {
 		}
 		x = 90
 		y = 8
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = POR_Foriegn_Migration_Act
@@ -1695,7 +2366,17 @@ focus_tree = {
 		}
 		x = 88
 		y = 9
-
+		completion_reward = {
+			every_owned_state = {
+					limit = {
+						OR = {
+							is_core_of = ANG
+							is_core_of = MZB
+						}
+					}
+				add_manpower = 10000
+			}
+		}
 	}
 	focus = {
 		id = POR_Cultural_Exchange
@@ -1706,7 +2387,10 @@ focus_tree = {
 		}
 		x = 90
 		y = 9
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = POR_Delgade_1958
@@ -1717,7 +2401,9 @@ focus_tree = {
 		}
 		x = 82
 		y = 9
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = POR_End_the_Estado_Novo
@@ -1728,7 +2414,9 @@ focus_tree = {
 		}
 		x = 82
 		y = 10
-
+		completion_reward = {
+			add_ideas = fascism_banned
+		}
 	}
 	focus = {
 		id = POR_Government_Reform
@@ -1739,7 +2427,10 @@ focus_tree = {
 		}
 		x = 80
 		y = 11
-
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 300
+		}
 	}
 	focus = {
 		id = POR_Increase_Colonial_Garrisons
@@ -1750,7 +2441,9 @@ focus_tree = {
 		}
 		x = 82
 		y = 11
-
+		completion_reward = [
+			add_ideas = recruitment_propaganda
+		}
 	}
 	focus = {
 		id = POR_Military_Expansion
@@ -1764,7 +2457,9 @@ focus_tree = {
 		}
 		x = 82
 		y = 13
-
+		completion_reward = {
+			add_ideas = military_expansion
+		}
 	}
 	focus = {
 		id = POR_Strengthen_Ties_with_America
@@ -1775,7 +2470,20 @@ focus_tree = {
 		}
 		x = 84
 		y = 11
-
+		completion_reward = {
+					POR = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = POR
+									modifier = large_increase
+								}
+						}			
+		}
 	}
 	focus = {
 		id = POR_Rights_for_the_People
@@ -1789,7 +2497,9 @@ focus_tree = {
 		}
 		x = 81
 		y = 12
-
+		completion_reward = {
+			add_ideas = rights_for_people
+		}
 	}
 	focus = {
 		id = POR_Modernize_the_Country
@@ -1803,7 +2513,101 @@ focus_tree = {
 		}
 		x = 83
 		y = 12
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = POR_Americo_Tomas
@@ -1814,7 +2618,9 @@ focus_tree = {
 		}
 		x = 76
 		y = 9
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = POR_Figurehead_President
@@ -1825,7 +2631,9 @@ focus_tree = {
 		}
 		x = 76
 		y = 10
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = POR_Appoint_Francisco_Craveiro_Lopes_as_Marshal
@@ -1836,7 +2644,17 @@ focus_tree = {
 		}
 		x = 76
 		y = 11
-
+		completion_reward = {
+			create_field_marshal = {
+				name = "Francisco Craveiro Lopes"
+				picture = "Lopes.dds"
+				skill = 2
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 2
+				logistics_skill = 2
+			}		
+		}
 	}
 	focus = {
 		id = POR_Abolish_Universal_Suffrage
@@ -1847,7 +2665,12 @@ focus_tree = {
 		}
 		x = 78
 		y = 11
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}		
+		}
 	}
 	focus = {
 		id = POR_Increase_Political_Repression
@@ -1858,7 +2681,9 @@ focus_tree = {
 		}
 		x = 74
 		y = 11
-
+		completion_reward = {
+			add_ideas = gulag_politic
+		}
 	}
 	focus = {
 		id = POR_Exile_Delgado
@@ -1872,7 +2697,10 @@ focus_tree = {
 		}
 		x = 75
 		y = 12
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = POR_Indoctrinate_the_Youth
@@ -1886,7 +2714,9 @@ focus_tree = {
 		}
 		x = 77
 		y = 12
-
+			completion_reward = {
+					add_ideas = military_youth_focus
+				}
 	}
 	focus = {
 		id = POR_Lusotropicalism
@@ -1900,6 +2730,9 @@ focus_tree = {
 		}
 		x = 76
 		y = 13
-
+		completion_reward = {
+			add_political_power = 200
+			add_war_support = 0.05
+		}
 	}
 }
