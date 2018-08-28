@@ -1,0 +1,68 @@
+﻿#####################
+# Morrocco Events
+#####################
+
+add_namespace = morrocco_ind
+add_namespace = morrocco_war
+
+country_event = {
+	id = morrocco_ind.1
+	title = "Aix Les Bains Conference"
+	desc = "Conference on the State and Potential Independence of Morrocco"
+	picture = GFX_report_event_finnish_soldiers_snow
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "Allow Morroccan Independence"
+		complete_national_focus = MOR_50s_FRANCE_ACCEPT
+		ai_chance = {
+			factor = 70
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+	}
+	option = {
+		name = "Reject Morroccan Independence"
+		complete_national_focus = MOR_50s_FRANCE_REJECT
+		ai_chance = {
+			factor = 30
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+
+country_event = {
+	id = morrocco_ind.1
+	title = "Morrocco on the Edge"
+	desc = "After our rejection of Morroccan Independence tensions have dramatically risen, if we do not accede to the demands war will surely break out"
+	picture = GFX_report_event_finnish_soldiers_snow
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "Allow Morroccan Independence"
+		complete_national_focus = MOR_50s_FRANCE_ACCEPT
+		ai_chance = {
+			factor = 25
+		}
+	}
+	option = {
+		name = "Reject Morroccan Independence"
+		complete_national_focus = MOR_50s_FRANCE_REJECT
+		FRA = {
+			declare_war_on = {
+				target = MOR
+				type = annex_everything
+			}		
+		}
+		ai_chance = {
+			factor = 75
+		}
+	}
+}
