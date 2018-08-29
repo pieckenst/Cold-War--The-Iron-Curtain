@@ -171,6 +171,7 @@ country_event = {
 	
 	option = { #kk
 		name = cw_saf.3.a
+		complete_national_focus = SAF_strijdom_takes_over
 		set_country_flag = saf_verwoerd
 		clr_country_flag = saf_strijdom
 		hidden_effect = {
@@ -186,67 +187,3 @@ country_event = {
 	}
 }
 
-add_namespace = saf
-
-country_event = {
-	id = saf.100
-	title = "The Commonwealth"
-	desc = "Are we part of it or not?"
-	picture = GFX
-	
-	is_triggered_only = yes
-	fire_only_once = yes
-
-	
-	option = { #kk
-		name = "We cannot stay forever"
-		set_autonomy = { target = SAF autonomy_state = autonomy_free } 
-	}
-	option = { #kk
-		name = "Whatever"
-	}
-}
-
-country_event = {
-	id = saf.101
-	title = "Sharpeville massacre"
-	desc = saf.101.d
-	picture = GFX
-	
-	is_triggered_only = yes
-	fire_only_once = yes
-
-	
-	option = { #kk
-		name = "This is not good"
-	}
-}
-
-country_event = {
-	id = saf.500
-	title = "South Africa Demands Lesotho and Swaziland"
-	desc = "Are we part of it or no?"
-	picture = GFX
-	
-	is_triggered_only = yes
-	fire_only_once = yes
-
-	
-	option = { #kk
-		name = "Transfer Lesotho and Swaziland"
-		SAF = {
-			annex_country = {
-				target = LES
-				transfer_troops = yes
-			}
-			annex_country = {
-				target = SWA
-				transfer_troops = yes
-			}
-		}
-	}
-	option = { #kk
-		name = "Reject the Demands"
-
-	}
-}
