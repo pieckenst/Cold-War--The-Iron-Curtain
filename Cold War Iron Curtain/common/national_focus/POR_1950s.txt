@@ -86,7 +86,6 @@ focus_tree = {
 							days = 360
 						}
 					add_political_power = 200
-					set_cosmetic_tag = MON_POR
 				}
 
 	}
@@ -1656,6 +1655,9 @@ focus_tree = {
 		prerequisite = {
 			focus = POR_Lusophone_Africa
 		}
+		mutually_exclusive = {
+			focus = POR_Reject_African_Citzenship
+		}
 		x = 90
 		y = 3
 			completion_reward = {
@@ -2420,11 +2422,19 @@ focus_tree = {
 		x = 60
 		y = 9
 			completion_reward = {
-					annex_country = {
-							target = BRA
-							transfer_troops = yes
+			if = {
+				limit = {
+					has_dlc = "Together for Victory"
+				}
+    			set_autonomy = {
+					target = BRA
+					autonomous_state = autonomy_dominion
+					freedom_level = 0.6
+				}		
+				else = {
+					puppet = BRA
+							}
 						}
-					set_cosmetic_tag = DUAL_POR
 				}
 
 	}
