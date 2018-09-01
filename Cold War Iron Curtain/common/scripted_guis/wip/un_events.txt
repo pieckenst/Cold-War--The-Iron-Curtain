@@ -239,7 +239,14 @@ country_event = {
 			limit = {		
 				has_global_flag = un_voting_three	#Send Peacekeepers
 			}
-
+			set_global_flag = UN_PEACEKEEPERS
+			set_global_flag = UN_FACTION_FORMED
+			create_faction = "United Nations"	
+			add_to_faction = var:vote_target
+			add_ideas = UN_INTERVENTION
+			var:vote_target= {
+				add_ideas = UN_INTERVENTION
+			 }	
 		}					
 		if = {
 			limit = {
