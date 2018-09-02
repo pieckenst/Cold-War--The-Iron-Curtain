@@ -8,9 +8,19 @@ country_event = {
 
 	fire_only_once = yes
 	is_triggered_only = yes
+	immediate = {
+		create_country_leader = {
+			name = "Milton Obote"
+			picture = "Milton_Obote.dds"
+			ideology = democratic_socialist
+		}	
+	}
 	option = {
 	  ai_chance = {
 		  factor = 90
+		}
+		trigger = {
+			NOT = { has_global_flag = secure_african_colonies }
 		}
 		name = eng.5.a
 				set_autonomy = { target = UGA autonomy_state = autonomy_free }	
@@ -19,22 +29,26 @@ country_event = {
 						ruling_party = socialist
 						elections_allowed = yes
 					}				
-					create_country_leader = {
-						name = "Milton Obote"
-						picture = "Milton_Obote.dds"
-						ideology = democratic_socialist
-					}
 					drop_cosmetic_tag = yes
 				}
 		
 	}
+	
 
 	option = {
 	  ai_chance = {
 		  factor = 10
 		}
+		trigger = {
+			has_global_flag  secure_african_colonies
+		}
 		name = eng.5.b
-		add_political_power = -125
+		UGA = {
+			start_civil_war = {
+				ideology = socialist
+				size = 0.5
+			}
+		}
 	}
 }
 
@@ -45,12 +59,23 @@ country_event = {
 		desc = eng.6.d
 		is_triggered_only = yes
 		fire_only_once = yes
-
+		
+		immediate = {
+			create_country_leader = {
+				name = "Nnamdi Azikiwe"
+				picture = "gfx/leaders/AFR/Azikiwe.dds"
+				expire = "1999.1.1"
+				ideology = liberalism
+			}
+		}
 
 		option = {
 		  ai_chance = {
 			  factor = 90
 			}
+			trigger = {
+				not = { has_global_flag = secure_african_colonies
+			} 
 			name = eng.6.a
 				drop_cosmetic_tag = yes
 				set_autonomy = { target = NIA autonomy_state = autonomy_free }	
@@ -59,12 +84,6 @@ country_event = {
 						ruling_party = democratic
 						elections_allowed = yes
 					}
-					create_country_leader = {
-						name = "Nnamdi Azikiwe"
-						picture = "gfx/leaders/AFR/Azikiwe.dds"
-						expire = "1999.1.1"
-						ideology = liberalism
-					}
 				}
 		}
 
@@ -72,8 +91,16 @@ country_event = {
 		  ai_chance = {
 			  factor = 10
 			}
+			trigger = {
+				has_global_flag = secure_african_colonies 
+			} 
 			name = eng.6.b
-			add_political_power = -125
+			NIA = {
+				start_civil_war = {
+					ideology = democratic
+					size = 0.5
+				}
+			}
 		}
   }
 
@@ -85,11 +112,22 @@ country_event = {
 		is_triggered_only = yes
 		fire_only_once = yes
 
-
+		immediate = {
+			create_country_leader = {
+				name = "Jomo Kenyatta"
+				picture = "Jomo.dds"
+				expire = "1999.1.1"
+				ideology = liberalism
+			}			
+		}
+		
 		option = {
 		  ai_chance = {
 			  factor = 90
 			}
+			trigger = {
+				not = { has_global_flag = secure_african_colonies
+			} 
 			name = eng.7.a
 				drop_cosmetic_tag = yes
 				set_autonomy = { target = KEN autonomy_state = autonomy_free }	
@@ -98,12 +136,7 @@ country_event = {
 						ruling_party = democratic
 						elections_allowed = yes
 					}
-					create_country_leader = {
-						name = "Jomo Kenyatta"
-						picture = "Jomo.dds"
-						expire = "1999.1.1"
-						ideology = liberalism
-					}		
+	
 				}
 		}
 
@@ -111,8 +144,16 @@ country_event = {
 		  ai_chance = {
 			  factor = 10
 			}
+			trigger = {
+				has_global_flag = secure_african_colonies
+			} 
 			name = eng.7.b
-			add_political_power = -125
+			KEN = {
+				start_civil_war = {
+					ideology = democratic
+					size = 0.5
+				}
+			}
 		}
   }
 
@@ -128,6 +169,11 @@ country_event = {
 		option = {
 		  ai_chance = {
 			  factor = 90
+			}
+			trigger = {
+				NOT = {
+					has_global_flag = secure_african_colonies
+				}
 			}
 			name = eng.8.a
 			set_autonomy = { target = SUD autonomy_state = autonomy_free }	
@@ -145,6 +191,14 @@ country_event = {
 			  factor = 10
 			}
 			name = eng.8.b
-			add_political_power = -125
+			trigger = {
+				has_global_flag = secure_african_colonies
+			}
+			SUD = {
+				start_civil_war = {
+					ideology = centrist
+					size = 0.5
+				}
+			}
 		}
   }
