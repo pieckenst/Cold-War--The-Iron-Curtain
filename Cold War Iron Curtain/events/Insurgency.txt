@@ -1,9 +1,10 @@
+﻿#Coded by Starwarsfan541
 add_namespace = insurgency
-
+ 
 country_event = {
 	id = insurgency.1
-	title = "Insurgency in X"
-	desc = "Insurgency in X"
+	title = "Insurgency"
+	desc = "Insurgency"
 
 	is_triggered_only = yes
 
@@ -36,5 +37,57 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = insurgency.2
+	hidden = yes
 
- 
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state  = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				is_border_conflict = yes
+				has_state_flag = active_insurgency				
+			}
+			set_border_war = no
+			cancel_border_war = {
+				dont_fire_events = yes
+				defender = THIS
+				attacker = THIS
+			}			
+			liberation_war_effect = yes
+		}
+	}
+}
+country_event = {
+	id = insurgency.3
+	hidden = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = unit_set_insurgency_revolution
+		division_template = {
+			name = "Revolutionary Guard" 
+
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+			}
+		}
+		 
+		capital_scope = { 
+			create_unit = { division = "name = \"1st Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } 
+			create_unit = { division = "name = \"2nd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } 
+			create_unit = { division = "name = \"3rd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } 
+			create_unit = { division = "name = \"4th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } 
+			create_unit = { division = "name = \"5th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  
+		}
+	}
+
+}

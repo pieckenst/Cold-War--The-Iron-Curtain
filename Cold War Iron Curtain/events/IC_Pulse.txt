@@ -75,7 +75,7 @@ add_namespace = GER_ASSASIN
 add_namespace = PMR
 add_namespace = fra_crisis
 add_namespace = vat
-
+add_namespace = insurgency
 
 country_event = {
 	id = ic_pulse.1
@@ -85,6 +85,72 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		if = {
+			limit = {
+				has_country_flag = insurgency_revolution
+				NOT = { has_country_flag = unit_set_insurgency_revolution }
+			}
+			country_event = insurgency.3
+		}
+		if = {
+			limit = {
+				has_stability < 0.65
+				any_owned_state = {
+					limit = {
+						NOT = { is_core_of = ROOT }
+						is_owned_and_controlled_by = ROOT
+						is_border_conflict = no
+						not = { has_state_flag = pacified_insurgency }
+					}			
+				}
+			}
+			country_event = insurgency.1
+		}
+		if = {
+			limit = {
+				any_owned_state = {
+					limit = {
+						NOT = { is_core_of = ROOT }
+						is_owned_and_controlled_by = ROOT
+						is_border_conflict = yes
+						has_state_flag = active_insurgency
+						not = { has_state_flag = pacified_insurgency }
+					}			
+				}
+				every_owned_state = {
+					limit = {
+						NOT = { is_core_of = ROOT }
+						is_owned_and_controlled_by = ROOT
+						is_border_conflict = yes
+						has_state_flag = active_insurgency
+						divisions_in_state = {
+							type = infantry
+							size < 4
+						}
+					}	
+					add_to_variable = {
+						var = insurgency_strength
+						value = 1
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_owned_state = {
+						check_variable = { var = insurgency_strength value = 20 compare = greater_than_or_equals }
+						is_owned_and_controlled_by = ROOT
+						is_border_conflict = yes
+						has_state_flag = active_insurgency				
+				}
+			}
+			every_owned_state = {
+				limit = {
+					check_variable = { var = insurgency_strength value = 20 compare = greater_than_or_equals }
+				}
+				liberation_war_effect = yes
+			}
+		}
 		if = {
 			limit = {
 				tag = FRA
