@@ -15,9 +15,9 @@ country_event = {
 				is_owned_and_controlled_by = ROOT
 				NOT = { has_state_flag = active_insurgency }
 				not = { has_state_flag = pacified_insurgency }
-				#check_variable = { var = insurgency_strength value = 200 compare = greater_than_or_equals }
 			}
 			set_state_flag = active_insurgency
+			set_state_flag = anti_colonial_insurgency
 			set_variable = { insurgency_strength = 25 }
 			add_state_modifier = {
 				modifier = {
@@ -51,6 +51,69 @@ country_event = {
 			}	
 			liberation_war_effect = yes
 			clear_variable = insurgency_strength
+			clr_state_flag = anti_colonial_insurgency
 		}
+	}
+}
+country_event = {
+	id = insurgency_effects.1
+	hidden = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		add_manpower = -2000
+	}
+}
+country_event = {
+	id = insurgency_effects.2
+	hidden = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		var:insur_target = {
+			add_manpower = -100
+		}
+		clear_variable = insur_target
+	}
+}
+country_event = {
+	id = insurgency_effects.3
+	hidden = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		var:insur_target = {
+			add_manpower = -2000
+		}
+		clear_variable = insur_target
+	}
+}
+country_event = {
+	id = insurgency_effects.4
+	hidden = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		var:insur_target = {
+			add_manpower = -10000
+		}
+		clear_variable = insur_target
+	}
+}
+country_event = {
+	id = insurgency_effects.5
+	hidden = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		var:insur_target = {
+			add_manpower = -3500
+		}
+		clear_variable = insur_target
 	}
 }
