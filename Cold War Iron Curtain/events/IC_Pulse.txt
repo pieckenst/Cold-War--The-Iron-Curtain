@@ -87,60 +87,48 @@ country_event = {
 	immediate = {
 		if = {
 			limit = {
-				has_country_flag = insurgency_revolution
-				NOT = { has_country_flag = unit_set_insurgency_revolution }
-			}
-			country_event = insurgency.3
-		}
-		if = {
-			limit = {
-				has_stability < 0.65
+				has_stability < 0.5
 				any_owned_state = {
 					limit = {
 						NOT = { is_core_of = ROOT }
 						is_owned_and_controlled_by = ROOT
-						is_border_conflict = no
+						NOT = { has_state_flag = active_insurgency }
 						not = { has_state_flag = pacified_insurgency }
+						is_demilitarized_zone = no
 					}			
 				}
 			}
-			country_event = insurgency.1
-		}
-		if = {
-			limit = {
-				any_owned_state = {
-					limit = {
-						NOT = { is_core_of = ROOT }
-						is_owned_and_controlled_by = ROOT
-						is_border_conflict = yes
-						has_state_flag = active_insurgency
-						not = { has_state_flag = pacified_insurgency }
-					}			
-				}
-				every_owned_state = {
-					limit = {
-						NOT = { is_core_of = ROOT }
-						is_owned_and_controlled_by = ROOT
-						is_border_conflict = yes
-						has_state_flag = active_insurgency
-						divisions_in_state = {
-							type = infantry
-							size < 4
-						}
-					}	
-					add_to_variable = {
-						var = insurgency_strength
-						value = 1
-					}
+			random_list = {
+				15 = {
+					country_event = insurgency.1
 				}
 			}
 		}
 		if = {
 			limit = {
 				any_owned_state = {
-						check_variable = { var = insurgency_strength value = 20 compare = greater_than_or_equals }
+					limit = {
 						is_owned_and_controlled_by = ROOT
-						is_border_conflict = yes
+						has_state_flag = active_insurgency
+					}			
+				}
+			}
+			every_owned_state = {
+				limit = {
+					has_state_flag = active_insurgency
+				}	
+				add_to_variable = {
+					var = insurgency_strength
+					value = 1
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				any_owned_state = {
+						check_variable = { var = insurgency_strength value = 200 compare = greater_than_or_equals }
+						is_owned_and_controlled_by = ROOT
 						has_state_flag = active_insurgency				
 				}
 			}
@@ -148,7 +136,24 @@ country_event = {
 				limit = {
 					check_variable = { var = insurgency_strength value = 20 compare = greater_than_or_equals }
 				}
-				liberation_war_effect = yes
+				country_event = insurgency.2
+			}
+		}
+		if = {
+			limit = {
+				any_owned_state = {
+						has_variable = insurgency_strength
+						is_owned_and_controlled_by = ROOT
+						has_state_flag = active_insurgency				
+				}
+			}
+			every_owned_state = {
+				limit = {
+					has_variable = insurgency_strength
+					has_state_flag = active_insurgency	
+					check_variable = { var = insurgency_strength value = 0 compare = less_than_or_equals }
+				}
+				reset_insurgency_modifiers_effect = yes
 			}
 		}
 		if = {

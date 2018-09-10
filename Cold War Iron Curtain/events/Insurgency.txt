@@ -13,12 +13,12 @@ country_event = {
 			limit = {
 				NOT = { is_core_of = ROOT }
 				is_owned_and_controlled_by = ROOT
-				is_border_conflict = no
+				NOT = { has_state_flag = active_insurgency }
 				not = { has_state_flag = pacified_insurgency }
+				#check_variable = { var = insurgency_strength value = 200 compare = greater_than_or_equals }
 			}
-			set_border_war = yes 
 			set_state_flag = active_insurgency
-
+			set_variable = { insurgency_strength = 25 }
 			add_state_modifier = {
 				modifier = {
 					local_resources = -0.20
@@ -47,47 +47,10 @@ country_event = {
 		random_owned_controlled_state  = {
 			limit = {
 				is_owned_and_controlled_by = ROOT
-				is_border_conflict = yes
 				has_state_flag = active_insurgency				
-			}
-			set_border_war = no
-			cancel_border_war = {
-				dont_fire_events = yes
-				defender = THIS
-				attacker = THIS
-			}			
+			}	
 			liberation_war_effect = yes
+			clear_variable = insurgency_strength
 		}
 	}
-}
-country_event = {
-	id = insurgency.3
-	hidden = yes
-
-	is_triggered_only = yes
-
-	immediate = {
-		set_country_flag = unit_set_insurgency_revolution
-		division_template = {
-			name = "Revolutionary Guard" 
-
-			regiments = {
-				infantry = { x = 0 y = 0 }
-				infantry = { x = 0 y = 1 }
-				infantry = { x = 0 y = 2 }
-				infantry = { x = 1 y = 0 }
-				infantry = { x = 1 y = 1 }
-				infantry = { x = 1 y = 2 }
-			}
-		}
-		 
-		capital_scope = { 
-			create_unit = { division = "name = \"1st Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } 
-			create_unit = { division = "name = \"2nd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } 
-			create_unit = { division = "name = \"3rd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } 
-			create_unit = { division = "name = \"4th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } 
-			create_unit = { division = "name = \"5th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  
-		}
-	}
-
 }
