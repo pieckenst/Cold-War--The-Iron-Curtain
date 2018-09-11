@@ -485,14 +485,14 @@ focus_tree = {
 			focus = ROC_Minor_Details
 		}
 		mutually_exclusive = {
-			focus = ROC_Undermine_the_French_Governors
+			focus = ROC_Support_the_French_Governors
 		}
 		x = 38
 		y = 2
 
 	}
 	focus = {
-		id = ROC_Undermine_the_French_Governors
+		id = ROC_Support_the_French_Governors
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
@@ -511,7 +511,7 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = ROC_Undermine_French_Governors
-			focus = ROC_Undermine_the_French_Governors
+			focus = ROC_Support_the_French_Governors
 		}
 		mutually_exclusive = {
 			focus = ROC_Cooperate_with_Local_Councils
@@ -538,7 +538,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = ROC_Undermine_the_French_Governors
+			focus = ROC_Support_the_French_Governors
 			focus = ROC_Undermine_French_Governors
 		}
 		mutually_exclusive = {
@@ -569,7 +569,11 @@ focus_tree = {
 		}
 		x = 42
 		y = 1
-
+		completion_reward = {
+			FRA = {
+				country_event = FFC.11
+			}
+		}
 	}
 	focus = {
 		id = ROC_Autonomy_Denied
@@ -593,7 +597,9 @@ focus_tree = {
 		}
 		x = 45
 		y = 2
-
+		completion_reward = {
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = ROC_Native_Resentment
@@ -604,7 +610,11 @@ focus_tree = {
 		}
 		x = 46
 		y = 3
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 100
 
+		}
 	}
 	focus = {
 		id = ROC_Stage_Riots
@@ -615,7 +625,10 @@ focus_tree = {
 		}
 		x = 44
 		y = 4
-
+		completion_reward = {
+			add_stability = -0.10
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = ROC_Demand_Emergency_Powers
@@ -626,7 +639,12 @@ focus_tree = {
 		}
 		x = 43
 		y = 5
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = repression
+				days = 365
+			}		
+		}
 	}
 	focus = {
 		id = ROC_Autonomy_Accepted
@@ -687,7 +705,10 @@ focus_tree = {
 		}
 		x = 48
 		y = 4
-
+		completion_reward = {
+			add_stability = 0.10
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = ROC_Governor_Chauvet_Takes_Command
