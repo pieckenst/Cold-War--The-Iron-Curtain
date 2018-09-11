@@ -1,15 +1,15 @@
 focus_tree = {
-	id = CAR_50s
+	id = ROC_50s
 	country = {
 		factor = 0
 		modifier = {
 			add = 10
-			tag = CAR
+			tag = ROC
 		}
 	}
 	default = no
 	focus = {
-		id = CAR_Review_the_Economy
+		id = ROC_Review_the_Economy
 		icon = GFX_goal_unknown
 		cost = 10.00
 		x = 3
@@ -26,7 +26,7 @@ focus_tree = {
 				}
 	}
 	focus = {
-		id = CAR_Military_Reform
+		id = ROC_Military_Reform
 		icon = GFX_goal_unknown
 		cost = 10.00
 		x = 33
@@ -36,7 +36,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = CAR_The_Matters_of_Colonial_Administration
+		id = ROC_The_Matters_of_Colonial_Administration
 		icon = GFX_goal_unknown
 		cost = 10.00
 		x = 41
@@ -46,21 +46,24 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = CAR_The_New_Governor_1951
+		id = ROC_The_New_Governor_1951
 		icon = GFX_goal_unknown
 		cost = 10.00
 		x = 54
 		y = 0
 		available = {
 			date > 1951.1.1
+			NOT = {
+				has_completed_focus = ROC_Administrative_Reform
+			}
 		}
 	}
 	focus = {
-		id = CAR_Standardize_Laws
+		id = ROC_Standardize_Laws
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Review_the_Economy
+			focus = ROC_Review_the_Economy
 		}
 		x = 1
 		y = 1
@@ -69,22 +72,24 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = CAR_An_Equatorial_Customs_Union
+		id = ROC_An_Equatorial_Customs_Union
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Standardize_Laws
+			focus = ROC_Standardize_Laws
 		}
 		x = 1
 		y = 2
-
+		completion_reward = {
+			add_ideas = embrace_free_trade
+		}
 	}
 	focus = {
-		id = CAR_Aid_From_the_Homeland
+		id = ROC_Aid_From_the_Homeland
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_An_Equatorial_Customs_Union
+			focus = ROC_An_Equatorial_Customs_Union
 		}
 		x = 1
 		y = 3
@@ -108,11 +113,11 @@ focus_tree = {
 				}
 	}
 	focus = {
-		id = CAR_More_Rubber
+		id = ROC_More_Rubber
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Review_the_Economy
+			focus = ROC_Review_the_Economy
 		}
 		x = 3
 		y = 1
@@ -132,11 +137,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = CAR_Industry_of_Brazzaville
+		id = ROC_Industry_of_Brazzaville
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_More_Rubber
+			focus = ROC_More_Rubber
 		}
 		x = 3
 		y = 2
@@ -152,11 +157,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = CAR_Inroads_into_Africa
+		id = ROC_Inroads_into_Africa
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Industry_of_Brazzaville
+			focus = ROC_Industry_of_Brazzaville
 		}
 		x = 3
 		y = 3
@@ -171,11 +176,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = CAR_Mining_in_Chad
+		id = ROC_Mining_in_Chad
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Inroads_into_Africa
+			focus = ROC_Inroads_into_Africa
 		}
 		x = 3
 		y = 4
@@ -189,50 +194,52 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = CAR_Minds_of_Tommorrow
+		id = ROC_Minds_of_Tommorrow
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Review_the_Economy
+			focus = ROC_Review_the_Economy
 		}
 		x = 6
 		y = 1
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
-		id = CAR_Public_Schools
+		id = ROC_Public_Schools
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Minds_of_Tommorrow
+			focus = ROC_Minds_of_Tommorrow
 		}
 		mutually_exclusive = {
-			focus = CAR_Private_Schools
+			focus = ROC_Private_Schools
 		}
 		x = 5
 		y = 2
 
 	}
 	focus = {
-		id = CAR_Teach_Local_Languages
+		id = ROC_Teach_Local_Languages
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Public_Schools
+			focus = ROC_Public_Schools
 		}
 		x = 5
 		y = 3
 
 	}
 	focus = {
-		id = CAR_Private_Schools
+		id = ROC_Private_Schools
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Minds_of_Tommorrow
+			focus = ROC_Minds_of_Tommorrow
 		}
 		mutually_exclusive = {
-			focus = CAR_Public_Schools
+			focus = ROC_Public_Schools
 		}
 		x = 7
 		y = 2
@@ -243,26 +250,28 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Private_Schools
+			focus = ROC_Private_Schools
 		}
 		x = 7
 		y = 3
 
 	}
 	focus = {
-		id = CAR_Teaching_Reforms
+		id = ROC_Teaching_Reforms
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
 			focus = CAN_Encourage_French
-			focus = CAR_Teach_Local_Languages
+			focus = ROC_Teach_Local_Languages
 		}
 		x = 6
 		y = 4
-
+		completion_reward = {
+			add_ideas = KOR_education_reform
+		}
 	}
 	focus = {
-		id = CAR_Catholic_Missionaries
+		id = ROC_Catholic_Missionaries
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
@@ -273,72 +282,72 @@ focus_tree = {
 
 	}
 	focus = {
-		id = CAR_Local_Troops
+		id = ROC_Local_Troops
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Military_Reform
+			focus = ROC_Military_Reform
 		}
 		x = 31
 		y = 1
 
 	}
 	focus = {
-		id = CAR_Local_Officers
+		id = ROC_Local_Officers
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Local_Troops
+			focus = ROC_Local_Troops
 		}
 		mutually_exclusive = {
-			focus = CAR_Officers_from_Home
+			focus = ROC_Officers_from_Home
 		}
 		x = 30
 		y = 2
 
 	}
 	focus = {
-		id = CAR_Officer_Schools
+		id = ROC_Officer_Schools
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Local_Officers
+			focus = ROC_Local_Officers
 		}
 		x = 30
 		y = 3
 
 	}
 	focus = {
-		id = CAR_Officers_from_Home
+		id = ROC_Officers_from_Home
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Local_Troops
+			focus = ROC_Local_Troops
 		}
 		mutually_exclusive = {
-			focus = CAR_Local_Officers
+			focus = ROC_Local_Officers
 		}
 		x = 32
 		y = 2
 
 	}
 	focus = {
-		id = CAR_Bargain_with_France
+		id = ROC_Bargain_with_France
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Officers_from_Home
+			focus = ROC_Officers_from_Home
 		}
 		x = 32
 		y = 3
 
 	}
 	focus = {
-		id = CAR_Army_Reform
+		id = ROC_Army_Reform
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Military_Reform
+			focus = ROC_Military_Reform
 		}
 		x = 35
 		y = 1
@@ -347,14 +356,14 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = CAR_Jeeps_Across_the_Plains
+		id = ROC_Jeeps_Across_the_Plains
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Army_Reform
+			focus = ROC_Army_Reform
 		}
 		mutually_exclusive = {
-			focus = CAR_Army_of_the_Brush_and_Jungle
+			focus = ROC_Army_of_the_Brush_and_Jungle
 		}
 		x = 34
 		y = 2
@@ -367,25 +376,25 @@ focus_tree = {
 				}
 	}
 	focus = {
-		id = CAR_Cut_the_Trees
+		id = ROC_Cut_the_Trees
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Jeeps_Across_the_Plains
+			focus = ROC_Jeeps_Across_the_Plains
 		}
 		x = 34
 		y = 3
 
 	}
 	focus = {
-		id = CAR_Army_of_the_Brush_and_Jungle
+		id = ROC_Army_of_the_Brush_and_Jungle
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Army_Reform
+			focus = ROC_Army_Reform
 		}
 		mutually_exclusive = {
-			focus = CAR_Jeeps_Across_the_Plains
+			focus = ROC_Jeeps_Across_the_Plains
 		}
 		x = 36
 		y = 2
@@ -396,322 +405,343 @@ focus_tree = {
 				}
 	}
 	focus = {
-		id = CAR_Local_Initiative
+		id = ROC_Local_Initiative
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Army_of_the_Brush_and_Jungle
+			focus = ROC_Army_of_the_Brush_and_Jungle
 		}
 		x = 36
 		y = 3
 
 	}
 	focus = {
-		id = CAR_Minor_Details
+		id = ROC_Minor_Details
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 4
 		prerequisite = {
-			focus = CAR_The_Matters_of_Colonial_Administration
+			focus = ROC_The_Matters_of_Colonial_Administration
 		}
 		x = 39
 		y = 1
-
+		completion_reward = {
+			add_political_power = 100
+		} 
 	}
 	focus = {
-		id = CAR_Undermine_French_Governors
+		id = ROC_Undermine_French_Governors
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Minor_Details
+			focus = ROC_Minor_Details
 		}
 		mutually_exclusive = {
-			focus = CAR_Undermine_the_French_Governors
+			focus = ROC_Undermine_the_French_Governors
 		}
 		x = 38
 		y = 2
 
 	}
 	focus = {
-		id = CAR_Undermine_the_French_Governors
+		id = ROC_Undermine_the_French_Governors
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Minor_Details
+			focus = ROC_Minor_Details
 		}
 		mutually_exclusive = {
-			focus = CAR_Undermine_French_Governors
+			focus = ROC_Undermine_French_Governors
 		}
 		x = 40
 		y = 2
 
 	}
 	focus = {
-		id = CAR_Restrict_Local_Councils
+		id = ROC_Restrict_Local_Councils
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Undermine_French_Governors
-			focus = CAR_Undermine_the_French_Governors
+			focus = ROC_Undermine_French_Governors
+			focus = ROC_Undermine_the_French_Governors
 		}
 		mutually_exclusive = {
-			focus = CAR_Cooperate_with_Local_Councils
+			focus = ROC_Cooperate_with_Local_Councils
 		}
 		x = 38
 		y = 4
 
 	}
 	focus = {
-		id = CAR_Forced_Labor
+		id = ROC_Forced_Labor
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Minor_Details
+			focus = ROC_Minor_Details
 		}
 		x = 39
 		y = 3
-
+		completion_reward = {
+			add_ideas = forced_labour
+		}
 	}
 	focus = {
-		id = CAR_Cooperate_with_Local_Councils
+		id = ROC_Cooperate_with_Local_Councils
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Undermine_the_French_Governors
-			focus = CAR_Undermine_French_Governors
+			focus = ROC_Undermine_the_French_Governors
+			focus = ROC_Undermine_French_Governors
 		}
 		mutually_exclusive = {
-			focus = CAR_Restrict_Local_Councils
+			focus = ROC_Restrict_Local_Councils
 		}
 		x = 40
 		y = 4
 
 	}
 	focus = {
-		id = CAR_The_Governors_Government
+		id = ROC_The_Governors_Government
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Cooperate_with_Local_Councils
-			focus = CAR_Restrict_Local_Councils
+			focus = ROC_Cooperate_with_Local_Councils
+			focus = ROC_Restrict_Local_Councils
 		}
 		x = 39
 		y = 6
 
 	}
 	focus = {
-		id = CAR_Request_Autonomy
+		id = ROC_Request_Autonomy
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_The_Matters_of_Colonial_Administration
+			focus = ROC_The_Matters_of_Colonial_Administration
 		}
 		x = 42
 		y = 1
 
 	}
 	focus = {
-		id = CAR_Autonomy_Denied
+		id = ROC_Autonomy_Denied
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_The_Matters_of_Colonial_Administration
+			focus = ROC_The_Matters_of_Colonial_Administration
 		}
 		x = 44
 		y = 1
 
 	}
 	focus = {
-		id = CAR_Stir_Up_Discontent
+		id = ROC_Stir_Up_Discontent
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Autonomy_Denied
+			focus = ROC_Autonomy_Denied
 		}
 		x = 45
 		y = 2
 
 	}
 	focus = {
-		id = CAR_Native_Resentment
+		id = ROC_Native_Resentment
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Stir_Up_Discontent
+			focus = ROC_Stir_Up_Discontent
 		}
 		x = 46
 		y = 3
 
 	}
 	focus = {
-		id = CAR_Stage_Riots
+		id = ROC_Stage_Riots
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Native_Resentment
+			focus = ROC_Native_Resentment
 		}
 		x = 44
 		y = 4
 
 	}
 	focus = {
-		id = CAR_Demand_Emergency_Powers
+		id = ROC_Demand_Emergency_Powers
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Stage_Riots
+			focus = ROC_Stage_Riots
 		}
 		x = 43
 		y = 5
 
 	}
 	focus = {
-		id = CAR_Autonomy_Accepted
+		id = ROC_Autonomy_Accepted
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Demand_Emergency_Powers
-			focus = CAR_Request_Autonomy
+			focus = ROC_Demand_Emergency_Powers
+			focus = ROC_Request_Autonomy
 		}
 		x = 42
 		y = 6
 
 	}
 	focus = {
-		id = CAR_Administrative_Reform
+		id = ROC_Administrative_Reform
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_The_Governors_Government
+			focus = ROC_The_Governors_Government
 		}
 		prerequisite = {
-			focus = CAR_Autonomy_Accepted
+			focus = ROC_Autonomy_Accepted
 		}
 		x = 40
 		y = 7
 
 	}
 	focus = {
-		id = CAR_Power_to_the_Governor
+		id = ROC_Power_to_the_Governor
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Administrative_Reform
+			focus = ROC_Administrative_Reform
 		}
 		x = 39
 		y = 8
 
 	}
 	focus = {
-		id = CAR_A_Unitary_Constitution
+		id = ROC_A_Unitary_Constitution
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Administrative_Reform
+			focus = ROC_Administrative_Reform
 		}
 		x = 41
 		y = 8
 
 	}
 	focus = {
-		id = CAR_Suspend_our_Ambitions
+		id = ROC_Suspend_our_Ambitions
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Native_Resentment
+			focus = ROC_Native_Resentment
 		}
 		x = 48
 		y = 4
 
 	}
 	focus = {
-		id = CAR_Governor_Chauvet_Takes_Command
+		id = ROC_Governor_Chauvet_Takes_Command
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_The_New_Governor_1951
+			focus = ROC_The_New_Governor_1951
 		}
 		x = 52
 		y = 1
 
 	}
 	focus = {
-		id = CAR_Locals_In_Civil_Service
+		id = ROC_Locals_In_Civil_Service
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Governor_Chauvet_Takes_Command
+			focus = ROC_Governor_Chauvet_Takes_Command
 		}
 		x = 52
 		y = 2
 
 	}
 	focus = {
-		id = CAR_Regional_Autonomy
+		id = ROC_Regional_Autonomy
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Locals_In_Civil_Service
+			focus = ROC_Locals_In_Civil_Service
 		}
 		x = 52
 		y = 3
-
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 200
+		}
 	}
 	focus = {
-		id = CAR_Destandardize_Laws
+		id = ROC_Destandardize_Laws
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Regional_Autonomy
+			focus = ROC_Regional_Autonomy
 		}
 		mutually_exclusive = {
-			focus = CAR_Keep_the_Current_System
+			focus = ROC_Keep_the_Current_System
 		}
 		x = 51
 		y = 4
-
+		y = 4
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 200
+		}
 	}
 	focus = {
-		id = CAR_Keep_the_Current_System
+		id = ROC_Keep_the_Current_System
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Regional_Autonomy
+			focus = ROC_Regional_Autonomy
 		}
 		mutually_exclusive = {
-			focus = CAR_Destandardize_Laws
+			focus = ROC_Destandardize_Laws
 		}
 		x = 53
 		y = 4
-
+		completion_reward = {
+			add_stability = -0.10
+			add_political_power = -200
+		}
 	}
 	focus = {
-		id = CAR_Invite_Cameroon
+		id = ROC_Invite_Cameroon
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Keep_the_Current_System
+			focus = ROC_Keep_the_Current_System
 		}
 		x = 53
 		y = 5
-
+		completion_reward = {
+			CMR = {
+				country_event = generic.30
+			}
+		}
 	}
 	focus = {
-		id = CAR_Union_of_Central_African_Republics
+		id = ROC_Union_of_Central_African_Republics
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Invite_Cameroon
+			focus = ROC_Invite_Cameroon
 		}
 		x = 53
 		y = 6
-
+		completion_reward = {
+			add_political_power = 100
+			set_cosmetic_tag = EQU_CAR
+		}
 	}
 	focus = {
-		id = CAR_1951_Development_Plan
+		id = ROC_1951_Development_Plan
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_The_New_Governor_1951
+			focus = ROC_The_New_Governor_1951
 		}
 		x = 56
 		y = 1
@@ -727,161 +757,237 @@ focus_tree = {
 				}
 	}
 	focus = {
-		id = CAR_End_Forced_Labor
+		id = ROC_End_Forced_Labor
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_1951_Development_Plan
+			focus = ROC_1951_Development_Plan
 		}
 		x = 54
 		y = 2
-
+		completion_reward = {
+			remove_ideas = forced_labour
+		}
 	}
 	focus = {
-		id = CAR_Development_Plan_Modernization_51
+		id = ROC_Development_Plan_Modernization_51
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_1951_Development_Plan
+			focus = ROC_1951_Development_Plan
 		}
 		x = 56
 		y = 2
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = industry
+							bonus = 0.75
+							technology = motorised_infantry
+						}
+				}
 	}
 	focus = {
-		id = CAR_1953_Development_Plan
+		id = ROC_1953_Development_Plan
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_1951_Development_Plan
+			focus = ROC_1951_Development_Plan
 		}
 		x = 58
 		y = 2
-
+			completion_reward = {
+				random_owned_controlled_state = {
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+								type = industrial_complex
+								level = 2
+								instant_build = yes
+							}
+					}
+				}
 	}
 	focus = {
-		id = CAR_Development_Plan_Modernization_53
+		id = ROC_Development_Plan_Modernization_53
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_1953_Development_Plan
+			focus = ROC_1953_Development_Plan
 		}
 		x = 58
 		y = 3
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = industry
+							bonus = 0.75
+							technology = motorised_infantry
+						}
+				}
 	}
 	focus = {
-		id = CAR_The_State_of_Equatorial_Africa
+		id = ROC_The_State_of_Equatorial_Africa
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Sweeten_the_Deal
-			focus = CAR_France_Accepts
+			focus = ROC_Sweeten_the_Deal
+			focus = ROC_France_Accepts
 		}
 		x = 40
 		y = 12
-
+		completion_reward = {
+			set_autonomy = {
+				target = ROC
+				autonomy_state = autonomy_free
+			}		
+			set_cosmetic_tag = EQU_ROC
+			add_political_power = 100
+		}
 	}
 	focus = {
-		id = CAR_A_Union_Under_Count_Gentille
+		id = ROC_A_Union_Under_Count_Gentille
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_The_State_of_Equatorial_Africa
+			focus = ROC_The_State_of_Equatorial_Africa
 		}
 		x = 40
 		y = 13
-
+		completion_reward = {
+			add_political_power = 200
+			create_country_leader = {
+				name = "Count Gentille"
+				picture = "Count_Gentille.dds"
+				ideology = colonial_regime
+			}		
+		}
 	}
 	focus = {
-		id = CAR_Sweeten_the_Deal
+		id = ROC_Sweeten_the_Deal
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_France_Rejects
+			focus = ROC_France_Rejects
 		}
 		x = 41
 		y = 11
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = payments_to_france
+				days = 900
+			}
+		}
 	}
 	focus = {
-		id = CAR_France_Rejects
+		id = ROC_France_Rejects
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Request_Independence
+			focus = ROC_Request_Independence
 		}
 		x = 41
 		y = 10
-
+		available = {
+			always = no
+		}
+			completion_reward = {
+					ROC = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = small_decrease
+								}
+						}
+					FRA = {
+							add_opinion_modifier = {
+									target = ROC
+									modifier = small_decrease
+								}
+						}
+				}
 	}
 	focus = {
-		id = CAR_Request_Independence
+		id = ROC_Request_Independence
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Power_to_the_Governor
+			focus = ROC_Power_to_the_Governor
 		}
 		prerequisite = {
-			focus = CAR_A_Unitary_Constitution
+			focus = ROC_A_Unitary_Constitution
 		}
 		x = 40
 		y = 9
-
+		completion_reward = {
+			FRA = {
+				country_event = FFc.10
+			}
+		}
 	}
 	focus = {
-		id = CAR_France_Accepts
+		id = ROC_France_Accepts
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Request_Independence
+			focus = ROC_Request_Independence
 		}
 		x = 39
 		y = 10
-
+		available = {
+			always = no
+		}
+		completion_reward = {
+			set_autonomy = {
+				target = ROC
+				autonomy_state = autonomy_free
+			}		
+		}
 	}
 	focus = {
-		id = CAR_Autonomy_to_Gabon
+		id = ROC_Autonomy_to_Gabon
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Give_Political_Authority_to_Ubangi_Shari
+			focus = ROC_Give_Political_Authority_to_Ubangi_Shari
 		}
 		x = 51
 		y = 6
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
-		id = CAR_Give_Political_Authority_to_Ubangi_Shari
+		id = ROC_Give_Political_Authority_to_Ubangi_Shari
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Destandardize_Laws
+			focus = ROC_Destandardize_Laws
 		}
 		x = 51
 		y = 5
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
-		id = CAR_Dissolution_of_French_Equatorial_Africa
+		id = ROC_Dissolution_of_French_Equatorial_Africa
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_Union_of_Central_African_Republics
+			focus = ROC_Union_of_Central_African_Republics
 		}
 		prerequisite = {
-			focus = CAR_Autonomy_to_Gabon
+			focus = ROC_Autonomy_to_Gabon
 		}
 		x = 52
 		y = 7
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
-		id = CAR_1955_Development_Plan
+		id = ROC_1955_Development_Plan
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_1953_Development_Plan
+			focus = ROC_1953_Development_Plan
 		}
 		x = 60
 		y = 3
@@ -897,11 +1003,11 @@ focus_tree = {
 				}
 	}
 	focus = {
-		id = CAR_Development_Plan_Modernization_55
+		id = ROC_Development_Plan_Modernization_55
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = CAR_1955_Development_Plan
+			focus = ROC_1955_Development_Plan
 		}
 		x = 60
 		y = 4

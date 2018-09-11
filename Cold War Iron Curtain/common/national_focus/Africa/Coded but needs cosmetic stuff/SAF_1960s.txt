@@ -41,7 +41,11 @@ focus_tree = {
 		cost = 10.00
 		x = 28
 		y = 23
-
+		completion_reward = {
+			army_experience = 25
+			add_manpower = 1000
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 		id = SAF_60s_The_South_African_Front_Party
@@ -78,7 +82,21 @@ focus_tree = {
 		}
 		x = 30
 		y = 23
-
+			completion_reward = {
+				army_experience = 10
+					SAF = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = small_increase
+								}
+						}
+					}
 	}
 	focus = {
 		id = SAF_60s_Expand_Helicoptor_Forces
@@ -92,7 +110,14 @@ focus_tree = {
 		}
 		x = 29
 		y = 24
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = helicoptor_bonus
+							bonus = 0.35
+							uses = 1
+							category = helicopter
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_The_South_African_Front_Party_1970
@@ -116,7 +141,9 @@ focus_tree = {
 		}
 		x = 29
 		y = 30
-
+		completion_reward = {
+			add_ideas = embrace_free_trade
+		}
 	}
 	focus = {
 		id = SAF_60s_Develop_Rhodesia
@@ -127,7 +154,17 @@ focus_tree = {
 		}
 		x = 30
 		y = 25
-
+		completion_reward = {
+			every_owned_state = {
+				limit = { is_core_of = ZIM }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}				
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_pondoland_rebellion
@@ -272,7 +309,13 @@ focus_tree = {
 		}
 		x = 50
 		y = 30
-
+		completion_reward = {
+			add_political_power = 200
+			add_popularity = {
+				ideology = fascism 
+				popularity = 0.1
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_American_Relations
@@ -283,7 +326,20 @@ focus_tree = {
 		}
 		x = 48
 		y = 30
-
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = small_increase
+								}
+						}
+					SAF = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Political_Pragmatism
@@ -297,7 +353,9 @@ focus_tree = {
 		}
 		x = 49
 		y = 31
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = SAF_60s_Herstigte_Nasionale_Party
@@ -322,7 +380,11 @@ focus_tree = {
 		}
 		x = 57
 		y = 30
-
+		completion_reward = {
+			add_stability = -0.10
+			add_political_power = 200
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 		id = SAF_60s_establish_republic
@@ -1242,6 +1304,7 @@ focus_tree = {
 		y = 22
 			completion_reward = {
 					remove_ideas = saf_apartheid_1
+					remove_ideas = saf_apartheid_economics
 				}
 
 	}
@@ -1308,7 +1371,20 @@ focus_tree = {
 		}
 		x = 34
 		y = 8
-
+			completion_reward = {
+					POR = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = large_increase
+								}
+						}
+					SAF = {
+							add_opinion_modifier = {
+									target = POR
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Strengthen_Ties_with_Malawi
@@ -1319,7 +1395,20 @@ focus_tree = {
 		}
 		x = 36
 		y = 8
-
+			completion_reward = {
+					NYA = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = large_increase
+								}
+						}
+					SAF = {
+							add_opinion_modifier = {
+									target = NYA
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Election_of_1961
@@ -1370,7 +1459,21 @@ focus_tree = {
 		}
 		x = 39
 		y = 12
-
+			completion_reward = {
+					719 = {
+							add_extra_state_shared_building_slots = 5
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Relax_Apartheid_Laws
@@ -1381,7 +1484,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 13
-
+		completion_reward = {
+			remove_ideas = saf_apartheid_economics
+		}
 	}
 	focus = {
 		id = SAF_60s_Promote_English
@@ -1395,7 +1500,10 @@ focus_tree = {
 		}
 		x = 41
 		y = 14
-
+		completion_reward = {
+			add_stability = -0.10
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = SAF_60s_Rappoachment_with_the_Commonwealth
@@ -1412,7 +1520,44 @@ focus_tree = {
 		}
 		x = 38
 		y = 14
-
+			completion_reward = {
+					CAN = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = small_increase
+								}
+						}
+					SAF = {
+							add_opinion_modifier = {
+									target = CAN
+									modifier = small_increase
+								}
+						}
+					NZL = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = small_increase
+								}
+						}
+					SAF = {
+							add_opinion_modifier = {
+									target = NZL
+									modifier = small_increase
+								}
+						}
+					AST = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = small_increase
+								}
+						}
+					SAF = {
+							add_opinion_modifier = {
+									target = AST
+									modifier = small_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Second_Refferendum
@@ -1423,7 +1568,10 @@ focus_tree = {
 		}
 		x = 38
 		y = 15
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = SAF_60s_Progressive_Victory
@@ -1460,7 +1608,10 @@ focus_tree = {
 		}
 		x = 33
 		y = 12
-
+		completion_reward = {
+			remove_ideas = saf_apartheid_economics
+			remove_ideas = saf_apartheid_1		
+		}
 	}
 	focus = {
 		id = SAF_60s_Embrace_Capitalism
@@ -1487,7 +1638,9 @@ focus_tree = {
 		}
 		x = 34
 		y = 13
-
+		completion_reward = {
+			add_ideas = righs_for_people
+		}
 	}
 	focus = {
 		id = SAF_60s_Condemn_Colonialism
@@ -1498,7 +1651,32 @@ focus_tree = {
 		}
 		x = 36
 		y = 14
-
+			completion_reward = {
+					POR = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = large_decrease
+								}
+						}
+					SAF = {
+							add_opinion_modifier = {
+									target = POR
+									modifier = large_decrease
+								}
+						}
+					ZIM = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = large_decrease
+								}
+						}
+					SAF = {
+							add_opinion_modifier = {
+									target = ZIM
+									modifier = large_decrease
+								}
+						}
+				}		
 	}
 	focus = {
 		id = SAF_60s_Condemn_Communism
@@ -1509,7 +1687,20 @@ focus_tree = {
 		}
 		x = 32
 		y = 14
-
+			completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = large_decrease
+								}
+						}
+					SAF = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_decrease
+								}
+						}
+				}		
 	}
 	focus = {
 		id = SAF_60s_Progressive_Victory_1966
@@ -1546,7 +1737,10 @@ focus_tree = {
 		}
 		x = 44
 		y = 16
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.02
+		}
 	}
 	focus = {
 		id = SAF_60s_Relations_with_America
@@ -1557,7 +1751,20 @@ focus_tree = {
 		}
 		x = 34
 		y = 14
-
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = large_increase
+								}
+						}
+					SAF = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_American_Investment
@@ -1571,7 +1778,65 @@ focus_tree = {
 		}
 		x = 35
 		y = 15
-
+		completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							}
+						}
 	}
 	focus = {
 		id = SAF_60s_Embrace_Free_Trade
@@ -1582,7 +1847,9 @@ focus_tree = {
 		}
 		x = 33
 		y = 22
-
+		completion_reward = {
+			add_ideas = embrace_free_trade		
+		}
 	}
 	focus = {
 		id = SAF_60s_Education_Reform
@@ -1593,7 +1860,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 22
-
+		completion_reward = {
+			add_ideas = KOR_education_reform
+		}
 	}
 	focus = {
 		id = SAF_60s_Access_to_Healthcare
@@ -1607,7 +1876,9 @@ focus_tree = {
 		}
 		x = 34
 		y = 23
-
+		completion_reward = {
+			add_ideas = access_to_health_care
+		}
 	}
 	focus = {
 		id = SAF_60s_Rural_Infrastructure_Developments
@@ -1621,7 +1892,21 @@ focus_tree = {
 		}
 		x = 33
 		y = 15
-
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					free_building_slots = {
+							building = infrastructure
+							size > 2
+						}
+					}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}			
 	}
 	focus = {
 		id = SAF_60s_Establish_Framework_for_Multiracial_Democracy
@@ -1635,7 +1920,10 @@ focus_tree = {
 		}
 		x = 34
 		y = 16
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = SAF_60s_Propose_Unification_with_Rhodesia
@@ -1649,7 +1937,11 @@ focus_tree = {
 		}
 		x = 41
 		y = 16
-
+		completion_reward = {
+			ZIM = {
+				country_event = generic.30
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_Electoral_Reform
@@ -1660,7 +1952,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 15
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = SAF_60s_Encourage_European_Immigration
@@ -1671,7 +1965,11 @@ focus_tree = {
 		}
 		x = 42
 		y = 17
-
+		completion_reward = {
+			every_owned_state = {
+				add_manpower = 5000
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_Seek_Covert_American_Aid
@@ -1682,7 +1980,9 @@ focus_tree = {
 		}
 		x = 40
 		y = 17
-
+		completion_reward = {
+			add_timed_idea = { idea = YUG_idea_american_aid  days = 1460 }
+		}
 	}
 	focus = {
 		id = SAF_60s_Legislative_Reform
@@ -1693,7 +1993,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 30
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = SAF_60s_Economic_Expansion
@@ -1704,7 +2006,11 @@ focus_tree = {
 		}
 		x = 41
 		y = 30
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_Domestic_Weapons_Investments
@@ -1718,7 +2024,38 @@ focus_tree = {
 		}
 		x = 40
 		y = 31
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Invest_in_Natal
@@ -1735,7 +2072,21 @@ focus_tree = {
 		}
 		x = 41
 		y = 32
-
+			completion_reward = {
+					719 = {
+							add_extra_state_shared_building_slots = 5
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Progressive_Victory_1970
@@ -1759,7 +2110,65 @@ focus_tree = {
 		}
 		x = 40
 		y = 22
-
+		completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							}
+						}
 	}
 	focus = {
 		id = SAF_60s_Solicit_Scandinavian_Aid
@@ -1770,7 +2179,65 @@ focus_tree = {
 		}
 		x = 33
 		y = 17
-
+		completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							}
+						}
 	}
 	focus = {
 		id = SAF_60s_Condemn_Rhodesia
@@ -1784,7 +2251,20 @@ focus_tree = {
 		}
 		x = 35
 		y = 17
-
+			completion_reward = {
+					ZIM = {
+							add_opinion_modifier = {
+									target = SAF
+									modifier = large_decrease
+								}
+						}
+					SAF = {
+							add_opinion_modifier = {
+									target = ZIM
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Economic_Growth
@@ -1798,7 +2278,41 @@ focus_tree = {
 		}
 		x = 34
 		y = 18
-
+		completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 2
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = SAF_60s_Integration_of_Swaziland_and_Lesotho
@@ -1812,7 +2326,22 @@ focus_tree = {
 		}
 		x = 34
 		y = 33
-
+		completion_reward = {
+			annex_country = {
+				target = LES
+				transfer_troops = yes
+			}		
+			annex_country = {
+				target = SWA
+				transfer_troops = yes
+			}		
+			every_owned_state = {
+				limit = {
+					NOT = { is_core_of = SAF }
+				}
+				add_core_of = SAF
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_Limited_African_Franchisement
@@ -1826,7 +2355,22 @@ focus_tree = {
 		}
 		x = 34
 		y = 26
-
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.02
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_Voting_Rights_For_Coloreds
@@ -1837,7 +2381,18 @@ focus_tree = {
 		}
 		x = 32
 		y = 24
-
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.05
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_Dominion_Once_More
@@ -1851,7 +2406,14 @@ focus_tree = {
 		}
 		x = 38
 		y = 17
-
+		completion_reward = {
+			ENG = {
+				set_autonomy = {
+					target = AST
+					autonomy_state = autonomy_dominion
+				}			
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_Readmission_into_the_Commonwealth
@@ -1862,7 +2424,68 @@ focus_tree = {
 		}
 		x = 38
 		y = 18
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Seek_Accomadations
@@ -1873,7 +2496,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 16
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = SAF_60s_Release_Namibia
@@ -1885,7 +2510,15 @@ focus_tree = {
 		}
 		x = 37
 		y = 16
-
+		completion_reward = {
+			set_autonomy = {
+				target = NAM
+				autonomy_state = autonomy_dominion
+			}			
+			NAM = {
+				drop_cosmetic_tag = yes
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_Bastion_of_Anti_Decolonialism
@@ -1899,7 +2532,10 @@ focus_tree = {
 		}
 		x = 41
 		y = 18
-
+		completion_reward = {
+			add_war_support = 0.10
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = SAF_60s_Military_Expansion
@@ -1926,7 +2562,13 @@ focus_tree = {
 		}
 		x = 47
 		y = 17
-
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = {
+				ideology = nationalism
+				popularity = 0.1
+			}			
+		}
 	}
 	focus = {
 		id = SAF_60s_Invest_in_Agriculture
@@ -1937,7 +2579,13 @@ focus_tree = {
 		}
 		x = 46
 		y = 12
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = agri_tech_bonus
+							ahead_reduction = 1
+							category = agri_tech
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Invest_in_Boer_Areas
@@ -1948,7 +2596,27 @@ focus_tree = {
 		}
 		x = 46
 		y = 13
-
+			completion_reward = {
+					every_owned_state = {
+						limit = {
+							OR = {
+								is_core_of = ZAR
+								is_core_of = ORJ
+							}
+						}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Promote_White_Unity
@@ -1962,7 +2630,10 @@ focus_tree = {
 		}
 		x = 46
 		y = 18
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = SAF_60s_Enforce_Usage_of_English
@@ -1973,7 +2644,10 @@ focus_tree = {
 		}
 		x = 40
 		y = 23
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.10
+		}
 	}
 	focus = {
 		id = SAF_60s_Boer_Pushback
@@ -1984,7 +2658,10 @@ focus_tree = {
 		}
 		x = 39
 		y = 24
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = SAF_60s_Empower_Labour_Unions
@@ -1995,7 +2672,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 24
-
+			completion_reward = {
+					add_ideas = strengthened_labor_unions
+				}
 	}
 	focus = {
 		id = SAF_60s_Growing_African_Discontent
@@ -2006,7 +2685,10 @@ focus_tree = {
 		}
 		x = 41
 		y = 24
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = SAF_60s_Encourage_European_Immigration2
@@ -2020,7 +2702,11 @@ focus_tree = {
 		}
 		x = 26
 		y = 23
-
+		completion_reward = {
+			every_owned_state = {
+				add_manpower = 5000
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_South_African_Light_Infantry
@@ -2037,7 +2723,15 @@ focus_tree = {
 		}
 		x = 27
 		y = 24
-
+			completion_reward = {
+				army_experience = 50
+					add_tech_bonus = {
+							name = infantry_weapons_bonus
+							bonus = 0.5
+							uses = 1
+							category = infantry_weapons
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Emphasizze_Bilingual_Education
@@ -2048,7 +2742,10 @@ focus_tree = {
 		}
 		x = 26
 		y = 25
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.02
+		}
 	}
 	focus = {
 		id = SAF_60s_Increase_White_Immigration
@@ -2065,7 +2762,11 @@ focus_tree = {
 		}
 		x = 28
 		y = 26
-
+		completion_reward = {
+			every_owned_state = {
+				add_manpower = 5000
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_Push_for_a_Unified_White_Identity
@@ -2079,7 +2780,11 @@ focus_tree = {
 		}
 		x = 28
 		y = 25
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.10
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 		id = SAF_60s_Brink_of_Collapse
@@ -2093,7 +2798,13 @@ focus_tree = {
 		}
 		x = 40
 		y = 25
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = repression 
+				days = 365
+			}
+			add_ideas = militarism_focus
+		}
 	}
 	focus = {
 		id = SAF_60s_Accept_Partition
@@ -2107,7 +2818,10 @@ focus_tree = {
 		}
 		x = 39
 		y = 26
-
+		completion_reward = {
+			release = ZAR
+			release = ORJ
+		}
 	}
 	focus = {
 		id = SAF_60s_The_South_African_Civil_War
@@ -2121,7 +2835,22 @@ focus_tree = {
 		}
 		x = 41
 		y = 26
-
+		completion_reward = {
+			release = ZAR
+			release = ORJ
+			declare_war_on = {
+				target = ZAR
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ORJ
+				type = annex_everything
+			}
+			start_civil_war = {
+				ideology = communism
+				size = 0.4
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_Housing_Investments
@@ -2132,7 +2861,11 @@ focus_tree = {
 		}
 		x = 34
 		y = 24
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_Multiracial_Democracy
@@ -2143,7 +2876,18 @@ focus_tree = {
 		}
 		x = 32
 		y = 31
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}		
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.1
+			}		
+		}
 	}
 	focus = {
 		id = SAF_60s_Establish_a_Social_Welfare_State
@@ -2157,7 +2901,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 32
-
+		completion_reward = {
+			add_ideas = the_american_welfare_state
+		}
 	}
 	focus = {
 		id = SAF_60s_Push_for_Expanded_Womens_Rights
@@ -2174,7 +2920,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 25
-
+		completion_reward = {
+			add_ideas = egalitarian_beliefs
+		}
 	}
 	focus = {
 		id = SAF_60s_Western_Investment
@@ -2188,10 +2936,68 @@ focus_tree = {
 		}
 		x = 33
 		y = 25
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							}
+						}
 	}
 	focus = {
-		id = SAF_60s_Develop_the_Atlas_Cheetah.
+		id = SAF_60s_Develop_the_Atlas_Cheetah
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
@@ -2199,7 +3005,15 @@ focus_tree = {
 		}
 		x = 43
 		y = 25
-
+			completion_reward = {
+					air_experience = 5
+					add_tech_bonus = {
+							name = light_air_bonus
+							bonus = 0.5
+							uses = 1
+							category = light_air 
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Increase_Political_Repression
@@ -2210,7 +3024,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 23
-
+		completion_reward = {
+			add_ideas = gulag_politic
+		}
 	}
 	focus = {
 		id = SAF_60s_Expand_Military_Production
@@ -2221,18 +3037,51 @@ focus_tree = {
 		}
 		x = 48
 		y = 25
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Recruitment_Campaigns
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = SAF_60s_Develop_the_Atlas_Cheetah.
+			focus = SAF_60s_Develop_the_Atlas_Cheetah
 		}
 		x = 43
 		y = 26
-
+		completion_reward = {
+			add_ideas = recruitment_propaganda
+		}
 	}
 	focus = {
 		id = SAF_60s_Encourage_Racial_Harmony
@@ -2243,7 +3092,10 @@ focus_tree = {
 		}
 		x = 33
 		y = 30
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = SAF_60s_Calvinism_not_Socialism
@@ -2254,7 +3106,11 @@ focus_tree = {
 		}
 		x = 55
 		y = 30
-
+			completion_reward = {
+					add_political_power = 100
+					add_ideas = communism_banned
+					add_ideas = socialism_banned
+				}
 	}
 	focus = {
 		id = SAF_60s_Increase_Apartheid
@@ -2268,7 +3124,10 @@ focus_tree = {
 		}
 		x = 56
 		y = 31
-
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = SAF_60s_Embrace_Militarism
@@ -2282,7 +3141,9 @@ focus_tree = {
 		}
 		x = 57
 		y = 32
-
+		completion_reward = {
+			add_ideas = militarism_focus
+		}
 	}
 	focus = {
 		id = SAF_60s_Decry_Urban_Culture
@@ -2293,7 +3154,9 @@ focus_tree = {
 		}
 		x = 54
 		y = 31
-
+		completion_reward = {
+			add_ideas = TUR_mobilization_of_the_masses
+		}
 	}
 	focus = {
 		id = SAF_60s_Invest_in_Agriculture2
@@ -2307,7 +3170,13 @@ focus_tree = {
 		}
 		x = 58
 		y = 31
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = agri_tech_bonus
+							ahead_reduction = 1
+							category = agri_tech
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Establish_Political_Paramilitaries
@@ -2321,7 +3190,9 @@ focus_tree = {
 		}
 		x = 55
 		y = 32
-
+		completion_reward = {
+			add_ideas = paramilitarism_focus
+		}
 	}
 	focus = {
 		id = SAF_60s_Radicalize_the_Populace
@@ -2335,7 +3206,9 @@ focus_tree = {
 		}
 		x = 56
 		y = 33
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}	
 	}
 	focus = {
 		id = SAF_60s_Encourage_Urbanization
@@ -2349,7 +3222,10 @@ focus_tree = {
 		}
 		x = 40
 		y = 33
-
+			completion_reward = {
+					add_ideas = city_economies
+					
+				}
 	}
 	focus = {
 		id = SAF_60s_Invest_in_Industry
@@ -2360,7 +3236,24 @@ focus_tree = {
 		}
 		x = 38
 		y = 31
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}		
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_Industrial_Modernization
@@ -2371,7 +3264,14 @@ focus_tree = {
 		}
 		x = 42
 		y = 31
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = construction_tech_bonus
+							bonus = 0.5
+							uses = 2
+							category = construction_tech
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Free_Trade_Economics
@@ -2385,7 +3285,24 @@ focus_tree = {
 		}
 		x = 39
 		y = 32
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}		
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_Join_NATO
@@ -2415,7 +3332,13 @@ focus_tree = {
 		}
 		x = 33
 		y = 32
-
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}		
+		}
 	}
 	focus = {
 		id = SAF_60s_Proportional_Representation
@@ -2426,7 +3349,13 @@ focus_tree = {
 		}
 		x = 35
 		y = 30
-
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}		
+		}
 	}
 	focus = {
 		id = SAF_60s_Improve_Urban_Conditions
@@ -2437,7 +3366,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 31
-
+		completion_reward = {
+			add_ideas = urban_planning
+		}
 	}
 	focus = {
 		id = SAF_60s_Nuclear_Programme
@@ -2448,7 +3379,13 @@ focus_tree = {
 		}
 		x = 44
 		y = 29
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = nuclear_bonus
+							ahead_reduction = 0.5
+							category = nuclear
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_American_Nuclear_Reactors
@@ -2459,7 +3396,15 @@ focus_tree = {
 		}
 		x = 43
 		y = 30
-
+			completion_reward = {
+					capital_scope = {
+						add_building_construction = {
+							type = nuclear_power_reactor
+							level = 1
+							instant_build = yes
+						}				
+					}
+				}
 	}
 	focus = {
 		id = SAF_60s_Extract_Uranium
@@ -2470,7 +3415,13 @@ focus_tree = {
 		}
 		x = 45
 		y = 30
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = nuclear_bonus
+							ahead_reduction = 0.5
+							category = nuclear
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Advance_Nuclear_Research
@@ -2484,7 +3435,13 @@ focus_tree = {
 		}
 		x = 44
 		y = 31
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = nuclear_bonus
+							ahead_reduction = 0.5
+							category = nuclear
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Separate_Representation_of_Voters_Amendment_Act
@@ -2498,7 +3455,17 @@ focus_tree = {
 		}
 		x = 47
 		y = 26
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = repression
+				days = 900
+			}
+			add_political_power = 100
+			add_popularity = {
+				ideology = nationalism
+				popularity = 0.05
+			}				
+		}
 	}
 	focus = {
 		id = SAF_60s_Aid_Rhodesia
@@ -2512,7 +3479,18 @@ focus_tree = {
 		}
 		x = 48
 		y = 32
-
+			completion_reward = {
+				ZIM = {
+					random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
+				}
 	}
 	focus = {
 		id = SAF_60s_The_Happiest_Police_State_in_the_World
@@ -2526,7 +3504,10 @@ focus_tree = {
 		}
 		x = 49
 		y = 33
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = SAF_60s_Assasination_of_Verwoed
@@ -2537,7 +3518,13 @@ focus_tree = {
 		}
 		x = 45
 		y = 24
-
+		completion_reward = {
+			create_country_leader = {
+				name = "John Vorster"
+				picture = "Vorster.dds"
+				ideology = nationalist_ideology
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_Consolidate_Nasionale_Rule
@@ -2548,7 +3535,13 @@ focus_tree = {
 		}
 		x = 51
 		y = 31
-
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = {
+				ideology = nationalism
+				popularity = 0.1
+			}			
+		}
 	}
 	focus = {
 		id = SAF_60s_Political_Populism
@@ -2559,7 +3552,13 @@ focus_tree = {
 		}
 		x = 27
 		y = 30
-
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = {
+				ideology = Liberal_Conservatism
+				popularity = 0.1
+			}			
+		}
 	}
 	focus = {
 		id = SAF_60s_Urban_Housing
@@ -2573,7 +3572,11 @@ focus_tree = {
 		}
 		x = 28
 		y = 31
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = SAF_60s_Increase_Whites_Living_Standards
@@ -2584,7 +3587,10 @@ focus_tree = {
 		}
 		x = 26
 		y = 31
-
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = SAF_60s_Military_Expansion2
@@ -2617,7 +3623,9 @@ focus_tree = {
 		}
 		x = 27
 		y = 32
-
+		completion_reward = {
+			add_ideas = recruitment_propaganda
+		}
 	}
 	focus = {
 		id = SAF_60s_Fireforce_Doctrine
@@ -2631,7 +3639,20 @@ focus_tree = {
 		}
 		x = 28
 		y = 33
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = helicoptor_bonus
+							bonus = 0.35
+							uses = 1
+							category = helicopter
+						}
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+				}
 	}
 	focus = {
 		id = SAF_60s_Develop_Heavy_Industry
@@ -2645,7 +3666,38 @@ focus_tree = {
 		}
 		x = 29
 		y = 32
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = SAF_Land_Reform
