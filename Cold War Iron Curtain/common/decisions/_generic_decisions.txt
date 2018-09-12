@@ -1700,7 +1700,7 @@ war_measures = {
 			 NOT = { has_war_with = ENG }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -1728,7 +1728,7 @@ war_measures = {
 			 NOT = { has_war_with = ENG }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -1805,7 +1805,7 @@ war_measures = {
 			 NOT = { has_war_with = SAF }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -1882,7 +1882,7 @@ war_measures = {
 			 NOT = { has_war_with = BEL }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -1959,7 +1959,7 @@ war_measures = {
 			 NOT = { has_war_with = FRA }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -2036,7 +2036,7 @@ war_measures = {
 			 NOT = { has_war_with = USA }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -2109,7 +2109,7 @@ war_measures = {
 			# NOT = { has_war_with = USA }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -2182,7 +2182,7 @@ war_measures = {
 			 NOT = { has_war_with = ENG }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -2255,7 +2255,7 @@ war_measures = {
 			 NOT = { has_war_with = ENG }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -2328,7 +2328,7 @@ war_measures = {
 			 NOT = { has_war_with = ENG }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -2401,7 +2401,7 @@ war_measures = {
 			 NOT = { has_war_with = ENG }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -2468,7 +2468,7 @@ war_measures = {
 			 NOT = { has_global_flag = hired_Militaires_Sans_Frontieres }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
 			date < 1975.3.16
@@ -2551,7 +2551,7 @@ war_measures = {
 			 NOT = { has_global_flag = hired_Diamond_Dogs }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
 			date < 1995.12.30
@@ -2673,6 +2673,100 @@ war_measures = {
 				}
 				set_division_template_lock = { division_template = "Private Military Contractor" is_locked = yes }	 
 
+			}
+        }
+
+        ai_will_do = {
+            factor = 0 #Gotta allow the Americans to help
+        }
+    }
+	hire_che = {
+
+        icon = generic_political_discourse
+
+        available = {
+            has_war = yes
+			 NOT = { has_global_flag = hired_che }
+			 NOT = { has_war_with = CUB }
+			 NOT = { 
+				has_government = conservative
+				has_government = Liberal_Conservatism
+				has_government = Christian_Democratic
+				has_government = Social_Liberalism
+				has_government = democratic
+				has_government = centrist
+				has_government = liberal
+				has_government = National_Socialism
+				has_government = fascism
+				has_government = nationalism
+				has_government = monarchism
+				has_government = neutrality
+			}
+        	date < 1988.6.12
+			date > 1965.1.1
+			NOT = { has_global_flag = che_is_dead }
+        }
+		
+		visible = {
+		    date < 1988.6.12
+		    date > 1964.9.1
+		}
+
+        cost = 1000
+
+        fire_only_once = no
+        complete_effect = {
+			set_global_flag = hired_che
+			set_country_flag = che_sponsor
+			custom_effect_tooltip = "Hire Che Guerva"
+			hidden_effect = {
+				division_template = {
+					name = "Private Military Contractors"
+					priority = 2
+
+					regiments = {
+						pmc = { x = 0 y = 0 }
+						pmc = { x = 0 y = 1 }
+						pmc = { x = 0 y = 2 }
+
+						pmc = { x = 1 y = 0 }
+						pmc = { x = 1 y = 1 }
+						pmc = { x = 1 y = 2 }
+
+					}
+				}
+				capital_scope = {
+					if = {
+						limit = { ROOT = { has_full_control_of_state = PREV } }
+						create_unit = {
+							division = "name = \"Local Guerilla\" division_template = \"Private Military Contractors\" start_experience_factor = 2.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Local Guerilla\" division_template = \"Private Military Contractors\" start_experience_factor = 2.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Local Guerilla\" division_template = \"Private Military Contractors\" start_experience_factor = 2.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Local Guerilla\" division_template = \"Private Military Contractors\" start_experience_factor = 2.0"
+							owner = ROOT
+						}
+					}
+				}
+				set_division_template_lock = { division_template = "Private Military Contractors" is_locked = yes }	 
+				create_corps_commander = { 
+					name = "Che Guevara" 
+					portrait_path = "gfx/leaders/PMC/che.dds"
+					id = 9016
+					skill = 6
+					attack_skill = 6
+					defense_skill = 6
+					planning_skill = 6
+					logistics_skill = 6
+				}	
 			}
         }
 
