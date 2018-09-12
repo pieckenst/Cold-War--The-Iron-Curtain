@@ -163,20 +163,30 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				has_state_flag = communism_insurgency
+			}
+			set_variable = { ROOT.communism_insurgent_base = THIS }
+		}
 		start_civil_war = {
 			ideology = communism
-			size = 0.5
-			capital = var:communism_insurgent_base
-			states = { 
-				var:communism_insurgent_base
-			}
+			size = 0.1
 		}
 		random_country = {
 			limit = {
 				original_tag = ROOT
 				has_government = communism
 			}
+			transfer_state = var:ROOT.communism_insurgent_base
 			load_oob = "generic_insurgency" 
 			capital_scope = { create_unit = { division = "name = \"1st Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } create_unit = { division = "name = \"2nd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"3rd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"4th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"5th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } }
+			every_owned_state = {
+				limit = {
+					has_state_flag = communism_insurgency
+				}
+				reset_insurgency_modifiers_effect = yes
+				clr_state_flag = communism_insurgency
+			}
 		}
 	}
