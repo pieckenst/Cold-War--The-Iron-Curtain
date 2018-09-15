@@ -1,4 +1,57 @@
 political_actions = {	
+	suppress_insurgents = {
+
+		icon = generic_prepare_civil_war
+
+		#visible = {
+		available = {
+			is_ai = yes
+			any_owned_state = {
+				has_state_flag = active_insurgency
+			}
+		}
+
+		fire_only_once = no
+
+		days_re_enable = 50
+
+		cost = 0
+
+
+
+		complete_effect = {
+			every_owned_state = {
+				limit = {
+					has_state_flag = active_insurgency
+				}
+				random_list = {
+					34 = {
+							subtract_from_variable = {
+								var = insurgency_strength
+								value = -3
+							}
+						}
+					33 = {
+						subtract_from_variable = {
+							var = insurgency_strength
+							value = -6
+						}
+					}
+					33 = {
+						add_to_variable = {
+							var = insurgency_strength
+							value = 2
+						}
+					}
+				}
+			}
+		}
+
+
+		ai_will_do = {
+			base = 1
+		}
+	}
 	USA_buy_infantry = {
 
 		icon = generic_industry
@@ -6,12 +59,12 @@ political_actions = {
 		available = {
 			has_opinion = {
 				target = USA
-				value = 25
+				value > 25
 			}
 			USA = {
 				has_opinion = {
 					target = ROOT
-					value = 25
+					value > 25
 				}			
 			}
 			NOT = {
@@ -53,12 +106,12 @@ political_actions = {
 		available = {
 			has_opinion = {
 				target = USA
-				value = 25
+				value > 25
 			}
 			USA = {
 				has_opinion = {
 					target = ROOT
-					value = 25
+					value > 25
 				}			
 			}
 			NOT = {
@@ -99,12 +152,12 @@ political_actions = {
 		available = {
 			has_opinion = {
 				target = USA
-				value = 25
+				value > 25
 			}
 			USA = {
 				has_opinion = {
 					target = ROOT
-					value = 25
+					value > 25
 				}			
 			}
 			NOT = {
@@ -145,12 +198,12 @@ political_actions = {
 		available = {
 			has_opinion = {
 				target = USA
-				value = 25
+				value > 25
 			}
 			USA = {
 				has_opinion = {
 					target = ROOT
-					value = 25
+					value > 25
 				}			
 			}
 			NOT = {
@@ -191,12 +244,12 @@ political_actions = {
 		available = {
 			has_opinion = {
 				target = USA
-				value = 25
+				value > 25
 			}
 			USA = {
 				has_opinion = {
 					target = ROOT
-					value = 25
+					value > 25
 				}			
 			}
 			NOT = {
@@ -237,12 +290,12 @@ political_actions = {
 		available = {
 			has_opinion = {
 				target = USA
-				value = 25
+				value > 25
 			}
 			USA = {
 				has_opinion = {
 					target = ROOT
-					value = 25
+					value > 25
 				}			
 			}
 			NOT = {
@@ -283,12 +336,12 @@ political_actions = {
 		available = {
 			has_opinion = {
 				target = USA
-				value = 25
+				value > 25
 			}
 			USA = {
 				has_opinion = {
 					target = ROOT
-					value = 25
+					value > 25
 				}			
 			}
 			NOT = {
@@ -329,12 +382,12 @@ political_actions = {
 		available = {
 			has_opinion = {
 				target = USA
-				value = 25
+				value > 25
 			}
 			USA = {
 				has_opinion = {
 					target = ROOT
-					value = 25
+					value > 25
 				}			
 			}
 			NOT = {
@@ -375,12 +428,12 @@ political_actions = {
 		available = {
 			has_opinion = {
 				target = USA
-				value = 25
+				value > 25
 			}
 			USA = {
 				has_opinion = {
 					target = ROOT
-					value = 25
+					value > 25
 				}			
 			}
 			NOT = {
@@ -421,12 +474,12 @@ political_actions = {
 		available = {
 			has_opinion = {
 				target = USA
-				value = 25
+				value > 25
 			}
 			USA = {
 				has_opinion = {
 					target = ROOT
-					value = 25
+					value > 25
 				}			
 			}
 			NOT = {
@@ -467,12 +520,12 @@ political_actions = {
 		available = {
 			has_opinion = {
 				target = USA
-				value = 25
+				value > 25
 			}
 			USA = {
 				has_opinion = {
 					target = ROOT
-					value = 25
+					value > 25
 				}			
 			}
 			NOT = {
@@ -513,12 +566,12 @@ political_actions = {
 		available = {
 			has_opinion = {
 				target = USA
-				value = 25
+				value > 25
 			}
 			USA = {
 				has_opinion = {
 					target = ROOT
-					value = 25
+					value > 25
 				}			
 			}
 			NOT = {
@@ -559,12 +612,12 @@ political_actions = {
 		available = {
 			has_opinion = {
 				target = USA
-				value = 50
+				value > 50
 			}
 			USA = {
 				has_opinion = {
 					target = ROOT
-					value = 50
+					value > 50
 				}			
 			}
 			NOT = {
