@@ -11,10 +11,19 @@ focus_tree = {
 	focus = {
 		id = CAR_60s_The_State_of_the_Economy
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		x = 2
 		y = 0
-
+			completion_reward = {
+				random_owned_controlled_state = {
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+								type = industrial_complex
+								level = 1
+								instant_build = yes
+							}
+					}
+				}
 	}
 	focus = {
 		id = CAR_60s_Independence_from_Equatorial_Africa
@@ -25,18 +34,23 @@ focus_tree = {
 		}
 		x = 36
 		y = 0
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = CAR_60s_Independence_from_France
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 4.00
 		mutually_exclusive = {
 			focus = CAR_60s_Independence_from_Equatorial_Africa
 		}
 		x = 38
 		y = 0
-
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.02
+		}	
 	}
 	focus = {
 		id = CAR_60s_The_Culture_of_our_Nation
@@ -44,7 +58,9 @@ focus_tree = {
 		cost = 10.00
 		x = 43
 		y = 0
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = CAR_60s_Military_of_the_State
@@ -52,7 +68,10 @@ focus_tree = {
 		cost = 10.00
 		x = 49
 		y = 0
-
+		completion_reward = {
+			army_experience = 25
+			air_experience = 25
+		}
 	}
 	focus = {
 		id = CAR_60s_Stabilze_our_Borders
@@ -60,7 +79,10 @@ focus_tree = {
 		cost = 10.00
 		x = 46
 		y = 5
-
+		available = {
+			has_completed_focus = CAR_60s_Bokassa_Assumes_Full_Power
+			has_completed_focus = CAR_60s_End_of_the_Civil_War
+		}
 	}
 	focus = {
 		id = CAR_60s_The_Dacko_Bokasso_Coalition
@@ -68,7 +90,9 @@ focus_tree = {
 		cost = 10.00
 		x = 57
 		y = 0
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = CAR_60s_The_Counter_Coup
@@ -87,7 +111,15 @@ focus_tree = {
 		}
 		x = 2
 		y = 1
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = CAR_60s_Revitilization_of_Bangui
@@ -98,7 +130,21 @@ focus_tree = {
 		}
 		x = 2
 		y = 2
-
+			completion_reward = {
+					capital_scope = {
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+							add_extra_state_shared_building_slots = 3
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = CAR_60s_Sponsor_Local_Cultural_Festivals
@@ -109,7 +155,10 @@ focus_tree = {
 		}
 		x = 1
 		y = 3
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.03
+		}
 	}
 	focus = {
 		id = CAR_60s_Ferry_Services
@@ -120,7 +169,15 @@ focus_tree = {
 		}
 		x = 5
 		y = 2
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = CAR_60s_Ubangi_River_Infrastructure
@@ -131,7 +188,15 @@ focus_tree = {
 		}
 		x = 5
 		y = 3
-
+		completion_reward = {
+			every_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = CAR_60s_Focus_on_Bangui
@@ -148,7 +213,21 @@ focus_tree = {
 		}
 		x = 4
 		y = 4
-
+			completion_reward = {
+					capital_scope = {
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+							add_extra_state_shared_building_slots = 3
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = CAR_60s_Equalize_Development
@@ -162,7 +241,21 @@ focus_tree = {
 		}
 		x = 6
 		y = 4
-
+			completion_reward = {
+					every_owned_state = {
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+				}		
 	}
 	focus = {
 		id = CAR_60s_Roads_to_Diamonds
@@ -173,7 +266,15 @@ focus_tree = {
 		}
 		x = 6
 		y = 5
-
+		completion_reward = {
+			every_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = CAR_60s_De_Gentilesation
@@ -184,23 +285,28 @@ focus_tree = {
 		}
 		x = 36
 		y = 1
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = CAR_60s_The_Name
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 4.00
 		prerequisite = {
 			focus = CAR_60s_Independence_from_France
 		}
 		x = 38
 		y = 1
-
+		completion_reward = {
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = CAR_60s_Central_African_Republic
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 4.00
 		prerequisite = {
 			focus = CAR_60s_The_Name
 			focus = CAR_60s_De_Gentilesation
@@ -210,23 +316,29 @@ focus_tree = {
 		}
 		x = 37
 		y = 2
-
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.03
+		}
 	}
 	focus = {
 		id = CAR_60s_Republic_of_All_of_the_Peoples
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 4.00
 		prerequisite = {
 			focus = CAR_60s_Central_African_Republic
 		}
 		x = 37
 		y = 3
-
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.03
+		}
 	}
 	focus = {
 		id = CAR_60s_Ubangi_Shan
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 4.00
 		prerequisite = {
 			focus = CAR_60s_The_Name
 		}
@@ -235,18 +347,25 @@ focus_tree = {
 		}
 		x = 39
 		y = 2
-
+		completion_reward = {
+			set_cosmetic_tag = UBANGI
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = CAR_60s_Tribal_Democracy
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 4.00
 		prerequisite = {
 			focus = CAR_60s_Ubangi_Shan
 		}
 		x = 39
 		y = 3
-
+		completion_reward = {
+			add_political_power = 100
+			add_war_support = 0.05
+			add_stability = -0.02
+		}
 	}
 	focus = {
 		id = CAR_60s_President_Goumba
@@ -258,7 +377,12 @@ focus_tree = {
 		}
 		x = 38
 		y = 4
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = Social_Democratic
+				elections_allowed = yes
+			}
+		}
 	}
 	focus = {
 		id = CAR_60s_Traditonal_Values
@@ -272,7 +396,9 @@ focus_tree = {
 		}
 		x = 42
 		y = 1
-
+		completion_reward = {
+			add_ideas = traditional_culture
+		}
 	}
 	focus = {
 		id = CAR_60s_Encourage_Traditional_Practices
@@ -283,7 +409,9 @@ focus_tree = {
 		}
 		x = 42
 		y = 2
-
+		completion_reward = {
+			add_ideas = SAU_restore_old_traditions
+		}
 	}
 	focus = {
 		id = CAR_60s_Tribal_Schools
@@ -294,7 +422,10 @@ focus_tree = {
 		}
 		x = 42
 		y = 3
-
+		completion_reward = {
+			add_stability = 0.10
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = CAR_60s_Modernization
@@ -341,7 +472,7 @@ focus_tree = {
 		}
 		x = 44
 		y = 6
-
+		
 	}
 	focus = {
 		id = CAR_60s_Anti_Smuggling_Operations
