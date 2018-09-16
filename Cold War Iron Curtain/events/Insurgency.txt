@@ -1,5 +1,6 @@
 ﻿#Coded by Starwarsfan541
 add_namespace = insurgency
+add_namespace = insurgency_actions
  
 country_event = {
 	id = insurgency.1
@@ -9,16 +10,16 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		random_owned_controlled_state  = {
+		random_owned_controlled_state = {
 			limit = {
 				NOT = { is_core_of = ROOT }
 				is_owned_and_controlled_by = ROOT
-				is_border_conflict = no
+				NOT = { has_state_flag = active_insurgency }
 				not = { has_state_flag = pacified_insurgency }
 			}
-			set_border_war = yes 
 			set_state_flag = active_insurgency
-
+			set_state_flag = anti_colonial_insurgency
+			set_variable = { insurgency_strength = 25 }
 			add_state_modifier = {
 				modifier = {
 					local_resources = -0.20
@@ -44,50 +45,719 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		random_owned_controlled_state  = {
+		random_owned_controlled_state = {
 			limit = {
 				is_owned_and_controlled_by = ROOT
-				is_border_conflict = yes
 				has_state_flag = active_insurgency				
-			}
-			set_border_war = no
-			cancel_border_war = {
-				dont_fire_events = yes
-				defender = THIS
-				attacker = THIS
-			}			
+			}	
 			liberation_war_effect = yes
+			clear_variable = insurgency_strength
+			clr_state_flag = anti_colonial_insurgency
 		}
 	}
 }
 country_event = {
-	id = insurgency.3
+	id = insurgency_effects.1
 	hidden = yes
 
 	is_triggered_only = yes
 
 	immediate = {
-		set_country_flag = unit_set_insurgency_revolution
-		division_template = {
-			name = "Revolutionary Guard" 
+		add_manpower = -2000
+	}
+}
+country_event = {
+	id = insurgency_effects.2
+	hidden = yes
 
-			regiments = {
-				infantry = { x = 0 y = 0 }
-				infantry = { x = 0 y = 1 }
-				infantry = { x = 0 y = 2 }
-				infantry = { x = 1 y = 0 }
-				infantry = { x = 1 y = 1 }
-				infantry = { x = 1 y = 2 }
+	is_triggered_only = yes
+
+	immediate = {
+		var:insur_target = {
+			add_manpower = -100
+		}
+		clear_variable = insur_target
+	}
+}
+country_event = {
+	id = insurgency_effects.3
+	hidden = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		var:insur_target = {
+			add_manpower = -2000
+		}
+		clear_variable = insur_target
+	}
+}
+country_event = {
+	id = insurgency_effects.4
+	hidden = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		var:insur_target = {
+			add_manpower = -10000
+		}
+		clear_variable = insur_target
+	}
+}
+country_event = {
+	id = insurgency_effects.5
+	hidden = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		var:insur_target = {
+			add_manpower = -3500
+		}
+		clear_variable = insur_target
+	}
+}
+
+#Domestic Political Insurgency
+country_event = {
+	id = insurgency.100
+	title = "Communist Insurgency"
+	desc = "Insurgency"
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT 
+				is_owned_and_controlled_by = ROOT
+				NOT = { has_state_flag = active_insurgency }
+				not = { has_state_flag = pacified_insurgency }
+				not = { has_state_flag = communism_insurgency }
+			}
+			set_state_flag = active_insurgency
+			set_state_flag = communism_insurgency
+			set_variable = { insurgency_strength = 25 }
+			add_state_modifier = {
+				modifier = {
+					local_resources = -0.20
+					local_supplies = -0.30
+					local_intel_to_enemies = 0.25
+					local_factory_sabotage = 0.30
+					local_non_core_manpower = -0.30
+					attrition = 0.30
+					local_org_regain = -0.25
+				}
 			}
 		}
-		 
-		capital_scope = { 
-			create_unit = { division = "name = \"1st Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } 
-			create_unit = { division = "name = \"2nd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } 
-			create_unit = { division = "name = \"3rd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } 
-			create_unit = { division = "name = \"4th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } 
-			create_unit = { division = "name = \"5th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  
+	}
+	option = {
+	
+	}
+}
+country_event = {
+	id = insurgency.101
+	title = "Communist Uprising"
+	desc = "Insurgency"
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				has_state_flag = communism_insurgency
+			}
+			set_variable = { ROOT.communism_insurgent_base = THIS }
+		}
+		start_civil_war = {
+			ideology = communism
+			size = 0.1
+		}
+		random_country = {
+			limit = {
+				original_tag = ROOT
+				has_government = communism
+			}
+			transfer_state = var:ROOT.communism_insurgent_base
+			load_oob = "generic_insurgency" 
+			capital_scope = { create_unit = { division = "name = \"1st Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } create_unit = { division = "name = \"2nd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"3rd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"4th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"5th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } }
+			every_owned_state = {
+				limit = {
+					has_state_flag = communism_insurgency
+				}
+				reset_insurgency_modifiers_effect = yes
+				clr_state_flag = communism_insurgency
+			}
 		}
 	}
+}
+country_event = {
+	id = insurgency.200
+	title = "Maoist Insurgency"
+	desc = "Insurgency"
 
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT 
+				is_owned_and_controlled_by = ROOT
+				NOT = { has_state_flag = active_insurgency }
+				not = { has_state_flag = pacified_insurgency }
+				not = { has_state_flag = maoism_insurgency }
+			}
+			set_state_flag = active_insurgency
+			set_state_flag = maoism_insurgency
+			set_variable = { insurgency_strength = 25 }
+			add_state_modifier = {
+				modifier = {
+					local_resources = -0.20
+					local_supplies = -0.30
+					local_intel_to_enemies = 0.25
+					local_factory_sabotage = 0.30
+					local_non_core_manpower = -0.30
+					attrition = 0.30
+					local_org_regain = -0.25
+				}
+			}
+		}
+	}
+	option = {
+	
+	}
+}
+country_event = {
+	id = insurgency.201
+	title = "Maoist Uprising"
+	desc = "Insurgency"
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				has_state_flag = maoism_insurgency
+			}
+			set_variable = { ROOT.maoism_insurgent_base = THIS }
+		}
+		start_civil_war = {
+			ideology = maoism
+			size = 0.1
+		}
+		random_country = {
+			limit = {
+				original_tag = ROOT
+				has_government = maoism
+			}
+			transfer_state = var:ROOT.maoism_insurgent_base
+			load_oob = "generic_insurgency" 
+			capital_scope = { create_unit = { division = "name = \"1st Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } create_unit = { division = "name = \"2nd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"3rd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"4th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"5th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } }
+			every_owned_state = {
+				limit = {
+					has_state_flag = maoism_insurgency
+				}
+				reset_insurgency_modifiers_effect = yes
+				clr_state_flag = maoism_insurgency
+			}
+		}
+	}
+}
+
+country_event = {
+	id = insurgency.300
+	title = "National Socialist Insurgency"
+	desc = "Insurgency"
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT 
+				is_owned_and_controlled_by = ROOT
+				NOT = { has_state_flag = active_insurgency }
+				not = { has_state_flag = pacified_insurgency }
+				not = { has_state_flag = nat_soc_insurgency }
+			}
+			set_state_flag = active_insurgency
+			set_state_flag = nat_soc_insurgency
+			set_variable = { insurgency_strength = 25 }
+			add_state_modifier = {
+				modifier = {
+					local_resources = -0.20
+					local_supplies = -0.30
+					local_intel_to_enemies = 0.25
+					local_factory_sabotage = 0.30
+					local_non_core_manpower = -0.30
+					attrition = 0.30
+					local_org_regain = -0.25
+				}
+			}
+		}
+	}
+	option = {
+	
+	}
+}
+country_event = {
+	id = insurgency.301
+	title = "National Socialist Uprising"
+	desc = "Insurgency"
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				has_state_flag = nat_soc_insurgency
+			}
+			set_variable = { ROOT.National_Socialism_insurgent_base = THIS }
+		}
+		start_civil_war = {
+			ideology = National_Socialism
+			size = 0.1
+		}
+		random_country = {
+			limit = {
+				original_tag = ROOT
+				has_government = National_Socialism
+			}
+			transfer_state = var:ROOT.National_Socialism_insurgent_base
+			load_oob = "generic_insurgency" 
+			capital_scope = { create_unit = { division = "name = \"1st Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } create_unit = { division = "name = \"2nd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"3rd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"4th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"5th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } }
+			every_owned_state = {
+				limit = {
+					has_state_flag = nat_soc_insurgency
+				}
+				reset_insurgency_modifiers_effect = yes
+				clr_state_flag = nat_soc_insurgency
+			}
+		}
+	}
+}
+
+country_event = {
+	id = insurgency.400
+	title = "Fascist Insurgency"
+	desc = "Insurgency"
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT 
+				is_owned_and_controlled_by = ROOT
+				NOT = { has_state_flag = active_insurgency }
+				not = { has_state_flag = pacified_insurgency }
+				not = { has_state_flag = fascism_insurgency }
+			}
+			set_state_flag = active_insurgency
+			set_state_flag = fascism_insurgency
+			set_variable = { insurgency_strength = 25 }
+			add_state_modifier = {
+				modifier = {
+					local_resources = -0.20
+					local_supplies = -0.30
+					local_intel_to_enemies = 0.25
+					local_factory_sabotage = 0.30
+					local_non_core_manpower = -0.30
+					attrition = 0.30
+					local_org_regain = -0.25
+				}
+			}
+		}
+	}
+	option = {
+	
+	}
+}
+country_event = {
+	id = insurgency.401
+	title = "Fascist Uprising"
+	desc = "Insurgency"
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				has_state_flag = fascism_insurgency
+			}
+			set_variable = { ROOT.fascism_insurgent_base = THIS }
+		}
+		start_civil_war = {
+			ideology = fascism
+			size = 0.1
+		}
+		random_country = {
+			limit = {
+				original_tag = ROOT
+				has_government = fascism
+			}
+			transfer_state = var:ROOT.fascism_insurgent_base
+			load_oob = "generic_insurgency" 
+			capital_scope = { create_unit = { division = "name = \"1st Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } create_unit = { division = "name = \"2nd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"3rd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"4th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"5th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } }
+			every_owned_state = {
+				limit = {
+					has_state_flag = fascism_insurgency
+				}
+				reset_insurgency_modifiers_effect = yes
+				clr_state_flag = fascism_insurgency
+			}
+		}
+	}
+}
+
+country_event = {
+	id = insurgency.500
+	title = "Clerical Shia Insurgency"
+	desc = "Insurgency"
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT 
+				is_owned_and_controlled_by = ROOT
+				NOT = { has_state_flag = active_insurgency }
+				not = { has_state_flag = pacified_insurgency }
+				not = { has_state_flag = radical_shiaism_insurgency }
+			}
+			set_state_flag = active_insurgency
+			set_state_flag = fascism_insurgency
+			set_variable = { insurgency_strength = 25 }
+			add_state_modifier = {
+				modifier = {
+					local_resources = -0.20
+					local_supplies = -0.30
+					local_intel_to_enemies = 0.25
+					local_factory_sabotage = 0.30
+					local_non_core_manpower = -0.30
+					attrition = 0.30
+					local_org_regain = -0.25
+				}
+			}
+		}
+	}
+	option = {
+	
+	}
+}
+country_event = {
+	id = insurgency.501
+	title = "Clerical Shia Uprising"
+	desc = "Insurgency"
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				has_state_flag = radical_shiaism_insurgency
+			}
+			set_variable = { ROOT.radical_shiaism_insurgent_base = THIS }
+		}
+		start_civil_war = {
+			ideology = radical_shiaism
+			size = 0.1
+		}
+		random_country = {
+			limit = {
+				original_tag = ROOT
+				has_government = radical_shiaism
+			}
+			transfer_state = var:ROOT.radical_shiaism_insurgent_base
+			load_oob = "generic_insurgency" 
+			capital_scope = { create_unit = { division = "name = \"1st Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } create_unit = { division = "name = \"2nd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"3rd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"4th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"5th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } }
+			every_owned_state = {
+				limit = {
+					has_state_flag = radical_shiaism_insurgency
+				}
+				reset_insurgency_modifiers_effect = yes
+				clr_state_flag = radical_shiaism_insurgency
+			}
+		}
+	}
+}
+country_event = {
+	id = insurgency.600
+	title = "Pan-Arabist Insurgency"
+	desc = "Insurgency"
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT 
+				is_owned_and_controlled_by = ROOT
+				NOT = { has_state_flag = active_insurgency }
+				not = { has_state_flag = pacified_insurgency }
+				not = { has_state_flag = pan_arabism_insurgency }
+			}
+			set_state_flag = active_insurgency
+			set_state_flag = pan_arabism_insurgency
+			set_variable = { insurgency_strength = 25 }
+			add_state_modifier = {
+				modifier = {
+					local_resources = -0.20
+					local_supplies = -0.30
+					local_intel_to_enemies = 0.25
+					local_factory_sabotage = 0.30
+					local_non_core_manpower = -0.30
+					attrition = 0.30
+					local_org_regain = -0.25
+				}
+			}
+		}
+	}
+	option = {
+	
+	}
+}
+country_event = {
+	id = insurgency.601
+	title = "Pan-Arabist Uprising"
+	desc = "Insurgency"
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				has_state_flag = pan_arabism_insurgency
+			}
+			set_variable = { ROOT.pan_arabism_insurgent_base = THIS }
+		}
+		start_civil_war = {
+			ideology = radical_shiaism
+			size = 0.1
+		}
+		random_country = {
+			limit = {
+				original_tag = ROOT
+				has_government = radical_shiaism
+			}
+			transfer_state = var:ROOT.pan_arabism_insurgent_base
+			load_oob = "generic_insurgency" 
+			capital_scope = { create_unit = { division = "name = \"1st Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } create_unit = { division = "name = \"2nd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"3rd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"4th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"5th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } }
+			every_owned_state = {
+				limit = {
+					has_state_flag = pan_arabism_insurgency
+				}
+				reset_insurgency_modifiers_effect = yes
+				clr_state_flag = pan_arabism_insurgency
+			}
+		}
+	}
+}
+country_event = {
+	id = insurgency.700
+	title = "Salafist Insurgency"
+	desc = "Insurgency"
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT 
+				is_owned_and_controlled_by = ROOT
+				NOT = { has_state_flag = active_insurgency }
+				not = { has_state_flag = pacified_insurgency }
+				not = { has_state_flag = salafism_insurgency }
+			}
+			set_state_flag = active_insurgency
+			set_state_flag = salafism_insurgency
+			set_variable = { insurgency_strength = 25 }
+			add_state_modifier = {
+				modifier = {
+					local_resources = -0.20
+					local_supplies = -0.30
+					local_intel_to_enemies = 0.25
+					local_factory_sabotage = 0.30
+					local_non_core_manpower = -0.30
+					attrition = 0.30
+					local_org_regain = -0.25
+				}
+			}
+		}
+	}
+	option = {
+	
+	}
+}
+country_event = {
+	id = insurgency.701
+	title = "Salafist Uprising"
+	desc = "Insurgency"
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			limit = {
+				has_state_flag = salafism_insurgency
+			}
+			set_variable = { ROOT.salafism_insurgent_base = THIS }
+		}
+		start_civil_war = {
+			ideology = Salafism
+			size = 0.1
+		}
+		random_country = {
+			limit = {
+				original_tag = ROOT
+				has_government = Salafism
+			}
+			transfer_state = var:ROOT.salafism_insurgent_base
+			load_oob = "generic_insurgency" 
+			capital_scope = { create_unit = { division = "name = \"1st Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } create_unit = { division = "name = \"2nd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"3rd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"4th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"5th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } }
+			every_owned_state = {
+				limit = {
+					has_state_flag = salafism_insurgency
+				}
+				reset_insurgency_modifiers_effect = yes
+				clr_state_flag = salafism_insurgency
+			}
+		}
+	}
+}
+
+country_event = {
+	id = insurgency_actions.1
+	hidden = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			10 = { country_event = insurgency_actions.2 }	#Car Bombing
+			10 = { country_event = insurgency_actions.3 }	#Low Level Assasination
+			10 = { country_event = insurgency_actions.4 }	#Loyalist Massacre
+			10 = { country_event = insurgency_actions.5 }	#Military Base Raided
+			10 = { country_event = insurgency_actions.6 }	#Anti-War Protests
+			#1 = { country_event = insurgency_actions.7 }	#General Assasinated
+			50 = { }
+		}
+	}
+}
+
+country_event = {
+	id = insurgency_actions.2
+	title = "Car Bombing"
+	desc = "Car Bombing"
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_controlled_state = {
+			damage_building = {
+				type = infrastructure
+				damage = 1
+			}	
+			add_manpower = -50
+		}
+		random_owned_controlled_state = {
+			limit = {
+				NOT = { is_core_of = ROOT }
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = active_insurgency 
+			}
+			add_to_variable = { insurgency_strength = 2 }
+		}
+	}
+	option = {
+	
+	}
+}
+country_event = {
+	id = insurgency_actions.3
+	title = "Low Level Assasination"
+	desc = "Low Level Assasination"
+
+	is_triggered_only = yes
+
+	immediate = {
+		add_stability = -0.01
+		add_political_power = -100
+		random_owned_controlled_state = {
+			limit = {
+				NOT = { is_core_of = ROOT }
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = active_insurgency 
+			}
+			add_to_variable = { insurgency_strength = 2 }
+		}
+	}
+	option = {
+	
+	}
+}
+country_event = {
+	id = insurgency_actions.4
+	title = "Loyalist Massacre"
+	desc = "Loyalist Massacre"
+
+	is_triggered_only = yes
+
+	immediate = {
+		add_stability = -0.02
+		add_political_power = -100
+		random_owned_controlled_state = {
+			add_manpower = -500
+		}
+		random_owned_controlled_state = {
+			limit = {
+				NOT = { is_core_of = ROOT }
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = active_insurgency 
+			}
+			add_to_variable = { insurgency_strength = 2 }
+		}
+	}
+	option = {
+	
+	}
+}
+country_event = {
+	id = insurgency_actions.5
+	title = "Military Base Raided"
+	desc = "Military Base Raided"
+
+	is_triggered_only = yes
+
+	immediate = {
+		add_war_support = -0.01
+		add_manpower = -100
+		random_owned_controlled_state = {
+			limit = {
+				NOT = { is_core_of = ROOT }
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = active_insurgency 
+			}
+			add_to_variable = { insurgency_strength = 5 }
+		}
+	}
+	option = {
+	
+	}
+}
+country_event = {
+	id = insurgency_actions.6
+	title = "Anti-War Protests"
+	desc = "Anti-War Protests"
+
+	is_triggered_only = yes
+
+	immediate = {
+		add_war_support = -0.01
+	}
+	option = {
+	
+	}
 }

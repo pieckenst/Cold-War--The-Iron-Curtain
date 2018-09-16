@@ -1,4 +1,691 @@
 political_actions = {	
+	suppress_insurgents = {
+
+		icon = generic_prepare_civil_war
+
+		visible = {
+			is_ai = yes
+			any_owned_state = {
+				has_state_flag = active_insurgency
+			}
+		}
+
+		fire_only_once = no
+
+		days_re_enable = 50
+
+		cost = 0
+
+
+
+		complete_effect = {
+			every_owned_state = {
+				limit = {
+					has_state_flag = active_insurgency
+				}
+				random_list = {
+					34 = {
+							subtract_from_variable = {
+								var = insurgency_strength
+								value = 3
+							}
+						}
+					33 = {
+						subtract_from_variable = {
+							var = insurgency_strength
+							value = 6
+						}
+					}
+					33 = {
+						add_to_variable = {
+							var = insurgency_strength
+							value = 2
+						}
+					}
+				}
+			}
+		}
+
+
+		ai_will_do = {
+			base = 1
+		}
+	}
+	USA_buy_infantry = {
+
+		icon = generic_industry
+
+		available = {
+			has_opinion = {
+				target = USA
+				value > 25
+			}
+			USA = {
+				has_opinion = {
+					target = ROOT
+					value > 25
+				}			
+			}
+			NOT = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			NOT = { tag = USA }
+			NOT = { tag = SOV }
+			NOT = { tag = PRC }
+			NOT = { is_subject_of = PRC }
+			NOT = { is_subject_of = SOV }
+		}
+
+		cost = 0
+		days_remove = 180
+		days_re_enable = 540
+		complete_effect = {
+		    add_timed_idea = {
+				idea = infantry_payments_USA
+				days = 365
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 50000
+				producer = USA
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	USA_buy_mbt = {
+
+		icon = generic_industry
+
+		available = {
+			has_opinion = {
+				target = USA
+				value > 25
+			}
+			USA = {
+				has_opinion = {
+					target = ROOT
+					value > 25
+				}			
+			}
+			NOT = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			NOT = { tag = USA }
+			NOT = { tag = SOV }
+			NOT = { tag = PRC }
+			NOT = { is_subject_of = PRC }
+			NOT = { is_subject_of = SOV }
+		}
+
+		cost = 0
+		days_remove = 180
+		days_re_enable = 540
+		complete_effect = {
+		    add_timed_idea = {
+				idea = mbt_payments_USA
+				days = 365
+			}
+			add_equipment_to_stockpile = {
+				type = mbt_equipment
+				amount = 300
+				producer = USA
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	USA_buy_multirole_jets = {
+
+		icon = generic_industry
+
+		available = {
+			has_opinion = {
+				target = USA
+				value > 25
+			}
+			USA = {
+				has_opinion = {
+					target = ROOT
+					value > 25
+				}			
+			}
+			NOT = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			NOT = { tag = USA }
+			NOT = { tag = SOV }
+			NOT = { tag = PRC }
+			NOT = { is_subject_of = PRC }
+			NOT = { is_subject_of = SOV }
+		}
+
+		cost = 0
+		days_remove = 180
+		days_re_enable = 540
+		complete_effect = {
+		    add_timed_idea = {
+				idea = multirole_payments_USA
+				days = 365
+			}
+			add_equipment_to_stockpile = {
+				type = jet_multirole_equipment
+				amount = 60
+				producer = USA
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	USA_buy_multirole_jets = {
+
+		icon = generic_industry
+
+		available = {
+			has_opinion = {
+				target = USA
+				value > 25
+			}
+			USA = {
+				has_opinion = {
+					target = ROOT
+					value > 25
+				}			
+			}
+			NOT = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			NOT = { tag = USA }
+			NOT = { tag = SOV }
+			NOT = { tag = PRC }
+			NOT = { is_subject_of = PRC }
+			NOT = { is_subject_of = SOV }
+		}
+
+		cost = 0
+		days_remove = 180
+		days_re_enable = 540
+		complete_effect = {
+		    add_timed_idea = {
+				idea = multirole_payments_USA
+				days = 365
+			}
+			add_equipment_to_stockpile = {
+				type = jet_multirole_equipment
+				amount = 60
+				producer = USA
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	USA_buy_strategic_jets = {
+
+		icon = generic_industry
+
+		available = {
+			has_opinion = {
+				target = USA
+				value > 25
+			}
+			USA = {
+				has_opinion = {
+					target = ROOT
+					value > 25
+				}			
+			}
+			NOT = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			NOT = { tag = USA }
+			NOT = { tag = SOV }
+			NOT = { tag = PRC }
+			NOT = { is_subject_of = PRC }
+			NOT = { is_subject_of = SOV }
+		}
+
+		cost = 0
+		days_remove = 180
+		days_re_enable = 540
+		complete_effect = {
+		    add_timed_idea = {
+				idea = strategic_payments_USA
+				days = 365
+			}
+			add_equipment_to_stockpile = {
+				type = jet_strat_bomber_equipment
+				amount = 10
+				producer = USA
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	USA_buy_tactical_jets = {
+
+		icon = generic_industry
+
+		available = {
+			has_opinion = {
+				target = USA
+				value > 25
+			}
+			USA = {
+				has_opinion = {
+					target = ROOT
+					value > 25
+				}			
+			}
+			NOT = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			NOT = { tag = USA }
+			NOT = { tag = SOV }
+			NOT = { tag = PRC }
+			NOT = { is_subject_of = PRC }
+			NOT = { is_subject_of = SOV }
+		}
+
+		cost = 0
+		days_remove = 180
+		days_re_enable = 540
+		complete_effect = {
+		    add_timed_idea = {
+				idea = tactical_payments_USA
+				days = 365
+			}
+			add_equipment_to_stockpile = {
+				type = jet_tac_bomber_equipment
+				amount = 15
+				producer = USA
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	USA_buy_cas_jets = {
+
+		icon = generic_industry
+
+		available = {
+			has_opinion = {
+				target = USA
+				value > 25
+			}
+			USA = {
+				has_opinion = {
+					target = ROOT
+					value > 25
+				}			
+			}
+			NOT = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			NOT = { tag = USA }
+			NOT = { tag = SOV }
+			NOT = { tag = PRC }
+			NOT = { is_subject_of = PRC }
+			NOT = { is_subject_of = SOV }
+		}
+
+		cost = 0
+		days_remove = 180
+		days_re_enable = 540
+		complete_effect = {
+		    add_timed_idea = {
+				idea = cas_payments_USA
+				days = 365
+			}
+			add_equipment_to_stockpile = {
+				type = jet_CAS_equipment
+				amount = 50
+				producer = USA
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	USA_buy_cas_jets = {
+
+		icon = generic_industry
+
+		available = {
+			has_opinion = {
+				target = USA
+				value > 25
+			}
+			USA = {
+				has_opinion = {
+					target = ROOT
+					value > 25
+				}			
+			}
+			NOT = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			NOT = { tag = USA }
+			NOT = { tag = SOV }
+			NOT = { tag = PRC }
+			NOT = { is_subject_of = PRC }
+			NOT = { is_subject_of = SOV }
+		}
+
+		cost = 0
+		days_remove = 180
+		days_re_enable = 540
+		complete_effect = {
+		    add_timed_idea = {
+				idea = cas_payments_USA
+				days = 365
+			}
+			add_equipment_to_stockpile = {
+				type = jet_CAS_equipment
+				amount = 50
+				producer = USA
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	USA_buy_artillery = {
+
+		icon = generic_industry
+
+		available = {
+			has_opinion = {
+				target = USA
+				value > 25
+			}
+			USA = {
+				has_opinion = {
+					target = ROOT
+					value > 25
+				}			
+			}
+			NOT = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			NOT = { tag = USA }
+			NOT = { tag = SOV }
+			NOT = { tag = PRC }
+			NOT = { is_subject_of = PRC }
+			NOT = { is_subject_of = SOV }
+		}
+
+		cost = 0
+		days_remove = 180
+		days_re_enable = 540
+		complete_effect = {
+		    add_timed_idea = {
+				idea = artillery_payments_USA
+				days = 365
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 1500
+				producer = USA
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	USA_buy_trucks = {
+
+		icon = generic_industry
+
+		available = {
+			has_opinion = {
+				target = USA
+				value > 25
+			}
+			USA = {
+				has_opinion = {
+					target = ROOT
+					value > 25
+				}			
+			}
+			NOT = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			NOT = { tag = USA }
+			NOT = { tag = SOV }
+			NOT = { tag = PRC }
+			NOT = { is_subject_of = PRC }
+			NOT = { is_subject_of = SOV }
+		}
+
+		cost = 0
+		days_remove = 180
+		days_re_enable = 540
+		complete_effect = {
+		    add_timed_idea = {
+				idea = motorized_payments_USA
+				days = 365
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 8000
+				producer = USA
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	USA_buy_apc = {
+
+		icon = generic_industry
+
+		available = {
+			has_opinion = {
+				target = USA
+				value > 25
+			}
+			USA = {
+				has_opinion = {
+					target = ROOT
+					value > 25
+				}			
+			}
+			NOT = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			NOT = { tag = USA }
+			NOT = { tag = SOV }
+			NOT = { tag = PRC }
+			NOT = { is_subject_of = PRC }
+			NOT = { is_subject_of = SOV }
+		}
+
+		cost = 0
+		days_remove = 180
+		days_re_enable = 540
+		complete_effect = {
+		    add_timed_idea = {
+				idea = apc_payments_USA
+				days = 365
+			}
+			add_equipment_to_stockpile = {
+				type = mechanized_equipment
+				amount = 1500
+				producer = USA
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	USA_buy_ifv = {
+
+		icon = generic_industry
+
+		available = {
+			has_opinion = {
+				target = USA
+				value > 25
+			}
+			USA = {
+				has_opinion = {
+					target = ROOT
+					value > 25
+				}			
+			}
+			NOT = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			NOT = { tag = USA }
+			NOT = { tag = SOV }
+			NOT = { tag = PRC }
+			NOT = { is_subject_of = PRC }
+			NOT = { is_subject_of = SOV }
+		}
+
+		cost = 0
+		days_remove = 180
+		days_re_enable = 540
+		complete_effect = {
+		    add_timed_idea = {
+				idea = ifv_payments_USA
+				days = 365
+			}
+			add_equipment_to_stockpile = {
+				type = mechanized_heavy_equipment
+				amount = 1500
+				producer = USA
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	USA_buy_weapons_package = {
+
+		icon = generic_industry
+
+		available = {
+			has_opinion = {
+				target = USA
+				value > 50
+			}
+			USA = {
+				has_opinion = {
+					target = ROOT
+					value > 50
+				}			
+			}
+			NOT = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			NOT = { tag = USA }
+			NOT = { tag = SOV }
+			NOT = { tag = PRC }
+			NOT = { is_subject_of = PRC }
+			NOT = { is_subject_of = SOV }
+		}
+
+		cost = 0
+		days_remove = 180
+		days_re_enable = 540
+		complete_effect = {
+		    add_timed_idea = {
+				idea = mil_package_payments_USA
+				days = 365
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 55000
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = mbt_equipment
+				amount = 200
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = jet_multirole_equipment
+				amount = 30
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = jet_CAS_equipment
+				amount = 70
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 400
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 10000
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = mechanized_equipment
+				amount = 750
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = mechanized_heavy_equipment
+				amount = 750
+				producer = USA
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
 	show_tutorial = {
 
 		icon = generic_industry
@@ -1065,7 +1752,7 @@ war_measures = {
 			 NOT = { has_war_with = ENG }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -1093,7 +1780,7 @@ war_measures = {
 			 NOT = { has_war_with = ENG }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -1170,7 +1857,7 @@ war_measures = {
 			 NOT = { has_war_with = SAF }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -1247,7 +1934,7 @@ war_measures = {
 			 NOT = { has_war_with = BEL }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -1324,7 +2011,7 @@ war_measures = {
 			 NOT = { has_war_with = FRA }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -1401,7 +2088,7 @@ war_measures = {
 			 NOT = { has_war_with = USA }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -1474,7 +2161,7 @@ war_measures = {
 			# NOT = { has_war_with = USA }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -1547,7 +2234,7 @@ war_measures = {
 			 NOT = { has_war_with = ENG }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -1620,7 +2307,7 @@ war_measures = {
 			 NOT = { has_war_with = ENG }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -1693,7 +2380,7 @@ war_measures = {
 			 NOT = { has_war_with = ENG }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -1766,7 +2453,7 @@ war_measures = {
 			 NOT = { has_war_with = ENG }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
         }
@@ -1833,7 +2520,7 @@ war_measures = {
 			 NOT = { has_global_flag = hired_Militaires_Sans_Frontieres }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
 			date < 1975.3.16
@@ -1916,7 +2603,7 @@ war_measures = {
 			 NOT = { has_global_flag = hired_Diamond_Dogs }
 			 NOT = { 
 				has_government = communism
-				has_government = Social_Democratic
+				has_government = socialist
 				has_government = maoism
 			}
 			date < 1995.12.30
@@ -2038,6 +2725,100 @@ war_measures = {
 				}
 				set_division_template_lock = { division_template = "Private Military Contractor" is_locked = yes }	 
 
+			}
+        }
+
+        ai_will_do = {
+            factor = 0 #Gotta allow the Americans to help
+        }
+    }
+	hire_che = {
+
+        icon = generic_political_discourse
+
+        available = {
+            has_war = yes
+			 NOT = { has_global_flag = hired_che }
+			 NOT = { has_war_with = CUB }
+			 NOT = { 
+				has_government = conservative
+				has_government = Liberal_Conservatism
+				has_government = Christian_Democratic
+				has_government = Social_Liberalism
+				has_government = democratic
+				has_government = centrist
+				has_government = liberal
+				has_government = National_Socialism
+				has_government = fascism
+				has_government = nationalism
+				has_government = monarchism
+				has_government = neutrality
+			}
+        	date < 1988.6.12
+			date > 1965.1.1
+			NOT = { has_global_flag = che_is_dead }
+        }
+		
+		visible = {
+		    date < 1988.6.12
+		    date > 1964.9.1
+		}
+
+        cost = 1000
+
+        fire_only_once = no
+        complete_effect = {
+			set_global_flag = hired_che
+			set_country_flag = che_sponsor
+			custom_effect_tooltip = "Hire Che Guerva"
+			hidden_effect = {
+				division_template = {
+					name = "Private Military Contractors"
+					priority = 2
+
+					regiments = {
+						pmc = { x = 0 y = 0 }
+						pmc = { x = 0 y = 1 }
+						pmc = { x = 0 y = 2 }
+
+						pmc = { x = 1 y = 0 }
+						pmc = { x = 1 y = 1 }
+						pmc = { x = 1 y = 2 }
+
+					}
+				}
+				capital_scope = {
+					if = {
+						limit = { ROOT = { has_full_control_of_state = PREV } }
+						create_unit = {
+							division = "name = \"Local Guerilla\" division_template = \"Private Military Contractors\" start_experience_factor = 2.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Local Guerilla\" division_template = \"Private Military Contractors\" start_experience_factor = 2.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Local Guerilla\" division_template = \"Private Military Contractors\" start_experience_factor = 2.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Local Guerilla\" division_template = \"Private Military Contractors\" start_experience_factor = 2.0"
+							owner = ROOT
+						}
+					}
+				}
+				set_division_template_lock = { division_template = "Private Military Contractors" is_locked = yes }	 
+				create_corps_commander = { 
+					name = "Che Guevara" 
+					portrait_path = "gfx/leaders/PMC/che.dds"
+					id = 9016
+					skill = 6
+					attack_skill = 6
+					defense_skill = 6
+					planning_skill = 6
+					logistics_skill = 6
+				}	
 			}
         }
 

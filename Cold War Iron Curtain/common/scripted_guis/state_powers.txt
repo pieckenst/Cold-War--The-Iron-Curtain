@@ -28,14 +28,24 @@ scripted_gui = {
 					add_core_of = root 	
 				}
 			}
+			has_insurgency_click = {
+				set_variable = { insurgency_show = 1 }
+			}
 		}
 		
 		triggers = {
+
+
+			has_insurgency_visible = {
+				has_state_flag = active_insurgency
+			}
+
 			urbanization_click_enabled = {
 				root = {
 					has_political_power > 500
 				}
-			}
+			}			
+	
 			make_core_visible = {
 				is_fully_controlled_by = ROOT
 				is_owned_by = ROOT
