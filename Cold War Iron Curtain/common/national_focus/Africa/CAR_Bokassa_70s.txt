@@ -245,7 +245,10 @@ focus_tree = {
 		}
 		x = 45
 		y = 6
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.02
+		}
 	}
 	focus = {
 		id = CAR_70s_Central_Africa_to_the_Forefront
@@ -256,7 +259,9 @@ focus_tree = {
 		}
 		x = 45
 		y = 7
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = CAR_70s_Give_France_our_Diamonds
@@ -267,7 +272,10 @@ focus_tree = {
 		}
 		x = 45
 		y = 9
-
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 1 }
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = CAR_70s_The_Monarchy_Proposal
@@ -769,7 +777,12 @@ focus_tree = {
 		}
 		x = 45
 		y = 21
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = combat_inflation 
+				days = 365
+			}
+		}
 	}
 	focus = {
 		id = CAR_70s_New_General_Development_Plan
@@ -780,7 +793,68 @@ focus_tree = {
 		}
 		x = 48
 		y = 22
-
+	completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = CAR_70s_Lack_of_Investors
@@ -802,7 +876,9 @@ focus_tree = {
 		}
 		x = 45
 		y = 22
-
+		completion_reward = {
+			add_ideas = death_squads
+		}
 	}
 	focus = {
 		id = CAR_70s_Border_Tensions
@@ -813,7 +889,10 @@ focus_tree = {
 		}
 		x = 42
 		y = 22
-
+		completion_reward = {
+			add_threat = 2
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 		id = CAR_70s_Renew_Equipment
@@ -824,7 +903,18 @@ focus_tree = {
 		}
 		x = 42
 		y = 23
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = jet_multirole_equipment
+				amount = 60
+				producer = FRA
+			}		
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 500
+				producer = FRA
+			}	
+		}
 	}
 	focus = {
 		id = CAR_70s_Brutal_Camps
@@ -854,7 +944,11 @@ focus_tree = {
 		}
 		x = 46
 		y = 23
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.10
+			remove_ideas = repression
+		}
 	}
 	focus = {
 		id = CAR_70s_Criticize_the_Development_Plan
@@ -868,7 +962,10 @@ focus_tree = {
 		}
 		x = 46
 		y = 24
-
+		completion_reward = {
+			add_political_power = 100
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = CAR_70s_Nepotism
@@ -879,7 +976,9 @@ focus_tree = {
 		}
 		x = 44
 		y = 24
-
+		completion_reward = {
+			add_ideas = SOV_government_corruption
+		}
 	}
 	focus = {
 		id = CAR_70s_Student_Riots
@@ -933,7 +1032,11 @@ focus_tree = {
 		}
 		x = 46
 		y = 28
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 		id = CAR_70s_Bokassa_Worship
@@ -944,7 +1047,9 @@ focus_tree = {
 		}
 		x = 46
 		y = 29
-		
+		completion_reward = {
+			add_ideas = cult_of_personality
+		}
 	}
 	focus = {
 		id = CAR_70s_Bokassa_Our_Leader
@@ -971,7 +1076,10 @@ focus_tree = {
 		}
 		x = 44
 		y = 27
-
+		completion_reward = {
+			news_event = central_africa.600
+			complete_national_focus = CAR_70s_Dackos_Back
+		}
 	}
 	focus = {
 		id = CAR_70s_Dackos_Back
