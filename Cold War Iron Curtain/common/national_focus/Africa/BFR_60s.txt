@@ -14,7 +14,9 @@ focus_tree = {
 		cost = 10.00
 		x = 6
 		y = 0
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = BFR_Biafran_Oil
@@ -22,7 +24,14 @@ focus_tree = {
 		cost = 10.00
 		x = 17
 		y = 0
-
+		completion_reward = {
+			capital_scope = {
+				add_resource = {
+					type = oil
+					ammount = 25
+				}
+			}
+		}
 	}
 	focus = {
 		id = BFR_Fledgling_Airforce
@@ -30,7 +39,9 @@ focus_tree = {
 		cost = 10.00
 		x = 17
 		y = 6
-
+		completion_reward = {
+			air_experience = 25
+		}
 	}
 	focus = {
 		id = BFR_Independence_Secured
@@ -38,7 +49,12 @@ focus_tree = {
 		cost = 10.00
 		x = 27
 		y = 0
-
+		available = {
+			has_war = no
+		}
+		bypass = {
+			has_war = no
+		}
 	}
 	focus = {
 		id = BFR_A_United_People
@@ -60,7 +76,9 @@ focus_tree = {
 		}
 		x = 8
 		y = 1
-
+		completion_reward = {
+			army_experience = 25
+		}
 	}
 	focus = {
 		id = BFR_Expanding_our_Army
@@ -74,7 +92,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 2
-
+		completion_reward = {
+			add_ideas = military_expansion
+		}	
 	}
 	focus = {
 		id = BFR_Our_National_Struggle
@@ -88,7 +108,9 @@ focus_tree = {
 		}
 		x = 3
 		y = 3
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = BFR_Establish_our_own_Factories
@@ -99,7 +121,68 @@ focus_tree = {
 		}
 		x = 1
 		y = 4
-
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = BFR_Arms_Smuggling
@@ -110,7 +193,9 @@ focus_tree = {
 		}
 		x = 5
 		y = 4
-
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
 	}
 	focus = {
 		id = BFR_Jungle_Training
@@ -160,7 +245,10 @@ focus_tree = {
 		}
 		x = 11
 		y = 4
-
+		completion_reward = {
+			add_ideas = fra_french_advisors
+			add_ideas = american_advisors
+		}
 	}
 	focus = {
 		id = BFR_An_International_Struggle
@@ -186,7 +274,12 @@ focus_tree = {
 		}
 		x = 6
 		y = 6
-
+		available = {
+			has_war = no
+		}
+		completion_reward = {
+			army_experience = 50
+		}
 	}
 	focus = {
 		id = BFR_People_of_Biafra
@@ -211,7 +304,9 @@ focus_tree = {
 		}
 		x = 0
 		y = 8
-
+		completion_reward = {
+			set_technology = { jungle_warfare = 1 }	
+		}
 	}
 	focus = {
 		id = BFR_Peoples_Brigades
@@ -758,7 +853,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 11
-
+		completion_reward = {
+			country_event = BFR.100
+		}
 	}
 	focus = {
 		id = BFR_Elections
@@ -769,7 +866,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 10
-
+		completion_reward = {
+			country_event = BFR.101
+		}
 	}
 	focus = {
 		id = BFR_Philip_Effiong
@@ -780,7 +879,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 12
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = BFR_Rolf_Steiner
@@ -791,7 +892,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 12
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = BFR_Timothy_Onwuatuegwu
@@ -802,7 +905,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 12
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = BFR_Military_Democracy
@@ -846,7 +951,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 13
-
+		completion_reward = {
+			add_ideas = agriculture
+		}
 	}
 	focus = {
 		id = BFR_Death_of_the_General
@@ -880,7 +987,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 14
-
+		completion_reward = {
+			add_ideas = communism_banned
+		}
 	}
 	focus = {
 		id = BFR_Economic_Relations_with_the_West
@@ -902,7 +1011,20 @@ focus_tree = {
 		}
 		x = 30
 		y = 17
-
+		completion_reward = {
+			CAR = {
+				add_opinion_modifier = {
+					target = USA
+					modifier = large_increase
+				}
+			}
+			USA = {
+				add_opinion_modifier = {
+					target = CAR
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = BFR_Radicalism
@@ -913,7 +1035,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 18
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 	focus = {
 		id = BFR_No_More_than_a_Mercenary_Clique
@@ -927,7 +1051,16 @@ focus_tree = {
 		}
 		x = 32
 		y = 19
-
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.25
+			}
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+		}
 	}
 	focus = {
 		id = BFR_Embrace_National_Socialism
@@ -941,7 +1074,16 @@ focus_tree = {
 		}
 		x = 28
 		y = 19
-
+		completion_reward = {
+			add_popularity = {
+				ideology = National_Socialism
+				popularity = 0.25
+			}
+			set_politics = {
+				ruling_party = National_Socialism
+				elections_allowed = no
+			}
+		}
 	}
 	focus = {
 		id = BFR_Militarize_the_Nigerian_Border
@@ -953,7 +1095,19 @@ focus_tree = {
 		}
 		x = 30
 		y = 20
-
+		completion_reward = {
+			capital_scope = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}			
+			}	
+		}
 	}
 	focus = {
 		id = BFR_Nigeria_is_Igbo
@@ -964,7 +1118,13 @@ focus_tree = {
 		}
 		x = 30
 		y = 21
-
+		completion_reward = {
+			NIA = {
+				every_owned_state = {
+					add_core_of = BFR
+				}
+			}
+		}
 	}
 	focus = {
 		id = BFR_Albert_Onkonkwo
@@ -975,7 +1135,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 11
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = BFR_Joesph_Achuzie
@@ -986,7 +1148,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 11
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = BFR_South_Nigerian_Solidarity
