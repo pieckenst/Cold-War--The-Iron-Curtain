@@ -6,8 +6,9 @@
 			
 		}
 		visible = {
-			NOT = { has_country_flag = congressional_vote_ongoing }
+			date > 1960.1.1
 			NOT = { has_idea = US_Defense_Production_Act }
+			NOT = { has_country_flag = congressional_vote_ongoing }
 		}
 
 		cost = 0
@@ -18,9 +19,7 @@
 		complete_effect = {
 			set_country_flag = congressional_vote_ongoing
 			
-			add_to_variable = { var = senate_total_voting_support value = democratic_supportive_senators }
-			add_to_variable = { var = senate_total_voting_support value = republican_supportive_senators }
-			
+			#House Vote
 			set_variable = { var = democratic_supportive_representatives value = democratic_total_representatives }
 			multiply_variable = { var = democratic_supportive_representatives value = 0.65 }
 			
@@ -30,8 +29,75 @@
 			multiply_variable = { var = republican_supportive_representatives value = 0.45 }
 			
 			add_to_variable = { var = house_total_voting_support value = republican_supportive_representatives }
+			
+			#Senate Voting
+			set_variable = { var = democratic_supportive_senators value = democratic_total_representatives }
+			multiply_variable = { var = democratic_supportive_senators value = 0.65 }
+			
+			add_to_variable = { var = senate_total_voting_support value = democratic_supportive_senators }
+			
+			set_variable = { var = republican_supportive_senators value = republican_total_representatives }
+			multiply_variable = { var = republican_supportive_senators value = 0.45 }
+			
+			add_to_variable = { var = senate_total_voting_support value = republican_supportive_senators }
 		}
-		days_remove = 90
+		days_remove = 45
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { var = house_total_voting_support value = house_majority_required compare = greater_than_or_equals }
+					check variable = { var = senate_total_voting_support value = senate_majority_required = greater_than_or_equals }
+				}
+				country_event = us_congress.1
+			}
+			else = {
+				country_event = us_congress.2
+			}
+		}
+	}
+	agriculture_act = {
+
+		icon = generic_decision
+
+		available = {
+			
+		}
+		visible = {
+			NOT = { has_idea = agriculture }
+			NOT = { has_country_flag = congressional_vote_ongoing }
+		}
+
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			set_country_flag = congressional_vote_ongoing
+			
+			#House Vote
+			set_variable = { var = democratic_supportive_representatives value = democratic_total_representatives }
+			multiply_variable = { var = democratic_supportive_representatives value = 0.85 }
+			
+			add_to_variable = { var = house_total_voting_support value = democratic_supportive_representatives }
+			
+			set_variable = { var = republican_supportive_representatives value = republican_total_representatives }
+			multiply_variable = { var = republican_supportive_representatives value = 0.75 }
+			
+			add_to_variable = { var = house_total_voting_support value = republican_supportive_representatives }
+			
+			#Senate Voting
+			set_variable = { var = democratic_supportive_senators value = democratic_total_representatives }
+			multiply_variable = { var = democratic_supportive_senators value = 0.85 }
+			
+			add_to_variable = { var = senate_total_voting_support value = democratic_supportive_senators }
+			
+			set_variable = { var = republican_supportive_senators value = republican_total_representatives }
+			multiply_variable = { var = republican_supportive_senators value = 0.75 }
+			
+			add_to_variable = { var = senate_total_voting_support value = republican_supportive_senators }
+		}
+		days_remove = 45
 		remove_effect = {
 			if = {
 				limit = {
@@ -50,7 +116,7 @@
 December 29, 1950: Celler–Kefauver Act (Anti-Merger Act), ch. 1184, 64 Stat. 1125
 September 23, 1950: McCarran Internal Security Act (including Subversive Activities Control Act of 1950), ch. 1024, 64 Stat. 987, 50 U.S.C. § 781
 May 10, 1950: National Science Foundation Act, ch. 171, Pub.L. 81–507, 64 Stat. 149, 42 U.S.C. ch. 16
-October 31, 1949: Agricultural Act of 1949, ch. 792, 63 Stat. 1051
+October 31, 1949: Agricultural Act, ch. 792, 63 Stat. 1051
 October 26, 1949: Fair Labor Standards Amendment, ch. 736, Pub.L. 81–393, 63 Stat. 910, 29 U.S.C. ch. 8
 June 20, 1949: Central Intelligence Agency Act, ch. 227, 63 Stat. 208, 50 U.S.C. § 403a
 October 10, 1951: Mutual Security Act, ch. 479, 65 Stat. 373
@@ -59,12 +125,10 @@ July 16, 1952: Veterans' Readjustment Assistance Act, Pub.L. 82–550
 July 3, 1953: Small Business Act, Pub.L. 83–163, ch. 282, 67 Stat. 232
 August 7, 1953: Refugee Relief Act, Pub.L. 83–203
 August 7, 1953: Submerged Lands Act, ch. 345, 67 Stat. 462
-August 14, 1953: Public Law 280, Pub.L. 83–280, 18 U.S.C. § 1162
 May 13, 1954: Saint Lawrence Seaway Act, ch. 201, 68 Stat. 92
 August 12, 1954: Federal National Mortgage Association Charter Act, ch. 649, title II, §201, 68 Stat. 612
 August 24, 1954: Communist Control Act of 1954, ch. 886, 68 Stat. 775
 August 30, 1954: Atomic Energy Act of 1954, 68 Stat. 919
-1954: Agricultural Act of 1954
 July 14, 1955: Air Pollution Control Act, Pub.L. 84–159, ch. 360, 69 Stat. 322
 June 29, 1956: Federal-Aid Highway Act of 1956, (National Interstate and Defense Highways Act), Pub.L. 84–627
 August 8, 1956: Fish and Wildlife Act of 1956, ch. 1036, 70 Stat. 1119, 16 U.S.C. § 742a
