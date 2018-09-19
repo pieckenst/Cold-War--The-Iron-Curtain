@@ -76,6 +76,7 @@ add_namespace = PMR
 add_namespace = fra_crisis
 add_namespace = vat
 add_namespace = insurgency
+add_namespace = insurgency_actions
 
 country_event = {
 	id = ic_pulse.1
@@ -124,16 +125,19 @@ country_event = {
 		}
 		if = {
 			limit = {
+				NOT = { has_idea = insurgency_recent }
 				OR = {
 					AND = {
 						has_elections = no
 						NOT = { tag = ENG }
+						NOT = { tag = FRA }
 						has_stability < 0.5
 					}
 					AND = {
 						OR = {
 							has_elections = yes
 							tag = ENG
+							tag = FRA
 						}
 						has_stability < 0.4
 					}
@@ -144,7 +148,16 @@ country_event = {
 					NOT = { has_state_flag = active_insurgency }
 					not = { has_state_flag = pacified_insurgency }
 					is_demilitarized_zone = no
+					any_neighbor_state = {
+						limit = {
+							is_owned_by = ROOT
+						}
+					}
 				}
+			}
+			add_timed_idea = {
+				idea = insurgency_recent
+				days = 120
 			}
 			random_list = {
 				15 = {
