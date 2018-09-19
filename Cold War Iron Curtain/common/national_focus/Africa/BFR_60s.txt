@@ -228,7 +228,16 @@ focus_tree = {
 		}
 		x = 9
 		y = 3
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
+			}
+		}
 	}
 	focus = {
 		id = BFR_International_Aid
@@ -239,7 +248,16 @@ focus_tree = {
 		}
 		x = 7
 		y = 4
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}	
+			}
+		}
 	}
 	focus = {
 		id = BFR_Invite_Foriegn_Advisors
@@ -267,7 +285,11 @@ focus_tree = {
 		}
 		x = 9
 		y = 5
-
+		completion_reward = {
+			army_experience = 25
+			add_political_power = 200
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 		id = BFR_The_War_Won
@@ -336,7 +358,23 @@ focus_tree = {
 		}
 		x = 10
 		y = 7
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 25000
+				producer = FRA
+			}	
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 5000
+				producer = FRA
+			}		
+			add_equipment_to_stockpile = {
+				type = mbt_equipment
+				amount = 200
+				producer = FRA
+			}				
+		}
 	}
 	focus = {
 		id = BFR_Build_Truck_Factories
@@ -347,7 +385,16 @@ focus_tree = {
 		}
 		x = 8
 		y = 8
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
+			}
+		}
 	}
 	focus = {
 		id = BFR_Invite_Oil_Companies
@@ -358,7 +405,9 @@ focus_tree = {
 		}
 		x = 17
 		y = 1
-
+		completion_reward = {
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = BFR_Our_French_Friends
@@ -373,17 +422,34 @@ focus_tree = {
 		}
 		x = 14
 		y = 2
-
+		completion_reward = {
+			BFR = {
+				add_opinion_modifier = {
+					target = FRA
+					modifier = large_increase
+				}
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = BFR
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = BFR_Support_Esso
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = BFR_Our_French_Friends
+			focus = BFR_The_Italian_Oil_Companies
 		}
-		x = 12
+		x = 22
 		y = 3
+
+		completion_reward = {
+			add_ideas = esso
+		}
 
 	}
 	focus = {
@@ -399,7 +465,10 @@ focus_tree = {
 		}
 		x = 17
 		y = 2
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = BFR_Other_Options
@@ -410,7 +479,10 @@ focus_tree = {
 		}
 		x = 17
 		y = 3
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = BFR_US_OIl
@@ -421,7 +493,9 @@ focus_tree = {
 		}
 		x = 15
 		y = 4
-
+		completion_reward = {
+			add_ideas = Mobil
+		}
 	}
 	focus = {
 		id = BFR_Nationalize_the_Oil
@@ -432,7 +506,9 @@ focus_tree = {
 		}
 		x = 19
 		y = 4
-
+		completion_reward = {
+			add_ideas = nationalized_resources
+		}
 	}
 	focus = {
 		id = BFR_Foriegn_Airplanes
@@ -490,29 +566,46 @@ focus_tree = {
 		}
 		x = 20
 		y = 2
-
+		completion_reward = {
+			BFR = {
+				add_opinion_modifier = {
+					target = USA
+					modifier = large_increase
+				}
+			}
+			USA = {
+				add_opinion_modifier = {
+					target = BFR
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = BFR_Total_Oil
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = BFR_The_Italian_Oil_Companies
+			focus = BFR_Our_French_Friends
 		}
-		x = 22
+		x = 12
 		y = 3
-
+		completion_reward = {
+			add_ideas = total_oil
+		}
 	}
 	focus = {
 		id = BFR_The_Ikemba_General_Rules
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = BFR_Independence_Secured
 		}
 		x = 27
 		y = 1
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = BFR_Rule_by_the_People
@@ -615,7 +708,10 @@ focus_tree = {
 		}
 		x = 29
 		y = 5
-
+		completion_reward = {
+			add_war_support = 0.05
+			add_ideas = minority_recruitment
+		}
 	}
 	focus = {
 		id = BFR_Invite_Ambazonia
@@ -626,7 +722,11 @@ focus_tree = {
 		}
 		x = 28
 		y = 6
-
+		completion_reward = {
+			CMR = {
+				country_event = BFR.1002
+			}
+		}
 	}
 	focus = {
 		id = BFR_Nigerian_Guerilas
@@ -637,7 +737,13 @@ focus_tree = {
 		}
 		x = 29
 		y = 7
-
+		completion_reward = {
+			add_manpower = 1000
+			army_experience = 20
+			NIA = {
+				add_war_support = -0.05
+			}
+		}
 	}
 	focus = {
 		id = BFR_Military_Schools
@@ -696,7 +802,14 @@ focus_tree = {
 		}
 		x = 8
 		y = 9
-
+		completion_reward = {
+			capital_scope = {
+				add_resource = {
+					type = oil
+					ammount = 20
+				}
+			}
+		}
 	}
 	focus = {
 		id = BFR_Motorized_Infantry_Doctrine
@@ -707,7 +820,15 @@ focus_tree = {
 		}
 		x = 12
 		y = 9
-
+			completion_reward = {
+					army_experience = 5
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 1
+							category = land_doctrine
+						}
+				}
 	}
 	focus = {
 		id = BFR_Biafra_Babies
@@ -721,7 +842,14 @@ focus_tree = {
 		}
 		x = 15
 		y = 7
-
+		completion_reward = {
+			air_experience = 25
+			add_equipment_to_stockpile = {
+				type = jet_multirole_equipment
+				amount = 60
+				producer = SWE
+			}					
+		}
 	}
 	focus = {
 		id = BFR_Domestic_Aircraft
@@ -732,7 +860,16 @@ focus_tree = {
 		}
 		x = 15
 		y = 8
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
+			}
+		}
 	}
 	focus = {
 		id = BFR_Rethinking_our_Air_Policies
@@ -744,7 +881,14 @@ focus_tree = {
 		}
 		x = 17
 		y = 9
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}		
+		}
 	}
 	focus = {
 		id = BFR_Biafran_Air_Industry
@@ -902,7 +1046,10 @@ focus_tree = {
 		}
 		x = 30
 		y = 9
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.02
+		}
 	}
 	focus = {
 		id = BFR_Dedication_to_the_People
@@ -989,7 +1136,11 @@ focus_tree = {
 		}
 		x = 32
 		y = 13
-
+		completion_reward = {
+			add_manpower = 5000
+			army_experience = 15
+			add_political_power = 50
+		}	
 	}
 	focus = {
 		id = BFR_Bargain_with_Nigeria
@@ -1000,7 +1151,20 @@ focus_tree = {
 		}
 		x = 32
 		y = 14
-
+		completion_reward = {
+			BFR = {
+				add_opinion_modifier = {
+					target = NIA
+					modifier = large_increase
+				}
+			}
+			NIA = {
+				add_opinion_modifier = {
+					target = BFR
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = BFR_An_Autonomous_Biafran_State
@@ -1011,7 +1175,11 @@ focus_tree = {
 		}
 		x = 32
 		y = 15
-
+		completion_reward = {
+			NIA = {
+				puppet = BFR
+			}
+		}
 	}
 	focus = {
 		id = BFR_Rebuild_Our_Farms
@@ -1083,15 +1251,15 @@ focus_tree = {
 		x = 30
 		y = 17
 		completion_reward = {
-			CAR = {
+			BFR = {
 				add_opinion_modifier = {
-					target = USA
+					target = WGR
 					modifier = large_increase
 				}
 			}
-			USA = {
+			WGR = {
 				add_opinion_modifier = {
-					target = CAR
+					target = BFR
 					modifier = large_increase
 				}
 			}
@@ -1284,7 +1452,12 @@ focus_tree = {
 		}
 		x = 24
 		y = 16
-
+		completion_reward = {
+			add_political_power = -100
+			add_manpower = -2000
+			army_experience = -20
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = BFR_A_Defensive_Army
@@ -1295,7 +1468,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 15
-
+		completion_reward = {
+			add_ideas = defensive_military_strategy
+		}
 	}
 	focus = {
 		id = BFR_Demilitarize
