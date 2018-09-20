@@ -76,6 +76,7 @@ add_namespace = PMR
 add_namespace = fra_crisis
 add_namespace = vat
 add_namespace = insurgency
+add_namespace = insurgency_actions
 
 country_event = {
 	id = ic_pulse.1
@@ -95,6 +96,42 @@ country_event = {
 				}
 			}
 			country_event = insurgency_actions.1
+		}
+		if = {
+			limit = {
+				tag = USA
+				has_stability < 0.6
+				has_country_flag = congressional_vote_ongoing
+			}
+			add_to_variable = { var = senate_total_voting_support value = -1 }
+			add_to_variable = { var = house_total_voting_support value = -5 }
+		}
+		if = {
+			limit = {
+				tag = USA
+				has_stability < 0.5
+				has_country_flag = congressional_vote_ongoing
+			}
+			add_to_variable = { var = senate_total_voting_support value = -2 }
+			add_to_variable = { var = house_total_voting_support value = -10 }
+		}
+		if = {
+			limit = {
+				tag = USA
+				has_stability < 0.4
+				has_country_flag = congressional_vote_ongoing
+			}
+			add_to_variable = { var = senate_total_voting_support value = -5 }
+			add_to_variable = { var = house_total_voting_support value = -20 }
+		}
+		if = {
+			limit = {
+				tag = USA
+				has_stability < 0.3
+				has_country_flag = congressional_vote_ongoing
+			}
+			add_to_variable = { var = senate_total_voting_support value = -20 }
+			add_to_variable = { var = house_total_voting_support value = -100 }
 		}
 		if = {
 			limit = {
@@ -124,16 +161,19 @@ country_event = {
 		}
 		if = {
 			limit = {
+				NOT = { has_idea = insurgency_recent }
 				OR = {
 					AND = {
 						has_elections = no
 						NOT = { tag = ENG }
+						NOT = { tag = FRA }
 						has_stability < 0.5
 					}
 					AND = {
 						OR = {
 							has_elections = yes
 							tag = ENG
+							tag = FRA
 						}
 						has_stability < 0.4
 					}
@@ -144,7 +184,16 @@ country_event = {
 					NOT = { has_state_flag = active_insurgency }
 					not = { has_state_flag = pacified_insurgency }
 					is_demilitarized_zone = no
+					any_neighbor_state = {
+						limit = {
+							is_owned_by = ROOT
+						}
+					}
 				}
+			}
+			add_timed_idea = {
+				idea = insurgency_recent
+				days = 120
 			}
 			random_list = {
 				15 = {
@@ -193,8 +242,8 @@ country_event = {
 					has_state_flag = communism_insurgency
 				}
 				set_variable = { communism_insurgent_base = THIS }
-				country_event = insurgency.101
 			}
+			country_event = insurgency.101
 		}
 		if = {
 			limit = {
@@ -1228,10 +1277,31 @@ country_event = {
 					limit = {
 						tag = FRA
 						has_civil_war = no
+						date > 1951.6.1
+						date < 1952.1.1
+						NOT = { has_country_flag = french_elections_1965 }
+						NOT = { has_government = National_Socialism }
+						NOT = { has_government = fascism }
+						NOT = { has_government = communism }
+						NOT = { has_government = maoism }
+						NOT = { has_government = neutrality }
+						NOT = { has_government = monarchism }
+					}
+					country_event = french_elections.2
+				}
+				if = {
+					limit = {
+						tag = FRA
+						has_civil_war = no
 						date > 1965.12.3
 						date < 1966.10.15
-						has_elections = yes
 						NOT = { has_country_flag = french_elections_1965 }
+						NOT = { has_government = National_Socialism }
+						NOT = { has_government = fascism }
+						NOT = { has_government = communism }
+						NOT = { has_government = maoism }
+						NOT = { has_government = neutrality }
+						NOT = { has_government = monarchism }
 					}
 					country_event = french_elections.2
 				}
@@ -1241,24 +1311,43 @@ country_event = {
 						has_civil_war = no
 						date > 1969.6.13
 						date < 1969.10.15
-						has_elections = yes
 						NOT = { has_country_flag = french_elections_1969 }
+						NOT = { has_government = National_Socialism }
+						NOT = { has_government = fascism }
+						NOT = { has_government = communism }
+						NOT = { has_government = maoism }
+						NOT = { has_government = neutrality }
+						NOT = { has_government = monarchism }
 					}
 					country_event = french_elections.3
 				}
 				if = {
 					limit = {
 						tag = FRA
-						date > 1953.12.15
-						date < 1954.12.15
-						NOT = { 
-							OR = {
-								has_completed_focus = FRA_commie
-								has_completed_focus = FRA_side_with_pujadistes
-							}
-						}
+						date > 1951.6.1
+						date < 1952.1.1
+						NOT = { has_government = National_Socialism }
+						NOT = { has_government = fascism }
+						NOT = { has_government = communism }
+						NOT = { has_government = maoism }
+						NOT = { has_government = neutrality }
+						NOT = { has_government = monarchism }
 					}
-					country_event = fra.3
+					country_event = fra_elections.1
+				}
+				if = {
+					limit = {
+						tag = FRA
+						date > 1956.1.1
+						date < 1957.1.1
+						NOT = { has_government = National_Socialism }
+						NOT = { has_government = fascism }
+						NOT = { has_government = communism }
+						NOT = { has_government = maoism }
+						NOT = { has_government = neutrality }
+						NOT = { has_government = monarchism }
+					}
+					country_event = fra_elections.2
 				}
 				if = {
 					limit = {
@@ -2580,7 +2669,6 @@ country_event = {
 				date > 1961.11.30
 				POR = { owns_state = 321 }	
 				POR = { owns_state = 879 }	
-				POR = { owns_state = 880 }	
 			}
 			country_event = goa.1
 		}
