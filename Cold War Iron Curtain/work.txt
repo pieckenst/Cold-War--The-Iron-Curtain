@@ -1598,31 +1598,855 @@
 			}
 		}
 	}		
+	Central_Intelligence_Agency_Act = {
+
+		icon = generic_decision
+
+		available = {
+			
+		}
+		visible = {
+			has_country_flag = Central_Intelligence_Agency_Act_enabled
+			NOT = { has_country_flag = congressional_vote_ongoing }
+		}
+
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+			set_country_flag = congressional_vote_ongoing
+			
+			#House Vote
+				#Dem
+				set_variable = { var = democratic_supportive_representatives value = democratic_total_representatives }
+				multiply_variable = { var = democratic_supportive_representatives value = 1 }
+				
+				add_to_variable = { var = house_total_voting_support value = democratic_supportive_representatives }
+				
+				#GOP			
+				set_variable = { var = republican_supportive_representatives value = republican_total_representatives }
+				multiply_variable = { var = republican_supportive_representatives value = 1 }
+					
+				add_to_variable = { var = house_total_voting_support value = republican_supportive_representatives }
+
+				#AIP			
+				set_variable = { var = american_independent_supportive_representatives value = american_independent_total_representatives }
+				multiply_variable = { var = american_independent_supportive_representatives value = 1 }
+					
+				add_to_variable = { var = house_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_representatives value = socialist_workers_total_representatives }
+				multiply_variable = { var = socialist_workers_supportive_representatives value = 1 }
+					
+				add_to_variable = { var = house_total_voting_support value = socialist_workers_supportive_representatives }
+			
+			#Senate Voting
+				#Dem
+				set_variable = { var = democratic_supportive_senators value = democratic_total_senators }
+				multiply_variable = { var = democratic_supportive_senators value = 1 }
+				
+				add_to_variable = { var = senate_total_voting_support value = democratic_supportive_senators }
+				
+				#GOP
+				set_variable = { var = republican_supportive_senators value = republican_total_senators }
+				multiply_variable = { var = republican_supportive_senators value = 1 }
+				
+				add_to_variable = { var = senate_total_voting_support value = republican_supportive_senators }
+			
+				#AIP			
+				set_variable = { var = american_independent_supportive_senators value = american_independent_total_senators }
+				multiply_variable = { var = american_independent_supportive_senators value = 1 }
+					
+				add_to_variable = { var = senate_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_senators value = socialist_workers_total_senators }
+				multiply_variable = { var = socialist_workers_supportive_senators value = 1 }
+					
+				add_to_variable = { var = senate_total_voting_support value = socialist_workers_supportive_senators }
+		}
+		days_remove = 45
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { var = house_total_voting_support value = house_majority_required compare = greater_than_or_equals }
+					check variable = { var = senate_total_voting_support value = senate_majority_required = greater_than_or_equals }
+				}
+				country_event = us_congress.21
+			}
+			else = {
+				country_event = us_congress.2
+			}
+		}
+	}		
+	
+	Small_Business_Act = {
+
+		icon = generic_decision
+
+		available = {
+			
+		}
+		visible = {
+			NOT = { has_idea = Small_Business_Administration }
+			NOT = { has_country_flag = congressional_vote_ongoing }
+		}
+
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+			set_country_flag = congressional_vote_ongoing
+			
+			#House Vote
+				#Dem
+				set_variable = { var = democratic_supportive_representatives value = democratic_total_representatives }
+				multiply_variable = { var = democratic_supportive_representatives value = 1 }
+				
+				add_to_variable = { var = house_total_voting_support value = democratic_supportive_representatives }
+				
+				#GOP			
+				set_variable = { var = republican_supportive_representatives value = republican_total_representatives }
+				multiply_variable = { var = republican_supportive_representatives value = 1 }
+					
+				add_to_variable = { var = house_total_voting_support value = republican_supportive_representatives }
+
+				#AIP			
+				set_variable = { var = american_independent_supportive_representatives value = american_independent_total_representatives }
+				multiply_variable = { var = american_independent_supportive_representatives value = 1 }
+					
+				add_to_variable = { var = house_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_representatives value = socialist_workers_total_representatives }
+				multiply_variable = { var = socialist_workers_supportive_representatives value = 1 }
+					
+				add_to_variable = { var = house_total_voting_support value = socialist_workers_supportive_representatives }
+			
+			#Senate Voting
+				#Dem
+				set_variable = { var = democratic_supportive_senators value = democratic_total_senators }
+				multiply_variable = { var = democratic_supportive_senators value = 1 }
+				
+				add_to_variable = { var = senate_total_voting_support value = democratic_supportive_senators }
+				
+				#GOP
+				set_variable = { var = republican_supportive_senators value = republican_total_senators }
+				multiply_variable = { var = republican_supportive_senators value = 1 }
+				
+				add_to_variable = { var = senate_total_voting_support value = republican_supportive_senators }
+			
+				#AIP			
+				set_variable = { var = american_independent_supportive_senators value = american_independent_total_senators }
+				multiply_variable = { var = american_independent_supportive_senators value = 1 }
+					
+				add_to_variable = { var = senate_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_senators value = socialist_workers_total_senators }
+				multiply_variable = { var = socialist_workers_supportive_senators value = 1 }
+					
+				add_to_variable = { var = senate_total_voting_support value = socialist_workers_supportive_senators }
+		}
+		days_remove = 45
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { var = house_total_voting_support value = house_majority_required compare = greater_than_or_equals }
+					check variable = { var = senate_total_voting_support value = senate_majority_required = greater_than_or_equals }
+				}
+				country_event = us_congress.22
+			}
+			else = {
+				country_event = us_congress.2
+			}
+		}
+	}		
+	Military_Construction_Appropriation_Act = {
+
+		icon = generic_decision
+
+		available = {
+			
+		}
+		visible = {
+			has_country_flag = Military_Construction_Appropriation_Act_enabled
+			NOT = { has_country_flag = congressional_vote_ongoing }
+		}
+
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+			set_country_flag = congressional_vote_ongoing
+			
+			#House Vote
+				#Dem
+				set_variable = { var = democratic_supportive_representatives value = democratic_total_representatives }
+				multiply_variable = { var = democratic_supportive_representatives value = 0.75 }
+				
+				add_to_variable = { var = house_total_voting_support value = democratic_supportive_representatives }
+				
+				#GOP			
+				set_variable = { var = republican_supportive_representatives value = republican_total_representatives }
+				multiply_variable = { var = republican_supportive_representatives value = 0.75 }
+					
+				add_to_variable = { var = house_total_voting_support value = republican_supportive_representatives }
+
+				#AIP			
+				set_variable = { var = american_independent_supportive_representatives value = american_independent_total_representatives }
+				multiply_variable = { var = american_independent_supportive_representatives value = 1 }
+					
+				add_to_variable = { var = house_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_representatives value = socialist_workers_total_representatives }
+				multiply_variable = { var = socialist_workers_supportive_representatives value = 0 }
+					
+				add_to_variable = { var = house_total_voting_support value = socialist_workers_supportive_representatives }
+			
+			#Senate Voting
+				#Dem
+				set_variable = { var = democratic_supportive_senators value = democratic_total_senators }
+				multiply_variable = { var = democratic_supportive_senators value = 0.75 }
+				
+				add_to_variable = { var = senate_total_voting_support value = democratic_supportive_senators }
+				
+				#GOP
+				set_variable = { var = republican_supportive_senators value = republican_total_senators }
+				multiply_variable = { var = republican_supportive_senators value = 0.75 }
+				
+				add_to_variable = { var = senate_total_voting_support value = republican_supportive_senators }
+			
+				#AIP			
+				set_variable = { var = american_independent_supportive_senators value = american_independent_total_senators }
+				multiply_variable = { var = american_independent_supportive_senators value = 1 }
+					
+				add_to_variable = { var = senate_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_senators value = socialist_workers_total_senators }
+				multiply_variable = { var = socialist_workers_supportive_senators value = 0 }
+					
+				add_to_variable = { var = senate_total_voting_support value = socialist_workers_supportive_senators }
+		}
+		days_remove = 45
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { var = house_total_voting_support value = house_majority_required compare = greater_than_or_equals }
+					check variable = { var = senate_total_voting_support value = senate_majority_required = greater_than_or_equals }
+				}
+				country_event = us_congress.23
+			}
+			else = {
+				country_event = us_congress.2
+			}
+		}
+	}	
+
+	Atomic_Energy_Act = {
+
+		icon = generic_decision
+
+		available = {
+			
+		}
+		visible = {
+			NOT = { has_idea = US_Atomic_Energy_Act }
+			NOT = { has_country_flag = congressional_vote_ongoing }
+		}
+
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+			set_country_flag = congressional_vote_ongoing
+			
+			#House Vote
+				#Dem
+				set_variable = { var = democratic_supportive_representatives value = democratic_total_representatives }
+				multiply_variable = { var = democratic_supportive_representatives value = 0.10 }
+				
+				add_to_variable = { var = house_total_voting_support value = democratic_supportive_representatives }
+				
+				#GOP			
+				set_variable = { var = republican_supportive_representatives value = republican_total_representatives }
+				multiply_variable = { var = republican_supportive_representatives value = 0.90 }
+					
+				add_to_variable = { var = house_total_voting_support value = republican_supportive_representatives }
+
+				#AIP			
+				set_variable = { var = american_independent_supportive_representatives value = american_independent_total_representatives }
+				multiply_variable = { var = american_independent_supportive_representatives value = 1 }
+					
+				add_to_variable = { var = house_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_representatives value = socialist_workers_total_representatives }
+				multiply_variable = { var = socialist_workers_supportive_representatives value = 0 }
+					
+				add_to_variable = { var = house_total_voting_support value = socialist_workers_supportive_representatives }
+			
+			#Senate Voting
+				#Dem
+				set_variable = { var = democratic_supportive_senators value = democratic_total_senators }
+				multiply_variable = { var = democratic_supportive_senators value = 0.25 }
+				
+				add_to_variable = { var = senate_total_voting_support value = democratic_supportive_senators }
+				
+				#GOP
+				set_variable = { var = republican_supportive_senators value = republican_total_senators }
+				multiply_variable = { var = republican_supportive_senators value = 0.90 }
+				
+				add_to_variable = { var = senate_total_voting_support value = republican_supportive_senators }
+			
+				#AIP			
+				set_variable = { var = american_independent_supportive_senators value = american_independent_total_senators }
+				multiply_variable = { var = american_independent_supportive_senators value = 1 }
+					
+				add_to_variable = { var = senate_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_senators value = socialist_workers_total_senators }
+				multiply_variable = { var = socialist_workers_supportive_senators value = 0 }
+					
+				add_to_variable = { var = senate_total_voting_support value = socialist_workers_supportive_senators }
+		}
+		days_remove = 45
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { var = house_total_voting_support value = house_majority_required compare = greater_than_or_equals }
+					check variable = { var = senate_total_voting_support value = senate_majority_required = greater_than_or_equals }
+				}
+				country_event = us_congress.24
+			}
+			else = {
+				country_event = us_congress.2
+			}
+		}
+	}	
+	Fair_Labor_Standards_Amendment_of_1949 = {
+
+		icon = generic_decision
+
+		available = {
+			
+		}
+		visible = {
+			has_country_flag = USA_increase_min_wage
+			NOT = { has_country_flag = congressional_vote_ongoing }
+		}
+
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+			set_country_flag = congressional_vote_ongoing
+			
+			#House Vote
+				#Dem
+				set_variable = { var = democratic_supportive_representatives value = democratic_total_representatives }
+				multiply_variable = { var = democratic_supportive_representatives value = 0.90 }
+				
+				add_to_variable = { var = house_total_voting_support value = democratic_supportive_representatives }
+				
+				#GOP			
+				set_variable = { var = republican_supportive_representatives value = republican_total_representatives }
+				multiply_variable = { var = republican_supportive_representatives value = 0.20 }
+					
+				add_to_variable = { var = house_total_voting_support value = republican_supportive_representatives }
+
+				#AIP			
+				set_variable = { var = american_independent_supportive_representatives value = american_independent_total_representatives }
+				multiply_variable = { var = american_independent_supportive_representatives value = 0 }
+					
+				add_to_variable = { var = house_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_representatives value = socialist_workers_total_representatives }
+				multiply_variable = { var = socialist_workers_supportive_representatives value = 1 }
+					
+				add_to_variable = { var = house_total_voting_support value = socialist_workers_supportive_representatives }
+			
+			#Senate Voting
+				#Dem
+				set_variable = { var = democratic_supportive_senators value = democratic_total_senators }
+				multiply_variable = { var = democratic_supportive_senators value = 0.90 }
+				
+				add_to_variable = { var = senate_total_voting_support value = democratic_supportive_senators }
+				
+				#GOP
+				set_variable = { var = republican_supportive_senators value = republican_total_senators }
+				multiply_variable = { var = republican_supportive_senators value = 0.20 }
+				
+				add_to_variable = { var = senate_total_voting_support value = republican_supportive_senators }
+			
+				#AIP			
+				set_variable = { var = american_independent_supportive_senators value = american_independent_total_senators }
+				multiply_variable = { var = american_independent_supportive_senators value = 0 }
+					
+				add_to_variable = { var = senate_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_senators value = socialist_workers_total_senators }
+				multiply_variable = { var = socialist_workers_supportive_senators value = 1 }
+					
+				add_to_variable = { var = senate_total_voting_support value = socialist_workers_supportive_senators }
+		}
+		days_remove = 45
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { var = house_total_voting_support value = house_majority_required compare = greater_than_or_equals }
+					check variable = { var = senate_total_voting_support value = senate_majority_required = greater_than_or_equals }
+				}
+				country_event = us_congress.25
+			}
+			else = {
+				country_event = us_congress.2
+			}
+		}
+	}		
+	
+	Alaska_Statehood = {
+
+		icon = generic_decision
+
+		available = {
+			
+		}
+		visible = {
+			has_country_flag = alaska_hawaii_vote_enabled
+			NOT = { has_country_flag = congressional_vote_ongoing }
+		}
+
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			set_country_flag = congressional_vote_ongoing
+			
+			#House Vote
+				#Dem
+				set_variable = { var = democratic_supportive_representatives value = democratic_total_representatives }
+				multiply_variable = { var = democratic_supportive_representatives value = 0.65 }
+				
+				add_to_variable = { var = house_total_voting_support value = democratic_supportive_representatives }
+				
+				#GOP			
+				set_variable = { var = republican_supportive_representatives value = republican_total_representatives }
+				multiply_variable = { var = republican_supportive_representatives value = 0.55 }
+					
+				add_to_variable = { var = house_total_voting_support value = republican_supportive_representatives }
+
+				#AIP			
+				set_variable = { var = american_independent_supportive_representatives value = american_independent_total_representatives }
+				multiply_variable = { var = american_independent_supportive_representatives value = 1 }
+					
+				add_to_variable = { var = house_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_representatives value = socialist_workers_total_representatives }
+				multiply_variable = { var = socialist_workers_supportive_representatives value = 1 }
+					
+				add_to_variable = { var = house_total_voting_support value = socialist_workers_supportive_representatives }
+			
+			#Senate Voting
+				#Dem
+				set_variable = { var = democratic_supportive_senators value = democratic_total_senators }
+				multiply_variable = { var = democratic_supportive_senators value = 0.65 }
+				
+				add_to_variable = { var = senate_total_voting_support value = democratic_supportive_senators }
+				
+				#GOP
+				set_variable = { var = republican_supportive_senators value = republican_total_senators }
+				multiply_variable = { var = republican_supportive_senators value = 0.55 }
+				
+				add_to_variable = { var = senate_total_voting_support value = republican_supportive_senators }
+			
+				#AIP			
+				set_variable = { var = american_independent_supportive_senators value = american_independent_total_senators }
+				multiply_variable = { var = american_independent_supportive_senators value = 1 }
+					
+				add_to_variable = { var = senate_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_senators value = socialist_workers_total_senators }
+				multiply_variable = { var = socialist_workers_supportive_senators value = 1 }
+					
+				add_to_variable = { var = senate_total_voting_support value = socialist_workers_supportive_senators }
+		}
+		days_remove = 45
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { var = house_total_voting_support value = house_majority_required compare = greater_than_or_equals }
+					check variable = { var = senate_total_voting_support value = senate_majority_required = greater_than_or_equals }
+				}
+				country_event = us_congress.26
+			}
+			else = {
+				country_event = us_congress.2
+			}
+		}
+	}		
+	Hawaii_Statehood = {
+
+		icon = generic_decision
+
+		available = {
+			
+		}
+		visible = {
+			has_country_flag = alaska_hawaii_vote_enabled
+			NOT = { has_country_flag = congressional_vote_ongoing }
+		}
+
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			set_country_flag = congressional_vote_ongoing
+			
+			#House Vote
+				#Dem
+				set_variable = { var = democratic_supportive_representatives value = democratic_total_representatives }
+				multiply_variable = { var = democratic_supportive_representatives value = 0.65 }
+				
+				add_to_variable = { var = house_total_voting_support value = democratic_supportive_representatives }
+				
+				#GOP			
+				set_variable = { var = republican_supportive_representatives value = republican_total_representatives }
+				multiply_variable = { var = republican_supportive_representatives value = 0.55 }
+					
+				add_to_variable = { var = house_total_voting_support value = republican_supportive_representatives }
+
+				#AIP			
+				set_variable = { var = american_independent_supportive_representatives value = american_independent_total_representatives }
+				multiply_variable = { var = american_independent_supportive_representatives value = 1 }
+					
+				add_to_variable = { var = house_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_representatives value = socialist_workers_total_representatives }
+				multiply_variable = { var = socialist_workers_supportive_representatives value = 1 }
+					
+				add_to_variable = { var = house_total_voting_support value = socialist_workers_supportive_representatives }
+			
+			#Senate Voting
+				#Dem
+				set_variable = { var = democratic_supportive_senators value = democratic_total_senators }
+				multiply_variable = { var = democratic_supportive_senators value = 0.65 }
+				
+				add_to_variable = { var = senate_total_voting_support value = democratic_supportive_senators }
+				
+				#GOP
+				set_variable = { var = republican_supportive_senators value = republican_total_senators }
+				multiply_variable = { var = republican_supportive_senators value = 0.55 }
+				
+				add_to_variable = { var = senate_total_voting_support value = republican_supportive_senators }
+			
+				#AIP			
+				set_variable = { var = american_independent_supportive_senators value = american_independent_total_senators }
+				multiply_variable = { var = american_independent_supportive_senators value = 1 }
+					
+				add_to_variable = { var = senate_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_senators value = socialist_workers_total_senators }
+				multiply_variable = { var = socialist_workers_supportive_senators value = 1 }
+					
+				add_to_variable = { var = senate_total_voting_support value = socialist_workers_supportive_senators }
+		}
+		days_remove = 45
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { var = house_total_voting_support value = house_majority_required compare = greater_than_or_equals }
+					check variable = { var = senate_total_voting_support value = senate_majority_required = greater_than_or_equals }
+				}
+				country_event = us_congress.27
+			}
+			else = {
+				country_event = us_congress.2
+			}
+		}
+	}			
+	Ratify_the_Twenty_Second_Amendment = {
+
+		icon = generic_decision
+
+		available = {
+			
+		}
+		visible = {
+			NOT = { has_country_flag = Twenty_Second_Amendment_Ratified }
+			NOT = { has_country_flag = congressional_vote_ongoing }
+		}
+
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			set_country_flag = congressional_vote_ongoing
+			
+			#House Vote
+				#Dem
+				set_variable = { var = democratic_supportive_representatives value = democratic_total_representatives }
+				multiply_variable = { var = democratic_supportive_representatives value = 0.75 }
+				
+				add_to_variable = { var = house_total_voting_support value = democratic_supportive_representatives }
+				
+				#GOP			
+				set_variable = { var = republican_supportive_representatives value = republican_total_representatives }
+				multiply_variable = { var = republican_supportive_representatives value = 0.75 }
+					
+				add_to_variable = { var = house_total_voting_support value = republican_supportive_representatives }
+
+				#AIP			
+				set_variable = { var = american_independent_supportive_representatives value = american_independent_total_representatives }
+				multiply_variable = { var = american_independent_supportive_representatives value = 0 }
+					
+				add_to_variable = { var = house_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_representatives value = socialist_workers_total_representatives }
+				multiply_variable = { var = socialist_workers_supportive_representatives value = 0 }
+					
+				add_to_variable = { var = house_total_voting_support value = socialist_workers_supportive_representatives }
+			
+			#Senate Voting
+				#Dem
+				set_variable = { var = democratic_supportive_senators value = democratic_total_senators }
+				multiply_variable = { var = democratic_supportive_senators value = 0.75 }
+				
+				add_to_variable = { var = senate_total_voting_support value = democratic_supportive_senators }
+				
+				#GOP
+				set_variable = { var = republican_supportive_senators value = republican_total_senators }
+				multiply_variable = { var = republican_supportive_senators value = 0.75}
+				
+				add_to_variable = { var = senate_total_voting_support value = republican_supportive_senators }
+			
+				#AIP			
+				set_variable = { var = american_independent_supportive_senators value = american_independent_total_senators }
+				multiply_variable = { var = american_independent_supportive_senators value = 0 }
+					
+				add_to_variable = { var = senate_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_senators value = socialist_workers_total_senators }
+				multiply_variable = { var = socialist_workers_supportive_senators value = 0 }
+					
+				add_to_variable = { var = senate_total_voting_support value = socialist_workers_supportive_senators }
+		}
+		days_remove = 45
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { var = house_total_voting_support value = house_majority_required compare = greater_than_or_equals }
+					check variable = { var = senate_total_voting_support value = senate_majority_required = greater_than_or_equals }
+				}
+				country_event = us_congress.28
+			}
+			else = {
+				country_event = us_congress.2
+			}
+		}
+	}		
+	Federal_National_Mortgage_Association_Charter_Act = {
+
+		icon = generic_decision
+
+		available = {
+			
+		}
+		visible = {
+			NOT = { has_country_flag = US_Federal_National_Mortgage_Association_Charter_Act }
+			NOT = { has_country_flag = congressional_vote_ongoing }
+		}
+
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			set_country_flag = congressional_vote_ongoing
+			
+			#House Vote
+				#Dem
+				set_variable = { var = democratic_supportive_representatives value = democratic_total_representatives }
+				multiply_variable = { var = democratic_supportive_representatives value = 0.65 }
+				
+				add_to_variable = { var = house_total_voting_support value = democratic_supportive_representatives }
+				
+				#GOP			
+				set_variable = { var = republican_supportive_representatives value = republican_total_representatives }
+				multiply_variable = { var = republican_supportive_representatives value = 0.75 }
+					
+				add_to_variable = { var = house_total_voting_support value = republican_supportive_representatives }
+
+				#AIP			
+				set_variable = { var = american_independent_supportive_representatives value = american_independent_total_representatives }
+				multiply_variable = { var = american_independent_supportive_representatives value = 0 }
+					
+				add_to_variable = { var = house_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_representatives value = socialist_workers_total_representatives }
+				multiply_variable = { var = socialist_workers_supportive_representatives value = 1 }
+					
+				add_to_variable = { var = house_total_voting_support value = socialist_workers_supportive_representatives }
+			
+			#Senate Voting
+				#Dem
+				set_variable = { var = democratic_supportive_senators value = democratic_total_senators }
+				multiply_variable = { var = democratic_supportive_senators value = 0.65 }
+				
+				add_to_variable = { var = senate_total_voting_support value = democratic_supportive_senators }
+				
+				#GOP
+				set_variable = { var = republican_supportive_senators value = republican_total_senators }
+				multiply_variable = { var = republican_supportive_senators value = 0.75}
+				
+				add_to_variable = { var = senate_total_voting_support value = republican_supportive_senators }
+			
+				#AIP			
+				set_variable = { var = american_independent_supportive_senators value = american_independent_total_senators }
+				multiply_variable = { var = american_independent_supportive_senators value = 0 }
+					
+				add_to_variable = { var = senate_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_senators value = socialist_workers_total_senators }
+				multiply_variable = { var = socialist_workers_supportive_senators value = 1 }
+					
+				add_to_variable = { var = senate_total_voting_support value = socialist_workers_supportive_senators }
+		}
+		days_remove = 45
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { var = house_total_voting_support value = house_majority_required compare = greater_than_or_equals }
+					check variable = { var = senate_total_voting_support value = senate_majority_required = greater_than_or_equals }
+				}
+				country_event = us_congress.29
+			}
+			else = {
+				country_event = us_congress.2
+			}
+		}
+	}		
+	McCarran_Walter_Act = {
+
+		icon = generic_decision
+
+		available = {
+			
+		}
+		visible = {
+			NOT = { has_idea = McCarran_Walter_Act }
+			NOT = { has_country_flag = congressional_vote_ongoing }
+		}
+
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			set_country_flag = congressional_vote_ongoing
+			
+			#House Vote
+				#Dem
+				set_variable = { var = democratic_supportive_representatives value = democratic_total_representatives }
+				multiply_variable = { var = democratic_supportive_representatives value = 0.75 }
+				
+				add_to_variable = { var = house_total_voting_support value = democratic_supportive_representatives }
+				
+				#GOP			
+				set_variable = { var = republican_supportive_representatives value = republican_total_representatives }
+				multiply_variable = { var = republican_supportive_representatives value = 0.9 }
+					
+				add_to_variable = { var = house_total_voting_support value = republican_supportive_representatives }
+
+				#AIP			
+				set_variable = { var = american_independent_supportive_representatives value = american_independent_total_representatives }
+				multiply_variable = { var = american_independent_supportive_representatives value = 1 }
+					
+				add_to_variable = { var = house_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_representatives value = socialist_workers_total_representatives }
+				multiply_variable = { var = socialist_workers_supportive_representatives value = 0 }
+					
+				add_to_variable = { var = house_total_voting_support value = socialist_workers_supportive_representatives }
+			
+			#Senate Voting
+				#Dem
+				set_variable = { var = democratic_supportive_senators value = democratic_total_senators }
+				multiply_variable = { var = democratic_supportive_senators value = 0.75 }
+				
+				add_to_variable = { var = senate_total_voting_support value = democratic_supportive_senators }
+				
+				#GOP
+				set_variable = { var = republican_supportive_senators value = republican_total_senators }
+				multiply_variable = { var = republican_supportive_senators value = 1 }
+				
+				add_to_variable = { var = senate_total_voting_support value = republican_supportive_senators }
+			
+				#AIP			
+				set_variable = { var = american_independent_supportive_senators value = american_independent_total_senators }
+				multiply_variable = { var = american_independent_supportive_senators value = 1 }
+					
+				add_to_variable = { var = senate_total_voting_support value = american_independent_supportive_representatives }
+				
+				#SWP
+				set_variable = { var = socialist_workers_supportive_senators value = socialist_workers_total_senators }
+				multiply_variable = { var = socialist_workers_supportive_senators value = 0 }
+					
+				add_to_variable = { var = senate_total_voting_support value = socialist_workers_supportive_senators }
+		}
+		days_remove = 45
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { var = house_total_voting_support value = house_majority_required compare = greater_than_or_equals }
+					check variable = { var = senate_total_voting_support value = senate_majority_required = greater_than_or_equals }
+				}
+				country_event = us_congress.30
+			}
+			else = {
+				country_event = us_congress.2
+			}
+		}
+	}		
 1950s
-September 23, 1950: McCarran Internal Security Act (including Subversive Activities Control Act of 1950), ch. 1024, 64 Stat. 987, 50 U.S.C. § 781
 May 10, 1950: National Science Foundation Act, ch. 171, Pub.L. 81–507, 64 Stat. 149, 42 U.S.C. ch. 16
-October 26, 1949: Fair Labor Standards Amendment, ch. 736, Pub.L. 81–393, 63 Stat. 910, 29 U.S.C. ch. 8
-June 20, 1949: Central Intelligence Agency Act, ch. 227, 63 Stat. 208, 50 U.S.C. § 403a
-October 10, 1951: Mutual Security Act, ch. 479, 65 Stat. 373
-June 27, 1952: Immigration and Nationality Act (McCarran-Walter Act), Pub.L. 82–414
-July 3, 1953: Small Business Act, Pub.L. 83–163, ch. 282, 67 Stat. 232
-August 7, 1953: Refugee Relief Act, Pub.L. 83–203
-August 7, 1953: Submerged Lands Act, ch. 345, 67 Stat. 462
-August 12, 1954: Federal National Mortgage Association Charter Act, ch. 649, title II, §201, 68 Stat. 612
-August 24, 1954: Communist Control Act of 1954, ch. 886, 68 Stat. 775
-August 30, 1954: Atomic Energy Act of 1954, 68 Stat. 919
 July 14, 1955: Air Pollution Control Act, Pub.L. 84–159, ch. 360, 69 Stat. 322
-June 29, 1956: Federal-Aid Highway Act of 1956, (National Interstate and Defense Highways Act), Pub.L. 84–627
 August 8, 1956: Fish and Wildlife Act of 1956, ch. 1036, 70 Stat. 1119, 16 U.S.C. § 742a
-September 2, 1957: Price-Anderson Nuclear Industries Indemnity Act, Pub.L. 85–256, 71 Stat. 576
-September 9, 1957: Civil Rights Act of 1957, Pub.L. 85–315, 71 Stat. 634
-July 29, 1958: National Aeronautics and Space Act, Pub.L. 85–568, 72 Stat. 426
 1958: Transportation Act of 1958, Pub.L. 85–625
 August 23, 1958: Federal Aviation Act of 1958, Pub.L. 85–726, 72 Stat. 731
-August 28, 1958: EURATOM Cooperation Act of 1958, Pub.L. 85–846, 72 Stat. 1084
-August 28, 1958: Military Construction Appropriation Act (Advanced Research Projects Agency), Pub.L. 85–852, 72 Stat. 1096
-September 2, 1958: National Defense Education Act, Pub.L. 85–864, 72 Stat. 1580
-1958: Department of Defense Reorganization Act, Pub.L. 85–899
 
 1960s
 April 22, 1960: Narcotics Manufacturing Act of 1960, Pub.L. 86–429, 74 Stat. 55
@@ -1703,7 +2527,3 @@ December 29, 1970: Occupational Safety and Health Act (OSHA), Pub.L. 91–596
 December 31, 1970: Clean Air Act Extension, Pub.L. 91–604
 December 31, 1970: Housing and Urban Development Act of 1970, Pub.L. 91–609, including title VII, National Urban Policy and New Community Development Act of 1970
 January 12, 1971: Foreign Military Sales Act of 1971, Pub.L. 91–672
-
-
-
-Twenty-second Amendment to the United States Constitution
