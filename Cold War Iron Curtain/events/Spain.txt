@@ -1,119 +1,15 @@
 ﻿add_namespace = spr
-add_namespace = PUR 
-add_namespace = GIR
-add_namespace = franco
-country_event = {
-	id = PUR.1
-	title = "Spain Demands Puerto Rico"
-	desc = "Spain Demands Puerto Rico"
+
+news_event = {
+	id = spr.1
+	title = "End of Spanish Isolation"
+	desc = spr.1.d
 
 	is_triggered_only = yes
+	
+	major = yes
 
 	option = {
-		name = "Agree to the Demands"
-		SPR = { transfer_state = 686 }
-		ai_chance = {
-			factor = 20
-		}
-	}
-
-	option = {
-		ai_chance = {
-			factor = 80
-		}
-		name = "Reject Demands"
-
-	}
-}	
-country_event = {
-	id = GIR.1
-	title = "Spain Demands Gibraltar"
-	desc = "Spain Demands Gibraltar"
-
-	is_triggered_only = yes
-
-	option = {
-		name = "Agree to the Demands"
-		SPR = { transfer_state = 118 }
-		ai_chance = {
-			factor = 33
-		}
-	}
-
-	option = {
-		ai_chance = {
-			factor = 67
-		}
-		name = "Reject Demands"
-
-	}
-}	
-country_event = {
-	id = spr.2
-	title = "The Hisanic Union"
-	desc = "Spain Demands Our Submission"
-
-	is_triggered_only = yes
-
-	option = {
-		name = "Agree to the Demands"
-		every_owned_state = { add_core_of = SPR }
-		FROM = {
-			annex_country = { target = ROOT } 
-		}
-		ai_chance = {
-			factor = 70
-		}
-	}
-
-	option = {
-		ai_chance = {
-			factor = 30
-		}
-		name = "Decline"
-		every_owned_state = { add_core_of = SPR }
-		SPR = { country_event = { id = spr.3 days = 1} }
-	}
-}
-
-country_event = {
-	id = spr.3
-	title = spr.3.t
-	desc = spr.3.d
-
-	is_triggered_only = yes
-
-	option = {
-		name = "This is sad"
-		ai_chance = {
-			factor = 70
-		}
-	}
-
-	option = {
-		name = "That means war"
-		ai_chance = {
-			factor = 30
-		}
-		SPR = { create_wargoal = { target = FROM type = annex_everything } }
-	}
-}
-
-country_event = {
-	id = franco.1
-	title = "Jailing of Franco"
-	desc = franco.1.d
-
-	is_triggered_only = yes
-
-	option = {
-		name = "A Necessary Sacrifice"
-		retire_country_leader = yes
-		create_country_leader = {
-				name = "Carlos Arias Navarro"
-				picture = "SPR_Carlos_Arias_Navarro.dds"
-				ideology = falangism
-			}
-		
+		name = "Exellent"
 	}
 }
