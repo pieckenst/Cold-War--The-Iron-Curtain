@@ -33,12 +33,15 @@ focus_tree = {
 		}
 		x = 7
 		y = 1
-
+		completion_reward = {
+			add_war_support = 0.10
+			add_ideas = TUR_mobilization_of_the_masses			
+		}
 	}
 	focus = {
 		id = SIM_Condemn_Western_Imperialism
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 2.00
 		prerequisite = {
 			focus = SIM_Rally_Our_Political_Base
 		}
@@ -47,23 +50,33 @@ focus_tree = {
 		}
 		x = 2
 		y = 2
-
+		completion_reward = {
+			add_war_support = 0.05
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = SIM_Tribal_Fighters
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 2.00
 		prerequisite = {
 			focus = SIM_Condemn_Western_Imperialism
 		}
 		x = 0
 		y = 3
-
+		completion_reward = {
+			capital_scope = { 
+				create_unit = { division = "name = \"1st Simba Division\" division_template = \"Tribal Fighters\" start_experience_factor = 0.1" owner = THIS } 
+				create_unit = { division = "name = \"2nd Simba Division\" division_template = \"Tribal Fighters\" start_experience_factor = 0.1" owner = THIS }  
+				create_unit = { division = "name = \"3rd Simba Division\" division_template = \"Tribal Fighters\" start_experience_factor = 0.1" owner = THIS }  
+				create_unit = { division = "name = \"4th Simba Division\" division_template = \"Tribal Fighters\" start_experience_factor = 0.1" owner = THIS }  
+			}	
+		}
 	}
 	focus = {
 		id = SIM_Distribute_Drugs_to_the_Soldiers
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 2.00
 		prerequisite = {
 			focus = SIM_Condemn_Western_Imperialism
 		}
@@ -85,7 +98,12 @@ focus_tree = {
 		}
 		x = 1
 		y = 4
-
+		completion_reward = {
+			add_manpower = 20000
+			capital_scope = { 
+				create_unit = { division = "name = \"5th Simba Division\" division_template = \"Tribal Fighters\" start_experience_factor = 0.1" owner = THIS } 
+				create_unit = { division = "name = \"6th Simba Division\" division_template = \"Tribal Fighters\" start_experience_factor = 0.1" owner = THIS }  			}	
+		}
 	}
 	focus = {
 		id = SIM_Simbas
@@ -112,7 +130,9 @@ focus_tree = {
 		}
 		x = 3
 		y = 4
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 	focus = {
 		id = SIM_Public_Executions
@@ -126,7 +146,17 @@ focus_tree = {
 		}
 		x = 2
 		y = 5
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = repression
+				days - 365
+			}
+			add_timed_idea = {
+				idea = death_squads
+				days - 365
+			}
+			add_threat = 3
+		}
 	}
 	focus = {
 		id = SIM_Rural_Mobilization
@@ -137,7 +167,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 5
-
+		completion_reward = {
+			add_ideas = rural_vanguard 
+		}
 	}
 	focus = {
 		id = SIM_Conscript_the_Youth
@@ -151,7 +183,9 @@ focus_tree = {
 		}
 		x = 3
 		y = 6
-
+		completion_reward = {
+			add_ideas = military_youth_focus
+		}
 	}
 	focus = {
 		id = SIM_Condemn_the_Stanleyville_Regime_as_Colonialist_Puppets
@@ -162,7 +196,13 @@ focus_tree = {
 		}
 		x = 7
 		y = 3
-
+		completion_reward = {
+			add_political_power = 200
+			add_war_support = 0.05
+			COG = {
+				add_war_support = -0.05
+			}
+		}
 	}
 	focus = {
 		id = SIM_Che_Guevera
@@ -249,7 +289,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 3
-
+		completion_reward = {
+			add_ideas = VIN_peoples_army
+		}
 	}
 	focus = {
 		id = SIM_Chinese_Equipment
@@ -263,7 +305,23 @@ focus_tree = {
 		}
 		x = 11
 		y = 4
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 5000
+				producer = PRC
+			}	
+			add_equipment_to_stockpile = {
+				type = mbt_equipment
+				amount = 300
+				producer = PRC
+			}	
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 500
+				producer = PRC
+			}			
+		}
 	}
 	focus = {
 		id = SIM_Jungle_Warfare
@@ -274,7 +332,9 @@ focus_tree = {
 		}
 		x = 10
 		y = 5
-
+		completion_reward = {
+			set_technology = { jungle_warfare = 1 }	
+		}
 	}
 	focus = {
 		id = SIM_Military_Discpline
@@ -285,7 +345,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 3
-
+		completion_reward = {
+			add_ideas = military_discipline
+		}
 	}
 	focus = {
 		id = SIM_Organize_the_Peoples_Liberaiton_Army
@@ -299,7 +361,9 @@ focus_tree = {
 		}
 		x = 13
 		y = 4
-
+		completion_reward = {
+			add_ideas = PRC_peoples_army
+		}
 	}
 	focus = {
 		id = SIM_Chinese_Planes
@@ -313,7 +377,13 @@ focus_tree = {
 		}
 		x = 12
 		y = 5
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = jet_multirole_equipment
+				amount = 30
+				producer = PRC
+			}		
+		}
 	}
 	focus = {
 		id = SIM_Indoctrinate_the_Tribes
@@ -327,7 +397,9 @@ focus_tree = {
 		}
 		x = 11
 		y = 6
-
+		completion_reward = {
+			add_ideas = TUR_mobilization_of_the_masses
+		}
 	}
 	focus = {
 		id = SIM_Militarism
@@ -338,7 +410,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 5
-
+		completion_reward = {
+			add_ideas = militarism_focus
+		}
 	}
 	focus = {
 		id = SIM_Propaganda_Warfare
@@ -352,7 +426,13 @@ focus_tree = {
 		}
 		x = 13
 		y = 6
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus 
+			NIA = {
+				add_war_support = -0.10
+				add_stability = -0.05
+			}
+		}
 	}
 	focus = {
 		id = SIM_Mulele
@@ -391,7 +471,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 3
-
+		completion_reward = {
+			add_ideas = chinese_advisors
+		}
 	}
 	focus = {
 		id = SIM_Solidfy_Relations_with_Mao
@@ -416,7 +498,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 3
-
+		completion_reward = {
+			add_ideas = agrarian_reform
+		}
 	}
 	focus = {
 		id = SIM_Scientific_Socialism
