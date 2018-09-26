@@ -1,9 +1,9 @@
 focus_tree = {
 	id = Simba_60s
 	country = {
-		factor = 1
+		factor = 0
 	}
-	default = yes
+	default = no
 	focus = {
 		id = SIM_Our_Revolution
 		icon = GFX_goal_unknown
@@ -213,7 +213,60 @@ focus_tree = {
 		}
 		x = 7
 		y = 4
+		completion_reward = {
+			set_global_flag = hired_che
+			set_country_flag = che_sponsor
+			custom_effect_tooltip = "Hire Che Guerva"
+			hidden_effect = {
+				division_template = {
+					name = "Private Military Contractors"
+					priority = 2
 
+					regiments = {
+						pmc = { x = 0 y = 0 }
+						pmc = { x = 0 y = 1 }
+						pmc = { x = 0 y = 2 }
+
+						pmc = { x = 1 y = 0 }
+						pmc = { x = 1 y = 1 }
+						pmc = { x = 1 y = 2 }
+
+					}
+				}
+				capital_scope = {
+					if = {
+						limit = { ROOT = { has_full_control_of_state = PREV } }
+						create_unit = {
+							division = "name = \"Local Guerilla\" division_template = \"Private Military Contractors\" start_experience_factor = 2.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Local Guerilla\" division_template = \"Private Military Contractors\" start_experience_factor = 2.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Local Guerilla\" division_template = \"Private Military Contractors\" start_experience_factor = 2.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Local Guerilla\" division_template = \"Private Military Contractors\" start_experience_factor = 2.0"
+							owner = ROOT
+						}
+					}
+				}
+				set_division_template_lock = { division_template = "Private Military Contractors" is_locked = yes }	 
+				create_corps_commander = { 
+					name = "Che Guevara" 
+					portrait_path = "gfx/leaders/PMC/che.dds"
+					id = 9016
+					skill = 6
+					attack_skill = 6
+					defense_skill = 6
+					planning_skill = 6
+					logistics_skill = 6
+				}	
+			}
+		}
 	}
 	focus = {
 		id = SIM_Cuban_Advisors
@@ -253,7 +306,23 @@ focus_tree = {
 		}
 		x = 7
 		y = 6
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 5000
+				producer = SOV
+			}	
+			add_equipment_to_stockpile = {
+				type = mbt_equipment
+				amount = 300
+				producer = SOV
+			}	
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 500
+				producer = SOV
+			}			
+		}
 	}
 	focus = {
 		id = SIM_Embrace_Internationalism
@@ -267,7 +336,11 @@ focus_tree = {
 		}
 		x = 12
 		y = 2
-
+		completion_reward = {
+			add_ideas = paramilitarism_focus
+			add_manpower = 5000
+			army_experience = 20
+		}
 	}
 	focus = {
 		id = SIM_Proper_Organization
@@ -278,7 +351,9 @@ focus_tree = {
 		}
 		x = 10
 		y = 3
-
+		completion_reward = {
+			add_ideas = SOV_military_primacy
+		}
 	}
 	focus = {
 		id = SIM_Peoples_Warfare
@@ -443,13 +518,26 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = SIM_Gbenye
-			focus = SIM_Gbenye
 			focus = SIM_Kabila
 			focus = SIM_Gaston_Soumialot
 		}
 		x = 20
 		y = 1
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = maoism
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = maoism
+				size = 0.33
+			}
+			create_country_leader = {
+				name = "Pierre Mulele"
+				picture = "Pierre_Mulele.dds"
+				ideology = maoist
+			}
+		}
 	}
 	focus = {
 		id = SIM_Maoist_Orthodoxy
@@ -460,7 +548,13 @@ focus_tree = {
 		}
 		x = 19
 		y = 2
-
+		completion_reward = {
+			add_political_power = 200
+			add_popularity = {
+				ideology = maoism
+				size = 0.33
+			}
+		}
 	}
 	focus = {
 		id = SIM_Chinese_Advisors
@@ -484,7 +578,20 @@ focus_tree = {
 		}
 		x = 21
 		y = 2
-
+		completion_reward = {
+			ROOT = {
+				add_opinion_modifier = {
+					target = PRC
+					modifier = large_increase
+				}
+			}
+			PRC = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = large_increase
+				}
+			}		
+		}
 	}
 	focus = {
 		id = SIM_Launch_Agrarian_Reforms
@@ -511,7 +618,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 3
-
+		completion_reward = {
+			add_ideas = KOR_education_reform
+		}
 	}
 	focus = {
 		id = SIM_Launch_a_Cultural_Revolution
@@ -528,7 +637,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 4
-
+		completion_reward = {
+			add_ideas = PRC_cultural_revolution
+		}
 	}
 	focus = {
 		id = SIM_Emphasize_Heavy_Industry
@@ -539,7 +650,38 @@ focus_tree = {
 		}
 		x = 20
 		y = 5
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = SIM_Sacrifice_for_Progress
@@ -550,7 +692,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 5
-
+		completion_reward = {
+			add_ideas = progress_cult_focus
+		}
 	}
 	focus = {
 		id = SIM_Reduce_Tribal_Politics
@@ -581,7 +725,18 @@ focus_tree = {
 		}
 		x = 26
 		y = 1
+		completion_reward = {
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
 
+			create_country_leader = {
+				name = "Christophe Gbenye"
+				picture = "Christophe_Gbenye.dds"
+				ideology = marxism
+			}
+		}
 	}
 	focus = {
 		id = SIM_Embrace_Orthodox_Marxist_Lenninism
@@ -592,7 +747,13 @@ focus_tree = {
 		}
 		x = 25
 		y = 2
-
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				size = 0.33
+			}
+			add_political_power = 200			
+		}
 	}
 	focus = {
 		id = SIM_Cultural_Changes
@@ -603,7 +764,12 @@ focus_tree = {
 		}
 		x = 24
 		y = 3
-
+			completion_reward = {
+					
+					add_ideas = urban_planning
+					add_ideas = partisan_suppression_focus
+					add_ideas = militarized_schools
+				}
 	}
 	focus = {
 		id = SIM_Solidfy_Soviet_Relations
@@ -614,7 +780,20 @@ focus_tree = {
 		}
 		x = 27
 		y = 2
-
+		completion_reward = {
+			ROOT = {
+				add_opinion_modifier = {
+					target = PRC
+					modifier = large_increase
+				}
+			}
+			PRC = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = large_increase
+				}
+			}		
+		}
 	}
 	focus = {
 		id = SIM_Promote_a_Congolese_Identity
@@ -628,7 +807,10 @@ focus_tree = {
 		}
 		x = 26
 		y = 3
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = SIM_Egalitarian_Reforms
@@ -639,7 +821,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 3
-
+		completion_reward = {
+			add_ideas = egalitarian_beliefs
+		}
 	}
 	focus = {
 		id = SIM_Soviet_Backed_5_Year_Plan
@@ -656,7 +840,71 @@ focus_tree = {
 		}
 		x = 26
 		y = 4
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = SIM_Industrialization_Campaign
@@ -667,7 +915,41 @@ focus_tree = {
 		}
 		x = 26
 		y = 5
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 2
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = SIM_Exploit_the_Mines
@@ -678,7 +960,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 5
-
+		completion_reward = {
+			add_ideas = Resource_Efficiency
+		}
 	}
 	focus = {
 		id = SIM_Land_Reform
@@ -692,7 +976,9 @@ focus_tree = {
 		}
 		x = 27
 		y = 6
-
+		completion_reward = {
+			add_ideas = land_reform
+		}
 	}
 	focus = {
 		id = SIM_Kabila
@@ -708,7 +994,21 @@ focus_tree = {
 		}
 		x = 32
 		y = 1
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = socialist
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = socialist
+				size = 0.33
+			}
+			create_country_leader = {
+				name = "Laurent-Désiré Kabila"
+				picture = "Gaston_Soumialot.dds"
+				ideology = socialism
+			}
+		}
 	}
 	focus = {
 		id = SIM_Redistribute_Land
@@ -719,7 +1019,9 @@ focus_tree = {
 		}
 		x = 31
 		y = 2
-
+		completion_reward = {
+			add_ideas = land_reform
+		}
 	}
 	focus = {
 		id = SIM_Infrasctructure_Developments
@@ -730,7 +1032,62 @@ focus_tree = {
 		}
 		x = 30
 		y = 3
-
+			completion_reward = {
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 0
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 0
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}
+						}
+					random_owned_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 0
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 0
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 3
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = SIM_Nationalize_Resources
@@ -741,7 +1098,9 @@ focus_tree = {
 		}
 		x = 33
 		y = 2
-
+		completion_reward = {
+			add_ideas = nationalized_resources
+		}
 	}
 	focus = {
 		id = SIM_Access_to_Healthcare
@@ -755,7 +1114,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 3
-
+		completion_reward = {
+			add_ideas = access_to_health_care
+		}
 	}
 	focus = {
 		id = SIM_Housing_Investments
@@ -766,7 +1127,11 @@ focus_tree = {
 		}
 		x = 34
 		y = 3
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 2
+			}	
+		}
 	}
 	focus = {
 		id = SIM_Pan_Africanism
@@ -783,7 +1148,10 @@ focus_tree = {
 		}
 		x = 32
 		y = 4
-
+		completion_reward = {
+			add_political_power = 200
+			add_war_support = 0.10
+		}
 	}
 	focus = {
 		id = SIM_Expand_Domestic_Industry
@@ -794,7 +1162,71 @@ focus_tree = {
 		}
 		x = 32
 		y = 5
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = SIM_Limited_Capitalist_Reforms
@@ -805,7 +1237,9 @@ focus_tree = {
 		}
 		x = 34
 		y = 5
-
+		completion_reward = {
+			add_ideas = capitalism
+		}
 	}
 	focus = {
 		id = SIM_Rappoachment_with_the_West
@@ -819,7 +1253,44 @@ focus_tree = {
 		}
 		x = 33
 		y = 6
-
+		completion_reward = {
+			ROOT = {
+				add_opinion_modifier = {
+					target = USA
+					modifier = large_increase
+				}
+			}
+			USA = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = large_increase
+				}
+			}		
+			ROOT = {
+				add_opinion_modifier = {
+					target = ENG
+					modifier = large_increase
+				}
+			}
+			ENG = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = large_increase
+				}
+			}	
+			ROOT = {
+				add_opinion_modifier = {
+					target = FRA
+					modifier = large_increase
+				}
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = large_increase
+				}
+			}	
+		}
 	}
 	focus = {
 		id = SIM_Gaston_Soumialot
@@ -835,7 +1306,21 @@ focus_tree = {
 		}
 		x = 38
 		y = 1
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = maoism
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = maoism
+				size = 0.33
+			}
+			create_country_leader = {
+				name = "Gaston Soumialot"
+				picture = "Gaston_Soumialot.dds"
+				ideology = maoist
+			}
+		}
 	}
 	focus = {
 		id = SIM_Ideological_Indifference
@@ -846,7 +1331,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 2
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = SIM_Invest_in_Agriculture
@@ -857,7 +1344,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 3
-
+		completion_reward = {
+			add_ideas = agriculture
+		}	
 	}
 	focus = {
 		id = SIM_Patronize_Supportive_Tribes
@@ -868,7 +1357,10 @@ focus_tree = {
 		}
 		x = 39
 		y = 2
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = SIM_Political_Purges
@@ -882,7 +1374,11 @@ focus_tree = {
 		}
 		x = 38
 		y = 3
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.10
+			add_war_support = 0.03
+		}
 	}
 	focus = {
 		id = SIM_Death_Squads
@@ -893,7 +1389,9 @@ focus_tree = {
 		}
 		x = 40
 		y = 3
-
+		completion_reward = {
+			add_ideas = death_squads
+		}
 	}
 	focus = {
 		id = SIM_Cultural_Revolution
@@ -910,7 +1408,9 @@ focus_tree = {
 		}
 		x = 38
 		y = 4
-
+		completion_reward = {
+			add_ideas = PRC_cultural_revolution
+		}
 	}
 	focus = {
 		id = SIM_Back_to_the_Fields
@@ -921,7 +1421,11 @@ focus_tree = {
 		}
 		x = 38
 		y = 5
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+			add_political_power = 100
+			add_stability = -0.10
+		}
 	}
 	focus = {
 		id = SIM_Promote_Traditional_Values
@@ -932,7 +1436,9 @@ focus_tree = {
 		}
 		x = 40
 		y = 5
-
+		completion_reward = {
+			add_ideas = traditional_culture
+		}
 	}
 	focus = {
 		id = SIM_Reactionaries_to_the_Killing_Fields
@@ -946,7 +1452,15 @@ focus_tree = {
 		}
 		x = 39
 		y = 6
-
+		completion_reward = {
+			add_ideas = gulag_politic_expanded
+			add_ideas = repression
+			every_owned_state = {
+				add_manpower = -10000
+			}
+			add_stability = -0.10
+			add_threat = 5
+		}
 	}
 	focus = {
 		id = SIM_Revolution_Achieved
@@ -958,7 +1472,13 @@ focus_tree = {
 		}
 		x = 7
 		y = 8
-
+		available = {
+			has_war = no
+		}
+		completion_reward = {
+			add_stability = 0.15
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = SIM_Crackdown_on_Traditionalist_Beliefs
@@ -972,7 +1492,11 @@ focus_tree = {
 		}
 		x = 19
 		y = 6
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.05
+			add_ideas = KOR_education_reform
+		}
 	}
 	focus = {
 		id = SIM_Modernization_Campaign
@@ -983,7 +1507,71 @@ focus_tree = {
 		}
 		x = 18
 		y = 5
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = SIM_Dewesternization
@@ -994,7 +1582,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 5
-
+		completion_reward = {
+			add_ideas = The_Old_Order
+		}
 	}
 	focus = {
 		id = SIM_Crackdown_on_Catholicism
@@ -1008,7 +1598,15 @@ focus_tree = {
 		}
 		x = 37
 		y = 6
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = repression
+				days = 600
+			}
+			add_war_support = 0.05
+			add_manpower = 5000
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = SIM_Three_Worlds_Theory
@@ -1022,7 +1620,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 7
-
+		completion_reward = {
+			add_ideas = three_worlds_theory
+		}
 	}
 	focus = {
 		id = SIM_Reign_of_Terror
@@ -1036,7 +1636,12 @@ focus_tree = {
 		}
 		x = 1
 		y = 6
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.15
+			add_war_support = 0.10
+			add_manpower = 5000
+		}	
 	}
 	focus = {
 		id = SIM_Take_European_Hostages
@@ -1047,7 +1652,11 @@ focus_tree = {
 		}
 		x = 0
 		y = 5
-
+		completion_reward = {
+			add_war_support = 0.10
+			add_political_power = 200
+			add_threat = 1
+		}
 	}
 	focus = {
 		id = SIM_Push_to_Stanleyville
@@ -1061,7 +1670,12 @@ focus_tree = {
 		}
 		x = 12
 		y = 7
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = strike_back
+				days = 600
+			}
+		}
 	}
 	focus = {
 		id = SIM_Cut_off_Katanga
@@ -1075,7 +1689,9 @@ focus_tree = {
 		}
 		x = 2
 		y = 7
-
+		completion_reward = {
+			add_ideas = military_expansion
+		}
 	}
 	focus = {
 		id = SIM_Establish_a_Personality_Cult
@@ -1089,7 +1705,9 @@ focus_tree = {
 		}
 		x = 38
 		y = 7
-
+		completion_reward = {
+			add_ideas = total_loyalty
+		}
 	}
 	focus = {
 		id = SIM_Crush_the_Reactionary_Opposition
@@ -1100,7 +1718,13 @@ focus_tree = {
 		}
 		x = 24
 		y = 5
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = repression
+				days = 700
+			}
+			add_political_power = 200
+		}	
 	}
 	focus = {
 		id = SIM_Press_Censorship
@@ -1111,7 +1735,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 5
-
+		completion_reward = {
+			add_ideas = press_censorship_5
+		}
 	}
 	focus = {
 		id = SIM_Emphasize_a_Personality_Cult
@@ -1125,8 +1751,10 @@ focus_tree = {
 		}
 		x = 32
 		y = 7
-
-	}
+		completion_reward = {
+			add_ideas = total_loyalty
+		}
+	}	
 	focus = {
 		id = SIM_Political_Repression
 		icon = GFX_goal_unknown
@@ -1139,7 +1767,9 @@ focus_tree = {
 		}
 		x = 31
 		y = 6
-
+		completion_reward = {
+			add_ideas = gulag_politic
+		}
 	}
 	focus = {
 		id = SIM_Join_the_Warsaw_Pact
@@ -1153,7 +1783,11 @@ focus_tree = {
 		}
 		x = 26
 		y = 7
-
+		completion_reward = {
+			SOV = {
+				add_to_faction = ROOT
+			}
+		}
 	}
 	focus = {
 		id = SIM_Soviet_Housing_Aid
@@ -1167,6 +1801,10 @@ focus_tree = {
 		}
 		x = 25
 		y = 6
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+		}
 	}
 }
