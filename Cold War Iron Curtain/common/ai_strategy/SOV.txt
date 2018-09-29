@@ -143,3 +143,28 @@ SOV_garrison = {
 	}	
 }
 
+SOV_support_communists = {
+	reversed = yes
+	
+	enable = {		
+		has_government = communism
+		OR = {
+		    has_war_with = USA
+			has_war_with = FRA
+			has_war_with = ENG
+		}
+		is_major = no
+		is_in_faction = no
+	}
+	
+	abort = {
+		NOT = { has_government = communism }
+	}
+	
+	ai_strategy = {
+		type = support
+		id = "SOV"			
+		value = 2000
+	}
+}
+
