@@ -14,7 +14,9 @@ focus_tree = {
 		cost = 10.00
 		x = 12
 		y = 0
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = NIG_Pro_Chinese_Orientation
@@ -28,7 +30,16 @@ focus_tree = {
 		}
 		x = 4
 		y = 1
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = maoism
+				elecitons_allowed = no
+			}
+			add_popularity = {
+				ideology = maoism
+				popularity = 0.65
+			}
+		}
 	}
 	focus = {
 		id = NIG_Uranium_for_Industry
@@ -39,7 +50,16 @@ focus_tree = {
 		}
 		x = 2
 		y = 2
-
+		completion_reward = {
+				PRC = {
+					add_tech_bonus = {
+						name = nuclear_bonus
+						ahead_reduction = 0.5
+						category = nuclear
+					}						
+				}
+				add_offsite_building = { type = industrial_complex level = 1 }
+		}
 	}
 	focus = {
 		id = NIG_Joint_Nuclear_Program
@@ -50,7 +70,20 @@ focus_tree = {
 		}
 		x = 0
 		y = 3
-
+			completion_reward = {
+				add_tech_bonus = {
+					name = nuclear_bonus
+					ahead_reduction = 0.5
+					category = nuclear
+				}
+				PRC = {
+					add_tech_bonus = {
+						name = nuclear_bonus
+						ahead_reduction = 0.5
+						category = nuclear
+					}						
+				}
+			}
 	}
 	focus = {
 		id = NIG_Agrarian_Reform
@@ -61,7 +94,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 2
-
+		completion_reward = {
+			add_ideas = agrarian_reform
+		}
 	}
 	focus = {
 		id = NIG_Nigerien_Great_Leap_Forward
@@ -75,7 +110,9 @@ focus_tree = {
 		}
 		x = 3
 		y = 3
-
+		completion_reward = {
+			add_ideas = prc_great_leap_forward
+		}
 	}
 	focus = {
 		id = NIG_Crackdown_on_Tribalism
@@ -86,7 +123,9 @@ focus_tree = {
 		}
 		x = 5
 		y = 3
-
+		completion_reward = {
+			remove_ideas = traditional_culture
+		}
 	}
 	focus = {
 		id = NIG_Start_the_Cultural_Revolution
@@ -100,7 +139,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 4
-
+		completion_reward = {
+			add_ideas = PRC_cultural_revolution
+		}
 	}
 	focus = {
 		id = NIG_Agricultural_Improvements
@@ -114,7 +155,13 @@ focus_tree = {
 		}
 		x = 2
 		y = 5
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = agri_tech_bonus
+				ahead_reduction = 1
+				category = agri_tech
+			}
+		}
 	}
 	focus = {
 		id = NIG_Chinese_Advisors
@@ -125,7 +172,9 @@ focus_tree = {
 		}
 		x = 8
 		y = 3
-
+		completion_reward = {
+			add_ideas = chinese_advisors
+		}
 	}
 	focus = {
 		id = NIG_Red_Guards
@@ -139,7 +188,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 5
-
+		completion_reward = {
+			add_ideas = PRC_red_guards
+		}
 	}
 	focus = {
 		id = NIG_Back_to_the_Fields
@@ -153,7 +204,11 @@ focus_tree = {
 		}
 		x = 4
 		y = 6
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+			add_political_power = 100
+			add_stability = -0.10
+		}
 	}
 	focus = {
 		id = NIG_Tribal_Leaders_to_the_Killing_Fields
@@ -164,7 +219,13 @@ focus_tree = {
 		}
 		x = 6
 		y = 7
-
+		completion_reward = {
+			remove_ideas = The_Old_Order
+			add_ideas = repression
+			every_owned_state = {
+				add_manpower = -5000
+			}
+		}
 	}
 	focus = {
 		id = NIG_Pro_Soviet_Orientation
@@ -178,7 +239,16 @@ focus_tree = {
 		}
 		x = 20
 		y = 1
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = communism
+				elecitons_allowed = no
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.65
+			}
+		}
 	}
 	focus = {
 		id = NIG_Nationalize_Resources
@@ -190,7 +260,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 2
-
+		completion_reward = {
+			add_ideas = nationalized_resources
+		}
 	}
 	focus = {
 		id = NIG_Egalitarian_Reforms
@@ -201,7 +273,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 3
-
+		completion_reward = {
+			add_ideas = egalitarian_beliefs
+		}
 	}
 	focus = {
 		id = NIG_Strengthen_Relations_With_Algeria
@@ -212,7 +286,20 @@ focus_tree = {
 		}
 		x = 10
 		y = 4
-
+		completion_reward = {
+			NIG = {
+				add_opinion_modifier = {
+					target = ALG
+					modifier = large_increase
+				}
+			}
+			ALG = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_Ties_with_Ghana
@@ -223,7 +310,20 @@ focus_tree = {
 		}
 		x = 14
 		y = 4
-
+		completion_reward = {
+			GHA = {
+				add_opinion_modifier = {
+					target = ALG
+					modifier = large_increase
+				}
+			}
+			ALG = {
+				add_opinion_modifier = {
+					target = GHA
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_Bastion_of_African_Marxism
@@ -237,7 +337,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 5
-
+		completion_reward = {
+			add_ideas = foreign_aggression_policy_6
+		}
 	}
 	focus = {
 		id = NIG_Access_to_Healthcare
@@ -248,7 +350,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 6
-
+		completion_reward = {
+			add_ideas = access_to_health_care
+		}
 	}
 	focus = {
 		id = NIG_Education_Reform
@@ -259,7 +363,9 @@ focus_tree = {
 		}
 		x = 10
 		y = 6
-
+		completion_reward = {
+			add_ideas = KOR_education_reform
+		}
 	}
 	focus = {
 		id = NIG_Electrification_Campaign
@@ -273,7 +379,16 @@ focus_tree = {
 		}
 		x = 12
 		y = 7
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = coal_plant
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_Promote_Urbanization
@@ -284,7 +399,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 2
-
+		completion_reward = {
+			add_ideas = urban_planning
+		}
 	}
 	focus = {
 		id = NIG_Social_Modernization
@@ -295,7 +412,9 @@ focus_tree = {
 		}
 		x = 16
 		y = 3
-
+		completion_reward = {
+			add_ideas = city_economies
+		}
 	}
 	focus = {
 		id = NIG_Land_Reform
@@ -306,7 +425,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 2
-
+		completion_rewardl = {
+			add_ideas = land_reform
+		}
 	}
 	focus = {
 		id = NIG_Cultural_Changes
@@ -320,7 +441,10 @@ focus_tree = {
 		}
 		x = 19
 		y = 3
-
+			completion_reward = {
+					add_ideas = partisan_suppression_focus
+					add_ideas = militarized_schools
+				}
 	}
 	focus = {
 		id = NIG_Khruschyovke
@@ -331,7 +455,11 @@ focus_tree = {
 		}
 		x = 21
 		y = 3
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = NIG_Prison_Camps
@@ -345,7 +473,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 4
-
+		completion_reward = {
+			add_ideas = gulag_politic
+		}	
 	}
 	focus = {
 		id = NIG_Political_Censorship
@@ -359,7 +489,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 5
-
+		completion_reward = {
+			add_ideas = press_censorship_5
+		}
 	}
 	focus = {
 		id = NIG_Trade_Uranium_for_tech
@@ -370,7 +502,14 @@ focus_tree = {
 		}
 		x = 24
 		y = 3
-
+			completion_reward = {
+				add_tech_bonus = {
+					name = industry_tech_bonus
+					bonus = 0.5
+					uses = 2
+					category = construction_tech
+				}
+			}
 	}
 	focus = {
 		id = NIG_Five_Year_Plan
@@ -384,7 +523,16 @@ focus_tree = {
 		}
 		x = 22
 		y = 5
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_For_The_Workers
@@ -398,7 +546,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 6
-
+		completion_reward = {
+			add_ideas = workers_culture
+		}
 	}
 	focus = {
 		id = NIG_Sacrifice_for_Progress
@@ -409,7 +559,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 7
-
+		completion_reward = {
+			add_ideas = progress_cult_focus
+		}
 	}
 	focus = {
 		id = NIG_Personality_Cult
@@ -423,7 +575,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 8
-
+		completion_reward = {
+			add_ideas = total_loyalty
+		}
 	}
 	focus = {
 		id = NIG_Peopels_Warfare
@@ -434,7 +588,9 @@ focus_tree = {
 		}
 		x = 2
 		y = 7
-
+		completion_reward = {
+			add_ideas = PRC_peoples_army
+		}
 	}
 	focus = {
 		id = NIG_Three_Worlds_Theory
@@ -445,7 +601,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 9
-
+		completion_reward = {
+			add_ideas = three_worlds_theory
+		}
 	}
 	focus = {
 		id = NIG_Join_Comecon_Research
@@ -456,7 +614,10 @@ focus_tree = {
 		}
 		x = 20
 		y = 9
-
+		completion_reward = {
+			add_ideas = comecon_member
+			add_to_tech_sharing_group = comecon_share_2
+		}
 	}
 	focus = {
 		id = NIG_Soviet_Military_Equipment
@@ -467,7 +628,23 @@ focus_tree = {
 		}
 		x = 18
 		y = 7
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 5000
+				producer = SOV
+			}	
+			add_equipment_to_stockpile = {
+				type = mbt_equipment
+				amount = 300
+				producer = SOV
+			}	
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 500
+				producer = SOV
+			}			
+		}
 	}
 	focus = {
 		id = NIG_Soviet_Engineering_Aid
@@ -481,7 +658,14 @@ focus_tree = {
 		}
 		x = 20
 		y = 8
-
+			completion_reward = {
+				add_tech_bonus = {
+					name = industry_tech_bonus
+					bonus = 0.5
+					uses = 2
+					category = construction_tech
+				}
+			}
 	}
 	focus = {
 		id = NIG_Political_Moderation
@@ -495,7 +679,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 12
-
+		completion_reward = {
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = NIG_Evolution_of_the_State
@@ -507,7 +693,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 11
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = NIG_Political_Intensification
@@ -521,7 +709,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 12
-
+		completion_reward = {
+			add_ideas = paramilitarism_focus
+		}
 	}
 	focus = {
 		id = NIG_Socialist_Arts
@@ -532,7 +722,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 13
-
+			completion_reward = {
+					add_ideas = art_and_liberalization
+				}
 	}
 	focus = {
 		id = NIG_Reduce_Tensions_With_Nigeria
@@ -543,7 +735,20 @@ focus_tree = {
 		}
 		x = 22
 		y = 13
-
+		completion_reward = {
+			NIG = {
+				add_opinion_modifier = {
+					target = NIA
+					modifier = small_increase
+				}
+			}
+			NIA = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = small_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_Release_Political_Prisoners_com
@@ -554,7 +759,9 @@ focus_tree = {
 		}
 		x = 19
 		y = 14
-
+		completion_reward = {
+			remove_ideas = gulag_politic
+		}
 	}
 	focus = {
 		id = NIG_Outreach_to_the_West
@@ -565,7 +772,32 @@ focus_tree = {
 		}
 		x = 21
 		y = 14
-
+		completion_reward = {
+			NIG = {
+				add_opinion_modifier = {
+					target = ENG
+					modifier = small_increase
+				}
+			}
+			ENG = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = small_increase
+				}
+			}
+			NIG = {
+				add_opinion_modifier = {
+					target = USA
+					modifier = small_increase
+				}
+			}
+			USA = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = small_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_Transition_into_Social_Democracy
@@ -579,7 +811,16 @@ focus_tree = {
 		}
 		x = 20
 		y = 17
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = socialist
+				elecitons_allowed = no
+			}
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.65
+			}
+		}
 	}
 	focus = {
 		id = NIG_End_Press_Censorship
@@ -590,7 +831,9 @@ focus_tree = {
 		}
 		x = 16
 		y = 14
-
+		completion_reward = {
+			add_ideas = default_media_laws_0
+		}
 	}
 	focus = {
 		id = NIG_Open_Up_to_Foriegn_Investment
@@ -601,7 +844,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 14
-
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
 	}
 	focus = {
 		id = NIG_Research_Grants
@@ -615,7 +860,9 @@ focus_tree = {
 		}
 		x = 20
 		y = 15
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = NIG_Begin_Privitization
@@ -629,7 +876,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 16
-
+		completion_reward = {
+			add_ideas = Privitization
+		}
 	}
 	focus = {
 		id = NIG_Capitalist_Reforms
@@ -643,7 +892,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 16
-
+		completion_reward = {
+			add_ideas = capitalism
+		}
 	}
 	focus = {
 		id = NIG_Expel_Foriegn_Advisors
@@ -654,7 +905,11 @@ focus_tree = {
 		}
 		x = 18
 		y = 18
-
+		completion_reward = {
+			remove_ideas = soviet_advisors
+			remove_ideas = chinese_advisors
+			remove_ideas = cuban_advisors
+		}
 	}
 	focus = {
 		id = NIG_French_Rappoachment
@@ -665,7 +920,20 @@ focus_tree = {
 		}
 		x = 22
 		y = 18
-
+		completion_reward = {
+			NIG = {
+				add_opinion_modifier = {
+					target = FRA
+					modifier = large_increase
+				}
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_Ties_With_Yugoslavia
@@ -679,7 +947,20 @@ focus_tree = {
 		}
 		x = 20
 		y = 19
-
+		completion_reward = {
+			NIG = {
+				add_opinion_modifier = {
+					target = YUG
+					modifier = large_increase
+				}
+			}
+			YUG = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_European_Investors
@@ -690,7 +971,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 19
-
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
 	}
 	focus = {
 		id = NIG_Prosperous_Socialist_Niger
@@ -701,7 +984,43 @@ focus_tree = {
 		}
 		x = 20
 		y = 22
-
+		completion_reward = {
+			add_stability = 0.15
+			add_political_power = 100
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}			
+		}
 	}
 	focus = {
 		id = NIG_Resume_Uranium_Exports
@@ -712,7 +1031,9 @@ focus_tree = {
 		}
 		x = 16
 		y = 19
-
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
 	}
 	focus = {
 		id = NIG_Establish_Social_Welfare_State
@@ -726,7 +1047,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 20
-
+		completion_reward = {
+			add_ideas = the_american_welfare_state
+		}
 	}
 	focus = {
 		id = NIG_Empower_Labour_Unions
@@ -740,7 +1063,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 20
-
+			completion_reward = {
+					add_ideas = strengthened_labor_unions
+				}
 	}
 	focus = {
 		id = NIG_Join_the_Non_Aligned_Movement
@@ -754,7 +1079,11 @@ focus_tree = {
 		}
 		x = 20
 		y = 21
-
+			completion_reward = {
+					YUG = {
+							add_to_faction = ROOT
+						}
+				}
 	}
 	focus = {
 		id = NIG_International_Pariah
@@ -765,7 +1094,10 @@ focus_tree = {
 		}
 		x = 4
 		y = 22
-
+		completion_reward = {
+			add_war_support = 0.15
+			add_threat = 5
+		}
 	}
 	focus = {
 		id = NIG_Begin_Bunkerization_Campaign
@@ -776,7 +1108,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 13
-
+		completion_reward = {
+			add_timed_idea = { idea = fortification_build_up days = 900 }
+		}
 	}
 	focus = {
 		id = NIG_Strengthen_Party_Control
@@ -787,7 +1121,9 @@ focus_tree = {
 		}
 		x = 2
 		y = 13
-
+		completion_reward = {
+			add_ideas = repression
+		}
 	}
 	focus = {
 		id = NIG_Threaten_Nigeria
@@ -798,7 +1134,19 @@ focus_tree = {
 		}
 		x = 8
 		y = 14
-
+		completion_reward = {
+			NIG = {
+				add_opinion_modifier = {
+					target = NIA
+					modifier = large_decrease
+				}
+			}NIA = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = large_decrease
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_Anti_Libyan_Rhetoric
@@ -809,7 +1157,20 @@ focus_tree = {
 		}
 		x = 5
 		y = 14
-
+		completion_reward = {
+			NIG = {
+				add_opinion_modifier = {
+					target = LBA
+					modifier = large_decrease
+				}
+			}
+			LBa = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = large_decrease
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_Purge_Disloyal_Elements
@@ -820,7 +1181,10 @@ focus_tree = {
 		}
 		x = 0
 		y = 14
-
+		completion_reward = {
+			remove_ideas = gulag_politic
+			add_ideas = gulag_politic_expanded
+		}
 	}
 	focus = {
 		id = NIG_Strengthen_the_Red_Army
@@ -831,7 +1195,9 @@ focus_tree = {
 		}
 		x = 3
 		y = 14
-
+		completion_reward = {
+			add_ideas = SOV_military_primacy
+		}
 	}
 	focus = {
 		id = NIG_Military_Modernization
@@ -845,7 +1211,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 15
-
+		completion_reward = {
+			add_timed_idea = { idea = military_modernization days = 500 }
+		}
 	}
 	focus = {
 		id = NIG_Invade_Nigeria
@@ -859,7 +1227,17 @@ focus_tree = {
 		}
 		x = 6
 		y = 16
-
+			completion_reward = {
+				NIA = {
+					every_owned_state = {
+						add_core_of = ROOT
+					}
+				}	
+				create_wargoal = {
+						type = annex_everything
+						target = NIA
+					}
+			}
 	}
 	focus = {
 		id = NIG_End_Gadaffi
@@ -873,7 +1251,17 @@ focus_tree = {
 		}
 		x = 4
 		y = 17
-
+			completion_reward = {
+				LBA = {
+					every_owned_state = {
+						add_core_of = ROOT
+					}
+				}	
+				create_wargoal = {
+						type = annex_everything
+						target = LBA
+					}
+			}
 	}
 	focus = {
 		id = NIG_Dethrone_Bokassa
@@ -887,7 +1275,17 @@ focus_tree = {
 		}
 		x = 2
 		y = 16
-
+			completion_reward = {
+				CAR = {
+					every_owned_state = {
+						add_core_of = ROOT
+					}
+				}	
+				create_wargoal = {
+						type = annex_everything
+						target = CAR
+					}
+			}
 	}
 	focus = {
 		id = NIG_Ties_With_North_Korea
@@ -898,7 +1296,20 @@ focus_tree = {
 		}
 		x = 6
 		y = 18
-
+		completion_reward = {
+			NIG = {
+				add_opinion_modifier = {
+					target = NIA
+					modifier = large_increase
+				}
+			}
+			NIA = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_Korean_Nigerien_Nuclear_Program
@@ -909,7 +1320,19 @@ focus_tree = {
 		}
 		x = 8
 		y = 19
-
+		completion_reward = {
+				KPA = {
+					add_tech_bonus = {
+						name = nuclear_bonus
+						ahead_reduction = 0.5
+						category = nuclear
+					}						
+				}
+					add_tech_bonus = {
+						name = nuclear_bonus
+						ahead_reduction = 0.5
+						category = nuclear
+					}	
 	}
 	focus = {
 		id = NIG_Cuban_Advisors
@@ -923,7 +1346,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 19
-
+		completion_reward = {
+			add_ideas = cuban_advisors
+		}
 	}
 	focus = {
 		id = NIG_The_Peoples_Republic_of_Central_Africa
@@ -934,7 +1359,9 @@ focus_tree = {
 		}
 		x = 2
 		y = 18
-
+		communism = {
+			set_cosemtic_tag = PRCAR
+		}
 	}
 	focus = {
 		id = NIG_Crush_Chad
@@ -945,7 +1372,17 @@ focus_tree = {
 		}
 		x = 0
 		y = 19
-
+			completion_reward = {
+				CHA = {
+					every_owned_state = {
+						add_core_of = ROOT
+					}
+				}	
+				create_wargoal = {
+						type = annex_everything
+						target = CHA
+					}
+			}
 	}
 	focus = {
 		id = NIG_Expand_Arms_Production
@@ -959,7 +1396,38 @@ focus_tree = {
 		}
 		x = 2
 		y = 20
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = NIG_Resource_Exploitation
@@ -973,7 +1441,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 20
-
+		completion_reward = {
+			add_ideas = Resource_Efficiency
+		}
 	}
 	focus = {
 		id = NIG_Missle_Programs
@@ -987,6 +1457,13 @@ focus_tree = {
 		}
 		x = 4
 		y = 21
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = Missile_Defenses
+							bonus = 0.5
+							uses = 2
+							category = missle
+						}
+					}
 	}
 }
