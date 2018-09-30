@@ -683,6 +683,7 @@ country_event = {
 						NOT = { tag = CUB }
 						NOT = { tag = ZIM }
 						NOT = { tag = VIN }
+						NOT = { tag = MOR }
 					}
 					load_focus_tree = generic_focus
 					set_country_flag = focus_tree_60_reset
@@ -722,6 +723,7 @@ country_event = {
 							tag = CUB
 							tag = ZIM
 							tag = VIN
+							tag = MOR
 						}
 					}
 					set_country_flag = focus_tree_60_reset
@@ -863,7 +865,12 @@ country_event = {
 						}
 						load_focus_tree = 60s_ZIM
 					}
-					
+					if = {
+						limit = {
+							tag = MOR
+						}
+						load_focus_tree = MOR_60s
+					}
 				}
 				if = {
 					limit = {
@@ -1645,6 +1652,59 @@ country_event = {
 						NOT = { has_country_flag = FRA_MAY_68 }
 					}
 					country_event = may_68.1
+				}
+				if = {
+					limit = {
+						tag = MOR
+						has_civil_war = no
+						date > 1968.3.1
+						date < 1968.3.17
+						NOT = { has_country_flag = mor_leg_elections_1968 }
+						NOT = { has_government = monarchism }
+					}
+					country_event = morroccoelection.3
+				}
+				if = {
+					limit = {
+						tag = MOR
+						has_civil_war = no
+						date > 1963.3.1
+						date < 1963.3.17
+						NOT = { has_country_flag = mor_leg_elections_1963 }
+						NOT = { has_country_flag = republic_mor }
+					}
+					country_event = morroccoelection.2
+				}
+				if = {
+					limit = {
+						tag = MOR
+						has_civil_war = no
+						date > 1963.3.1
+						date < 1963.3.17
+						NOT = { has_country_flag = mor_elections_1963 }
+					}
+					country_event = morroccoelection.1
+				}
+				if = {
+					limit = {
+						tag = MOR
+						has_civil_war = no
+						date > 1961.2.16
+						date < 1961.2.26
+						NOT = { has_country_flag = mohammed_v_death }
+					}
+					country_event = morocco.1
+				}
+				if = {
+					limit = {
+						tag = MOR
+						has_civil_war = no
+						date > 1960.3.1
+						date < 1960.4.7
+						NOT = { has_country_flag = assassination_attempt }
+						NOT = { has_country_flag = unfp_arrestation }
+					}
+					country_event = morocco.4
 				}
 				if = {
 					limit = {
