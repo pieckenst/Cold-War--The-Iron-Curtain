@@ -189,53 +189,8 @@ add_ideas = {
   FRA = { diplomatic_relation = { country = SLO relation = military_access active = yes } }
   FRA = { diplomatic_relation = { country = SLV relation = military_access active = yes } }
 }
-
-create_corps_commander = {
-	name = "Jacques Massu"
-	picture = "Portrait_France_Jacques_Massu.dds"
-	traits = {  }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 4
-	planning_skill = 4
-	logistics_skill = 4
-}
-
-create_corps_commander = {
-	name = "Paul Aussaresses"
-	picture = "Portrait_France_Paul_Aussaresses.dds"
-	traits = {  }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 4
-	planning_skill = 4
-	logistics_skill = 4
-}
-
-create_corps_commander = {
-	name = "Fernand Gambiez"
-	picture = "Portrait_France_Fernand_Gambiez.dds"
-	traits = {  }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Alphonse Juin"
-	picture = "Portrait_France_Alphonse_Juin.dds"
-	traits = {  }
-	skill = 5
-	attack_skill = 5
-	defense_skill = 5
-	planning_skill = 5
-	logistics_skill = 5
-}
 						
 1949.1.1 = {
-	add_to_tech_sharing_group = marshall_plan
 	declare_war_on = {
 		target = VIN
 		type = annex_everything
@@ -245,12 +200,6 @@ create_corps_commander = {
     white_peace = VIN
 }
 1960.1.1 = {
-	set_politics = {
-		ruling_party = conservative
-		last_election = "1958.10.23"
-		election_frequency = 48
-		elections_allowed = no
-	}
 	load_focus_tree = FRA_1960s
 	oob = "FRA_1960_OOB"
 	remove_ideas = fra_rationing
@@ -535,6 +484,7 @@ create_corps_commander = {
 }
 set_convoys = 300
 set_stability = 0.7
+set_cosmetic_tag = FFR
 
 if = {
 	limit = {
@@ -616,6 +566,7 @@ if = {
 	}
 }
 1949.1.1 = {
+add_to_tech_sharing_group = marshall_plan
 	add_ai_strategy = {
 		type = alliance
 		id = "USA"
@@ -641,123 +592,6 @@ if = {
 1967.1.1 = {
 	set_autonomy = { target = DJB autonomy_state = autonomy_free }	
 }
-1945.1.1 = {
-	set_politics = {
-
-		parties = {
-			centrist = { 
-				popularity = 14
-			}
-
-			fascism = {
-				popularity = 1
-			}
-			
-			communism = {
-				popularity = 15
-			}
-			Social_Democratic = {
-				popularity = 36		
-			}
-			conservative = {
-				popularity = 34		
-			}
-		}
-		
-		ruling_party = conservative
-		last_election = "1947.1.26"
-		election_frequency = 48
-		elections_allowed = no
-	}
-}
-1949.1.1 = {
-	set_politics = {
-
-		parties = {
-			centrist = { 
-				popularity = 14
-			}
-
-			fascism = {
-				popularity = 1
-			}
-			
-			communism = {
-				popularity = 15
-			}
-			Social_Democratic = {
-				popularity = 36		
-			}
-			conservative = {
-				popularity = 34		
-			}
-		}
-		
-		ruling_party = Social_Democratic
-		last_election = "1946.6.16"
-		election_frequency = 60
-		elections_allowed = no
-	}
-}
-create_country_leader = {
-	name = "Charles de Gaulle"
-	desc = "POLITICS_DE_GAULLE_DESC"
-	picture = "Portrait_France_Charles_de_Gaulle.dds"
-	expire = "1970.11.9"
-	ideology = gaullist
-}
-create_country_leader = {
-	name = "Raoul Salan"
-	desc = ""
-	picture = "Portrait_Salan.dds"
-	ideology = military_junta
-}
-#Order matters here Daladier will start as leaders because added last
-create_country_leader = {
-	name = "Vincent Auriol"
-	picture = "Portrait_France_Vincent_Auriol.dds"
-	expire = "1966.1.1"
-	ideology = social_democrat
-}
-
-create_country_leader = {
-	name = "Maurice Thorez"
-	desc = "POLITICS_MAURICE_THOREZ_DESC"
-	picture = "Portrait_France_Maurice_Thorez.dds"
-	expire = "1965.1.1"
-	ideology = stalinism
-}
-
-create_country_leader = {
-	name = "Georges Fontenis"
-	picture = "Portrait_France_Georges_Fontenis.dds"
-	ideology = anarchist_communism
-}
-
-create_country_leader = {
-	name = "Pierre Poujade"
-	desc = "POLITICS_MAURICE_THOREZ_DESC"
-	picture = "Portrait_France_Poujade.dds"
-	expire = "1965.1.1"
-	ideology = national_democrat
-}
-
-create_country_leader = {
-	name = "Henri VI"
-	picture = "Portrait_France_Henri_VI.dds"
-	expire = "1999.1.1"
-	ideology = absolute_monarchist
-}
-
-1949.1.1 = {
-	create_country_leader = {
-		name = "René Coty"
-		picture = "Portrait_France_Rene_Coty.dds"
-		expire = "1962.11.22"
-		ideology = conservatism
-	}
-}
-
 
 ### Ship Variants ###
 
@@ -862,221 +696,190 @@ upgrades = {
 	obsolete = yes
 	}
 	
-1954.1.26 = {
-	set_politics = {
+
+
+1945.1.1 = {
+set_politics = {
+
+	parties = {
+        democratic = { popularity = 0 }
+        communism = { popularity = 30 }
+        fascism = { popularity = 0 }
+        nationalism = { popularity = 0 }
+        monarchism = { popularity = 0 }
+        neutrality = { popularity = 70 }
+        islamism = { popularity = 0 }
+        radical_shiaism = { popularity = 0 }
+        pan_arabism = {popularity = 0}
+        Social_Democratic = { popularity = 0 }
+        Social_Liberalism = { popularity = 0 }
+        Salafism = { popularity = 0 }        
+        Liberal_Conservatism = { popularity = 0 }
+        Judaism = { popularity = 0 }
+        conservative = { popularity = 0 }
+        Christian_Democratic = { popularity = 0 }
+        socialist = { popularity = 0 }
+        centrist = { popularity = 0 }
+        liberal = { popularity = 0 }
+        trotskyism = { popularity = 0 }
+        maoism = { popularity = 0 }
+        National_Socialism = { popularity = 0 }
+
+	}
 	
-		parties = {
-			centrist = { 
-				popularity = 14
-			}
-	
-			fascism = {
-				popularity = 1
-			}
-			
-			communism = {
-				popularity = 15
-			}
-			socialist = {
-				popularity = 34		
-			}
-			conservative = {
-				popularity = 36		
-			}
-		}
-	
-	ruling_party = conservative
-	last_election = "1954.1.26"
+	ruling_party = neutrality
+	last_election = "1945.1.1"
 	election_frequency = 48
 	elections_allowed = no
-	}
-
-	create_country_leader = {
-		name = "René Coty"
-		picture = "Portrait_France_Rene_Coty.dds"
-		expire = "1962.11.22"
-		ideology = conservatism
-	}
+}
+create_country_leader = {
+	name = "Charles de Gaulle"
+	desc = "POLITICS_DE_GAULLE_DESC"
+	picture = "Charles_de_Gaulle.dds"
+	ideology = independent
+ }
 }
 
-1959.1.8 = {
-	set_politics = {
+create_country_leader = {
+	name = "Henri Queuille"
+	picture = "Henri_Queuille.dds"
+	ideology = social_liberal
+}
+
+create_country_leader = {
+	name = "Guy Mollet"
+	picture = "Guy_Mollet.dds"
+	ideology = social_democrat
+}
+
+create_country_leader = {
+	name = "Jacques Soustelle"
+	picture = "Jacques_Soustelle.dds"
+	ideology = liberal_conservatism
+}
+
+create_country_leader = {
+	name = "Jean-Paul David"
+	picture = "Jean_Paul_David.dds"
+	ideology = conservatism
+}
+
+create_country_leader = {
+	name = "Georges Bidault"
+	picture = "Georges_Bidault.dds"
+	ideology = christian_democracy
+}
+
+create_country_leader = {
+	name = "Maurice Thorez"
+	desc = "POLITICS_MAURICE_THOREZ_DESC"
+	picture = "Maurice_Thorez.dds"
+	ideology = stalinism
+}
+
+create_country_leader = {
+	name = "Georges Fontenis"
+	picture = "Georges_Fontenis.dds"
+	ideology = anarchist_communism
+}
+
+create_country_leader = {
+	name = "Pierre Poujade"
+	desc = "POLITICS_MAURICE_THOREZ_DESC"
+	picture = "Portrait_France_Poujade.dds"
+	expire = "1965.1.1"
+	ideology = national_democrat
+}
+
+create_country_leader = {
+	name = "Henri VI"
+	picture = "Henri_VI.dds"
+	expire = "1999.1.1"
+	ideology = absolute_monarchist
+}
+
+create_corps_commander = {
+	name = "Jacques Massu"
+	picture = "Portrait_France_Jacques_Massu.dds"
+	traits = {  }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 4
+	planning_skill = 4
+	logistics_skill = 4
+}
+
+create_corps_commander = {
+	name = "Paul Aussaresses"
+	picture = "Portrait_France_Paul_Aussaresses.dds"
+	traits = {  }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 4
+	planning_skill = 4
+	logistics_skill = 4
+}
+
+create_corps_commander = {
+	name = "Fernand Gambiez"
+	picture = "Portrait_France_Fernand_Gambiez.dds"
+	traits = {  }
+	skill = 4
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 3
+}
+
+create_corps_commander = {
+	name = "Alphonse Juin"
+	picture = "Portrait_France_Alphonse_Juin.dds"
+	traits = {  }
+	skill = 5
+	attack_skill = 5
+	defense_skill = 5
+	planning_skill = 5
+	logistics_skill = 5
+}
+
+1949.1.1 = {
+set_politics = {
+
+	parties = {
+        democratic = { popularity = 0 }
+        communism = { popularity = 26 }
+        fascism = { popularity = 0 }
+        nationalism = { popularity = 0 }
+        monarchism = { popularity = 0 }
+        neutrality = { popularity = 0 }
+        islamism = { popularity = 0 }
+        radical_shiaism = { popularity = 0 }
+        pan_arabism = {popularity = 0}
+        Social_Democratic = { popularity = 15 }
+        Social_Liberalism = { popularity = 14 }
+        Salafism = { popularity = 0 }        
+        Liberal_Conservatism = { popularity = 23 }
+        Judaism = { popularity = 0 }
+        conservative = { popularity = 10 }
+        Christian_Democratic = { popularity = 12 }
+        socialist = { popularity = 0 }
+        centrist = { popularity = 0 }
+        liberal = { popularity = 0 }
+        trotskyism = { popularity = 0 }
+        maoism = { popularity = 0 }
+        National_Socialism = { popularity = 0 }
+
+	}
 	
-		parties = {
-			centrist = { 
-				popularity = 20
-			}
-	
-			fascism = {
-				popularity = 1
-			}
-			
-			communism = {
-				popularity = 15
-			}
-			Social_Democratic = {
-				popularity = 25		
-			}
-			conservative = {
-				popularity = 39		
-			}
-		}
-	
-	ruling_party = conservative
-	last_election = "1959.1.8"
+	ruling_party = Social_Liberalism 
+	last_election = "1945.1.1"
 	election_frequency = 48
 	elections_allowed = no
-	}
-
-	create_country_leader = {
-		name = "Charles de Gaulle"
-		picture = "Portrait_France_Charles_de_Gaulle.dds"
-		expire = "1970.11.9"
-		ideology = gaullist
-	}
 }
 
-1969.4.28 = {
-	create_country_leader = {
-		name = "Georges Pompidou"
-		picture = "Portrait_France_Georges_Pompidou.dds"
-		expire = "1974.4.2"
-		ideology = gaullist
-	}
-	set_party_name = { 
-    ideology = Social_Democratic
-    long_name = "Parti socialiste" 
-    name = "Parti socialiste"
-}
-}
-
-1974.4.2 = {
-	set_politics = {
-	
-		parties = {
-			centrist = { 
-				popularity = 39
-			}
-	
-			fascism = {
-				popularity = 1
-			}
-			
-			communism = {
-				popularity = 15
-			}
-			Social_Democratic = {
-				popularity = 25		
-			}
-			conservative = {
-				popularity = 20	
-			}
-		}
-	
-	ruling_party = centrist
-	last_election = "1974.4.2"
-	election_frequency = 48
-	elections_allowed = no
-	}
-
-	create_country_leader = {
-		name = "Valéry Giscard d'Estaing"
-		picture = "Portrait_France_Valery_Giscard_dEstaing.dds"
-		ideology = christian_centrist
-	}
-}
-
-1981.5.21 = {
-	set_politics = {
-	
-		parties = {
-			centrist = { 
-				popularity = 25
-			}
-	
-			fascism = {
-				popularity = 1
-			}
-			
-			communism = {
-				popularity = 15
-			}
-			socialist = {
-				popularity = 39	
-			}
-			conservative = {
-				popularity = 20	
-			}
-		}
-	
-	ruling_party = socialist
-	last_election = "1974.4.2"
-	election_frequency = 48
-	elections_allowed = no
-	}
-
-	create_country_leader = {
-		name = "François Mitterrand"
-		picture = "Portrait_France_Francois_Mitterrand.dds"
-		expire = "1996.1.8"
-		ideology = socialism
-	}
-}
-1980.1.1 = {
-	set_politics = {
-
-		parties = {
-		
-			socialist = { 
-				popularity = 43.25
-			}
-
-			Liberal_Conservatism = { 
-				popularity = 37.85
-			}
-			
-			conservative = { 
-				popularity = 18.28
-			}
-			
-			communism = {
-				popularity = 2.70
-			}
-			
-			liberal = { 
-				popularity = 1.32
-			}
-			
-			
-			neutrality = {
-				popularity = 0.75
-			}
-			
-			centrist = {
-				popularity = 0.69
-			}
-			
-			monarchism = {
-				popularity = 0.17
-			}
-			
-		}
-		
-		ruling_party = Liberal_Conservatism
-		last_election = "1977.5.10"
-		election_frequency = 48
-		elections_allowed = no
-	}
-
-
-	create_country_leader = {
-		name = "Valéry Giscard d'Estaing"
-		desc = "POLITICS_CHARLES_DE_GAULLE_DESC"
-		picture = "gfx/leaders/FRA/Valery.dds"
-		expire = "1981.5.21"
-		ideology = liberal_conservatism
-		traits = {
-			
-		}
-	}
+create_country_leader = {
+	name = "Raoul Salan"
+	picture = "Portrait_Salan.dds"
+	ideology = military_junta
+ }
 }
