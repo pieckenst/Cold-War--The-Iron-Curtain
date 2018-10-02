@@ -12,7 +12,7 @@ country_event = {
 	
 	option = {
 		name = "How could they?!"
-		news_event = { id = SWE_2 hours = 1 }
+		news_event = { id = SWE.2 hours = 1 }
 	}
 	
 }
@@ -956,6 +956,106 @@ country_event = {
 			modifier = {
 				is_historical_focus_on = yes
 				factor = 0
+			}
+		}
+	}
+	
+	#Vänsterpartiet Kommunisterna
+	option = {
+		name = "Vänsterpartiet Kommunisterna"
+		set_politics = {
+			ruling_party = socialist
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+
+# Swedish general election, 1976
+country_event = {
+	id = SWE_Elections.10
+	title = "Swedish general election, 1976"
+	desc = "Swedish general election, 1976"
+	picture = GFX_report_event_brazil_election_1950
+
+	is_triggered_only = yes
+
+	trigger = {
+		original_tag = SWE
+		date > 1976.1.1
+		date < 1977.1.1
+	}
+	
+	immediate = {
+		set_global_flag = swedish_elections_1976
+	}
+
+	#Socialdemokraterna
+	option = {
+		name = "Socialdemokraterna"
+		set_politics = {
+			ruling_party = Social_Democratic
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+	
+	#Högerpartiet
+	option = {
+		name = "Högerpartiet"
+		set_politics = {
+			ruling_party = Liberal_Conservatism
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+	
+	#Folkpartiet
+	option = {
+		name = "Folkpartiet"
+		set_politics = {
+			ruling_party = Social_Liberalism
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+	
+	#Centerpartiet
+	option = {
+		name = "Centerpartiet"
+		set_politics = {
+			ruling_party = centrist
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 100
 			}
 		}
 	}
