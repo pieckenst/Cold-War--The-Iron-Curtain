@@ -319,6 +319,7 @@ country_event = {
 		add_political_power = 300
 		set_politics = { ruling_party = neutrality elections_allowed = no }	
 		set_country_flag = coup_success
+		set_country_flag = generals_seize_power_alg
 	}
 	option = {
 		name = "Civil War (Back Communists)"
@@ -337,15 +338,15 @@ country_event = {
 		set_country_flag = french_civil_war
 	}
 
-	immediate ={
-		set_country_flag = FRA_MAY_68
-	}
 }
 country_event = {
 	id = FRA_CIVIL_WAR.5 
 	title = "French Civil War"
 	desc = "French Civil War"
-
+	
+	immediate = {
+	set_country_flag = french_civil_war
+	}
 	is_triggered_only = yes
 	option = {
 		name = "Civil War (Back Military)"
@@ -368,6 +369,24 @@ country_event = {
 	}	
 }
 
+country_event = {
+	id = may_68.1
+	title = "May 1968"
+	desc = "May 1968"
+	picture = GFX_report_event_brazil_election_1955
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = FRA_MAY_68
+	}
+
+	# Charles de Gaulle
+	option = {
+		name = "Concerning Development"
+	}
+}
 country_event = {
 	id = may_68.1
 	title = "May 1968"
