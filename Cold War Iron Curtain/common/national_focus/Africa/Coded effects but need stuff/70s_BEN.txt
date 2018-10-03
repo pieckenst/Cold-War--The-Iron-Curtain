@@ -466,7 +466,41 @@ focus_tree = {
 		}
 		x = 14
 		y = 7
+		completion_reward = {
+			army_experience = 25
+			hidden_effect = {
+				division_template = {
+					name = "Private Military Contractor"
+					priority = 2
 
+					regiments = {
+						pmc = { x = 0 y = 0 }
+						pmc = { x = 0 y = 1 }
+						pmc = { x = 0 y = 2 }
+
+						pmc = { x = 1 y = 0 }
+						pmc = { x = 1 y = 1 }
+						pmc = { x = 1 y = 2 }
+
+					}
+				}
+				capital_scope = {
+					if = {
+						limit = { ROOT = { has_full_control_of_state = PREV } }
+						create_unit = {
+							division = "name = \"Mercenary Division\" division_template = \"Private Military Contractor\" start_experience_factor = 2.0"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Mercenary Division\" division_template = \"Private Military Contractor\" start_experience_factor = 2.0"
+							owner = ROOT
+						}
+					}
+				}
+				set_division_template_lock = { division_template = "Private Military Contractor" is_locked = yes }	 
+
+			}		
+		}		
 	}
 	focus = {
 		id = BEN_70s_Restore_Political_Freedoms
@@ -692,39 +726,10 @@ focus_tree = {
 		x = 4
 		y = 6
 		completion_reward = {
-			army_experience = 25
-			hidden_effect = {
-				division_template = {
-					name = "Private Military Contractor"
-					priority = 2
-
-					regiments = {
-						pmc = { x = 0 y = 0 }
-						pmc = { x = 0 y = 1 }
-						pmc = { x = 0 y = 2 }
-
-						pmc = { x = 1 y = 0 }
-						pmc = { x = 1 y = 1 }
-						pmc = { x = 1 y = 2 }
-
-					}
-				}
-				capital_scope = {
-					if = {
-						limit = { ROOT = { has_full_control_of_state = PREV } }
-						create_unit = {
-							division = "name = \"Mercenary Division\" division_template = \"Private Military Contractor\" start_experience_factor = 2.0"
-							owner = ROOT
-						}
-						create_unit = {
-							division = "name = \"Mercenary Division\" division_template = \"Private Military Contractor\" start_experience_factor = 2.0"
-							owner = ROOT
-						}
-					}
-				}
-				set_division_template_lock = { division_template = "Private Military Contractor" is_locked = yes }	 
-
-			}		
+			every_owned_state = {
+				add_manpower = -5000
+			}
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -854,7 +859,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 8
-
+		completion_reward = {
+			add_ideas = state_atheism
+		}
 	}
 	focus = {
 		id = BEN_70s_Industrialization_Initiative
@@ -868,7 +875,14 @@ focus_tree = {
 		}
 		x = 5
 		y = 9
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}		
+		}
 	}
 	focus = {
 		id = BEN_70s_Cuban_Advisors
@@ -895,7 +909,9 @@ focus_tree = {
 		}
 		x = 1
 		y = 10
-
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
 	}
 	focus = {
 		id = BEN_70s_Relations_with_the_DPRK
@@ -968,7 +984,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 12
-
+		completion_reward = {
+			add_ideas = Freedom_for_Minorities
+		}
 	}
 	focus = {
 		id = BEN_70s_Operation_Shrimp
@@ -979,7 +997,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 13
-
+		completion_reward = {
+			country_event = BEN.100
+		}
 	}
 	focus = {
 		id = BEN_70s_Failure_of_the_Coup
@@ -990,7 +1010,9 @@ focus_tree = {
 		}
 		x = 2
 		y = 14
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = BEN_70s_Coup_Success
@@ -1001,7 +1023,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 14
-
+		completion_reward = {
+			add_stability = -0.10
+		}
 	}
 	focus = {
 		id = BEN_70s_Bring_Back_Zinsou
@@ -1015,7 +1039,20 @@ focus_tree = {
 		}
 		x = 7
 		y = 15
-
+		available = {
+			always = no
+		}
+		completion_reward = {
+			complete_national_focus = BEN_70s_President_Zinsou
+			set_politics = {
+				ruling_party = Social_Liberalism
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = Social_Liberalism 
+				popularity = 0.25
+			}
+		}
 	}
 	focus = {
 		id = BEN_70s_Bob_Denard
@@ -1029,7 +1066,23 @@ focus_tree = {
 		}
 		x = 10
 		y = 15
-
+		completion_reward = {
+			complete_national_focus = BEN_70s_President_Bob_Denard
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = neutrality 
+				popularity = 0.25
+			}			
+			create_country_leader = {
+				name = "Bob Denard"
+				picture = "Bob_Denard.dds"
+				ideology = military_junta
+			  }
+			}
+		}
 	}
 	focus = {
 		id = BEN_70s_Further_Crackdowns
@@ -1115,7 +1168,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 17
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = BAN_70s_Anti_Traditionalism_Campaign
@@ -1126,7 +1181,13 @@ focus_tree = {
 		}
 		x = 3
 		y = 18
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = educaton_investments
+				days = 600
+			}
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = BAN_70s_Industrial_Campaign
@@ -1140,7 +1201,38 @@ focus_tree = {
 		}
 		x = 4
 		y = 19
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+		}
 	}
 	focus = {
 		id = BAN_70s_Corruption
@@ -1151,7 +1243,9 @@ focus_tree = {
 		}
 		x = 5
 		y = 18
-
+		completion_reward = {
+			add_ideas = SOV_government_corruption
+		}
 	}
 	focus = {
 		id = BEN_70s_Soviet_Aid
@@ -1165,7 +1259,17 @@ focus_tree = {
 		}
 		x = 1
 		y = 18
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
 	}
 	focus = {
 		id = BEN_70s_Organize_Assembly_Elections
@@ -1182,7 +1286,10 @@ focus_tree = {
 		}
 		x = 4
 		y = 20
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.02
+		}
 	}
 	focus = {
 		id = BEN_70s_Cuban_Aid
@@ -1196,7 +1303,9 @@ focus_tree = {
 		}
 		x = 7
 		y = 18
-
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
 	}
 	focus = {
 		id = BEN_70s_Begin_to_Moderate_Policies
@@ -1207,7 +1316,11 @@ focus_tree = {
 		}
 		x = 4
 		y = 21
-
+		completion_reward = {
+			add_political_power = 200
+			remove_ideas = gulag_politic
+			remove_ideas = gulag_politic_expanded
+		}
 	}
 	focus = {
 		id = BEN_70s_Free_Press
@@ -1234,6 +1347,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 7
-
+		completion_reward = {
+			add_stability = 0.10
+			add_political_power = 200
+		}
 	}
 }
