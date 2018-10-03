@@ -10,7 +10,12 @@ scripted_gui = {
             always = yes
 		}
 		
-		effects = { }
+		effects = {
+			domestic_influence_diplo_header_click = {
+				set_variable = { influence_menu_show = 1 } 
+				set_variable = { temp_check = ROOT.id } 
+			}	
+		}
 	}
 	position_1_diplo = {
 		context_type = selected_country_context
@@ -95,6 +100,186 @@ scripted_gui = {
 		}
 		
 		effects = { }
+	}
+	
+	domestic_influence_diplo_menu = {
+		context_type = selected_country_context
+		parent_window_token = selected_country_view_diplomacy
+		
+		window_name = "domestic_influence_diplo_menu"
+		
+		visible = {
+           check_variable = { influence_menu_show = 1 }
+		   OR = {
+				check_variable = { influencer1 = temp_check }
+				check_variable = { influencer2 = temp_check }
+				check_variable = { influencer3 = temp_check }
+				check_variable = { influencer4 = temp_check }
+				check_variable = { influencer5 = temp_check }
+				check_variable = { influencer6 = temp_check }
+				check_variable = { influencer7 = temp_check }
+		   }
+		}
+		
+		effects = {
+			domestic_influence_diplo_menu_exit_click = {
+				set_variable = { influence_menu_show = 0 } 
+			}	
+			#Positive Actions
+			economic_investments_click = {		
+				add_ideas = foriegn_economic_investments
+				ROOT = { add_political_power = -300 }
+				fifty_point_influence_gain = yes
+				recalculate_influence = yes
+			}
+			infrastructure_investments_click = {		
+				add_ideas = foriegn_infrastructure_investments
+				ROOT = { add_political_power = -150 }
+				twenty_five_point_influence_gain = yes
+				recalculate_influence = yes
+			}
+			send_infantry_equipment_click = {	
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 25000
+					producer = ROOT
+				}
+				ROOT = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -25000
+					}			
+				}			
+				fifty_point_influence_gain = yes
+				recalculate_influence = yes
+			}
+			send_advanced_military_equipment_click = {		
+				add_ideas = foriegn_infrastructure_investments
+				add_equipment_to_stockpile = {
+					type = mbt_equipment
+					amount = 300
+					producer = ROOT
+				}
+				ROOT = {
+					add_equipment_to_stockpile = {
+						type = mbt_equipment
+						amount = -300
+					}			
+				}
+				add_equipment_to_stockpile = {
+					type = jet_multirole_equipment
+					amount = 60
+					producer = ROOT
+				}
+				ROOT = {
+					add_equipment_to_stockpile = {
+						type = jet_multirole_equipment
+						amount = -60
+					}			
+				}
+				hundred_point_influence_gain = yes
+				recalculate_influence = yes
+			}
+			defense_treaty_click = {	
+				ROOT = {
+					give_guarantee = PREV
+				}
+				give_military_access = ROOT
+				ROOT = { add_political_power = -500 }
+				hundred_point_influence_gain = yes
+				recalculate_influence = yes				
+			}
+			civil_war_intevention_click = {	
+				random_country = { 
+					limit = {
+						has_civil_war = yes
+						original_tag = THIS
+						NOT = { tag = THIS }
+					}
+					set_variable = { war_target = THIS.id }
+				}	
+				add_to_war = { 
+					targeted_alliance = ROOT 
+					enemy = var:war_target 
+					hostility_reason = asked_to_join
+				}
+				ROOT = {
+					add_threat = 5
+				}
+				give_military_access = ROOT
+				ROOT = { add_political_power = -1000 }
+				clear_variable = war_target
+				three_hundred_point_influence_gain = yes
+				recalculate_influence = yes				
+			}
+			raid_insurgent_bases_influence_click = {
+				ROOT = {
+					add_manpower = -100
+					add_political_power = -500
+					army_experience = 20
+				}
+				every_owned_state = {
+					limit = {
+						has_state_flag = active_insurgency
+					}
+					random_list = {
+						50 = {
+								subtract_from_variable = {
+									var = insurgency_strength
+									value = 3
+								}
+							}
+						50 = {
+							subtract_from_variable = {
+								var = insurgency_strength
+								value = 6
+							}
+						}
+					}
+				}
+				hundred_point_influence_gain = yes
+				recalculate_influence = yes					
+			}
+			trade_agreement_click = {
+				sign_trade_agreement_inv = yes
+				sign_trade_agreement = yes	
+				ROOT = { 
+					add_political_power = -500
+				}
+				three_hundred_point_influence_gain = yes
+				recalculate_influence = yes				
+			}
+			#Negative Actions
+			political_influence_click = {
+				influence_nation = yes
+				ROOT = { 
+					add_political_power = -100
+				}
+				hundred_point_influence_cost = yes
+				recalculate_influence = yes				
+			}
+			attempt_political_coup_click = {
+				country_event = influence_coup.1
+			}
+			supply_insurgent_bases_influence_click = {
+				ROOT = {
+					add_manpower = -100
+					add_political_power = -500
+					army_experience = 20
+				}
+				every_owned_state = {
+					limit = {
+						has_state_flag = active_insurgency
+					}
+					subtract_from_variable = {
+						var = insurgency_strength
+						value = -3
+					}
+				}
+				hundred_point_influence_cost = yes
+				recalculate_influence = yes					
+			}
+		}
 	}
 }
 

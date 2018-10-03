@@ -1,0 +1,27 @@
+add_namespace = influence_coup
+
+country_event = {
+	id = influence_coup.1
+	hidden = yes
+
+	is_triggered_only = yes
+	immediate = {
+		random_list = {
+			50 = {		#Success
+				successul_coup_effect = yes
+				influence_nation_coup = yes
+				news_event = coup.1
+			}
+			25 = {		#Failure
+				coup_influence_change_failure = yes
+				news_event = coup.2
+			}
+			25 = {		#Civil War
+				
+				influence_nation_coup_civil_war = yes
+				coup_influence_change_failure = yes
+				news_event = coup.3
+			}
+		}
+	}
+}
