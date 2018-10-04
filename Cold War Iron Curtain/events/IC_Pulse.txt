@@ -77,7 +77,8 @@ add_namespace = fra_crisis
 add_namespace = vat
 add_namespace = insurgency
 add_namespace = insurgency_actions
-add_namespace = Ghan
+add_namespace = Ghana
+add_namespace = BEN
 
 country_event = {
 	id = ic_pulse.1
@@ -87,6 +88,14 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		if = {
+			limit = {
+					tag = BEN
+					date > 1960.12.1
+					date < 1961.1.1
+				}
+			country_event = BEN.1
+		 }	
 		if = {
 			limit = {
 					tag = GHA
