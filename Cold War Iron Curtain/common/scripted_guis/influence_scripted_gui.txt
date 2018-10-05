@@ -1,45 +1,5 @@
 scripted_gui = {
 
-	domestic_influence_diplo = {
-		context_type = selected_country_context
-		parent_window_token = selected_country_view_diplomacy
-		
-		window_name = "domestic_influence_diplo"
-		
-		visible = {
-            always = yes
-		}
-		
-		effects = {
-			domestic_influence_diplo_header_click = {
-				set_variable = { influence_menu_show = 1 } 
-				set_variable = { temp_check = ROOT.id } 
-			}	
-		}
-		ai_enabled = {
-            always = yes
-        }
-
-        ai_check = {
-			
-		}
-        
-        ai_test_interval = 1000
-        ai_test_variance = 0.3
-		
-		
-		ai_max_weight_taken_per_test = 1
-		
-		
-		ai_weights = {
-			domestic_influence_diplo_header = {
-				weight = 1
-				ai_will_do = {
-					factor = 1
-				}
-			}
-		}
-	}
 	position_1_diplo = {
 		context_type = selected_country_context
 		parent_window_token = selected_country_view_diplomacy
@@ -132,15 +92,14 @@ scripted_gui = {
 		window_name = "domestic_influence_diplo_menu"
 		
 		visible = {
-           check_variable = { influence_menu_show = 1 }
 		   OR = {
-				check_variable = { influencer1 = temp_check }
-				check_variable = { influencer2 = temp_check }
-				check_variable = { influencer3 = temp_check }
-				check_variable = { influencer4 = temp_check }
-				check_variable = { influencer5 = temp_check }
-				check_variable = { influencer6 = temp_check }
-				check_variable = { influencer7 = temp_check }
+				check_variable = { influencer1 = ROOT.temp_check }
+				check_variable = { influencer2 = ROOT.temp_check }
+				check_variable = { influencer3 = ROOT.temp_check }
+				check_variable = { influencer4 = ROOT.temp_check }
+				check_variable = { influencer5 = ROOT.temp_check }
+				check_variable = { influencer6 = ROOT.temp_check }
+				check_variable = { influencer7 = ROOT.temp_check }
 		   }
 		}
 		
@@ -371,68 +330,84 @@ scripted_gui = {
             
         }
         
-        ai_test_interval = 1500
+        ai_test_interval = 360
         ai_test_variance = 0.3
 		
 		ai_check_scope = {
-		   #OR = {
-			#	check_variable = { influencer1 = temp_check }
-			#	check_variable = { influencer2 = temp_check }
-			#	check_variable = { influencer3 = temp_check }
-			#	check_variable = { influencer4 = temp_check }
-			#	check_variable = { influencer5 = temp_check }
-			#	check_variable = { influencer6 = temp_check }
-			#	check_variable = { influencer7 = temp_check }
-		   #}			
+			
 		}                      
         ai_max_weight_taken_per_test = 1
 		
         ai_weights = {
+			send_advanced_military_equipment_click = {
+				weight = 1
+			   ai_will_do = {
+				   factor = 0
+			   }			
+			 }
+			
+			send_infantry_equipment_click = {
+				weight = 1
+			   ai_will_do = {
+				   factor = 0
+			   }			
+			 }
+			
+			supply_insurgent_bases_influence_click = {
+				weight = 1
+			   ai_will_do = {
+				   factor = 0
+			   }			
+			 }
+			
+			attempt_political_coup_click = {
+				weight = 1
+			   ai_will_do = {
+				   factor = 0
+			   }			
+			 }
+			political_influence_click = {
+			weight = 1
+			   ai_will_do = {
+				   factor = 0
+			   }			
+			 }
+			raid_insurgent_bases_influence_click = {
+			weight = 1
+			   ai_will_do = {
+				   factor = 0
+			   }			
+			 }
 
 			economic_investments_click = {
-				ai_will_do = {
-					factor = 1
-					modifier = {
-						has_war = no
-						add = 50
-					}
-				}
+			weight = 1
+			   ai_will_do = {
+				   factor = 1
+			   }
 			}        
 			infrastructure_investments_click = {
-				ai_will_do = {
-					factor = 1
-					modifier = {
-						has_war = no
-						add = 10
-					}
-				}
+			weight = 1
+			   ai_will_do = {
+				   factor = 1
+			   }
 			}     
 			defense_treaty_click = {
-				ai_will_do = {
-					factor = 1
-					modifier = {
-						has_war = no
-						add = 10
-					}
-				}
+			weight = 1
+			   ai_will_do = {
+				   factor = 1
+			   }
 			}       
 			civil_war_intevention_click = {
-				ai_will_do = {
-					factor = 1
-					modifier = {
-						has_civil_war = yes
-						add = 100
-					}
-				}
+				weight = 1
+			   ai_will_do = {
+				   factor = 0
+			   }
 			}     
 			trade_agreement_click = {
-				ai_will_do = {
-					factor = 1
-					modifier = {
-						has_war = no
-						add = 10
-					}
-				}
+				weight = 1
+			   ai_will_do = {
+				   factor = 1
+			   }
 			}      	
 		}
 	}
