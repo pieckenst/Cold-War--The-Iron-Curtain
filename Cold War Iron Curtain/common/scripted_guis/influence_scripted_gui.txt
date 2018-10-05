@@ -153,15 +153,18 @@ scripted_gui = {
 				add_ideas = foriegn_economic_investments
 				ROOT = { add_political_power = -300 }
 				fifty_point_influence_gain = yes
+				set_recent_action_check = yes
 				recalculate_influence = yes
 			}
-			infrastructure_investments_click = {		
+			infrastructure_investments_influence_click = {		
+				set_recent_action_check = yes
 				add_ideas = foriegn_infrastructure_investments
 				ROOT = { add_political_power = -150 }
 				fifty_point_influence_gain = yes
 				recalculate_influence = yes
 			}
 			send_infantry_equipment_click = {	
+				set_recent_action_check = yes
 				add_equipment_to_stockpile = {
 					type = infantry_equipment
 					amount = 25000
@@ -176,7 +179,8 @@ scripted_gui = {
 				fifty_point_influence_gain = yes
 				recalculate_influence = yes
 			}
-			send_advanced_military_equipment_click = {		
+			send_advanced_military_equipment_click = {	
+				set_recent_action_check = yes
 				add_equipment_to_stockpile = {
 					type = mbt_equipment
 					amount = 300
@@ -203,6 +207,7 @@ scripted_gui = {
 				recalculate_influence = yes
 			}
 			defense_treaty_click = {	
+				set_recent_action_check = yes
 				ROOT = {
 					give_guarantee = PREV
 				}
@@ -212,6 +217,7 @@ scripted_gui = {
 				recalculate_influence = yes				
 			}
 			civil_war_intevention_click = {	
+				set_recent_action_check = yes
 				random_country = { 
 					limit = {
 						has_civil_war = yes
@@ -235,6 +241,7 @@ scripted_gui = {
 				recalculate_influence = yes				
 			}
 			raid_insurgent_bases_influence_click = {
+				set_recent_action_check = yes
 				ROOT = {
 					add_manpower = -100
 					add_political_power = -500
@@ -263,6 +270,7 @@ scripted_gui = {
 				recalculate_influence = yes					
 			}
 			trade_agreement_click = {
+				set_recent_action_check = yes
 				sign_trade_agreement_inv = yes
 				sign_trade_agreement = yes	
 				ROOT = { 
@@ -273,6 +281,7 @@ scripted_gui = {
 			}
 			#Negative Actions
 			political_influence_click = {
+				set_recent_action_check = yes
 				influence_nation = yes
 				ROOT = { 
 					add_political_power = -100
@@ -281,9 +290,11 @@ scripted_gui = {
 				recalculate_influence = yes				
 			}
 			attempt_political_coup_click = {
+				set_recent_action_check = yes
 				country_event = influence_coup.1
 			}
 			supply_insurgent_bases_influence_click = {
+				set_recent_action_check = yes
 				ROOT = {
 					add_manpower = -100
 					add_political_power = -500
@@ -305,28 +316,28 @@ scripted_gui = {
 		triggers = {
 			economic_investments_click_enabled = {
 				NOT = { has_idea = foriegn_economic_investments }
-				#no_recent_action_in_target = yes
+				no_recent_action_in_target = no
 			}
-			infrastructure_investments_click_enabled = {
+			infrastructure_investments_influence_click_enabled = {
 				NOT = { has_idea = foriegn_infrastructure_investments }
-				#no_recent_action_in_target = yes
+				no_recent_action_in_target = no
 			}
 			send_infantry_equipment_click_enabled = {
-				#no_recent_action_in_target = yes
+				no_recent_action_in_target = no
 			}
 			send_advanced_military_equipment_click_enabled = {
-				#no_recent_action_in_target = yes
+				no_recent_action_in_target = no
 			}
 			defense_treaty_click_enabled = {
-				not_signed_defense_treaty = yes
-				#no_recent_action_in_target = yes
+				not_signed_defense_treaty = no
+				no_recent_action_in_target = no
 			}
 			civil_war_intevention_click_enabled = {
-				#not_intervened_already = yes
+				#not_intervened_already = no
 				has_civil_war = yes
 			}
 			raid_insurgent_bases_influence_click_enabled = {
-				#no_recent_action_in_target = yes
+				no_recent_action_in_target = no
 				any_owned_state = {
 					is_owned_and_controlled_by = THIS
 					has_state_flag = active_insurgency		
@@ -334,17 +345,17 @@ scripted_gui = {
 				}
 			}
 			trade_agreement_click_enabled = {
-				#not_signed_trade_deal = yes
-				#no_recent_action_in_target = yes
+				#not_signed_trade_deal = no
+				no_recent_action_in_target = no
 			}
 			political_influence_click_enabled = {
-				#no_recent_action_in_target = yes
+				no_recent_action_in_target = no
 			}
 			attempt_political_coup_click_enabled = {
-				#no_recent_action_in_target = yes
+				no_recent_action_in_target = no
 			}
 			supply_insurgent_bases_influence_click_enabled = {
-				#no_recent_action_in_target = yes
+				no_recent_action_in_target = no
 				any_owned_state = {
 					is_owned_and_controlled_by = THIS
 					has_state_flag = active_insurgency		
@@ -383,7 +394,7 @@ scripted_gui = {
 					factor = 1
 					modifier = {
 						has_war = no
-						add = 10
+						add = 50
 					}
 				}
 			}        
