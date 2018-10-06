@@ -1546,7 +1546,9 @@ ideas = {
 			
 			modifier = {
 				socialist_drift = -0.05
-				democratic_drift = 0.1
+				maoism_drift = -0.05
+				communism_drift = -0.05
+				MONTHLY_POPULATION = -0.05
 			}
 	
 			ai_will_do = {
@@ -1871,6 +1873,20 @@ ideas = {
 			modifier = { 
 				MONTHLY_POPULATION = -0.20
 				stability_factor = -0.25
+			}
+			
+		}
+		drought = {
+			
+			picture = neutrality_idea
+			
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			
+			modifier = { 
+				MONTHLY_POPULATION = -0.10
+				stability_factor = -0.05
+				political_power_factor = -0.25
 			}
 			
 		}
@@ -2852,6 +2868,22 @@ ideas = {
 				factor = 0
 			}
 		}	
+		
+		emphasize_morality = {	
+			picture = generic_production_bonus
+			allowed = {
+				always = no 
+			}	
+
+			modifier = {
+				stability_factor = 0.05
+				drift_defence_factor = 0.25			
+				MONTHLY_POPULATION = 0.025
+			}			
+			ai_will_do = {
+				factor = 0
+			}
+		}	
 
 		tribalism_politics = {	
 			picture = generic_production_bonus
@@ -3130,6 +3162,27 @@ ideas = {
 				army_core_defence_factor = 0.1
 			}
 		}
+		Neo_Colonial_State = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = generic_intel_bonus
+			
+			modifier = {
+				stability_factor = -0.10
+				drift_defence_factor = -0.25
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = -0.05
+				production_factory_max_efficiency_factor = 0.05
+			}		
+		}
 		economic_growth = {
 			allowed = {
 				always = no
@@ -3219,6 +3272,23 @@ ideas = {
 				production_factory_efficiency_gain_factor = 0.05
 				MONTHLY_POPULATION = -0.01
 				political_power_gain = 0.05
+			}
+
+		}
+		
+		Government_Chaos = { 
+			removal_cost = -1
+			
+			picture = generic_communism_drift_bonus
+
+			allowed = {
+				always = no # Added via focus
+			}
+
+			
+			modifier = {
+				stability_factor = -0.15
+				political_power_gain = -0.5
 			}
 
 		}

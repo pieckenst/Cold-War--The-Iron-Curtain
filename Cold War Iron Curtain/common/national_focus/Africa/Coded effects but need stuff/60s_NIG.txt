@@ -27,7 +27,21 @@ focus_tree = {
 		}
 		x = 11
 		y = 1
-
+		completion_reward = {
+			add_stability = 0.02
+			NIG = {
+				add_opinion_modifier = {
+					target = FRA
+					modifier = small_increase
+				}
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = small_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_Form_the_Nigerien_National_Assembly
@@ -38,8 +52,10 @@ focus_tree = {
 		}
 		x = 12
 		y = 2
-
-	}
+		completion_reward = {
+			add_political_power = 200
+		}
+	}	
 	focus = {
 		id = NIG_Ban_All_Opposition_Parties
 		icon = GFX_goal_unknown
@@ -79,6 +95,8 @@ focus_tree = {
 		x = 14
 		y = 3
 		completion_reward = {
+			add_to_variable = { var = domestic_influence_amount value = 250 }
+			recalculate_influence = yes
 			set_autonomy = {
 				target = NIG
 				autonomy_state = autonomy_free
@@ -97,7 +115,16 @@ focus_tree = {
 		}
 		x = 4
 		y = 4
-
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = NIG_Expand_Uranium_Production
@@ -108,7 +135,16 @@ focus_tree = {
 		}
 		x = 5
 		y = 5
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = NIG_The_French_Community
@@ -119,7 +155,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 4
-
+		completion_reward = {
+			add_ideas = Francafrique
+		}
 	}
 	focus = {
 		id = NIG_Preserve_Tradtional_Tribal_Power_Structures
@@ -143,7 +181,10 @@ focus_tree = {
 		}
 		x = 13
 		y = 5
-
+		completion_reward = {
+			add_ideas = trade_treaty_FRA
+			FRA = { trade_treaty_NIG }
+		}
 	}
 	focus = {
 		id = NIG_Appoint_Diori_President
@@ -154,7 +195,9 @@ focus_tree = {
 		}
 		x = 16
 		y = 4
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = NIG_A_One_Man_State
@@ -165,7 +208,10 @@ focus_tree = {
 		}
 		x = 15
 		y = 5
-
+		completion_reward = {
+			add_political_power = 100
+			add_ideas = SOV_government_corruption
+		}
 	}
 	focus = {
 		id = NIG_A_One_Party_State
@@ -192,7 +238,10 @@ focus_tree = {
 		}
 		x = 18
 		y = 5
-
+		completion_reward = {
+			add_political_power = 50
+			add_threat = -5
+		}
 	}
 	focus = {
 		id = NIG_Figurehead_Assembly
@@ -206,7 +255,10 @@ focus_tree = {
 		}
 		x = 16
 		y = 7
-
+		completion_reward = {
+			add_political_power = 150
+			add_stability = -0.02
+		}
 	}
 	focus = {
 		id = NIG_Sawaba_Coup_Attempt
@@ -220,7 +272,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 8
-
+		completion_reward = {
+			country_event = Niger.100
+		}
 	}
 	focus = {
 		id = NIG_Military_Coup_Attempt
@@ -234,7 +288,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 12
-
+		completion_reward = {
+			country_event = Niger.101
+		}
 	}
 	focus = {
 		id = NIG_Run_Unopposed_a_Third_Time
@@ -245,7 +301,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 17
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = NIG_Endemic_Corruption
@@ -259,7 +317,10 @@ focus_tree = {
 		}
 		x = 11
 		y = 11
-
+		completion_reward = {
+			remove_ideas = SOV_government_corruption
+			add_ideas = SOV_government_corruption_endemic
+		}
 	}
 	focus = {
 		id = NIG_French_Funding
@@ -268,9 +329,16 @@ focus_tree = {
 		prerequisite = {
 			focus = NIG_Uranium_Mining
 		}
-		x = -1
-		y = 1
-
+		x = 3
+		y = 5
+			completion_reward = {
+					add_tech_bonus = {
+							name = industry_bonus
+							bonus = 0.50
+							uses = 2
+							category = industry
+						}
+				}
 	}
 	focus = {
 		id = NIG_Accept_French_Economic_Interests
@@ -284,7 +352,14 @@ focus_tree = {
 		}
 		x = 4
 		y = 6
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = construction_bonus
+							bonus = 0.50
+							uses = 2
+							category = construction_tech
+						}
+				}
 	}
 	focus = {
 		id = NIG_Accept_French_Dominance
@@ -298,7 +373,21 @@ focus_tree = {
 		}
 		x = 6
 		y = 7
-
+		completion_reward = {
+			add_stability = -0.02
+			NIG = {
+				add_opinion_modifier = {
+					target = FRA
+					modifier = large_increase
+				}
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_French_Advisors
@@ -325,7 +414,11 @@ focus_tree = {
 		}
 		x = 6
 		y = 8
-
+		completion_reward = {
+			add_ideas = Neo_Colonial_State
+			add_to_variable = { var = influencer1_amount value = 500 }
+			recalculate_influence = yes
+		}
 	}
 	focus = {
 		id = NIG_Popular_Discontent
@@ -336,7 +429,9 @@ focus_tree = {
 		}
 		x = 7
 		y = 9
-
+		completion_reward = {
+			add_stability = -0.10
+		}
 	}
 	focus = {
 		id = NIG_Left_Wing_Opposition
@@ -347,7 +442,12 @@ focus_tree = {
 		}
 		x = 5
 		y = 9
-
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.10
+			}
+		}
 	}
 	focus = {
 		id = NIG_Crush_Dissent
@@ -358,7 +458,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 11
-
+		completion_reward = {
+			add_ideas = decleration_of_martial_law
+		}
 	}
 	focus = {
 		id = NIG_Reject_French_Economic_Dominance
@@ -372,7 +474,20 @@ focus_tree = {
 		}
 		x = 2
 		y = 7
-
+		completion_reward = {
+			NIG = {
+				add_opinion_modifier = {
+					target = FRA
+					modifier = large_decrease
+				}
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = large_decrease
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_Anglo_American_Investors
@@ -383,7 +498,9 @@ focus_tree = {
 		}
 		x = 2
 		y = 8
-
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
 	}
 	focus = {
 		id = NIG_Embrace_Free_Trade
@@ -394,7 +511,9 @@ focus_tree = {
 		}
 		x = 1
 		y = 9
-
+		completion_reward = {
+			add_ideas = embrace_free_trade
+		}
 	}
 	focus = {
 		id = NIG_British_Advisors
@@ -408,8 +527,10 @@ focus_tree = {
 		}
 		x = 2
 		y = 10
-
-	}
+		completion_reward = {
+			add_ideas = british_advisors
+		}
+	}	
 	focus = {
 		id = NIG_American_Investors
 		icon = GFX_goal_unknown
@@ -419,7 +540,9 @@ focus_tree = {
 		}
 		x = 2
 		y = 11
-
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
 	}
 	focus = {
 		id = NIG_British_Investors
@@ -430,7 +553,9 @@ focus_tree = {
 		}
 		x = 3
 		y = 9
-
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
 	}
 	focus = {
 		id = NIG_Tribal_Leaders_as_a_Political_Mouthpiece
@@ -444,7 +569,11 @@ focus_tree = {
 		}
 		x = 12
 		y = 7
-
+		completion_reward = {
+			add_ideas = traditional_culture
+			add_stability = 0.05
+			
+		}
 	}
 	focus = {
 		id = NIG_Increase_Political_Repression
@@ -471,8 +600,10 @@ focus_tree = {
 		}
 		x = 13
 		y = 9
-
-	}
+		available = {
+			always = no
+		}
+	}	
 	focus = {
 		id = NIG_Sawaba_Takeover
 		icon = GFX_goal_unknown
@@ -485,7 +616,12 @@ focus_tree = {
 		}
 		x = 15
 		y = 9
-
+		available = {
+			always = no
+		}
+		completion_reward = {
+			load_focus_tree = Sawaba_60s_70s
+		}
 	}
 	focus = {
 		id = NIG_Further_Reliance_on_Tribal_Leaders
@@ -496,7 +632,9 @@ focus_tree = {
 		}
 		x = 13
 		y = 10
-
+		completion_reward = {
+			add_ideas = tribalism_politics
+		}
 	}
 	focus = {
 		id = NIG_Growing_Public_Anger
@@ -507,7 +645,10 @@ focus_tree = {
 		}
 		x = 12
 		y = 18
-
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = NIG_Sahelian_Drought_Worsens
@@ -518,7 +659,9 @@ focus_tree = {
 		}
 		x = 16
 		y = 18
-
+		completion_reward = {
+			add_ideas = famine
+		}
 	}
 	focus = {
 		id = NIG_Government_in_Dissaray
@@ -532,7 +675,12 @@ focus_tree = {
 		}
 		x = 14
 		y = 19
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = Government_Chaos
+				days = 800
+			}
+		}
 	}
 	focus = {
 		id = NIG_Attempt_to_Control_the_Situation
@@ -543,7 +691,10 @@ focus_tree = {
 		}
 		x = 14
 		y = 20
-
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.03
+		}
 	}
 	focus = {
 		id = NIG_Further_Crackdown_on_Sawaba
@@ -554,7 +705,12 @@ focus_tree = {
 		}
 		x = 15
 		y = 10
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = leftist_persecution
+				days = 600
+			}
+		}
 	}
 	focus = {
 		id = NIG_Ethnic_Favoritism
@@ -568,7 +724,9 @@ focus_tree = {
 		}
 		x = 17
 		y = 11
-
+		completion_reward = {
+			add_ideas = cultural_superiority_propaganda
+		}
 	}
 	focus = {
 		id = NIG_Hausa_Discontent
@@ -579,7 +737,10 @@ focus_tree = {
 		}
 		x = 18
 		y = 10
-
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = NIG_Crush_the_Military_Coup
@@ -593,7 +754,9 @@ focus_tree = {
 		}
 		x = 15
 		y = 13
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = NIG_Successful_Coup
@@ -607,7 +770,9 @@ focus_tree = {
 		}
 		x = 13
 		y = 13
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = NIG_President_Kountche
@@ -618,7 +783,16 @@ focus_tree = {
 		}
 		x = 5
 		y = 14
-
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.25
+			}
+		}
 	}
 	focus = {
 		id = NIG_Distribute_Food_Relief
@@ -629,7 +803,9 @@ focus_tree = {
 		}
 		x = 2
 		y = 15
-
+		completion_reward = {
+			remove_ideas = famine
+		}
 	}
 	focus = {
 		id = NIG_Economic_Preoccupaitons
@@ -640,7 +816,9 @@ focus_tree = {
 		}
 		x = 8
 		y = 15
-
+		completion_reward = {
+			remove_ideas = economic_stagnation
+		}
 	}
 	focus = {
 		id = NIG_Release_Political_Prisoners
@@ -657,7 +835,10 @@ focus_tree = {
 		}
 		x = 5
 		y = 17
-
+		completion_reward = {
+			remove_ideas = gulag_politic
+			remove_ideas = gulag_politic_expanded
+		}
 	}
 	focus = {
 		id = NIG_Strengthen_Relations_with_Arab_States
@@ -668,7 +849,72 @@ focus_tree = {
 		}
 		x = 7
 		y = 16
-
+		completion_reward = {
+			NIG = {
+				add_opinion_modifier = {
+					target = EGY
+					modifier = large_increase
+				}
+			}
+			EGY = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = large_increase
+				}
+			}
+			#
+			NIG = {
+				add_opinion_modifier = {
+					target = SAU
+					modifier = large_increase
+				}
+			}
+			SAU = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = large_increase
+				}
+			}			
+			#
+			NIG = {
+				add_opinion_modifier = {
+					target = IRQ
+					modifier = large_increase
+				}
+			}
+			IRQ = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = large_increase
+				}
+			}			
+			#
+			NIG = {
+				add_opinion_modifier = {
+					target = SYR
+					modifier = large_increase
+				}
+			}
+			SYR = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = large_increase
+				}
+			}			
+			#
+			NIG = {
+				add_opinion_modifier = {
+					target = JOR
+					modifier = large_increase
+				}
+			}
+			JOR = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_Stabilize_Ties_With_France
@@ -679,7 +925,21 @@ focus_tree = {
 		}
 		x = 3
 		y = 16
-
+		completion_reward = {
+			add_stability = 0.02
+			NIG = {
+				add_opinion_modifier = {
+					target = FRA
+					modifier = large_increase
+				}
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = NIG
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_Emphasize_Morality
@@ -693,7 +953,9 @@ focus_tree = {
 		}
 		x = 3
 		y = 18
-
+		completion_reward = {
+			add_ideas = emphasize_morality
+		}
 	}
 	focus = {
 		id = NIG_Domestic_Stabilization
@@ -704,7 +966,10 @@ focus_tree = {
 		}
 		x = 5
 		y = 20
-
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.15
+		}
 	}
 	focus = {
 		id = NIG_Strengthen_ties_to_America
@@ -718,7 +983,20 @@ focus_tree = {
 		}
 		x = 7
 		y = 18
-
+		completion_reward = {
+			USA = {
+				add_opinion_modifier = {
+					target = FRA
+					modifier = large_increase
+				}
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = USA
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = NIG_American_Food_Aid
@@ -732,7 +1010,9 @@ focus_tree = {
 		}
 		x = 5
 		y = 19
-
+		completion_reward = {
+			remove_ideas = drought
+		}
 	}
 	focus = {
 		id = NIG_Suspend_the_Constitution
@@ -743,7 +1023,9 @@ focus_tree = {
 		}
 		x = 5
 		y = 15
-
+		completion_reward = {
+			add_ideas = decleration_of_martial_law
+		}
 	}
 	focus = {
 		id = NIG_Disband_the_National_Assembly
@@ -753,8 +1035,11 @@ focus_tree = {
 			focus = NIG_Suspend_the_Constitution
 		}
 		x = 5
-		y = 16
-
+		y = 16	
+		completion_reward = {
+			add_political_power = 100
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = NIG_Economic_Stagnation
@@ -765,7 +1050,9 @@ focus_tree = {
 		}
 		x = 15
 		y = 14
-
+		completion_reward = {
+			add_ideas = economic_stagnation
+		}
 	}
 	focus = {
 		id = NIG_Further_our_French_Dependence
@@ -776,7 +1063,12 @@ focus_tree = {
 		}
 		x = 18
 		y = 14
-
+		completion_reward = {
+			add_stability = -0.05
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_to_variable = { var = influencer1_amount value = 500 }
+			recalculate_influence = yes
+		}
 	}
 	focus = {
 		id = NIG_Military_Suspicions
@@ -787,7 +1079,10 @@ focus_tree = {
 		}
 		x = 13
 		y = 14
-
+		completion_reward = {
+			add_manpower = -5000
+			army_experience = -25
+		}
 	}
 	focus = {
 		id = NIG_The_Drought
@@ -801,7 +1096,9 @@ focus_tree = {
 		}
 		x = 17
 		y = 15
-
+		completion_reward = {
+			add_ideas = drought
+		}
 	}
 	focus = {
 		id = NIG_Political_Crisis
@@ -815,7 +1112,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 16
-
+		completion_reward = {
+			add_political_power = -200
+		}
 	}
 	focus = {
 		id = NIG_Political_Prisons
@@ -843,6 +1142,8 @@ focus_tree = {
 		}
 		x = 11
 		y = 15
-
+		completion_reward = {
+			add_stability = -0.05
+		}	
 	}
 }
