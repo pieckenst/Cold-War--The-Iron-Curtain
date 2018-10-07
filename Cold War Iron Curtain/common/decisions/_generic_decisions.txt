@@ -1699,6 +1699,51 @@ political_actions = {
 			factor = 0
 		}
 	}
+    ic_pulse_one = {
+        
+        allowed = {
+           is_ai = yes
+        }
+        
+        available = {
+            has_country_flag = ic_pulse_one_flag
+            is_ai = yes
+        }
+
+        visible = {
+            has_country_flag = ic_pulse_one_flag
+			is_ai = yes
+        }
+
+
+        #is_good = yes
+
+        selectable_mission = yes
+        days_mission_timeout = 1
+        days_remove = 30
+        
+
+        
+        timeout_effect = {
+            clr_country_flag = ic_pulse_one_flag
+            random_country = {
+                limit = { is_ai = yes has_war = no }
+                set_country_flag = ic_pulse_one_flag
+                country_event = { id = ic_pulse.1 }
+            }
+        }
+
+
+        complete_effect = {
+            every_country = {
+                country_event = { id = ic_pulse.1 }
+            }
+        }
+        
+        ai_will_do = {
+            factor = 100
+        }
+    }
 	invade_pakistan_1 = {
 
 		icon = generic_industry
