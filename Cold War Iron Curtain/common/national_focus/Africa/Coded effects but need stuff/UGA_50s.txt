@@ -48,7 +48,10 @@ focus_tree = {
 		}
 		x = 38
 		y = 2
-
+		completion_reward = {
+			add_stability = 0.05
+			add_to_variable = { var = domestic_influence_amount value = 500 }
+		}
 	}
 	focus = {
 		id = UGA_Reject_Cotton_Reform
@@ -76,7 +79,9 @@ focus_tree = {
 		}
 		x = 40
 		y = 2
-
+		completion_reward = {
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = UGA_Bugandan_Seperatism
@@ -105,7 +110,16 @@ focus_tree = {
 		}
 		x = 35
 		y = 4
-
+		completion_reward = {
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.02
+			}		
+			add_timed_idea = {
+				idea = christian_militarization
+				days = 500
+			}
+		}
 	}
 	focus = {
 		id = UGA_Concerns_over_Federaiton_Proposals
@@ -116,7 +130,10 @@ focus_tree = {
 		}
 		x = 37
 		y = 4
-
+		completion_reward = {
+			add_stability = -0.02
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = UGA_The_Uganda_National_Congress
@@ -131,7 +148,12 @@ focus_tree = {
 		}
 		x = 42
 		y = 3
-
+		completion_reward = {
+			add_popularity = {
+				ideology = nationalism
+				popularity = 0.10
+			}
+		}
 	}
 	focus = {
 		id = UGA_Underground_Political_Movements
@@ -142,7 +164,16 @@ focus_tree = {
 		}
 		x = 41
 		y = 4
-
+		completion_reward = {
+			add_popularity = {
+				ideology = nationalism
+				popularity = 0.10
+			}
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.10
+			}
+		}
 	}
 	focus = {
 		id = UGA_Prepare_for_Self_Rule
@@ -153,7 +184,12 @@ focus_tree = {
 		}
 		x = 43
 		y = 4
-
+		completion_reward = {
+			add_political_power = 100
+			add_autonomy_ratio = {
+				value = 500
+			}	
+		}
 	}
 	focus = {
 		id = UGA_Underground_Politics
@@ -167,7 +203,16 @@ focus_tree = {
 		}
 		x = 42
 		y = 5
-
+		completion_reward = {
+			add_popularity = {
+				ideology = nationalism
+				popularity = 0.10
+			}
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.10
+			}
+		}
 	}
 	focus = {
 		id = UGA_Stockpile_Weaponry
@@ -178,7 +223,13 @@ focus_tree = {
 		}
 		x = 41
 		y = 6
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 15000
+				producer = ENG
+			}		
+		}
 	}
 	focus = {
 		id = UGA_End_Coffee_Discrimination
@@ -192,7 +243,41 @@ focus_tree = {
 		}
 		x = 42
 		y = 7
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = UGA_Allow_African_Cotton_Ginning
@@ -203,7 +288,41 @@ focus_tree = {
 		}
 		x = 43
 		y = 8
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = UGA_The_Democratic_Party
@@ -214,7 +333,13 @@ focus_tree = {
 		}
 		x = 41
 		y = 8
-
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = {
+				ideology = conservative
+				popularity = 0.15
+			}
+		}
 	}
 	focus = {
 		id = UGA_Ugandan_Development_Corporation
@@ -228,7 +353,9 @@ focus_tree = {
 		}
 		x = 42
 		y = 9
-
+		completion_reward = {
+			add_ideas = capitalism
+		}
 	}
 	focus = {
 		id = UGA_Educational_Investments
@@ -240,7 +367,10 @@ focus_tree = {
 		x = 43
 		y = 6
 		completion_reward = {
-		
+			add_timed_idea = {
+				idea = educaton_investments
+				days = 700
+			}
 		}
 	}
 	focus = {
@@ -255,7 +385,10 @@ focus_tree = {
 		}
 		x = 47
 		y = 3
-
+		completion_reward = {
+			add_stability = -0.05
+			add_manpower = -1000
+		}
 	}
 	focus = {
 		id = UGA_Return_of_Obote
@@ -266,7 +399,14 @@ focus_tree = {
 		}
 		x = 46
 		y = 4
-
+		completion_reward = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.10
+			}
+		}
 	}
 	focus = {
 		id = UGA_Deploy_the_Military
@@ -277,7 +417,12 @@ focus_tree = {
 		}
 		x = 48
 		y = 4
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = martial_law
+				days = 365
+			}	
+		}
 	}
 	focus = {
 		id = UGA_Political_Turmoil
@@ -291,7 +436,21 @@ focus_tree = {
 		}
 		x = 47
 		y = 5
-
+		completion_reward = {
+			add_war_support = 0.02
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.10
+			}
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.10
+			}
+			add_popularity = {
+				ideology = nationalism
+				popularity = 0.10
+			}
+		}
 	}
 	focus = {
 		id = UGA_Colonial_Mutinies
@@ -302,7 +461,10 @@ focus_tree = {
 		}
 		x = 47
 		y = 6
-
+		completion_reward = {
+			add_war_support = 0.10
+			add_manpower = -5000
+		}
 	}
 	focus = {
 		id = UGA_Implosion_of_the_State
@@ -313,7 +475,9 @@ focus_tree = {
 		}
 		x = 46
 		y = 7
-
+		completion_reward = {
+			add_stability = -0.10
+		}
 	}
 	focus = {
 		id = UGA_Anti_Kebaka_Sentiment
@@ -324,12 +488,17 @@ focus_tree = {
 		}
 		x = 48
 		y = 7
-
+		completion_reward = {
+			add_popularity = {
+				ideology = monarchism
+				popularity = -0.15
+			}
+		}
 	}
 	focus = {
 		id = UGA_British_Mediation
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = UGA_Implosion_of_the_State
 		}
@@ -338,12 +507,15 @@ focus_tree = {
 		}
 		x = 47
 		y = 8
-
+		completion_reward = {
+			add_stability = 0.10
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 		id = UGA_Reforms_Granted
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 5.00
 		prerequisite = {
 			focus = UGA_British_Mediation
 		}
@@ -352,7 +524,10 @@ focus_tree = {
 		}
 		x = 45
 		y = 9
-
+		completion_reward = {
+			add_stability = 0.15
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = UGA_British_Withdrawal
@@ -366,7 +541,12 @@ focus_tree = {
 		}
 		x = 49
 		y = 9
-
+		completion_reward = {
+			set_autonomy = {
+				target = UGA
+				autonomy_state = autonomy_free
+			}		
+		}
 	}
 	focus = {
 		id = UGA_The_Ugandan_Crisis
@@ -377,7 +557,11 @@ focus_tree = {
 		}
 		x = 49
 		y = 10
-
+		completion_reward = {
+			add_political_power = 100
+			add_threat = 5
+			add_stability = -0.05
+		}
 	}
 	focus = {
 		id = UGA_The_Ugandan_Civil_War
@@ -388,12 +572,15 @@ focus_tree = {
 		}
 		x = 49
 		y = 11
-
+		completion_reward = {
+			add_war_support = 0.15
+			add_stability = -0.10
+		}
 	}
 	focus = {
 		id = UGA_Side_with_the_Kebaka
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 1.00
 		prerequisite = {
 			focus = UGA_The_Ugandan_Civil_War
 		}
@@ -402,7 +589,13 @@ focus_tree = {
 		}
 		x = 47
 		y = 12
-
+		completion_reward = {
+			start_civil_war = {
+				ruling_party = monarchism
+				ideology = socialist
+				size = 0.5
+			}
+		}
 	}
 	focus = {
 		id = UGA_Embrace_Capitalism
@@ -420,7 +613,7 @@ focus_tree = {
 	focus = {
 		id = UGA_Side_with_the_Socialists
 		icon = GFX_goal_unknown
-		cost = 10.00
+		cost = 1.00
 		prerequisite = {
 			focus = UGA_The_Ugandan_Civil_War
 		}
@@ -429,7 +622,13 @@ focus_tree = {
 		}
 		x = 51
 		y = 12
-
+		completion_reward = {
+			start_civil_war = {
+				ruling_party = socialist
+				ideology = monarchism
+				size = 0.5
+			}
+		}
 	}
 	focus = {
 		id = UGA_Land_Reform
@@ -453,7 +652,32 @@ focus_tree = {
 		}
 		x = 52
 		y = 13
-
+			completion_reward = {
+					POR = {
+							add_opinion_modifier = {
+									target = UGA
+									modifier = large_decrease
+								}
+						}
+					UGA = {
+							add_opinion_modifier = {
+									target = POR
+									modifier = large_decrease
+								}
+						}
+					ZIM = {
+							add_opinion_modifier = {
+									target = UGA
+									modifier = large_decrease
+								}
+						}
+					UGA = {
+							add_opinion_modifier = {
+									target = ZIM
+									modifier = large_decrease
+								}
+						}
+				}		
 	}
 	focus = {
 		id = UGA_Urbanization_Campaign
@@ -467,7 +691,12 @@ focus_tree = {
 		}
 		x = 51
 		y = 14
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = urban_planning
+				days = 900
+			}	
+		}	
 	}
 	focus = {
 		id = UGA_Sir_Cohens_Reforms
@@ -482,7 +711,10 @@ focus_tree = {
 		}
 		x = 39
 		y = 10
-
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = UGA_Kabaka_Crisis
@@ -496,7 +728,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 5
-
+		completion_reward = {
+			news_event= Uganda.1
+		}
 	}
 	focus = {
 		id = UGA_Reorganized_the_Legislative_Councils
@@ -507,7 +741,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 11
-
+		completion_reward = {
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = UGA_Buganda_Agreement
@@ -518,7 +754,13 @@ focus_tree = {
 		}
 		x = 36
 		y = 9
-
+		completion_reward = {
+			add_to_variable = { var = domestic_influence_amount value = 500 }
+			add_popularity = {
+				ideology = monarchism 
+				popularity = 0.05
+			}
+		}
 	}
 	focus = {
 		id = UGA_Exile_Mutesa_II
@@ -530,7 +772,7 @@ focus_tree = {
 		x = 35
 		y = 7
 		completion_reward = {
-			news_event= Uganda.1
+			news_event= Uganda.2
 		}
 	}
 	focus = {
@@ -546,7 +788,7 @@ focus_tree = {
 		x = 36
 		y = 8
 		completion_reward = {
-			news_event= Uganda.1
+			news_event= Uganda.3
 			add_stability = 0.10
 		}
 	}
@@ -681,7 +923,13 @@ focus_tree = {
 		}
 		x = 35
 		y = 16
-
+		completion_reward = {
+			add_popularity = {
+				ideology = Christian_Democratic
+				popularity = 0.15
+			}
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = UGA_Internal_Self_Governance
@@ -694,7 +942,12 @@ focus_tree = {
 		}
 		x = 39
 		y = 17
-
+		completion_reward = {
+			add_autonomy_ratio = {
+				value = 500
+			}			
+			add_to_variable = { var = domestic_influence_amount value = 250 }
+		}
 	}
 	focus = {
 		id = UGA_Compromise_with_Yekka
@@ -708,7 +961,10 @@ focus_tree = {
 		}
 		x = 39
 		y = 16
-
+		completion_reward = {
+			add_stability = 0.03
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = UGA_Consolidation_of_Power
@@ -722,7 +978,13 @@ focus_tree = {
 		}
 		x = 43
 		y = 16
-
+		completion_reward = {
+			add_political_power = 100
+			add_timed_idea = {
+				idea = repression
+				days = 365
+			}
+		}
 	}
 	focus = {
 		id = UGA_Special_Autonomy_for_Buganda
@@ -733,7 +995,13 @@ focus_tree = {
 		}
 		x = 42
 		y = 15
-
+		completion_reward = {
+			add_political_power = 200
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.10
+			}
+		}
 	}
 	focus = {
 		id = UGA_Increase_Anglican_Influence
@@ -744,7 +1012,13 @@ focus_tree = {
 		}
 		x = 44
 		y = 15
-
+		completion_reward = {
+			add_to_variable = { var = influencer1_amount value = 300 }
+			add_timed_idea = {
+				idea = emphasize_morality
+				days = 500
+			}
+		}
 	}
 	focus = {
 		id = UGA_Condemn_the_Kebaka
@@ -834,7 +1108,10 @@ focus_tree = {
 		}
 		x = 47
 		y = 14
-
+		completion_reward = {
+			set_cosmetic_tag = UGA_CON_MON
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = UGA_Infrastructure_Development
