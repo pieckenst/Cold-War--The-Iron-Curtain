@@ -12,8 +12,6 @@ focus_tree = {
 		
 	shared_focus = BRA_non_aligned
 	
-	shared_focus = BRA_soviet_alignment
-	
 	shared_focus = BRA_american_alignment	
 	
 	focus = {
@@ -301,6 +299,7 @@ focus_tree = {
 		x = 7
 		y = 4
 		completion_reward = {
+		add_stability = 0.01
 			add_ideas = catholic_missionaries
 		}
 	}
@@ -379,6 +378,7 @@ focus_tree = {
 		x = 32
 		y = 9
 		completion_reward = {
+		army_experience = 50
 			load_oob = ROC_focus
 		}
 	}
@@ -550,7 +550,7 @@ focus_tree = {
 		x = 39
 		y = 3
 		completion_reward = {
-			add_ideas = forced_labour
+			add_ideas = gulag_politic
 		}
 	}
 	focus = {
@@ -588,6 +588,13 @@ focus_tree = {
 		id = ROC_Request_Autonomy
 		icon = GFX_focus_generic_concessions
 		cost = 10.00
+		ai_will_do = {
+            factor = 1
+                modifier = {
+                    is_historical_focus_on = yes
+                    factor = 0
+                }
+        }
 		prerequisite = {
 			focus = ROC_The_Matters_of_Colonial_Administration
 		}
@@ -647,6 +654,15 @@ focus_tree = {
 		prerequisite = {
 			focus = ROC_Native_Resentment
 		}
+		available = {
+			date < 1951.1.1
+			NOT = {
+				has_completed_focus = ROC_The_New_Governor_1951
+			}
+			}
+		mutually_exclusive = {
+			focus = ROC_Suspend_our_Ambitions
+		}
 		x = 44
 		y = 4
 		completion_reward = {
@@ -667,7 +683,8 @@ focus_tree = {
 			add_timed_idea = {
 				idea = repression
 				days = 365
-			}		
+			}
+				add_stability = 0.1
 		}
 	}
 	focus = {
@@ -694,6 +711,12 @@ focus_tree = {
 		prerequisite = {
 			focus = ROC_Autonomy_Accepted
 		}
+			available = {
+			date < 1951.1.1
+			NOT = {
+				has_completed_focus = ROC_The_New_Governor_1951
+			}
+			}
 		x = 40
 		y = 7
 		completion_reward = {
@@ -733,6 +756,9 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = ROC_Native_Resentment
+		}
+			mutually_exclusive = {
+			focus = ROC_Stage_Riots
 		}
 		x = 48
 		y = 4
@@ -851,7 +877,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ROC_1951_Development_Plan
-		icon = GFX_focus_generic_industry_2
+		icon = GFX_focus_generic_industry_1
 		cost = 10.00
 		prerequisite = {
 			focus = ROC_The_New_Governor_1951
@@ -879,7 +905,7 @@ focus_tree = {
 		x = 54
 		y = 2
 		completion_reward = {
-			remove_ideas = forced_labour
+			remove_ideas = gulag_politic
 		}
 	}
 	focus = {
@@ -895,13 +921,13 @@ focus_tree = {
 					add_tech_bonus = {
 							name = industry_tech
 							bonus = 0.75
-							technology = industry
+							category = industry
 						}
 				}
 	}
 	focus = {
 		id = ROC_1953_Development_Plan
-		icon = GFX_focus_generic_industry_3
+		icon = GFX_focus_generic_industry_2
 		cost = 10.00
 		prerequisite = {
 			focus = ROC_1951_Development_Plan
@@ -932,7 +958,7 @@ focus_tree = {
 					add_tech_bonus = {
 							name = industry_tech
 							bonus = 0.75
-							technology = industry
+							category = industry
 						}
 				}
 	}
@@ -956,7 +982,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = ROC_A_Union_Under_Count_Gentille
+		id = ROC_A_Union_Under_Gentille
 		icon = GFX_focus_generic_strike_at_democracy2
 		cost = 10.00
 		prerequisite = {
@@ -965,10 +991,11 @@ focus_tree = {
 		x = 40
 		y = 13
 		completion_reward = {
-			add_political_power = 200
+			add_political_power = 50
+			add_stability = 0.3
 			create_country_leader = {
-				name = "Count Gentille"
-				picture = "Count_Gentille.dds"
+				name = "Consul Cornut-Gentille"
+				picture = "Bernard_Cornut-Gentille.dds"
 				ideology = colonial_regime
 			}		
 		}
@@ -983,10 +1010,17 @@ focus_tree = {
 		x = 41
 		y = 11
 		completion_reward = {
+		add_political_power = -100
 			add_timed_idea = {
-				idea = payments_to_france
+				idea = roc_france_pay
 				days = 900
 			}
+			FRA = { 
+			add_timed_idea = { 
+			idea = roc_france_give 
+			days = 900
+			} 
+				}
 		}
 	}
 	focus = {
@@ -1097,7 +1131,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ROC_1955_Development_Plan
-		icon = GFX_focus_generic_industry_1
+		icon = GFX_focus_generic_industry_3
 		cost = 10.00
 		prerequisite = {
 			focus = ROC_1953_Development_Plan
@@ -1127,8 +1161,8 @@ focus_tree = {
 			completion_reward = {
 					add_tech_bonus = {
 							name = industry_tech
-							bonus = 0.75
-							technology = industry
+							ahead_reduction = 0.75
+							category = industry
 						}
 				}
 	}
