@@ -14,6 +14,15 @@ focus_tree = {
 		cost = 10.00
 		x = 4
 		y = 0
+		completion_reward = {
+		    add_political_power = -10
+			add_tech_bonus = {
+					name = industrial_bonus
+					bonus = 0.5
+					uses = 1
+					category = industry
+			}
+		}
 
 	}
 	focus = {
@@ -22,6 +31,9 @@ focus_tree = {
 		cost = 10.00
 		x = 42
 		y = 0
+	    bypass = {
+		    has_global_flag = swedish_elections_1952
+		}
 
 	}
 	focus = {
@@ -30,6 +42,9 @@ focus_tree = {
 		cost = 10.00
 		x = 21
 		y = 0
+		completion_reward = {
+		    add_political_power = 10
+		}
 
 	}
 	focus = {
@@ -38,6 +53,18 @@ focus_tree = {
 		cost = 10.00
 		mutually_exclusive = {
 			focus = SWE_condemn_israel
+		}
+		completion_reward = {		
+			add_opinion_modifier = {
+				target = ISR
+				modifier = large_increase
+			}		
+		    ISR = {
+				add_opinion_modifier = {
+				    target = ROOT
+				    modifier = large_increase
+				}
+			}
 		}
 		x = 18
 		y = 1
