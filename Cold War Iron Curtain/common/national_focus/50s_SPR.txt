@@ -209,6 +209,9 @@ focus_tree = {
 	focus = {
 		id = SPR_equipment_effort_2
 		icon = GFX_goal_generic_army_artillery
+		prerequisite = {
+			focus = SPR_Expand_the_Military
+		}
 		cost = 10.00
 		x = 13
 		y = 4
@@ -370,7 +373,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPR_infrastructure_effort_2
-		icon = GFX_goal_generic_construct_infrastructure
+		icon = GFX_FocusBuildRoads
 		cost = 10.00
 		prerequisite = {
 			focus = SPR_construction_effort
@@ -750,6 +753,9 @@ focus_tree = {
 		id = SPR_end_of_autarky
 		icon = GFX_ReopentheStockMarkets
 		cost = 10.00
+		available = {
+			has_completed_focus = SPR_economic_freedom
+		}
 		prerequisite = {
 			focus = SPR_infrastructure_effort_2
 		}
@@ -764,7 +770,12 @@ focus_tree = {
 		}
 		x = 3
 		y = 5
-
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = closed_economy
+				add_idea = free_trade
+			}
+		}
 	}
 	focus = {
 		id = SPR_autarky_stays
@@ -2729,7 +2740,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 5
-
+		completion_reward = {
+			news_event = spr.4
+		}
 	}
 	focus = {
 		id = SPR_economic_aid
@@ -2896,7 +2909,8 @@ focus_tree = {
 		x = 36
 		y = 8
 		completion_reward = {
-					remove_ideas = ddr_idea_industrial_corruption
+				remove_ideas = ddr_idea_industrial_corruption
+				add_stability = 0.05
 			}
 	}
 	focus = {
@@ -2934,7 +2948,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 7
-
+		completion_reward = {
+			country_event = spr.3
+		}
 	}
 	focus = {
 		id = SPR_convert_portugal
@@ -2993,6 +3009,8 @@ focus_tree = {
 				ruling_party = communism
 				elections_allowed = yes
 				}
+				remove_idea = repression
+				remove_idea = death_squads
 			}
 	}
 	focus = {
@@ -3039,5 +3057,31 @@ focus_tree = {
 		y = 10
 		completion_reward = {
 		release = CTL
+		SPR = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = small_increase
+								}
+						}
+					FRA = {
+							add_opinion_modifier = {
+									target = SPR
+									modifier = small_increase
+								}
+						}
+						SPR = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = small_increase
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = SPR
+									modifier = small_increase
+								}
+						}
+		
 	}
+}
 }
