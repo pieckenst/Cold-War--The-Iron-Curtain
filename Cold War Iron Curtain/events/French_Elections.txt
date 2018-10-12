@@ -9,7 +9,8 @@ add_namespace = FRA_CIVIL_WAR
 add_namespace = Evain_Accords
 add_namespace = france_junta
 add_namespace = algeirs
-add_namespace = may_68
+add_namespace = may
+add_namespace = referendumfr
 
 country_event = {
 	id = french_elections.2
@@ -87,6 +88,9 @@ country_event = {
 	# Georges Pompidou
 	option = {
 		name = "Georges Pompidou"
+		trigger = {
+		NOT = { have_global_flag = goodbye_pompidou }
+		}
 		create_country_leader = {
 			name = "Georges Pompidou"
 			picture = Portrait_France_Georges_Pompidou.dds
@@ -127,6 +131,34 @@ country_event = {
 			}
 		}
 	}
+	option = {
+		name = "François Mitterrand"
+		trigger = {
+			OR = {
+				has_completed_focus = FRA_60s_Gaullist_Defeat
+				has_completed_focus = FRA_60s_Referendum_Success
+				has_completed_focus = FRA_60s_Mitterand_1965
+			}
+		}
+		create_country_leader = {
+		name = "François Mitterrand"
+		picture = "Portrait_France_Francois_Mitterrand.dds"
+		expire = "1996.1.8"
+		ideology = socialism
+		}
+		set_global_flag = mitterand_1969
+		set_politics = {
+			ruling_party = socialist
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
 }
 country_event = {
 	id = De_Galle.9
@@ -142,9 +174,17 @@ country_event = {
 
 
 	option = {
-		name = "Resignation of de Gaulle"
-		add_political_power = 300
-		add_stability = 0.10
+		name = "Large Gaullist Victory"
+		complete_national_focus = FRA_60s_Large_Gaullist_Victory
+	}
+	option = {
+		name = "The Army Intervene"
+		complete_national_focus = FRA_60s_The_French_Civil_War_68
+		country_event = FRA_CIVIL_WAR.5
+	}
+	option = {
+		name = "Gaullist Defeat"
+		complete_national_focus = FRA_60s_Gaullist_Defeat
 	}
 }
 country_event = {
@@ -380,6 +420,7 @@ country_event = {
 		name = "Civil War (Back Military)"
 		add_political_power = 300
 		set_politics = { ruling_party = neutrality elections_allowed = no }	
+		complete_national_focus = FRA_60s_Install_a_Junta
 	}
 	option = {
 		name = "Civil War (Back Communists)"
@@ -387,6 +428,7 @@ country_event = {
 		set_politics = { ruling_party = communism elections_allowed = no }
 		start_civil_war = { ideology = fascism size = 0.45 }			
 		set_country_flag = coup_success
+		complete_national_focus = FRA_60s_Downfall_of_the_Regime
 	}	
 	option = {
 		name = "Civil War (Back OAS)"
@@ -394,42 +436,250 @@ country_event = {
 		set_politics = { ruling_party = fascism elections_allowed = no }
 		start_civil_war = { ideology = communism size = 0.45 }			
 		set_country_flag = coup_success
+		complete_national_focus = FRA_60s_Salvation_of_France
 	}	
 }
 
-country_event = {
-	id = may_68.1
-	title = "May 1968"
-	desc = "May 1968"
-	picture = GFX_report_event_brazil_election_1955
-	
-	fire_only_once = yes
-	is_triggered_only = yes
-
-	immediate = {
-		set_country_flag = FRA_MAY_68
-	}
-
-	# Charles de Gaulle
-	option = {
-		name = "Concerning Development"
-	}
-}
-country_event = {
-	id = may_68.1
-	title = "May 1968"
-	desc = "May 1968"
-	picture = GFX_report_event_brazil_election_1955
-	
-	fire_only_once = yes
-	is_triggered_only = yes
-
-	immediate = {
-		set_country_flag = FRA_MAY_68
-	}
-
-	# Charles de Gaulle
-	option = {
-		name = "Concerning Development"
-	}
-}
+#news_event = {
+#	id = may.681
+#	title = "Maoist Militant occupy Nanterre Faculty"
+#	desc = may.681.d
+#	picture = GFX_news_event_tallin_spring
+#	
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		set_country_flag = FRA_MAY_68
+#		set_country_flag = maoist_nanterre
+#	}
+#
+#	option = {
+#		name = "These students need to calm down"
+#	}
+#}
+#news_event = {
+#	id = may.682
+#	title = "May 1st Rally"
+#	desc = may.682.d
+#	picture = GFX_news_event_tallin_spring
+#	
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		set_country_flag = may_first
+#	}
+#
+#	option = {
+#		name = "Concerning Development"
+#	}
+#}
+#news_event = {
+#	id = may.683
+#	title = "First day of la Sorbonne"
+#	desc = may.683.d
+#	picture = GFX_news_event_tallin_spring
+#	
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		set_country_flag = may_sorbonne_day1
+#	}
+#
+#	option = {
+#		name = "Let's hope the riots don't spreads"
+#	}
+#}
+#country_event = {
+#	id = may.684
+#	title = "second day of la Sorbonne"
+#	desc = may.684.d
+#	picture = GFX_news_event_tallin_spring
+#	
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		set_country_flag = may_sorbonne_day2
+#	}
+#
+#	option = {
+#		name = "The Police stop the students"
+#	}
+#	option = {
+#		name = "The Police can't stop the students"
+#		set_country_flag = student_beat_police
+#	}
+#}
+#country_event = {
+#	id = may.685
+#	title = "UNEF meeting"
+#	desc = may.685.d
+#	picture = GFX_news_event_tallin_spring
+#	
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		set_country_flag = UNEF_meeting
+#	}
+#
+#	option = {
+#		name = "The Maoists are out"
+#	}
+#	option = {
+#		name = "The Maoists take the lead"
+#		trigger = {
+#		has_country_flag = student_beat_police
+#		}
+#		set_country_flag = may68_maoist_take_the_lead
+#	}
+#}
+#news_event = {
+#	id = may.686
+#	title = "General Strike"
+#	desc = may.686.d
+#	picture = GFX_news_event_tallin_spring
+#	
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		set_country_flag = may_general_strike
+#	}
+#
+#	option = {
+#		name = "8 Millions of people are in the streets!"
+#	}
+#}
+#news_event = {
+#	id = may.687
+#	title = "First Death of May 68"
+#	desc = may.687.d
+#	picture = GFX_news_event_tallin_spring
+#	
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		set_country_flag = may_first_death
+#	}
+#
+#	option = {
+#		name = "It seem to have calmed them"
+#	}
+#}
+#news_event = {
+#	id = may.688
+#	title = "Multiple death during the breakdown of a strike"
+#	desc = may.688.d
+#	picture = GFX_news_event_tallin_spring
+#	
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		set_country_flag = may_multiple_death
+#	}
+#
+#	option = {
+#		name = "It light the spark of the Revolution"
+#	}
+#}
+#news_event = {
+#	id = may.69
+#	title = "Grenelles agreements"
+#	desc = may.69.d
+#	picture = GFX_news_event_tallin_spring
+#	
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		set_country_flag = grenelles_agreements
+#	}
+#
+#	option = {
+#		name = "The Prime Minister saved the day"
+#	}
+#}
+#news_event = {
+#	id = may.689
+#	title = "Massive Revolt"
+#	desc = may.89.d
+#	picture = GFX_news_event_tallin_spring
+#	
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		set_country_flag = may_massive_rev
+#		set_global_flag = goodbye_pompidou
+#	}
+#
+#	option = {
+#		name = "Goodbye Pompidou"
+#	}
+#}
+#news_event = {
+#	id = may.70
+#	title = "Ban on Strikes"
+#	desc = may.70.d
+#	picture = GFX_news_event_tallin_spring
+#	
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		set_country_flag = may_strike_banned
+#	}
+#
+#	option = {
+#		name = "The Strikes are temporary Banned"
+#	}
+#}
+#country_event = {
+#	id = may.71
+#	title = "Pompidou Meet Degaulle"
+#	desc = may.71.d
+#	picture = GFX_news_event_tallin_spring
+#	
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		set_country_flag = pompidou_meet_degaulle
+#	}
+#
+#	option = {
+#		name = "Degaulle accept Pompidou resignation"
+#		set_global_flag = goodbye_pompidou
+#	}
+#	option = {
+#		name = "Degaulle dissolve the national Assembly"
+#	}
+#}
+#country_event = {
+#	id = referendumfr.1
+#	title = "Referendum on the Regions and Senate"
+#	desc = referendumfr.1.d
+#	picture = GFX_news_event_tallin_spring
+#	
+#	fire_only_once = yes
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		set_country_flag = referendum_fr
+#	}
+#
+#	option = {
+#		name = "Referendum Success"
+#		complete_national_focus = FRA_60s_Referendum_Success
+#	}
+#	option = {
+#		name = "Referendum Failure"
+#		complete_national_focus = FRA_60s_Referendum_Fail
+#	}
+#

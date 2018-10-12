@@ -87,7 +87,7 @@ country_event = {
 				target = MAL
 			}
 		}
-	}	
+	}
 }
 
 # Hidden Trigger, end of civil war
@@ -127,3 +127,107 @@ country_event = {
 	}
 
 }
+#country_event = {
+#	id = INO.3
+#	title = "Dutch-Indonesian Round Table Conference"
+#	desc = INO.3.d
+#	picture = GFX_report_event_german_troops
+#	is_triggered_only = yes
+#	fire_only_once = yes
+#
+#	immediate = {
+#	set_global_flag = di_round_table_conference
+#	}
+#	
+#	option = {
+#		name = "Abandon East Indies expect New Guinea"
+#		complete_national_focus = HOL_Loss_of_Indonesia
+#		set_global_flag = historical_table_conference_proposition
+#		ai_chance = {
+#			factor = 50
+#		}	
+#		INO = { country_event = INO.4 }
+#	}
+#	option = {
+#		name = "Abandon all East Indies"
+#		complete_national_focus = HOL_Loss_of_Indonesia
+#		set_global_flag = alt_table_conference_proposition
+#		ai_chance = {
+#			factor = 50
+#		}
+#		INO = { country_event = INO.4 }
+#	}
+#	option = {
+#		name = "Continue the Fight"
+#		complete_national_focus = HOL_Crush_Indonesia
+#		set_global_flag = alt_table_conference_stopped
+#		ai_chance = {
+#			factor = 50
+#		}
+#		INO = { country_event = INO.4 }
+#		add_political_power = 100
+#	}
+#
+#ountry_event = {
+#	id = INO.4
+#	title = "Dutch-Indonesian Round Table Conference"
+#	desc = INO.4.d
+#	picture = GFX_report_event_german_troops
+#	is_triggered_only = yes
+#	fire_only_once = yes
+#
+#	immediate = {
+#	set_country_flag = di_round_table_conference_indonesia
+#	}
+#	option = {
+#		name = "Dutch abandon East Indies expect New Guinea"
+#		set_country_flag = historical_table_conference_proposition_accepted
+#		HOL = { set_country_flag = historical_table_conference_proposition_accepted }
+#		trigger = {
+#			has_global_flag = historical_table_conference_proposition
+#		}
+#		ai_chance = {
+#			factor = 50
+#		}	
+#		news_event = INO.5
+#			INO = {
+#				white_peace = HOL	
+#				annex_country = { target = INS }
+#			}
+#			HOL = {
+#				transfer_state = 669
+#				transfer_state = 858			
+#			}
+#			669 = { add_core_of = HOL }	
+#			858 = { add_core_of = HOL }	
+#			DAR = {
+#				white_peace = HOL
+#			}
+#	}
+#	option = {
+#		name = "Dutch abandon all East Indies"
+#		set_country_flag = historical_table_conference_proposition_accepted
+#		HOL = { set_country_flag = historical_table_conference_proposition_accepted }
+#		trigger = {
+#			has_global_flag = alt_table_conference_proposition
+#		}
+#		ai_chance = {
+#			factor = 50
+#		}	
+#		news_event = INO.5
+#			INO = {
+#				white_peace = HOL	
+#				annex_country = { target = INS }
+#			}
+#			DAR = {
+#				white_peace = HOL
+#			}
+#	}
+#	option = {
+#		name = "We will not Negotiate with the Dutch !"
+#		ai_chance = {
+#			factor = 50
+#		}	
+#		news_event = INO.6
+#	}
+#
