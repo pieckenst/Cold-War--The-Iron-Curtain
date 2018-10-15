@@ -3765,40 +3765,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = ITA_Crown_A_New_Augustus
-		icon = GFX_focus_rom_royal_dictatorship
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_form_rome
-		}
-		x = 10
-		y = 21
-			available = {
-					OR = {
-							fascism > 0.3
-							monarchism > 0.3
-						}
-				}
-			completion_reward = {
-					set_cosmetic_tag = ROME_IMP
-					set_politics = {
-							ruling_party = monarchism
-							elections_allowed = no
-						}
-					create_country_leader = {
-							name = "Augusto De Marsanich"
-							desc = ""
-							picture = "gfx/leaders/ITA/Portrait_ITA_Augusto_De_Marsanich.tga"
-							expire = "1973.1.1"
-							ideology = absolute_monarchist
-							traits = {
-
-}
-						}
-				}
-
-	}
-	focus = {
 		id = ITA_Princie_di_Naples
 		icon = GFX_focus_rom_royal_dictatorship
 		cost = 10.00
@@ -3838,75 +3804,6 @@ focus_tree = {
 							traits = {
 
 }
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_the_new_legions
-		icon = GFX_IntotheFlames
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_Praetorian_Guard
-		}
-		mutually_exclusive = {
-			focus = ITA_the_roman_faction
-		}
-		x = 7
-		y = 24
-			completion_reward = {
-					add_ideas = ideological_fanaticism_focus
-				}
-
-	}
-	focus = {
-		id = ITA_Restoration_of_Illyricum
-		icon = GFX_BombsAway
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_the_new_legions
-		}
-		x = 9
-		y = 25
-			completion_reward = {
-					create_wargoal = {
-							type = annex_everything
-							target = YUG
-						}
-				}
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							is_historical_focus_on = yes
-							factor = 0
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_Reconquer_Greece
-		icon = GFX_focus_generic_tank_production
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_Restoration_of_Illyricum
-		}
-		x = 9
-		y = 26
-			completion_reward = {
-					create_wargoal = {
-							type = annex_everything
-							target = GRE
-						}
-					create_wargoal = {
-							type = annex_everything
-							target = PDG
-						}
-				}
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							is_historical_focus_on = yes
-							factor = 0
 						}
 				}
 
@@ -3991,11 +3888,6 @@ focus_tree = {
 					create_wargoal = {
 							type = annex_everything
 							target = ALB
-						}
-					ALB = {
-							every_owned_state = {
-									add_core_of = ITA
-								}
 						}
 				}
 			ai_will_do = {
@@ -4506,13 +4398,13 @@ focus_tree = {
 					ITA = {
 							add_opinion_modifier = {
 									target = FRA
-									modifier = large_increase
+									modifier = large_decrease
 								}
 						}
 					FRA = {
 							add_opinion_modifier = {
 									target = ITA
-									modifier = large_increase
+									modifier = large_decrease
 								}
 						}
 				}
@@ -4564,263 +4456,6 @@ focus_tree = {
 									target = ROOT
 									modifier = ITA_por_friend_focus
 								}
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_invite_to_faction
-		icon = GFX_goal_generic_alliance
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_befriend_portugal
-		}
-		prerequisite = {
-			focus = ITA_befriend_spain
-		}
-		x = 4
-		y = 24
-			available = {
-					has_government = fascism
-				}
-			bypass = {
-					is_in_faction_with = SPR
-					is_in_faction_with = POR
-				}
-			completion_reward = {
-					create_faction = "Nova Romanum Imperium"
-					add_to_faction = POR
-					add_to_faction = SPR
-				}
-
-	}
-	focus = {
-		id = ITA_Restore_Noricum
-		icon = GFX_BreaktheGermans
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_the_new_legions
-		}
-		x = 5
-		y = 25
-			completion_reward = {
-					create_wargoal = {
-							type = annex_everything
-							target = AUS
-						}
-					create_wargoal = {
-							type = annex_everything
-							target = SWI
-						}
-				}
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							is_historical_focus_on = yes
-							factor = 0
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_SubjugatE_the_Gauls
-		icon = GFX_TheBigPush
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_the_new_legions
-		}
-		x = 7
-		y = 25
-			completion_reward = {
-					create_wargoal = {
-							type = annex_everything
-							target = FRA
-						}
-				}
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							is_historical_focus_on = yes
-							factor = 0
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_Reclemation_of_Hispaniae
-		icon = GFX_SkullNomads
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_SubjugatE_the_Gauls
-		}
-		x = 7
-		y = 26
-			completion_reward = {
-					create_wargoal = {
-							type = annex_everything
-							target = SPR
-						}
-					create_wargoal = {
-							type = annex_everything
-							target = POR
-						}
-				}
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							is_historical_focus_on = yes
-							factor = 0
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_Strike_Dacia
-		icon = GFX_Junta_Focus
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_Restore_Noricum
-		}
-		x = 5
-		y = 26
-			completion_reward = {
-					create_wargoal = {
-							type = annex_everything
-							target = ROM
-				}
-				}
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							is_historical_focus_on = yes
-							factor = 0
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_Strike_the_Turks
-		icon = GFX_SwingtheSword
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_Strike_Dacia
-		}
-		prerequisite = {
-			focus = ITA_Reclemation_of_Hispaniae
-		}
-		prerequisite = {
-			focus = ITA_Reconquer_Greece
-		}
-		x = 7
-		y = 27
-			completion_reward = {
-					create_wargoal = {
-							type = annex_everything
-							target = TUR
-						}
-				}
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							is_historical_focus_on = yes
-							factor = 0
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_The_Levant
-		icon = GFX_focus_generic_provoke_border_clashes
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_Strike_the_Turks
-		}
-		x = 5
-		y = 28
-			completion_reward = {
-					create_wargoal = {
-							type = annex_everything
-							target = ISR
-						}
-					create_wargoal = {
-							type = annex_everything
-							target = LEB
-						}
-					create_wargoal = {
-							type = annex_everything
-							target = JOR
-						}
-					create_wargoal = {
-							type = annex_everything
-							target = SYR
-						}
-				}
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							is_historical_focus_on = yes
-							factor = 0
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_Egypt
-		icon = GFX_goal_BEL_WW2Weapons
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_Strike_the_Turks
-		}
-		x = 9
-		y = 28
-			completion_reward = {
-					create_wargoal = {
-							type = annex_everything
-							target = EGY
-						}
-					EGY = {
-							every_owned_state = {
-									add_core_of = ITA
-								}
-						}
-				}
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							is_historical_focus_on = yes
-							factor = 0
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_North_Africa
-		icon = GFX_Battlefleet
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_Strike_the_Turks
-		}
-		x = 7
-		y = 28
-			completion_reward = {
-					create_wargoal = {
-							type = annex_everything
-							target = MOR
-						}
-					create_wargoal = {
-							type = annex_everything
-							target = ALG
-						}
-					create_wargoal = {
-							type = annex_everything
-							target = TUN
-						}
-				}
-			ai_will_do = {
-					factor = 1
-					modifier = {
-							is_historical_focus_on = yes
-							factor = 0
 						}
 				}
 
@@ -5103,11 +4738,6 @@ focus_tree = {
 							type = annex_everything
 							target = YUG
 						}
-					YUG = {
-							every_owned_state = {
-									add_core_of = ITA
-								}
-						}
 				}
 
 	}
@@ -5124,11 +4754,6 @@ focus_tree = {
 					create_wargoal = {
 							type = annex_everything
 							target = ALB
-						}
-					ALB = {
-							every_owned_state = {
-									add_core_of = ITA
-								}
 						}
 				}
 
@@ -5309,169 +4934,6 @@ focus_tree = {
 		y = 19
 			completion_reward = {
 					add_ideas = militarized_schools
-				}
-
-	}
-	focus = {
-		id = ITA_form_rome
-		icon = GFX_SwingtheSword
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_roman_protection_from_communism
-		}
-		x = 10
-		y = 20
-			completion_reward = {
-					add_ideas = imperial_restoration
-				}
-
-	}
-	focus = {
-		id = ITA_Praetorian_Guard
-		icon = GFX_focus_generic_little_entente
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_Crown_A_New_Augustus
-		}
-		x = 10
-		y = 22
-			completion_reward = {
-					add_ideas = imperial_army
-				}
-
-	}
-	focus = {
-		id = ITA_the_roman_faction
-		icon = GFX_Paper
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_Praetorian_Guard
-		}
-		mutually_exclusive = {
-			focus = ITA_the_new_legions
-		}
-		x = 13
-		y = 24
-			completion_reward = {
-					create_faction = "Novus Imperium Romanum"
-				}
-
-	}
-	focus = {
-		id = ITA_invite_austria
-		icon = GFX_focus_generic_diplomatic_treaty
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_the_roman_faction
-		}
-		x = 11
-		y = 25
-			completion_reward = {
-					AUS = {
-							country_event = generic.2
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_invite_france
-		icon = GFX_focus_chi_reach_out_to_france
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_the_roman_faction
-		}
-		x = 13
-		y = 25
-			completion_reward = {
-					FRA = {
-							country_event = generic.2
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_invite_romania
-		icon = GFX_CollaboratewithLocalElites_2
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_invite_austria
-		}
-		x = 11
-		y = 26
-			completion_reward = {
-					ROM = {
-							country_event = generic.2
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_invite_tugo
-		icon = GFX_goal_YUG_Proclamation
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_the_roman_faction
-		}
-		x = 15
-		y = 25
-			completion_reward = {
-					YUG = {
-							country_event = generic.2
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_invite_greece
-		icon = GFX_Greek_Proclamation
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_invite_tugo
-		}
-		x = 15
-		y = 26
-			completion_reward = {
-					GRE = {
-							country_event = generic.2
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_invite_spain
-		icon = GFX_goal_SPR_deal
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_invite_france
-		}
-		x = 13
-		y = 26
-			completion_reward = {
-					SPR = {
-							country_event = generic.2
-						}
-				}
-
-	}
-	focus = {
-		id = ITA_invite_turks
-		icon = GFX_KanslergadeMeeting
-		cost = 10.00
-		prerequisite = {
-			focus = ITA_invite_spain
-		}
-		prerequisite = {
-			focus = ITA_invite_greece
-		}
-		prerequisite = {
-			focus = ITA_invite_romania
-		}
-		x = 13
-		y = 27
-			completion_reward = {
-					TUR = {
-							country_event = generic.2
-						}
 				}
 
 	}
