@@ -9,7 +9,7 @@ focus_tree = {
 	}
 	default = no
 	focus = {
-		id = Pact_of_Madrid
+		id = Pact_of_Madrid2
 		icon = GFX_goal_unknown
 		cost = 10.00
 		x = 6
@@ -21,14 +21,14 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = Pact_of_Madrid
+			focus = Pact_of_Madrid2
 		}
 		x = 6
 		y = 3
 
 	}
 	focus = {
-		id = Ejército_de_Tierra
+		id = Ejercito_de_Tierra
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
@@ -36,6 +36,9 @@ focus_tree = {
 		}
 		x = 2
 		y = 4
+        completion_reward = {
+                   army_experience = 30
+        }
 
 	}
 	focus = {
@@ -43,21 +46,35 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = Ejército_de_Tierra
+			focus = Ejercito_de_Tierra
 		}
 		x = 1
 		y = 5
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = land_doc_bonus
+							bonus = 0.5
+							uses = 2
+							category = land_doctrine
+						}
+				    }
 	}
 	focus = {
 		id = US_Equipment
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = Ejército_de_Tierra
+			focus = Ejercito_de_Tierra
 		}
 		x = 3
 		y = 5
+		completion_reward = {
+        add_equipment_to_stockpile = {
+            type = infantry_equipment
+            amount = 5000
+            producer = USA
+           }
+        }
 
 	}
 	focus = {
@@ -75,7 +92,7 @@ focus_tree = {
 
 	}
 	focus = {
-		id = Armada_Española
+		id = Armada_Espanola
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
@@ -83,14 +100,17 @@ focus_tree = {
 		}
 		x = 6
 		y = 4
-
+	    completion_reward = {
+					navy_experience = 30
+				}
+		    
 	}
 	focus = {
 		id = US_Inspired_Designs
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = Armada_Española
+			focus = Armada_Espanola
 		}
 		x = 5
 		y = 5
@@ -101,11 +121,19 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = Armada_Española
+			focus = Armada_Espanola
 		}
 		x = 7
 		y = 5
-
+        completion_reward = {
+					add_tech_bonus = {
+							name = CHL_naval_doctrine
+							bonus = 0.5
+							uses = 2
+							category = naval_doctrine
+						}
+	                }
+	     
 	}
 	focus = {
 		id = Unidad_de_Operaciones_Especiales
@@ -119,10 +147,18 @@ focus_tree = {
 		}
 		x = 6
 		y = 6
-
+		completion_reward = {
+					add_tech_bonus = {
+							name = special_forces_bonus
+							bonus = 0.5
+							uses = 1
+							category = marine_tech
+					    }
+				    }
+			
 	}
 	focus = {
-		id = Ejército_del_Aire
+		id = Ejercito_del_Aire
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
@@ -130,6 +166,10 @@ focus_tree = {
 		}
 		x = 10
 		y = 4
+        completion_reward = {
+        air_experience = 30
+            
+            }       
 
 	}
 	focus = {
@@ -137,25 +177,42 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = Ejército_del_Aire
+			focus = Ejercito_del_Aire
 		}
 		x = 9
 		y = 5
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 0.5
+				uses = 2
+				technology = jet_multirole2
+				
+		    }
+		}
 	}
 	focus = {
 		id = Helicopters
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = Ejército_del_Aire
+			focus = Ejercito_del_Aire
 		}
 		x = 11
 		y = 5
-
-	}
+		completion_reward = {
+			add_tech_bonus = {
+				name = helicoptor_bonus
+				bonus = 0.5
+				uses = 1
+				technology = early_helicopter
+				
+		    }
+		}
+            #
+	}	
 	focus = {
-		id =  Found_the_Almogávares
+		id =  Found_the_Almogavares
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
@@ -166,6 +223,16 @@ focus_tree = {
 		}
 		x = 10
 		y = 6
+		completion_reward = {
+			add_tech_bonus = {
+				name = special_bonus
+				bonus = 0.5
+				uses = 1
+				technology = paratroopers
+				technology = paratroopers2
+            }
+	    }
+	
 
 	}
 	focus = {
@@ -173,7 +240,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus =  Found_the_Almogávares
+			focus =  Found_the_Almogavares
 		}
 		prerequisite = {
 			focus = Unidad_de_Operaciones_Especiales
