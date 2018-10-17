@@ -15,13 +15,7 @@ focus_tree = {
 		x = 4
 		y = 0
 		completion_reward = {
-		    add_political_power = -10
-			add_tech_bonus = {
-					name = industrial_bonus
-					bonus = 0.5
-					uses = 1
-					category = industry
-			}
+		    add_ideas = SWE_industrial_funding
 		}
 
 	}
@@ -109,6 +103,9 @@ focus_tree = {
 		cost = 10.00
 		x = 59
 		y = 1
+		bypass = {
+		    has_country_flag = SWE_kings_coup
+		}
 
 	}
 	focus = {
@@ -117,6 +114,17 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = SWE_industrial_funding
+		}
+		completion_reward = {
+		    add_political_power = -75
+			any_owned_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+                }
+			}
 		}
 		x = 1
 		y = 1
@@ -129,6 +137,17 @@ focus_tree = {
 		prerequisite = {
 			focus = SWE_saab_investments
 		}
+		completion_reward = {
+		    add_political_power = -75
+			any_owned_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+                }
+			}
+		}
 		x = 1
 		y = 2
 
@@ -139,6 +158,17 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = SWE_ikea_investments
+		}
+		completion_reward = {
+		    add_political_power = -75
+			any_owned_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+                }
+			}
 		}
 		x = 1
 		y = 3
@@ -151,6 +181,17 @@ focus_tree = {
 		prerequisite = {
 			focus = SWE_industrial_funding
 		}
+		completion_reward = {
+		    add_political_power = -25
+			any_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+                }
+			}
+		}
 		x = 4
 		y = 1
 		
@@ -161,6 +202,17 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = SWE_factory_investments
+		}
+		completion_reward = {
+		    add_political_power = -25
+			any_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+                }
+			}
 		}
 		x = 4
 		y = 2
@@ -173,6 +225,15 @@ focus_tree = {
 		prerequisite = {
 			focus = SWE_expand_wood_industry
 		}
+		completion_reward = {
+		    add_political_power = -25
+			666 = {
+				add_resource = {
+                    type = steel
+                    amount = 25
+                }
+			}
+		}
 		x = 4
 		y = 3
 
@@ -183,6 +244,17 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = SWE_industrial_funding
+		}
+		completion_reward = {
+		    add_political_power = -25
+			any_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+                }
+			}
 		}
 		x = 7
 		y = 1
@@ -195,6 +267,17 @@ focus_tree = {
 		prerequisite = {
 			focus = SWE_fund_army_production
 		}
+		completion_reward = {
+		    add_political_power = -50
+			any_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+                }
+			}
+		}
 		x = 7
 		y = 2
 
@@ -205,6 +288,26 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = SWE_invest_in_bofors
+		}
+		bypass = {
+			NOT = { country_exists = USA }
+		}
+		completion_reward = {
+		    add_political_power = -50
+			USA = { add_political_power = 50 }
+			any_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+                }
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+                }
+			}
 		}
 		x = 7
 		y = 3
@@ -222,6 +325,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = SWE_kockums_investments
+		}
+		completion_reward = {
+		    remove_ideas = SWE_industrial_funding
 		}
 		x = 4
 		y = 4
@@ -388,6 +494,9 @@ focus_tree = {
 		prerequisite = {
 			focus = SWE_election_1952
 		}
+	    bypass = {
+		    has_country_flag = SWE_1952_communists
+		}
 		x = 34
 		y = 1
 
@@ -398,6 +507,9 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = SWE_election_1952
+		}
+		bypass = {
+		    has_country_flag = SWE_1952_socialdemokraterna
 		}
 		x = 38
 		y = 1
@@ -501,6 +613,9 @@ focus_tree = {
 		prerequisite = {
 			focus = SWE_election_1952
 		}
+		bypass = {
+		    has_country_flag = SWE_1952_bondeforbundet
+		}
 		x = 42
 		y = 1
 
@@ -525,6 +640,9 @@ focus_tree = {
 		prerequisite = {
 			focus = SWE_election_1952
 		}
+		bypass = {
+		    has_country_flag = SWE_1952_folkpartiet
+		}
 		x = 46
 		y = 1
 
@@ -535,6 +653,9 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = SWE_election_1952
+		}
+		bypass = {
+		    has_country_flag = SWE_1952_hogerpartiet
 		}
 		x = 50
 		y = 1
