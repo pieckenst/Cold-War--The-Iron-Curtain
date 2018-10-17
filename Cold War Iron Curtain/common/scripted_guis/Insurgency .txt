@@ -7,7 +7,7 @@ scripted_gui = {
 		parent_window_token = selected_state_view
 		
 		visible = {
-			has_state_flag = active_insurgency
+			check_variable = { show_insurg_menu = 1 }
 		}
 			
 		effects = {
@@ -113,74 +113,9 @@ scripted_gui = {
 				country_event = insurgency_effects.3 
 				subtract_from_variable = { insurgency_strength = 5 }
 			}
-			launch_helicoptor_raids_on_insurgent_bases_click = {
-				ROOT = { 
-					add_timed_idea = {
-						idea = cooldown_for_insurgent_attacks
-						days = 50
-					}
-				}	
-				set_variable = { insur_target = THIS }
-				country_event = insurgency_effects.2
-				subtract_from_variable = { insurgency_strength = 5 }
-			}
-			sarin_attack_on_insurgents_click = {
-				ROOT = { 
-					add_timed_idea = {
-						idea = cooldown_for_insurgent_attacks
-						days = 50
-					}
-				}	
-				set_variable = { insur_target = THIS }
-				country_event = insurgency_effects.4
-				add_threat = 10
-				subtract_from_variable = { insurgency_strength = 15 }
-				add_equipment_to_stockpile = { type = sarin_1 amount = -50  }
-			}
-			mustard_gas_attack_on_insurgents_click = {
-				ROOT = { 
-					add_timed_idea = {
-						idea = cooldown_for_insurgent_attacks
-						days = 50
-					}
-				}	
-				set_variable = { insur_target = THIS }
-				country_event = insurgency_effects.5
-				add_threat = 5
-				subtract_from_variable = { insurgency_strength = 8 }
-				add_equipment_to_stockpile = { type = chemical_weapons_1 amount = -50  }
-			}
-			false_flag_click = {
-				ROOT = { 
-					add_timed_idea = {
-						idea = cooldown_for_insurgent_attacks
-						days = 100
-					}
-				}	
-				set_variable = { insur_target = THIS }
-				country_event = insurgency_effects.3
-				subtract_from_variable = { insurgency_strength = 2 }
-				add_war_support = 0.10
-			}
 		}	
 		triggers = {
 
-			false_flag_visible = {
-				has_state_flag = active_insurgency
-				is_fully_controlled_by = ROOT
-				is_owned_by = ROOT 
-			}
-			false_flag_click_enabled = {
-				NOT = {
-					has_idea = cooldown_for_insurgent_attacks
-				}
-				has_state_flag = active_insurgency
-				is_fully_controlled_by = ROOT
-				is_owned_by = ROOT 
-				has_army_size = {
-					size > 5
-				}
-			}
 			raid_insurgent_bases_click_enabled = {
 				ROOT = {
 					NOT = {
@@ -201,56 +136,18 @@ scripted_gui = {
 				has_state_flag = active_insurgency
 				is_fully_controlled_by = ROOT
 				is_owned_by = ROOT 
-				OR = {
-					has_deployed_air_force_size = {
-						size > 20
-						type = strategic_bomber
-					} 
-					has_deployed_air_force_size = {
-						size > 20
-						type = tactical_bomber
-					} 
-				}
-			}
-			launch_helicoptor_raids_on_insurgent_bases_visible = {
-				has_state_flag = active_insurgency
-				is_fully_controlled_by = ROOT
-				is_owned_by = ROOT 
-			}
-			launch_helicoptor_raids_on_insurgent_bases_click_enabled = {
-				NOT = {
-					has_idea = cooldown_for_insurgent_attacks
-				}
-				has_state_flag = active_insurgency
-				is_fully_controlled_by = ROOT
-				is_owned_by = ROOT 
 				ROOT = {
-					has_equipment = { attack_helicopter_equipment > 50 }
-					has_tech = attack_helicopter_1
-				}		
-			}
-			mustard_gas_attack_on_insurgents_visible = {
-				has_state_flag = active_insurgency
-				is_fully_controlled_by = ROOT
-				is_owned_by = ROOT 
-			}
-			mustard_gas_attack_on_insurgents_click_enabled = {
-				NOT = {
-					has_idea = cooldown_for_insurgent_attacks
+					OR = {
+						has_deployed_air_force_size = {
+							size > 20
+							type = strategic_bomber
+						} 
+						has_deployed_air_force_size = {
+							size > 20
+							type = tactical_bomber
+						} 
+					}
 				}
-				ROOT = {
-					has_equipment = { chemical_weapons_1 > 50 }
-					has_tech = chemical_weapons
-				}		
-			}
-			sarin_attack_on_insurgents_click_enabled = {
-				NOT = {
-					has_idea = cooldown_for_insurgent_attacks
-				}
-				ROOT = {
-					has_equipment = { sarin_1 > 50 }
-					has_tech = chemical_weapons_3
-				}		
 			}
 			raid_insurgent_bases_visible = {
 				has_state_flag = active_insurgency
@@ -258,11 +155,6 @@ scripted_gui = {
 				is_owned_by = ROOT 
 			}
 			arial_bombardment_on_insurgent_bases_visible = {
-				has_state_flag = active_insurgency
-				is_fully_controlled_by = ROOT
-				is_owned_by = ROOT 
-			}
-			sarin_attack_on_insurgents_visible = {
 				has_state_flag = active_insurgency
 				is_fully_controlled_by = ROOT
 				is_owned_by = ROOT 
@@ -285,6 +177,7 @@ scripted_gui = {
 			encourage_uprising_visible = {
 				has_state_flag = active_insurgency
 				is_core_of = ROOT
+				NOT = { is_owned_by = ROOT }
 			}
 			encourage_uprising_click_enabled = {
 				any_country = {
