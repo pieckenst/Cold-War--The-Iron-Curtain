@@ -170,7 +170,109 @@ focus_tree = {
 		}
 		x = 2
 		y = 5
-
+			completion_reward = {
+					navy_experience = 50
+					if = {
+							limit = {
+									NOT = {
+											any_owned_state = {
+													dockyard > 0
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+									any_owned_state = {
+											is_coastal = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									any_owned_state = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									NOT = {
+											any_owned_state = {
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+								}
+							random_state = {
+									limit = {
+											controller = {
+													tag = ROOT
+												}
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+				}
 	}
 	focus = {
 		id = JAP_Japanese_Defense_Ground_Forces
@@ -217,7 +319,15 @@ focus_tree = {
 		}
 		x = 8
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = infantry_weapons_bonus
+							bonus = 0.5
+							uses = 1
+							category = infantry_weapons
+							category = artillery
+						}
+				}
 	}
 	focus = {
 		id = JAP_Japanese_Made_Arms
@@ -239,7 +349,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 2
-
+		completion_reward = {
+			air_experience = 50
+		}
 	}
 	focus = {
 		id = JAP_Purchase_American_Aircraft
@@ -250,7 +362,18 @@ focus_tree = {
 		}
 		x = 12
 		y = 3
-
+			completion_reward = {
+					add_equipment_to_stockpile = {
+							type = jet_strat_bomber_equipment_1
+							amount = 200
+							producer = USA
+						}
+					add_equipment_to_stockpile = {
+							type = jet_tac_bomber_equipment_1
+							amount = 800
+							producer = USA
+						}
+				}
 	}
 	focus = {
 		id = JAP_Reopen_Haneda_Airport
@@ -261,7 +384,15 @@ focus_tree = {
 		}
 		x = 16
 		y = 3
-
+		completion_reward = {
+			capital_scope = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}				
+			}
+		}
 	}
 	focus = {
 		id = JAP_Invest_in_Helicoptors
@@ -275,7 +406,14 @@ focus_tree = {
 		}
 		x = 14
 		y = 4
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = helicoptor_bonus
+				bonus = 0.35
+				uses = 1
+				category = helicopter
+			}
+		}
 	}
 	focus = {
 		id = JAP_Memories_of_the_Zero
@@ -286,7 +424,15 @@ focus_tree = {
 		}
 		x = 14
 		y = 5
-
+			completion_reward = {
+					air_experience = 5
+					add_tech_bonus = {
+							name = light_air_bonus
+							bonus = 0.25
+							uses = 1
+							category = light_air
+						}
+				}
 	}
 	focus = {
 		id = JAP_Start_Recruitment
@@ -297,7 +443,12 @@ focus_tree = {
 		}
 		x = 20
 		y = 1
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = recruitment_propaganda
+				days = 1200
+			}
+		}
 	}
 	focus = {
 		id = JAP_Rifles_for_our_Defense
@@ -308,7 +459,13 @@ focus_tree = {
 		}
 		x = 24
 		y = 1
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 25000
+				producer = USA
+			}		
+		}
 	}
 	focus = {
 		id = JAP_Learn_From_the_US_Army
@@ -322,7 +479,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 2
-
+		completion_reward = {
+			army_experience = 25
+		}
 	}
 	focus = {
 		id = JAP_Return_of_the_Zaibatsu
@@ -800,7 +959,9 @@ focus_tree = {
 		}
 		x = 31
 		y = 9
-
+		completion_reward = {
+			add_ideas = strengthened_labor_unions
+		}
 	}
 	focus = {
 		id = JAP_Housing_Reform
@@ -870,7 +1031,17 @@ focus_tree = {
 		}
 		x = 33
 		y = 15
-
+		completion_reward = {
+			add_political_power = 200
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.10
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.10
+			}
+		}
 	}
 	focus = {
 		id = JAP_Increase_Access_to_Healthcare
@@ -884,7 +1055,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 16
-
+		completion_reward = {
+			add_ideas = access_to_health_care
+		}
 	}
 	focus = {
 		id = JAP_Strenghten_Labor_Unions
@@ -923,7 +1096,13 @@ focus_tree = {
 		}
 		x = 32
 		y = 20
-
+		completion_reward = {
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.15
+			}
+			news_event = jap_soc.1
+		}
 	}
 	focus = {
 		id = JAP_Japanese_Socialist_Party_Victory_58
@@ -934,7 +1113,9 @@ focus_tree = {
 		}
 		x = 31
 		y = 24
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = JAP_Encourage_Heavy_Industry
@@ -945,7 +1126,72 @@ focus_tree = {
 		}
 		x = 32
 		y = 25
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
 
+				}
 	}
 	focus = {
 		id = JAP_Encourage_Free_Trade
@@ -956,21 +1202,35 @@ focus_tree = {
 		}
 		x = 34
 		y = 9
-
+		completion_reward = {
+			add_ideas = embrace_free_trade
+		}
 	}
 	focus = {
 		id = JAP_Reliance_on_America
-		icon = GFX_goal_unknown
+		icon = GFX_american_coat_of_arms
 		cost = 10.00
 		prerequisite = {
 			focus = JAP_Encourage_Free_Trade
 		}
-		prerequisite = {
-			focus = JAP_Encourage_Free_Trade
-		}
+
 		x = 34
 		y = 10
-
+		completion_reward = {
+			add_to_variable = { var = influencer1_amount value = 500 }
+			JAP = {
+					add_opinion_modifier = {
+							target = USA
+							modifier = small_increase
+						}
+				}
+			USA = {
+					add_opinion_modifier = {
+							target = JAP
+							modifier = small_increase
+						}
+				}
+		}
 	}
 	focus = {
 		id = JAP_Liberal_Democratic_Victory
@@ -1029,7 +1289,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 14
-
+		completion_reward = {
+			add_ideas = city_economies
+		}
 	}
 	focus = {
 		id = JAP_Japanese_Soviet_Peace_Treaty
@@ -1120,7 +1382,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 13
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = JAP_Kashinto_Victory_53
@@ -1131,7 +1395,9 @@ focus_tree = {
 		}
 		x = 41
 		y = 13
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = JAP_Political_Deadlock
@@ -1143,7 +1409,10 @@ focus_tree = {
 		}
 		x = 39
 		y = 14
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.02
+		}
 	}
 	focus = {
 		id = JAP_Accept_American_Political_Money
@@ -1155,7 +1424,13 @@ focus_tree = {
 		}
 		x = 36
 		y = 15
-
+		completion_reward = {
+			add_popularity = {
+				ideology = Liberal_Conservatism
+				popularity = 0.05
+			}
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = JAP_Liberal_Democratic_Party_Merger
@@ -1166,7 +1441,13 @@ focus_tree = {
 		}
 		x = 39
 		y = 15
-
+		completion_reward = {
+			add_popularity = {
+				ideology = Liberal_Conservatism
+				popularity = 0.05
+			}
+			news_event = jap_ldp.1
+		}
 	}
 	focus = {
 		id = JAP_Unrestrained_Economic_Growth
@@ -1428,7 +1709,10 @@ focus_tree = {
 		}
 		x = 40
 		y = 16
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = JAP_American_Protection
@@ -1546,7 +1830,12 @@ focus_tree = {
 		}
 		x = 42
 		y = 9
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = Excessive_Military_Expenditures
+				days = 900
+			}
+		}
 	}
 	focus = {
 		id = JAP_Rehabilitate_Former_IJA_Officers
@@ -1560,7 +1849,12 @@ focus_tree = {
 		}
 		x = 41
 		y = 10
-
+		completion_reward = {
+			set_country_flag = enable_ija_decisions
+			army_experience = 25
+			navy_experience = 25
+			add_threat = 3
+		}
 	}
 	focus = {
 		id = JAP_Exports_to_America
@@ -3103,7 +3397,6 @@ focus_tree = {
 			completion_reward = {
 					add_ideas = imperial_army
 					add_ideas = militarized_schools
-					add_ideas = ideological_fanaticism_focus
 				}
 
 	}
@@ -3351,6 +3644,7 @@ focus_tree = {
 		x = 16
 		y = 6
 			completion_reward = {
+				complete_national_focus = JAP_Prime_Minister_Hattori
 					set_politics = {
 							ruling_party = nationalism
 							elections_allowed = no
@@ -3377,7 +3671,7 @@ focus_tree = {
 			completion_reward = {
 					add_ideas = paramilitarism_focus
 					add_popularity = {
-							ideology = fascism
+							ideology = nationalism
 							popularity = 0.10
 						}
 					add_political_power = 300
@@ -4130,7 +4424,12 @@ focus_tree = {
 		}
 		x = 49
 		y = 7
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = economic_growth
+				days = 900
+			}
+		}
 	}
 	focus = {
 		id = JAP_Coal_Mining_Expansion
@@ -4147,7 +4446,68 @@ focus_tree = {
 		}
 		x = 52
 		y = 6
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = coal_plant
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = coal_plant
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = coal_plant
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = coal_plant
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = coal_plant
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = coal_plant
+									level = 1
+									instant_build = yes
+								}
+						}						
+		}
 	}
 	focus = {
 		id = JAP_Restore_Democratic_Rule
@@ -4192,7 +4552,9 @@ focus_tree = {
 		}
 		x = 25
 		y = 14
-
+		completion_reward = {
+			country_event = jcp.1
+		}
 	}
 	focus = {
 		id = JAP_For_the_Workers
@@ -4235,7 +4597,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 11
-
+		completion_reward = {
+			add_ideas = emphasize_morality
+		}
 	}
 	focus = {
 		id = JAP_Declare_the_Ressurection_of_the_Empire
@@ -4249,7 +4613,10 @@ focus_tree = {
 		}
 		x = 16
 		y = 8
-
+		completion_reward = {
+			add_threat = 5
+			set_cosmetic_tag = IMP_JAP
+		}
 	}
 	focus = {
 		id = JAP_Prime_Minister_Hattori
@@ -4260,7 +4627,18 @@ focus_tree = {
 		}
 		x = 17
 		y = 7
-
+		completion_reward = {
+			create_country_leader = {
+				name = "Takushiro Hattori"
+				desc = ""
+				picture = "Hattori.dds"
+				expire = "1989.1.1"
+				ideology = national_democrat
+				traits = {
+					warrior_code
+				}
+			}		
+		}
 	}
 	focus = {
 		id = JAP_Promote_Shinto_Beliefs
@@ -4274,7 +4652,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 10
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 	focus = {
 		id = JAP_Develop_Hokkaido
@@ -4285,7 +4665,16 @@ focus_tree = {
 		}
 		x = 24
 		y = 15
-
+		completion_reward = {
+			536 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = JAP_Agricultural_Investments
@@ -4296,7 +4685,13 @@ focus_tree = {
 		}
 		x = 26
 		y = 15
-
+		completion_reward = {
+			add_tech_bonus = {
+				name = agri_tech_bonus
+				ahead_reduction = 1
+				category = agri_tech
+			}
+		}
 	}
 	focus = {
 		id = JAP_Education_Investments
@@ -4310,7 +4705,9 @@ focus_tree = {
 		}
 		x = 27
 		y = 16
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = JAP_Urbanization_Campaign
@@ -4321,7 +4718,9 @@ focus_tree = {
 		}
 		x = 29
 		y = 14
-
+			completion_reward = {
+					add_ideas = urban_planning
+				}
 	}
 	focus = {
 		id = JAP_Establish_Soviet_Relations
@@ -4335,7 +4734,20 @@ focus_tree = {
 		}
 		x = 30
 		y = 11
-
+		completion_reward = {
+			JAP = {
+				add_opinion_modifier = {
+					target = SOV
+					modifier = small_increase
+				}
+			}
+			SOV = {
+				add_opinion_modifier = {
+						target = JAP
+						modifier = small_increase
+					}
+			}
+		}			
 	}
 	focus = {
 		id = JAP_Develop_Tokyo
@@ -4346,7 +4758,16 @@ focus_tree = {
 		}
 		x = 29
 		y = 10
-
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = JAP_Encourage_the_Free_Press
@@ -4357,22 +4778,11 @@ focus_tree = {
 		}
 		x = 29
 		y = 9
-
-	}
-	focus = {
-		id = JAP_Reliance_on_America
-		icon = GFX_american_coat_of_arms
-		cost = 10.00
-		prerequisite = {
-			focus = JAP_Encourage_Free_Trade
+		completion_reward = {
+			add_ideas = free_press_5
 		}
-		prerequisite = {
-			focus = JAP_Encourage_Free_Trade
-		}
-		x = 34
-		y = 10
-
 	}
+
 	focus = {
 		id = JAP_Japanese_Communist_Party_55
 		icon = GFX_jcp
@@ -4395,7 +4805,21 @@ focus_tree = {
 		}
 		x = 37
 		y = 22
-
+			completion_reward = {
+				add_stability = 0.02
+					JAP = {
+							add_opinion_modifier = {
+									target = CZE
+									modifier = large_increase
+								}
+						}
+					CZE = {
+							add_opinion_modifier = {
+									target = JAP
+									modifier = large_increase
+								}
+						}
+				}			
 	}
 	focus = {
 		id = JAP_Surge_In_Public_Support
@@ -4409,7 +4833,13 @@ focus_tree = {
 		}
 		x = 37
 		y = 21
-
+		completion_reward = {
+			add_popularity = {
+				ideology = Liberal_Conservatism
+				popularity = 0.10
+			}
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = JAP_Continued_Economic_Prosperity
@@ -4420,7 +4850,12 @@ focus_tree = {
 		}
 		x = 36
 		y = 20
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = economic_growth
+				days = 900
+			}
+		}
 	}
 	focus = {
 		id = JAP_The_M_Fund
@@ -4431,7 +4866,9 @@ focus_tree = {
 		}
 		x = 38
 		y = 20
-
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
 	}
 	focus = {
 		id = JAP_Expand_Womens_Rights
@@ -4442,7 +4879,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 20
-
+		completion_reward = {
+			add_ideas = womens_rights
+		}
 	}
 	focus = {
 		id = JAP_Nationalization_of_Resources
@@ -4453,7 +4892,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 20
-
+		completion_reward = {
+			add_ideas = nationalized_resources
+		}
 	}
 	focus = {
 		id = JAP_Rural_Housing_Development
@@ -4464,7 +4905,11 @@ focus_tree = {
 		}
 		x = 24
 		y = 20
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = JAP_Egalitarian_Reforms
@@ -4478,7 +4923,9 @@ focus_tree = {
 		}
 		x = 25
 		y = 21
-
+		completion_reward = {
+			add_ideas = egalitarian_beliefs
+		}
 	}
 	focus = {
 		id = JAP_Reveal_American_Interference_in_our_Democracy
@@ -4490,7 +4937,22 @@ focus_tree = {
 		}
 		x = 28
 		y = 20
-
+			completion_reward = {
+				add_political_power = 100
+				add_stability = -0.02
+					USA = {
+							add_opinion_modifier = {
+									target = JAP
+									modifier = small_decrease
+								}
+						}
+					JAP = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = JAP_Criticize_the_LDP
@@ -4501,7 +4963,13 @@ focus_tree = {
 		}
 		x = 28
 		y = 21
-
+		completion_reward = {
+			add_popularity = {
+				ideology = Liberal_Conservatism
+				popularity = -0.10
+			}
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = JAP_Condemn_the_CIA
@@ -4512,7 +4980,20 @@ focus_tree = {
 		}
 		x = 28
 		y = 22
-
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = JAP
+									modifier = large_decrease
+								}
+						}
+					JAP = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = JAP_Anti_Leftist_Propaganda
@@ -4523,7 +5004,12 @@ focus_tree = {
 		}
 		x = 36
 		y = 16
-
+		completion_reward = {
+			add_popularity = {
+				ideology = Liberal_Conservatism
+				popularity = 0.10
+			}
+		}
 	}
 	focus = {
 		id = JAP_Liberal_Democratic_Victory_58
@@ -4560,7 +5046,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 25
-
+		completion_reward = {
+			add_ideas = agriculture
+		}
 	}
 	focus = {
 		id = JAP_Support_the_Royal_Marriage
@@ -4571,7 +5059,11 @@ focus_tree = {
 		}
 		x = 26
 		y = 25
-
+		completion_reward = {
+			add_political_power = 200
+			news_event = japan_royal_marriage.2
+		}
+		
 	}
 	focus = {
 		id = JAP_Right_Wing_Backlash
@@ -4585,7 +5077,13 @@ focus_tree = {
 		}
 		x = 25
 		y = 26
-
+		completion_reward = {
+			add_political_power = 200
+			add_popularity = {
+				ideology = nationalism
+				popularity = 0.10
+			}
+		}	
 	}
 	focus = {
 		id = JAP_Seek_Repeal_of_the_American_Defense_Treaties
@@ -4632,7 +5130,16 @@ focus_tree = {
 		}
 		x = 30
 		y = 25
-
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = JAP_Housing_Reform_two
@@ -4646,7 +5153,11 @@ focus_tree = {
 		}
 		x = 31
 		y = 26
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = JAP_The_Royal_Marriage
@@ -4659,7 +5170,10 @@ focus_tree = {
 		}
 		x = 29
 		y = 27
-
+		completion_reward = {
+			add_political_power = 200
+			news_event = japan_royal_marriage.1
+		}
 	}
 	focus = {
 		id = JAP_Support_the_Marriage
@@ -4670,7 +5184,10 @@ focus_tree = {
 		}
 		x = 29
 		y = 28
-
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = JAP_Political_Approval
@@ -4681,7 +5198,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 29
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = JAP_Ultranationalist_Backlash
@@ -4692,7 +5211,13 @@ focus_tree = {
 		}
 		x = 30
 		y = 29
-
+		completion_reward = {
+			add_popularity = {
+				ideology = nationalism
+				popularity = 0.05
+			}	
+			add_stability = -0.02
+		}
 	}
 	focus = {
 		id = JAP_Left_Wing_Demonstrations
@@ -4703,7 +5228,13 @@ focus_tree = {
 		}
 		x = 32
 		y = 29
-
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}	
+			add_stability = -0.02
+		}
 	}
 	focus = {
 		id = JAP_Political_Backlash
@@ -4717,7 +5248,10 @@ focus_tree = {
 		}
 		x = 32
 		y = 28
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = -0.01
+		}
 	}
 	focus = {
 		id = JAP_Seek_Changes_in_the_American_Defense_Treaties
@@ -4730,7 +5264,21 @@ focus_tree = {
 		}
 		x = 32
 		y = 27
-
+			completion_reward = {
+					add_political_power = 100
+					JAP = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = JAP
+									modifier = small_increase
+								}
+						}
+				}	
 	}
 	focus = {
 		id = JAP_Open_Relations_with_the_PRC
@@ -4741,7 +5289,20 @@ focus_tree = {
 		}
 		x = 37
 		y = 25
-
+			completion_reward = {
+					JAP = {
+							add_opinion_modifier = {
+									target = PRC
+									modifier = small_increase
+								}
+						}
+					PRC = {
+							add_opinion_modifier = {
+									target = JAP
+									modifier = small_increase
+								}
+						}
+				}			
 	}
 	focus = {
 		id = JAP_Ishibashi_Remains_in_Office
@@ -4755,7 +5316,10 @@ focus_tree = {
 		}
 		x = 39
 		y = 26
-
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.02
+		}
 	}
 	focus = {
 		id = JAP_Ishibashi_Resigns
@@ -4769,7 +5333,13 @@ focus_tree = {
 		}
 		x = 35
 		y = 26
-
+		completion_reward = {
+			create_country_leader = {
+				name = "Nobusuke Kishi"
+				picture = "Nobusuke_Kishi.dds"
+				ideology = liberal_conservatism
+			}		
+		}
 	}
 	focus = {
 		id = JAP_The_ADF_Proposal
@@ -4783,7 +5353,20 @@ focus_tree = {
 		}
 		x = 35
 		y = 28
-
+			completion_reward = {
+					JAP = {
+							add_opinion_modifier = {
+									target = INO
+									modifier = large_increase
+								}
+						}
+					INO = {
+							add_opinion_modifier = {
+									target = JAP
+									modifier = large_increase
+								}
+						}
+				}	
 	}
 	focus = {
 		id = JAP_Tour_Southeastern_Asia
@@ -4794,7 +5377,32 @@ focus_tree = {
 		}
 		x = 35
 		y = 29
-
+			completion_reward = {
+					JAP = {
+							add_opinion_modifier = {
+									target = INO
+									modifier = small_increase
+								}
+						}
+					INO = {
+							add_opinion_modifier = {
+									target = JAP
+									modifier = small_increase
+								}
+						}
+					JAP = {
+							add_opinion_modifier = {
+									target = RAJ
+									modifier = small_increase
+								}
+						}
+					RAJ = {
+							add_opinion_modifier = {
+									target = JAP
+									modifier = small_increase
+								}
+						}
+				}	
 	}
 	focus = {
 		id = JAP_Raparations_to_Indonesia
@@ -4838,7 +5446,20 @@ focus_tree = {
 		}
 		x = 38
 		y = 27
-
+			completion_reward = {
+					JAP = {
+							add_opinion_modifier = {
+									target = PRC
+									modifier = large_increase
+								}
+						}
+					PRC = {
+							add_opinion_modifier = {
+									target = JAP
+									modifier = large_increase
+								}
+						}
+				}			
 	}
 	focus = {
 		id = JAP_Criticize_American_Influence
@@ -4852,7 +5473,20 @@ focus_tree = {
 		}
 		x = 39
 		y = 28
-
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = JAP
+									modifier = large_decrease
+								}
+						}
+					JAP = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	focus = {
 		id = JAP_Economic_Expansion
@@ -4863,7 +5497,11 @@ focus_tree = {
 		}
 		x = 39
 		y = 29
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+		}
 	}
 	focus = {
 		id = JAP_Contacts_in_the_Yakuza
@@ -4877,7 +5515,9 @@ focus_tree = {
 		}
 		x = 31
 		y = 30
-
+		completion_reward = {
+			news_event = japan_yakuza.1
+		}
 	}
 	focus = {
 		id = JAP_Start_The_Industrial_Program
@@ -4888,6 +5528,14 @@ focus_tree = {
 		}
 		x = 49
 		y = 12
+			completion_reward = {
+					add_tech_bonus = {
+							name = industry_bonus
+							bonus = 0.5
+							uses = 2
+							category = industry
+						}
+					}
 
 	}
 	focus = {
@@ -4899,7 +5547,41 @@ focus_tree = {
 		}
 		x = 49
 		y = 13
-
+			completion_reward = {
+				every_owned_state = {
+					add_extra_state_shared_building_slots = 1=
+				}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = JAP_Finalize_the_Reconstruction_Program
@@ -4910,7 +5592,14 @@ focus_tree = {
 		}
 		x = 49
 		y = 14
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = industry_bonus
+							bonus = 0.5
+							uses = 2
+							category = construction_tech
+						}
+					}
 	}
 	focus = {
 		id = JAP_Reorganize_The_Zaibatsu
@@ -4924,7 +5613,9 @@ focus_tree = {
 		}
 		x = 45
 		y = 14
-
+		completion_reward = {
+			add_ideas = the_zaibatsu
+		}
 	}
 	focus = {
 		id = JAP_Mitsubishi_Heavy_Industries
@@ -4935,7 +5626,69 @@ focus_tree = {
 		}
 		x = 47
 		y = 13
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = arms_factory
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = arms_factory
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
 
+				}
 	}
 	focus = {
 		id = JAP_Subsidize_Toyota
@@ -4946,7 +5699,69 @@ focus_tree = {
 		}
 		x = 43
 		y = 13
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
 
+				}
 	}
 	focus = {
 		id = JAP_The_Motor_Industry
@@ -4957,7 +5772,44 @@ focus_tree = {
 		}
 		x = 45
 		y = 12
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = motorized_bonus
+							ahead_reduction = 0.5
+							uses = 1
+							category = motorized_equipment
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
 	}
 	focus = {
 		id = JAP_Innovations
@@ -4968,7 +5820,9 @@ focus_tree = {
 		}
 		x = 53
 		y = 12
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = JAP_Reopen_the_Tokyo_Ports
@@ -4979,7 +5833,16 @@ focus_tree = {
 		}
 		x = 55
 		y = 13
-
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = JAP_Support_Niche_Buisnesses
@@ -4990,7 +5853,11 @@ focus_tree = {
 		}
 		x = 51
 		y = 13
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = JAP_The_Electronics_Section
@@ -5004,6 +5871,13 @@ focus_tree = {
 		}
 		x = 53
 		y = 14
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = electronics_bonus
+							bonus = 0.5
+							uses = 2
+							category = electronics
+						}
+				}
 	}
 }
