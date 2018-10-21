@@ -5751,51 +5751,7 @@ focus_tree = {
 					}
 
 	}
-	focus = {
-		id = JAP_Establish_The_Japan_High_Public_Corporation
-		icon = GFX_Focus_RuralHousing
-		cost = 10.00
-		prerequisite = {
-			focus = JAP_Start_The_Industrial_Program
-		}
-		x = 49
-		y = 13
-			completion_reward = {
-				every_owned_state = {
-					add_extra_state_shared_building_slots = 1=
-				}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-						}
-					}
-	}
+
 	focus = {
 		id = JAP_Finalize_the_Reconstruction_Program
 		icon = GFX_goal_JAP_Proclamation
@@ -6092,5 +6048,50 @@ focus_tree = {
 							category = electronics
 						}
 				}
+	}
+	focus = {
+		id = JAP_Establish_The_Japan_High_Public_Corporation
+		icon = GFX_Focus_RuralHousing
+		cost = 10.00
+		prerequisite = {
+			focus = JAP_Start_The_Industrial_Program
+		}
+		x = 49
+		y = 13
+			completion_reward = {
+				every_owned_state = {
+					add_extra_state_shared_building_slots = 1=
+				}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 }
