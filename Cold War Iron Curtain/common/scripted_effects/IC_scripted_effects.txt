@@ -1,14 +1,31 @@
 ic_pulse = {
 	set_variable = { temp_check = THIS.id } 
-
 	if = {
 		limit = {
-                NOT = { has_country_flag = saf_news_1}
                 tag = SAF
+                NOT = { has_country_flag = saf_news_1}
                 date > 1960.1.21
                 date < 1960.2.21
             }
 		country_event = saf_news.1
+     }
+	if = {
+		limit = { 
+			tag = JAP 
+			has_government = Liberal_Conservatism 
+			date > 1956.12.1
+			date < 1957.1.1
+		}
+		news_event = japan_elections.100
+     }
+	if = {
+		limit = { 
+			tag = JAP 
+			has_government = Liberal_Conservatism 
+			date > 1957.2.1
+			date < 1957.3.1
+		}
+		news_event = japan_elections.102
      }
 	if = {
 		limit = {
