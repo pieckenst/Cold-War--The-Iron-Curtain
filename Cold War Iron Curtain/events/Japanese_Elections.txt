@@ -1,5 +1,6 @@
 add_namespace = japan_elections
 add_namespace = jap_ldp
+add_namespace = japan
 country_event = {
 	id = japan_elections.1
 	title = "1952 Presidential Elections"
@@ -410,7 +411,7 @@ country_event = {
 		}
 	}
 }
-country_event = {
+news_event = {
 	id = japan_elections.100
 	title = "Tanzan Ishibashi Becomes Prime Minister"
 	desc = "After Ichiro Hatoyama resigned as Prime Minister of Japan the ruling Liberal Democratic Party held a vote for new leadership and Tanzan Ishibashi has won."
@@ -446,7 +447,7 @@ country_event = {
 		}
 	}
 }
-country_event = {
+news_event = {
 	id = japan_elections.102
 	title = "Tanzan Ishibashi Ponders Resignation"
 	desc = "Recently elected Prime Minister Tanzan Ishibashi has had a bout of health problems lately and is cosnidering resignation....."
@@ -497,7 +498,7 @@ country_event = {
 		}
 	}
 }
-country_event = {
+news_event = {
 	id = jap_ldp.1
 	title = "Merger of the Liberal and Democratic Party"
 	desc = "After the recent election, neither the Liberal or Democratic Party recived enough seats to form a government, after several days of negotiations they have merged as the Liberal Democratic Party lead by Ichiro Hatoyama"
@@ -518,7 +519,7 @@ country_event = {
 		}
 	}
 }
-country_event = {
+news_event = {
 	id = jap_soc.1
 	title = "Reunification of the Socialist Party of Japan"
 	desc = "After the fall of the Katayama Government in the late 1940s the Socialist Party had split into two seperate parties. However after several years in the political wilderness they have now remerged under Mosaburō Suzuki"
@@ -526,6 +527,86 @@ country_event = {
 	
 	fire_only_once = yes
 	is_triggered_only = yes
+	
+
+	option = {
+		name = "An interesting development"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = japan.1000
+	title = "Japanese Peace Treaty Offer"
+	desc = "Japan Wants a Peace Treaty in Exchange for Sakhailin and the Kuril Islands"
+	picture = GFX_report_event_brazil_election_1955
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+
+	option = {
+		name = "Sakhailin and Kiril are rightful Soviet land"
+		JAP = {
+			complete_national_focus = JAP_Failure_of_the_Talks 
+		}
+		ai_chance = {
+			factor = 80
+		}
+	}
+	option = {
+		name = "Sakhailin for Peace"
+		JAP = {
+			complete_national_focus = JAP_Japanese_Soviet_Peace_Treaty
+			transfer_state = 537
+			transfer_state = 655
+			transfer_state = 55
+		}
+		655 = {
+			add_core_of = JAP
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+}
+
+news_event = {
+	id = japan.1001
+	title = "Failure of the Soviet Peace Talks"
+	desc = "Soviets declined our offer of Peace for Sakhailin"
+	picture = GFX_report_event_brazil_election_1955
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+
+	option = {
+		name = "Dissapointing"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+	}
+}
+news_event = {
+	id = japan.1002
+	title = "Japanese-Soviet Peace Treaty"
+	desc = "A joint announcement from Tokyo and Moscow this morning announced the signing of a peace treaty between the two nations which would also return Sakhailin and the Kuril Islands to Japan"
+	picture = GFX_report_event_brazil_election_1955
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
 	
 
 	option = {
