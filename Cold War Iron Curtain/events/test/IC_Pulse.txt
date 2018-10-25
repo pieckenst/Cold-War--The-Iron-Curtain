@@ -70,7 +70,7 @@ add_namespace = smr
 add_namespace = sor
 add_namespace = saf
 add_namespace = par
-add_namespace = FFC
+add_namespace = FCF
 add_namespace = GER_ASSASIN
 add_namespace = PMR
 add_namespace = fra_crisis
@@ -562,10 +562,21 @@ country_event = {
 		}
 		if = {
 			limit = {
-				tag = FRA
-				date > 1958.1.1
+				original_tag = FRA
+				SEN = { is_subject_of = ROOT }
+				date > 1958.10.4
+				date < 1960.1.1
 			}
-			country_event = FFC.1
+			country_event = FCF.1
+		}
+		if = {
+			limit = {
+				original_tag = FRA
+				ROC = { is_subject_of = ROOT }
+				date > 1958.10.4
+				date < 1960.1.1
+			}
+			country_event = FCF.2
 		}
 		if = {
 			limit = {
@@ -596,13 +607,6 @@ country_event = {
 			}
 			country_event = PMR.1
         }
-		if = {
-			limit = {
-				tag = FRA
-				date > 1958.1.1
-			}
-			country_event = FFC.2
-		}
 		if = {
 			limit = {
 				tag = WGR
