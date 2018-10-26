@@ -1,42 +1,88 @@
 decolonization_decisions = {
 	
-	end_class_b_mandate_fra = {
+	end_cameroon_mandate_france = {
 
 		icon = generic_research
-
-		allowed = {
-			original_tag = FRA
+		
+		available  = {
+		    date < 1960.1.1
+            CMR = { exists = no }
+			owns_state = 816
 		}
-
-		available = {
-			#date > 1960.1.1
-			has_global_flag = fra_class_b_mandate_available
-			CMR = { is_subject_of = ROOT}
+		
+		visible = {
+			original_tag = FRA
+			date < 1960.1.1
+            CMR = { exists = no }
+			owns_state = 816
 		}
 		
 		cost = 0
 
 		fire_only_once = yes
 
-		visible = {
-			original_tag = FRA
-			has_global_flag = fra_class_b_mandate_available
-		}
-
 		complete_effect = {
-			clr_global_flag = fra_class_b_mandate_available
-			CMR = { country_event = { id = cameroon.41 hours = 5 } }
+		    add_political_power = 50
+		    release = CMR
 		}
 
 		ai_will_do = {
 			factor = 0
-			modifier = {
-				factor = 100
-				date > 1962.7.1
-			}
 		}
 	}
 	
+	end_cameroon_mandate_uk = {
+
+		icon = generic_research
+
+		available  = {
+		    OR = { country_exists = NIA country_exists = CMR }
+			owns_state = 1105
+			owns_state = 1106
+		}
+		
+		visible = {
+			original_tag = ENG
+			OR = { country_exists = NIA country_exists = CMR }
+			owns_state = 1105
+			owns_state = 1106
+		}
+		
+		cost = 0
+
+		fire_only_once = yes
+
+		complete_effect = {
+		    add_political_power = 50
+			if = {
+	            limit = {
+		            country_exists = CMR
+					country_exists = NIA
+	            }
+	            CMR = { transfer_state = 1105 }
+				NIA = { transfer_state = 1106 }
+            }
+			if = {
+	            limit = {
+		            country_exists = NIA
+					NOT = { country_exists = CMR }
+	            }
+	            NIA = { transfer_state = 1105 transfer_state = 1106 }
+            }
+			if = {
+	            limit = {
+		            country_exists = CMR
+					NOT = { country_exists = NIA }
+	            }
+	            CMR = { transfer_state = 1105 transfer_state = 1106 }
+
+            }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
 
 	end_class_b_mandate_bel = {
 
@@ -114,137 +160,6 @@ decolonization_decisions = {
 			}
 		}
 	}
-	
-	partition_cameroon_eng = {
-
-		icon = generic_research
-
-		allowed = {
-			original_tag = ENG
-		}
-
-		available = {
-			#date > 1961.2.11
-			has_global_flag = eng_partition_cameroon_available
-			BCM = { is_subject_of = ROOT}
-			BCM = { owns_state = 1106 }
-			BCM = { owns_state = 1105 }
-		}
-		
-		cost = 0
-
-		fire_only_once = yes
-
-		visible = {
-			original_tag = ENG
-			BCM = { is_subject_of = ROOT}
-			BCM = { owns_state = 1106 }
-			BCM = { owns_state = 1105 }
-			has_global_flag = eng_partition_cameroon_available
-		}
-
-		complete_effect = {
-			clr_global_flag = eng_partition_cameroon_available
-			custom_effect_tooltip = cameroon.3.a.tt
-			hidden_effect = {
-				country_event = { id = cameroon.1 hours = 9 }
-				country_event = { id = cameroon.2 hours = 9 }
-			}
-		}
-
-		ai_will_do = {
-			factor = 0
-			modifier = {
-				factor = 100
-				date > 1961.2.11
-			}
-		}
-	}
-	
-	#partition_north_cameroon_eng = {
-
-	#	icon = generic_research
-
-	#	allowed = {
-	#		original_tag = ENG
-	#	}
-
-	#	available = {
-	#		date > 1961.2.11
-	#		has_global_flag = eng_partition_north_cameroon_available
-	#		BCM = { is_subject_of = ROOT}
-	#		BCM = { owns_state = 1106 }
-	#	}
-	#	
-	#	cost = 0
-
-	#	fire_only_once = yes
-
-	#	visible = {
-	#		original_tag = ENG
-	#		BCM = { is_subject_of = ROOT}
-	#		BCM = { owns_state = 1106 }
-	#		has_global_flag = eng_partition_north_cameroon_available
-	#	}
-
-	#	complete_effect = {
-	#		clr_global_flag = eng_partition_north_cameroon_available
-	#		custom_effect_tooltip = cameroon.referendum.north.tt
-	#		hidden_effect = {
-	#			country_event = { id = cameroon.1 hours = 9 }
-	#		}
-	#	}
-
-	#	ai_will_do = {
-	#		factor = 0
-	#		modifier = {
-	#			factor = 100
-	#			date > 1961.2.11
-	#		}
-	#	}
-	#}
-	#partition_south_cameroon_eng = {
-
-	#	icon = generic_research
-
-	#	allowed = {
-	#		original_tag = ENG
-	#	}
-
-	#	available = {
-	#		date > 1961.2.11
-	#		has_global_flag = eng_partition_south_cameroon_available
-	#		BCM = { is_subject_of = ROOT}
-	#		BCM = { owns_state = 1105 }
-	#	}
-		
-	#	cost = 0
-
-	#	fire_only_once = yes
-
-	#	visible = {
-	#		original_tag = ENG
-	#		BCM = { is_subject_of = ROOT}
-	#		BCM = { owns_state = 1105 }
-	#		has_global_flag = eng_partition_south_cameroon_available
-	#	}
-
-	#	complete_effect = {
-	#		clr_global_flag = eng_partition_south_cameroon_available
-	#		custom_effect_tooltip = cameroon.referendum.south.tt
-	#		hidden_effect = {
-	#			country_event = { id = cameroon.2 hours = 9 }
-	#		}
-	#	}
-
-	#	ai_will_do = {
-	#		factor = 0
-	#		modifier = {
-	#			factor = 100
-	#			date > 1961.2.11
-	#		}
-	#	}
-	#}
 	
 	decolonize_the_gulf = {
 
