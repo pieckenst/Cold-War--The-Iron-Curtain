@@ -598,10 +598,21 @@ ic_pulse = {
 	}
 	if = {
 		limit = {
-			tag = FRA
-			date > 1958.1.1
+			original_tag = FRA
+			SEN = { is_subject_of = ROOT }
+			date > 1958.10.4
+			date < 1960.1.1
 		}
-		country_event = FFC.1
+		country_event = FCF.1
+	}
+	if = {
+		limit = {
+			original_tag = FRA
+			ROC = { is_subject_of = ROOT }
+			date > 1958.10.4
+			date < 1960.1.1
+		}
+		country_event = FCF.2
 	}
 	if = {
 		limit = {
@@ -631,13 +642,6 @@ ic_pulse = {
 			owns_state = 949
 		}
 		country_event = PMR.1
-	}
-	if = {
-		limit = {
-			tag = FRA
-			date > 1958.1.1
-		}
-		country_event = FFC.2
 	}
 	if = {
 		limit = {
@@ -3238,31 +3242,32 @@ ic_pulse = {
 		country_event = { id = swf.7 days = 10 random = 1 }
 	}
 	if = {
-		limit = {		
-		tag = UKR
-		owns_state = 925
-		NOT = { has_global_flag = chernobyl_built }
-		date > 1972.8.1
+	    limit = {		
+	        original_tag = SOV
+	        owns_state = 925
+		    NOT = { has_global_flag = chernobyl_built }
+		    date > 1972.8.1
+	        date < 1973.1.1
 		}
 		country_event = { id = chernobyl.1 days = 11 random = 1 }
 	}
 	if = {
 		limit = {				
-		tag = UKR
-		owns_state = 925
-		has_global_flag = chernobyl_built 
-		NOT = { has_global_flag = chernobyl_not_built }
-		date > 1986.4.1
+			original_tag = SOV
+			owns_state = 925
+		    has_global_flag = chernobyl_built 
+			date > 1986.4.1
+		    date < 1987.1.1
 		}
 		country_event = { id = chernobyl.2 days = 22 random = 1 }
 	}
-		if = {
+	if = {
 		limit = {
 			tag = PAR
 			date > 1954.5.1
 			date < 1954.6.1
 		}
-		country_event = { id = par.1 days = 5 }
+	    country_event = { id = par.1 days = 5 }
 	}
 	if = {
 		limit = {			
@@ -4860,6 +4865,7 @@ ic_pulse = {
 				has_cosmetic_tag = BHR_ENG
 				has_cosmetic_tag = GHA_ENG
 				has_cosmetic_tag = GHA_ENG_DOM
+				has_cosmetic_tag = NFL_ENG
 				has_cosmetic_tag = SGP_ENG
 				has_cosmetic_tag = SGP_ENG_FLAG
 				has_cosmetic_tag = NBR_ENG
@@ -4885,8 +4891,6 @@ ic_pulse = {
 				has_cosmetic_tag = MLT_ENG
 				has_cosmetic_tag = NYA_ENG
 				has_cosmetic_tag = LES_ENG
-				has_cosmetic_tag = XSM_ENG
-				has_cosmetic_tag = TAN_ENG
 				has_cosmetic_tag = KAZ_SSR
 				has_cosmetic_tag = UZB_SSR
 				has_cosmetic_tag = TJK_SSR
@@ -5098,6 +5102,14 @@ ic_pulse = {
 			date < 1951.1.1
 		}
 		country_event = SWE.3
+	}
+	if = {
+		limit = {
+		    original_tag = SWE
+			date > 1973.9.14
+			date < 1974.1.1
+		}
+		country_event = SWE.4
 	}
 	if = {
 		limit = {
