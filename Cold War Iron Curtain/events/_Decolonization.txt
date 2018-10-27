@@ -299,3 +299,49 @@ country_event = {
         release = NAU
 	}
 }
+
+#Ruanda-Urundi - Mandate Expired
+country_event = {
+	id = decolonization.6
+	title = decolonization.6.t	
+	desc = decolonization.6.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.6.a
+		release = RWA
+		release = BUR
+	}
+}
+
+#Belgian Congo - Planned Decolonization
+country_event = {
+	id = decolonization.7
+	title = decolonization.7.t	
+	desc = decolonization.7.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.7.a
+		set_autonomy = { target = DOC autonomy_state = autonomy_free }	
+		DOC = {
+			drop_cosmetic_tag = yes
+			set_politics = {
+				ruling_party = Liberal_Conservatism
+				elections_allowed = yes
+			}
+			add_popularity ={
+		        ideology = Liberal_Conservatism
+		        popularity = 0.80
+		    }
+			add_popularity ={
+		        ideology = nationalism
+		        popularity = 0.20
+		    }
+		}
+	}
+}

@@ -4927,26 +4927,6 @@ ic_pulse = {
 	}
 	if = {
 		limit = {
-			original_tag = BEL
-			country_exists = BUR
-			BUR = { is_subject_of = ROOT has_cosmetic_tag = BUR_BEL }
-			date > 1962.6.30
-			date < 1963.1.1
-		}
-		country_event = { id = belgiandecolonization.1 days = 1 }
-	}
-	if = {
-		limit = {
-			original_tag = BEL
-			country_exists = DOC
-			DOC = { is_subject_of = ROOT has_cosmetic_tag = DOC_BEL }
-			date > 1960.6.29
-			date < 1961.1.1
-		}
-		country_event = { id = belgiandecolonization.2 days = 1 }
-	}
-	if = {
-		limit = {
 			tag = DOC
 			is_subject = no
 			NOT = { has_cosmetic_tag = DOC_BEL }
@@ -5137,6 +5117,27 @@ ic_pulse = {
 			owns_state = 725
 		}
 		country_event = decolonization.5
+	}
+	if = {
+		limit = {
+			original_tag = BEL
+			date > 1962.6.30
+			date < 1963.1.1
+			NOT = { country_exists = RWA country_exists = BUR }
+			owns_state = 907
+			owns_state = 825
+		}
+		country_event = decolonization.6
+	}
+	if = {
+		limit = {
+			original_tag = BEL
+			date > 1960.6.29
+			date < 1961.1.1
+			country_exists = DOC
+			DOC = { is_subject_of = ROOT has_cosmetic_tag = DOC_BEL }
+		}
+		country_event = decolonization.7
 	}
 	if = {
 		limit = {

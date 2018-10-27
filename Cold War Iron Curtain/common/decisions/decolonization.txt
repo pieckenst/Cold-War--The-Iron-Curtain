@@ -170,45 +170,39 @@ decolonization_decisions = {
 			factor = 0
 		}
 	}
-
-	end_class_b_mandate_bel = {
+	
+	end_ruanda_urundi_mandate = {
 
 		icon = generic_research
 
-		allowed = {
-			original_tag = BEL
+		available  = {
+			NOT = { country_exists = RWA country_exists = BUR }
+			owns_state = 907
+			owns_state = 825
 		}
-
-		available = {
-			#date > 1962.7.1
-			has_global_flag = bel_class_b_mandate_available
-			BUR = { is_subject_of = ROOT}
-			BUR = { owns_state = 825 }
-			BUR = { owns_state = 907 }
+		
+		visible = {
+			original_tag = BEL
+			NOT = { country_exists = RWA country_exists = BUR }
+			owns_state = 907
+			owns_state = 825
 		}
 		
 		cost = 0
 
 		fire_only_once = yes
 
-		visible = {
-			original_tag = BEL
-			has_global_flag = bel_class_b_mandate_available
-		}
-
 		complete_effect = {
-			clr_global_flag = bel_class_b_mandate_available
-			BUR = { country_event = { id = belgiandecolonization.11 hours = 5 } }
+		    add_political_power = 50
+			release = RWA
+			release = BUR
 		}
 
 		ai_will_do = {
 			factor = 0
-			modifier = {
-				factor = 100
-				date > 1962.7.1
-			}
 		}
 	}
+
 	end_class_b_mandate_eng = {
 
 		icon = generic_research
