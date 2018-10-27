@@ -268,7 +268,7 @@ ic_pulse = {
 	 }
 	if = {
 		limit = {
-				NOT = { has_country_flag = NNE_14}
+				NOT = { has_country_flag = NNE_14 }
 				tag = VTC
 				date > 1950.8.12
 				date < 1950.9.12
@@ -277,7 +277,7 @@ ic_pulse = {
 	 }
 	if = {
 		limit = {
-				NOT = { has_country_flag = NNE_15}
+				NOT = { has_country_flag = NNE_15 }
 				tag = USA
 				date > 1950.10.1
 				date < 1950.11.1
@@ -286,7 +286,7 @@ ic_pulse = {
 	 }
 	if = {
 		limit = {
-				NOT = { has_country_flag = NNE_16}
+				NOT = { has_country_flag = NNE_16 }
 				tag = DDR
 				date > 1951.1.1
 				date < 1951.2.1
@@ -299,7 +299,8 @@ ic_pulse = {
             has_completed_focus = ROC_Administrative_Reform
         }
         date < 1951.1.1 # put date here
-		tag = EQU
+		tag = ROC
+		NOT = { has_country_flag = ROC_Chauvet }
 		}
 		country_event = equ.1
 		}
@@ -1934,29 +1935,6 @@ ic_pulse = {
 					NOT = { has_completed_focus = DDR_allow_liberals_in_government }						
 				}
 				country_event = cwu.1
-			}
-			if = {
-				limit = {
-					original_tag = ENG
-					date > 1961.12.9
-					BCM = { 
-						is_subject_of = ROOT
-						owns_state = 1105 
-						owns_state = 1106
-					}
-				}
-				country_event = cameroon.3
-			}
-			if = {
-				limit = {
-					original_tag = FRA
-					date > 1960.1.1
-					CMR = { 
-						exists = yes 
-						is_subject_of = FRA
-					}
-				}
-				country_event = cameroon.4
 			}
 			if = {
 				limit = {
@@ -4840,7 +4818,7 @@ ic_pulse = {
 				has_cosmetic_tag = UGA_ENG
 				has_cosmetic_tag = SUD_ENG
 				has_cosmetic_tag = BSL_ENG
-				has_cosmetic_tag = BCM_ENG
+				has_cosmetic_tag = TOA_ENG
 				has_cosmetic_tag = FRA_WST_AFR
 				has_cosmetic_tag = MAD_FRA
 				has_cosmetic_tag = CMR_FRA
@@ -4868,7 +4846,6 @@ ic_pulse = {
 				has_cosmetic_tag = NFL_ENG
 				has_cosmetic_tag = SGP_ENG
 				has_cosmetic_tag = SGP_ENG_FLAG
-				has_cosmetic_tag = NBR_ENG
 				has_cosmetic_tag = SWK_ENG
 				has_cosmetic_tag = BRU_ENG 
 				has_cosmetic_tag = BRU_ENG_FLAG
@@ -4948,26 +4925,6 @@ ic_pulse = {
 			date < 1968.3.30
 		}
 		news_event = { id = usa.501 days = 16  }
-	}
-	if = {
-		limit = {
-			original_tag = BEL
-			country_exists = BUR
-			BUR = { is_subject_of = ROOT has_cosmetic_tag = BUR_BEL }
-			date > 1962.6.30
-			date < 1963.1.1
-		}
-		country_event = { id = belgiandecolonization.1 days = 1 }
-	}
-	if = {
-		limit = {
-			original_tag = BEL
-			country_exists = DOC
-			DOC = { is_subject_of = ROOT has_cosmetic_tag = DOC_BEL }
-			date > 1960.6.29
-			date < 1961.1.1
-		}
-		country_event = { id = belgiandecolonization.2 days = 1 }
 	}
 	if = {
 		limit = {
@@ -5110,6 +5067,78 @@ ic_pulse = {
 			date < 1974.1.1
 		}
 		country_event = SWE.4
+	}
+    if = {
+		limit = {
+		    original_tag = FRA
+			date > 1959.12.31
+			date < 1961.1.1
+            CMR = { exists = no }
+			owns_state = 816
+		}
+		country_event = decolonization.1
+	}
+	if = {
+		limit = {
+		    original_tag = ENG
+			date > 1961.5.30
+			date < 1962.1.1
+		    OR = { country_exists = NIA country_exists = CMR }
+			owns_state = 1105
+			owns_state = 1106
+		}
+		country_event = decolonization.2
+	}
+    if = {
+		limit = {
+		    original_tag = FRA
+			date > 1960.4.26
+			date < 1961.1.1
+		    NOT = { country_exists = TOG }
+			owns_state = 761
+		}
+		country_event = decolonization.3
+	}
+	if = {
+		limit = {
+		    original_tag = ENG
+			date > 1956.12.12
+			date < 1957.1.1
+		    country_exists = GHA
+			owns_state = 926
+		}
+		country_event = decolonization.4
+	}
+    if = {
+		limit = {
+		    original_tag = AST
+			date > 1968.1.30
+			date < 1969.1.1
+		    NOT = { country_exists = NAU }
+			owns_state = 725
+		}
+		country_event = decolonization.5
+	}
+	if = {
+		limit = {
+			original_tag = BEL
+			date > 1962.6.30
+			date < 1963.1.1
+			NOT = { country_exists = RWA country_exists = BUR }
+			owns_state = 907
+			owns_state = 825
+		}
+		country_event = decolonization.6
+	}
+	if = {
+		limit = {
+			original_tag = BEL
+			date > 1960.6.29
+			date < 1961.1.1
+			country_exists = DOC
+			DOC = { is_subject_of = ROOT has_cosmetic_tag = DOC_BEL }
+		}
+		country_event = decolonization.7
 	}
 	if = {
 		limit = {
