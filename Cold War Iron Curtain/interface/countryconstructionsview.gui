@@ -8,29 +8,22 @@ guiTypes = {
 		hide_animation_type = accelerated
 		animation_time = 300	
 		size = { width=550 height=100%% }
-		clipping = no
-		
+		margin = { top = 21 left = 10 bottom = 22 right = 10}
+		clipping = yes
+						
 		#hide_sound = menu_close_window
 		show_sound = menu_open_window
 		
-		background = {
-			name = "Background"		
-			quadTextureSprite ="GFX_tiled_window_thin_border"
-		}
-
-		iconType ={
-			name ="construction_screen_top_bg"
-			spriteType = "GFX_construction_screen_top_bg"
-			position = { x= 5 y = 37 }
-			Orientation = "UPPER_LEFT"
-		}
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_tiled_window_2b_border_crt"
+			}
+			iconType = {
+				name = "crt_Effect_construction_tab"		
+				quadTextureSprite ="GFX_tech_bg"
+			}	
 		
-		iconType ={
-			name ="production_header_bg"
-			spriteType = "GFX_header_bg"
-			position = { x= 5 y = 07 }
-			Orientation = "UPPER_LEFT"
-		}	
+
 		
 		instantTextboxType = {
 			name = "construction_title"
@@ -188,20 +181,19 @@ guiTypes = {
 			name = "production_lines"
 			position = { x = 0 y = 130 }
 			size = { width = 440 height = 100%% }
-			verticalScrollbar = "right_vertical_slider"
+			verticalScrollbar = "left_vertical_slider"
 			vertical_scroll_step = 50
 			scroll_wheel_factor = 40
 			smooth_scrolling = yes
-			margin = { top = 13 left = 13 bottom = 15 right = 25}			
-			
-			background = {
-				name = "Background"
-				quadTextureSprite ="GFX_tiled_window2_1b_border"
-			}
-
+			clipping = yes
+					
 			background = {
 				name = "Background"		
-				quadTextureSprite ="GFX_tiled_generic_overlay_bg1_small"
+				quadTextureSprite ="GFX_tiled_window_2b_border_crt"
+			}
+			iconType = {
+				name = "crt_Effect_construction_tab"		
+				quadTextureSprite ="GFX_tech_bg"
 			}
 			
 			gridBoxType = {
@@ -218,54 +210,7 @@ guiTypes = {
 			name = "possible_constructions"
 			position = { x = 438 y = 48 }
 			size = { width = 104 height = 785 }
-			
-#			background = {
-#				name = "Background"
-#				quadTextureSprite ="GFX_tiled_plain_bg_small"
-#			}
-
-			iconType = {
-				name = "constructions_bg1"
-				position = { x = 0 y = 6 }
-				quadTextureSprite = "GFX_constructions_bg2"
-			}
-
-			iconType = {
-				name = "constructions_bg2"
-				position = { x = 0 y = 152 }
-				quadTextureSprite = "GFX_constructions_bg1"
-			}
-			
-			iconType = {
-				name = "constructions_bg3"
-				position = { x = 0 y = 540 }
-				quadTextureSprite = "GFX_constructions_bg2"
-			}
-
-			iconType = {
-				name = "constructions_bg4"
-				position = { x = 0 y = 685 }
-				quadTextureSprite = "GFX_constructions_bg3"
-			}
-
-			iconType = {
-				name = "state_constructions"
-				position = { x = 5 y = 9 }
-				quadTextureSprite = "GFX_state_constructions"
-			}
-
-			iconType = {
-				name = "shared_constructions"
-				position = { x = 5 y = 155 }
-				quadTextureSprite = "GFX_shared_constructions"
-			}
-
-			iconType = {
-				name = "province_constructions"
-				position = { x = 5 y = 543 }
-				quadTextureSprite = "GFX_province_constructions"
-			}
-			
+				
 			gridBoxType = {
 				name = "non_shared_item_grid"
 				position = { x = 8 y = 51 }
@@ -296,7 +241,7 @@ guiTypes = {
 
 		buttonType = {
 			name = "convert_ic_button"
-			position = { x = -60 y = 744 }
+			position = { x = -49 y = 678 }
 			quadTextureSprite ="GFX_convert_ic_button"
 			buttonFont = "Main_14_black"
 			Orientation = "UPPER_RIGHT"
@@ -306,7 +251,7 @@ guiTypes = {
 				
 		buttonType = {
 			name = "minimize"
-			position = { x = -55 y = 803 }
+			position = { x = -40 y = 725 }
 			quadTextureSprite ="GFX_production_line_arrow_left"
 			buttonFont = "Main_14_black"
 			Orientation = "UPPER_RIGHT"
@@ -324,8 +269,8 @@ guiTypes = {
 		
 		buttonType = {
 			name = "close_button"
-			position = { x = -42 y = 9 }
-			quadTextureSprite ="GFX_closebutton"
+			position = { x = -30 y = 0 }
+			quadTextureSprite ="GFX_delete_template_button"
 			buttonFont = "Main_14_black"
 			shortcut = "ESCAPE"
 			Orientation = "UPPER_RIGHT"
@@ -358,21 +303,20 @@ guiTypes = {
 		
 		buttonType = {
 			name = "start_construction_button"
-			position = { x = 0 y = 0 }
+			position = { x = -10 y = 0 }
 			spriteType = "GFX_buildings_strip"
 			clicksound = click_default
 		}
-		
 		iconType = {
 			name = "start_construction_overlay"
 			position = { x = -1 y = 0 }
 			quadTextureSprite = "GFX_construction_glow_overlay"
-		}
+		}		
 	}
 	
 	containerWindowType = {
 		name = "production_building_line_entry"
-		position = { x=0 y=0 }
+		position = { x=25 y=0 }
 		size = { width = 400 height = 52 }
 		clipping = no
 
@@ -420,7 +364,7 @@ guiTypes = {
 		
 		iconType = {
 			name = "picture"
-			position = { x = 172 y = 5 }
+			position = { x = 200 y = 5 }
 			spriteType = "GFX_buildings_strip"
 		}
 		
@@ -440,7 +384,7 @@ guiTypes = {
 		
 		instantTextboxType = {
 			name = "queued"
-			position = { x = 192 y = 29 }
+			position = { x = 150 y = 29 }
 			textureFile = ""
 			font = "hoi_18b"
 			text = "-"
@@ -476,7 +420,7 @@ guiTypes = {
 		buttonType = {
 			name = "increase_priority"
 			position = { x=318 y=14 }
-			quadTextureSprite = "GFX_arrow_up_small"
+			quadTextureSprite = "GFX_deploy_arrow_up"
 			pdx_tooltip = "PRODUCTION_INCREASE_PRIORITY_LABEL"
 			pdx_tooltip_delayed = "PRODUCTION_PRIORITY_DELAYED"
 			clicksound = click_default
@@ -485,7 +429,7 @@ guiTypes = {
 		buttonType = {
 			name = "decrease_priority"
 			position = { x=341 y=14	 }
-			quadTextureSprite = "GFX_arrow_down_small"
+			quadTextureSprite = "GFX_deploy_unit"
 			pdx_tooltip = "PRODUCTION_DECREASE_PRIORITY_LABEL"
 			pdx_tooltip_delayed = "PRODUCTION_PRIORITY_DELAYED"
 			clicksound = click_default
@@ -493,8 +437,8 @@ guiTypes = {
 		
 		buttonType = {
 			name = "increase_amount"
-			quadTextureSprite ="GFX_zoom_in"
-			position = { x = 214 y = 3 }
+			quadTextureSprite ="GFX_deploy_plus"
+			position = { x = 177 y = 9 }
 			pdx_tooltip = "CONSTRUCTION_INCREASE_AMOUNT_LABEL"
 			pdx_tooltip_delayed = "CONSTRUCTION_MAXIMIZE"
 			scale = 0.9
@@ -503,23 +447,23 @@ guiTypes = {
 		
 		buttonType = {
 			name = "decrease_amount"
-			quadTextureSprite ="GFX_zoom_out"
-			position = { x = 214 y = 27 }
+			quadTextureSprite ="GFX_deploy_minus"
+			position = { x = 177 y = 28 }
 			scale = 0.9	
 			clicksound = click_default		
 		}
 		
 		buttonType = {
 			name = "close_production_line"
-			position = { x=370 y=14	 }
-			quadTextureSprite = "GFX_closebutton_small"
+			position = { x=364 y=12	 }
+			quadTextureSprite = "GFX_delete_template_button"
 			clicksound = click_default
 		}		
 	}
 	
 	containerWindowType = {
 		name = "static_consumer_goods_entry"
-		position = { x=0 y=0 }
+		position = { x=25 y=0 }
 		size = { width = 400 height = 52 }
 		clipping = no
 
@@ -568,7 +512,7 @@ guiTypes = {
 	
 	containerWindowType = {
 		name = "static_traded_factories_entry"
-		position = { x=0 y=0 }
+		position = { x=25 y=0 }
 		size = { width = 400 height = 52 }
 		clipping = no
 
