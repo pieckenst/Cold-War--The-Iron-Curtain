@@ -1,0 +1,134 @@
+﻿add_namespace = FCF
+
+country_event = {
+	id = FCF.1
+	title = "Dissolution of French West Africa"
+	desc = "With the rapid collapse of colonial stability across the world, French West Africa is beginning to disintegrate. What is our response?"
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { 
+		name = "We do not have the ability to preserve the colony. Dissolve!"
+		trigger = {
+			NOT = {
+				has_completed_focus = FRA_Preserve_the_Empire
+			}
+		}
+		SEN = {
+			drop_cosmetic_tag = yes
+			set_autonomy = { target = SEN autonomy_state = autonomy_free } 
+			release = MAU
+			release = MLI
+			release = NIG
+			release = GUI
+			release = BEN
+			release = CTD
+			release = BRK
+		}
+    }
+	option = {
+		name = "Launch a military invasion!"
+		trigger = {
+			has_completed_focus = FRA_Preserve_the_Empire
+		}
+		declare_war_on = { target = SEN type = annex_everything }
+		SEN = {
+			drop_cosmetic_tag = yes
+			set_autonomy = { target = SEN autonomy_state = autonomy_free } 
+		}
+	}
+}
+
+country_event = {
+	id = FCF.2
+	title = "Dissolution of French Equatorial Africa"
+	desc = "With the rapid collapse of colonial stability across the world, French Equatorial Africa is beginning to disintegrate. What is our response?"
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { 
+		name = "We do not have the ability to preserve the colony. Dissolve!"
+		trigger = {
+			NOT = {
+				has_completed_focus = FRA_Preserve_the_Empire
+			}
+		}
+		ROC = {
+			drop_cosmetic_tag = yes
+			set_autonomy = { target = ROC autonomy_state = autonomy_free } 
+			release = CHA 
+			release = GAB 
+			release = CAR
+			complete_national_focus = ROC_Dissolution_of_French_Equatorial_Africa
+		}
+    }
+	option = {
+		name = "Launch a military invasion!"
+		trigger = {
+			has_completed_focus = FRA_Preserve_the_Empire
+		}
+		declare_war_on = { target = ROC type = annex_everything }
+		ROC = {
+			drop_cosmetic_tag = yes
+			set_autonomy = { target = ROC autonomy_state = autonomy_free } 
+		}
+	}
+}
+
+country_event = {
+	id = FCF.3
+	title = "French Equatorial Africa Demands Independence"
+	desc = "We have just recieved an outrageous offer from our colony in Equatorial Africa. They are demanding full independence!"
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { 
+		name = "Accept"
+		ai_chance = {
+			factor = 50
+		}
+		ROC = {
+			complete_national_focus = ROC_France_Accepts
+		}
+     }
+	 option = {
+		name = "Reject"
+		ai_chance = {
+			factor = 50
+		}		
+		ROC = {
+			complete_national_focus = ROC_France_Rejects
+		}
+	 }
+}
+
+country_event = {
+	id = FCF.4
+	title = "French Equatorial Africa Demands Autonomy"
+	desc = "We have just recieved an offer from our colony in Equatorial Africa. They are demanding autonomy!"
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { 
+		name = "Accept"
+		ai_chance = {
+			factor = 50
+		}
+		ROC = {
+			complete_national_focus = ROC_Autonomy_Accepted
+		}
+     }
+	 option = {
+		name = "Reject"
+		ai_chance = {
+			factor = 50
+		}		
+		ROC = {
+			complete_national_focus = ROC_Autonomy_Denied
+		}
+	 }
+}

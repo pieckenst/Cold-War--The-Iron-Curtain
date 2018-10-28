@@ -203,3 +203,160 @@ country_event = {
 			}
 		}
   }
+  
+#French Cameroons - Mandate Expired
+country_event = {
+	id = decolonization.1
+	title =decolonization.1.t	
+	desc = decolonization.1.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.1.a
+		release = CMR
+	}
+}
+
+#British Cameroons - Mandate Expired
+country_event = {
+	id = decolonization.2
+	title = decolonization.2.t	
+	desc = decolonization.2.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.2.a
+		if = {
+	        limit = {
+		        country_exists = CMR
+				country_exists = NIA
+	        }
+	        CMR = { transfer_state = 1105 }
+			NIA = { transfer_state = 1106 }
+        }
+		if = {
+	        limit = {
+		        country_exists = NIA
+			    NOT = { country_exists = CMR }
+	        }
+	        NIA = { transfer_state = 1105 transfer_state = 1106 }
+        }
+	    if = {
+	        limit = {
+		        country_exists = CMR
+			    NOT = { country_exists = NIA }
+	        }
+	        CMR = { transfer_state = 1105 transfer_state = 1106 }
+        }
+	}
+}
+
+#French Togoland - Mandate Expired
+country_event = {
+	id = decolonization.3
+	title = decolonization.3.t	
+	desc = decolonization.3.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.3.a
+        release = TOG
+	}
+}
+
+#British Togoland - Mandate Expired
+country_event = {
+	id = decolonization.4
+	title = decolonization.4.t	
+	desc = decolonization.4.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.4.a
+        GHA = { transfer_state = 926 }
+	}
+}
+
+#Nauru - Mandate Expired
+country_event = {
+	id = decolonization.5
+	title = decolonization.5.t	
+	desc = decolonization.5.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.5.a
+        release = NAU
+	}
+}
+
+#Ruanda-Urundi - Mandate Expired
+country_event = {
+	id = decolonization.6
+	title = decolonization.6.t	
+	desc = decolonization.6.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.6.a
+		release = RWA
+		release = BUR
+	}
+}
+
+#Belgian Congo - Planned Decolonization
+country_event = {
+	id = decolonization.7
+	title = decolonization.7.t	
+	desc = decolonization.7.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.7.a
+		set_autonomy = { target = DOC autonomy_state = autonomy_free }	
+		DOC = {
+			drop_cosmetic_tag = yes
+			set_politics = {
+				ruling_party = Liberal_Conservatism
+				elections_allowed = yes
+			}
+			add_popularity ={
+		        ideology = Liberal_Conservatism
+		        popularity = 0.80
+		    }
+			add_popularity ={
+		        ideology = nationalism
+		        popularity = 0.20
+		    }
+		}
+	}
+}
+
+#Tanganyika - Mandate Expired
+country_event = {
+	id = decolonization.8
+	title = decolonization.8.t	
+	desc = decolonization.8.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.8.a
+		release = TAZ
+	}
+}

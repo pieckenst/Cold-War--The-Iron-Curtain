@@ -306,8 +306,8 @@ if = {
 		freedom_level = 0.6
 	}
 	set_autonomy = {
-		target = TAZ
-		autonomous_state = autonomy_protectorate
+		target = NFL
+		autonomous_state = autonomy_dominion
 		freedom_level = 0.6
 	}
 	set_autonomy = {
@@ -366,8 +366,8 @@ if = {
 		freedom_level = 0.6
 	}
     set_autonomy = {
-		target = BCM
-		autonomous_state = autonomy_mandate
+		target = TOA
+		autonomous_state = autonomy_protectorate
 		freedom_level = 0.3
 	}
 	set_autonomy = {
@@ -416,16 +416,6 @@ if = {
 		freedom_level = 0.4
 	}
     set_autonomy = {
-		target = NBR
-		autonomous_state = autonomy_colony
-		freedom_level = 0.4
-	}
-	set_autonomy = {
-		target = SWK
-		autonomous_state = autonomy_colony
-		freedom_level = 0.4
-	}
-    set_autonomy = {
 		target = BLZ
 		autonomous_state = autonomy_colony
 		freedom_level = 0.4
@@ -442,21 +432,6 @@ if = {
 	}
     set_autonomy = {
 		target = GND
-		autonomous_state = autonomy_colony
-		freedom_level = 0.4
-	}
-	set_autonomy = {
-		target = SHX
-		autonomous_state = autonomy_protectorate
-		freedom_level = 0.4
-	}
-	set_autonomy = {
-		target = XSM
-		autonomous_state = autonomy_colony
-		freedom_level = 0.4
-	}
-	set_autonomy = {
-		target = TAN
 		autonomous_state = autonomy_colony
 		freedom_level = 0.4
 	}
@@ -481,9 +456,8 @@ if = {
 		puppet = SAF
 		puppet = RAJ
 		puppet = BSL
-        puppet = BCM
+        puppet = TOA
 		puppet = LES
-		puppet = TAZ
 		puppet = GAM
 		puppet = SLE
 		puppet = MLT
@@ -495,23 +469,20 @@ if = {
 		puppet = JOR
 		puppet = PAL
 		puppet = WGR
+		puppet = NFL
 		puppet = BHR
 		puppet = QAT
 		puppet = GHA
 		puppet = SGP
 		puppet = TAT
-		puppet = NBR
-		puppet = SWK
 		puppet = BLZ
 		puppet = SLK
 		puppet = SKK
 		puppet = BHM
 		puppet = GND
-		puppet = SHX
-		puppet = XSM
-		puppet = TAN
 	}
 }
+
 1966.1.1 = {
 	if = {
 		limit = {
@@ -528,6 +499,7 @@ if = {
 		}
 	}
 }
+
 add_ideas = {
 	cold_war_civil_war_ideological_idea
 	population_growth_steady
@@ -599,6 +571,7 @@ set_politics = {
   }
  }
 }
+
 1949.1.1 = {
 	MLA = { 
 		declare_war_on = {
@@ -609,6 +582,7 @@ set_politics = {
 	set_autonomy = { target = JOR autonomy_state = autonomy_free }	
 	set_autonomy = { target = PAL autonomy_state = autonomy_free }	
 	set_autonomy = { target = WGR autonomy_state = autonomy_free }	
+	set_autonomy = { target = NFL autonomy_state = autonomy_free }	
 	set_autonomy = { target = SKK autonomy_state = autonomy_free }	
     set_autonomy = { target = NZL autonomy_state = autonomy_free }     
 	ENG = { 
@@ -620,74 +594,89 @@ set_politics = {
 	white_peace = MLA
     set_autonomy = { target = RAJ autonomy_state = autonomy_free }		
 }
+
 1956.1.1 = {
 	set_autonomy = { target = PAK autonomy_state = autonomy_free }	
 	set_autonomy = { target = SUD autonomy_state = autonomy_free }
 }
+
 1957.1.1 = {
-if = {
-	limit = {
-		has_dlc = "Together for Victory"
-	}
-  set_autonomy = {
-    target = GHA
-    autonomous_state = autonomy_dominion
-    freedom_level = 0.6
-  }
-  	else = {
-		puppet = GHA
-	}
-  }
+    if = {
+	    limit = {
+		    has_dlc = "Together for Victory"
+	    }
+        set_autonomy = {
+            target = GHA
+            autonomous_state = autonomy_dominion
+            freedom_level = 0.6
+        }
+  	    else = {
+		    puppet = GHA
+	    }
+    }
 }
 
 1960.10.1 = {
 	set_autonomy = { target = GHA autonomy_state = autonomy_free }
 	set_autonomy = { target = NIA autonomy_state = autonomy_free }
 }
+
 1960.6.26 = {
     set_autonomy = { target = BSL autonomy_state = autonomy_free } 
 }
+
 1960.8.16 = {
     set_autonomy = { target = CYP autonomy_state = autonomy_free }
 }
+
 1961.1.1 = {
     set_autonomy = { target = SAF autonomy_state = autonomy_free } 
-    set_autonomy = { target = BCM autonomy_state = autonomy_free } 
 	set_autonomy = { target = TAZ autonomy_state = autonomy_free }
     set_autonomy = { target = SLE autonomy_state = autonomy_free }		
 }
+
 1962.1.1 = {
     set_autonomy = { target = JAM autonomy_state = autonomy_free } 	
     set_autonomy = { target = TAT autonomy_state = autonomy_free } 	
     set_autonomy = { target = UGA autonomy_state = autonomy_free } 	
 }
+
 1963.1.1 = {
     set_autonomy = { target = SGP autonomy_state = autonomy_free } 	
-    set_autonomy = { target = SWK autonomy_state = autonomy_free } 	
-    set_autonomy = { target = NBR autonomy_state = autonomy_free } 	
 }
+
 1964.1.1 = {
     set_autonomy = { target = SHX autonomy_state = autonomy_free } 
 }
+
 1965.1.1 = {
     set_autonomy = { target = GAM autonomy_state = autonomy_free } 
 }
+
 1966.1.1 = {
 	set_autonomy = { target = ZIM autonomy_state = autonomy_free }	
 	set_autonomy = { target = ZAM autonomy_state = autonomy_free }	
 	set_autonomy = { target = NYA autonomy_state = autonomy_free }
     set_autonomy = { target = GUY autonomy_state = autonomy_free }		
 }
+
 1966.1.1 = {
 	set_autonomy = { target = BOT autonomy_state = autonomy_free }
     set_autonomy = { target = LES autonomy_state = autonomy_free }		
 }
+
 1967.1.1 = {
 	set_autonomy = { target = DRY autonomy_state = autonomy_free }	
 }
+
 1968.1.1 = {
 	set_autonomy = { target = SWA autonomy_state = autonomy_free }	
 }
+
+1970.1.1 = {
+    set_autonomy = { target = TOA autonomy_state = autonomy_free } 	
+}
+
 1971.1.1 = {
 	set_autonomy = { target = QAT autonomy_state = autonomy_free }
     set_autonomy = { target = BHR autonomy_state = autonomy_free }	

@@ -27,7 +27,7 @@ technologies = {
 		
 		research_cost = 1.5
 
-		start_year = 1945
+		start_year = 1935
 		
 		folder = {
 			name = artillery_folder
@@ -66,7 +66,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1950
+		start_year = 1940
 		
 		folder = {
 			name = artillery_folder
@@ -105,7 +105,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1955
+		start_year = 1945
 		folder = {
 			name = artillery_folder
 			position = { x = -11 y = 4 }
@@ -134,7 +134,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1955
+		start_year = 1945
 		folder = {
 			name = artillery_folder
 			position = { x = -5 y = 4 }
@@ -155,7 +155,7 @@ technologies = {
 		}
 	}
 
-###AUTOMATIC CANNON 1960
+###AUTOMATIC CANNON 1950
 	
 	autocannon_2 = {
 
@@ -185,7 +185,7 @@ technologies = {
 			cannon_ammo_1 = 1
         }
 
-		start_year = 1960
+		start_year = 1950
 		
 		folder = {
 			name = artillery_folder
@@ -224,7 +224,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1965
+		start_year = 1955
 		
 		folder = {
 			name = artillery_folder
@@ -263,7 +263,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1970
+		start_year = 1960
 		folder = {
 			name = artillery_folder
 			position = { x = -11 y = 10 }
@@ -292,7 +292,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1970
+		start_year = 1960
 		folder = {
 			name = artillery_folder
 			position = { x = -5 y = 10 }
@@ -313,7 +313,7 @@ technologies = {
 		}
 	}
 	
-###AUTOMATIC CANNON 1975
+###AUTOMATIC CANNON 1965
 	
 	autocannon_3 = {
 
@@ -343,7 +343,7 @@ technologies = {
 			cannon_ammo_2 = 1
         }
 
-		start_year = 1975
+		start_year = 1965
 		
 		folder = {
 			name = artillery_folder
@@ -382,7 +382,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1980
+		start_year = 1970
 		
 		folder = {
 			name = artillery_folder
@@ -421,7 +421,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1985
+		start_year = 1975
 		folder = {
 			name = artillery_folder
 			position = { x = -11 y = 16 }
@@ -450,7 +450,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1985
+		start_year = 1975
 		folder = {
 			name = artillery_folder
 			position = { x = -5 y = 16 }
@@ -471,7 +471,7 @@ technologies = {
 		}
 	}
 	
-###AUTOMATIC CANNON 1990
+###AUTOMATIC CANNON 1980
 
    autocannon_4 = {
 
@@ -501,7 +501,7 @@ technologies = {
 			cannon_ammo_3 = 1
         }
 
-		start_year = 1990
+		start_year = 1980
 		
 		folder = {
 			name = artillery_folder
@@ -540,7 +540,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1995
+		start_year = 1985
 		
 		folder = {
 			name = artillery_folder
@@ -579,7 +579,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 2000
+		start_year = 1990
 		folder = {
 			name = artillery_folder
 			position = { x = -11 y = 22 }
@@ -608,7 +608,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 2000
+		start_year = 1990
 		folder = {
 			name = artillery_folder
 			position = { x = -5 y = 22 }
@@ -629,12 +629,27 @@ technologies = {
 		}
 	}
 	
-###AUTOMATIC CANNON 2005
+###AUTOMATIC CANNON 1995
 
 	 autocannon_5 = {
 
 		enable_equipments = {
 			auto_cannon_equipment_5
+		}
+		
+		path = {
+			leads_to_tech = spaag_5
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = cannon_ammo_5
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = aa_upgrade_5
+			research_cost_coeff = 1
 		}
 		
 		research_cost = 1.5
@@ -644,7 +659,7 @@ technologies = {
 			cannon_ammo_4 = 1
         }
 
-		start_year = 2005
+		start_year = 1995
 		
 		folder = {
 			name = artillery_folder
@@ -675,9 +690,96 @@ technologies = {
 		}
 	}
 	
+	spaag_5 = {
+
+		enable_equipments = {
+			spaag_equipment_5
+		}
+	    
+		research_cost = 1.5
+
+		start_year = 2000
+		
+		folder = {
+			name = artillery_folder
+			position = { x = -8 y = 26 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				date > "1937.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1951.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1952.1.1"
+			}
+		}
+		
+		categories = {
+			artillery
+		}
+	}
+	
+	cannon_ammo_5 = {		
+		
+		research_cost = 1.5
+		start_year = 2005
+		folder = {
+			name = artillery_folder
+			position = { x = -11 y = 28 }
+		}
+		
+		categories = {
+			artillery
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			
+			modifier = {
+				factor = 10
+				date > "1950.1.3"
+			}
+		}
+	}
+	
+	aa_upgrade_5 = {			
+		
+		research_cost = 1.5
+		start_year = 2005
+		folder = {
+			name = artillery_folder
+			position = { x = -5 y = 28 }
+		}
+		
+		categories = {
+			artillery
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			
+			modifier = {
+				factor = 10
+				date > "1950.1.3"
+			}
+		}
+	}
+	
 ###ARTILLERY###
 
-###ARTILLERY 1945
+###ARTILLERY 1935
 
    artillery_1 = {
 
@@ -710,7 +812,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		start_year = 1945
+		start_year = 1935
 		research_cost = 1.5
 		
 		folder = {
@@ -750,7 +852,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1955
+		start_year = 1945
 		folder = {
 			name = artillery_folder
 			position = { x = -1 y = 4 }
@@ -784,7 +886,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1950
+		start_year = 1940
 		
 		folder = {
 			name = artillery_folder
@@ -823,7 +925,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1955
+		start_year = 1945
 		
 		folder = {
 			name = artillery_folder
@@ -862,7 +964,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1950
+		start_year = 1940
 		
 		folder = {
 			name = artillery_folder
@@ -907,7 +1009,7 @@ technologies = {
 		
 		research_cost = 1.5
 
-		start_year = 1950
+		start_year = 1940
 		
 		folder = {
 			name = artillery_folder
@@ -946,7 +1048,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1955
+		start_year = 1945
 		
 		folder = {
 			name = artillery_folder
@@ -985,7 +1087,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1955
+		start_year = 1945
 		folder = {
 			name = artillery_folder
 			position = { x = 13 y = 4 }
@@ -1006,7 +1108,7 @@ technologies = {
 		}
 	}
 	
-###ARTILLERY 1960
+###ARTILLERY 1950
 
    artillery_2 = {
 
@@ -1039,7 +1141,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		start_year = 1960
+		start_year = 1950
 		research_cost = 1.5
 		
 		dependencies = {
@@ -1084,7 +1186,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1970
+		start_year = 1960
 		folder = {
 			name = artillery_folder
 			position = { x = -1 y = 10 }
@@ -1118,7 +1220,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1965
+		start_year = 1955
 		
 		folder = {
 			name = artillery_folder
@@ -1157,7 +1259,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1970
+		start_year = 1960
 		
 		folder = {
 			name = artillery_folder
@@ -1196,7 +1298,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1965
+		start_year = 1955
 		
 		folder = {
 			name = artillery_folder
@@ -1241,7 +1343,7 @@ technologies = {
 		
 		research_cost = 1.5
 
-		start_year = 1965
+		start_year = 1955
 		
 		folder = {
 			name = artillery_folder
@@ -1280,7 +1382,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1970
+		start_year = 1960
 		
 		folder = {
 			name = artillery_folder
@@ -1319,7 +1421,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1970
+		start_year = 1960
 		folder = {
 			name = artillery_folder
 			position = { x = 13 y = 10 }
@@ -1340,7 +1442,7 @@ technologies = {
 		}
 	}
 	
-###ARTILLERY 1975
+###ARTILLERY 1965
 
    artillery_3 = {
 
@@ -1373,7 +1475,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		start_year = 1975
+		start_year = 1965
 		research_cost = 1.5
 		
 		dependencies = {
@@ -1418,7 +1520,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1985
+		start_year = 1975
 		folder = {
 			name = artillery_folder
 			position = { x = -1 y = 16 }
@@ -1452,7 +1554,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1980
+		start_year = 1970
 		
 		folder = {
 			name = artillery_folder
@@ -1491,7 +1593,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1985
+		start_year = 1975
 		
 		folder = {
 			name = artillery_folder
@@ -1530,7 +1632,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1980
+		start_year = 1970
 		
 		folder = {
 			name = artillery_folder
@@ -1575,7 +1677,7 @@ technologies = {
 		
 		research_cost = 1.5
 
-		start_year = 1980
+		start_year = 1970
 		
 		folder = {
 			name = artillery_folder
@@ -1614,7 +1716,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1985
+		start_year = 1975
 		
 		folder = {
 			name = artillery_folder
@@ -1653,7 +1755,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1985
+		start_year = 1975
 		folder = {
 			name = artillery_folder
 			position = { x = 13 y = 16 }
@@ -1674,7 +1776,7 @@ technologies = {
 		}
 	}
 	
-###ARTILLERY 1990
+###ARTILLERY 1980
 
    artillery_4 = {
 
@@ -1707,7 +1809,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		start_year = 1990
+		start_year = 1980
 		research_cost = 1.5
 		
 		dependencies = {
@@ -1752,7 +1854,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 2000
+		start_year = 1990
 		folder = {
 			name = artillery_folder
 			position = { x = -1 y = 22 }
@@ -1786,7 +1888,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1995
+		start_year = 1985
 		
 		folder = {
 			name = artillery_folder
@@ -1825,7 +1927,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 2000
+		start_year = 1990
 		
 		folder = {
 			name = artillery_folder
@@ -1864,7 +1966,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 1995
+		start_year = 1985
 		
 		folder = {
 			name = artillery_folder
@@ -1909,7 +2011,7 @@ technologies = {
 		
 		research_cost = 1.5
 
-		start_year = 1995
+		start_year = 1985
 		
 		folder = {
 			name = artillery_folder
@@ -1948,7 +2050,7 @@ technologies = {
 	    
 		research_cost = 1.5
 
-		start_year = 2000
+		start_year = 1990
 		
 		folder = {
 			name = artillery_folder
@@ -1987,7 +2089,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 2000
+		start_year = 1990
 		folder = {
 			name = artillery_folder
 			position = { x = 13 y = 22 }
@@ -2007,14 +2109,41 @@ technologies = {
 			}
 		}
 	}
-	
+
+###ARTILLERY 1995
+
 	artillery_5 = {
 
 		enable_equipments = {
 			artillery_equipment_5
 		}
+		
+		path = {
+			leads_to_tech = art_ammo_5 
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = light_artillery_5 
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = sp_artillery_5 
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = heavy_artillery_5
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = art_upgrade_5 
+			research_cost_coeff = 1
+		}
 
-		start_year = 2005
+		start_year = 1995
 		research_cost = 1.5
 		
 		dependencies = {
@@ -2050,8 +2179,264 @@ technologies = {
 			}
 		}
 	}
+	
+	art_ammo_5 = {	
+
+		
+		research_cost = 1.5
+		start_year = 2005
+		folder = {
+			name = artillery_folder
+			position = { x = -1 y = 28 }
+		}
+		
+		categories = {
+			artillery
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			
+			modifier = {
+				factor = 10
+				date > "1950.1.3"
+			}
+		}
+	}
+	
+	light_artillery_5 = {
+
+		enable_equipments = {
+			light_artillery_equipment_5
+		}
+		
+		path = {
+			leads_to_tech = light_sp_artillery_5
+			research_cost_coeff = 1
+		}
+	    
+		research_cost = 1.5
+
+		start_year = 2000
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 2 y = 26 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				date > "1937.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1951.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1952.1.1"
+			}
+		}
+		
+		categories = {
+			artillery
+		}
+	}
+	
+	light_sp_artillery_5 = {
+
+		enable_equipments = {
+			light_sp_artillery_equipment_5
+		}
+	    
+		research_cost = 1.5
+
+		start_year = 2005
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 2 y = 28 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				date > "1937.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1951.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1952.1.1"
+			}
+		}
+		
+		categories = {
+			artillery
+		}
+	}
+	
+	sp_artillery_5 = {
+
+		enable_equipments = {
+			sp_artillery_equipment_5
+		}
+	    
+		research_cost = 1.5
+
+		start_year = 2000
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 6 y = 26 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				date > "1937.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1951.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1952.1.1"
+			}
+		}
+		
+		categories = {
+			artillery
+		}
+	}
+	
+	heavy_artillery_5 = {
+
+		enable_equipments = {
+			heavy_artillery_equipment_5
+		}
+	    
+		path = {
+			leads_to_tech = heavy_sp_artillery_5 
+			research_cost_coeff = 1
+		}
+	    
+		
+		research_cost = 1.5
+
+		start_year = 2000
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 10 y = 26 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				date > "1937.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1951.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1952.1.1"
+			}
+		}
+		
+		categories = {
+			artillery
+		}
+	}
+	
+	heavy_sp_artillery_5 = {
+
+		enable_equipments = {
+			heavy_sp_artillery_equipment_5
+		}
+	    
+		research_cost = 1.5
+
+		start_year = 2005
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 10 y = 28 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				date > "1937.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1951.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1952.1.1"
+			}
+		}
+		
+		categories = {
+			artillery
+		}
+	}
+	
+	art_upgrade_5 = {	
+
+		research_cost = 1.5
+		start_year = 2005
+		folder = {
+			name = artillery_folder
+			position = { x = 13 y = 28 }
+		}
+		
+		categories = {
+			artillery
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			
+			modifier = {
+				factor = 10
+				date > "1950.1.3"
+			}
+		}
+	}
 
 ###DIRECT FIRE GUN###
+
 ###DIRECT FIRE GUN 1
 
    direct_fire_gun_1 = {
@@ -2077,7 +2462,7 @@ technologies = {
 		
 		research_cost = 1.5
 
-		start_year = 1945
+		start_year = 1935
 		
 		folder = {
 			name = artillery_folder
@@ -2117,7 +2502,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1955
+		start_year = 1945
 		folder = {
 			name = artillery_folder
 			position = { x = 17 y = 4 }
@@ -2146,7 +2531,7 @@ technologies = {
 		
 		research_cost = 1.5
 
-		start_year = 1950
+		start_year = 1940
 		folder = {
 			name = artillery_folder
 			position = { x = 20 y = 2 }
@@ -2185,7 +2570,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1955
+		start_year = 1945
 		folder = {
 			name = artillery_folder
 			position = { x = 23 y = 4 }
@@ -2231,7 +2616,7 @@ technologies = {
 		
 		research_cost = 1.5
 
-		start_year = 1960
+		start_year = 1950
 		
 		folder = {
 			name = artillery_folder
@@ -2271,7 +2656,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1970
+		start_year = 1960
 		folder = {
 			name = artillery_folder
 			position = { x = 17 y = 10 }
@@ -2300,7 +2685,7 @@ technologies = {
 		
 		research_cost = 1.5
 
-		start_year = 1965
+		start_year = 1955
 		folder = {
 			name = artillery_folder
 			position = { x = 20 y = 8 }
@@ -2339,7 +2724,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1970
+		start_year = 1960
 		folder = {
 			name = artillery_folder
 			position = { x = 23 y = 10 }
@@ -2385,7 +2770,7 @@ technologies = {
 		
 		research_cost = 1.5
 
-		start_year = 1975
+		start_year = 1965
 		
 		folder = {
 			name = artillery_folder
@@ -2425,7 +2810,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1985
+		start_year = 1975
 		folder = {
 			name = artillery_folder
 			position = { x = 17 y = 16 }
@@ -2454,7 +2839,7 @@ technologies = {
 		
 		research_cost = 1.5
 
-		start_year = 1980
+		start_year = 1970
 		folder = {
 			name = artillery_folder
 			position = { x = 20 y = 14 }
@@ -2493,7 +2878,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 1985
+		start_year = 1975
 		folder = {
 			name = artillery_folder
 			position = { x = 23 y = 16 }
@@ -2539,7 +2924,7 @@ technologies = {
 		
 		research_cost = 1.5
 
-		start_year = 1990
+		start_year = 1980
 		
 		folder = {
 			name = artillery_folder
@@ -2579,7 +2964,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 2000
+		start_year = 1990
 		folder = {
 			name = artillery_folder
 			position = { x = 17 y = 22 }
@@ -2608,7 +2993,7 @@ technologies = {
 		
 		research_cost = 1.5
 
-		start_year = 1995
+		start_year = 1985
 		folder = {
 			name = artillery_folder
 			position = { x = 20 y = 20 }
@@ -2647,7 +3032,7 @@ technologies = {
 		}		
 		
 		research_cost = 1.5
-		start_year = 2000
+		start_year = 1990
 		folder = {
 			name = artillery_folder
 			position = { x = 23 y = 22 }
@@ -2676,9 +3061,24 @@ technologies = {
 			direct_fire_gun_equipment_5
 		}
 		
+		path = {
+			leads_to_tech = at_ammo_5
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = tank_destroyer_5
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = at_upgrade_5
+			research_cost_coeff = 1
+		}
+		
 		research_cost = 1.5
 
-		start_year = 2005
+		start_year = 1995
 		
 		folder = {
 			name = artillery_folder
@@ -2707,6 +3107,93 @@ technologies = {
 		categories = {
 			artillery
 			cat_anti_tank
+		}
+	}
+	
+	at_ammo_5 = {			
+		
+		research_cost = 1.5
+		start_year = 2005
+		folder = {
+			name = artillery_folder
+			position = { x = 17 y = 28 }
+		}
+		
+		categories = {
+			artillery
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			
+			modifier = {
+				factor = 10
+				date > "1950.1.3"
+			}
+		}
+	}
+	
+	tank_destroyer_5 = {
+
+		enable_equipments = {
+			medium_tank_destroyer_equipment_5
+		}
+		
+		research_cost = 1.5
+
+		start_year = 2000
+		folder = {
+			name = artillery_folder
+			position = { x = 20 y = 26 }
+		}
+		
+		categories = {
+			artillery
+			cat_anti_tank
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				date > "1937.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1951.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1952.1.1"
+			}
+		}
+	}
+	
+	at_upgrade_5 = {		
+		
+		research_cost = 1.5
+		start_year = 2005
+		folder = {
+			name = artillery_folder
+			position = { x = 23 y = 28 }
+		}
+		
+		categories = {
+			artillery
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			
+			modifier = {
+				factor = 10
+				date > "1950.1.3"
+			}
 		}
 	}
 	
