@@ -4812,7 +4812,6 @@ ic_pulse = {
 				has_cosmetic_tag = GUY_ENG
 				has_cosmetic_tag = DOC_BEL
 				has_cosmetic_tag = BUR_BEL
-				has_cosmetic_tag = TAZ_ENG
 				has_cosmetic_tag = PAP_AST
 				has_cosmetic_tag = KEN_ENG
 				has_cosmetic_tag = UGA_ENG
@@ -5014,16 +5013,6 @@ ic_pulse = {
 	}
 	if = {
 		limit = {
-			original_tag = ENG
-			country_exists = TAZ
-			TAZ = { is_subject_of = ROOT has_cosmetic_tag = TAZ_ENG }
-			date > 1961.12.9
-			date < 1962.1.1
-		}
-		country_event = { id = britishdecolonization.1 days = 1 }
-	}
-	if = {
-		limit = {
 			tag = ISR
 			country_exists = EGY
 			country_exists = JOR
@@ -5139,6 +5128,18 @@ ic_pulse = {
 			DOC = { is_subject_of = ROOT has_cosmetic_tag = DOC_BEL }
 		}
 		country_event = decolonization.7
+	}
+	if = {
+		limit = {
+			original_tag = ENG
+			date > 1961.12.8
+			date < 1962.1.1
+			NOT = { country_exists = TAZ }
+			owns_state = 953
+			owns_state = 546
+			owns_state = 1197
+		}
+		country_event = decolonization.8
 	}
 	if = {
 		limit = {
