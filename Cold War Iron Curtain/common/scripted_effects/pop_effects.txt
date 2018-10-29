@@ -7,10 +7,10 @@ remove_pop_scale = {
 			}				
 		}
 		FROM.FROM = {
-			add_manpower = -500
+			add_manpower = -5000
 			
 		}
-		break = yes
+		
 	}
 	if = {
 		limit = {
@@ -21,9 +21,9 @@ remove_pop_scale = {
 			}				
 		}
 		FROM.FROM = {
-			add_manpower = -1000
+			add_manpower = -10000
 		}
-		break = yes
+		
 	}
 	if = {
 		limit = {
@@ -33,9 +33,9 @@ remove_pop_scale = {
 			}				
 		}
 		FROM.FROM = {
-			add_manpower = -2500
+			add_manpower = -20000
 		}
-		break = yes
+		
 	}
 	if = {
 		limit = {
@@ -45,9 +45,9 @@ remove_pop_scale = {
 			}				
 		}
 		FROM.FROM = {
-			add_manpower = -5000
+			add_manpower = -50000
 		}
-		break = yes
+		
 	}
 	if = {
 		limit = {
@@ -56,9 +56,9 @@ remove_pop_scale = {
 			}		
 		}
 		FROM.FROM = {
-			add_manpower = -10000
+			add_manpower = -500000
 		}
-		break = yes
+		
 	}
 	if = {
 		limit = {
@@ -69,8 +69,85 @@ remove_pop_scale = {
 			}		
 		}
 		FROM.FROM = {
-			add_manpower = -20000
+			add_manpower = -1000000
 		}
-		break = yes
+		
+	}
+}
+
+remove_pop_scale_two = {
+	if = {
+		limit = {
+			FROM.FROM = { 
+				state_population > 50000
+				NOT = { state_population > 100000 }
+			}				
+		}
+		FROM.FROM = {
+			add_manpower = -1000
+			
+		}
+		
+	}
+	if = {
+		limit = {
+
+			FROM.FROM = { 
+				state_population > 100000
+				NOT = { state_population > 1000000 }
+			}				
+		}
+		FROM.FROM = {
+			add_manpower = -2000
+		}
+		
+	}
+	if = {
+		limit = {
+			FROM.FROM = { 
+				state_population > 1000000
+				NOT = { state_population > 2000000 }
+			}				
+		}
+		FROM.FROM = {
+			add_manpower = -5000
+		}
+		
+	}
+	if = {
+		limit = {
+			FROM.FROM = { 
+				state_population > 2000000
+				NOT = { state_population > 5000000 }
+			}				
+		}
+		FROM.FROM = {
+			add_manpower = -10000
+		}
+		
+	}
+	if = {
+		limit = {
+			FROM.FROM = { 
+				state_population > 5000000
+			}		
+		}
+		FROM.FROM = {
+			add_manpower = -25000
+		}
+		
+	}
+	if = {
+		limit = {
+			has_tech = fission1952
+			NOT = { has_tech = fusion1954 }
+			FROM.FROM = { 
+				state_population > 10000000
+			}		
+		}
+		FROM.FROM = {
+			add_manpower = -50000
+		}
+		
 	}
 }
