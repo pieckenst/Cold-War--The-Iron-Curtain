@@ -1,0 +1,76 @@
+remove_pop_scale = {
+	if = {
+		limit = {
+			FROM.FROM = { 
+				state_population > 50000
+				NOT = { state_population > 100000 }
+			}				
+		}
+		FROM.FROM = {
+			add_manpower = -500
+			
+		}
+		break = yes
+	}
+	if = {
+		limit = {
+
+			FROM.FROM = { 
+				state_population > 100000
+				NOT = { state_population > 1000000 }
+			}				
+		}
+		FROM.FROM = {
+			add_manpower = -1000
+		}
+		break = yes
+	}
+	if = {
+		limit = {
+			FROM.FROM = { 
+				state_population > 1000000
+				NOT = { state_population > 2000000 }
+			}				
+		}
+		FROM.FROM = {
+			add_manpower = -2500
+		}
+		break = yes
+	}
+	if = {
+		limit = {
+			FROM.FROM = { 
+				state_population > 2000000
+				NOT = { state_population > 5000000 }
+			}				
+		}
+		FROM.FROM = {
+			add_manpower = -5000
+		}
+		break = yes
+	}
+	if = {
+		limit = {
+			FROM.FROM = { 
+				state_population > 5000000
+			}		
+		}
+		FROM.FROM = {
+			add_manpower = -10000
+		}
+		break = yes
+	}
+	if = {
+		limit = {
+			has_tech = fission1952
+			NOT = { has_tech = fusion1954 }
+			FROM.FROM = { 
+				state_population > 10000000
+			}		
+		}
+		FROM.FROM = {
+			add_manpower = -20000
+		}
+		break = yes
+	}
+}
