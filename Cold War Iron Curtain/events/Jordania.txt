@@ -53,3 +53,60 @@ country_event = {
 		transfer_state = 781
 	}
 }
+
+country_event = {
+	id = jordania.3
+	title = "King Abdullah Assassination attempt"
+	desc = jordania.3.d
+	picture = GFX_report_event_finnish_soldiers_snow
+	
+	is_triggered_only = yes
+
+	#Accept surrender
+	immediate = {
+	set_country_flag = king_abdullah_assassination
+	}
+	option = {
+		name = "King Abdullah survive Assassination attempt"
+		white_peace = ISR
+	}
+	option = {
+		name = "Talal is now the king"
+		kill_country_leader = yes
+		create_country_leader = {
+				name = "Talal I"
+				picture = "Talal.dds"
+				ideology = monarchy
+		}
+	}
+	option = {
+		name = "Talal is inapt to be the king! Prince Nayef declare himself king!"
+		kill_country_leader = yes
+		create_country_leader = {
+				name = "Nayef I"
+				picture = "Nayef.dds"
+				ideology = monarchy
+		}
+	}
+}
+country_event = {
+	id = jordania.4
+	title = "King Talal Illness"
+	desc = jordania.4.d
+	picture = GFX_report_event_finnish_soldiers_snow
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	set_country_flag = talal_illness
+	}
+	option = {
+		name = "Prince Hussein is crowned king"
+		retire_country_leader = yes
+		create_country_leader = {
+				name = "Hussein"
+				picture = "Hussein.dds"
+				ideology = monarchy
+		}
+	}
+}

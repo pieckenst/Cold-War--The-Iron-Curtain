@@ -141,7 +141,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = { 
-		name = usa.1000.a
+		name = "Adlai Stevenson"
 		ai_chance = {
 			factor = 70
 				modifier = {
@@ -153,14 +153,14 @@ country_event = {
 	}
 
 	option = { 
-		name = usa.1000.b
+		name = "Harry Truman"
 		ai_chance = {
 			factor = 0
 		}
 		set_global_flag = truman_dem_nominee_52
 	}
 	option = { 
-		name = usa.1000.c
+		name = "Estes Kefauver"
 		ai_chance = {
 			factor = 30
 		}
@@ -187,7 +187,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = { 
-		name = usa.1001.a
+		name = "Dwight Eisenhower"
 		trigger = {
 			NOT = { has_global_flag = eisenhower_scandal }
 		}
@@ -202,14 +202,14 @@ country_event = {
 	}
 
 	option = { 
-		name = usa.1001.b
+		name = "Robert Taft"
 		ai_chance = {
 			factor = 10
 		}
 		set_global_flag = taft_gop_nominee_52
 	}
 	option = { 
-		name = usa.1001.c
+		name = "Douglas MacArthur"
 		ai_chance = {
 			factor = 10
 		}
@@ -236,7 +236,7 @@ country_event = {
 		complete_national_focus = USA_Elections_of_1952
 	}
 	option = { 
-		name = usa.1002.a
+		name = "Harry Truman"
 		ai_chance = {
 			factor = 0
 		}
@@ -247,7 +247,7 @@ country_event = {
 	}
 
 	option = { 
-		name = usa.1002.b
+		name = "Adlai Stevenson"
 		ai_chance = {
 			factor = 30
 		}
@@ -265,7 +265,7 @@ country_event = {
 	}
 	
 	option = { 
-		name = usa.1002.c
+		name = "Estes Kefauver"
 		ai_chance = {
 			factor = 35
 		}
@@ -282,7 +282,7 @@ country_event = {
 		set_global_flag = president_kefauver
 	}
 	option = { 
-		name = usa.1002.d
+		name = "Douglas MacArthur"
 		trigger = {
 			has_global_flag = macarthur_gop_nominee_52
 		}
@@ -305,7 +305,7 @@ country_event = {
 		remove_unit_leader = 57
 	}
 	option = { 
-		name = usa.1002.e
+		name = "Robert Taft"
 		trigger = {
 			has_global_flag = taft_gop_nominee_52
 		}
@@ -324,7 +324,7 @@ country_event = {
 
 	}
 	option = { 
-		name = usa.1002.f
+		name = "Dwight Eisenhower"
 		trigger = {
 			has_global_flag = eisenhower_gop_nominee_52
 		}
@@ -414,6 +414,7 @@ country_event = {
 		trigger = {
 			NOT = { has_global_flag = president_macarthur }
 			NOT = { has_global_flag = president_taft }
+			NOT = { has_global_flag = dwight_heart_attack }
 		}
 		ai_chance = {
 			factor = 55
@@ -459,6 +460,16 @@ country_event = {
 			factor = 10
 		}
 		set_global_flag = Joseph_McCarthy_gop_nominee_56
+	}	
+	option = { 
+		name = "Richard Nixon"
+		trigger = {
+			has_global_flag = dwight_heart_attack
+		}
+		ai_chance = {
+			factor = 10
+		}
+		set_global_flag = Richard_Nixon_gop_nominee_56
 	}	
 }
 
@@ -610,7 +621,7 @@ country_event = {
 		ai_chance = {
 			factor = 35
 				modifier = {
-					factor = 1000
+					factor = 0
 					is_historical_focus_on = yes
 				}
 		}
@@ -623,6 +634,29 @@ country_event = {
 		}
 		set_politics = { ruling_party = conservative elections_allowed = yes }
 		set_global_flag = president_Joseph_McCarthy
+		if = {
+			limit = {
+				has_global_flag = president_taft
+			}
+			clr_global_flag = president_taft
+		}
+	}
+	option = { 
+		name = "Richard Nixon"
+		trigger = {
+			has_global_flag = Richard_Nixon_gop_nominee_56
+		}
+		ai_chance = {
+			factor = 35
+		}
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Richard Nixon"
+			picture = "Richard_Nixon.dds"
+			ideology = republican
+		}
+		set_politics = { ruling_party = conservative elections_allowed = yes }
+		set_global_flag = nixon_56
 		if = {
 			limit = {
 				has_global_flag = president_taft
@@ -691,6 +725,17 @@ country_event = {
 	
 	option = { 
 		name = "Richard Nixon"
+		trigger = {
+			NOT = { has_global_flag = nixon_56 }
+		}
+		set_global_flag = nixon_gop_nominee_60
+	}
+	option = { 
+		name = "Richard Nixon"
+		trigger = {
+			has_global_flag = nixon_56
+		}
+		set_global_flag = nixon_third_term
 	}
 }
 
@@ -766,6 +811,9 @@ country_event = {
 	}
 	option = { 
 		name = "Richard Nixon"
+		trigger = {
+			has_global_flag = nixon_gop_nominee_60
+		}
 		ai_chance = {
 			factor = 35
 		}
@@ -777,6 +825,29 @@ country_event = {
 		}
 		set_politics = { ruling_party = conservative elections_allowed = yes }
 		set_global_flag = nixon_60
+		if = {
+			limit = {
+				has_global_flag = president_taft
+			}
+			clr_global_flag = president_taft
+		}
+	}
+	option = { 
+		name = "Richard Nixon"
+		trigger = {
+			has_global_flag = nixon_third_term
+		}
+		ai_chance = {
+			factor = 35
+		}
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Richard Nixon"
+			picture = "Richard_Nixon.dds"
+			ideology = republican
+		}
+		set_politics = { ruling_party = conservative elections_allowed = yes }
+		set_global_flag = nixon_60_third_term
 		if = {
 			limit = {
 				has_global_flag = president_taft
@@ -1567,11 +1638,8 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = "Hubert Humphrey II"
+		name = "Jerry Brown"
 		trigger = {
-			NOT = { has_global_flag = humphrey_60 }
-			NOT = { has_global_flag = humphrey_64 }
-			NOT = { has_global_flag = humphrey_68 }
 		}
 		ai_chance = {
 			factor = 35
@@ -1580,7 +1648,7 @@ country_event = {
 					is_historical_focus_on = yes
 				}
 		}
-			set_global_flag = humphrey_dem_nominee_76
+			set_global_flag = brown_dem_nominee_76
 	}
 	option = {
 		name = "Robert F. Kennedy"
@@ -1725,7 +1793,7 @@ country_event = {
 		set_global_flag = us_elections_1976
 	}
 	option = {
-		name = "Hubert Humphrey II"
+		name = "Jerry Brown"
 		ai_chance = {
 			factor = 35
 				modifier = {
@@ -1734,16 +1802,16 @@ country_event = {
 				}
 		}
 		trigger = {
-			has_global_flag = humphrey_dem_nominee_76
-		}
-		retire_country_leader = yes
-		create_country_leader = {
-			name = "Hubert Humphrey II"
-			picture = "Hubert_Humphrey.dds"
-			ideology = democratic_america
+			has_global_flag = brown_dem_nominee_76
 		}
 		set_politics = { ruling_party = Social_Democratic elections_allowed = yes }
-		set_global_flag = humphrey_76
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Jerry Brown"
+			picture = "Jerry_Brown.dds"
+			ideology = democratic_america
+		}
+		set_global_flag = brown_76
 	}
 	
 	option = {
@@ -1935,7 +2003,7 @@ country_event = {
 	option = {
 		name = "Jerry Brown"
 		trigger = {
-				}
+		}
 		ai_chance = {
 			factor = 35
 				modifier = {
@@ -1972,6 +2040,20 @@ country_event = {
 				}
 		}
 		set_global_flag = carter_dem_nominee_80	
+	}
+	option = {
+		name = "Edward Kennedy"
+		trigger = {
+			NOT = { has_global_flag = Chappaquiddick }
+		}
+		ai_chance = {
+			factor = 35
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+		}
+		set_global_flag = Ted_Kennedy_dem_nominee_80	
 	}
 }
 # Election of 1980: Republican Nomination
@@ -2116,6 +2198,27 @@ country_event = {
 		set_global_flag = carter_80
 	}
 	option = {
+		name = "Edward Kennedy"
+		ai_chance = {
+			factor = 35
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+		}
+		trigger = {
+			has_global_flag = Ted_Kennedy_dem_nominee_80
+		}
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Edward Kennedy"
+			picture = "Edward_Kennedy.dds"
+			ideology = democratic_america
+		}
+		set_politics = { ruling_party = Social_Democratic elections_allowed = yes }
+		set_global_flag = ted_kennedy_80
+	}
+	option = {
 		name = "Ronald Reagan"
 		ai_chance = {
 			factor = 35
@@ -2199,8 +2302,8 @@ country_event = {
 	option = {
 		name = "Jerry Brown"
 		trigger = {
-			has_global_flag = brown_80
-				}
+			NOT = { has_global_flag = brown_76 }
+		}
 		ai_chance = {
 			factor = 35
 				modifier = {
@@ -5445,4 +5548,94 @@ news_event = {
 	option = {
 		name = "That bomb will massacre the URSS"
 	}
+}
+
+######Eisenhower Heart Attack######
+country_event = {
+	id = usa.3
+	desc = usa.3.d
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+
+	immediate = {
+		set_global_flag = dwight_have_earth_attack
+	}
+	option = {
+		name = "Thank God for Dwight being fine."
+		set_country_flag = dwight_alive
+		news_event = { hours = 6 id = usa.4 }
+	}
+	option = {
+		name = "President Eisenhower will be missed. President Nixon will lead us now."
+		set_country_flag = dwight_heart_attack
+		news_event = { hours = 6 id = usa.5 }
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Richard Nixon"
+			picture = "Richard_Nixon.dds"
+			ideology = republican
+		}
+	}
+}
+news_event = {
+	id = usa.4
+	title = "President Eisenhower Heart attack!"
+	desc = usa.4.d
+	picture = GFX_news_event_truman_assasination_attempt
+
+	fire_only_once = yes
+	
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Thank God for Eisenhower being fine."
+		trigger = { TAG = USA }
+		set_country_flag = truman_alive
+	}
+	
+	option = {
+		name = "A close call for our 'friend'."
+		trigger = { TAG = SOV }
+	}
+	
+	option = {
+		name = "Thank God for Eisenhower being alive."
+		trigger = { 
+			NOT = { TAG = SOV }
+			NOT = { TAG = USA }
+		}
+	}	
+}
+news_event = {
+	id = usa.5
+	title = "President Eisenhower Heart attack!"
+	desc = usa.5.d
+	picture = GFX_news_event_truman_death
+
+	fire_only_once = yes
+	
+	major = yes
+
+	is_triggered_only = yes
+	option = {
+		name = "President Eisenhower will be missed."
+		trigger = { TAG = USA }
+	}
+	
+	option = {
+		name = "How will this change for us?"
+		trigger = { TAG = SOV }
+	}
+	
+	option = {
+		name = "President Eisenhower will be missed. What will happen now?"
+		trigger = { 
+			NOT = { TAG = SOV }
+			NOT = { TAG = USA }
+		}
+	}	
 }
