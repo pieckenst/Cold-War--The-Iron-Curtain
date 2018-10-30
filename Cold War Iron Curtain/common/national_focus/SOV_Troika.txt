@@ -53,12 +53,14 @@
 		x = 4
 		y = 2
 			completion_reward = {
-					UKR = {
+					SOV = {
 							every_owned_state = {
+									limit = { is_core_of = UKR }
 									add_extra_state_shared_building_slots = 1
 								}
 							random_owned_controlled_state = {
 									limit = {
+											limit = { is_core_of = UKR }
 											free_building_slots = {
 													building = industrial_complex
 													size > 0
@@ -89,6 +91,7 @@
 								}
 							random_owned_controlled_state = {
 									limit = {
+											limit = { is_core_of = UKR }
 											free_building_slots = {
 													building = industrial_complex
 													size > 0
@@ -131,12 +134,14 @@
 		x = 1
 		y = 3
 			completion_reward = {
-					BLR = {
+					SOV = {
 							every_owned_state = {
+									limit = { is_core_of = BLR} 
 									add_extra_state_shared_building_slots = 1
 								}
 							random_owned_controlled_state = {
-									limit = {
+									limit = {	
+											is_core_of = BLR
 											free_building_slots = {
 													building = industrial_complex
 													size > 0
@@ -167,6 +172,7 @@
 								}
 							random_owned_controlled_state = {
 									limit = {
+											is_core_of = BLR
 											free_building_slots = {
 													building = industrial_complex
 													size > 0
@@ -745,7 +751,7 @@
 						}
 					set_autonomy = {
 							target = KPA
-							autonomy_state = autonomy_ssr
+							autonomy_state = autonomy_easternbloc
 						}
 				}
 
@@ -1270,12 +1276,14 @@
 		x = 1
 		y = 5
 			completion_reward = {
-					LIT = {
+					SOV = {
 							every_owned_state = {
+									limit = { is_core_of = LIT }
 									add_extra_state_shared_building_slots = 1
 								}
 							random_owned_controlled_state = {
 									limit = {
+										limit = { is_core_of = LIT }
 											free_building_slots = {
 													building = industrial_complex
 													size > 0
@@ -1304,7 +1312,14 @@
 											instant_build = yes
 										}
 								}
+						}
+					SOV = {
+							every_owned_state = {
+									limit = { is_core_of = EST }
+									add_extra_state_shared_building_slots = 1
+								}
 							random_owned_controlled_state = {
+									is_core_of = EST
 									limit = {
 											free_building_slots = {
 													building = industrial_complex
@@ -1335,12 +1350,14 @@
 										}
 								}
 						}
-					EST = {
+					SOV = {
 							every_owned_state = {
+									limit = { is_core_of = LAT }
 									add_extra_state_shared_building_slots = 1
 								}
 							random_owned_controlled_state = {
 									limit = {
+											is_core_of = LAT 
 											free_building_slots = {
 													building = industrial_complex
 													size > 0
@@ -1369,102 +1386,6 @@
 											instant_build = yes
 										}
 								}
-							random_owned_controlled_state = {
-									limit = {
-											free_building_slots = {
-													building = industrial_complex
-													size > 0
-													include_locked = yes
-												}
-											OR = {
-													is_in_home_area = yes
-													NOT = {
-															owner = {
-																	any_owned_state = {
-																			free_building_slots = {
-																					building = industrial_complex
-																					size > 0
-																					include_locked = yes
-																				}
-																			is_in_home_area = yes
-																		}
-																}
-														}
-												}
-										}
-									add_extra_state_shared_building_slots = 2
-									add_building_construction = {
-											type = industrial_complex
-											level = 2
-											instant_build = yes
-										}
-								}
-						}
-					LAT = {
-							every_owned_state = {
-									add_extra_state_shared_building_slots = 1
-								}
-							random_owned_controlled_state = {
-									limit = {
-											free_building_slots = {
-													building = industrial_complex
-													size > 0
-													include_locked = yes
-												}
-											OR = {
-													is_in_home_area = yes
-													NOT = {
-															owner = {
-																	any_owned_state = {
-																			free_building_slots = {
-																					building = industrial_complex
-																					size > 0
-																					include_locked = yes
-																				}
-																			is_in_home_area = yes
-																		}
-																}
-														}
-												}
-										}
-									add_extra_state_shared_building_slots = 2
-									add_building_construction = {
-											type = industrial_complex
-											level = 2
-											instant_build = yes
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											free_building_slots = {
-													building = industrial_complex
-													size > 0
-													include_locked = yes
-												}
-											OR = {
-													is_in_home_area = yes
-													NOT = {
-															owner = {
-																	any_owned_state = {
-																			free_building_slots = {
-																					building = industrial_complex
-																					size > 0
-																					include_locked = yes
-																				}
-																			is_in_home_area = yes
-																		}
-																}
-														}
-												}
-										}
-									add_extra_state_shared_building_slots = 2
-									add_building_construction = {
-											type = industrial_complex
-											level = 2
-											instant_build = yes
-										}
-								}
-						}
 				}
 
 	}
@@ -1590,12 +1511,7 @@
 		x = 1
 		y = 7
 			completion_reward = {
-					add_tech_bonus = {
-							name = space_manned_bonus
-							bonus = 0.15
-							uses = 1
-							category = space_manned
-						}
+					add_research_slot = 1
 					add_tech_bonus = {
 							name = space_unmanned_bonus
 							bonus = 0.15
@@ -1761,8 +1677,7 @@
 		x = 4
 		y = 8
 			completion_reward = {
-					GEO = {
-							capital_scope = {
+							229 = {
 									add_building_construction = {
 											type = synthetic_refinery
 											level = 2
@@ -1771,27 +1686,6 @@
 									add_extra_state_shared_building_slots = 2
 								}
 						}
-					ARM = {
-							capital_scope = {
-									add_building_construction = {
-											type = synthetic_refinery
-											level = 2
-											instant_build = yes
-										}
-									add_extra_state_shared_building_slots = 2
-								}
-						}
-					AZR = {
-							capital_scope = {
-									add_building_construction = {
-											type = synthetic_refinery
-											level = 2
-											instant_build = yes
-										}
-									add_extra_state_shared_building_slots = 2
-								}
-						}
-				}
 
 	}
 	shared_focus = {
