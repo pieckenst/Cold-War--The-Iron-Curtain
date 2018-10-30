@@ -717,7 +717,7 @@ focus_tree = {
 			completion_reward = {
 					add_tech_bonus = {
 							name = nuclear_bonus
-							ahead_reduction = 0.75
+							bonus = 0.75
 							category = nuclear
 						}
 				}
@@ -801,7 +801,7 @@ focus_tree = {
 	focus = {
 		id = SOV_Leave_them_to_their_Fate
 		icon = GFX_DeadlyDeal
-		cost = 10.00
+		cost = 1.00
 		prerequisite = {
 			focus = SOV_The_Greek_Civil_War
 		}
@@ -819,7 +819,7 @@ focus_tree = {
 	focus = {
 		id = SOV_Intervene_in_the_Greek_Civil_War
 		icon = GFX_HeavyStrike
-		cost = 10.00
+		cost = 1.00
 		prerequisite = {
 			focus = SOV_The_Greek_Civil_War
 		}
@@ -924,6 +924,7 @@ focus_tree = {
 		y = 3
 			completion_reward = {
 					add_ideas = ideological_fanaticism_focus
+					add_research_slot = 1
 				}
 
 	}
@@ -1181,9 +1182,7 @@ focus_tree = {
 		y = 3
 			completion_reward = {
 					add_political_power = 200
-					GEO = {
-							add_stability = -0.10
-						}
+					
 				}
 
 	}
@@ -1248,12 +1247,15 @@ focus_tree = {
 		x = 3
 		y = 10
 			completion_reward = {
-					BLR = {
+					SOV = {
 							every_owned_state = {
+									limit = { is_core_of = BLR }
 									add_extra_state_shared_building_slots = 1
 								}
 							random_owned_controlled_state = {
+									
 									limit = {
+											is_core_of = BLR
 											free_building_slots = {
 													building = industrial_complex
 													size > 0
@@ -1466,12 +1468,14 @@ focus_tree = {
 										}
 								}
 						}
-					EST = {
-							every_owned_state = {
+					SOV = {
+							every_owned_state = {	
+									limit = { is_core_of = EST }
 									add_extra_state_shared_building_slots = 1
 								}
 							random_owned_controlled_state = {
 									limit = {
+											is_core_of = EST
 											free_building_slots = {
 													building = industrial_complex
 													size > 0
@@ -1501,12 +1505,14 @@ focus_tree = {
 										}
 								}
 						}
-					LAT = {
+					SOV = {
 							every_owned_state = {
+									limit = { is_core_of = LAT }
 									add_extra_state_shared_building_slots = 1
 								}
 							random_owned_controlled_state = {
 									limit = {
+											is_core_of = LAT
 											free_building_slots = {
 													building = industrial_complex
 													size > 0
@@ -1536,12 +1542,14 @@ focus_tree = {
 										}
 								}
 						}
-					LIT = {
+					SOV = {
 							every_owned_state = {
+									limit = { is_core_of = LIT }
 									add_extra_state_shared_building_slots = 1
 								}
 							random_owned_controlled_state = {
 									limit = {
+											is_core_of = LIT
 											free_building_slots = {
 													building = industrial_complex
 													size > 0
@@ -1584,12 +1592,14 @@ focus_tree = {
 		x = 5
 		y = 10
 			completion_reward = {
-					UKR = {
+					SOV = {
 							every_owned_state = {
+									limit = { is_core_of = UKR }
 									add_extra_state_shared_building_slots = 1
 								}
 							random_owned_controlled_state = {
 									limit = {
+											is_core_of = UKR 
 											free_building_slots = {
 													building = industrial_complex
 													size > 0
