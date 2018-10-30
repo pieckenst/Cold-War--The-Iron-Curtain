@@ -268,7 +268,7 @@ ic_pulse = {
 	 }
 	if = {
 		limit = {
-				NOT = { has_country_flag = NNE_14 }
+				NOT = { has_country_flag = NNE_14}
 				tag = VTC
 				date > 1950.8.12
 				date < 1950.9.12
@@ -277,7 +277,7 @@ ic_pulse = {
 	 }
 	if = {
 		limit = {
-				NOT = { has_country_flag = NNE_15 }
+				NOT = { has_country_flag = NNE_15}
 				tag = USA
 				date > 1950.10.1
 				date < 1950.11.1
@@ -286,7 +286,7 @@ ic_pulse = {
 	 }
 	if = {
 		limit = {
-				NOT = { has_country_flag = NNE_16 }
+				NOT = { has_country_flag = NNE_16}
 				tag = DDR
 				date > 1951.1.1
 				date < 1951.2.1
@@ -299,8 +299,7 @@ ic_pulse = {
             has_completed_focus = ROC_Administrative_Reform
         }
         date < 1951.1.1 # put date here
-		tag = ROC
-		NOT = { has_country_flag = ROC_Chauvet }
+		tag = EQU
 		}
 		country_event = equ.1
 		}
@@ -526,10 +525,17 @@ ic_pulse = {
 				}
 			}
 		}
-		country_event = insurgency.1
 		add_timed_idea = {
 			idea = insurgency_recent
 			days = 120
+		}
+		random_list = {
+			15 = {
+				country_event = insurgency.1
+			}
+			85 = {
+			
+			}
 		}
 	}
 	if = {
@@ -592,21 +598,10 @@ ic_pulse = {
 	}
 	if = {
 		limit = {
-			original_tag = FRA
-			SEN = { is_subject_of = ROOT }
-			date > 1958.10.4
-			date < 1960.1.1
+			tag = FRA
+			date > 1958.1.1
 		}
-		country_event = FCF.1
-	}
-	if = {
-		limit = {
-			original_tag = FRA
-			ROC = { is_subject_of = ROOT }
-			date > 1958.10.4
-			date < 1960.1.1
-		}
-		country_event = FCF.2
+		country_event = FFC.1
 	}
 	if = {
 		limit = {
@@ -636,6 +631,13 @@ ic_pulse = {
 			owns_state = 949
 		}
 		country_event = PMR.1
+	}
+	if = {
+		limit = {
+			tag = FRA
+			date > 1958.1.1
+		}
+		country_event = FFC.2
 	}
 	if = {
 		limit = {
@@ -1931,6 +1933,29 @@ ic_pulse = {
 			}
 			if = {
 				limit = {
+					original_tag = ENG
+					date > 1961.12.9
+					BCM = { 
+						is_subject_of = ROOT
+						owns_state = 1105 
+						owns_state = 1106
+					}
+				}
+				country_event = cameroon.3
+			}
+			if = {
+				limit = {
+					original_tag = FRA
+					date > 1960.1.1
+					CMR = { 
+						exists = yes 
+						is_subject_of = FRA
+					}
+				}
+				country_event = cameroon.4
+			}
+			if = {
+				limit = {
 					tag = ENG 
 							OR = {
 								has_government = conservative
@@ -3213,32 +3238,31 @@ ic_pulse = {
 		country_event = { id = swf.7 days = 10 random = 1 }
 	}
 	if = {
-	    limit = {		
-	        original_tag = SOV
-	        owns_state = 925
-		    NOT = { has_global_flag = chernobyl_built }
-		    date > 1972.8.1
-	        date < 1973.1.1
+		limit = {		
+		tag = UKR
+		owns_state = 925
+		NOT = { has_global_flag = chernobyl_built }
+		date > 1972.8.1
 		}
 		country_event = { id = chernobyl.1 days = 11 random = 1 }
 	}
 	if = {
 		limit = {				
-			original_tag = SOV
-			owns_state = 925
-		    has_global_flag = chernobyl_built 
-			date > 1986.4.1
-		    date < 1987.1.1
+		tag = UKR
+		owns_state = 925
+		has_global_flag = chernobyl_built 
+		NOT = { has_global_flag = chernobyl_not_built }
+		date > 1986.4.1
 		}
 		country_event = { id = chernobyl.2 days = 22 random = 1 }
 	}
-	if = {
+		if = {
 		limit = {
 			tag = PAR
 			date > 1954.5.1
 			date < 1954.6.1
 		}
-	    country_event = { id = par.1 days = 5 }
+		country_event = { id = par.1 days = 5 }
 	}
 	if = {
 		limit = {			
@@ -4805,12 +4829,13 @@ ic_pulse = {
 				has_cosmetic_tag = GUY_ENG
 				has_cosmetic_tag = DOC_BEL
 				has_cosmetic_tag = BUR_BEL
+				has_cosmetic_tag = TAZ_ENG
 				has_cosmetic_tag = PAP_AST
 				has_cosmetic_tag = KEN_ENG
 				has_cosmetic_tag = UGA_ENG
 				has_cosmetic_tag = SUD_ENG
 				has_cosmetic_tag = BSL_ENG
-				has_cosmetic_tag = TOA_ENG
+				has_cosmetic_tag = BCM_ENG
 				has_cosmetic_tag = FRA_WST_AFR
 				has_cosmetic_tag = MAD_FRA
 				has_cosmetic_tag = CMR_FRA
@@ -4835,9 +4860,9 @@ ic_pulse = {
 				has_cosmetic_tag = BHR_ENG
 				has_cosmetic_tag = GHA_ENG
 				has_cosmetic_tag = GHA_ENG_DOM
-				has_cosmetic_tag = NFL_ENG
 				has_cosmetic_tag = SGP_ENG
 				has_cosmetic_tag = SGP_ENG_FLAG
+				has_cosmetic_tag = NBR_ENG
 				has_cosmetic_tag = SWK_ENG
 				has_cosmetic_tag = BRU_ENG 
 				has_cosmetic_tag = BRU_ENG_FLAG
@@ -4860,6 +4885,8 @@ ic_pulse = {
 				has_cosmetic_tag = MLT_ENG
 				has_cosmetic_tag = NYA_ENG
 				has_cosmetic_tag = LES_ENG
+				has_cosmetic_tag = XSM_ENG
+				has_cosmetic_tag = TAN_ENG
 				has_cosmetic_tag = KAZ_SSR
 				has_cosmetic_tag = UZB_SSR
 				has_cosmetic_tag = TJK_SSR
@@ -4917,6 +4944,26 @@ ic_pulse = {
 			date < 1968.3.30
 		}
 		news_event = { id = usa.501 days = 16  }
+	}
+	if = {
+		limit = {
+			original_tag = BEL
+			country_exists = BUR
+			BUR = { is_subject_of = ROOT has_cosmetic_tag = BUR_BEL }
+			date > 1962.6.30
+			date < 1963.1.1
+		}
+		country_event = { id = belgiandecolonization.1 days = 1 }
+	}
+	if = {
+		limit = {
+			original_tag = BEL
+			country_exists = DOC
+			DOC = { is_subject_of = ROOT has_cosmetic_tag = DOC_BEL }
+			date > 1960.6.29
+			date < 1961.1.1
+		}
+		country_event = { id = belgiandecolonization.2 days = 1 }
 	}
 	if = {
 		limit = {
@@ -5006,6 +5053,16 @@ ic_pulse = {
 	}
 	if = {
 		limit = {
+			original_tag = ENG
+			country_exists = TAZ
+			TAZ = { is_subject_of = ROOT has_cosmetic_tag = TAZ_ENG }
+			date > 1961.12.9
+			date < 1962.1.1
+		}
+		country_event = { id = britishdecolonization.1 days = 1 }
+	}
+	if = {
+		limit = {
 			tag = ISR
 			country_exists = EGY
 			country_exists = JOR
@@ -5041,98 +5098,6 @@ ic_pulse = {
 			date < 1951.1.1
 		}
 		country_event = SWE.3
-	}
-	if = {
-		limit = {
-		    original_tag = SWE
-			date > 1973.9.14
-			date < 1974.1.1
-		}
-		country_event = SWE.4
-	}
-    if = {
-		limit = {
-		    original_tag = FRA
-			date > 1959.12.31
-			date < 1961.1.1
-            CMR = { exists = no }
-			owns_state = 816
-		}
-		country_event = decolonization.1
-	}
-	if = {
-		limit = {
-		    original_tag = ENG
-			date > 1961.5.30
-			date < 1962.1.1
-		    OR = { country_exists = NIA country_exists = CMR }
-			owns_state = 1105
-			owns_state = 1106
-		}
-		country_event = decolonization.2
-	}
-    if = {
-		limit = {
-		    original_tag = FRA
-			date > 1960.4.26
-			date < 1961.1.1
-		    NOT = { country_exists = TOG }
-			owns_state = 761
-		}
-		country_event = decolonization.3
-	}
-	if = {
-		limit = {
-		    original_tag = ENG
-			date > 1956.12.12
-			date < 1957.1.1
-		    country_exists = GHA
-			owns_state = 926
-		}
-		country_event = decolonization.4
-	}
-    if = {
-		limit = {
-		    original_tag = AST
-			date > 1968.1.30
-			date < 1969.1.1
-		    NOT = { country_exists = NAU }
-			owns_state = 725
-		}
-		country_event = decolonization.5
-	}
-	if = {
-		limit = {
-			original_tag = BEL
-			date > 1962.6.30
-			date < 1963.1.1
-			NOT = { country_exists = RWA country_exists = BUR }
-			owns_state = 907
-			owns_state = 825
-		}
-		country_event = decolonization.6
-	}
-	if = {
-		limit = {
-			original_tag = BEL
-			date > 1960.6.29
-			date < 1961.1.1
-			country_exists = DOC
-			DOC = { is_subject_of = ROOT has_cosmetic_tag = DOC_BEL }
-		}
-		country_event = decolonization.7
-	}
-	if = {
-		limit = {
-			original_tag = ENG
-			date > 1961.12.8
-			date < 1962.1.1
-			NOT = { country_exists = TAZ }
-			owns_state = 953
-			owns_state = 546
-			owns_state = 1197
-		}
-		country_event = decolonization.8
 	}
 	if = {
 		limit = {

@@ -1,0 +1,70 @@
+﻿add_namespace = britishdecolonization
+
+country_event = {
+	id = britishdecolonization.1
+	title = britishdecolonization.1.t	
+	desc = britishdecolonization.1.d
+	picture = GFX_report_event_german_volunteers
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = britishdecolonization.1.a
+		ai_chance = {
+			factor = 100
+		}
+		custom_effect_tooltip = britishdecolonization.1.a.tt
+		hidden_effect = {
+			TAZ = { country_event = { id = britishdecolonization.11 hours = 5 } }
+		}
+	}
+	option = {
+		name = britishdecolonization.1.b
+		trigger = {
+			has_global_flag = secure_african_colonies
+		}
+		ai_chance = {
+			factor = 0
+		}
+		custom_effect_tooltip = britishdecolonization.1.b.tt
+		hidden_effect = {
+			set_global_flag = eng_class_b_mandate_available
+		}
+	}
+}
+
+country_event = { 
+	id = britishdecolonization.11
+	title = britishdecolonization.11.t	
+	desc = britishdecolonization.11.d	
+	picture = GFX_report_event_german_volunteers
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = britishdecolonization.11.a
+		custom_effect_tooltip = britishdecolonization.11.a.tt
+		hidden_effect = {
+			set_autonomy = { target = TAZ autonomy_state = autonomy_free }	
+		    TAZ = {
+		    add_popularity = { ideology = democratic popularity = 0.6 }
+			set_politics = { ruling_party = democratic }
+            }		
+		    TAZ = { drop_cosmetic_tag = yes }
+			set_autonomy = { target = TAZ autonomy_state = autonomy_free }	
+		    news_event = britishdecolonization.111
+		}
+	}
+}
+news_event = {
+	id = britishdecolonization.111
+	title = britishdecolonization.111.t	
+	desc = britishdecolonization.111.d
+	major = yes	
+	picture = GFX_news_event_019
+	is_triggered_only = yes
+	option = {
+		name = britishdecolonization.111.a
+	}
+}

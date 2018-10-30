@@ -1,0 +1,170 @@
+﻿add_namespace = americancivilwar
+
+country_event = {
+	id = americancivilwar.1
+	title = "Socialists recruit unionized workers"
+	desc = "The IWW in New England have recruited some workers to join their communistic union"
+	picture = GFX_report_event_chinese_army_training	### placeholder
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "It is only only localised recruitments, the Second Amendment must be enforced at all times"
+		ai_chance = { factor = 70 }
+		set_country_flag = allowed_communist_recruitments
+		add_popularity = { ideology = trotskyism popularity = 0.01 }
+		add_popularity = { ideology = communism popularity = 0.05 }
+		set_party_name = { ideology = trotskyism long_name = "Industrial Workers of the World - Left Communist Faction" name = "IWW - LC Faction" }
+		hidden_effect = {
+			country_event = { id = americancivilwar.2 hours = 280 }
+			country_event = { id = americancivilwar.5 hours = 940 }
+		}
+	}
+	option = {
+		name = "McCarthyism! At once!"
+		ai_chance = { factor = 30 }
+		add_popularity = { ideology = communism popularity = -0.30 }
+		set_country_flag = communism_banned
+		set_country_flag = mccarthyism_enforced
+		hidden_effect = {
+			country_event = { id = americancivilwar.3 hours = 280 }
+			country_event = { id = americancivilwar.5 hours = 761 }
+		}
+	}
+}
+country_event = {
+	id = americancivilwar.2
+	title = "Strikes in New England"
+	desc = "After we have allowed communists to continue what they were doing, the IWW has organized a strike in New England."
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "Hopefully they end soon"
+		add_ideas = IWW_strikes
+		hidden_effect = {
+			country_event = { id = americancivilwar.4 hours = 280 }
+		}
+	}
+	option = {
+		name = "We should follow McCarthyism, even if it violates the second amendment!"
+		set_country_flag = mccarthyism_enforced_2
+		hidden_effect = {
+			country_event = { id = americancivilwar.3 hours = 280 }
+		}
+	}
+}
+country_event = {
+	id = americancivilwar.3
+	title = "Riots in New England"
+	desc = "After we have chosen to follow McCarthyism, the IWW has rioted in Bangor and Boston, demanding freedom of speech be reinstated, they were accompanied by allied riots from the Tea Party, this is the only time two sides of the spectrum have worked together."
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "The Tea Party are just Capitalist in name! Ban them too!"
+		trigger = {
+			has_country_flag = mccarthyism_enforced
+		}
+		hidden_effect = {
+			country_event = { id = americancivilwar.4 hours = 280 }
+		}
+	}
+	option = {
+		name = "Instate martial law!"
+		trigger = {
+			has_country_flag = mccarthyism_enforced_2
+		}
+		add_stability = -0.03
+		set_country_flag = martial_law
+	}
+}
+country_event = {
+	id = americancivilwar.4
+	title = "Civil Conflict has ended"
+	desc = "The IWW has decided to end the civil conflict, and lay down their arms"
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "Good. Now get back to work!"
+		remove_ideas = IWW_strikes
+	}
+}
+country_event = {
+	id = americancivilwar.5
+	hidden = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = civil_war_trigger
+	}
+}
+country_event = {
+	id = americancivilwar.6
+	title = "Second American Civil War"
+	desc = "The IWW has taken over the government buildings all over New England, New York and New Jersey, they proclaim the People's Republic of America."
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = "For the Revolution! (Changes country to the IWW tag)"
+		IWW = { change_tag_from = USA } # change will happen if needed
+		declare_war_on = {
+			type = civil_war
+			target = IWW
+		}
+		hidden_effect = {
+			IWW = {
+				transfer_state = 861
+				transfer_state = 862
+				transfer_state = 863
+				transfer_state = 864
+				transfer_state = 865
+				transfer_state = 358
+				transfer_state = 359
+				transfer_state = 357
+				set_politics = {
+					ruling_party = trotskyism
+					elections_allowed = no
+				}
+				every_state = {
+					limit = {
+						OR = {
+						   is_fully_controlled_by = USA
+						   is_fully_controlled_by = IWW
+						}
+					}
+					add_core_of = IWW
+				}
+			}
+		}
+	}
+	option = {
+		name = "Better Dead than Red!"
+		declare_war_on = {
+			type = civil_war
+			target = IWW
+		}
+		hidden_effect = {
+			IWW = {
+				transfer_state = 861
+				transfer_state = 862
+				transfer_state = 863
+				transfer_state = 864
+				transfer_state = 865
+				transfer_state = 358
+				transfer_state = 359
+				set_politics = {
+					ruling_party = trotskyism
+					elections_allowed = no
+				}
+				every_state = {
+					limit = {
+					    OR = {
+						   is_fully_controlled_by = USA
+						   is_fully_controlled_by = IWW
+						}
+					}
+					add_core_of = IWW
+				}
+			}
+		}
+	}
+}

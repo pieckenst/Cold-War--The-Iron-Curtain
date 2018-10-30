@@ -99,22 +99,24 @@ political_actions = {
 
 		available = {
 			has_civil_war = no
+			UKR = { exists = yes is_subject_of = ROOT has_civil_war = no }
 			has_full_control_of_state = 137
 			original_tag = SOV
 		}
-		
 		visible = {
-			137 = { NOT = { is_core_of = UKR } }
+			UKR = { exists = yes is_subject_of = ROOT }
 			owns_state = 137
 			original_tag = SOV
 		}
 
 		fire_only_once = yes
 
+
 		cost = 0
 
 		complete_effect = {
-		    add_political_power = 25
+		    add_political_power = 50
+			UKR = { transfer_state = 137 }
 			137 = { add_core_of = UKR }
 		}
 		

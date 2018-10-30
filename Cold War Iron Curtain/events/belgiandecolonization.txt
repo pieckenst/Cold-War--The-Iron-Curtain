@@ -1,0 +1,160 @@
+﻿add_namespace = belgiandecolonization
+
+#Ruanda-Urundi
+country_event = {
+	id = belgiandecolonization.1
+	title = belgiandecolonization.1.t	
+	desc = belgiandecolonization.1.d
+	picture = GFX_report_event_german_volunteers
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = belgiandecolonization.1.a
+		ai_chance = {
+			factor = 100
+		}
+		custom_effect_tooltip = belgiandecolonization.1.a.tt
+		hidden_effect = {
+			BUR = { country_event = { id = belgiandecolonization.11 hours = 5 } }
+		}
+	}
+	option = {
+		name = belgiandecolonization.1.b
+		ai_chance = {
+			factor = 0
+		}
+		custom_effect_tooltip = belgiandecolonization.1.b.tt
+		hidden_effect = {
+			set_global_flag = bel_class_b_mandate_available
+		}
+	}
+}
+
+#Belgian Congo
+country_event = {
+	id = belgiandecolonization.2
+	title = belgiandecolonization.2.t	
+	desc = belgiandecolonization.2.d
+	picture = GFX_report_event_german_volunteers
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = belgiandecolonization.2.a
+		ai_chance = {
+			factor = 100
+		}
+		news_event = { id = belgiandecolonization.113 hours = 1 }
+		set_autonomy = { target = DOC autonomy_state = autonomy_free }	
+		DOC = {
+			drop_cosmetic_tag = yes
+			set_politics = {
+				ruling_party = Liberal_Conservatism
+				elections_allowed = yes
+			}
+			add_popularity ={
+		        ideology = Liberal_Conservatism
+		        popularity = 0.80
+		    }
+			add_popularity ={
+		        ideology = nationalism
+		        popularity = 0.20
+		    }
+		}
+	}
+}
+
+country_event = { #Split nation, pick one to play as
+	id = belgiandecolonization.11
+	title = belgiandecolonization.11.t	
+	desc = belgiandecolonization.11.d	
+	picture = GFX_report_event_german_volunteers
+	
+	is_triggered_only = yes
+	
+	option = {
+	    #Play Rwanda
+		name = belgiandecolonization.11.a
+		ai_chance = {
+			factor = 0
+		}
+		custom_effect_tooltip = belgiandecolonization.11.a.tt
+		hidden_effect = {
+			set_autonomy = { target = BUR autonomy_state = autonomy_free }	
+		    BUR = {
+		    add_popularity = { ideology = nationalism popularity = 0.6 }
+			set_politics = { ruling_party = nationalism }
+            }		
+		    RWA = { change_tag_from = BUR }
+		    BUR = { release = RWA drop_cosmetic_tag = yes }
+			907 = { remove_core_of = BUR }
+		    news_event = belgiandecolonization.111
+		    news_event = belgiandecolonization.112
+		}
+	}
+	option = {
+		#Play Burundi
+		name = belgiandecolonization.11.b
+		ai_chance = {
+			factor = 100
+		}
+		custom_effect_tooltip = belgiandecolonization.11.b.tt
+		hidden_effect = {
+			set_autonomy = { target = BUR autonomy_state = autonomy_free }	
+			BUR = { release = RWA drop_cosmetic_tag = yes }
+		    BUR = {
+				add_popularity = { ideology = nationalism popularity = 0.7 }
+				set_politics = { ruling_party = nationalism }
+				add_popularity = { ideology = socialist popularity = 0.20 }
+				add_popularity = { ideology = fascism popularity = 0.1 }
+            }			
+			907 = { remove_core_of = BUR }
+		    news_event = belgiandecolonization.111
+		    news_event = belgiandecolonization.112
+		}
+	}
+}
+news_event = {
+	id = belgiandecolonization.111
+	title = belgiandecolonization.111.t	
+	desc = belgiandecolonization.111.d
+
+	major = yes	
+
+	picture = GFX_news_event_019
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgiandecolonization.111.a
+	}
+}
+news_event = {
+	id = belgiandecolonization.112
+	title = belgiandecolonization.112.t	
+	desc = belgiandecolonization.112.d
+	major = yes	
+	picture = GFX_news_event_019
+	is_triggered_only = yes
+	option = {
+		name = belgiandecolonization.112.a
+	}
+}
+news_event = {
+	id = belgiandecolonization.113
+	title = belgiandecolonization.113.t	
+	desc = belgiandecolonization.113.d
+
+	major = yes	
+
+	picture = GFX_news_event_019
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgiandecolonization.113.a
+	}
+}

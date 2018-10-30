@@ -31,21 +31,24 @@ set_technology = {
 
 set_convoys = 0
 
+set_cosmetic_tag = BUR_BEL
+
 set_politics = {
 
 	parties = {
         democratic = { popularity = 0 }
         communism = { popularity = 0 }
         fascism = { popularity = 0 }
-        nationalism = { popularity = 100 }
+        nationalism = { popularity = 0 }
         monarchism = { popularity = 0 }
-        neutrality = { popularity = 0 }
+        neutrality = { popularity = 100 }
         islamism = { popularity = 0 }
 		pan_arabism = { popularity = 0 }
         radical_shiaism = { popularity = 0 }
         Social_Democratic = { popularity = 0 }
         Social_Liberalism = { popularity = 0 }
         Salafism = { popularity = 0 }
+        
         Liberal_Conservatism = { popularity = 0 }
         Judaism = { popularity = 0 }
         conservative = { popularity = 0 }
@@ -59,10 +62,23 @@ set_politics = {
 
 	}
 	
-	ruling_party = nationalism
+	ruling_party = neutrality
 	last_election = "1949.1.1"
 	election_frequency = 48
 	elections_allowed = no
+}
+1949.1.1 = {
+    set_variable = { var = domestic_influence_amount value = 1000 }
+    set_variable = { var = influencer1 value = BEL.id }
+    set_variable = { var = influencer1_amount value = 200 }
+    set_variable = { var = influencer2 value = COG.id }
+    set_variable = { var = influencer2_amount value = 200 }
+    recalculate_influence = yes
+}
+create_country_leader = {
+	name = "Eugène Jungers"
+	picture = "gfx/leaders/DOC/Eugene_Jungers.dds"
+	ideology = colonial_regime
 }
 
 create_country_leader = {
@@ -75,6 +91,64 @@ create_country_leader = {
 	name = "Mwambutsa IV"
 	picture = "Mwambutsa_IV.dds"
 	ideology = royal_democrat
+}
+
+1946.1.1 = {
+    create_country_leader = {
+	    name = "Leo Petillon"
+	    picture = "Leo_Petillon.dds"
+	    ideology = colonial_regime
+    }
+}
+
+1955.1.1 = {
+    create_country_leader = {
+	    name = "Jean-Paul Harroy"
+	    picture = "Jean_Paul_Harroy.dds"
+	    ideology = colonial_regime
+    } 
+}
+
+1962.1.1 = {
+    drop_cosmetic_tag = yes
+	set_politics = {
+	    parties = {
+            democratic = { popularity = 0 }
+            communism = { popularity = 0 }
+            fascism = { popularity = 0 }
+            nationalism = { popularity = 100 }
+            monarchism = { popularity = 0 }
+            neutrality = { popularity = 0 }
+            islamism = { popularity = 0 }
+		    pan_arabism = { popularity = 0 }
+            radical_shiaism = { popularity = 0 }
+            Social_Democratic = { popularity = 0 }
+            Social_Liberalism = { popularity = 0 }
+            Salafism = { popularity = 0 }
+            
+            Liberal_Conservatism = { popularity = 0 }
+            Judaism = { popularity = 0 }
+            conservative = { popularity = 0 }
+            Christian_Democratic = { popularity = 0 }
+            socialist = { popularity = 0 }
+            centrist = { popularity = 0 }
+            liberal = { popularity = 0 }
+            trotskyism = { popularity = 0 }
+            maoism = { popularity = 0 }
+            National_Socialism = { popularity = 0 }
+
+	    }
+	
+	    ruling_party = nationalism
+	    last_election = "1962.1.1"
+	    election_frequency = 48
+	    elections_allowed = no
+    }
+	set_party_name = {
+		ideology = neutrality
+		long_name = "National Council for the Defense of Democracy – Forces for the Defense of Democracy"
+		name = "CNDD-FDD"
+	}
 }
 
 1976.1.1 = {
