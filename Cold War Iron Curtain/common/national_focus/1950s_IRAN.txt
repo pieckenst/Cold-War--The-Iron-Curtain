@@ -33,7 +33,7 @@ focus_tree = {
 		
 	}
 	focus = {
-		id = PER_Elections_of_!952
+		id = PER_Elections_of_1952
 		icon = GFX_goal_unknown
 		cost = 10.00
 		x = 29
@@ -66,6 +66,9 @@ focus_tree = {
 		id = PER_Iranian_Soviet_Petroleum_Treaty
 		icon = GFX_goal_unknown
 		cost = 10.00
+		prerequisite = {
+			focus = PER_Join_the_Warsaw_Pact
+		}
 		x = 14
 		y = 38
 		completion_reward = {
@@ -79,6 +82,9 @@ focus_tree = {
 		id = PER_Soviet_Advisors
 		icon = GFX_goal_unknown
 		cost = 10.00
+		prerequisite = {
+			focus = PER_Join_the_Warsaw_Pact
+		}
 		x = 18
 		y = 38
 		completion_reward = {
@@ -506,7 +512,75 @@ focus_tree = {
 		}
 		x = 16
 		y = 2
-		
+				completion_reward = {
+					navy_experience = 25
+					if = {
+							limit = {
+									NOT = {
+											any_owned_state = {
+													dockyard > 0
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+									any_owned_state = {
+											is_coastal = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									any_owned_state = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					}
 	}
 	focus = {
 		id = PER_Defend_the_Caspian
@@ -517,7 +591,12 @@ focus_tree = {
 		}
 		x = 20
 		y = 2
-
+			completion_reward = {
+					add_timed_idea = {
+							idea = fortification_build_up
+							days = 900
+						}
+				}
 	}
 	focus = {
 		id = PER_Import_British_Destroyers
@@ -531,7 +610,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 3
-
+		completion_reward = {
+			load_oob = "iranian_import_eng"
+		}
 	}
 	focus = {
 		id = PER_Expand_the_Khoramshahr_Naval_Base
@@ -542,14 +623,23 @@ focus_tree = {
 		}
 		x = 18
 		y = 4
-
+		completion_reward = {
+			413 = {
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					instant_build = yes
+					province = 5005
+				}		
+			}
+		}
 	}
 	focus = {
 		id = PER_National_Front_Victory
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = PER_Elections_of_!952
+			focus = PER_Elections_of_1952
 		}
 		x = 25
 		y = 14
@@ -741,7 +831,7 @@ focus_tree = {
 			add_stability = -0.05
 			add_popularity = {
 				ideology = nationalism
-				add_popularity = 0.10
+				popularity = 0.10
 			}
 		}
 	}
@@ -806,7 +896,14 @@ focus_tree = {
 		}
 		x = 29
 		y = 2
-
+		completion_reward = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = monarchism
+				popularity = -0.05
+			}
+			add_political_power = 100
+		}	
 	}
 	focus = {
 		id = PER_Continue_British_Negotiations
@@ -817,7 +914,22 @@ focus_tree = {
 		}
 		x = 32
 		y = 5
-
+		completion_reward = {
+			add_political_power = -100
+			add_stability = -0.01
+			ENG = {
+				add_opinion_modifier = {
+					target = PER
+					modifier = small_increase
+				}
+			}
+			PER = {
+				add_opinion_modifier = {
+					target = ENG
+					modifier = small_increase
+				}
+			}
+		}	
 	}
 	focus = {
 		id = PER_Public_Anger
@@ -831,7 +943,13 @@ focus_tree = {
 		}
 		x = 30
 		y = 6
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = martial_law
+				days = 180
+			}
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = PER_The_Assasination_of_General_Haj_Ali_Razmara
@@ -880,7 +998,9 @@ focus_tree = {
 		prerequisite = {
 			focus = PER_PM_Hossein_Ala
 		}
-
+		completion_reward = {
+			add_political_power = 100
+		}
 
 	}
 	focus = {
@@ -892,7 +1012,22 @@ focus_tree = {
 		}
 		x = 27
 		y = 9
-
+		completion_reward = {
+			add_political_power = -50
+			add_stability = -0.02
+			add_popularity = {
+				ideology = nationalism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.05
+			}			
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
 	}
 	focus = {
 		id = PER_PM_Mossadegh
@@ -913,7 +1048,7 @@ focus_tree = {
 			}
 			add_popularity = {
 				ideology = nationalism
-				popularity = 0.15
+				popularity = 0.05
 			}
 		}
 	}
@@ -922,7 +1057,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = PER_Elections_of_!952
+			focus = PER_Elections_of_1952
 		}
 		x = 33
 		y = 14
@@ -2408,7 +2543,7 @@ focus_tree = {
 			focus = PER_Join_the_Warsaw_Pact2
 		}
 		prerequisite = {
-			focus = PER_Begin_A_Five_Year_Plan
+			focus = PER_Begin_A_Five_Year_Plan2
 		}
 		x = 46
 		y = 46
@@ -2626,7 +2761,7 @@ focus_tree = {
 		prerequisite = {
 			focus = PER_Pan_Iranianism
 		}
-		x = 50
+		x = 52
 		y = 33
 		completion_reward = {
 			add_offsite_building = { type = industrial_complex level = 2 }
@@ -3025,14 +3160,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = PER_Establish_Political_Prisons
+		id = PER_Establish_Political_Prisons2
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = PER_Condemn_Atheism
-		}
-		prerequisite = {
-			focus = PER_Insititue_Sharia_Law
+			focus = PER_The_Iranian_Red_Terror
 		}
 		x = 14
 		y = 32
@@ -3048,7 +3180,7 @@ focus_tree = {
 			focus = PER_Break_the_Power_of_the_Clerics
 		}
 		prerequisite = {
-			focus = PER_Establish_Political_Prisons
+			focus = PER_Establish_Political_Prisons2
 		}
 		x = 15
 		y = 33
@@ -3127,6 +3259,7 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = PER_Invest_in_Rural_Infrastructure
+			focus = PER_Collectivize_Agriculture
 		}
 		x = 19
 		y = 36
@@ -3147,7 +3280,10 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = PER_Execute_the_Royal_Family
+			focus = PER_Close_the_Seminaries
+		}
+		mutually_exclusive = {
+			focus = PER_Join_The_Non_Aligned_Movement
 		}
 		x = 16
 		y = 37
@@ -3164,6 +3300,9 @@ focus_tree = {
 		prerequisite = {
 			focus = PER_Close_the_Seminaries
 		}
+		mutually_exclusive = {
+			focus = PER_Join_the_Warsaw_Pact
+		}
 		x = 22
 		y = 37
 			completion_reward = {
@@ -3177,7 +3316,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = PER_Execute_the_Royal_Family
+			focus = PER_Egalitarian_Reforms
 		}
 		x = 20
 		y = 35
@@ -3559,10 +3698,10 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = PER_Establish_Political_Prisons
+			focus = PER_Harrass_Religous_Minorities
 		}
 		prerequisite = {
-			focus = PER_Condemn_Soviet_Captivity_of_Azerbaijain
+			focus = PER_Decry_Corruptive_Capitalism
 		}
 		x = 12
 		y = 37
@@ -3686,7 +3825,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = PER_Join_The_Non_Aligned_Movement
+			focus = PER_Align_With_the_Non_Aligned_Movement
 		}
 		x = 0
 		y = 35
@@ -3754,7 +3893,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = PER_American_Advisors
+			focus = PER_American_Advisors2
 		}
 		prerequisite = {
 			focus = PER_Secular_Education
@@ -3819,11 +3958,11 @@ focus_tree = {
 
 	}
 	focus = {
-		id = PER_Expand_Womens_Rights
+		id = PER_Expand_Womens_Rights2
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = PER_The_Progressive_Shah
+			focus = PER_Continue_the_Modernization_Program
 		}
 		x = 3
 		y = 41
@@ -3857,7 +3996,7 @@ focus_tree = {
 			focus = PER_Modernize_Oil_Production
 		}
 		prerequisite = {
-			focus = PER_Expand_Womens_Rights
+			focus = PER_Expand_Womens_Rights2
 		}
 		x = 4
 		y = 42
@@ -3872,7 +4011,7 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = PER_Expand_Womens_Rights
+			focus = PER_Expand_Womens_Rights2
 		}
 		x = 1
 		y = 42
