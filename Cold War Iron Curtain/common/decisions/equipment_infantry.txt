@@ -1,0 +1,104 @@
+infantry_equipment_category = {
+
+
+	rearm_calc = {
+	
+		complete_effect = {
+		
+			hidden_effect = {
+				set_temp_variable = { 
+					var = size_arm
+					value = num_divisions 
+				}
+				
+				set_temp_variable = { 
+					var = calc_help 
+					value = num_divisions 
+				}
+				
+				divide_temp_variable = { 
+					var = calc_help 
+					value = num_of_military_factories
+				}
+				
+				multiply_temp_variable = { 
+					var = size_arm 
+					value = calc_help 
+				}
+				
+				multiply_temp_variable = { 
+					var = size_arm 
+					value = 10 
+				}
+				
+				round_variable = size_arm
+			}	
+		}
+		
+		days_remove = size_arm
+	}
+	
+	rearm_calc_fast = {
+	
+		complete_effect = {
+		
+			hidden_effect = {
+				set_temp_variable = { 
+					var = size_arm
+					value = num_divisions 
+				}
+				
+				set_temp_variable = { 
+					var = calc_help 
+					value = num_divisions 
+				}
+				
+				divide_temp_variable = { 
+					var = calc_help 
+					value = num_of_military_factories
+				}
+				
+				multiply_temp_variable = { 
+					var = size_arm 
+					value = calc_help 
+				}
+				
+				multiply_temp_variable = { 
+					var = size_arm 
+					value = 3.333
+				}
+				
+				round_variable = size_arm
+				
+				set_temp_variable = { 
+					var = command_cost
+					value = num_divisions 
+				}
+				
+				divide_temp_variable = { 
+					var = command_cost 
+					value = 2
+				}
+				
+				check_variable = {
+					var = command_cost 
+					value = 100
+					compare = less_than
+				}
+				
+				multiply_temp_variable = { 
+					var = command_cost
+					value = -1 
+				}
+				
+				
+				round_variable = command_cost	
+			
+			}
+
+			add_command_power = command_cost	
+		}
+		
+		days_remove = size_arm
+	}
+}	
