@@ -2950,42 +2950,6 @@ ic_pulse = {
 		}
 		if = {
 			limit = {
-				tag = KOR
-				country_exists = KOR
-				KPA = { has_war_with = KOR }
-				has_global_flag = korean_war_begun
-				AND = {
-					866 = { is_controlled_by = KOR }
-					919 = { is_controlled_by = KOR }
-					918 = { is_controlled_by = KOR }
-					750 = { is_controlled_by = KOR }
-					753 = { is_controlled_by = KOR }
-				}
-				NOT = { has_global_flag = korean_war_southern_forts }
-			}
-			country_event = korea.47
-		}
-		if = {
-			limit = {
-				tag = KPA
-				country_exists = KPA
-				KPA = { has_war_with = KOR }
-				has_global_flag = korean_war_begun
-				AND = {
-					920 = { is_controlled_by = KPA }
-					918 = { is_controlled_by = KPA }
-					525 = { is_controlled_by = KPA }
-					746 = { is_controlled_by = KPA }
-					745 = { is_controlled_by = KPA }
-				}
-				NOT = { has_global_flag = korean_war_northern_forts }
-			}
-			country_event = korea.48
-		}
-		#Korea End
-
-		if = {
-			limit = {
 				date > 1954.10.1
 				NOT = { has_global_flag = tri_questions_over }
 				country_exists = TRI
@@ -3331,11 +3295,16 @@ ic_pulse = {
 	}	
 	if = {
 		limit = {
-			tag = USA
-			date > 1966.10.1
-			date < 1970.6.10
+			original_tag = KPA
+			country_exists = KOR
+			has_war = no
+			owns_state = 525
+			owns_state = 920
+			KOR = { owns_state = 866 owns_state = 750 }
+			date > 1966.10.4
+			date < 1967.1.1
 		}
-		news_event = { id = dmz_conflict.1 days = 14 random = 1 }
+		country_event = dmz_conflict.1
 	}
 	if = {
 		limit = {
