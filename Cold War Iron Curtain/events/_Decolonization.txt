@@ -184,7 +184,9 @@ country_event = {
 	#Malaysia Plan
 	option = {
 		name = decolonization.10.a
-		set_autonomy = { target = MAL autonomy_state = autonomy_free }	
+		ai_chance = {
+			factor = 99
+		}
 		MAL = {
 			drop_cosmetic_tag = yes
 			transfer_state = 336
@@ -204,19 +206,15 @@ country_event = {
 		        MAL = { transfer_state = 712 }
 				712 = { add_core_of = MAL }
 	        }
-			if = {
-		        limit = {
-			        ENG = { owns_state = 1128 }
-		        }
-		        MAL = { transfer_state = 1128 }
-	        }
 		}
 	}
 	
     #North Borneo Plan
 	option = {
 		name = decolonization.10.b
-		set_autonomy = { target = MAL autonomy_state = autonomy_free }	
+		ai_chance = {
+			factor = 1
+		}
 		set_autonomy = { target = BRU autonomy_state = autonomy_free }	
 		MAL = {
 			drop_cosmetic_tag = yes
@@ -235,12 +233,6 @@ country_event = {
 		        MAL = { transfer_state = 712 }
 				712 = { add_core_of = MAL }
 	        }
-			if = {
-		        limit = {
-			        ENG = { owns_state = 1128 }
-		        }
-		        MAL = { transfer_state = 1128 }
-	        }
 		}
 		BRU = {
 		    set_politics = {
@@ -256,6 +248,37 @@ country_event = {
 			transfer_state = 785
 			333 = { add_core_of = BRU remove_core_of = MAL }
 			785 = { add_core_of = BRU remove_core_of = MAL }
+		}
+	}
+}
+
+#Malaya Independence Act
+country_event = {
+	id = decolonization.11
+	title = decolonization.11.t	
+	desc = decolonization.11.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.11.a
+		set_autonomy = { target = MAL autonomy_state = autonomy_free }
+		MAL = {
+			set_politics = {
+				ruling_party = conservative
+				elections_allowed = yes
+			}
+			add_popularity ={
+		        ideology = conservative
+		        popularity = 0.9
+		    }
+			if = {
+		        limit = {
+			        ENG = { owns_state = 1128 }
+		        }
+		        MAL = { transfer_state = 1128 }
+	        }
 		}
 	}
 }
