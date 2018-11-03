@@ -1,208 +1,4 @@
-﻿add_namespace = eng
-add_namespace = decolonization
-#Independence of Uganda
-country_event = {
-  id = eng.5
-	title = eng.5.t
-	desc = eng.5.d
-
-	fire_only_once = yes
-	is_triggered_only = yes
-	immediate = {
-		create_country_leader = {
-			name = "Milton Obote"
-			picture = "Milton_Obote.dds"
-			ideology = democratic_socialist
-		}	
-	}
-	option = {
-	  ai_chance = {
-		  factor = 90
-		}
-		trigger = {
-			NOT = { has_global_flag = secure_african_colonies }
-		}
-		name = eng.5.a
-				set_autonomy = { target = UGA autonomy_state = autonomy_free }	
-				UGA = {
-					set_politics = {
-						ruling_party = socialist
-						elections_allowed = yes
-					}				
-					drop_cosmetic_tag = yes
-				}
-		
-	}
-	
-
-	option = {
-	  ai_chance = {
-		  factor = 10
-		}
-		trigger = {
-			has_global_flag = secure_african_colonies
-		}
-		name = eng.5.b
-		UGA = {
-			start_civil_war = {
-				ideology = socialist
-				size = 0.5
-			}
-		}
-	}
-}
-
-	#Independence of Nigeria
-	country_event = {
-	  id = eng.6
-		title = eng.6.t
-		desc = eng.6.d
-		is_triggered_only = yes
-		fire_only_once = yes
-		
-		immediate = {
-			create_country_leader = {
-				name = "Nnamdi Azikiwe"
-				picture = "gfx/leaders/AFR/Azikiwe.dds"
-				expire = "1999.1.1"
-				ideology = liberalism
-			}
-		}
-
-		option = {
-		  ai_chance = {
-			  factor = 90
-			}
-			trigger = {
-				not = { has_global_flag = secure_african_colonies }
-			} 
-			name = eng.6.a
-				drop_cosmetic_tag = yes
-				set_autonomy = { target = NIA autonomy_state = autonomy_free }	
-				NIA = {
-					set_politics = {
-						ruling_party = democratic
-						elections_allowed = yes
-					}
-				}
-		}
-
-		option = {
-		  ai_chance = {
-			  factor = 10
-			}
-			trigger = {
-				has_global_flag = secure_african_colonies 
-			} 
-			name = eng.6.b
-			NIA = {
-				start_civil_war = {
-					ideology = democratic
-					size = 0.5
-				}
-			}
-		}
-  }
-
-	#Independence of Kenya
-	country_event = {
-	  id = eng.7
-		title = eng.7.t
-		desc = eng.7.d
-		is_triggered_only = yes
-		fire_only_once = yes
-
-		immediate = {
-			create_country_leader = {
-				name = "Jomo Kenyatta"
-				picture = "Jomo.dds"
-				expire = "1999.1.1"
-				ideology = liberalism
-			}			
-		}
-		
-		option = {
-		  ai_chance = {
-			  factor = 90
-			}
-			trigger = {
-				not = { has_global_flag = secure_african_colonies }
-			} 
-			name = eng.7.a
-				drop_cosmetic_tag = yes
-				set_autonomy = { target = KEN autonomy_state = autonomy_free }	
-				KEN = {
-					set_politics = {
-						ruling_party = democratic
-						elections_allowed = yes
-					}
-	
-				}
-		}
-
-		option = {
-		  ai_chance = {
-			  factor = 10
-			}
-			trigger = {
-				has_global_flag = secure_african_colonies
-			} 
-			name = eng.7.b
-			KEN = {
-				start_civil_war = {
-					ideology = democratic
-					size = 0.5
-				}
-			}
-		}
-		}
-	}
-
-	#Independence of Sudan
-	country_event = {
-	  id = eng.8
-		title = eng.8.t
-		desc = eng.8.d
-		is_triggered_only = yes
-		fire_only_once = yes
-
-
-		option = {
-		  ai_chance = {
-			  factor = 90
-			}
-			trigger = {
-				NOT = {
-					has_global_flag = secure_african_colonies
-				}
-			}
-			name = eng.8.a
-			set_autonomy = { target = SUD autonomy_state = autonomy_free }	
-			SUD = {
-				drop_cosmetic_tag = yes
-				set_politics = {
-					ruling_party = centrist
-					elections_allowed = yes
-				}	
-			}
-		}
-
-		option = {
-		  ai_chance = {
-			  factor = 10
-			}
-			name = eng.8.b
-			trigger = {
-				has_global_flag = secure_african_colonies
-			}
-			SUD = {
-				start_civil_war = {
-					ideology = centrist
-					size = 0.5
-				}
-			}
-		}
-  }
+﻿add_namespace = decolonization
   
 #French Cameroons - Mandate Expired
 country_event = {
@@ -388,7 +184,9 @@ country_event = {
 	#Malaysia Plan
 	option = {
 		name = decolonization.10.a
-		set_autonomy = { target = MAL autonomy_state = autonomy_free }	
+		ai_chance = {
+			factor = 99
+		}
 		MAL = {
 			drop_cosmetic_tag = yes
 			transfer_state = 336
@@ -408,19 +206,15 @@ country_event = {
 		        MAL = { transfer_state = 712 }
 				712 = { add_core_of = MAL }
 	        }
-			if = {
-		        limit = {
-			        ENG = { owns_state = 1128 }
-		        }
-		        MAL = { transfer_state = 1128 }
-	        }
 		}
 	}
 	
     #North Borneo Plan
 	option = {
 		name = decolonization.10.b
-		set_autonomy = { target = MAL autonomy_state = autonomy_free }	
+		ai_chance = {
+			factor = 1
+		}
 		set_autonomy = { target = BRU autonomy_state = autonomy_free }	
 		MAL = {
 			drop_cosmetic_tag = yes
@@ -439,12 +233,6 @@ country_event = {
 		        MAL = { transfer_state = 712 }
 				712 = { add_core_of = MAL }
 	        }
-			if = {
-		        limit = {
-			        ENG = { owns_state = 1128 }
-		        }
-		        MAL = { transfer_state = 1128 }
-	        }
 		}
 		BRU = {
 		    set_politics = {
@@ -460,6 +248,37 @@ country_event = {
 			transfer_state = 785
 			333 = { add_core_of = BRU remove_core_of = MAL }
 			785 = { add_core_of = BRU remove_core_of = MAL }
+		}
+	}
+}
+
+#Malaya Independence Act
+country_event = {
+	id = decolonization.11
+	title = decolonization.11.t	
+	desc = decolonization.11.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.11.a
+		set_autonomy = { target = MAL autonomy_state = autonomy_free }
+		MAL = {
+			set_politics = {
+				ruling_party = conservative
+				elections_allowed = yes
+			}
+			add_popularity ={
+		        ideology = conservative
+		        popularity = 0.9
+		    }
+			if = {
+		        limit = {
+			        ROOT = { owns_state = 1128 }
+		        }
+		        MAL = { transfer_state = 1128 }
+	        }
 		}
 	}
 }
