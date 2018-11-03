@@ -30,33 +30,42 @@ set_technology = {
 	iw_armored_vehicles = 1
 	motorised_infantry = 1
 }
+
+add_ai_strategy = {
+	type = alliance
+	id = "USA"
+	value = 1000
+}
+
+set_cosmetic_tag = KOR_USA
+	
 set_politics = {
 
 	parties = {
-		democratic = { 
-			popularity = 20
-		}
-
-		fascism = {
-			popularity = 15
-		}
-			
-		communism = {
-			popularity = 20
-			#banned = no #default is no
-		}
-			
-		socialist = { 
-			popularity = 20
-		}
-		pan_arabism = { 
-			popularity = 0
-		}
-		conservative = {
-			popularity = 25
-		}
+        democratic = { popularity = 0 }
+        communism = { popularity = 0 }
+        fascism = { popularity = 0 }
+        nationalism = { popularity = 0 }
+        monarchism = { popularity = 0 }
+        neutrality = { popularity = 100 }
+        islamism = { popularity = 0 }
+        radical_shiaism = { popularity = 0 }
+        pan_arabism = { popularity = 0 }
+        Social_Democratic = { popularity = 0 }
+        Social_Liberalism = { popularity = 0 }
+        Salafism = { popularity = 0 }
+        Liberal_Conservatism = { popularity = 0 }
+        Judaism = { popularity = 0 }
+        conservative = { popularity = 0 }
+        Christian_Democratic = { popularity = 0 }
+        socialist = { popularity = 0 }
+        centrist = { popularity = 0 }
+        liberal = { popularity = 0 }
+        trotskyism = { popularity = 0 }
+        maoism = { popularity = 0 }
+        National_Socialism = { popularity = 0 }
 	}
-	ruling_party = socialist
+	ruling_party = neutrality
 	last_election = "1945.1.1"
 	election_frequency = 48
 	elections_allowed = no
@@ -67,15 +76,7 @@ add_ideas = {
 	rampant_corruption
 	legacy_of_the_occupation
 }
-set_cosmetic_tag = PRK_KOR
-1949.1.1 = {
-	drop_cosmetic_tag = yes
-	add_ai_strategy = {
-		type = alliance
-		id = "USA"
-		value = 1000
-	}
-}
+
 USA = { 
 	diplomatic_relation = { 
 		country = KOR 
@@ -88,11 +89,42 @@ set_stability = 0.9
 
 create_country_leader = {
 	name = "Syngman Rhee"
-	picture = "gfx/leaders/KOR/Portrait_SouthKorea_Syngman_Rhee.dds"
+	picture = "Syngman_Rhee.dds"
 	ideology = conservatism
 }
 
+create_country_leader = {
+	name = "Archibald Vincent Arnold"
+	picture = "Archibald_Vincent_Arnold.dds"
+	ideology = military_junta
+}
+
+create_country_leader = {
+	name = "Yi Un"
+	picture = "Yi_Un.dds"
+	ideology = royal_democrat
+}
+
+create_country_leader = {
+	name = "Pak Hon-yong"
+	picture = "Park_Hon_yong.dds"
+	ideology = stalinism
+}
+
+create_country_leader = {
+	name = "Yi Un"
+	picture = "Yi_Un.dds"
+	ideology = fascism_ideology
+}
+
+create_country_leader = {
+	name = "Cho Bong-am"
+	picture = "Cho_Bong_am.dds"
+	ideology = progressive
+}
+
 1948.1.1 = {
+    drop_cosmetic_tag = yes
 	set_politics = {
 		parties = {
 			democratic = { popularity = 20 }
@@ -113,42 +145,6 @@ create_country_leader = {
 	}
 }
 
-create_country_leader = {
-	name = "Lyuh Woon-hyung"
-	picture = "Portrait_SouthKorea_Lyuh_Woon_hyung.dds"
-	ideology = socialism
-	expire = "1949.1.1"
-}
-create_country_leader = {
-	name = "Archibald Arnold"
-	picture = "Portrait_Archibald_Vincent_Arnold.dds"
-	ideology = military_junta
-	expire = "1949.1.1"
-}
-create_country_leader = {
-	name = "Yi Un"
-	picture = "Portrait_SouthKorea_Yi_Un.dds"
-	ideology = royal_democrat
-}
-
-create_country_leader = {
-	name = "Pak Hon-yong"
-	picture = "Park_Hon_yong.dds"
-	ideology = stalinism
-}
-
-create_country_leader = {
-	name = "Yi Un"
-	picture = "Portrait_SouthKorea_Yi_Un.dds"
-	ideology = fascism_ideology
-}
-
-create_country_leader = {
-	name = "Cho Bong-am"
-	picture = "Portrait_SouthKorea_Cho_Bong_am.dds"
-	ideology = progressive
-}
-
 1960.1.1 = {
 	remove_ideas = legacy_of_the_occupation
 	load_focus_tree = KOR_60s
@@ -160,7 +156,7 @@ create_country_leader = {
 	}
 	create_country_leader = {
 		name = "Yun Posun"
-		picture = "Portrait_SouthKorea_Yun_Posun.dds"
+		picture = "Yun_Posun.dds"
 		ideology = Liberal_Conservatism
 	}
 }
@@ -205,13 +201,13 @@ create_country_leader = {
 	}
 	create_country_leader = {
 		name = "Kim Dae-jung"
-		picture = "Portrait_SouthKorea_Kim_Dae_jung.dds"
+		picture = "Kim_Dae_jung.dds"
 		ideology = progressive
 	}
 }	
 create_corps_commander = {
 	name = "Paik Son-Yup"
-	picture = "Portrait_SouthKorea_Paik_Son_yup.dds"
+	picture = "Paik_Son_yup.dds"
 	traits = { }
 	skill = 1
 	attack_skill = 1
@@ -244,7 +240,7 @@ create_corps_commander = {
 }
 create_navy_leader = {
 	name = "Sohn Won-yil"
-	picture = "Portrait_SouthKorea_Sohn_Won_Yil.dds"
+	picture = "Sohn_Won_Yil.dds"
 	traits = {  }
 	skill = 1
 	attack_skill = 1
@@ -255,7 +251,7 @@ create_navy_leader = {
 
 create_navy_leader = {
 	name = "Park Ok-kyu"
-	picture = "Portrait_SouthKorea_Park_Ok_kyu.dds"
+	picture = "Park_Ok_kyu.dds"
 	traits = {  }
 	skill = 1
 	attack_skill = 1
@@ -300,7 +296,7 @@ create_field_marshal = {
 
 create_field_marshal = {
 	name = "Chae Myung-shin"
-	picture= "Portrait_SouthKorea_Chae_Myung_Shin.dds"
+	picture= "Chae_Myung_Shin.dds"
 	traits = {  }
 	skill = 1
 	attack_skill = 1
@@ -324,7 +320,7 @@ create_corps_commander = {
 
 create_corps_commander = {
 	name = "Kim Hong Il"
-	picture = "Portrait_SouthKorea_Kim_Jong-oh.dds"
+	picture = "Kim_Jong-oh.dds"
 	traits = { }
 	skill = 1
 	attack_skill = 1
