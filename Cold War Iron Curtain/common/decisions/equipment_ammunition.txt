@@ -1,31 +1,32 @@
-army_equipment_category = {
+ammo_equipment_category = {
 
 ###### AT AMMO
 
 ##### SLOW
 
-#### 100k slow
 	
-	adopt_at_ammo_I_1_slow = {
+	adopt_at_ammo_I_slow = {
 		
 		visible = {
 			has_tech = at_ammo_1
 			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size < 100000 }
 			}
 		
 		available = {
 			has_tech = at_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
 			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size < 100000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 90
+		remove_trigger = {
+			has_country_flag = at_ammo_1
+		}
+		
+		complete_effect = {
+			
+		}
+		
+		
+		days_remove = size_arm
 		
 		remove_effect = { 
 		set_country_flag = at_ammo_1
@@ -40,28 +41,30 @@ army_equipment_category = {
 		
 	}
 
-	adopt_at_ammo_II_1_slow = {
+	adopt_at_ammo_II_slow = {
 		
 		visible = {
 			has_tech = at_ammo_2
 			NOT = { has_tech = at_ammo_3}
-			has_army_manpower = { size < 100000 }
 			}
 		
 		available = {
 			NOT = { has_tech = at_ammo_3}
 			has_tech = at_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 90
+		remove_trigger = {
+			has_country_flag = at_ammo_2
+		}
 		
-		remove_effect = { 
+		complete_effect = {
+			
+		}
+		
+		days_remove = size_arm
+		
+		remove_effect = {
+			set_country_flag = at_ammo_2	
 			swap_ideas = {
 				remove_idea = at_ammo_1
 				add_idea = at_ammo_2
@@ -76,29 +79,31 @@ army_equipment_category = {
 		
 	}
 
-	adopt_at_ammo_III_1_slow = {
+	adopt_at_ammo_III_slow = {
 		
 		visible = {
 			has_tech = at_ammo_3
 			NOT = { has_tech = at_ammo_4}
-			has_army_manpower = { size < 100000 }
 			}
 		
 		available = {
 			NOT = { has_tech = at_ammo_4}
 			has_tech = at_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 90
+		remove_trigger = {
+			has_country_flag = at_ammo_3
+		}
+		
+		complete_effect = {
+			
+		}
+		
+		days_remove = size_arm
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = at_ammo_3
 				remove_idea = at_ammo_2
 				add_idea = at_ammo_3
 			}
@@ -117,24 +122,26 @@ army_equipment_category = {
 		visible = {
 			has_tech = at_ammo_4
 			NOT = { has_tech = at_ammo_5}
-			has_army_manpower = { size < 100000 }
 			}
 		
 		available = {
 			has_tech = at_ammo_4
 			NOT = { has_tech = at_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 90
+		remove_trigger = {
+			has_country_flag = at_ammo_4
+		}
+		
+		complete_effect = {	
+		
+		}
+		
+		days_remove = size_arm
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = at_ammo_4
 				remove_idea = at_ammo_3
 				add_idea = at_ammo_4
 			}
@@ -152,23 +159,25 @@ army_equipment_category = {
 		
 		visible = {
 			has_tech = at_ammo_5
-			has_army_manpower = { size < 100000 }
 			}
 		
 		available = {
 			has_tech = at_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
 		}
 				
-		modifier = {
-			civilian_factory_use = 1
+		remove_trigger = {
+			has_country_flag = at_ammo_5
 		}
 		
-		days_remove = 90
+		complete_effect = {
+		
+		}
+		
+		days_remove = size_arm
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = at_ammo_5
 				remove_idea = at_ammo_4
 				add_idea = at_ammo_5
 			}
@@ -182,1306 +191,41 @@ army_equipment_category = {
 		
 	}
 	
-#### 500k slow	
-	
-	adopt_at_ammo_I_2_slow = {
+#### FAST
+
+	adopt_at_ammo_I_fast = {
 		
 		visible = {
 			has_tech = at_ammo_1
 			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
 			}
 		
 		available = {
 			has_tech = at_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
 			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 180
-		
-		remove_effect = { 
-		add_ideas = at_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_at_ammo_II_2_slow = {
-		
-		visible = {
-			has_tech = at_ammo_2
-			NOT = { has_tech = at_ammo_3}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			NOT = { has_tech = at_ammo_3}
-			has_tech = at_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 180
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_1
-				add_idea = at_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_at_ammo_III_2_slow = {
-		
-		visible = {
-			has_tech = at_ammo_3
-			NOT = { has_tech = at_ammo_4}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			NOT = { has_tech = at_ammo_4}
-			has_tech = at_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 180
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_2
-				add_idea = at_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_at_ammo_IV_2_slow = {
-		
-		visible = {
-			has_tech = at_ammo_4
-			NOT = { has_tech = at_ammo_5}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			has_tech = at_ammo_4
-			NOT = { has_tech = at_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 180
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_3
-				add_idea = at_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-	
-	adopt_at_ammo_V_2_slow = {
-		
-		visible = {
-			has_tech = at_ammo_5
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			has_tech = at_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 180
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_4
-				add_idea = at_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-	
-#### 1m slow	
-	
-	adopt_at_ammo_I_3_slow = {
-		
-		visible = {
-			has_tech = at_ammo_1
-			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000}
-			}
-		
-		available = {
-			has_tech = at_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-		}
-		
-		set_variable = { size = num_divisions }
-		set_variable = { factory = num_of_military_factories }
-		
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 1
-		
-		remove_effect = { 
-		add_ideas = at_ammo_1
-		set_country_flag = at_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_at_ammo_II_3_slow = {
-		
-		visible = {
-			has_tech = at_ammo_2
-			NOT = { has_tech = at_ammo_3}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			NOT = { has_tech = at_ammo_3}
-			has_tech = at_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 360
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_1
-				add_idea = at_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_at_ammo_III_3_slow = {
-		
-		visible = {
-			has_tech = at_ammo_3
-			NOT = { has_tech = at_ammo_4}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			NOT = { has_tech = at_ammo_4}
-			has_tech = at_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 360
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_2
-				add_idea = at_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_at_ammo_IV_3_slow = {
-		
-		visible = {
-			NOT = { has_tech = at_ammo_5}
-			has_tech = at_ammo_4
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			NOT = { has_tech = at_ammo_5}
-			has_tech = at_ammo_4
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 360
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_3
-				add_idea = at_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}	
-	
-	adopt_at_ammo_V_3_slow = {
-		
-		visible = {
-			has_tech = at_ammo_5
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			has_tech = at_ammo_4
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 360
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_4
-				add_idea = at_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-	
-#### more than 1m slow	
-	
-	adopt_at_ammo_I_4_slow = {
-		
-		visible = {
-			has_tech = at_ammo_1
-			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			has_tech = at_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size > 999999 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 720
-		
-		remove_effect = { 
-		add_ideas = at_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_at_ammo_II_4_slow = {
-		
-		visible = {
-			has_tech = at_ammo_2
-			NOT = { has_tech = at_ammo_3}
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			NOT = { has_tech = at_ammo_3}
-			has_tech = at_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 720
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_1
-				add_idea = at_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_at_ammo_III_4_slow = {
-		
-		visible = {
-			has_tech = at_ammo_3
-			NOT = { has_tech = at_ammo_4}
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			NOT = { has_tech = at_ammo_4}
-			has_tech = at_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 720
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_2
-				add_idea = at_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_at_ammo_IV_4_slow = {
-		
-		visible = {
-			NOT = { has_tech = at_ammo_5}
-			has_tech = at_ammo_4
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			NOT = { has_tech = at_ammo_5}
-			has_tech = at_ammo_4
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 720
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_3
-				add_idea = at_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-	
-	adopt_at_ammo_V_4_slow = {
-		
-		visible = {
-			has_tech = at_ammo_5
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			has_tech = at_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 720
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_4
-				add_idea = at_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-#### FAST 	
-	
-#### 100k fast
-	
-	adopt_at_ammo_I_1_fast = {
-		
-		visible = {
-			has_tech = at_ammo_1
-			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size < 100000 }
-			}
-		
-		available = {
-			has_tech = at_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size < 100000 }
-			command_power > 4
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
+		remove_trigger = {
+			has_country_flag = at_ammo_1
 		}
 		
 		complete_effect = {
-			add_command_power = -5
+			add_command_power = command_cost	
 		}
 
 		custom_cost_trigger = {
-			command_power>44
+			command_power>command_cost_p
 		}
 
-		custom_cost_text = AM_CP_5
+		custom_cost_text = AM_CP
 		
-		days_remove = 30
+		days_remove = size_arm_f
 		
 		remove_effect = { 
-		add_ideas = at_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 5
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_at_ammo_II_1_fast = {
-		
-		visible = {
-			has_tech = at_ammo_2
-			NOT = { has_tech = at_ammo_3}
-			has_army_manpower = { size < 100000 }
-			}
-		
-		available = {
-			NOT = { has_tech = at_ammo_3}
-			has_tech = at_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-			command_power > 4
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -5
+			set_country_flag = at_ammo_1
+			add_ideas = at_ammo_1
 		}
 
-		custom_cost_trigger = {
-			command_power>4
-		}
-
-		custom_cost_text = AM_CP_5
-		
-		days_remove = 30
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_1
-				add_idea = at_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_at_ammo_III_1_fast = {
-		
-		visible = {
-			has_tech = at_ammo_3
-			NOT = { has_tech = at_ammo_4}
-			has_army_manpower = { size < 100000 }
-			}
-		
-		available = {
-			NOT = { has_tech = at_ammo_4}
-			has_tech = at_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-			command_power > 4
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -5
-		}
-
-		custom_cost_trigger = {
-			command_power>4
-		}
-
-		custom_cost_text = AM_CP_5
-		
-		days_remove = 30
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_2
-				add_idea = at_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_at_ammo_IV_1_fast = {
-		
-		visible = {
-			has_tech = at_ammo_4
-			NOT = { has_tech = at_ammo_5}
-			has_army_manpower = { size < 100000 }
-			}
-		
-		available = {
-			has_tech = at_ammo_4
-			NOT = { has_tech = at_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-			command_power > 4
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -5
-		}
-
-		custom_cost_trigger = {
-			command_power>4
-		}
-
-		custom_cost_text = AM_CP_5
-		
-		days_remove = 30
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_3
-				add_idea = at_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-	
-	adopt_at_ammo_V_1_fast = {
-		
-		visible = {
-			has_tech = at_ammo_5
-			has_army_manpower = { size < 100000 }
-			}
-		
-		available = {
-			has_tech = at_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-			command_power > 4
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -5
-		}
-
-		custom_cost_trigger = {
-			command_power>4
-		}
-
-		custom_cost_text = AM_CP_5
-		
-		days_remove = 30
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_4
-				add_idea = at_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-	
-#### 500k fast	
-	
-	adopt_at_ammo_I_2_fast = {
-		
-		visible = {
-			has_tech = at_ammo_1
-			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			has_tech = at_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			command_power > 9
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -10
-		}
-
-		custom_cost_trigger = {
-			command_power>9
-		}
-
-		custom_cost_text = AM_CP_10
-		
-		days_remove = 60
-		
-		remove_effect = { 
-		add_ideas = at_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 5
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-		
-	}
-
-	adopt_at_ammo_II_2_fast = {
-		
-		visible = {
-			has_tech = at_ammo_2
-			NOT = { has_tech = at_ammo_3}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			NOT = { has_tech = at_ammo_3}
-			has_tech = at_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			command_power > 9
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -10
-		}
-
-		custom_cost_trigger = {
-			command_power>9
-		}
-
-		custom_cost_text = AM_CP_10
-		
-		days_remove = 60
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_1
-				add_idea = at_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_at_ammo_III_2_fast = {
-		
-		visible = {
-			has_tech = at_ammo_3
-			NOT = { has_tech = at_ammo_4}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			NOT = { has_tech = at_ammo_4}
-			has_tech = at_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			command_power > 9
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -10
-		}
-
-		custom_cost_trigger = {
-			command_power>9
-		}
-
-		custom_cost_text = AM_CP_10
-		
-		days_remove = 60
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_2
-				add_idea = at_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-			    
-		}
-		
-		ai_will_do = {
-			base = 1
-		}	
-		
-	}
-
-	adopt_at_ammo_IV_2_fast = {
-		
-		visible = {
-			has_tech = at_ammo_4
-			NOT = { has_tech = at_ammo_5}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			has_tech = at_ammo_4
-			NOT = { has_tech = at_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			command_power > 9
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -10
-		}
-
-		custom_cost_trigger = {
-			command_power>9
-		}
-
-		custom_cost_text = AM_CP_10
-		
-		days_remove = 60
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_3
-				add_idea = at_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-	
-	adopt_at_ammo_V_2_fast = {
-		
-		visible = {
-			has_tech = at_ammo_5
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			has_tech = at_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			command_power > 9
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -10
-		}
-
-		custom_cost_trigger = {
-			command_power>9
-		}
-
-		custom_cost_text = AM_CP_10
-		
-		days_remove = 60
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_4
-				add_idea = at_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-	
-#### 1m fast	
-	
-	adopt_at_ammo_I_3_fast = {
-		
-		visible = {
-			has_tech = at_ammo_1
-			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			has_tech = at_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			command_power > 24
-		}
-
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -25
-		}
-
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25
-		
-		days_remove = 1
-		
-		remove_effect = { 
-		add_ideas = at_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 5
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_at_ammo_II_3_fast = {
-		
-		visible = {
-			has_tech = at_ammo_2
-			NOT = { has_tech = at_ammo_3}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			NOT = { has_tech = at_ammo_3}
-			has_tech = at_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			command_power > 24
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -25
-		}
-
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25
-		
-		days_remove = 120
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_1
-				add_idea = at_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_at_ammo_III_3_fast = {
-		
-		visible = {
-			has_tech = at_ammo_3
-			NOT = { has_tech = at_ammo_4}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			NOT = { has_tech = at_ammo_4}
-			has_tech = at_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			command_power > 24
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -25
-		}
-
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25
-		
-		days_remove = 120
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_2
-				add_idea = at_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_at_ammo_IV_3_fast = {
-		
-		visible = {
-			NOT = { has_tech = at_ammo_5}
-			has_tech = at_ammo_4
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			NOT = { has_tech = at_ammo_5}
-			has_tech = at_ammo_4
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			command_power > 24
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -25
-		}
-
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25
-		
-		days_remove = 120
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_3
-				add_idea = at_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
 		ai_will_do = {
 		    base = 10
 		    modifier = {
@@ -1493,153 +237,43 @@ army_equipment_category = {
 		}
 		
 	}	
-	
-	adopt_at_ammo_V_3_fast = {
-		
-		visible = {
-			has_tech = at_ammo_5
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			has_tech = at_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			command_power > 24
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -25
-		}
 
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25
-		
-		days_remove = 1
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = at_ammo_4
-				add_idea = at_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-	
-#### more than 1m fast	
-	
-	adopt_at_ammo_I_4_fast = {
-		
-		visible = {
-			has_tech = at_ammo_1
-			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			has_tech = at_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = at_ammo_2}
-			has_army_manpower = { size > 999999 }
-			command_power > 49
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -50
-		}
-
-		custom_cost_trigger = {
-			command_power>49
-		}
-
-		custom_cost_text = AM_CP_50
-		
-		days_remove = 240
-		
-		remove_effect = { 
-		add_ideas = at_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 5
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_at_ammo_II_4_fast = {
+	adopt_at_ammo_II_fast = {
 		
 		visible = {
 			has_tech = at_ammo_2
 			NOT = { has_tech = at_ammo_3}
-			has_army_manpower = { size > 999999 }
 			}
 		
 		available = {
-			NOT = { has_tech = at_ammo_3}
 			has_tech = at_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-			command_power > 49
+			NOT = { has_tech = at_ammo_3}
 		}
-				
-		modifier = {
-			civilian_factory_use = 1
+		
+		remove_trigger = {
+			has_country_flag = at_ammo_2
 		}
 		
 		complete_effect = {
-			add_command_power = -50
+			add_command_power = command_cost	
 		}
 
 		custom_cost_trigger = {
-			command_power>49
+			command_power>command_cost_p
 		}
 
-		custom_cost_text = AM_CP_50
+		custom_cost_text = AM_CP
 		
-		days_remove = 240
+		days_remove = size_arm_f
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = at_ammo_2
 				remove_idea = at_ammo_1
 				add_idea = at_ammo_2
 			}
 		}
 		
-		fire_only_once = yes
-		
 		ai_will_do = {
 		    base = 10
 		    modifier = {
@@ -1649,50 +283,44 @@ army_equipment_category = {
 		ai_will_do = {
 			base = 1
 		}
-		
 	}
 
-	adopt_at_ammo_III_4_fast = {
+	adopt_at_ammo_III_fast = {
 		
 		visible = {
 			has_tech = at_ammo_3
 			NOT = { has_tech = at_ammo_4}
-			has_army_manpower = { size > 999999 }
 			}
 		
 		available = {
-			NOT = { has_tech = at_ammo_4}
-			has_tech = at_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-			command_power > 49
+			has_tech = at_ammo_2
+			NOT = { has_tech = at_ammo_3}
 		}
-				
-		modifier = {
-			civilian_factory_use = 1
+		
+		remove_trigger = {
+			has_country_flag = at_ammo_3
 		}
 		
 		complete_effect = {
-			add_command_power = -50
+			add_command_power = command_cost	
 		}
 
 		custom_cost_trigger = {
-			command_power>49
+			command_power>command_cost_p
 		}
 
-		custom_cost_text = AM_CP_50
+		custom_cost_text = AM_CP
 		
-		days_remove = 240
+		days_remove = size_arm_f
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = at_ammo_3
 				remove_idea = at_ammo_2
 				add_idea = at_ammo_3
 			}
 		}
 		
-		fire_only_once = yes
-		
 		ai_will_do = {
 		    base = 10
 		    modifier = {
@@ -1702,50 +330,44 @@ army_equipment_category = {
 		ai_will_do = {
 			base = 1
 		}
-		
 	}
-
-	adopt_at_ammo_IV_4_fast = {
+	
+	adopt_at_ammo_IV_fast = {
 		
 		visible = {
 			has_tech = at_ammo_4
 			NOT = { has_tech = at_ammo_5}
-			has_army_manpower = { size > 999999 }
 			}
 		
 		available = {
 			has_tech = at_ammo_4
 			NOT = { has_tech = at_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-			command_power > 49
 		}
-				
-		modifier = {
-			civilian_factory_use = 1
+		
+		remove_trigger = {
+			has_country_flag = at_ammo_4
 		}
 		
 		complete_effect = {
-			add_command_power = -50
+			add_command_power = command_cost	
 		}
 
 		custom_cost_trigger = {
-			command_power>49
+			command_power>command_cost_p
 		}
 
-		custom_cost_text = AM_CP_50
+		custom_cost_text = AM_CP
 		
-		days_remove = 240
+		days_remove = size_arm_f
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = at_ammo_4
 				remove_idea = at_ammo_3
 				add_idea = at_ammo_4
 			}
 		}
 		
-		fire_only_once = yes
-		
 		ai_will_do = {
 		    base = 10
 		    modifier = {
@@ -1755,48 +377,42 @@ army_equipment_category = {
 		ai_will_do = {
 			base = 1
 		}
-		
-	}	
+	}
 	
-	adopt_at_ammo_V_4_fast = {
+	adopt_at_ammo_V_fast = {
 		
 		visible = {
 			has_tech = at_ammo_5
-			has_army_manpower = { size > 999999 }
 			}
 		
 		available = {
 			has_tech = at_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-			command_power > 49
 		}
-				
-		modifier = {
-			civilian_factory_use = 1
+		
+		remove_trigger = {
+			has_country_flag = at_ammo_5
 		}
 		
 		complete_effect = {
-			add_command_power = -50
+			add_command_power = command_cost	
 		}
 
 		custom_cost_trigger = {
-			command_power>49
+			command_power>command_cost_p
 		}
 
-		custom_cost_text = AM_CP_50
+		custom_cost_text = AM_CP
 		
-		days_remove = 240
+		days_remove = size_arm_f
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = at_ammo_5
 				remove_idea = at_ammo_4
 				add_idea = at_ammo_5
 			}
 		}
 		
-		fire_only_once = yes
-		
 		ai_will_do = {
 		    base = 10
 		    modifier = {
@@ -1806,37 +422,38 @@ army_equipment_category = {
 		ai_will_do = {
 			base = 1
 		}
-		
-	}	
+	}
 	
 ###### AC AMMO
 
 ##### SLOW
 
-#### 100k slow
 	
-	adopt_cannon_ammo_I_1_slow = {
+	adopt_cannon_ammo_I_slow = {
 		
 		visible = {
 			has_tech = cannon_ammo_1
 			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size < 100000 }
 			}
 		
 		available = {
 			has_tech = cannon_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
 			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size < 100000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 90
+		remove_trigger = {
+			has_country_flag = cannon_ammo_1
+		}
+		
+		complete_effect = {
+		
+		}
+		
+		
+		days_remove = size_arm
 		
 		remove_effect = { 
+		set_country_flag = cannon_ammo_1
 		add_ideas = cannon_ammo_1
 		}
 		
@@ -1848,28 +465,30 @@ army_equipment_category = {
 		
 	}
 
-	adopt_cannon_ammo_II_1_slow = {
+	adopt_cannon_ammo_II_slow = {
 		
 		visible = {
 			has_tech = cannon_ammo_2
 			NOT = { has_tech = cannon_ammo_3}
-			has_army_manpower = { size < 100000 }
 			}
 		
 		available = {
 			NOT = { has_tech = cannon_ammo_3}
 			has_tech = cannon_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 90
+		remove_trigger = {
+			has_country_flag = cannon_ammo_2
+		}
 		
-		remove_effect = { 
+		complete_effect = {
+		
+		}
+		
+		days_remove = size_arm
+		
+		remove_effect = {
+			set_country_flag = cannon_ammo_2	
 			swap_ideas = {
 				remove_idea = cannon_ammo_1
 				add_idea = cannon_ammo_2
@@ -1884,29 +503,31 @@ army_equipment_category = {
 		
 	}
 
-	adopt_cannon_ammo_III_1_slow = {
+	adopt_cannon_ammo_III_slow = {
 		
 		visible = {
 			has_tech = cannon_ammo_3
 			NOT = { has_tech = cannon_ammo_4}
-			has_army_manpower = { size < 100000 }
 			}
 		
 		available = {
 			NOT = { has_tech = cannon_ammo_4}
 			has_tech = cannon_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 90
+		remove_trigger = {
+			has_country_flag = cannon_ammo_3
+		}
+		
+		complete_effect = {
+		
+		}
+		
+		days_remove = size_arm
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = cannon_ammo_3
 				remove_idea = cannon_ammo_2
 				add_idea = cannon_ammo_3
 			}
@@ -1923,26 +544,28 @@ army_equipment_category = {
 	adopt_cannon_ammo_IV_1_slow = {
 		
 		visible = {
-			NOT = { has_tech = cannon_ammo_5}
 			has_tech = cannon_ammo_4
-			has_army_manpower = { size < 100000 }
+			NOT = { has_tech = cannon_ammo_5}
 			}
 		
 		available = {
-			NOT = { has_tech = cannon_ammo_5}
 			has_tech = cannon_ammo_4
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
+			NOT = { has_tech = cannon_ammo_5}
 		}
 		
-		days_remove = 90
+		remove_trigger = {
+			has_country_flag = cannon_ammo_4
+		}
+		
+		complete_effect = {
+		
+		}
+		
+		days_remove = size_arm
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = cannon_ammo_4
 				remove_idea = cannon_ammo_3
 				add_idea = cannon_ammo_4
 			}
@@ -1960,23 +583,25 @@ army_equipment_category = {
 		
 		visible = {
 			has_tech = cannon_ammo_5
-			has_army_manpower = { size < 100000 }
 			}
 		
 		available = {
 			has_tech = cannon_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
 		}
 				
-		modifier = {
-			civilian_factory_use = 1
+		remove_trigger = {
+			has_country_flag = cannon_ammo_5
 		}
 		
-		days_remove = 90
+		complete_effect = {
+		
+		}
+		
+		days_remove = size_arm
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = cannon_ammo_5
 				remove_idea = cannon_ammo_4
 				add_idea = cannon_ammo_5
 			}
@@ -1990,1302 +615,41 @@ army_equipment_category = {
 		
 	}
 	
-#### 500k slow	
-	
-	adopt_cannon_ammo_I_2_slow = {
+
+
+	adopt_cannon_ammo_I_fast = {
 		
 		visible = {
 			has_tech = cannon_ammo_1
 			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
 			}
 		
 		available = {
 			has_tech = cannon_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
 			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 180
-		
-		remove_effect = { 
-		add_ideas = cannon_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_cannon_ammo_II_2_slow = {
-		
-		visible = {
-			has_tech = cannon_ammo_2
-			NOT = { has_tech = cannon_ammo_3}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			NOT = { has_tech = cannon_ammo_3}
-			has_tech = cannon_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 180
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_1
-				add_idea = cannon_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_cannon_ammo_III_2_slow = {
-		
-		visible = {
-			has_tech = cannon_ammo_3
-			NOT = { has_tech = cannon_ammo_4}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			NOT = { has_tech = cannon_ammo_4}
-			has_tech = cannon_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 180
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_2
-				add_idea = cannon_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_cannon_ammo_IV_2_slow = {
-		
-		visible = {
-			NOT = { has_tech = cannon_ammo_5}
-			has_tech = cannon_ammo_4
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			NOT = { has_tech = cannon_ammo_5}
-			has_tech = cannon_ammo_4
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 180
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_3
-				add_idea = cannon_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-	
-	adopt_cannon_ammo_V_2_slow = {
-		
-		visible = {
-			has_tech = cannon_ammo_5
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 180
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_4
-				add_idea = cannon_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-	
-#### 1m slow	
-	
-	adopt_cannon_ammo_I_3_slow = {
-		
-		visible = {
-			has_tech = cannon_ammo_1
-			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 360
-		
-		remove_effect = { 
-		add_ideas = cannon_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_cannon_ammo_II_3_slow = {
-		
-		visible = {
-			has_tech = cannon_ammo_2
-			NOT = { has_tech = cannon_ammo_3}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			NOT = { has_tech = cannon_ammo_3}
-			has_tech = cannon_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 360
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_1
-				add_idea = cannon_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_cannon_ammo_III_3_slow = {
-		
-		visible = {
-			has_tech = cannon_ammo_3
-			NOT = { has_tech = cannon_ammo_4}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			NOT = { has_tech = cannon_ammo_4}
-			has_tech = cannon_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 360
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_2
-				add_idea = cannon_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_cannon_ammo_IV_3_slow = {
-		
-		visible = {
-			NOT = { has_tech = cannon_ammo_5}
-			has_tech = cannon_ammo_4
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			NOT = { has_tech = cannon_ammo_5}
-			has_tech = cannon_ammo_4
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 360
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_3
-				add_idea = cannon_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}	
-	
-	adopt_cannon_ammo_V_3_slow = {
-		
-		visible = {
-			has_tech = cannon_ammo_5
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 360
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_4
-				add_idea = cannon_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-	
-#### more than 1m slow	
-	
-	adopt_cannon_ammo_I_4_slow = {
-		
-		visible = {
-			has_tech = cannon_ammo_1
-			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size > 999999 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 720
-		
-		remove_effect = { 
-		add_ideas = cannon_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_cannon_ammo_II_4_slow = {
-		
-		visible = {
-			has_tech = cannon_ammo_2
-			NOT = { has_tech = cannon_ammo_3}
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			NOT = { has_tech = cannon_ammo_3}
-			has_tech = cannon_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 720
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_1
-				add_idea = cannon_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_cannon_ammo_III_4_slow = {
-		
-		visible = {
-			has_tech = cannon_ammo_3
-			NOT = { has_tech = cannon_ammo_4}
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			NOT = { has_tech = cannon_ammo_4}
-			has_tech = cannon_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 720
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_2
-				add_idea = cannon_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_cannon_ammo_IV_4_slow = {
-		
-		visible = {
-			has_tech = cannon_ammo_4
-			NOT = { has_tech = cannon_ammo_5}
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_4
-			NOT = { has_tech = cannon_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 720
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_3
-				add_idea = cannon_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-	
-	adopt_cannon_ammo_V_4_slow = {
-		
-		visible = {
-			has_tech = cannon_ammo_5
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 720
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_4
-				add_idea = cannon_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-	
-#### FAST 	
-	
-#### 100k fast
-	
-	adopt_cannon_ammo_I_1_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_1
-			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size < 100000 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size < 100000 }
-			command_power > 4
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
+		remove_trigger = {
+			has_country_flag = cannon_ammo_1
 		}
 		
 		complete_effect = {
-			add_command_power = -5
+			add_command_power = command_cost	
 		}
 
 		custom_cost_trigger = {
-			command_power>4
+			command_power>command_cost_p
 		}
 
-		custom_cost_text = AM_CP_5
-
-		days_remove = 30
+		custom_cost_text = AM_CP
+		
+		days_remove = size_arm_f
 		
 		remove_effect = { 
-		add_ideas = cannon_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 5
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_cannon_ammo_II_1_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_2
-			NOT = { has_tech = cannon_ammo_3}
-			has_army_manpower = { size < 100000 }
-			}
-		
-		available = {
-			NOT = { has_tech = cannon_ammo_3}
-			has_tech = cannon_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-			command_power > 4
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -5
+			set_country_flag = cannon_ammo_1
+			add_ideas = cannon_ammo_1
 		}
 
-		custom_cost_trigger = {
-			command_power>4
-		}
-
-		custom_cost_text = AM_CP_5
-		
-		days_remove = 30
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_1
-				add_idea = cannon_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_cannon_ammo_III_1_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_3
-			NOT = { has_tech = cannon_ammo_4}
-			has_army_manpower = { size < 100000 }
-			}
-		
-		available = {
-			NOT = { has_tech = cannon_ammo_4}
-			has_tech = cannon_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-			command_power > 4
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -5
-		}
-
-		custom_cost_trigger = {
-			command_power>4
-		}
-
-		custom_cost_text = AM_CP_5
-		
-		days_remove = 30
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_2
-				add_idea = cannon_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_cannon_ammo_IV_1_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_4
-			NOT = { has_tech = cannon_ammo_5}
-			has_army_manpower = { size < 100000 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_4
-			NOT = { has_tech = cannon_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-			command_power > 4
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -5
-		}
-
-		custom_cost_trigger = {
-			command_power>4
-		}
-
-		custom_cost_text = AM_CP_5
-		
-		days_remove = 30
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_3
-				add_idea = cannon_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-	
-	adopt_cannon_ammo_V_1_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_5
-			has_army_manpower = { size < 100000 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-			command_power > 4
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -5
-		}
-
-		custom_cost_trigger = {
-			command_power>4
-		}
-
-		custom_cost_text = AM_CP_5
-		
-		days_remove = 30
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_4
-				add_idea = cannon_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-	
-#### 500k fast	
-	
-	adopt_cannon_ammo_I_2_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_1
-			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			command_power > 9
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -10
-		}
-
-		custom_cost_trigger = {
-			command_power>9
-		}
-
-		custom_cost_text = AM_CP_10
-		
-		days_remove = 60
-		
-		remove_effect = { 
-		add_ideas = cannon_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 5
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-		
-	}
-
-	adopt_cannon_ammo_II_2_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_2
-			NOT = { has_tech = cannon_ammo_3}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			NOT = { has_tech = cannon_ammo_3}
-			has_tech = cannon_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			command_power > 9
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -10
-		}
-
-		custom_cost_trigger = {
-			command_power>9
-		}
-
-		custom_cost_text = AM_CP_10
-		
-		days_remove = 60
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_1
-				add_idea = cannon_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_cannon_ammo_III_2_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_3
-			NOT = { has_tech = cannon_ammo_4}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			NOT = { has_tech = cannon_ammo_4}
-			has_tech = cannon_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			command_power > 9
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -10
-		}
-
-		custom_cost_trigger = {
-			command_power>9
-		}
-
-		custom_cost_text = AM_CP_10
-		
-		days_remove = 60
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_2
-				add_idea = cannon_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-			    
-		}
-		
-		ai_will_do = {
-			base = 1
-		}	
-		
-	}
-
-	adopt_cannon_ammo_IV_2_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_4
-			NOT = { has_tech = cannon_ammo_5}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_4
-			NOT = { has_tech = cannon_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			command_power > 9
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -10
-		}
-
-		custom_cost_trigger = {
-			command_power>9
-		}
-
-		custom_cost_text = AM_CP_10
-		
-		days_remove = 60
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_3
-				add_idea = cannon_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-	
-	adopt_cannon_ammo_V_2_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_5
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			command_power > 9
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -10
-		}
-
-		custom_cost_trigger = {
-			command_power>9
-		}
-
-		custom_cost_text = AM_CP_10
-		
-		days_remove = 60
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_4
-				add_idea = cannon_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-	
-#### 1m fast	
-	
-	adopt_cannon_ammo_I_3_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_1
-			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			command_power > 24
-		}
-				
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25	
-		
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -25
-		}
-		
-		days_remove = 120
-		
-		remove_effect = { 
-		add_ideas = cannon_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 5
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_cannon_ammo_II_3_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_2
-			NOT = { has_tech = cannon_ammo_3}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			NOT = { has_tech = cannon_ammo_3}
-			has_tech = cannon_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			command_power > 24
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -25
-		}
-
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25
-		
-		days_remove = 120
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_1
-				add_idea = cannon_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_cannon_ammo_III_3_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_3
-			NOT = { has_tech = cannon_ammo_4}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			NOT = { has_tech = cannon_ammo_4}
-			has_tech = cannon_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			command_power > 24
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -25
-		}
-
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25
-		
-		days_remove = 120
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_2
-				add_idea = cannon_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_cannon_ammo_IV_3_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_4
-			NOT = { has_tech = cannon_ammo_5}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_4
-			NOT = { has_tech = cannon_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			command_power > 24
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -25
-		}
-
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25
-		
-		days_remove = 120
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_3
-				add_idea = cannon_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
 		ai_will_do = {
 		    base = 10
 		    modifier = {
@@ -3297,153 +661,43 @@ army_equipment_category = {
 		}
 		
 	}	
-	
-	adopt_cannon_ammo_V_3_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_5
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			command_power > 24
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -25
-		}
 
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25
-		
-		days_remove = 120
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = cannon_ammo_4
-				add_idea = cannon_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}	
-	
-#### more than 1m fast	
-	
-	adopt_cannon_ammo_I_4_fast = {
-		
-		visible = {
-			has_tech = cannon_ammo_1
-			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			has_tech = cannon_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = cannon_ammo_2}
-			has_army_manpower = { size > 999999 }
-			command_power > 49
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -50
-		}
-
-		custom_cost_trigger = {
-			command_power>49
-		}
-
-		custom_cost_text = AM_CP_50
-		
-		days_remove = 240
-		
-		remove_effect = { 
-		add_ideas = cannon_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 5
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_cannon_ammo_II_4_fast = {
+	adopt_cannon_ammo_II_fast = {
 		
 		visible = {
 			has_tech = cannon_ammo_2
 			NOT = { has_tech = cannon_ammo_3}
-			has_army_manpower = { size > 999999 }
 			}
 		
 		available = {
-			NOT = { has_tech = cannon_ammo_3}
 			has_tech = cannon_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-			command_power > 49
+			NOT = { has_tech = cannon_ammo_3}
 		}
-				
-		modifier = {
-			civilian_factory_use = 1
+		
+		remove_trigger = {
+			has_country_flag = cannon_ammo_2
 		}
 		
 		complete_effect = {
-			add_command_power = -50
+			add_command_power = command_cost	
 		}
 
 		custom_cost_trigger = {
-			command_power>49
+			command_power>command_cost_p
 		}
 
-		custom_cost_text = AM_CP_50
+		custom_cost_text = AM_CP
 		
-		days_remove = 240
+		days_remove = size_arm_f
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = cannon_ammo_2
 				remove_idea = cannon_ammo_1
 				add_idea = cannon_ammo_2
 			}
 		}
 		
-		fire_only_once = yes
-		
 		ai_will_do = {
 		    base = 10
 		    modifier = {
@@ -3453,50 +707,44 @@ army_equipment_category = {
 		ai_will_do = {
 			base = 1
 		}
-		
 	}
 
-	adopt_cannon_ammo_III_4_fast = {
+	adopt_cannon_ammo_III_fast = {
 		
 		visible = {
 			has_tech = cannon_ammo_3
 			NOT = { has_tech = cannon_ammo_4}
-			has_army_manpower = { size > 999999 }
 			}
 		
 		available = {
-			NOT = { has_tech = cannon_ammo_4}
-			has_tech = cannon_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-			command_power > 49
+			has_tech = cannon_ammo_2
+			NOT = { has_tech = cannon_ammo_3}
 		}
-				
-		modifier = {
-			civilian_factory_use = 1
+		
+		remove_trigger = {
+			has_country_flag = cannon_ammo_3
 		}
 		
 		complete_effect = {
-			add_command_power = -50
+			add_command_power = command_cost	
 		}
 
 		custom_cost_trigger = {
-			command_power>49
+			command_power>command_cost_p
 		}
 
-		custom_cost_text = AM_CP_50
+		custom_cost_text = AM_CP
 		
-		days_remove = 240
+		days_remove = size_arm_f
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = cannon_ammo_3
 				remove_idea = cannon_ammo_2
 				add_idea = cannon_ammo_3
 			}
 		}
 		
-		fire_only_once = yes
-		
 		ai_will_do = {
 		    base = 10
 		    modifier = {
@@ -3506,50 +754,44 @@ army_equipment_category = {
 		ai_will_do = {
 			base = 1
 		}
-		
 	}
-
-	adopt_cannon_ammo_IV_4_fast = {
+	
+	adopt_cannon_ammo_IV_fast = {
 		
 		visible = {
 			has_tech = cannon_ammo_4
 			NOT = { has_tech = cannon_ammo_5}
-			has_army_manpower = { size > 999999 }
 			}
 		
 		available = {
 			has_tech = cannon_ammo_4
 			NOT = { has_tech = cannon_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-			command_power > 49
 		}
-				
-		modifier = {
-			civilian_factory_use = 1
+		
+		remove_trigger = {
+			has_country_flag = cannon_ammo_4
 		}
 		
 		complete_effect = {
-			add_command_power = -50
+			add_command_power = command_cost	
 		}
 
 		custom_cost_trigger = {
-			command_power>49
+			command_power>command_cost_p
 		}
 
-		custom_cost_text = AM_CP_50
+		custom_cost_text = AM_CP
 		
-		days_remove = 240
+		days_remove = size_arm_f
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = cannon_ammo_4
 				remove_idea = cannon_ammo_3
 				add_idea = cannon_ammo_4
 			}
 		}
 		
-		fire_only_once = yes
-		
 		ai_will_do = {
 		    base = 10
 		    modifier = {
@@ -3559,48 +801,42 @@ army_equipment_category = {
 		ai_will_do = {
 			base = 1
 		}
-		
 	}
-
-	adopt_cannon_ammo_V_4_fast = {
+	
+	adopt_cannon_ammo_V_fast = {
 		
 		visible = {
 			has_tech = cannon_ammo_5
-			has_army_manpower = { size > 999999 }
 			}
 		
 		available = {
 			has_tech = cannon_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-			command_power > 49
 		}
-				
-		modifier = {
-			civilian_factory_use = 1
+		
+		remove_trigger = {
+			has_country_flag = cannon_ammo_5
 		}
 		
 		complete_effect = {
-			add_command_power = -50
+			add_command_power = command_cost	
 		}
 
 		custom_cost_trigger = {
-			command_power>49
+			command_power>command_cost_p
 		}
 
-		custom_cost_text = AM_CP_50
+		custom_cost_text = AM_CP
 		
-		days_remove = 240
+		days_remove = size_arm_f
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = cannon_ammo_5
 				remove_idea = cannon_ammo_4
 				add_idea = cannon_ammo_5
 			}
 		}
 		
-		fire_only_once = yes
-		
 		ai_will_do = {
 		    base = 10
 		    modifier = {
@@ -3610,37 +846,36 @@ army_equipment_category = {
 		ai_will_do = {
 			base = 1
 		}
-		
-	}
-	
-###### Artillery AMMO
+	}	
+###### ART AMMO
 
 ##### SLOW
 
-#### 100k slow
 	
-	adopt_art_ammo_I_1_slow = {
+	adopt_art_ammo_I_slow = {
 		
 		visible = {
 			has_tech = art_ammo_1
 			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size < 100000 }
 			}
 		
 		available = {
 			has_tech = art_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
 			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size < 100000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 90
+		remove_trigger = {
+			has_country_flag = art_ammo_1
+		}
+		
+		complete_effect = {	
+		}
+		
+		
+		days_remove = size_arm
 		
 		remove_effect = { 
+		set_country_flag = art_ammo_1
 		add_ideas = art_ammo_1
 		}
 		
@@ -3652,28 +887,29 @@ army_equipment_category = {
 		
 	}
 
-	adopt_art_ammo_II_1_slow = {
+	adopt_art_ammo_II_slow = {
 		
 		visible = {
 			has_tech = art_ammo_2
 			NOT = { has_tech = art_ammo_3}
-			has_army_manpower = { size < 100000 }
 			}
 		
 		available = {
 			NOT = { has_tech = art_ammo_3}
 			has_tech = art_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 90
+		remove_trigger = {
+			has_country_flag = art_ammo_2
+		}
 		
-		remove_effect = { 
+		complete_effect = {
+		}
+		
+		days_remove = size_arm
+		
+		remove_effect = {
+			set_country_flag = art_ammo_2	
 			swap_ideas = {
 				remove_idea = art_ammo_1
 				add_idea = art_ammo_2
@@ -3688,29 +924,30 @@ army_equipment_category = {
 		
 	}
 
-	adopt_art_ammo_III_1_slow = {
+	adopt_art_ammo_III_slow = {
 		
 		visible = {
 			has_tech = art_ammo_3
 			NOT = { has_tech = art_ammo_4}
-			has_army_manpower = { size < 100000 }
 			}
 		
 		available = {
 			NOT = { has_tech = art_ammo_4}
 			has_tech = art_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 90
+		remove_trigger = {
+			has_country_flag = art_ammo_3
+		}
+		
+		complete_effect = {
+		}
+		
+		days_remove = size_arm
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = art_ammo_3
 				remove_idea = art_ammo_2
 				add_idea = art_ammo_3
 			}
@@ -3729,24 +966,25 @@ army_equipment_category = {
 		visible = {
 			has_tech = art_ammo_4
 			NOT = { has_tech = art_ammo_5}
-			has_army_manpower = { size < 100000 }
 			}
 		
 		available = {
 			has_tech = art_ammo_4
 			NOT = { has_tech = art_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 90
+		remove_trigger = {
+			has_country_flag = art_ammo_4
+		}
+		
+		complete_effect = {
+		}
+		
+		days_remove = size_arm
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = art_ammo_4
 				remove_idea = art_ammo_3
 				add_idea = art_ammo_4
 			}
@@ -3764,23 +1002,24 @@ army_equipment_category = {
 		
 		visible = {
 			has_tech = art_ammo_5
-			has_army_manpower = { size < 100000 }
 			}
 		
 		available = {
 			has_tech = art_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
 		}
 				
-		modifier = {
-			civilian_factory_use = 1
+		remove_trigger = {
+			has_country_flag = art_ammo_5
 		}
 		
-		days_remove = 90
+		complete_effect = {
+		}
+		
+		days_remove = size_arm
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = art_ammo_5
 				remove_idea = art_ammo_4
 				add_idea = art_ammo_5
 			}
@@ -3794,652 +1033,228 @@ army_equipment_category = {
 		
 	}
 	
-#### 500k slow	
-	
-	adopt_art_ammo_I_2_slow = {
+
+
+	adopt_art_ammo_I_fast = {
 		
 		visible = {
 			has_tech = art_ammo_1
 			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
 			}
 		
 		available = {
 			has_tech = art_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
 			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 180
-		
-		remove_effect = { 
-		add_ideas = art_ammo_1
+		remove_trigger = {
+			has_country_flag = art_ammo_1
 		}
 		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
+		complete_effect = {
+			add_command_power = command_cost	
 		}
-		
-	}
 
-	adopt_art_ammo_II_2_slow = {
-		
-		visible = {
-			has_tech = art_ammo_2
-			NOT = { has_tech = art_ammo_3}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			NOT = { has_tech = art_ammo_3}
-			has_tech = art_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
+		custom_cost_trigger = {
+			command_power>command_cost_p
 		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 180
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_1
-				add_idea = art_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
 
-	adopt_art_ammo_III_2_slow = {
+		custom_cost_text = AM_CP
 		
-		visible = {
-			has_tech = art_ammo_3
-			NOT = { has_tech = art_ammo_4}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			NOT = { has_tech = art_ammo_4}
-			has_tech = art_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 180
+		days_remove = size_arm_f
 		
 		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_2
-				add_idea = art_ammo_3
-			}
+			set_country_flag = art_ammo_1
+			add_ideas = art_ammo_1
 		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
 
-	adopt_art_ammo_IV_2_slow = {
-		
-		visible = {
-			has_tech = art_ammo_4
-			NOT = { has_tech = art_ammo_5}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			has_tech = art_ammo_4
-			NOT = { has_tech = art_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
+		ai_will_do = {
+		    base = 10
+		    modifier = {
+			    has_war = yes}
 		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 180
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_3
-				add_idea = art_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
 		
 		ai_will_do = {
-			base = 2
-		}
-		
-	}
-	
-	adopt_art_ammo_V_2_slow = {
-		
-		visible = {
-			has_tech = art_ammo_5
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			has_tech = art_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 180
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_4
-				add_idea = art_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-	
-#### 1m slow	
-	
-	adopt_art_ammo_I_3_slow = {
-		
-		visible = {
-			has_tech = art_ammo_1
-			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			has_tech = art_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 360
-		
-		remove_effect = { 
-		add_ideas = art_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_art_ammo_II_3_slow = {
-		
-		visible = {
-			has_tech = art_ammo_2
-			NOT = { has_tech = art_ammo_3}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			NOT = { has_tech = art_ammo_3}
-			has_tech = art_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 360
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_1
-				add_idea = art_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_art_ammo_III_3_slow = {
-		
-		visible = {
-			has_tech = art_ammo_3
-			NOT = { has_tech = art_ammo_4}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			NOT = { has_tech = art_ammo_4}
-			has_tech = art_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 360
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_2
-				add_idea = art_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_art_ammo_IV_3_slow = {
-		
-		visible = {
-			has_tech = art_ammo_4
-			NOT = { has_tech = art_ammo_5}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			has_tech = art_ammo_4
-			NOT = { has_tech = art_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 360
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_3
-				add_idea = art_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-	adopt_art_ammo_V_3_slow = {
-		
-		visible = {
-			has_tech = art_ammo_5
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			has_tech = art_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 360
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_4
-				add_idea = art_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
+			base = 1
 		}
 		
 	}	
-	
-#### more than 1m slow	
-	
-	adopt_art_ammo_I_4_slow = {
-		
-		visible = {
-			has_tech = art_ammo_1
-			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			has_tech = art_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size > 999999 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		days_remove = 720
-		
-		remove_effect = { 
-		add_ideas = art_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
 
-	adopt_art_ammo_II_4_slow = {
+	adopt_art_ammo_II_fast = {
 		
 		visible = {
 			has_tech = art_ammo_2
 			NOT = { has_tech = art_ammo_3}
-			has_army_manpower = { size > 999999 }
 			}
 		
 		available = {
-			NOT = { has_tech = art_ammo_3}
 			has_tech = art_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
+			NOT = { has_tech = art_ammo_3}
 		}
 		
-		days_remove = 720
+		remove_trigger = {
+			has_country_flag = art_ammo_2
+		}
+		
+		complete_effect = {
+			add_command_power = command_cost	
+		}
+
+		custom_cost_trigger = {
+			command_power>command_cost_p
+		}
+
+		custom_cost_text = AM_CP
+		
+		days_remove = size_arm_f
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = art_ammo_2
 				remove_idea = art_ammo_1
 				add_idea = art_ammo_2
 			}
 		}
 		
-		fire_only_once = yes
-		
 		ai_will_do = {
-			base = 2
+		    base = 10
+		    modifier = {
+			    has_war = yes}
 		}
 		
+		ai_will_do = {
+			base = 1
+		}
 	}
 
-	adopt_art_ammo_III_4_slow = {
+	adopt_art_ammo_III_fast = {
 		
 		visible = {
 			has_tech = art_ammo_3
 			NOT = { has_tech = art_ammo_4}
-			has_army_manpower = { size > 999999 }
 			}
 		
 		available = {
-			NOT = { has_tech = art_ammo_4}
-			has_tech = art_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
+			has_tech = art_ammo_2
+			NOT = { has_tech = art_ammo_3}
 		}
 		
-		days_remove = 720
+		remove_trigger = {
+			has_country_flag = art_ammo_3
+		}
+		
+		complete_effect = {
+			add_command_power = command_cost	
+		}
+
+		custom_cost_trigger = {
+			command_power>command_cost_p
+		}
+
+		custom_cost_text = AM_CP
+		
+		days_remove = size_arm_f
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = art_ammo_3
 				remove_idea = art_ammo_2
 				add_idea = art_ammo_3
 			}
 		}
 		
-		fire_only_once = yes
-		
 		ai_will_do = {
-			base = 2
+		    base = 10
+		    modifier = {
+			    has_war = yes}
 		}
 		
+		ai_will_do = {
+			base = 1
+		}
 	}
-
-	adopt_art_ammo_IV_4_slow = {
+	
+	adopt_art_ammo_IV_fast = {
 		
 		visible = {
 			has_tech = art_ammo_4
 			NOT = { has_tech = art_ammo_5}
-			has_army_manpower = { size > 999999 }
 			}
 		
 		available = {
 			has_tech = art_ammo_4
 			NOT = { has_tech = art_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 720
+		remove_trigger = {
+			has_country_flag = art_ammo_4
+		}
+		
+		complete_effect = {
+			add_command_power = command_cost	
+		}
+
+		custom_cost_trigger = {
+			command_power>command_cost_p
+		}
+
+		custom_cost_text = AM_CP
+		
+		days_remove = size_arm_f
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = art_ammo_4
 				remove_idea = art_ammo_3
 				add_idea = art_ammo_4
 			}
 		}
 		
-		fire_only_once = yes
-		
 		ai_will_do = {
-			base = 2
+		    base = 10
+		    modifier = {
+			    has_war = yes}
 		}
 		
+		ai_will_do = {
+			base = 1
+		}
 	}
 	
-	adopt_art_ammo_V_4_slow = {
+	adopt_art_ammo_V_fast = {
 		
 		visible = {
 			has_tech = art_ammo_5
-			has_army_manpower = { size > 999999 }
 			}
 		
 		available = {
 			has_tech = art_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
 		}
 		
-		days_remove = 720
+		remove_trigger = {
+			has_country_flag = art_ammo_5
+		}
+		
+		complete_effect = {
+			add_command_power = command_cost	
+		}
+
+		custom_cost_trigger = {
+			command_power>command_cost_p
+		}
+
+		custom_cost_text = AM_CP
+		
+		days_remove = size_arm_f
 		
 		remove_effect = { 
 			swap_ideas = {
+				set_country_flag = art_ammo_5
 				remove_idea = art_ammo_4
 				add_idea = art_ammo_5
 			}
 		}
 		
-		fire_only_once = yes
-		
-		ai_will_do = {
-			base = 2
-		}
-		
-	}
-
-#### FAST 	
-	
-#### 100k fast
-	
-	adopt_art_ammo_I_1_fast = {
-		
-		visible = {
-			has_tech = art_ammo_1
-			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size < 100000 }
-			}
-		
-		available = {
-			has_tech = art_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size < 100000 }
-			command_power > 4
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -5
-		}
-
-		custom_cost_trigger = {
-			command_power>4
-		}
-
-		custom_cost_text = AM_CP_5
-		
-		days_remove = 30
-		
-		remove_effect = { 
-		add_ideas = art_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 5
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_art_ammo_II_1_fast = {
-		
-		visible = {
-			has_tech = art_ammo_2
-			NOT = { has_tech = art_ammo_3}
-			has_army_manpower = { size < 100000 }
-			}
-		
-		available = {
-			NOT = { has_tech = art_ammo_3}
-			has_tech = art_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-			command_power > 4
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -5
-		}
-
-		custom_cost_trigger = {
-			command_power>4
-		}
-
-		custom_cost_text = AM_CP_5
-		
-		days_remove = 30
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_1
-				add_idea = art_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
 		ai_will_do = {
 		    base = 10
 		    modifier = {
@@ -4449,980 +1264,7 @@ army_equipment_category = {
 		ai_will_do = {
 			base = 1
 		}
-		
 	}
-
-	adopt_art_ammo_III_1_fast = {
-		
-		visible = {
-			has_tech = art_ammo_3
-			NOT = { has_tech = art_ammo_4}
-			has_army_manpower = { size < 100000 }
-			}
-		
-		available = {
-			NOT = { has_tech = art_ammo_4}
-			has_tech = art_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-			command_power > 4
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -5
-		}
-
-		custom_cost_trigger = {
-			command_power>4
-		}
-
-		custom_cost_text = AM_CP_5
-		
-		days_remove = 30
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_2
-				add_idea = art_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_art_ammo_IV_1_fast = {
-		
-		visible = {
-			has_tech = art_ammo_4
-			NOT = { has_tech = art_ammo_5}
-			has_army_manpower = { size < 100000 }
-			}
-		
-		available = {
-			has_tech = art_ammo_4
-			NOT = { has_tech = art_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-			command_power > 4
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -5
-		}
-
-		custom_cost_trigger = {
-			command_power>4
-		}
-
-		custom_cost_text = AM_CP_5
-		
-		days_remove = 30
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_3
-				add_idea = art_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-	
-	adopt_art_ammo_V_1_fast = {
-		
-		visible = {
-			has_tech = art_ammo_5
-			has_army_manpower = { size < 100000 }
-			}
-		
-		available = {
-			has_tech = art_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size < 100000 }
-			command_power > 4
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -5
-		}
-
-		custom_cost_trigger = {
-			command_power>4
-		}
-
-		custom_cost_text = AM_CP_5
-		
-		days_remove = 30
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_4
-				add_idea = art_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-	
-#### 500k fast	
-	
-	adopt_art_ammo_I_2_fast = {
-		
-		visible = {
-			has_tech = art_ammo_1
-			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			has_tech = art_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			command_power > 9
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -10
-		}
-
-		custom_cost_trigger = {
-			command_power>9
-		}
-
-		custom_cost_text = AM_CP_10
-		
-		days_remove = 60
-		
-		remove_effect = { 
-		add_ideas = art_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 5
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-		
-	}
-
-	adopt_art_ammo_II_2_fast = {
-		
-		visible = {
-			has_tech = art_ammo_2
-			NOT = { has_tech = art_ammo_3}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			NOT = { has_tech = art_ammo_3}
-			has_tech = art_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			command_power > 9
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -10
-		}
-
-		custom_cost_trigger = {
-			command_power>9
-		}
-
-		custom_cost_text = AM_CP_10
-		
-		days_remove = 60
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_1
-				add_idea = art_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_art_ammo_III_2_fast = {
-		
-		visible = {
-			has_tech = art_ammo_3
-			NOT = { has_tech = art_ammo_4}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			NOT = { has_tech = art_ammo_4}
-			has_tech = art_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			command_power > 9
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -10
-		}
-
-		custom_cost_trigger = {
-			command_power>9
-		}
-
-		custom_cost_text = AM_CP_10
-		
-		days_remove = 60
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_2
-				add_idea = art_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-			    
-		}
-		
-		ai_will_do = {
-			base = 1
-		}	
-		
-	}
-
-	adopt_art_ammo_IV_2_fast = {
-		
-		visible = {
-			has_tech = art_ammo_4
-			NOT = { has_tech = art_ammo_5}
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			has_tech = art_ammo_4
-			NOT = { has_tech = art_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			command_power > 9
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -10
-		}
-
-		custom_cost_trigger = {
-			command_power>9
-		}
-
-		custom_cost_text = AM_CP_10
-		
-		days_remove = 60
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_3
-				add_idea = art_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-	
-	adopt_art_ammo_V_2_fast = {
-		
-		visible = {
-			has_tech = art_ammo_5
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			}
-		
-		available = {
-			has_tech = art_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 99999 }
-			has_army_manpower = { size < 500000 }
-			command_power > 9
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -10
-		}
-
-		custom_cost_trigger = {
-			command_power>9
-		}
-
-		custom_cost_text = AM_CP_10
-		
-		days_remove = 60
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_4
-				add_idea = art_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-	
-#### 1m fast	
-	
-	adopt_art_ammo_I_3_fast = {
-		
-		visible = {
-			has_tech = art_ammo_1
-			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			has_tech = art_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			command_power > 24
-		}
-				
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25	
-
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -25
-		}
-
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25
-		
-		days_remove = 120
-		
-		remove_effect = { 
-		add_ideas = art_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 5
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_art_ammo_II_3_fast = {
-		
-		visible = {
-			has_tech = art_ammo_2
-			NOT = { has_tech = art_ammo_3}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			NOT = { has_tech = art_ammo_3}
-			has_tech = art_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			command_power > 24
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -25
-		}
-
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25
-		
-		days_remove = 120
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_1
-				add_idea = art_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_art_ammo_III_3_fast = {
-		
-		visible = {
-			has_tech = art_ammo_3
-			NOT = { has_tech = art_ammo_4}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			NOT = { has_tech = art_ammo_4}
-			has_tech = art_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			command_power > 24
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -25
-		}
-
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25
-		
-		days_remove = 120
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_2
-				add_idea = art_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_art_ammo_IV_3_fast = {
-		
-		visible = {
-			has_tech = art_ammo_4
-			NOT = { has_tech = art_ammo_5}
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			has_tech = art_ammo_4
-			NOT = { has_tech = art_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			command_power > 24
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -25
-		}
-
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25
-		
-		days_remove = 120
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_3
-				add_idea = art_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_art_ammo_V_3_fast = {
-		
-		visible = {
-			has_tech = art_ammo_5
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			}
-		
-		available = {
-			has_tech = art_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 499999 }
-			has_army_manpower = { size < 1000000 }
-			command_power > 24
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -25
-		}
-
-		custom_cost_trigger = {
-			command_power>24
-		}
-
-		custom_cost_text = AM_CP_25
-		
-		days_remove = 120
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_4
-				add_idea = art_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-	
-#### more than 1m fast	
-	
-	adopt_art_ammo_I_4_fast = {
-		
-		visible = {
-			has_tech = art_ammo_1
-			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			has_tech = art_ammo_1
-			num_of_civilian_factories_available_for_projects > 1
-			NOT = { has_tech = art_ammo_2}
-			has_army_manpower = { size > 999999 }
-			command_power > 49
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -50
-		}
-
-		custom_cost_trigger = {
-			command_power>49
-		}
-
-		custom_cost_text = AM_CP_50
-		
-		days_remove = 240
-		
-		remove_effect = { 
-		add_ideas = art_ammo_1
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 5
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_art_ammo_II_4_fast = {
-		
-		visible = {
-			has_tech = art_ammo_2
-			NOT = { has_tech = art_ammo_3}
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			NOT = { has_tech = art_ammo_3}
-			has_tech = art_ammo_2
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-			command_power > 49
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -50
-		}
-
-		custom_cost_trigger = {
-			command_power>49
-		}
-
-		custom_cost_text = AM_CP_50
-		
-		days_remove = 240
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_1
-				add_idea = art_ammo_2
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_art_ammo_III_4_fast = {
-		
-		visible = {
-			has_tech = art_ammo_3
-			NOT = { has_tech = art_ammo_4}
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			NOT = { has_tech = art_ammo_4}
-			has_tech = art_ammo_3
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-			command_power > 49
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -50
-		}
-
-		custom_cost_trigger = {
-			command_power>49
-		}
-
-		custom_cost_text = AM_CP_50
-		
-		days_remove = 240
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_2
-				add_idea = art_ammo_3
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}
-
-	adopt_art_ammo_IV_4_fast = {
-		
-		visible = {
-			has_tech = art_ammo_4
-			NOT = { has_tech = art_ammo_5}
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			has_tech = art_ammo_4
-			NOT = { has_tech = art_ammo_5}
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-			command_power > 49
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -50
-		}
-
-		custom_cost_trigger = {
-			command_power>49
-		}
-
-		custom_cost_text = AM_CP_50
-		
-		days_remove = 240	
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_3
-				add_idea = art_ammo_4
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}		
-}
-
-	adopt_art_ammo_V_4_fast = {
-		
-		visible = {
-			has_tech = art_ammo_5
-			has_army_manpower = { size > 999999 }
-			}
-		
-		available = {
-			has_tech = art_ammo_5
-			num_of_civilian_factories_available_for_projects > 1
-			has_army_manpower = { size > 999999 }
-			command_power > 49
-		}
-				
-		modifier = {
-			civilian_factory_use = 1
-		}
-		
-		complete_effect = {
-			add_command_power = -50
-		}
-
-		custom_cost_trigger = {
-			command_power>49
-		}
-
-		custom_cost_text = AM_CP_50
-		
-		days_remove = 240	
-		
-		remove_effect = { 
-			swap_ideas = {
-				remove_idea = art_ammo_4
-				add_idea = art_ammo_5
-			}
-		}
-		
-		fire_only_once = yes
-		
-		ai_will_do = {
-		    base = 10
-		    modifier = {
-			    has_war = yes}
-		}
-		
-		ai_will_do = {
-			base = 1
-		}
-		
-	}		
 }
 ##### TY for reading 
 ####done by Iron Courtain Tech Team
