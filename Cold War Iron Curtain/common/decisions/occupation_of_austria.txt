@@ -69,4 +69,43 @@ occupation_of_austria = {
 			factor = 0
 		}
 	}
+	
+	second_anschluss = {
+
+		icon = generic_industry
+
+		visible = {
+			original_tag = SOV
+			country_exists = DDR
+			country_exists = WGR
+			DDR = { is_subject_of = ROOT }
+			NOT = { country_exists = AUS country_exists = ADR has_global_flag = aus_questions_over }
+		}
+
+		fire_only_once = yes
+
+		cost = 10
+
+		complete_effect = {
+	        DDR = { transfer_state = 152 transfer_state = 1119 transfer_state = 1150 }
+			152 = { add_core_of = DDR }
+			1119 = { add_core_of = DDR }
+			1150 = { add_core_of = DDR }
+			999 = { add_core_of = DDR }
+		    758 = { add_core_of = DDR }
+		    153 = { add_core_of = DDR }
+		    4 = { add_core_of = DDR }
+		    1075 = { add_core_of = DDR }
+		    1192 = { add_core_of = DDR }
+			news_event = austria.5
+			USA = { country_event = austria.6 }
+			ENG = { country_event = austria.6 }
+			FRA = { country_event = austria.6 }
+			add_named_threat = { threat = 15 name = "The Second Anschluss" }
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
 }

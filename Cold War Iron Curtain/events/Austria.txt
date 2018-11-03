@@ -75,4 +75,51 @@ news_event = {
 	}
 
 }
+
+#The Second Anschluss - News
+news_event = {
+	id = austria.5
+	title = "The Second Anschluss"
+	desc = "Despite the fact that Nazi Germany did it years ago, the Soviet Union has merged its Austrian occupation zone with the German Democratic Republic, with the West joining the Federal Republic of Germany. Austria is no more."
+	picture = GFX_news_event_aus_unification
+
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "Why did they exist anyway?"
+		trigger = { has_government = communism }
+	}
+
+	option = {
+		name = "Rest in peace!"
+		trigger = { NOT = { has_government = communism } }
+	}
+
+}
+
+#The Second Anschluss - Allied Response
+country_event = {
+	id = austria.6
+    title = "The Second Anschluss"
+	desc = "The Soviets have broken the entire occupation zone agreement by merging its zone into the German Democratic Republic. Seems we have to do the same with the Federal Republic of Germany!"
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+	    name = "Goodbye Austria!"
+		WGR = { transfer_state = 999 transfer_state = 758 transfer_state = 153 transfer_state = 4 transfer_state = 1075 transfer_state = 1192 }
+		999 = { add_core_of = WGR }
+		758 = { add_core_of = WGR }
+		153 = { add_core_of = WGR }
+		4 = { add_core_of = WGR }
+		1075 = { add_core_of = WGR }
+		1192 = { add_core_of = WGR }
+		152 = { add_core_of = WGR }
+		1119 = { add_core_of = WGR }
+		1150 = { add_core_of = WGR }
+	}
+
+}
 	
