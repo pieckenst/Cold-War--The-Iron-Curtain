@@ -1,76 +1,77 @@
-﻿#####################
-# Austria Events
-#####################
+﻿add_namespace = austria
 
-add_namespace = aus
-
-# The unification of Austria, Question
+#Neutral Austria Offer
 country_event = {
-	id = aus.1
-	hidden = yes
+	id = austria.1
+    title = "Soviet offer for neutral Austria"
+	desc = "We have gotten an offer from the Soviet Union to create a neutral, unified Austria. It would serve as a buffer zone between the West and the East. All we have to do is turn over our occupation zone to the Austrians."
 
 	fire_only_once = yes
-
 	is_triggered_only = yes
-	immediate = {
-		USA = {
-			country_event = usa.701
-		}
-		SOV = {
-			country_event = sov.3
-		}
-		FRA = {
-			country_event = fra.1
-		}
-		ENG = {
-			country_event = eng.1
-		}
-		set_global_flag = aus_questions_over
+	
+	option = {
+	    name = "Accept, turn over zone"
+		release = AUS
 	}
-
-	option = {}
-
-}
-
-# The unification of Austria, Unification
-country_event = {
-	id = aus.2
-	hidden = yes
-
-	fire_only_once = yes
-	is_triggered_only = yes
-
-	immediate = {
-		AUS = {
-			transfer_state = 152
-			transfer_state = 758
-			transfer_state = 4
-			transfer_state = 153
-            transfer_state = 999
-			transfer_state = 1150
-			transfer_state = 1192
-			transfer_state = 1119
-		    transfer_state = 1075
-		}
-		news_event = news.1014
-		set_global_flag = aus_austria_united
+	
+	option = {
+	    name = "Reject, keep zone"
+		add_political_power = -20
+		add_named_threat = { threat = 5 name = "Rejected Austrian Unification" }	
 	}
 
 }
 
-# The unification of Austria, No Unification
+#Divided Austria - Allied Response
 country_event = {
-	id = aus.3
-	hidden = yes
-	is_triggered_only = yes
-	fire_only_once = yes
+	id = austria.2
+    title = "Austria Divided"
+	desc = "Instead of an agreement, the Soviet Union has created a communist puppet state from its occupation zone. A strong response is inbound by us and our allies."
 
-	immediate = {
-		ENG = { news_event = news.1015 }
-		FRA = { news_event = news.1015 }
-		SOV = { news_event = news.1015 }
-		USA = { news_event = news.1015 }
-		set_global_flag = aus_austria_not_united
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+	    name = "Unify the western zones!"
+		release = AUS
+	}
+
+}
+
+#Neutral Austria - News
+news_event = {
+	id = austria.3
+	title = "The Unification of Austria"
+	desc = "In an agreement between France, Britain, the United States and the Soviet Union, Austria has now been unified under a neutral government, acting as a buffer zone between West and East. The Republic of Austria is now a free nation."
+	picture = GFX_news_event_aus_unification
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "A great solution!"
+	}
+
+}
+
+#Divided Austria - News
+news_event = {
+	id = austria.4
+	title = "Austria Divided"
+	desc = "Instead of an agreement being reached, the Soviet Union has now created a puppet state in its Austrian zone, with France, Britain and the United States now doing the same with their zones, just like in Germany. The Republic of Austria and the Austrian Democratic Republic are now 2 new nations on the world stage."
+	picture = GFX_news_event_aus_unification
+
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "Eastern Austria is liberated from capitalism!"
+		trigger = { has_government = communism }
+	}
+
+	option = {
+		name = "We wish the best for Austria."
+		trigger = { NOT = { has_government = communism } }
 	}
 
 }

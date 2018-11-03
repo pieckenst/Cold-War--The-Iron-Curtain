@@ -1,0 +1,72 @@
+occupation_of_austria = {
+
+	propose_neutral_austria = {
+
+		icon = generic_industry
+
+		visible = {
+			original_tag = SOV
+			NOT = { country_exists = AUS country_exists = ADR has_global_flag = aus_questions_over }
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+
+		complete_effect = {
+		    release = AUS
+			news_event = austria.3
+			USA = { country_event = austria.1 }
+			ENG = { country_event = austria.1 }
+			FRA = { country_event = austria.1 }
+		}
+		
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 200
+				date > 1955.7.26
+			}
+		}
+	}
+	
+	create_communist_austria = {
+
+		icon = generic_industry
+
+		visible = {
+			original_tag = SOV
+			NOT = { country_exists = AUS country_exists = ADR has_global_flag = aus_questions_over }
+		}
+
+		fire_only_once = yes
+
+		cost = 20
+
+		complete_effect = {
+			release = ADR
+			if = {
+	            limit = {
+		            has_dlc = "Together for Victory"
+	            }
+	            set_autonomy = {
+		            target = ADR
+		            autonomous_state = autonomy_easternbloc
+		            freedom_level = 0.2
+	            }
+	            else = {
+		            puppet = ADR	
+	            }
+            }
+			news_event = austria.4
+			USA = { country_event = austria.2 }
+			ENG = { country_event = austria.2 }
+			FRA = { country_event = austria.2 }
+			add_named_threat = { threat = 10 name = "Divided Austria" }
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}
