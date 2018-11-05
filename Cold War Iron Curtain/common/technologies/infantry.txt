@@ -1643,7 +1643,7 @@ technologies = {
 	army_sp_forces_1 = {
 
 		enable_subunits = {
-			
+			special_force
 		}
 		
         path = {
@@ -1679,7 +1679,12 @@ technologies = {
 	}
 	
 	army_sp_forces_2 = {
-
+        
+        special_force = {
+		    recon = 2
+		    initiative = 0.05
+			}
+		
 		path = {
 			leads_to_tech = army_sp_forces_3
 			research_cost_coeff = 1
@@ -1703,6 +1708,9 @@ technologies = {
 	}
 	
 	army_sp_forces_3 = {
+	
+		air_cas_present_factor = 0.2
+        army_artillery_attack_factor = 0.05
 
 		path = {
 			leads_to_tech = army_sp_forces_4
@@ -1728,7 +1736,10 @@ technologies = {
 	
 	army_sp_forces_4 = {
         
-		send_volunteer_factor = 0.1
+		special_force = {
+		    recon = 2
+		    initiative = 0.05
+			}
 		
 		path = {
 			leads_to_tech = army_sp_forces_5
@@ -1753,7 +1764,9 @@ technologies = {
 	}
 	
 	army_sp_forces_5 = {
-
+        
+		send_volunteer_factor = 0.1
+		
 		path = {
 			leads_to_tech = army_sp_forces_6
 			research_cost_coeff = 1
@@ -1777,7 +1790,12 @@ technologies = {
 	}
 	
 	army_sp_forces_6 = {
-
+        
+		special_force = {
+		    recon = 2
+		    initiative = 0.10
+			}
+			
 		path = {
 			leads_to_tech = army_sp_forces_7
 			research_cost_coeff = 1
@@ -1801,6 +1819,32 @@ technologies = {
 	}
 	
 	army_sp_forces_7 = {
+        
+		special_force = {
+		   
+		hills = {
+			attack = 0.1
+			movement = 0.1
+		}
+		forest = {
+			attack = 0.1
+			movement = 0.1
+		}
+		mountain = {
+			attack = 0.1
+			movement = 0.1
+		}
+		jungle = {
+			attack = 0.1
+			movement = 0.2
+		}
+		urban = {
+			attack = 0.2
+			movement = 0.2
+			defence = 0.2
+		}
+
+			}
 
 		research_cost = 2
 		start_year = 2000
@@ -2463,6 +2507,8 @@ technologies = {
 	}
 	
 	combat_divers_2 = {
+	
+		amphibious_invasion = 0.10
 		
 		path = {
 			leads_to_tech = combat_divers_3
@@ -2547,9 +2593,9 @@ technologies = {
 	combat_divers_5 = {
 		
 		navy_special_force = {
-		    marsh = { attack = 0.1 }
-            river = { attack = 0.2 }
-            amphibious = { attack = 0.2 }
+		    soft_attack = 0.10
+            river = { attack = 0.1 }
+            amphibious = { attack = 0.1 }
         }
 
 		path = {
@@ -2575,7 +2621,15 @@ technologies = {
 	}
 	
 	combat_divers_6 = {
-
+        
+		navy_special_force = {
+		    max_organisation = 10
+		    soft_attack = 0.05
+		    marsh = { movement = 0.1 }
+            river = { movement = 0.2 }
+            amphibious = { movement = 0.2 }
+        }
+		
 		research_cost = 2
 		start_year = 2000
 		folder = {
@@ -3038,7 +3092,7 @@ technologies = {
     cover_air_operations_1 = {
 
 		enable_subunits = {
-			
+			airborne_special_force
 		}
 		
 		path = {
@@ -3066,6 +3120,13 @@ technologies = {
 	
 	cover_air_operations_2 = {
 		
+		airborne_special_force = {
+		    recon = 2
+		    initiative = 0.10
+			}
+	
+		army_artillery_attack_factor = 0.05
+		
 		path = {
 			leads_to_tech = cover_air_operations_3
 			research_cost_coeff = 1
@@ -3090,6 +3151,11 @@ technologies = {
 	}
 	
 	cover_air_operations_3 = {
+		
+		airborne_special_force = {
+			casualty_trickleback = 0.05
+			experience_loss_factor = -0.05
+		}
 		
 		path = {
 			leads_to_tech = cover_air_operations_4
@@ -3116,6 +3182,13 @@ technologies = {
 	
 	cover_air_operations_4 = {
 		
+		airborne_special_force = {
+		    recon = 2
+		    initiative = 0.10
+			}
+		
+		army_artillery_attack_factor = 0.05
+		
 		path = {
 			leads_to_tech = cover_air_operations_5
 			research_cost_coeff = 1
@@ -3141,7 +3214,11 @@ technologies = {
 	
 	cover_air_operations_5 = {
 
-	
+	    airborne_special_force = {
+			casualty_trickleback = 0.05
+			experience_loss_factor = -0.05
+		}
+		
 		research_cost = 2
 		start_year = 2000
 		folder = {
