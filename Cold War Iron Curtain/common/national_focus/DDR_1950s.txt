@@ -121,7 +121,11 @@ focus_tree = {
 		}
 		x = 4
 		y = 2
-
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = DDR_Deutsche_Akademie_der_Künste
@@ -132,7 +136,9 @@ focus_tree = {
 		}
 		x = 6
 		y = 2
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = DDR_Construct_Karl_Marx_Alle
@@ -146,7 +152,15 @@ focus_tree = {
 		}
 		x = 5
 		y = 3
-
+		completion_reward = {
+			capital_scope = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = DDR_Protect_Ethnic_Minorities
@@ -157,7 +171,10 @@ focus_tree = {
 		}
 		x = 8
 		y = 2
-
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = DDR_Tolerate_Regional_Languages
@@ -675,7 +692,16 @@ focus_tree = {
 		}
 		x = 30
 		y = 6
-
+		completion_reward = {
+			add_political_power = 100
+			add_stability = -0.02
+			64 = {
+				add_manpower = -10000
+			}
+			65 = {
+				add_manpower = 10000
+			}
+		}
 	}
 	focus = {
 		id = DDR_german_soviet_friendship
@@ -689,7 +715,20 @@ focus_tree = {
 		}
 		x = 29
 		y = 7
-
+			completion_reward = {
+					DDR = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = DDR
+									modifier = large_increase
+								}
+						}
+				}
 	}
 	focus = {
 		id = DDR_Join_COMECON
@@ -966,7 +1005,11 @@ focus_tree = {
 		}
 		x = 47
 		y = 7
-
+		completion_reward = {
+			add_navy_experience = 25
+			add_offsite_building = { type = dockyard level = 1 }
+			
+		}
 	}
 	focus = {
 		id = DDR_prepare_for_the_five_year_plan
@@ -1591,7 +1634,7 @@ focus_tree = {
 							popularity = 0.05
 						}
 					add_popularity = {
-							ideology = National_Socialism
+							ideology = Liberal_Conservativism
 							popularity = 0.03
 						}
 				}
@@ -1790,7 +1833,10 @@ focus_tree = {
 		}
 		x = 45
 		y = 16
-
+		completion_reward = {
+			add_ideas = rights_for_people
+			add_stability = 0.05
+		}
 	}
 	focus = {
 		id = DDR_afuerstandeb
@@ -1834,7 +1880,12 @@ focus_tree = {
 		}
 		x = 24
 		y = 13
-
+		available = {
+			has_global_flag = berlin_uprising_1952
+		}
+		bypass = {
+			has_global_flag = berlin_uprising_1952
+		}
 	}
 	focus = {
 		id = DDR_The_Death_of_Stalin
@@ -1848,7 +1899,12 @@ focus_tree = {
 		}
 		x = 24
 		y = 11
-
+		available = {
+			has_global_flag = stalin_dead
+		}
+		bypass = { 
+			has_global_flag = stalin_dead
+		}
 	}
 	focus = {
 		id = DDR_Ulbricht_Consolidates_Power
@@ -1901,8 +1957,10 @@ focus_tree = {
 			focus = DDR_weaken_the_propaganda_machine
 		}
 		x = 48
-		y = 18
-
+		y = 18	
+		completion_reward = {
+			remove_ideas = idea_stasi
+		}
 	}
 	focus = {
 		id = DDR_Enviromentalism
@@ -2024,7 +2082,12 @@ focus_tree = {
 		}
 		x = 21
 		y = 10
-
+			completion_reward = {
+					add_timed_idea = {
+							idea = Excessive_Military_Expenditures
+							days = 900
+						}
+				}
 	}
 	focus = {
 		id = DDR_The_Personality_Cult
@@ -2035,7 +2098,9 @@ focus_tree = {
 		}
 		x = 27
 		y = 10
-
+		completion_reward = {
+			add_ideas = total_loyalty
+		}
 	}
 	focus = {
 		id = DDR_Purge_Zaisser
@@ -2104,7 +2169,9 @@ focus_tree = {
 		}
 		x = 5
 		y = 5
-
+		completion_reward = {
+			add_ideas = Republikflucht
+		}
 	}
 	focus = {
 		id = DDR_Stalinist_Economics
@@ -2118,7 +2185,17 @@ focus_tree = {
 		}
 		x = 6
 		y = 6
-
+		completion_reward = {
+				add_stability = -0.05
+				random_owned_controlled_state = {
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}			
+		}
 	}
 	focus = {
 		id = DDR_Planned_Construction_of_Socialism
@@ -2143,7 +2220,9 @@ focus_tree = {
 		}
 		x = 7
 		y = 17
-
+		completion_reward = {
+			remove_ideas = agricultural_mismanagement
+		}	
 	}
 	focus = {
 		id = DDR_Arrest_Dissident_Farmers
@@ -2598,6 +2677,19 @@ focus_tree = {
 		}
 		x = 32
 		y = 18
-
+			completion_reward = {
+					DDR = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = large_increase
+								}
+						}
+					YUG = {
+							add_opinion_modifier = {
+									target = DDR
+									modifier = large_increase
+								}
+						}
+				}
 	}
 }
