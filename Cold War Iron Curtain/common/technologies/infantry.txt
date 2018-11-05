@@ -1571,6 +1571,8 @@ technologies = {
 	}
 	
 	desert_warfare_2 = {
+	
+		heat_attrition = -0.15
 		
         path = {
 			leads_to_tech = desert_warfare_3
@@ -1619,6 +1621,8 @@ technologies = {
 	}
 	
 	desert_warfare_4 = {
+	
+		heat_attrition = -0.15
 		
 		research_cost = 2
 		start_year = 1995
@@ -3241,7 +3245,7 @@ technologies = {
 
     sf_tactics_training_1 = {
 
-		special_forces_training_time_factor = -0.1
+		special_forces_out_of_supply_factor = -0.1
 		
 		path = {
 			leads_to_tech = b_commando_1
@@ -3326,6 +3330,9 @@ technologies = {
 	}
 	
 	b_commando_2 = {
+	
+		special_forces_no_supply_grace = 72
+		
 		path = {
 			leads_to_tech = sf_tactics_training_2
 			research_cost_coeff = 1
@@ -3349,6 +3356,8 @@ technologies = {
 	}
 	
 	i_infantry_2 = {
+		
+		special_forces_no_supply_grace = 36
 		
 		path = {
 			leads_to_tech = sf_tactics_training_2
@@ -3374,6 +3383,18 @@ technologies = {
 	
 	sf_tactics_training_2 = {
 		
+		airborne_special_force = {
+		    initiative = 0.05
+		}
+		
+		navy_special_force = {
+		    initiative = 0.05
+		}
+		
+		special_force = {
+		    initiative = 0.05
+		}
+
 		path = {
 			leads_to_tech = b_commando_3
 			research_cost_coeff = 1
@@ -3383,11 +3404,6 @@ technologies = {
 			leads_to_tech = i_infantry_3
 			research_cost_coeff = 1
 		}
-		
-		dependencies = {
-		   b_commando_2 = 1
-           i_infantry_2 = 1
-        }
 
 		research_cost = 2
 		start_year = 1970
@@ -3441,7 +3457,6 @@ technologies = {
 		}	
 		
 		special_forces_cap = 0.1
-		special_forces_training_time_factor = -0.05
 
 		research_cost = 2
 		start_year = 1980
@@ -3461,6 +3476,18 @@ technologies = {
 	}
 	
 	b_commando_4 = {
+		
+		airborne_special_force = {
+		    equipment_capture_factor = 0.025
+		}
+		
+		navy_special_force = {
+		    equipment_capture_factor = 0.025
+		}
+		
+		special_force = {
+		    equipment_capture_factor = 0.025
+		}
 		
 		path = {
 			leads_to_tech = sf_tactics_training_3
@@ -3485,6 +3512,8 @@ technologies = {
 	}
 	
 	i_infantry_4 = {
+	
+		special_forces_training_time_factor = -0.1
 		
 		path = {
 			leads_to_tech = sf_tactics_training_3
@@ -3509,9 +3538,31 @@ technologies = {
 	}
 	
 	sf_tactics_training_3 = {
-
+        
+		airborne_special_force = {
+		    urban = {
+			attack = 0.2
+			movement = 0.1
+			defence = 0.1
+		}
+		}
 		
-
+		navy_special_force = {
+		    urban = {
+			attack = 0.2
+			movement = 0.1
+			defence = 0.1
+		}
+		}
+		
+		special_force = {
+		    urban = {
+			attack = 0.2
+			movement = 0.1
+			defence = 0.1
+		}
+		}
+	
 		research_cost = 2
 		start_year = 2000
 		folder = {
