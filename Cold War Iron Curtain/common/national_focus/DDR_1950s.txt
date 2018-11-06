@@ -44,11 +44,11 @@ focus_tree = {
 		cost = 10.00
 		x = 8
 		y = 0
-
+		
 	}
 	focus = {
 		id = DDR_Purge_Undesirables_from_the_Volkspolizei
-		icon = GFX_goal_unknown
+		icon = GFX_purge
 		cost = 10.00
 		x = 41
 		y = 0
@@ -63,7 +63,9 @@ focus_tree = {
 		}
 		x = 1
 		y = 1
-
+			completion_reward = {
+					add_ideas = socialist_realism
+				}
 	}
 	focus = {
 		id = DDR_Launch_Deutscher_Fernsehfunk
@@ -178,7 +180,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Tolerate_Regional_Languages
-		icon = GFX_Freedom
+		icon = GFX_FocusNativeLanguage
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Protect_Ethnic_Minorities
@@ -210,7 +212,9 @@ focus_tree = {
 		}
 		x = 10
 		y = 2
-
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+		}
 	}
 	focus = {
 		id = DDR_Establish_Jugendweihe
@@ -235,7 +239,9 @@ focus_tree = {
 		}
 		x = 11
 		y = 3
-
+		completion_reward = {
+			add_ideas = military_youth_focus
+		}
 	}
 	focus = {
 		id = DDR_Tolerate_Organized_Religion
@@ -249,7 +255,14 @@ focus_tree = {
 		}
 		x = 15
 		y = 1
-
+		completion_reward = {
+			add_stability = 0.15
+			add_political_power = -250
+			add_popularity = {
+				ideology = Christian_Democratic
+				popularity = 0.10
+			}
+		}	
 	}
 	focus = {
 		id = DDR_Encourage_Liberation_Theology
@@ -347,7 +360,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 6
-
+		completion_reward = {
+			add_ideas = gulag_politic
+		}
 	}
 	focus = {
 		id = DDR_treaty_of_zgorzelec
@@ -391,7 +406,13 @@ focus_tree = {
 		}
 		x = 26
 		y = 2
-
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_political_power = 100
+		}
 	}
 	focus = {
 		id = DDR_third_party_congress
@@ -449,14 +470,16 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Nationalizaton_Campaign
-		icon = GFX_goal_unknown
+		icon = GFX_StateControl
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_continue_agrarian_reforms
 		}
 		x = 7
 		y = 5
-
+		completion_reward = {
+			add_ideas = nationalized_resources
+		}
 	}
 	focus = {
 		id = DDR_toe_the_line
@@ -509,7 +532,16 @@ focus_tree = {
 		}
 		x = 18
 		y = 6
-
+		completion_reward = {
+			62 = {
+				add_manpower = -1000
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = DDR_crackdown_on_fascists
@@ -785,14 +817,17 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Reorganize_the_Arial_Fleet
-		icon = GFX_goal_unknown
+		icon = GFX_Aerial_Fleet
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Reinstate_Wehrmacht_Generals
 		}
 		x = 36
 		y = 3
-
+		completion_reward = {
+			air_experience = 25
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 		id = DDR_Veterans_from_the_National_Revolutionary_War_of_the_Spanish_People
@@ -807,7 +842,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Expand_Paramilitary_Operations
-		icon = GFX_goal_unknown
+		icon = GFX_RedArmy
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Rehabilitated_Wehrmact_Officers
@@ -817,11 +852,13 @@ focus_tree = {
 		}
 		x = 41
 		y = 2
-
+		completion_reward = {
+			add_ideas = paramilitarism_focus
+		}
 	}
 	focus = {
 		id = DDR_Expand_The_Volkspolizei
-		icon = GFX_goal_unknown
+		icon = GFX_focus_gdr_volkspolizei
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Expand_Paramilitary_Operations
@@ -832,7 +869,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Formation_of_the_Luftstreitkräfte_der_Nationalen_Volksarmee
-		icon = GFX_goal_unknown
+		icon = GFX_focus_gdr_airforce
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Expand_The_Volkspolizei
@@ -868,7 +905,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Formation_of_the_Nationale_Volksarmee
-		icon = GFX_goal_unknown
+		icon = GFX_focus_gdr_army
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Expand_The_Volkspolizei
@@ -890,18 +927,20 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Militarization_of_Society
-		icon = GFX_goal_unknown
+		icon = GFX_red_world
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Formation_of_the_Nationale_Volksarmee
 		}
 		x = 43
 		y = 5
-
+		completion_reward = {
+			add_ideas = militarism_focus
+		}
 	}
 	focus = {
 		id = DDR_Instill_Strong_Displine
-		icon = GFX_goal_unknown
+		icon = GFX_focus_urban_warfare
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Militarization_of_Society
@@ -911,11 +950,13 @@ focus_tree = {
 		}
 		x = 41
 		y = 6
-
+		completion_reward = {
+			add_ideas = military_discipline
+		}
 	}
 	focus = {
 		id = DDR_The_Ideal_Marxist_Institution
-		icon = GFX_goal_unknown
+		icon = GFX_focus_gdr_military_coa
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Instill_Strong_Displine
@@ -926,7 +967,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Establish_the_Hauptverwaltung_Seepolizei
-		icon = GFX_goal_unknown
+		icon = GFX_SmallNavy
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Veterans_from_the_National_Revolutionary_War_of_the_Spanish_People
@@ -937,7 +978,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Soviet_Naval_Advisors
-		icon = GFX_goal_unknown
+		icon = GFX_focus_soviet_advisors
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Establish_the_Hauptverwaltung_Seepolizei
@@ -948,7 +989,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Establish_the_Volksmarine
-		icon = GFX_goal_unknown
+		icon = GFX_focus_gdr_naval
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Soviet_Naval_Advisors
@@ -962,7 +1003,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Restore_Baltic_Shipyards
-		icon = GFX_goal_unknown
+		icon = GFX_BluewaterNavy
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Establish_the_Volksmarine
@@ -984,7 +1025,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Crackdown_on_the_Republikflucht
-		icon = GFX_goal_unknown
+		icon = GFX_police
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Restore_Baltic_Shipyards
@@ -998,7 +1039,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Cooperation_with_the_Soviet_Baltic_Fleet
-		icon = GFX_goal_unknown
+		icon = GFX_TheRedFleet
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Crackdown_on_the_Republikflucht
@@ -1135,7 +1176,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_central_industry
-		icon = GFX_goal_generic_construct_civilian
+		icon = GFX_focus_generic_industry_1
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_coastal_industry
@@ -1530,7 +1571,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_investigate_industrial_corruption
-		icon = GFX_CrushResistance
+		icon = GFX_StolenPapers 
 		cost = 30.00
 		prerequisite = {
 			focus = DDR_appease_the_people
@@ -2075,7 +2116,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Rearmament_Campaign
-		icon = GFX_goal_unknown
+		icon = GFX_RenewedArms
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Begin_Implemenation_of_Socialism
@@ -2330,7 +2371,9 @@ focus_tree = {
 		}
 		x = 18
 		y = 18
-
+		completion_reward = {
+			add_ideas = art_and_liberalization
+		}
 	}
 	focus = {
 		id = DDR_Increase_Consumer_Goods_Quality
@@ -2371,7 +2414,14 @@ focus_tree = {
 		}
 		x = 22
 		y = 19
-
+		completion_reward = {
+			remove_ideas = gulag_politic
+			add_stability = 0.05
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.10
+			}
+		}
 	}
 	focus = {
 		id = DDR_End_the_Republikflucht
@@ -2385,8 +2435,10 @@ focus_tree = {
 		}
 		x = 19
 		y = 21
-
-	}
+		completion_reward = {
+			remove_ideas = Republikflucht
+		}
+	}	
 	focus = {
 		id = DDR_Revitilize_the_Border
 		icon = GFX_goal_unknown
@@ -2413,7 +2465,9 @@ focus_tree = {
 		}
 		x = 17
 		y = 20
-
+		completion_reward = {
+			add_ideas = International_Brigades
+		}
 	}
 	focus = {
 		id = DDR_Purge_Mielke
@@ -2511,7 +2565,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Crackdown_on_the_Harich_Group
-		icon = GFX_goal_unknown
+		icon = GFX_CrushResistance
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Increase_Political_Repression
@@ -2532,7 +2586,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 16
-
+		completion_reward = {
+			add_political_power = 200
+		}
 	}
 	focus = {
 		id = DDR_Emphasize_Socialist_Personality_Development
@@ -2561,7 +2617,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Expand_Combat_Groups_of_the_Working_Class
-		icon = GFX_goal_unknown
+		icon = GFX_RecruitmentDrive
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Reoganiza_the_State_Security_Apparatus
@@ -2572,7 +2628,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Reoganiza_the_State_Security_Apparatus
-		icon = GFX_goal_unknown
+		icon = GFX_TheNoose
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Consolidate_Political_Position
@@ -2597,7 +2653,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Increase_Political_Repression
-		icon = GFX_goal_unknown
+		icon = GFX_Backstab
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Emphasize_Socialist_Personality_Development
@@ -2611,7 +2667,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Distance_the_Party_from_Prior_Abuses
-		icon = GFX_goal_unknown
+		icon = GFX_BurningGlobe
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Limited_Destalinization
@@ -2625,7 +2681,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Release_Political_Prisoners
-		icon = GFX_goal_unknown
+		icon = GFX_CardTricks
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Distance_the_Party_from_Prior_Abuses
@@ -2635,11 +2691,13 @@ focus_tree = {
 		}
 		x = 33
 		y = 19
-
+		completion_reward = {
+			remove_ideas = gulag_politic
+		}
 	}
 	focus = {
 		id = DDR_Ten_Commandments_of_Socialist_Morals_and_Ethics
-		icon = GFX_goal_unknown
+		icon = GFX_Paper
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Release_Political_Prisoners
@@ -2653,7 +2711,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_More_Political_Purges
-		icon = GFX_goal_unknown
+		icon = GFX_DeathTracks
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Expand_Combat_Groups_of_the_Working_Class
@@ -2667,7 +2725,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DDR_Establish_Ties_with_Yugoslavia
-		icon = GFX_goal_unknown
+		icon = GFX_goal_YUG_Proclamation
 		cost = 10.00
 		prerequisite = {
 			focus = DDR_Limited_Destalinization
