@@ -996,53 +996,6 @@ country_event = {
 	}
 }
 
-country_event = {
-	id = political.108
-	title = political.108.t
-	desc = political.108.d
-	picture = GFX_report_event_journalists_speech
-
-	is_triggered_only = yes
-
-	option = {
-		name = "Round them up."
-		add_political_power = -100
-		add_popularity = {
-			ideology = Judaism
-			popularity = -0.10
-		}
-		add_timed_idea = {
-			idea = strikes_1
-			days = 365
-		}
-	}
-
-	option = {
-		name = "Just proceed as usual."
-		add_timed_idea = {
-			idea = strikes_1
-			days = 365
-		}
-	}
-
-	option = {
-		name = "If we accept the referendum, perhaps we can preserve our legacy."
-		if = {
-			limit = { has_government = fascism }
-			add_timed_idea = { idea = fascism_defeated days = 730 }
-		}
-		if = {
-			limit = { has_government = communism }
-			add_timed_idea = { idea = communism_defeated days = 730 }
-		}
-		set_politics = {
-			ruling_party = Judaism
-			elections_allowed = yes
-		}
-		add_stability = -0.05
-	}
-}
-
 ### Revolution
 # political.21 Fascist
 country_event = {

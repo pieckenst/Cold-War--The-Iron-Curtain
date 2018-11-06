@@ -38,6 +38,19 @@ add_ideas = {
 
 set_convoys = 0
 
+set_variable = { var = domestic_influence_amount value = 2000 }
+set_variable = { var = influencer1 value = PAK.id }
+set_variable = { var = influencer1_amount value = 100 }
+set_variable = { var = influencer2 value = RAJ.id }
+set_variable = { var = influencer2_amount value = 50 }
+set_variable = { var = influencer3 value = PER.id }
+set_variable = { var = influencer3_amount value = 150 } 
+set_variable = { var = influencer3 value = USA.id }
+set_variable = { var = influencer3_amount value = 10 }
+set_variable = { var = influencer3 value = SOV.id }
+set_variable = { var = influencer3_amount value = 10 }
+recalculate_influence = yes
+
 set_politics = {
 
 	parties = {
@@ -101,6 +114,12 @@ create_country_leader = {
 	ideology = maoist
 }
 
+create_country_leader = {
+	name = "Hamid Karzai"
+	picture = "Hamid_Karzai.dds"
+	ideology = independent
+}
+
 create_corps_commander = {
 	name = "Sardar Shah Wali Khan"
 	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
@@ -111,20 +130,7 @@ create_corps_commander = {
 	planning_skill = 5
 	logistics_skill = 5
 }
-1945.1.1 = {
-    set_variable = { var = domestic_influence_amount value = 2000 }
-    set_variable = { var = influencer1 value = PAK.id }
-    set_variable = { var = influencer1_amount value = 100 }
-    set_variable = { var = influencer2 value = RAJ.id }
-    set_variable = { var = influencer2_amount value = 50 }
-    set_variable = { var = influencer3 value = PER.id }
-    set_variable = { var = influencer3_amount value = 150 }
-    set_variable = { var = influencer3 value = USA.id }
-    set_variable = { var = influencer3_amount value = 10 }
-    set_variable = { var = influencer3 value = SOV.id }
-    set_variable = { var = influencer3_amount value = 10 }
-    recalculate_influence = yes
-}
+
 1960.1.1 = {
     set_technology = {
 
@@ -311,9 +317,7 @@ create_corps_commander = {
         Social_Democratic = { popularity = 0 }
         Social_Liberalism = { popularity = 0 }
         Salafism = { popularity = 30 }
-        
         Liberal_Conservatism = { popularity = 0 }
-        Judaism = { popularity = 0 }
         conservative = { popularity = 10 }
         Christian_Democratic = { popularity = 0 }
         socialist = { popularity = 0 }
@@ -330,7 +334,16 @@ create_corps_commander = {
 		elections_allowed = no
 	}
 }
-1987.9.30 = {
+
+1979.1.1 = {
+	create_country_leader = {
+		name = "Babrak Karmal"
+		picture = "Babrak_Karmal.dds"
+		ideology = stalinism
+	}
+}
+
+1987.1.1 = {
 	create_country_leader = {
 		name = "Mohammad Najibullah"
 		picture = "Mohammad_Najibullah.dds"
@@ -338,7 +351,7 @@ create_corps_commander = {
 	}
 }
 
-1996.1.1 = {
+1992.1.1 = {
 	set_politics = {
 		parties = {
 			democratic = { popularity = 0 }
@@ -347,14 +360,12 @@ create_corps_commander = {
 			nationalism = { popularity = 0 }
 			monarchism = { popularity = 0 }
 			neutrality = { popularity = 0 }
-			islamism = { popularity = 35 }
+			islamism = { popularity = 100 }
 			radical_shiaism = { popularity = 0 }
 			Social_Democratic = { popularity = 0 }
 			Social_Liberalism = { popularity = 0 }
-			Salafism = { popularity = 65 }
-			
+			Salafism = { popularity = 0 }
 			Liberal_Conservatism = { popularity = 0 }
-			Judaism = { popularity = 0 }
 			conservative = { popularity = 0 }
 			Christian_Democratic = { popularity = 0 }
 			socialist = { popularity = 0 }
@@ -365,7 +376,7 @@ create_corps_commander = {
 			National_Socialism = { popularity = 0 }
 		}
 		
-		ruling_party = Salafism
+		ruling_party = islamism
 		last_election = "1996.1.1"
 		election_frequency = 48
 		elections_allowed = no
