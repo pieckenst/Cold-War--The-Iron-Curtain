@@ -14,7 +14,10 @@ focus_tree = {
 		cost = 10.00
 		x = 33
 		y = 0
-
+		completion_reward = {
+			add_political_power = 150
+			add_stability = -0.02
+		}
 	}
 	focus = {
 		id = EGY_The_State_of_Foriegn_Affairs
@@ -22,7 +25,9 @@ focus_tree = {
 		cost = 10.00
 		x = 48
 		y = 0
-
+		completion_reward = {
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = EGY_The_Egyptian_Armed_Forces
@@ -30,7 +35,9 @@ focus_tree = {
 		cost = 10.00
 		x = 9
 		y = 0
-
+		completion_reward = {
+			army_experience = 50
+		}
 	}
 	focus = {
 		id = EGY_Lessons_from_the_Nakba
@@ -41,7 +48,11 @@ focus_tree = {
 		}
 		x = 9
 		y = 1
-
+		completion_reward = {
+			army_experience = 25
+			air_experience = 25
+			navy_experience = 25
+		}
 	}
 	focus = {
 		id = EGY_The_Egyptian_Airforce
@@ -52,7 +63,9 @@ focus_tree = {
 		}
 		x = 2
 		y = 2
-
+		completion_reward = {
+			air_experience = 50
+		}
 	}
 	focus = {
 		id = EGY_Puchase_British_Jets
@@ -110,7 +123,9 @@ focus_tree = {
 		}
 		x = 9
 		y = 2
-
+		completion_reward = {
+			army_experience = 50
+		}
 	}
 	focus = {
 		id = EGY_A_Political_Army
@@ -132,7 +147,9 @@ focus_tree = {
 		}
 		x = 11
 		y = 3
-
+		completion_reward = {
+			add_timed_idea = { idea = fortification_build_up days = 900 }
+		}
 	}
 	focus = {
 		id = EGY_Field_Marshall_Abdel_Hakim_Amer
@@ -146,7 +163,14 @@ focus_tree = {
 		}
 		x = 9
 		y = 4
-
+		completion_reward = {
+			create_field_marshal = {
+					name = "Abdel Hakim Amer"
+					picture = "Abdel_Hakim_Amer.dds"
+					traits = { } 
+					skill = 2
+				}	
+			}
 	}
 	focus = {
 		id = EGY_Purchase_Modern_Infantry_Equipment
@@ -157,7 +181,13 @@ focus_tree = {
 		}
 		x = 9
 		y = 5
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 10000
+				producer = SOV
+			}		
+		}
 	}
 	focus = {
 		id = EGY_The_Egyptian_Navy
@@ -168,7 +198,9 @@ focus_tree = {
 		}
 		x = 16
 		y = 2
-
+		completion_reward = {
+			navy_experience = 50
+		}
 	}
 	focus = {
 		id = EGY_Begin_Naval_Armament_Campaign
@@ -179,7 +211,75 @@ focus_tree = {
 		}
 		x = 14
 		y = 3
-
+			completion_reward = {
+					navy_experience = 10
+					if = {
+							limit = {
+									NOT = {
+											any_owned_state = {
+													dockyard > 0
+													free_building_slots = {
+															building = dockyard
+															size > 2
+															include_locked = yes
+														}
+												}
+										}
+									any_owned_state = {
+											is_coastal = yes
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											is_coastal = yes
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					if = {
+							limit = {
+									NOT = {
+											has_country_flag = naval_effort_built
+										}
+									any_owned_state = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+								}
+							random_owned_controlled_state = {
+									limit = {
+											dockyard > 0
+											free_building_slots = {
+													building = dockyard
+													size > 2
+													include_locked = yes
+												}
+										}
+									add_extra_state_shared_building_slots = 3
+									add_building_construction = {
+											type = dockyard
+											level = 3
+											instant_build = yes
+										}
+								}
+							set_country_flag = naval_effort_built
+						}
+					}
 	}
 	focus = {
 		id = EGY_Purchase_Ibrahim_el_Awal
@@ -204,7 +304,14 @@ focus_tree = {
 		}
 		x = 16
 		y = 4
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = special_forces_bonus
+							bonus = 0.5
+							uses = 2
+							category = sf_forces
+						}
+				}
 	}
 	focus = {
 		id = EGY_The_Straits_of_Tiran
@@ -1057,7 +1164,9 @@ focus_tree = {
 		}
 		x = 33
 		y = 17
-
+		completion_reward = {
+			add_ideas = state_atheism
+		}
 	}
 	focus = {
 		id = EGY_Reduce_Censorship
@@ -1115,7 +1224,9 @@ focus_tree = {
 		}
 		x = 0
 		y = 19
-
+		completion_reward = {
+			add_ideas = rights_for_people
+		}
 	}
 	focus = {
 		id = EGY_Western_Rappoachment
@@ -1190,7 +1301,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 19
-
+		completion_reward = {
+			add_ideas = Shariah_Law
+		}
 	}
 	focus = {
 		id = EGY_Mobilize_the_Secret_Apparatus
@@ -1201,7 +1314,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 19
-
+		completion_reward = {
+			add_ideas = paramilitarism_focuss
+		}
 	}
 	focus = {
 		id = EGY_Promote_Islamic_Morality
@@ -1212,7 +1327,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 21
-
+		completion_reward = {
+			add_ideas = emphasize_morality
+		}
 	}
 	focus = {
 		id = EGY_Sayyid_Qutb
@@ -1226,7 +1343,9 @@ focus_tree = {
 		}
 		x = 10
 		y = 18
-
+		available = {
+			always = no
+		}
 	}
 	focus = {
 		id = EGY_Condemn_the_Zionist_Threat
@@ -1348,7 +1467,9 @@ focus_tree = {
 		}
 		x = 1
 		y = 20
-
+		completion_reward = {
+			add_ideas = access_to_health_care
+		}
 	}
 	focus = {
 		id = EGY_Water_Infrastructure
@@ -1408,8 +1529,10 @@ focus_tree = {
 			focus = EGY_Economic_Growth
 		}
 		x = 25
-		y = 15
-
+		y = 15 
+		completion_reward = {
+			add_ideas = access_to_health_care
+		}
 	}
 	focus = {
 		id = EGY_Golden_Era_of_Egyptian_Culture
