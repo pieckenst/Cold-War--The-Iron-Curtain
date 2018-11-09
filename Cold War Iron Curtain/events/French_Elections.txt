@@ -331,15 +331,44 @@ news_event = {
 }
 country_event = {
 	id = Evain_Accords.1
-	title = "Evain Accords"
-	desc = "Evain Accords"
+	title = "Evian Accords"
+	desc = "Evian Accords"
 
 	is_triggered_only = yes
 
 	option = {
 		name = "Sign the Accords"
 		release = ALG
+		set_country_flag = evian_accords
 		set_autonomy = { target = ALG autonomy_state = autonomy_free }	
+	}
+}
+country_event = {
+	id = Evain_Accords.2
+	title = "Fate of The Harkis"
+	desc = Evain_Accords.2.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = "Resettle them in France"
+		ai_chance = {
+			factor = 1000
+		}
+		add_political_power = -200
+		add_stability = -0.15
+		16 = {
+			add_manpower = 100000
+		}	
+	}
+	option = {
+		name = "Leave them to their fate"
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = 300
+		add_stability = -0.10
 	}
 }
 country_event = {
