@@ -333,3 +333,33 @@ country_event = {
 		release = LES
 	}
 }
+
+#The Western Sahara Question
+country_event = {
+	id = decolonization.15
+	title = decolonization.15.t	
+	desc = decolonization.15.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.15.a
+		set_global_flag = western_sahara_decolonized
+		release = SRW
+	}
+	
+	option = {
+		name = decolonization.15.b
+	    trigger = { 
+			country_exists = MAU
+		}
+		add_political_power = -50
+		MAU = { transfer_state = 1001 }
+	}
+	
+	option = {
+		name = decolonization.15.c
+		add_political_power = -200
+	}
+}
