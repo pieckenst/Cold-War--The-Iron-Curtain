@@ -1891,24 +1891,15 @@ political_actions = {
 	unify_korea = {
 
 		icon = generic_industry
-
-		available = {
-				OR = {
-					has_completed_focus = KPA_Ready_for_War
-					has_completed_focus = KPA_Unify_the_Peninsula
-					has_completed_focus = KPA_War_of_Liberation
-					date > 1950.6.24
-				}
-		}
+		
 		visible = {
-				tag = KPA
-				or = {
-					has_government = communism
-					has_government = maoism
-				}
-				country_exists = KOR
-				date < 1960.1.1
-
+			original_tag = KPA
+			country_exists = KOR
+			OR = {
+				has_government = communism
+				has_government = maoism
+			}
+			date < 1960.1.1
 		}
 
 		fire_only_once = yes
@@ -1923,7 +1914,7 @@ political_actions = {
 		ai_will_do = {
 			factor = 0
 			modifier = {
-				add = 100
+				factor = 200
 				date > 1950.6.24
 			}
 		}
