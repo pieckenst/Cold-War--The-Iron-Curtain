@@ -1,4 +1,145 @@
 korean_war = {	
+	soviet_intervention = {
+
+		icon = generic_prepare_civil_war
+
+		visible = {
+				tag = SOV
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KOR }
+				has_global_flag = korean_war_begun
+				OR = {
+					NOT = { 745 = { is_controlled_by = KPA } }
+					NOT = { 746 = { is_controlled_by = KPA } }
+					NOT = { 747 = { is_controlled_by = KPA } }
+					NOT = { 748 = { is_controlled_by = KPA } }
+					NOT = { 749 = { is_controlled_by = KPA } }
+					date > 1950.9.31
+				}
+		}
+
+		
+		complete_effect = {
+			country_event = korea.33
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+		selectable_mission = no
+
+		days_remove = 1
+
+
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	chinese_intervention = {
+
+		icon = generic_prepare_civil_war
+
+		visible = {
+			tag = PRC
+			has_global_flag = korean_war
+			has_country_flag = PRC_KOR_QUESTION
+		}
+
+		
+		complete_effect = {
+			country_event = korea.5
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+		selectable_mission = no
+
+		days_remove = 1
+
+
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	american_intervention = {
+
+		icon = generic_prepare_civil_war
+
+		allowed = {
+				tag = USA
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KPA }
+				has_global_flag = korean_war_begun
+		}
+		visible = {
+				tag = USA
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KPA }
+				has_global_flag = korean_war_begun
+		}
+
+		
+		complete_effect = {
+			country_event = korea.3
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+		selectable_mission = no
+
+		days_remove = 1
+
+
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	commonwealth_intervention = {
+
+		icon = generic_prepare_civil_war
+
+		allowed = {
+				tag = ENG
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KPA }
+				has_global_flag = korean_war_begun
+				date > 1950.6.31
+
+		}
+		visible = {
+				tag = ENG
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KPA }
+				has_global_flag = korean_war_begun
+				date > 1950.6.31
+
+		}
+
+		
+		complete_effect = {
+			country_event = korea.31
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+		selectable_mission = no
+
+		days_remove = 1
+
+
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 
 	Hangang_Bridge_Bombing = {
 
@@ -32,7 +173,7 @@ korean_war = {
 		cost = 0
 
 		fire_only_once = yes
-		selectable_mission = yes
+		selectable_mission = no
 
 		days_remove = 1
 
@@ -70,7 +211,7 @@ korean_war = {
 		cost = 0
 
 		fire_only_once = yes
-		selectable_mission = yes
+		selectable_mission = no
 
 		days_remove = 1
 
