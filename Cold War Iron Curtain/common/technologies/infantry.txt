@@ -35,6 +35,15 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
+		path = {
+			leads_to_tech = hmg_1
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = protection_equip_1
+			research_cost_coeff = 1
+		}
 		
 		research_cost = 2
 		start_year = 1935
@@ -185,6 +194,74 @@ technologies = {
 	}
 	
 	manpats_1 = {		
+		
+		research_cost = 2
+		start_year = 1945
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 3 y = 1 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 0.8
+			
+			modifier = {
+				factor = 2
+				date > "1945.1.9"
+			}
+			
+			modifier = {
+				factor = 2
+				date > "1950.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1955.1.6"
+			}
+		}
+	}
+	
+	hmg_1 = {		
+		
+		research_cost = 2
+		start_year = 1945
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 3 y = 5 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 0.8
+			
+			modifier = {
+				factor = 2
+				date > "1945.1.9"
+			}
+			
+			modifier = {
+				factor = 2
+				date > "1950.1.1"
+			}
+			
+			modifier = {
+				factor = 5
+				date > "1955.1.6"
+			}
+		}
+	}
+	
+	protection_equip_1 = {		
 		
 		research_cost = 2
 		start_year = 1945
@@ -510,6 +587,10 @@ technologies = {
 			name = infantry_folder
 			position = { x = 9 y = 3 }
 		}
+		
+		dependencies = {
+           protection_equip_1 = 1
+        }
 		
 		categories = {
 			infantry_weapons
