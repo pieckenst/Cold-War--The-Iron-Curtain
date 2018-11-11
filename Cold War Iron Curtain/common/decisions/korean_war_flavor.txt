@@ -1,0 +1,83 @@
+korean_war = {	
+
+	Hangang_Bridge_Bombing = {
+
+		icon = generic_prepare_civil_war
+
+		allowed = {
+			tag = KOR
+			has_idea = korean_war
+		}
+		visible = {
+			tag = KOR
+			has_idea = korean_war	
+			750 = {
+				is_controlled_by = KPA
+			}
+		}
+
+		
+		complete_effect = {
+			news_event = korean_war.101
+			add_stability = 0.05
+			add_war_support = 0.05
+			750 = {
+				damage_building = {
+					type = infrastructure
+					damage = 10
+				}			
+			}
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+		selectable_mission = yes
+
+		days_remove = 1
+
+
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	liquidate_the_bodo_league = {
+
+		icon = generic_prepare_civil_war
+
+		allowed = {
+			tag = KOR
+			has_idea = korean_war
+		}
+		visible = {
+			tag = KOR
+			has_idea = korean_war		}
+
+		
+		complete_effect = {
+			news_event = korean_war.100
+			add_stability = 0.05
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+			every_owned_state = {
+				add_manpower = -15000
+			}
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+		selectable_mission = yes
+
+		days_remove = 1
+
+
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
