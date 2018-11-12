@@ -314,30 +314,18 @@ country_event = {
 			factor = 10
 		}
 		name = egypt.70.a
+		ENG = { set_cosmetic_tag = ENG_FBU }
+		FRA = { set_cosmetic_tag = ENG_FBU }
 		ENG = { 
-			set_cosmetic_tag = ENG_FBU
-			annex_country = { target = FRA transfer_troops = yes} 
+			create_faction = "Franco-British Union" 
+			add_to_faction = FRA
 		}
+		
 		hidden_effect = {
 			FRA = { set_country_flag = become_fbu }
 			ENG = { set_country_flag = become_fbu }
 			news_event = news.1023
-			every_state = {
-				limit = {
-					is_core_of = FRA
-				}
-				ENG = {
-					add_state_core = PREV
-				}
-			}
-			every_country = {
-				limit = {
-					is_puppet_of = FRA
-				}
-				ENG = {
-					puppet = PREV
-				}
-			}
+
 		}
 	}
 
