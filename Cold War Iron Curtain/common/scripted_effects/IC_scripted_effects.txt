@@ -2978,6 +2978,51 @@ ic_pulse = {
 		load_focus_tree = FRA_1960s
 		set_global_flag = FRA_60_loaded
 	}
+	
+	if = {
+		limit = {
+			tag = FRA
+			date > 1959.12.30
+			not = { has_global_flag = FRA_60_loaded }
+			has_government = communism
+		}
+		load_focus_tree = FRA_1960s_Communist
+		set_global_flag = FRA_60_loaded
+	}
+	
+	if = {
+		limit = {
+			tag = FRA
+			date > 1959.12.30
+			not = { has_global_flag = FRA_60_loaded }
+			has_government = neutrality
+		}
+		load_focus_tree = FRA_1960s_Junta
+		set_global_flag = FRA_60_loaded
+	}
+	
+	if = {
+		limit = {
+			tag = FRA
+			date > 1959.12.30
+			not = { has_global_flag = FRA_60_loaded }
+			has_government = fascism
+		}
+		load_focus_tree = FRA_1960s_Fascist
+		set_global_flag = FRA_60_loaded
+	}
+	
+	if = {
+		limit = {
+			tag = FRA
+			date > 1959.12.30
+			not = { has_global_flag = FRA_60_loaded }
+			has_government = monarchism
+		}
+		load_focus_tree = FRA_1960s_Monarchist
+		set_global_flag = FRA_60_loaded
+	}
+
 	if = {
 		limit = {
 			or = {
@@ -3160,6 +3205,23 @@ ic_pulse = {
 			has_global_flag = malayan_uprising_67
 		}
 		news_event = news.1027
+	}
+	if = {
+		limit = {
+			SOV = { has_country_flag = premier_khrushchev }
+			NOT = { has_global_flag = Kruschev_Bury_USA }
+			date > 1960.9.1
+			date < 1960.9.10
+		}
+		news_event = news.1511
+	}
+	if = {
+		limit = {
+			NOT = { has_global_flag = House_of_Soviet_build }
+			date > 1967.5.9
+			date < 1968.1.1	
+		}
+		news_event = news.1512
 	}		
 	if = {
 		limit = {
@@ -3551,6 +3613,24 @@ ic_pulse = {
 			has_capitulated = no
 		}
 		country_event = swf.1
+	}
+	if = {
+		limit = {
+			tag = JOR
+			date > 1951.07.19
+			date < 1951.07.31
+			NOT = { has_country_flag = king_abdullah_assassination }
+		}
+		country_event = jordania.3
+	}
+	if = {
+		limit = {
+			tag = JOR
+			date > 1952.08.14
+			date < 1952.08.31
+			NOT = { has_country_flag = talal_illness }
+		}
+		country_event = jordania.4
 	}
 	if = {
 		limit = {
