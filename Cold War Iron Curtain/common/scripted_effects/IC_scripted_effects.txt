@@ -607,22 +607,222 @@ ic_pulse = {
 			days = 120
 		}
 	}
-	if = {
-		every_owned_state = {
-			limit = {
-				has_variable = insurgency_strength
-			}	
-			add_to_variable = {
-				var = insurgency_strength
-				value = 1
-			}
+	every_owned_state = {
+		limit = {
+			has_variable = insurgency_strength
+		}	
+		add_to_variable = {
+			var = insurgency_strength
+			value = 1
 		}
 	}
 	
+	every_owned_state = {
+		limit = {
+			check_variable = { insurgency_strength < 20  } 
+			has_state_flag = lv2_insurgency
+		}
+		clr_state_flag = lv2_insurgency
+		reset_insurgency_modifiers_effect = yes
+		set_state_flag = active_insurgency
+
+		set_state_flag = lv1_insurgency
+		add_state_modifier = {
+			modifier = {
+				local_resources = -0.15
+				local_supplies = -0.15
+				local_intel_to_enemies = 0.10
+				local_factory_sabotage = 0.05
+				local_non_core_manpower = -0.15
+				attrition = 0.15
+				local_org_regain = -0.25
+			}
+		}	
+	}	
+	every_owned_state = {
+		limit = {
+			check_variable = { insurgency_strength < 50  } 
+			has_state_flag = lv3_insurgency
+		}
+			
+		clr_state_flag = lv3_insurgency
+		reset_insurgency_modifiers_effect = yes
+		set_state_flag = active_insurgency
+		set_state_flag = lv2_insurgency
+		add_state_modifier = {
+			modifier = {
+				local_resources = -0.30
+				local_supplies = -0.30
+				local_intel_to_enemies = 0.25
+				local_factory_sabotage = 0.15
+				local_non_core_manpower = -0.25
+				attrition = 0.25
+				local_org_regain = -0.35
+			}
+		}	
+	}		
+	every_owned_state = {
+		limit = {
+			check_variable = { insurgency_strength < 50  } 
+			has_state_flag = lv4_insurgency
+		}
+			
+		clr_state_flag = lv4_insurgency
+		reset_insurgency_modifiers_effect = yes
+		set_state_flag = active_insurgency
+		set_state_flag = lv3_insurgency
+		add_state_modifier = {
+			modifier = {
+				local_resources = -0.30
+				local_supplies = -0.30
+				local_intel_to_enemies = 0.25
+				local_factory_sabotage = 0.15
+				local_non_core_manpower = -0.25
+				attrition = 0.25
+				local_org_regain = -0.35
+			}
+		}	
+	}		
+	every_owned_state = {
+		limit = {
+			check_variable = { insurgency_strength < 65  } 
+			has_state_flag = lv4_insurgency
+		}
+			
+		clr_state_flag = lv4_insurgency
+		reset_insurgency_modifiers_effect = yes
+		set_state_flag = active_insurgency
+		set_state_flag = lv3_insurgency
+		add_state_modifier = {
+			modifier = {
+				local_resources = -0.45
+				local_supplies = -0.45
+				local_intel_to_enemies = -0.40
+				local_factory_sabotage = 0.25
+				local_non_core_manpower = -0.35
+				attrition = 0.40
+				local_org_regain = -0.50
+			}
+		}	
+	}	
+	every_owned_state = {
+		limit = {
+			check_variable = { insurgency_strength < 65  } 
+			has_state_flag = lv5_insurgency
+		}
+			
+		clr_state_flag = lv5_insurgency
+		reset_insurgency_modifiers_effect = yes
+		set_state_flag = active_insurgency
+		set_state_flag = lv4_insurgency
+		add_state_modifier = {
+			modifier = {
+				local_resources = -0.60
+				local_supplies = -0.60
+				local_intel_to_enemies = 0.60
+				local_factory_sabotage = 0.50
+				local_non_core_manpower = -0.50
+				attrition = 0.75
+				local_org_regain = -0.75
+			}
+		}	
+	}	
+	every_owned_state = {
+		limit = {
+			check_variable = { insurgency_strength > 19  } 
+			has_state_flag = lv1_insurgency
+		}
+			
+		clr_state_flag = lv1_insurgency
+		reset_insurgency_modifiers_effect = yes
+		set_state_flag = active_insurgency
+
+		add_state_modifier = {
+			modifier = {
+				local_resources = -0.30
+				local_supplies = -0.30
+				local_intel_to_enemies = 0.25
+				local_factory_sabotage = 0.15
+				local_non_core_manpower = -0.25
+				attrition = 0.25
+				local_org_regain = -0.35
+			}
+		}	
+		set_state_flag = lv2_insurgency
+		
+	}	
+	every_owned_state = {
+		limit = {
+			check_variable = { insurgency_strength > 49  } 
+			check_variable = { insurgency_strength > 65  } 
+			has_state_flag = lv2_insurgency
+		}
+			
+		clr_state_flag = lv2_insurgency
+		reset_insurgency_modifiers_effect = yes
+		set_state_flag = active_insurgency
+		set_state_flag = lv3_insurgency
+		add_state_modifier = {
+			modifier = {
+				local_resources = -0.45
+				local_supplies = -0.45
+				local_intel_to_enemies = -0.40
+				local_factory_sabotage = 0.25
+				local_non_core_manpower = -0.35
+				attrition = 0.40
+				local_org_regain = -0.50
+			}
+		}	
+	}		
+	every_owned_state = {
+		limit = {
+			check_variable = { insurgency_strength > 64  } 
+			check_variable = { insurgency_strength < 80  } 
+			has_state_flag = lv3_insurgency
+		}
+			
+		clr_state_flag = lv3_insurgency
+		reset_insurgency_modifiers_effect = yes
+		set_state_flag = active_insurgency
+		set_state_flag = lv4_insurgency
+		add_state_modifier = {
+			modifier = {
+				local_resources = -0.60
+				local_supplies = -0.60
+				local_intel_to_enemies = 0.60
+				local_factory_sabotage = 0.50
+				local_non_core_manpower = -0.50
+				attrition = 0.75
+				local_org_regain = -0.75
+			}
+		}	
+	}		
+	every_owned_state = {
+		limit = {
+			check_variable = { insurgency_strength > 79  } 
+			has_state_flag = lv4_insurgency
+		}
+			
+		clr_state_flag = lv4_insurgency
+		reset_insurgency_modifiers_effect = yes
+		set_state_flag = active_insurgency
+		set_state_flag = lv5_insurgency
+		add_state_modifier = {
+			modifier = {
+				local_resources = -0.75
+				local_supplies = -0.75
+				local_intel_to_enemies = 0.75
+				local_factory_sabotage = 0.75
+				local_non_core_manpower = -0.75
+				attrition = 0.75
+				local_org_regain = -0.75
+			}
+		}	
+	}		
 	if = {
 		limit = {
 			any_owned_state = {
-					check_variable = { var = insurgency_strength value = 200 compare = greater_than_or_equals }
+					check_variable = { var = insurgency_strength value = 100 compare = greater_than_or_equals }
 					is_owned_and_controlled_by = ROOT
 					has_state_flag = active_insurgency		
 					has_state_flag = anti_colonial_insurgency
@@ -633,7 +833,7 @@ ic_pulse = {
 	if = {
 		limit = {
 			any_owned_state = {
-					check_variable = { var = insurgency_strength value = 200 compare = greater_than_or_equals }
+					check_variable = { var = insurgency_strength value = 100 compare = greater_than_or_equals }
 					is_owned_and_controlled_by = ROOT
 					has_state_flag = active_insurgency		
 					has_state_flag = communism_insurgency
@@ -641,7 +841,7 @@ ic_pulse = {
 		}
 		every_owned_state = {
 			limit = {
-				check_variable = { var = insurgency_strength value = 200 compare = greater_than_or_equals }
+				check_variable = { var = insurgency_strength value = 100 compare = greater_than_or_equals }
 				has_state_flag = communism_insurgency
 			}
 			set_variable = { communism_insurgent_base = THIS }
@@ -658,7 +858,6 @@ ic_pulse = {
 		}
 		every_owned_state = {
 			limit = {
-				has_variable = insurgency_strength
 				has_state_flag = active_insurgency	
 				check_variable = { var = insurgency_strength value = 0 compare = less_than_or_equals }
 			}
