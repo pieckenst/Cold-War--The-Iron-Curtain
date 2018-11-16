@@ -372,3 +372,38 @@ country_event = {
 		add_political_power = -200
 	}
 }
+
+#British-Trucial Sheikhdoms Treaty Expired
+country_event = {
+	id = decolonization.16
+	title = decolonization.16.t	
+	desc = decolonization.16.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.16.a
+		if = {
+			limit = {
+			    UAE = { is_subject_of = ROOT }
+			}
+			set_autonomy = { target = UAE autonomy_state = autonomy_free }
+			UAE = { drop_cosmetic_tag = yes }
+		}
+		if = {
+		    limit = {
+				QAT = { is_subject_of = ROOT }
+			}
+			set_autonomy = { target = QAT autonomy_state = autonomy_free }
+			QAT = { drop_cosmetic_tag = yes }
+		}
+		if = {
+			limit = {
+				BHR = { is_subject_of = ROOT }
+			}
+			set_autonomy = { target = BHR autonomy_state = autonomy_free }
+		    BHR = { drop_cosmetic_tag = yes }
+	    }
+	}
+}

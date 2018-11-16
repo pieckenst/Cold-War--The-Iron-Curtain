@@ -729,6 +729,10 @@ country_event = {
 		name = "Hubert Humphrey II"
 		ai_chance = {
 			factor = 30
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
 		}
 		trigger = {
 			has_global_flag = humphrey_dem_nominee_60
@@ -782,7 +786,11 @@ country_event = {
 			has_global_flag = nixon_gop_nominee_60
 		}
 		ai_chance = {
-			factor = 35
+			factor = 30
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
 		}
 		retire_country_leader = yes
 		create_country_leader = {
@@ -806,6 +814,10 @@ country_event = {
 		}
 		ai_chance = {
 			factor = 35
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
 		}
 		retire_country_leader = yes
 		create_country_leader = {
@@ -845,6 +857,13 @@ country_event = {
 		trigger = {
 			NOT = { has_country_flag = lbj_63 }
 		}
+		ai_chance = {
+			factor = 30
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+		}
 		set_global_flag = humphrey_dem_nominee_64
 	}
 	option = { 
@@ -854,11 +873,22 @@ country_event = {
 		}
 		ai_chance = {
 			factor = 30
+				modifier = {
+					factor = 1000
+					is_historical_focus_on = yes
+				}
 		}
 		set_global_flag = lbj_dem_nominee_64
 	}
 	option = { 
 		name = "Martin Luther King Jr."
+		ai_chance = {
+			factor = 30
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+		}
 		trigger = {
 			NOT = { has_country_flag = lbj_63 }
 		}
@@ -888,8 +918,43 @@ country_event = {
 	
 	option = { 
 		name = "Barry Goldwater"
+		trigger = {
+		}
+		ai_chance = {
+			factor = 30
+				modifier = {
+					factor = 1000
+					is_historical_focus_on = yes
+				}
+		}
+		set_global_flag = goldwater_nominee_64
 	}
-
+	option = { 
+		name = "Nelson Rockefeller"
+		trigger = {
+		}
+		ai_chance = {
+			factor = 30
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+		}
+		set_global_flag = rockfeller_nominee_64
+	}
+	option = { 
+		name = "Jim Rhodes"
+		trigger = {
+		}
+		ai_chance = {
+			factor = 30
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+		}
+		set_global_flag = rhodes_nominee_64
+	}
 
 }
 # Election of 1964
@@ -913,6 +978,10 @@ country_event = {
 		name = "Hubert Humphrey II"
 		ai_chance = {
 			factor = 30
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
 		}
 		trigger = {
 			has_global_flag = humphrey_dem_nominee_64
@@ -930,6 +999,10 @@ country_event = {
 		name = "Martin Luther King Jr."
 		ai_chance = {
 			factor = 30
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
 		}
 		trigger = {
 			has_global_flag = lutherking_dem_nominee_64
@@ -947,6 +1020,10 @@ country_event = {
 		name = "Lyndon B. Johnson"
 		ai_chance = {
 			factor = 35
+				modifier = {
+					factor = 1000
+					is_historical_focus_on = yes
+				}
 		}
 		trigger = {
 			has_global_flag = lbj_dem_nominee_64
@@ -969,6 +1046,9 @@ country_event = {
 					is_historical_focus_on = yes
 				}
 		}
+		trigger = {
+			has_global_flag = goldwater_nominee_64
+		}
 		retire_country_leader = yes
 		create_country_leader = {
 			name = "Barry Goldwater"
@@ -977,6 +1057,48 @@ country_event = {
 		}
 		set_politics = { ruling_party = conservative elections_allowed = yes }
 		set_global_flag = goldwater_1964
+	}
+	option = { 
+		name = "Nelson Rockefeller"
+		ai_chance = {
+			factor = 35
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+		}
+		trigger = {
+			has_global_flag = rockfeller_nominee_64
+		}
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Nelson Rockefeller"
+			picture = "Nelson_Rockefeller.dds"
+			ideology = republican
+		}
+		set_politics = { ruling_party = conservative elections_allowed = yes }
+		set_global_flag = rockfeller_1964
+	}
+	option = { 
+		name = "Jim Rhodes"
+		ai_chance = {
+			factor = 35
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+		}
+		trigger = {
+			has_global_flag = rhodes_nominee_64
+		}
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Jim Rhodes"
+			picture = "Jim_Rhodes.dds"
+			ideology = republican
+		}
+		set_politics = { ruling_party = conservative elections_allowed = yes }
+		set_global_flag = rhodes_1964
 	}
 }
 
@@ -1091,7 +1213,34 @@ country_event = {
 				}
 		}
 		set_global_flag = reagen_nominee_1968
-	}	
+	}
+	option = { 
+		name = "Nelson Rockefeller"
+		trigger = {
+		}
+		ai_chance = {
+			factor = 30
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+		}
+		set_global_flag = rockfeller_nominee_68
+	}
+	option = { 
+		name = "Jim Rhodes"
+		trigger = {
+			has_global_flag = rhodes_1964
+		}
+		ai_chance = {
+			factor = 30
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+		}
+		set_global_flag = rhodes_nominee_68
+	}
 }
 # Election of 1968
 country_event = {
@@ -1259,6 +1408,48 @@ country_event = {
 		}
 		set_politics = { ruling_party = fascism elections_allowed = yes }
 		set_global_flag = wallace_68
+	}
+	option = { 
+		name = "Nelson Rockefeller"
+		ai_chance = {
+			factor = 35
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+		}
+		trigger = {
+			has_global_flag = rockfeller_nominee_68
+		}
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Nelson Rockefeller"
+			picture = "Nelson_Rockefeller.dds"
+			ideology = republican
+		}
+		set_politics = { ruling_party = conservative elections_allowed = yes }
+		set_global_flag = rockfeller_1968
+	}
+	option = { 
+		name = "Jim Rhodes"
+		ai_chance = {
+			factor = 35
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+		}
+		trigger = {
+			has_global_flag = rhodes_nominee_68
+		}
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Jim Rhodes"
+			picture = "Jim_Rhodes.dds"
+			ideology = republican
+		}
+		set_politics = { ruling_party = conservative elections_allowed = yes }
+		set_global_flag = rhodes_1968
 	}
 }
 # Election of 1972: Democratic Nomination
