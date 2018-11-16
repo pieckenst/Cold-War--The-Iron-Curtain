@@ -70,7 +70,7 @@ influence_refresh = {
 	add_to_variable = { influence_total = influencer5_amount_calc }
 	add_to_variable = { influence_total = influencer6_amount_calc }
 	add_to_variable = { influence_total = influencer7_amount_calc }
-	add_to_variable = { influence_total = domestic_influence_amount_calcvalue }
+	add_to_variable = { influence_total = domestic_influence_amount_calc }
 	#Total Established
 	
 	#Begin Division
@@ -703,7 +703,7 @@ sign_trade_agreement = {
 	if = { limit = { tag = KRG } ROOT = { add_ideas = trade_treaty_KRG	}	}
 	if = { limit = { tag = TRK } ROOT = { add_ideas = trade_treaty_TRK	}	}
 	if = { limit = { tag = KRL } ROOT = { add_ideas = trade_treaty_KRL	}	}
-	if = { limit = { tag = VGD } ROOT = { add_ideas = trade_treaty_VGD	}	}
+	if = { limit = { tag = TAL } ROOT = { add_ideas = trade_treaty_TAL	}	}
 	if = { limit = { tag = ADR } ROOT = { add_ideas = trade_treaty_ADR	}	}
 	if = { limit = { tag = CSA } ROOT = { add_ideas = trade_treaty_CSA	}	}
 	if = { limit = { tag = RNA } ROOT = { add_ideas = trade_treaty_RNA	}	}
@@ -965,7 +965,7 @@ sign_trade_agreement_inv = {
 	if = { limit = { ROOT = { tag = KRG } } add_ideas = trade_treaty_KRG	}	
 	if = { limit = { ROOT = { tag = TRK } } add_ideas = trade_treaty_TRK	}	
 	if = { limit = { ROOT = { tag = KRL } } add_ideas = trade_treaty_KRL	}	
-	if = { limit = { ROOT = { tag = VGD } } add_ideas = trade_treaty_VGD	}	
+	if = { limit = { ROOT = { tag = TAL } } add_ideas = trade_treaty_TAL	}	
 	if = { limit = { ROOT = { tag = ADR } } add_ideas = trade_treaty_ADR	}	
 	if = { limit = { ROOT = { tag = CSA } } add_ideas = trade_treaty_CSA	}	
 	if = { limit = { ROOT = { tag = RNA } } add_ideas = trade_treaty_RNA	}	
@@ -1071,7 +1071,6 @@ influence_nation = {
 	if = {  limit = { ROOT = { has_government = radical_shiaism } } add_popularity = { ideology = radical_shiaism popularity = 0.05 } }
 	if = {  limit = { ROOT = { has_government = pan_arabism } } add_popularity = { ideology = pan_arabism popularity = 0.05 } }
 	if = {  limit = { ROOT = { has_government = Salafism } } add_popularity = { ideology = Salafism popularity = 0.05 } }
-	if = {  limit = { ROOT = { has_government = Judaism } } add_popularity = { ideology = Judaism popularity = 0.05 } }
 }
 successul_coup_effect = {
 	if = {  limit = { FROM = { has_government = conservative } } set_politics = { ruling_party = conservative elections_allowed = no } }
@@ -1095,7 +1094,6 @@ successul_coup_effect = {
 	if = {  limit = { FROM = { has_government = radical_shiaism } } set_politics = { ruling_party = radical_shiaism elections_allowed = no } }
 	if = {  limit = { FROM = { has_government = pan_arabism } } set_politics = { ruling_party = pan_arabism elections_allowed = no } }
 	if = {  limit = { FROM = { has_government = Salafism } } set_politics = { ruling_party = Salafism elections_allowed = no } }
-	if = {  limit = { FROM = { has_government = Judaism } } set_politics = { ruling_party = Judaism elections_allowed = no } }
 }
 influence_nation_coup = {
 	if = {  limit = { FROM = { has_government = conservative } } add_popularity = { ideology = conservative popularity = 0.35 } }
@@ -1119,7 +1117,6 @@ influence_nation_coup = {
 	if = {  limit = { FROM = { has_government = radical_shiaism } } add_popularity = { ideology = radical_shiaism popularity = 0.35 } }
 	if = {  limit = { FROM = { has_government = pan_arabism } } add_popularity = { ideology = pan_arabism popularity = 0.35 } }
 	if = {  limit = { FROM = { has_government = Salafism } } add_popularity = { ideology = Salafism popularity = 0.35 } }
-	if = {  limit = { FROM = { has_government = Judaism } } add_popularity = { ideology = Judaism popularity = 0.35 } }
 }
 influence_nation_coup_civil_war = {
 	if = {  limit = { FROM = { has_government = conservative } } start_civil_war = { ideology = conservative size = 0.5 } }
@@ -1143,7 +1140,6 @@ influence_nation_coup_civil_war = {
 	if = {  limit = { FROM = { has_government = radical_shiaism } } start_civil_war = { ideology = radical_shiaism size = 0.5 } }
 	if = {  limit = { FROM = { has_government = pan_arabism } } start_civil_war = { ideology = pan_arabism size = 0.5 } }
 	if = {  limit = { FROM = { has_government = Salafism } } start_civil_war = { ideology = Salafism size = 0.5 } }
-	if = {  limit = { FROM = { has_government = Judaism } } start_civil_war = { ideology = Judaism size = 0.5 } }
 }
 set_recent_action_check = {
 	if = {
@@ -1352,49 +1348,49 @@ set_recent_action_check_defense_treaty = {
 coup_influence_change_success = {
 	if = {
 		limit = {
-			NOT = { influencer1 = FROM }
+			NOT = { check_variable = { influencer1 = FROM.temp_check } }
 		}
 		
 		multiply_variable = { influencer1_amount = 0.5 }
 	}
 	if = {
 		limit = {
-			NOT = { influencer2 = FROM }
+			NOT = { check_variable = { influencer2 = FROM.temp_check } }
 		}
 		
 		multiply_variable = { influencer2_amount = 0.5 }
 	}
 	if = {
 		limit = {
-			NOT = { influencer3 = FROM }
+			NOT = { check_variable = { influencer3 = FROM.temp_check } }
 		}
 		
 		multiply_variable = { influencer3_amount = 0.5 }
 	}
 	if = {
 		limit = {
-			NOT = { influencer4 = FROM }
+			NOT = { check_variable = { influencer4 = FROM.temp_check } }
 		}
 		
 		multiply_variable = { influencer4_amount = 0.5 }
 	}
 	if = {
 		limit = {
-			NOT = { influencer5 = FROM }
+			NOT = { check_variable = { influencer5 = FROM.temp_check } }
 		}
 		
 		multiply_variable = { influencer5_amount = 0.5 }
 	}
 	if = {
 		limit = {
-			NOT = { influencer6 = FROM }
+			NOT = { check_variable = { influencer6 = FROM.temp_check } }
 		}
 		
 		multiply_variable = { influencer6_amount = 0.5 }
 	}
 	if = {
 		limit = {
-			NOT = { influencer7 = FROM }
+			NOT = { check_variable = { influencer7 = FROM.temp_check } }
 		}
 		
 		multiply_variable = { influencer7_amount = 0.5 }
@@ -1405,49 +1401,49 @@ coup_influence_change_success = {
 coup_influence_change_failure = {
 	if = {
 		limit = {
-			influencer1 = FROM 
+			check_variable = { influencer1 = FROM.temp_check
 		}
 		
 		multiply_variable = { influencer1_amount = 0.25 }
 	}
 	if = {
 		limit = {
-			influencer2 = FROM 
+			check_variable = { influencer2 = FROM.temp_check
 		}
 		
 		multiply_variable = { influencer2_amount = 0.25 }
 	}
 	if = {
 		limit = {
-			influencer3 = FROM 
+			check_variable = { influencer3 = FROM.temp_check
 		}
 		
 		multiply_variable = { influencer3_amount = 0.25 }
 	}
 	if = {
 		limit = {
-			influencer4 = FROM 
+			check_variable = { influencer4 = FROM.temp_check
 		}
 		
 		multiply_variable = { influencer4_amount = 0.25 }
 	}
 	if = {
 		limit = {
-			influencer5 = FROM 
+			check_variable = { influencer5 = FROM.temp_check
 		}
 		
 		multiply_variable = { influencer5_amount = 0.25 }
 	}
 	if = {
 		limit = {
-			influencer6 = FROM 
+			check_variable = { influencer6 = FROM.temp_check 
 		}
 		
 		multiply_variable = { influencer6_amount = 0.25 }
 	}
 	if = {
 		limit = {
-			influencer7 = FROM 
+			check_variable = { influencer7 = FROM.temp_check
 		}
 		
 		multiply_variable = { influencer7_amount = 0.25 }

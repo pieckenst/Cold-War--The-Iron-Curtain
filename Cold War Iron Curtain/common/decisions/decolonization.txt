@@ -345,6 +345,146 @@ colonial_affairs = {
 		}
 	}
 	
+	malaya_independence_act = {
+
+		icon = GFX_mandates
+
+		available = {
+			MAL = { exists = yes is_subject_of = ROOT }
+		}
+		
+		visible = {
+			original_tag = ENG
+			MAL = { exists = yes is_subject_of = ROOT }
+		}
+		
+		cost = 0
+
+		fire_only_once = yes
+
+		complete_effect = {
+		    add_political_power = 50
+			set_autonomy = { target = MAL autonomy_state = autonomy_free }
+		    MAL = {
+			    set_politics = {
+				    ruling_party = conservative
+				    elections_allowed = yes
+			    }
+			    add_popularity ={
+		            ideology = conservative
+		            popularity = 0.9
+		        }
+			    if = {
+		            limit = {
+			            ENG = { owns_state = 1128 }
+		            }
+		            MAL = { transfer_state = 1128 }
+	            }
+				if = {
+		            limit = {
+			            ENG = { owns_state = 924 }
+		            }
+		            MAL = { transfer_state = 924 }
+	            }
+		    }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	guyana_independence_act = {
+
+		icon = GFX_mandates
+
+		available = {
+			NOT = { country_exists = GUY }
+			owns_state = 687
+			owns_state = 1202
+			owns_state = 1203
+		}
+		
+		visible = {
+			original_tag = ENG
+			NOT = { country_exists = GUY }
+			owns_state = 687
+			owns_state = 1202
+			owns_state = 1203
+		}
+		
+		cost = 0
+
+		fire_only_once = yes
+
+		complete_effect = {
+		    add_political_power = 50
+			release = GUY
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	belize_act = {
+
+		icon = GFX_mandates
+
+		available = {
+			NOT = { country_exists = BLZ }
+			owns_state = 311
+		}
+		
+		visible = {
+			original_tag = ENG
+			NOT = { country_exists = BLZ }
+			owns_state = 311
+		}
+		
+		cost = 0
+
+		fire_only_once = yes
+
+		complete_effect = {
+		    add_political_power = 25
+			release = BLZ
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	lesotho_act = {
+
+		icon = GFX_mandates
+
+		available = {
+			NOT = { country_exists = LES }
+			owns_state = 773
+		}
+		
+		visible = {
+			original_tag = ENG
+			NOT = { country_exists = LES }
+			owns_state = 773
+		}
+		
+		cost = 0
+
+		fire_only_once = yes
+
+		complete_effect = {
+		    add_political_power = 25
+			release = LES
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
 	decolonize_the_gulf = {
 
 		icon = GFX_mandates

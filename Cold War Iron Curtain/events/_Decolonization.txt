@@ -1,4 +1,4 @@
-﻿add_namespace = decolonization
+﻿ add_namespace = decolonization
   
 #French Cameroons - Mandate Expired
 country_event = {
@@ -275,10 +275,100 @@ country_event = {
 		    }
 			if = {
 		        limit = {
-			        ROOT = { owns_state = 1128 }
+			        ENG = { owns_state = 1128 }
 		        }
 		        MAL = { transfer_state = 1128 }
 	        }
+			if = {
+		        limit = {
+			        ENG = { owns_state = 924 }
+		        }
+		        MAL = { transfer_state = 924 }
+	        }
 		}
+	}
+}
+
+#Guyana Independence Act
+country_event = {
+	id = decolonization.12
+	title = decolonization.12.t	
+	desc = decolonization.12.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.12.a
+		release = GUY
+	}
+}
+
+#Belize Act
+country_event = {
+	id = decolonization.13
+	title = decolonization.13.t	
+	desc = decolonization.13.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.13.a
+		release = BLZ
+	}
+}
+
+#Kingdom of Lesotho Act
+country_event = {
+	id = decolonization.14
+	title = decolonization.14.t	
+	desc = decolonization.14.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.14.a
+		release = LES
+	}
+}
+
+#The Western Sahara Question
+country_event = {
+	id = decolonization.15
+	title = decolonization.15.t	
+	desc = decolonization.15.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.15.a
+		ai_chance = {
+			factor = 100
+		}
+		set_global_flag = western_sahara_decolonized
+		release = SRW
+	}
+	
+	option = {
+		name = decolonization.15.b
+		ai_chance = {
+			factor = 0
+		}
+	    trigger = { 
+			country_exists = MAU
+		}
+		add_political_power = -50
+		MAU = { transfer_state = 1001 }
+	}
+	
+	option = {
+		name = decolonization.15.c
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -200
 	}
 }

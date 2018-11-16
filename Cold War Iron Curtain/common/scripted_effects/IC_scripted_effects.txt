@@ -2,6 +2,24 @@ ic_pulse = {
 	set_variable = { temp_check = THIS.id } 
 	if = {
 		limit = {
+                tag = KOR
+                date > 1952.8.1
+                date < 1952.10.30
+            }
+		news_event = KOR_Elections.1952
+
+     }	
+	if = {
+		limit = {
+                tag = KOR
+                date > 1956.5.1
+                date < 1956.7.30
+            }
+		news_event = KOR_Elections.1956
+
+     }	
+	if = {
+		limit = {
                 tag = JAP
                 date > 1954.9.1
                 date < 1954.10.1
@@ -193,7 +211,7 @@ ic_pulse = {
 		limit = {
 				tag = GHA
 				date > 1951.2.1
-				date < 1967.4.1
+				date < 1952.4.1
 			}
 		country_event = Ghana.1
 	 }	
@@ -208,12 +226,12 @@ ic_pulse = {
 	if = {
 		limit = {
 				tag = GHA
-				date > 1954.4.1
-				date < 1954.5.1
+				date > 1960.4.1
+				date < 1960.5.1
 			}
 		country_event = Ghana.3
 	 }				 
-	 
+		 
 	if = {
 		limit = {
 				NOT = { has_country_flag = NNE_1}
@@ -1494,44 +1512,6 @@ ic_pulse = {
 			}
 			if = {
 				limit = {
-					has_country_flag = black_panther_mad
-				}
-				country_event = new_afrika_revolt.10
-			}
-			if = {
-				limit = {
-					date > 1970.1.1
-					date < 1970.2.2
-					has_country_flag = communist_america_rising
-				}
-				country_event = americancivilwar.1
-			}
-			if = {
-				limit = {
-					OR = {
-						has_country_flag = premier_khrushchev
-						has_country_leader = { name = "Nikita Khrushchev" ruling_only = yes  }	
-					}
-					date > 1964.9.25
-					date < 1964.12.31					
-				}
-				country_event = every1.1
-			}
-			if = {
-				limit = {
-					has_country_flag = black_panther_mad
-				}
-				country_event = new_afrika_revolt.10
-			}
-			if = {
-				limit = {
-					USA = { has_country_flag = second_us_civil_war_new_afrika }
-					tag = RNA
-				}
-				country_event = new_afrika_revolt.5
-			}
-			if = {
-				limit = {
 					tag = USA
 					date > 1963.11.21
 					date < 1964.3.6
@@ -2730,48 +2710,7 @@ ic_pulse = {
 			}
 			news_event = news.1510
 		}
-		if = {
-			limit = {	
-				NOT = { has_global_flag = aus_questions_over }
-				AND = {
-					date > 1955.4.30
-					date < 1955.6.2
-				}
-			}
-			country_event = aus.1
-		}
-		#Korea Begin
-		if = {
-			limit = {	
-				tag = USA
-				KPA = { has_war_with = KOR }
-				NOT = { has_war_with = KPA }
-				has_global_flag = korean_war_begun
-			}
-			country_event = korea.3
-		}
-		if = {
-			limit = {	
-				tag = PRC
-				country_exists = PRC
-				KPA = { has_war_with = KOR }
-				NOT = { has_war_with = KOR }
-				has_global_flag = korean_war_begun
-				OR = {
-					NOT = { 745 = { is_controlled_by = KPA } }
-					NOT = { 746 = { is_controlled_by = KPA } }
-					NOT = { 747 = { is_controlled_by = KPA } }
-					NOT = { 748 = { is_controlled_by = KPA } }
-					NOT = { 749 = { is_controlled_by = KPA } }
-					NOT = { 866 = { is_controlled_by = KPA } }
-					NOT = { 919 = { is_controlled_by = KPA } }
-					NOT = { 920 = { is_controlled_by = KPA } }
-					date > 1950.10.20
-				}
-			}
-			country_event = korea.5
-		}
-
+		#Korea
 	if = {
 			limit = {	
 				tag = USA
@@ -2856,33 +2795,6 @@ ic_pulse = {
 				has_global_flag = korean_war_south_victory
 			}
 			country_event = korea.25
-		}
-		if = {
-			limit = {	
-				tag = ENG
-				KPA = { has_war_with = KOR }
-				NOT = { has_war_with = KPA }
-				has_global_flag = korean_war_begun
-				date > 1950.6.31
-			}
-			country_event = korea.31
-		}
-		if = {
-			limit = {	
-				tag = SOV
-				KPA = { has_war_with = KOR }
-				NOT = { has_war_with = KOR }
-				has_global_flag = korean_war_begun
-				OR = {
-					NOT = { 745 = { is_controlled_by = KPA } }
-					NOT = { 746 = { is_controlled_by = KPA } }
-					NOT = { 747 = { is_controlled_by = KPA } }
-					NOT = { 748 = { is_controlled_by = KPA } }
-					NOT = { 749 = { is_controlled_by = KPA } }
-					date > 1950.9.31
-				}
-			}
-			country_event = korea.33
 		}
 		if = {
 			limit = {	
@@ -3171,26 +3083,6 @@ ic_pulse = {
 			date < 1955.8.20
 		}
 		country_event = { id = swf.7 days = 10 random = 1 }
-	}
-	if = {
-	    limit = {		
-	        original_tag = SOV
-	        owns_state = 925
-		    NOT = { has_global_flag = chernobyl_built }
-		    date > 1972.8.1
-	        date < 1973.1.1
-		}
-		country_event = { id = chernobyl.1 days = 11 random = 1 }
-	}
-	if = {
-		limit = {				
-			original_tag = SOV
-			owns_state = 925
-		    has_global_flag = chernobyl_built 
-			date > 1986.4.1
-		    date < 1987.1.1
-		}
-		country_event = { id = chernobyl.2 days = 22 random = 1 }
 	}
 	if = {
 		limit = {
@@ -4757,7 +4649,6 @@ ic_pulse = {
 				has_cosmetic_tag = GAM_ENG
 				has_cosmetic_tag = NIA_ENG
 				has_cosmetic_tag = SWA_ENG
-				has_cosmetic_tag = SLE_ENG
 				has_cosmetic_tag = SOL_ENG
 				has_cosmetic_tag = JAM_ENG
 				has_cosmetic_tag = HOK_ENG
@@ -4782,7 +4673,6 @@ ic_pulse = {
 				has_cosmetic_tag = SOR_ITA
 				has_cosmetic_tag = ZIM_ENG
 				has_cosmetic_tag = NYA_ENG
-				has_cosmetic_tag = LES_ENG
 				has_cosmetic_tag = KAZ_SSR
 				has_cosmetic_tag = UZB_SSR
 				has_cosmetic_tag = TJK_SSR
@@ -4798,7 +4688,6 @@ ic_pulse = {
 				has_cosmetic_tag = BLR_SSR
 				has_cosmetic_tag = MLD_SSR
 				has_cosmetic_tag = RIF_SPR 
-				has_cosmetic_tag = SRW_SPR
 				has_cosmetic_tag = GEQ_SPR
 				has_cosmetic_tag = ANG_POR
 				has_cosmetic_tag = KPA_SOV
@@ -5093,6 +4982,60 @@ ic_pulse = {
 			MAL = { exists = yes is_subject_of = ROOT }
 		}
 		country_event = decolonization.11
+	}
+	if = {
+		limit = {
+			original_tag = ENG
+			date > 1966.5.25
+			date < 1967.1.1
+			NOT = { country_exists = GUY }
+			owns_state = 687
+			owns_state = 1202
+			owns_state = 1203
+		}
+		country_event = decolonization.12
+	}
+	if = {
+		limit = {
+			original_tag = ENG
+			date > 1981.9.21
+			date < 1982.1.1
+			NOT = { country_exists = BLZ }
+			owns_state = 311
+		}
+		country_event = decolonization.13
+	}
+	if = {
+		limit = {
+			original_tag = ENG
+			date > 1966.10.3
+			date < 1967.1.1
+			NOT = { country_exists = LES }
+			owns_state = 773
+		}
+		country_event = decolonization.14
+	}
+	if = {
+		limit = {
+			original_tag = SPR
+			date > 1975.11.13
+			date < 1976.1.1
+			NOT = { country_exists = SRW }
+			owns_state = 699
+			owns_state = 1001
+		}
+		country_event = decolonization.15
+	}
+	if = {
+		limit = {
+			original_tag = MOR
+			is_subject = no
+			date > 1957.10.22
+			date < 1960.1.1
+			country_exists = SPR
+			SPR = { owns_state = 1002 owns_state = 1003 }
+		}
+		country_event = ifni.1
 	}
 	if = {
 		limit = {
