@@ -129,9 +129,27 @@ country_event = {
 				original_tag = ROOT
 				has_government = communism
 			}
+			every_owned_state = {
+				set_state_flag = flip_back
+			}
 			transfer_state = var:ROOT.communism_insurgent_base
 			load_oob = "generic_insurgency" 
 			capital_scope = { create_unit = { division = "name = \"1st Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } create_unit = { division = "name = \"2nd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"3rd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"4th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"5th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } }
+			set_capital = var:ROOT.communism_insurgent_base
+			capital_scope = {
+				every_neighbor_state = {
+					set_state_flag = flip_reb
+				}
+			}
+			insurgency_state_check_civil = yes
+			clr_state_flag = flip_back
+
+			insurgency_border_flip = yes
+			capital_scope = {
+				every_neighbor_state = {
+					clr_state_flag = flip_reb
+				}
+			}
 			every_owned_state = {
 				limit = {
 					has_state_flag = communism_insurgency

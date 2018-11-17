@@ -21,119 +21,23 @@ focus_tree = {
 							is_controlled_by = ROOT
 						}
 				}
-			complete_tooltip = {
-					navy_experience = 25
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-							type = dockyard
-							level = 3
-							instant_build = yes
-						}
+		completion_reward = {
+			random_country = {
+				limit = {
+					original_tag = ROOT
+					has_government = communism
+				}			
+				set_temp_variable = { ROOT.capital_reb = THIS }
+				capital_scope = {
+					random_neighbor_state = {
+						var:ROOT.capital_reb = { transfer_state = PREV }
+					}
+					random_neighbor_state = {
+						var:ROOT.capital_reb = { transfer_state = PREV }
+					}
 				}
-			completion_reward = {
-					navy_experience = 25
-					if = {
-							limit = {
-									NOT = {
-											any_owned_state = {
-													dockyard > 0
-													free_building_slots = {
-															building = dockyard
-															size > 2
-															include_locked = yes
-														}
-												}
-										}
-									any_owned_state = {
-											is_coastal = yes
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											is_coastal = yes
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-							set_country_flag = naval_effort_built
-						}
-					if = {
-							limit = {
-									NOT = {
-											has_country_flag = naval_effort_built
-										}
-									any_owned_state = {
-											dockyard > 0
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-								}
-							random_owned_controlled_state = {
-									limit = {
-											dockyard > 0
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-							set_country_flag = naval_effort_built
-						}
-					if = {
-							limit = {
-									NOT = {
-											has_country_flag = naval_effort_built
-										}
-									NOT = {
-											any_owned_state = {
-													free_building_slots = {
-															building = dockyard
-															size > 2
-															include_locked = yes
-														}
-												}
-										}
-								}
-							random_state = {
-									limit = {
-											controller = {
-													tag = ROOT
-												}
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
-										}
-								}
-						}
-				}
-
+			}
+		}
 	}
 	focus = {
 		id = SYR_industrial_effort
@@ -2815,7 +2719,17 @@ focus_tree = {
 		x = 38
 		y = 0
 		completion_reward = {
-			add_political_power = 120
+			random_owned_controlled_state = {
+				limit = {
+					has_state_flag = communism_insurgency
+				}
+				set_variable = { ROOT.communism_insurgent_base = THIS }
+			}
+			start_civil_war = {
+				ideology = communism
+				size = 0.25
+				
+			}
 		}
 	}
 	focus = {
@@ -2832,17 +2746,21 @@ focus_tree = {
 		y = 1
 
 		completion_reward = {
-				ISR = {
-							add_opinion_modifier = {
-									target = SYR
-									modifier = large_decrease
-								}
-						}
-					SYR = {
-							add_opinion_modifier = {
-									target = ISR
-						modifier = large_decrease
-						}
+			every_owned_state = {
+				limit = {
+					NOT = {
+						has_state_flag = communism_insurgency
+					}
+				}
+				set_state_flag = flip_back
+			}
+			random_country = {
+				limit = {
+					original_tag = ROOT
+					has_government = communism
+				}
+				transfer_state = var:ROOT.communism_insurgent_base
+				load_oob = "generic_insurgency" 
 			}
 		}
 	}
@@ -2856,64 +2774,41 @@ focus_tree = {
 		x = 37
 		y = 2
 		completion_reward = {
-				EGY = {
-							add_opinion_modifier = {
-									target = SYR
-									modifier = large_increase
-								}
+			random_country = {
+				limit = {
+					original_tag = ROOT
+					has_government = communism
+				}			
+				set_capital = var:ROOT.communism_insurgent_base			
+				capital_scope = { create_unit = { division = "name = \"1st Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } create_unit = { division = "name = \"2nd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"3rd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"4th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"5th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } }
+				ROOT = {
+					random_owned_state = {
+						limit = {
+							has_state_flag = communism_insurgency 
 						}
-					SYR = {
-							add_opinion_modifier = {
-									target = EGY
-						modifier = large_increase
-						}
-			}
-				SAU = {
-							add_opinion_modifier = {
-									target = SYR
-									modifier = large_increase
-								}
-						}
-				SYR = {
-					add_opinion_modifier = {
-					target = SAU
-					modifier = large_increase
+						PREVPREV = { transfer_state = PREV }
+					}
 				}
-			}
-				JOR = {
-							add_opinion_modifier = {
-									target = SYR
-									modifier = large_increase
-								}
-						}
-				SYR = {
-					add_opinion_modifier = {
-					target = JOR
-					modifier = large_increase
+				every_owned_state = {
+					limit = {
+						NOT = { has_state_flag = communism_insurgency }
+					}
+					ROOT = { transfer_state = PREV }
 				}
-			}
-				IRQ = {
-							add_opinion_modifier = {
-									target = SYR
-									modifier = large_increase
-								}
-						}
-				SYR = {
-					add_opinion_modifier = {
-					target = IRQ
-					modifier = large_increase
+				clr_state_flag = flip_back
+
+				insurgency_border_flip = yes
+				capital_scope = {
+					every_neighbor_state = {
+						clr_state_flag = flip_reb
+					}
 				}
-			}
-				SYR = {
-							add_opinion_modifier = {
-									target = SYR
-									modifier = large_increase
-								}
-						}
-				SYR = {
-					add_opinion_modifier = {
-					target = SYR
-					modifier = large_increase
+				every_owned_state = {
+					limit = {
+						has_state_flag = communism_insurgency
+					}
+					reset_insurgency_modifiers_effect = yes
+					clr_state_flag = communism_insurgency
 				}
 			}
 		}
