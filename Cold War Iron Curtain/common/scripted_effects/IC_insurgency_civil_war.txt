@@ -1,0 +1,94 @@
+commie_civil_war_pt_1 = {
+	random_owned_controlled_state = {
+		limit = {
+			has_state_flag = communism_insurgency
+		}
+		set_variable = { ROOT.communism_insurgent_base = THIS }
+	}
+	start_civil_war = {
+		ideology = communism
+		size = 0.25
+		
+	}
+}
+commie_civil_war_pt_2 = {
+	every_owned_state = {
+		limit = {
+			NOT = {
+				has_state_flag = communism_insurgency
+			}
+		}
+		set_state_flag = flip_back
+	}
+	random_country = {
+		limit = {
+			original_tag = ROOT
+			has_government = communism
+		}
+		transfer_state = var:ROOT.communism_insurgent_base
+		load_oob = "generic_insurgency" 
+	}
+}
+commie_civil_war_pt_3 = {
+	random_country = {
+		limit = {
+			original_tag = ROOT
+			has_government = communism
+		}			
+		set_capital = var:ROOT.communism_insurgent_base			
+		capital_scope = { create_unit = { division = "name = \"1st Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } create_unit = { division = "name = \"2nd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"3rd Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"4th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS }  create_unit = { division = "name = \"5th Revolutionary Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1.0" owner = THIS } }
+		ROOT = {
+			random_owned_state = {
+				limit = {
+					has_state_flag = communism_insurgency 
+				}
+				PREVPREV = { transfer_state = PREV }
+			}
+		}
+		every_owned_state = {
+			limit = {
+				NOT = { has_state_flag = communism_insurgency }
+			}
+			ROOT = { transfer_state = PREV }
+		}
+		clr_state_flag = flip_back
+
+		insurgency_border_flip = yes
+		capital_scope = {
+			every_neighbor_state = {
+				clr_state_flag = flip_reb
+			}
+		}
+		every_owned_state = {
+			limit = {
+				has_state_flag = communism_insurgency
+			}
+			reset_insurgency_modifiers_effect = yes
+			clr_state_flag = communism_insurgency
+		}
+	}
+}
+}
+commie_civil_war_pt_4 = {
+	random_country = {
+		limit = {
+			original_tag = ROOT
+			has_government = communism
+		}			
+		set_temp_variable = { ROOT.capital_reb = THIS }
+		capital_scope = {
+			random_neighbor_state = {
+				limit = {
+					owner = ROOT
+				}
+				var:ROOT.capital_reb = { transfer_state = PREV }
+			}
+			random_neighbor_state = {
+				limit = {
+					owner = ROOT
+				}
+				var:ROOT.capital_reb = { transfer_state = PREV }
+			}
+		}
+	}
+}

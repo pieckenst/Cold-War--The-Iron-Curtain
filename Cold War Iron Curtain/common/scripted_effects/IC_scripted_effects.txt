@@ -828,7 +828,15 @@ ic_pulse = {
 					has_state_flag = anti_colonial_insurgency
 			}
 		}
-		country_event = insurgency.2
+		random_owned_controlled_state = {
+			limit = {
+				is_owned_and_controlled_by = ROOT
+				has_state_flag = active_insurgency				
+			}	
+			liberation_war_effect = yes
+			clear_variable = insurgency_strength
+			clr_state_flag = anti_colonial_insurgency
+		}	
 	}
 	if = {
 		limit = {
@@ -839,14 +847,10 @@ ic_pulse = {
 					has_state_flag = communism_insurgency
 			}
 		}
-		every_owned_state = {
-			limit = {
-				check_variable = { var = insurgency_strength value = 100 compare = greater_than_or_equals }
-				has_state_flag = communism_insurgency
-			}
-			set_variable = { communism_insurgent_base = THIS }
-		}
-		country_event = insurgency.101
+		commie_civil_war_pt_1 = yes
+		commie_civil_war_pt_2 = yes
+		commie_civil_war_pt_3 = yes
+		commie_civil_war_pt_4 = yes
 	}
 	if = {
 		limit = {
@@ -2161,9 +2165,8 @@ ic_pulse = {
 					date < 1953.9.1
 					NOT = { has_global_flag = berlin_uprising_1952 }
 					has_capitulated = no		
-					NOT = { has_completed_focus = DDR_allow_liberals_in_government }						
 				}
-				country_event = cwu.1
+				country_event = cwu.2
 			}
 			if = {
 				limit = {
@@ -4915,6 +4918,7 @@ ic_pulse = {
 				has_cosmetic_tag = CAM_FRA
 				has_cosmetic_tag = VIE_FRA
 				has_cosmetic_tag = DRY_ENG
+				has_cosmetic_tag = DRY_ENG_FED
 				has_cosmetic_tag = CYP_ENG
 				has_cosmetic_tag = BOT_ENG
 				has_cosmetic_tag = GAM_ENG
@@ -5311,6 +5315,16 @@ ic_pulse = {
 			}
 		}
 		country_event = decolonization.16
+	}
+	if = {
+		limit = {
+			original_tag = ENG
+			date > 1963.10.13
+			date < 1964.1.1
+			DRY = { is_subject_of = ROOT has_cosmetic_tag = DRY_ENG }
+			owns_state = 659
+		}
+		country_event = decolonization.17
 	}
 	if = {
 		limit = {
