@@ -373,15 +373,19 @@ country_event = {
 }
 country_event = {
 	id = algeirs.1
-	title = "Alger Putsch"
-	desc = "Alger Putsch"
+	title = algeirs.1.t
+	desc = algeirs.1.d
 
 	is_triggered_only = yes
-
+	fire_only_once = yes
+	
 	option = {
-		name = "Failure of the Putsch"
+		name = algeirs.1.a
 		add_political_power = 300
 		set_country_flag = coup_fail
+		news_event = fra_news.21
+		complete_national_focus = FRA_60s_The_Algeirs_Coup
+		complete_national_focus = FRA_60s_Failure_of_the_Coup
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -391,10 +395,13 @@ country_event = {
 		}
 	}
 	option = {
-		name = "Success of the Putsch"
+		name = algeirs.1.b
 		add_political_power = 300
 		set_politics = { ruling_party = neutrality elections_allowed = no }	
 		set_country_flag = coup_success
+		complete_national_focus = FRA_60s_The_Algeirs_Coup
+		complete_national_focus = FRA_60s_Generals_Coup
+		news_event = fra_news.21
 		ai_chance = {
 			factor = 25
 			modifier = {
