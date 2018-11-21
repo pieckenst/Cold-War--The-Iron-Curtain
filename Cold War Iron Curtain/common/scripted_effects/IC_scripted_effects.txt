@@ -2,6 +2,26 @@ ic_pulse = {
 	set_variable = { temp_check = THIS.id } 
 	if = {
 		limit = {
+                tag = SOV
+                date > 1967.6.1
+                date < 1967.7.1
+				NOT = { has_country_flag = sov_glass }
+            }
+		news_event = sov.100 
+		set_country_flag = sov_glass
+     }	
+	if = {
+		limit = {
+                tag = SOV
+                date > 1969.1.1
+                date < 1969.2.1
+				NOT = { has_country_flag = sov_brez_assasin }
+            }
+		news_event = sov.101
+		set_country_flag = sov_brez_assasin
+     }	
+	if = {
+		limit = {
                 tag = KOR
                 date > 1952.8.1
                 date < 1952.10.30
