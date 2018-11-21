@@ -25,13 +25,20 @@ country_event = {
 		set_global_flag = korean_war_fra_enters
 		news_event = { hours = 6 id = FRAkorea.4 }
 		KOR = {
-			add_to_faction = FRA
-			add_to_war = { 
-				targeted_alliance = USA
-				enemy = KPA
-				hostility_reason = asked_to_join
+			add_to_faction = FRA		
+		}
+		declare_war_on = {
+			target = KPA
+			type = annex_everything
+		}
+		every_country = {
+			limit = {
+				is_subject_of = FRA
 			}
-					
+			declare_war_on = {
+				target = KPA
+				type = annex_everything
+			}			
 		}
 	}
 	option = {

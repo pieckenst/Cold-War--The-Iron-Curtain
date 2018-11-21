@@ -146,7 +146,7 @@ country_event = {
 	option = {
 		name = korea.3.o.a
 		ai_chance = { 
-			factor = 90
+			factor = 100
 			modifier = {
 				is_historical_focus_on = yes
 				factor = 1
@@ -173,12 +173,11 @@ country_event = {
 		news_event = { hours = 6 id = korea.4 }
 		KOR = {
 			add_to_faction = USA
-			add_to_war = { 
-				targeted_alliance = USA
-				enemy = KPA
-				hostility_reason = asked_to_join
-			}
 					
+		}
+		declare_war_on = {
+			target = KPA
+			type = annex_everything
 		}
 	}
 	option = {
@@ -187,7 +186,7 @@ country_event = {
 			factor = 0 
 			modifier = {
 				is_historical_focus_on = yes
-				factor = 1
+				factor = 0
 			}
 		}
 	}
@@ -282,11 +281,10 @@ country_event = {
 		set_global_flag = korean_war_china_enters
 		KPA = {
 			add_to_faction = PRC
-			add_to_war = { 
-				targeted_alliance = PRC 
-				enemy = KOR
-				hostility_reason = asked_to_join
-			}
+		}
+		declare_war_on = {
+			target = KOR
+			type = annex_everything
 		}
 		news_event = { hours = 6 id = korea.6 }
 	}
@@ -1076,11 +1074,9 @@ country_event = {
 			target = KPA
 			type = annex_everything
 		}
-		KOR = {
-			add_to_war = {
-				targeted_alliance = USA
-				enemy = KPA
-			}
+		declare_war_on = {
+			target = KPA
+			type = annex_everything
 		}
 	}
 }
@@ -1121,11 +1117,9 @@ country_event = {
 			target = KOR
 			type = annex_everything
 		}
-		KPA = {
-			add_to_war = {
-				targeted_alliance = PRC
-				enemy = KOR
-			}
+		declare_war_on = {
+			target = KOR
+			type = annex_everything
 		}
 	}
 }
@@ -1327,32 +1321,36 @@ country_event = {
 			add_to_faction = NZL
 			add_to_faction = CAN
 			add_to_faction = SAF
-			add_to_war = { 
-				targeted_alliance = ENG 
-				enemy = KPA 
-				hostility_reason = asked_to_join
-			}
-			add_to_war = { 
-				targeted_alliance = AST 
-				enemy = KPA 
-				hostility_reason = asked_to_join
-			}
-			add_to_war = { 
-				targeted_alliance = NZL 
-				enemy = KPA 
-				hostility_reason = asked_to_join
-			}
-			add_to_war = { 
-				targeted_alliance = CAN 
-				enemy = KPA 
-				hostility_reason = asked_to_join
-			}
-			add_to_war = { 
-				targeted_alliance = SAF
-				enemy = KPA 
-				hostility_reason = asked_to_join
-			}
 		}
+		declare_war_on = {
+			target = KPA
+			type = annex_everything
+		}
+		SAF = {
+			declare_war_on = {
+				target = KPA
+				type = annex_everything
+			}		
+		}
+		AST = {
+			declare_war_on = {
+				target = KPA
+				type = annex_everything
+			}		
+		}
+		NZL = {
+			declare_war_on = {
+				target = KPA
+				type = annex_everything
+			}		
+		}
+		CAN = {
+			declare_war_on = {
+				target = KPA
+				type = annex_everything
+			}		
+		}
+
 		set_global_flag = korean_war_eng_enters
 		news_event = { hours = 6 id = korea.32 }
 	}
@@ -1455,13 +1453,11 @@ country_event = {
 		SOV = {
 			add_to_faction = KPA
 		}
-		KPA = {
-			add_to_war = { 
-				targeted_alliance = SOV 
-				enemy = KOR
-				hostility_reason = asked_to_join
-			}
-		}
+			declare_war_on = {
+				target = KPA
+				type = annex_everything
+			}		
+		
 	}
 	option = {
 		name = korea.33.o.b

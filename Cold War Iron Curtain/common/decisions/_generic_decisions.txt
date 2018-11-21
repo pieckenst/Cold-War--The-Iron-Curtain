@@ -2326,7 +2326,261 @@ propaganda_efforts = {
 }
 
 operations = {
+	soviet_intervention = {
+
+		icon = generic_prepare_civil_war
+
+		visible = {
+				tag = SOV
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KOR }
+				
+				OR = {
+					NOT = { 745 = { is_controlled_by = KPA } }
+					NOT = { 746 = { is_controlled_by = KPA } }
+					NOT = { 747 = { is_controlled_by = KPA } }
+					NOT = { 748 = { is_controlled_by = KPA } }
+					NOT = { 749 = { is_controlled_by = KPA } }
+					date > 1950.9.31
+				}
+		}
+
+		
+		complete_effect = {
+			country_event = korea.33
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+		selectable_mission = no
+
+		days_remove = 1
+
+
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	chinese_intervention = {
+
+		icon = generic_prepare_civil_war
+
+		visible = {
+			tag = PRC
+			has_country_flag = PRC_KOR_QUESTION
+		}
+
+		
+		complete_effect = {
+			country_event = korea.5
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+		selectable_mission = no
+
+		days_remove = 1
+
+
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	french_intervention = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+				tag = FRA
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KPA }
+				
+		}
+		visible = {
+				tag = FRA
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KPA }
+				
+		}
+
+		
+		complete_effect = {
+			country_event = FRAkorea.3
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+		selectable_mission = no
+
+		days_remove = 1
+
+
+
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	american_intervention = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+				tag = USA
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KPA }
+				
+		}
+		visible = {
+				tag = USA
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KPA }
+				
+		}
+
+		
+		complete_effect = {
+			country_event = korea.3
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+		selectable_mission = no
+
+		days_remove = 1
+
+
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 	
+	commonwealth_intervention = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+				tag = ENG
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KPA }
+				
+				date > 1950.6.31
+
+		}
+		visible = {
+				tag = ENG
+				KPA = { has_war_with = KOR }
+				NOT = { has_war_with = KPA }
+				
+				date > 1950.6.31
+
+		}
+
+		
+		complete_effect = {
+			country_event = korea.31
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+		selectable_mission = no
+
+		days_remove = 1
+
+
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	Hangang_Bridge_Bombing = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			tag = KOR
+			has_idea = korean_war
+		}
+		visible = {
+			tag = KOR
+			has_idea = korean_war	
+			750 = {
+				is_controlled_by = KPA
+			}
+		}
+
+		
+		complete_effect = {
+			news_event = korean_war.101
+			add_stability = 0.05
+			add_war_support = 0.05
+			750 = {
+				damage_building = {
+					type = infrastructure
+					damage = 10
+				}			
+			}
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+		selectable_mission = no
+
+		days_remove = 1
+
+
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	liquidate_the_bodo_league = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			tag = KOR
+			has_idea = korean_war
+		}
+		visible = {
+			tag = KOR
+			has_idea = korean_war		}
+
+		
+		complete_effect = {
+			news_event = korean_war.100
+			add_stability = 0.05
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+			every_owned_state = {
+				add_manpower = -15000
+			}
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+		selectable_mission = no
+
+		days_remove = 1
+
+
+
+		ai_will_do = {
+			factor = 1
+		}
+	}	
 	blow_suez_canal = {
 
 		icon = GFX_decision_generic_ignite_civil_war
