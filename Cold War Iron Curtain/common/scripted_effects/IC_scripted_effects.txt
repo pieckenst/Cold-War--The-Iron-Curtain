@@ -2,6 +2,26 @@ ic_pulse = {
 	set_variable = { temp_check = THIS.id } 
 	if = {
 		limit = {
+                tag = SOV
+                date > 1967.6.1
+                date < 1967.7.1
+				NOT = { has_country_flag = sov_glass }
+            }
+		news_event = sov.100 
+		set_country_flag = sov_glass
+     }	
+	if = {
+		limit = {
+                tag = SOV
+                date > 1969.1.1
+                date < 1969.2.1
+				NOT = { has_country_flag = sov_brez_assasin }
+            }
+		news_event = sov.101
+		set_country_flag = sov_brez_assasin
+     }	
+	if = {
+		limit = {
                 tag = KOR
                 date > 1952.8.1
                 date < 1952.10.30
@@ -367,6 +387,14 @@ ic_pulse = {
 				date < 1951.2.1
 			}
 		country_event = NNE.16
+	 }
+	 if = {
+		limit = {
+				tag = FRA
+				date > 1961.4.21
+				date < 1961.4.30
+			}
+		country_event = algeirs.1
 	 }
 	 if = {
 		limit = {
@@ -3393,6 +3421,17 @@ ic_pulse = {
 	}
 	if = {
 		limit = {
+			tag = USA
+			date > 1949.1.1
+			NOT = { has_country_flag = us_startup_setup
+		}
+		set_country_flag = us_startup_setup
+		set_autonomy = { target = KOR autonomy_state = autonomy_puppet }		
+	}
+	
+
+	if = {
+		limit = {
 			tag = KPA
 			has_war_with = KOR
 			NOT = { has_global_flag = first_korean_war}
@@ -3408,6 +3447,17 @@ ic_pulse = {
 		}
 		news_event = news.1027
 	}
+	if = {
+		limit = {
+			tag = ENG
+			NOT = { has_global_flag = george_vi_death }
+			date > 1952.2.1
+			date < 1952.3.1
+		}
+		news_event = coronation.1000
+		set_global_flag = george_vi_death
+	}	
+	
 	if = {
 		limit = {
 			SOV = { has_country_flag = premier_khrushchev }
@@ -3927,6 +3977,14 @@ ic_pulse = {
 			tag = FRA
 		}
 		news_event = fra_news.31
+	}
+	if = {
+		limit = {
+			date > 1960.1.1
+			date < 1960.1.10
+			tag = FRA
+		}
+		news_event = fra_news.1
 	}
 	if = {
 		limit = {
@@ -5387,7 +5445,6 @@ ic_pulse = {
             }
 		country_event = japan.3
      }
-}
     if = {
 		limit = {
                 original_tag = JAP
@@ -5395,5 +5452,37 @@ ic_pulse = {
                 date < 1954.11.1
             }
 		country_event = japan.4
+     }
+	if = {
+		limit = {
+                original_tag = ENG
+				date > 1953.6.1
+				date < 1953.7.1
+			}
+		country_event = ENG.1000
+	 }
+	if = {
+		limit = {
+                original_tag = KOR
+				date > 1960.3.15
+				date < 1960.4.26
+			}
+		country_event = kor.47
+	   }
+	  if = {
+		limit = {
+                original_tag = DDR
+                date > 1957.11.7
+                date < 1957.12.7
+            }
+		country_event = ddr.46
+     }
+	  if = {
+		limit = {
+                original_tag = ICE
+                date > 1954.9.1
+                date < 1955.10.1
+            }
+		country_event = codwar.1
      }
 }

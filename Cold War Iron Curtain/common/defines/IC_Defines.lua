@@ -95,3 +95,4 @@ NDefines.NAI.DIPLOMACY_STAGE_COUP_COST_FACTOR = 0.0	-- Desire to stage a coup su
 NDefines.NAI.DIPLOMACY_IMPROVE_RELATION_COST_FACTOR = 0.0-- Desire to boost relations subtracts the cost multiplied by this
 NDefines.NAI.DIPLOMACY_IMPROVE_RELATION_PP_FACTOR = 0.0	-- Desire to boost relations adds total PP multiplied by this
 
+NDefines.NProduction.MAX_EQUIPMENT_RESOURCES_NEED = 4
