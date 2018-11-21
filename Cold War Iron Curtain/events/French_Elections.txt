@@ -371,6 +371,284 @@ country_event = {
 		add_stability = -0.10
 	}
 }
+#Generals coup first Day
+country_event = {
+	id = algeirs.2
+	title = Algeirs.2.t
+	desc = algeirs.2.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		country_event = {
+			id = algeirs.3
+			days = 1
+		}
+	}
+	
+	option = {
+		name = algeirs.2.a
+		set_country_flag = Gouraud_out_of_the_plot
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1000
+			}
+		}
+	}
+	option = {
+		name = algeirs.2.b
+		set_country_flag = Gouraud_continue
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+#Generals coup second Day
+country_event = {
+	id = algeirs.3
+	title = Algeirs.3.t
+	desc = algeirs.3.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		country_event = {
+			id = algeirs.4
+			days = 1
+		}
+	}
+	
+	option = {
+		name = algeirs.3.a
+		set_country_flag = Faure_Arrested
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1000
+			}
+		}
+	}
+	option = {
+		name = algeirs.3.b
+		set_country_flag = Faure_Escape
+		trigger = {
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+	option = {
+		name = algeirs.3.c
+		set_country_flag = Faure_Diffuse_the_coup_message
+		trigger = {
+			has_country_flag = Gouraud_continue
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+country_event = {
+	id = algeirs.4
+	title = Algeirs.4.t
+	desc = algeirs.4.desc
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		country_event = {
+			id = algeirs.5
+			days = 1
+		}
+	}
+	
+	option = {
+		name = algeirs.4.a
+		set_country_flag = Alarmist_Strategy
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1000
+			}
+		}
+	}
+	option = {
+		name = algeirs.4.b
+		set_country_flag = Challe_arm_the_Civil_activist
+		trigger = {
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+	option = {
+		name = algeirs.4.c
+		set_country_flag = Pied_Noirs_Join_the_Coup
+		trigger = {
+			has_country_flag = Gouraud_continue
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+	option = {
+		name = algeirs.4.d
+		set_country_flag = Faure_killed_in_the_Parliament_attack
+		trigger = {
+			has_country_flag = Gouraud_continue
+			has_country_flag = Faure_Escape
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+	option = {
+		name = algeirs.4.e
+		set_country_flag = Metropolitan_Coup
+		trigger = {
+			has_country_flag = Gouraud_continue
+			has_country_flag = Faure_Diffuse_the_coup_message
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+country_event = {
+	id = algeirs.5
+	title = Algeirs.5.t
+	desc = algeirs.5.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		country_event = {
+			id = algeirs.6
+			days = 1
+		}
+	}
+	
+	option = {
+		name = algeirs.5.a
+		set_country_flag = Cherif_Sid_Cara_Speech_meh
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1000
+			}
+		}
+	}
+	option = {
+		name = algeirs.5.b
+		set_country_flag = Cherif_Sid_Cara_Speech_good
+		trigger = {
+			OR = {
+				has_country_flag = Cherif_Sid_Cara_Speech_meh
+				has_country_flag = Challe_arm_the_Civil_activist
+				has_country_flag = Pied_Noirs_Join_the_Coup
+			}
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+	option = {
+		name = algeirs.5.c
+		set_country_flag = Harkis_Join_the_Generals
+		trigger = {
+				has_country_flag = Metropolitan_Coup
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+country_event = {
+	id = algeirs.6
+	title = Algeirs.6.t
+	desc = algeirs.6.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		country_event = {
+			id = algeirs.1
+			days = 1
+		}
+	}
+	
+	option = {
+		name = algeirs.6.a
+		set_country_flag = Gerboise_Verte_Detonate
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1000
+			}
+		}
+	}
+	option = {
+		name = algeirs.6.b
+		set_country_flag = Gerboise_Verte_Seized
+		trigger = {
+			has_country_flag = Harkis_Join_the_Generals
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
 country_event = {
 	id = algeirs.1
 	title = algeirs.1.t
@@ -381,9 +659,15 @@ country_event = {
 	
 	option = {
 		name = algeirs.1.a
+		trigger = {
+			has_country_flag = Gerboise_Verte_Detonate
+		}
 		add_political_power = 300
 		set_country_flag = coup_fail
-		news_event = fra_news.21
+		news_event = {
+			id = fra_news.21
+			days = 1
+		}
 		complete_national_focus = FRA_60s_The_Algeirs_Coup
 		complete_national_focus = FRA_60s_Failure_of_the_Coup
 		ai_chance = {
@@ -396,12 +680,18 @@ country_event = {
 	}
 	option = {
 		name = algeirs.1.b
-		add_political_power = 300
+		trigger = {
+			has_country_flag = Gerboise_Verte_Seized
+		}
+		add_stability = -0.1
 		set_politics = { ruling_party = neutrality elections_allowed = no }	
 		set_country_flag = coup_success
 		complete_national_focus = FRA_60s_The_Algeirs_Coup
 		complete_national_focus = FRA_60s_Generals_Coup
-		news_event = fra_news.21
+		news_event = {
+			id = fra_news.21
+			days = 1
+		}
 		ai_chance = {
 			factor = 25
 			modifier = {

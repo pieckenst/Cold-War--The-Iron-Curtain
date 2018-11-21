@@ -12,8 +12,14 @@ focus_tree = {
 		cost = 0.00
 		x = 16
 		y = 0
+		available = {
+		always = no
+		}
 		completion_reward = {
-		remove_ideas = nato_member
+		custom_effect_tooltip = 68_Revolution
+			hidden_effect = {
+				remove_ideas = nato_member
+			}
 		}
 	}
 	focus = {
@@ -48,22 +54,25 @@ focus_tree = {
 		x = 16
 		y = 1
 		completion_reward = {
-		every_country = { 
-			limit = {
-				has_idea = nato_member
-				NOT = { tag = FRA }
-			}
-				diplomatic_relation = {
-					country = FRA
-					relation = non_aggression_pact
-					active = yes
+		custom_effect_tooltip = Non_NATO_Treaty
+			hidden_effect = {
+				every_country = { 
+					limit = {
+						has_idea = nato_member
+						NOT = { tag = FRA }
+					}
+						diplomatic_relation = {
+							country = FRA
+							relation = non_aggression_pact
+							active = yes
+						}
 				}
 			}
 		}
 	}
 	focus = {
 		id = FRA_60s_Loss_of_Territories
-		icon = GFX_focus_generic_concessions
+		icon = GFX_FranceFocus
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Non_NATO_Intervention_Treaty
@@ -71,31 +80,34 @@ focus_tree = {
 		x = 16
 		y = 2
 		completion_reward = {
-			set_autonomy = {
-				target = AND
-				autonomy_state = autonomy_free
-			}
-			set_autonomy = {
-				target = MOC
-				autonomy_state = autonomy_free
-			}
-			ITA = { transfer_state = 1 }
-			WGR = { transfer_state = 28 }
-			BRT = { transfer_state = 14 }
-			ENG = { 
-			transfer_state = 730
-			transfer_state = 713
-			transfer_state = 635
-			transfer_state = 708
-			transfer_state = 706
-			transfer_state = 310
-			transfer_state = 1223
-			transfer_state = 694
-			transfer_state = 1161
-			}
-			start_civil_war = {
-				ideology = neutrality
-				size = 0.3
+		custom_effect_tooltip = Loss_of_Territories
+			hidden_effect = {
+				set_autonomy = {
+					target = AND
+					autonomy_state = autonomy_free
+				}
+				set_autonomy = {
+					target = MOC
+					autonomy_state = autonomy_free
+				}
+				ITA = { transfer_state = 1 }
+				WGR = { transfer_state = 28 }
+				BRT = { transfer_state = 14 }
+				ENG = { 
+				transfer_state = 730
+				transfer_state = 713
+				transfer_state = 635
+				transfer_state = 708
+				transfer_state = 706
+				transfer_state = 310
+				transfer_state = 1223
+				transfer_state = 694
+				transfer_state = 1161
+				}
+				start_civil_war = {
+					ideology = neutrality
+					size = 0.3
+				}
 			}
 		}
 	}
@@ -109,27 +121,30 @@ focus_tree = {
 		x = 13
 		y = 3
 		completion_reward = {
-		add_manpower = 100000
-		add_war_support = 0.1
-			create_import = {
-			resource = steel
-			amount = 50
-			exporter = PRC
-			}
-			create_import = {
-			resource = oil
-			amount = 50
-			exporter = PRC
-			}
-			add_opinion_modifier = {
-				target = PRC
-				modifier = small_increase
-			}
-			PRC = {
-				add_opinion_modifier = {
-					target = FRA
-					modifier = small_increase
-				}
+		custom_effect_tooltip = Chinese_Volunteer_Maoist_France
+			hidden_effect = {
+				add_manpower = 100000
+				add_war_support = 0.1
+					create_import = {
+					resource = steel
+					amount = 50
+					exporter = PRC
+					}
+					create_import = {
+					resource = oil
+					amount = 50
+					exporter = PRC
+					}
+					add_opinion_modifier = {
+						target = PRC
+						modifier = small_increase
+					}
+					PRC = {
+						add_opinion_modifier = {
+							target = FRA
+							modifier = small_increase
+						}
+					}
 			}
 		}
 	}
@@ -143,9 +158,12 @@ focus_tree = {
 		x = 15
 		y = 3
 		completion_reward = {
-		add_manpower = 50000
-		army_experience = -10
-		add_war_support = 0.05
+		custom_effect_tooltip = Partisan_Integration_Maoist_France
+			hidden_effect = {
+				add_manpower = 50000
+				army_experience = -10
+				add_war_support = 0.05
+			}
 		}
 	}
 	focus = {
@@ -169,31 +187,34 @@ focus_tree = {
 		x = 17
 		y = 3
 		completion_reward = {
-		army_experience = -20
-			create_field_marshal  = {
-				traits = { brilliant_strategist politically_connected media_personality organizer}
-				skill = 4
-				attack_skill = 3
-				defense_skill = 2
-				planning_skill = 3
-				logistics_skill = 3
-			}
+		custom_effect_tooltip = New_Generals_France_Maoist
+			hidden_effect = {
+				army_experience = -20
+					create_field_marshal  = {
+						traits = { brilliant_strategist politically_connected media_personality organizer}
+						skill = 4
+						attack_skill = 5
+						defense_skill = 2
+						planning_skill = 2
+						logistics_skill = 4
+					}
 
-			create_corps_commander = {
-				traits = { trait_reckless infantry_officer }
-				skill = 3
-				attack_skill = 2
-				defense_skill = 2
-				planning_skill = 3
-				logistics_skill = 1
-			}
-			create_corps_commander = {
-				traits = { trait_reckless infantry_officer }
-				skill = 3
-				attack_skill = 2
-				defense_skill = 2
-				planning_skill = 3
-				logistics_skill = 1
+					create_corps_commander = {
+						traits = { trait_reckless infantry_officer }
+						skill = 3
+						attack_skill = 2
+						defense_skill = 6
+						planning_skill = 2
+						logistics_skill = 1
+					}
+					create_corps_commander = {
+						traits = { trait_reckless infantry_officer }
+						skill = 3
+						attack_skill = 2
+						defense_skill = 5
+						planning_skill = 1
+						logistics_skill = 1
+					}
 			}
 		}
 	}
@@ -248,7 +269,24 @@ focus_tree = {
 		}
 		x = 15
 		y = 4
-
+		completion_reward = {
+		custom_effect_tooltip = Support_From_USSR
+			hidden_effect = {
+				add_manpower = 50000
+				army_experience = 20
+				add_war_support = 0.05
+				SOV = {
+					add_opinion_modifier = {
+						target = FRA
+						modifier = large_increase
+					}
+				}
+				add_opinion_modifier = {
+					target = FRA
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = FRA_60s_Split_from_USSR
@@ -265,7 +303,19 @@ focus_tree = {
 		}
 		x = 13
 		y = 4
-
+		completion_reward = {
+		custom_effect_tooltip = Split_With_USSR
+			hidden_effect = {
+				army_experience = -20
+				add_war_support = -0.05
+				SOV = {
+					add_opinion_modifier = {
+						target = FRA
+						modifier = large_decrease
+					}
+				}
+			}
+		}
 	}
 	focus = {
 		id = FRA_60s_Restart_Military_Factories
@@ -277,20 +327,23 @@ focus_tree = {
 		x = 19
 		y = 3
 		completion_reward = {
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
+		custom_effect_tooltip = Restart_Factories
+			hidden_effect = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
 				}
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
 				}
 			}
 		}
@@ -307,7 +360,12 @@ focus_tree = {
 		}
 		x = 18
 		y = 4
-
+		completion_reward = {
+		custom_effect_tooltip = Great_Offensive_France_Maoist
+			hidden_effect = {
+				add_timed_idea = { idea = FRA_national_mobilization_focus days = 500}
+			}
+		}
 	}
 	focus = {
 		id = FRA_60s_Purge_Socialists
@@ -333,7 +391,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Arrest_Opposants
-		icon = GFX_goal_imprison_opposition1
+		icon = GFX_the_new_terror
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Hearts_of_Real_Communism
@@ -421,7 +479,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_First_party_Congress
-		icon = GFX_goal_unknown
+		icon = GFX_focus_internal_dissent
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_French_great_leap_forward
@@ -454,7 +512,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Reorganize_Regions
-		icon = GFX_goal_unknown
+		icon = GFX_hold_the_next_provincial
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_First_party_Congress
@@ -465,7 +523,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_State_Atheism
-		icon = GFX_goal_atheism
+		icon = GFX_focus_atheism
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Reorganize_Regions
