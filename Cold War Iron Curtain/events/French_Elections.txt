@@ -89,7 +89,7 @@ country_event = {
 	option = {
 		name = "Georges Pompidou"
 		trigger = {
-		NOT = { have_global_flag = goodbye_pompidou }
+		NOT = { has_global_flag = goodbye_pompidou }
 		}
 		create_country_leader = {
 			name = "Georges Pompidou"
@@ -374,9 +374,9 @@ country_event = {
 #Generals coup first Day
 country_event = {
 	id = algeirs.2
-	title = Algeirs.2.t
+	title = algeirs.2.t
 	desc = algeirs.2.d
-	
+	picture = GFX_FRA_Alger_Putsch
 	is_triggered_only = yes
 	fire_only_once = yes
 	
@@ -413,8 +413,16 @@ country_event = {
 #Generals coup second Day
 country_event = {
 	id = algeirs.3
-	title = Algeirs.3.t
-	desc = algeirs.3.d
+	title = algeirs.3.t
+	picture = GFX_FRA_Plot_Of_Paris
+	desc = { 
+		text =  algeirs.3.d.his
+		trigger = { has_country_flag = Gouraud_out_of_the_plot }
+	}
+	desc = { 
+		text =  algeirs.3.d.alt
+		trigger = { has_country_flag = Gouraud_continue }
+	}
 	
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -467,9 +475,33 @@ country_event = {
 }
 country_event = {
 	id = algeirs.4
-	title = Algeirs.4.t
-	desc = algeirs.4.desc
-	
+	title = {
+		text = algeirs.4.t.his
+		trigger = { 
+			OR = { 
+				has_country_flag = Faure_Arrested
+				has_country_flag = Faure_Escape
+			}
+		}
+	}
+	title = { 
+		text = algeirs.4.t.alt
+		trigger = { has_country_flag = Faure_Diffuse_the_coup_message }
+	}
+	picture = GFX_FRA_Degaulle_Speech
+	desc = { 
+		text = algeirs.4.d.his
+		trigger = { 
+			OR = { 
+				has_country_flag = Faure_Arrested
+				has_country_flag = Faure_Escape
+			}
+		}
+	}
+	desc = {
+		text = algeirs.4.d.alt
+		trigger = { has_country_flag = Faure_Diffuse_the_coup_message }
+	}
 	is_triggered_only = yes
 	fire_only_once = yes
 	
@@ -482,7 +514,13 @@ country_event = {
 	
 	option = {
 		name = algeirs.4.a
-		set_country_flag = Alarmist_Strategy
+		set_country_flag = Speech_Success
+		trigger = { 
+			OR = { 
+				has_country_flag = Faure_Arrested
+				has_country_flag = Faure_Escape
+			}
+		}
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -493,52 +531,9 @@ country_event = {
 	}
 	option = {
 		name = algeirs.4.b
-		set_country_flag = Challe_arm_the_Civil_activist
+		set_country_flag = Speech_Failure
 		trigger = {
-		}
-		ai_chance = {
-			factor = 25
-			modifier = {
-				is_historical_focus_on = yes
-				factor = 0
-			}
-		}
-	}
-	option = {
-		name = algeirs.4.c
-		set_country_flag = Pied_Noirs_Join_the_Coup
-		trigger = {
-			has_country_flag = Gouraud_continue
-		}
-		ai_chance = {
-			factor = 25
-			modifier = {
-				is_historical_focus_on = yes
-				factor = 0
-			}
-		}
-	}
-	option = {
-		name = algeirs.4.d
-		set_country_flag = Faure_killed_in_the_Parliament_attack
-		trigger = {
-			has_country_flag = Gouraud_continue
-			has_country_flag = Faure_Escape
-		}
-		ai_chance = {
-			factor = 25
-			modifier = {
-				is_historical_focus_on = yes
-				factor = 0
-			}
-		}
-	}
-	option = {
-		name = algeirs.4.e
-		set_country_flag = Metropolitan_Coup
-		trigger = {
-			has_country_flag = Gouraud_continue
-			has_country_flag = Faure_Diffuse_the_coup_message
+			has_country_flag = Faure_Diffuse_the_coup_message 
 		}
 		ai_chance = {
 			factor = 25
@@ -551,8 +546,23 @@ country_event = {
 }
 country_event = {
 	id = algeirs.5
-	title = Algeirs.5.t
-	desc = algeirs.5.d
+	title = {
+		text = algeirs.5.t.his
+		trigger = { has_country_flag = Speech_Success }
+	}
+	title = { 
+		text = algeirs.5.t.alt
+		trigger = { has_country_flag = Speech_Failure }
+	}
+	desc = { 
+		text = algeirs.5.d.his
+		trigger = { has_country_flag = Speech_Success }
+	}
+	desc = {
+		text = algeirs.5.d.alt
+		trigger = { has_country_flag = Speech_Failure }
+	}
+	picture = GFX_FRA_Cherif_Sid_Cara_Speech
 	
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -578,27 +588,10 @@ country_event = {
 	option = {
 		name = algeirs.5.b
 		set_country_flag = Cherif_Sid_Cara_Speech_good
-		trigger = {
-			OR = {
-				has_country_flag = Cherif_Sid_Cara_Speech_meh
-				has_country_flag = Challe_arm_the_Civil_activist
-				has_country_flag = Pied_Noirs_Join_the_Coup
+			trigger = {
+				has_country_flag = Speech_Failure
+				has_country_flag = Gouraud_continue
 			}
-		}
-		ai_chance = {
-			factor = 25
-			modifier = {
-				is_historical_focus_on = yes
-				factor = 0
-			}
-		}
-	}
-	option = {
-		name = algeirs.5.c
-		set_country_flag = Harkis_Join_the_Generals
-		trigger = {
-				has_country_flag = Metropolitan_Coup
-		}
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -610,8 +603,9 @@ country_event = {
 }
 country_event = {
 	id = algeirs.6
-	title = Algeirs.6.t
+	title = algeirs.6.t
 	desc = algeirs.6.d
+	picture = GFX_FRA_Gervoise_Verte
 	
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -638,7 +632,7 @@ country_event = {
 		name = algeirs.6.b
 		set_country_flag = Gerboise_Verte_Seized
 		trigger = {
-			has_country_flag = Harkis_Join_the_Generals
+			has_country_flag = Cherif_Sid_Cara_Speech_good
 		}
 		ai_chance = {
 			factor = 25
@@ -652,7 +646,21 @@ country_event = {
 country_event = {
 	id = algeirs.1
 	title = algeirs.1.t
-	desc = algeirs.1.d
+	picture = GFX_FRA_Failed_Putsch
+	desc = { 
+		text = algeirs.1.d.his
+		trigger = { 
+			has_country_flag = Gerboise_Verte_Detonate
+			has_country_flag = Cherif_Sid_Cara_Speech_meh
+			has_country_flag = Speech_Success
+		}
+	}
+	desc = {
+		text = algeirs.1.d.alt
+		trigger = {
+			has_country_flag = Gerboise_Verte_Seized
+		}
+	}
 
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -661,15 +669,19 @@ country_event = {
 		name = algeirs.1.a
 		trigger = {
 			has_country_flag = Gerboise_Verte_Detonate
+			has_country_flag = Cherif_Sid_Cara_Speech_meh
+			has_country_flag = Speech_Success
 		}
-		add_political_power = 300
-		set_country_flag = coup_fail
-		news_event = {
-			id = fra_news.21
-			days = 1
+			set_country_flag = coup_fail
+		hidden_effect = {
+			add_political_power = 300
+			news_event = {
+				id = fra_news.21
+				days = 1
+			}
+			complete_national_focus = FRA_60s_The_Algeirs_Coup
+			complete_national_focus = FRA_60s_Failure_of_the_Coup
 		}
-		complete_national_focus = FRA_60s_The_Algeirs_Coup
-		complete_national_focus = FRA_60s_Failure_of_the_Coup
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -683,14 +695,20 @@ country_event = {
 		trigger = {
 			has_country_flag = Gerboise_Verte_Seized
 		}
-		add_stability = -0.1
-		set_politics = { ruling_party = neutrality elections_allowed = no }	
-		set_country_flag = coup_success
-		complete_national_focus = FRA_60s_The_Algeirs_Coup
-		complete_national_focus = FRA_60s_Generals_Coup
-		news_event = {
-			id = fra_news.21
-			days = 1
+		hidden_effect = {
+			add_stability = -0.1
+			set_politics = {  ruling_party = neutrality elections_allowed = no }
+			add_popularity = {
+			ideology = neutrality
+			popularity = 1.0
+			}
+			set_country_flag = coup_success
+			complete_national_focus = FRA_60s_The_Algeirs_Coup
+			complete_national_focus = FRA_60s_Generals_Coup
+			news_event = {
+				id = fra_news.21
+				days = 1
+			}
 		}
 		ai_chance = {
 			factor = 25
