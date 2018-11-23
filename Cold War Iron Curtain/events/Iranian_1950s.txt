@@ -20,15 +20,15 @@ news_event = {
 }
 news_event = {
 	id = iran_assasinations.1
-	title = "[GetNewspaperHeader]Assasination of Abdolhossein Hazhir"
+	title = "[GetNewspaperHeader]Abdolhossein Hazhir found Dead"
 	desc = iran_assasinations.1.d
-	picture = GFX_NEWS_REPORT
+	picture = GFX_Abdolhossein_assasination
 	
 	is_triggered_only = yes
 	major = yes
 	
 	option = {
-		name = "May he rest in peace"
+		name = "Hard Times for Iran continue...."
 	}
 }
 news_event = {
@@ -59,28 +59,28 @@ news_event = {
 }
 news_event = {
 	id = iran_political.100
-	title = "[GetNewspaperHeader]Execution of Navvab Safavi"
+	title = "[GetNewspaperHeader]The Execution of Navvab Safavi"
 	desc = iran_political.100.d
-	picture = GFX_NEWS_REPORT
+	picture = GFX_safavi_execution
 	
 	is_triggered_only = yes
 	major = yes
 	
 	option = {
-		name = "Interesting"
+		name = "Secularism is here to stay"
 	}
 }
 news_event = {
 	id = iran_political.1100
 	title = "[GetNewspaperHeader]The Royal Divorce"
 	desc = iran_political.1100.d
-	picture = GFX_NEWS_REPORT
+	picture = GFX_royal_iran_divorce
 	
 	is_triggered_only = yes
 	major = yes
 	
 	option = {
-		name = "Interesting"
+		name = "Poor Soraya..."
 	}
 }
 news_event = {
@@ -98,35 +98,76 @@ news_event = {
 }
 news_event = {
 	id = iran_political.1301
-	title = "[GetNewspaperHeader]The Fall of Tehran"
+	title = "[GetNewspaperHeader]Tudeh Tide"
 	desc = iran_political.1301.d
-	picture = GFX_NEWS_REPORT
+	picture = GFX_tudeh_tehran
 	
 	is_triggered_only = yes
 	major = yes
 	
 	option = {
-		name = "Interesting"
+		name = "Down with the Bourgeoise!"
+	}
+}
+
+country_event = {
+	id = iran_political.1299
+	title = "[GetNewspaperHeader]Trial of the Royal Family"
+	desc = "The trial of the former ruling house has begun, we could make an example of them or show a sign of mercy.....
+	is_triggered_only = yes
+	
+	immediate = {
+		news_event = iran_political.1298
+	}
+	
+	option = {
+		name = "The Death Penalty is given to those involved"
+		news_event = { id = iran_political.1300 days = 5 }
+	}
+	option = {
+		name = "Monarchy abolished and sent into exile along with their associates"
+		news_event = { id = tudeh.1 days = 5 }
+	}
+}
+news_event = {
+	id = iran_political.1298
+	title = "[GetNewspaperHeader]The Tehran Trials"
+	desc = iran_political.1299.d
+	picture = GFX_iranian_trials
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = "An End to an Era"
 	}
 }
 news_event = {
 	id = iran_political.1300
-	title = "[GetNewspaperHeader]Execution of the Royal Family"
+	title = "[GetNewspaperHeader]End of the Pahlavis"
 	desc = iran_political.1300.d
-	picture = GFX_NEWS_REPORT
+	picture = GFX_iranian_pahalvi_execution
 	
 	is_triggered_only = yes
 	major = yes
-	
 	option = {
 		name = "Barbaric"
+		trigger = {
+			NOT = { tag = PER }
+		}
+	}	
+	option = {
+		name = "Justice has been served"
+		trigger = {
+			tag = PER
+		}
 	}
 }
 news_event = {
 	id = tudeh.1
-	title = "[GetNewspaperHeader]Twilight of the Iranian Monarchy"
+	title = "[GetNewspaperHeader]Flight of the Pahlavis"
 	desc = tudeh.1.d
-	picture = GFX_NEWS_REPORT
+	picture = GFX_exiled_pahalvi
 	
 	is_triggered_only = yes
 	major = yes
@@ -139,7 +180,7 @@ news_event = {
 	id = iran_political.700
 	title = "[GetNewspaperHeader]The Establishment of the Islamic Republic of Iran"
 	desc = iran_political.700.d
-	picture = GFX_NEWS_REPORT
+	picture = GFX_early_islamic_revolution
 	
 	is_triggered_only = yes
 	major = yes
@@ -150,9 +191,9 @@ news_event = {
 }
 news_event = {
 	id = AJAX.101
-	title = "[GetNewspaperHeader]Pro-Pahalvi Coup Crushed"
+	title = "[GetNewspaperHeader]Operation Ajax Fails"
 	desc = AJAX.101.d
-	picture = GFX_NEWS_REPORT
+	picture = GFX_operation_ajax_fail
 	
 	is_triggered_only = yes
 	major = yes
@@ -176,15 +217,15 @@ news_event = {
 }
 news_event = {
 	id = AJAX.105
-	title = "[GetNewspaperHeader]The Establishment of the Republic of Iran"
+	title = "[GetNewspaperHeader]The Survival of Iranian Democracy"
 	desc = AJAX.105.d
-	picture = GFX_NEWS_REPORT
+	picture = GFX_mossadegh_victory
 	
 	is_triggered_only = yes
 	major = yes
 	
 	option = {
-		name = "The End of an Era"
+		name = "Long live Mosaddegh, Long Live the Republic!"
 	}
 }
 news_event = {
