@@ -64,6 +64,28 @@ add_ideas = {
 	incompetent_officer_corps
 }
 
+set_variable = { var = domestic_influence_amount value = 1500 }
+set_variable = { var = influencer1 value = ENG.id }
+set_variable = { var = influencer1_amount value = 500 }
+set_variable = { var = influencer2 value = USA.id }
+set_variable = { var = influencer2_amount value = 100 }
+set_variable = { var = influencer3 value = SOV.id }
+set_variable = { var = influencer3_amount value = 10 }
+
+1949.1.1 = {
+    if = {
+	    set_autonomy = {
+		    target = PAL
+		    autonomous_state = autonomy_protectorate
+		    freedom_level = 0.1
+	    }
+	    else = {
+		     puppet = PAL
+
+	    }
+    }
+}
+
 set_politics = {
 
 	parties = {
@@ -177,29 +199,6 @@ create_corps_commander = {
 	defense_skill = 2
 	planning_skill = 2
 	logistics_skill = 2
-}
-
-1949.1.1 = {
-	set_variable = { var = domestic_influence_amount value = 1500 }
-	set_variable = { var = influencer1 value = ENG.id }
-	set_variable = { var = influencer1_amount value = 500 }
-	set_variable = { var = influencer2 value = USA.id }
-	set_variable = { var = influencer2_amount value = 100 }
-	set_variable = { var = influencer3 value = SOV.id }
-	set_variable = { var = influencer3_amount value = 10 }
-
-if = {
-	
-	set_autonomy = {
-		target = PAL
-		autonomous_state = autonomy_puppet
-		freedom_level = 0.4
-	}
-	else = {
-		puppet = PAL
-
-	}
-   }
 }
 
 1953.1.1 = {
