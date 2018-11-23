@@ -232,21 +232,12 @@ country_event = {
 }
 country_event = {
 	id = KPA_RAID.2
-	title = "Failed assasination of Kim Il Sung"
+	title = "Failed Assasination of Kim Il Sung"
 	desc = "In response to our raid on the Blue House, the South has attempted and failed to assasinate our Dear Leader......."
 	picture = GFX_Report_North_Korea_Raid
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		kill_country_leader = yes
-		create_country_leader = {
-			name = "Choe Yong-gon"
-			picture = "Choe.dds"
-			ideology = stalinism
-		}	
-		news_event = KPA_RAID.6
-	}
 	option = {
 		name = "Issue Diplomatic Threats"
 		add_threat = 15
@@ -278,7 +269,18 @@ news_event = {
 news_event = {
 	id = KPA_RAID.4
 	title = "[GetNewspaperHeader]The Second Korean War"
-	desc = KPA_RAID.4.d
+	desc = {
+		text = KPA_RAID.4.d
+		trigger = {
+			KOR = { has_offensive_war_with = KPA }
+		}
+	}
+	desc = {
+		text = KPA_RAID_ALT.4.d
+		trigger = {
+			KPA = { has_offensive_war_with = KOR }
+		}
+	}	
 	picture = GFX_News_Report_North_Korea_Raid
 	major = yes
 	
@@ -291,8 +293,8 @@ news_event = {
 news_event = {
 	id = KPA_RAID.5
 	title = "[GetNewspaperHeader]Assasination of Kim Il Sung"
-	desc = "In response to our raid on the Blue House, the South has assasinated Kim Il-Sung......."
-	picture = GFX_News_Report_North_Korea_Raid
+	desc = KPA_RAID.5.d
+	picture = GFX_Unit_684
 	
 	is_triggered_only = yes
 	major = yes
@@ -319,7 +321,7 @@ country_event = {
 	id = KOR_RAID.1
 	title = "Assasination of Park Chung-hee"
 	desc = "South Korean President Park Chung-hee was assasinated in a raid on the Blue House by North Korean Commandos......."
-	picture = GFX_Report_North_Korea_Raid
+	picture = GFX_park_assasinated
 	
 	is_triggered_only = yes
 	
@@ -365,7 +367,7 @@ news_event = {
 	id = KOR_RAID.3
 	title = "[GetNewspaperHeader]The Blue House Raid"
 	desc = KOR_RAID.3.d	
-	picture = GFX_News_Report_North_Korea_Raid
+	picture = GFX_Blue_House_Raid
 	
 	is_triggered_only = yes
 	major = yes
