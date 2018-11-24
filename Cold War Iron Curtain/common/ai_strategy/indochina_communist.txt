@@ -16,18 +16,10 @@
 VIN_foriegn_policy = {
 	
 	enable = {		
-		tag = VIN
+		original_tag = VIN
 		date > 1955.1.1	
 	}
 	
-	abort = {
-	}
-	
-	ai_strategy = {
-		type = conquer
-		id = "VIE"			
-		value = 800
-	}
 	ai_strategy = {
 		type = antagonize
 		id = "VIE"			
@@ -80,13 +72,34 @@ VIN_foriegn_policy = {
 	}	
 }
 
-SOV_support_VIN = {
+VIN_vietnam_war = {
 	
-	enable = {		
-		tag = SOV
+	enable = {
+		OR = {
+		    has_government = communism
+			has_government = maoism
+			has_government = trotskyism
+		}
+	    OR = {
+		    original_tag = SOV
+			original_tag = PRC
+			original_tag = KPA
+			original_tag = DDR
+		}
+		VIN = { has_war_with = VIE }
 		date > 1955.1.1	
 	}
 	
+	abort = {
+	    OR = {
+	        NOT = { VIN = { has_war_with = VIE } }
+		    NOT = {
+		        has_government = communism
+			    has_government = maoism
+			    has_government = trotskyism
+		    }
+	    }
+    }
 	
 	ai_strategy = {
 		type = send_volunteers_desire
@@ -102,29 +115,5 @@ SOV_support_VIN = {
 		type = protect
 		id = "VIN"			
 		value = 25
-	}
-}
-
-PRC_support_VIN = {
-	
-	enable = {		
-		tag = PRC
-		date > 1955.1.1	
-	}
-	
-	ai_strategy = {
-		type = send_volunteers_desire
-		id = "VIN"			
-		value = 400
-	}
-	ai_strategy = {
-		type = befriend
-		id = "VIN"			
-		value = 100
-	}
-	ai_strategy = {
-		type = protect
-		id = "VIN"			
-		value = 100
 	}
 }

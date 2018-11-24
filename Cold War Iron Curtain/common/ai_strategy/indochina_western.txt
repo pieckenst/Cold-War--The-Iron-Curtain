@@ -16,18 +16,10 @@
 VIE_foriegn_policy = {
 	
 	enable = {		
-		tag = VIE
+		original_tag = VIE
 		date > 1955.1.1	
 	}
 	
-	abort = {
-	}
-	
-	ai_strategy = {
-		type = conquer
-		id = "VIN"			
-		value = 800
-	}
 	ai_strategy = {
 		type = antagonize
 		id = "VIN"			
@@ -50,43 +42,36 @@ VIE_foriegn_policy = {
 	}	
 }
 
-USA_support_VIE = {
+VIE_vietnam_war = {
 	
-	enable = {		
-		tag = USA
-		date > 1955.1.1	
-	}
-	
-	
-	ai_strategy = {
-		type = send_volunteers_desire
-		id = "VIE"			
-		value = 400
-	}
-	ai_strategy = {
-		type = befriend
-		id = "VIE"			
-		value = 25
-	}
-	ai_strategy = {
-		type = protect
-		id = "VIE"			
-		value = 25
-	}
-}
-OTHER_support_VIE = {
-	
-	enable = {	
-		or = {
-			tag = CHI
-			tag = KOR
-			tag = SIA
-			tag = CAM
-			tag = AST
-			tag = NZL
+	enable = {
+		NOT = {
+		    has_government = communism
+			has_government = maoism
+			has_government = trotskyism
 		}
+        OR = {	
+		    original_tag = USA
+			original_tag = KOR
+			original_tag = SIA
+			original_tag = AST
+			original_tag = PHI
+			original_tag = NZL
+		}
+		VIE = { has_defensive_war_with = VIN }
 		date > 1955.1.1	
 	}
+	
+	abort = {
+	    OR = {
+	        NOT = { VIE = { has_war_with = VIN } }
+		    OR = {
+		        has_government = communism
+			    has_government = maoism
+			    has_government = trotskyism
+		    }
+	    }
+    }
 	
 	ai_strategy = {
 		type = send_volunteers_desire
@@ -96,11 +81,11 @@ OTHER_support_VIE = {
 	ai_strategy = {
 		type = befriend
 		id = "VIE"			
-		value = 100
+		value = 25
 	}
 	ai_strategy = {
 		type = protect
 		id = "VIE"			
-		value = 100
+		value = 25
 	}
 }
