@@ -76,6 +76,19 @@ set_variable = { var = domestic_influence_amount value = 5000 }
 set_variable = { var = influencer1 value = USA.id }
 set_variable = { var = influencer1_amount value = 2000 }
 
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = XSM
+		autonomous_state = autonomy_integrated_puppet
+		freedom_level = 0.1
+	}	
+	else = {
+        puppet = XSM		
+	}
+}
 	
 set_politics = {
 
@@ -214,8 +227,8 @@ create_corps_commander = {
 
 1950.5.1 = {
 	white_peace = PRC
-	white_peace = SIK
 	oob = "CHI_1950"
+	set_autonomy = { target = XSM autonomy_state = autonomy_free }	
 	create_country_leader = {
 	    name = "Chiang Kai-shek"
 	    picture = "Chiang_Kai_Shek.dds"
