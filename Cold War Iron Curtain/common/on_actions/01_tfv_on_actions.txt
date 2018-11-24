@@ -50,25 +50,20 @@ on_actions = {
 			
 			if = {
 				limit = {
-					FROM = { tag = CHI }
-					ROOT = { tag = PRC }
-					not = { has_global_flag = PRC_mainland }
+					FROM = { original_tag = CHI }
+					ROOT = { original_tag = PRC }
+					NOT = { has_global_flag = PRC_mainland }
 				}
 				CHI = {
 					transfer_state = 524
 					transfer_state = 1006
 					transfer_state = 1024
+					transfer_state = 591
 					country_event = { id = chi.2 days = 2 } 
 					remove_ideas = CHI_communist_uprisings
 					remove_ideas = CHI_disorganized_military	
-					create_country_leader = {
-						name = "Chiang Kai-shek"
-						picture = "Chiang_Kai_Shek.dds"
-						ideology = reactionary
-					}
 					news_event = { id = news.1009 days = 0 }
 				}
-
 				PRC = {
 					remove_ideas = PRC_peoples_army
 					country_event = { id = prc.12 hours = 6 }
