@@ -113,3 +113,76 @@ occupation_of_austria = {
 		}
 	}
 }
+
+occupation_of_korea = {
+
+	create_north_korea = {
+
+		icon = generic_industry
+
+		visible = {
+			original_tag = SOV
+			country_exists = KPA
+			KPA = { is_subject_of = ROOT has_cosmetic_tag = KPA_SOV }
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+
+		complete_effect = {
+		    set_autonomy = { target = KPA autonomy_state = autonomy_free }
+			KPA = { 
+			    drop_cosmetic_tag = yes
+				create_country_leader = {
+	                name = "Kim Il-sung"
+	                picture = "Kim_il_Sung.dds"
+	                ideology = juche
+                }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 200
+				date > 1948.9.8
+			}
+		}
+	}
+	
+	create_soutb_korea = {
+
+		icon = generic_industry
+
+		visible = {
+			original_tag = USA
+			country_exists = KOR
+			KOR = { is_subject_of = ROOT has_cosmetic_tag = KOR_USA }
+		}
+
+		fire_only_once = yes
+
+		cost = 10
+
+		complete_effect = {
+		    KOR = {
+			    drop_cosmetic_tag = yes
+			    set_politics = {
+				    ruling_party = conservative
+				    elections_allowed = yes
+			    }
+			    add_popularity = { ideology = conservative popularity = 0.90 }
+			    add_popularity = { ideology = nationalism popularity = 0.10 }
+		    }
+		}
+		
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 200
+				date > 1948.8.14
+			}
+		}
+	}
+}
