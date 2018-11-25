@@ -55,10 +55,11 @@ country_event = {
 		}
 	}
 }
+
 news_event = {
 	id = chi.4
-	title = "[GetNewspaperHeader]Execution of Mao"
-	desc = "After the Chinese Civil War concluded, many former PRC Officials were interned by the government and put on trial. Earlier today, Mao Zedong was executed by firing squad"
+	title = "[GetNewspaperHeader]The Execution of Mao Zedong"
+	desc = "After the Chinese Civil War concluded, many former CPC officials were interned by the government and put on trial. Earlier today, Mao Zedong was executed by firing squad."
 	picture = GFX_roc_army
 	
 	major = yes
@@ -66,16 +67,17 @@ news_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = "Death to the Communists"
-		trigger = { TAG = CHI  }
+		name = "Death to traitors!"
+		trigger = { original_tag = CHI }
 	}
 	
 	option = {
-		name = "An Intersting Development"
-		trigger = { NOT = {  TAG = CHI } }
+		name = "Seems China has resisted!"
+		trigger = { NOT = { original_tag = CHI } }
 	}
 	
 }
+
 country_event = {
 	id = chi.5
 	title = "The Second Taiwanese Straits Crisis"
@@ -101,31 +103,6 @@ country_event = {
 				type = annex_everything
 				target = PRC
 			}
-		}
-	}
-}
-
-country_event = {
-	id = chi.6
-	title = "Neutral reunified China"
-	desc = "The United States want to negotiate a neutral chinese state with us."
-
-	is_triggered_only = yes
-
-	option = {
-		name = "No, never"
-		ai_chance = {
-			factor = 100
-		}
-	}
-
-	option = {
-		ai_chance = {
-			factor = 0
-		}
-		name = "Okay, sure"
-		CHI = {
-			annex_country = { target = PRC }
 		}
 	}
 }

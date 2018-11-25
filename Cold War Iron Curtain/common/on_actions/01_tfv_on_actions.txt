@@ -52,7 +52,7 @@ on_actions = {
 				limit = {
 					FROM = { original_tag = CHI }
 					ROOT = { original_tag = PRC }
-					NOT = { has_global_flag = PRC_mainland }
+					NOT = { has_global_flag = chinese_civil_war_over has_global_flag = ROC_taiwan }
 				}
 				CHI = {
 					transfer_state = 524
@@ -62,33 +62,14 @@ on_actions = {
 					country_event = { id = chi.2 days = 2 } 
 					remove_ideas = CHI_communist_uprisings
 					remove_ideas = CHI_disorganized_military	
-					news_event = { id = news.1009 days = 0 }
+					news_event = news.1009
 				}
 				PRC = {
 					remove_ideas = PRC_peoples_army
 					country_event = { id = prc.12 hours = 6 }
 				}
-				set_global_flag = PRC_mainland
-                break = yes
-			}
-			if = {
-				limit = {
-					ROOT = { tag = PHI }
-					FROM = {
-						tag = CPH
-					}
-				}
-				news_event = philippines.2
-                break = yes
-			}
-			if = {
-				limit = {
-					ROOT = { tag = CPH }
-					FROM = {
-						tag = PHI
-					}
-				}
-				news_event = philippines.3
+				set_global_flag = chinese_civil_war_over
+				set_global_flag = ROC_taiwan
                 break = yes
 			}
 		}

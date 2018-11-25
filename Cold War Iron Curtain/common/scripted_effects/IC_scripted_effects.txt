@@ -3087,15 +3087,6 @@ ic_pulse = {
 		}
 		if = {
 			limit = {
-				date < 1951.1.1
-				country_exists = PRC
-				NOT = { PRC = { has_war_with = CHI } }
-				NOT = { has_country_flag = china_in_taiwan }
-			}
-			news_event = news.1009
-		}
-		if = {
-			limit = {
 				date < 1960.5.1
 				date > 1961.1.1
 				NOT = { has_country_flag = Chile_Earthquake }
@@ -5602,6 +5593,18 @@ ic_pulse = {
 			date < 1951.1.1
 		}
 		country_event = roc.1
+	}
+	if = {
+		limit = {
+			original_tag = PRC
+			controls_state = 604
+			country_exists = XSM
+			country_exists = CHI
+			NOT = { has_global_flag = chinese_civil_war_over }
+			XSM = { has_capitulated = yes }
+			
+		}
+		country_event = chinese_civil_war.1
 	}
 	if = {
 		limit = {
