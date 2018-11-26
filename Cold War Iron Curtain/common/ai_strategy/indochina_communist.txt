@@ -88,6 +88,8 @@ VIN_vietnam_war = {
 			original_tag = CUB
 			original_tag = CZE
 			original_tag = POL
+			original_tag = KMP
+			original_tag = LAO
 		}
 		VIN = { has_war_with = VIE }
 		date > 1955.1.1	
@@ -110,6 +112,11 @@ VIN_vietnam_war = {
 		value = 400
 	}
 	ai_strategy = {
+		type = support
+		id = "VIN"			
+		value = 400
+	}
+	ai_strategy = {
 		type = befriend
 		id = "VIN"			
 		value = 25
@@ -117,6 +124,56 @@ VIN_vietnam_war = {
 	ai_strategy = {
 		type = protect
 		id = "VIN"			
+		value = 25
+	}
+}
+
+LAO_laotian_civil_war = {
+	
+	enable = {
+		OR = {
+		    has_government = communism
+			has_government = maoism
+			has_government = trotskyism
+		}
+	    OR = {
+		    original_tag = VIN
+			original_tag = SOV
+			original_tag = PRC
+		}
+		LAO = { has_war_with = LOS }
+		date > 1955.1.1	
+	}
+	
+	abort = {
+	    OR = {
+	        NOT = { LAO = { has_war_with = LOS } }
+		    NOT = {
+		        has_government = communism
+			    has_government = maoism
+			    has_government = trotskyism
+		    }
+	    }
+    }
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "LAO"			
+		value = 400
+	}
+	ai_strategy = {
+		type = support
+		id = "LAO"			
+		value = 400
+	}
+	ai_strategy = {
+		type = befriend
+		id = "LAO"			
+		value = 25
+	}
+	ai_strategy = {
+		type = protect
+		id = "LAO"			
 		value = 25
 	}
 }
