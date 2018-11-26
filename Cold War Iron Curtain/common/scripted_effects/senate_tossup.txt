@@ -1,0 +1,542 @@
+class_i_tossup = {
+	if = {
+		limit = {
+			check_variable = {
+				var = dem_pop
+				value = gop_pop
+				compare = greater_than
+			}
+		}
+		set_variable = { senatechance = random }
+		if = { 
+			limit = { 
+				check_variable = { senatechance > 0.64} 
+			}
+			set_variable = { senatechance = random }
+			if = { 
+				limit = { 
+					check_variable = { senatechance > 0.59 }
+				}
+				add_to_variable = { neocon_seats_class_i = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.60 }
+					check_variable = { senatechance > 0.24 }
+				}
+				add_to_variable = { cons_seats_class_i = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.25 }
+				}
+				add_to_variable = { libertarian_seats_class_i = 1}
+			}
+		}
+		if = { 
+			limit = { 
+				check_variable = { senatechance < 0.65 }
+			}
+			set_variable = { senatechance = random }
+			if = { 
+				limit = { 
+					check_variable = { senatechance > 0.59 }
+				}
+				add_to_variable = { socdem_seats_class_i = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.60 }
+					check_variable = { senatechance > 0.24 }
+				}
+				add_to_variable = { marlib_seats_class_i = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.25 }
+				}
+				add_to_variable = { soclib_seats_class_i = 1}
+			}				
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				var = dem_pop
+				value = gop_pop
+				compare = equals
+			}
+		}
+		set_variable = { senatechance = random }
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.51 }
+				}
+				set_variable = { senatechance = random }
+				if = { 
+					limit = { 
+						check_variable = { senatechance > 0.59 }
+					}
+					add_to_variable = { neocon_seats_class_i = 1}
+				}
+				if = { 
+					limit = { 
+						check_variable = { senatechance < 0.60 }
+						check_variable = { senatechance > 0.24 }
+					}
+					add_to_variable = { cons_seats_class_i = 1}
+				}
+				if = { 
+					limit = { 
+						check_variable = { senatechance < 0.25 }
+					}
+					add_to_variable = { libertarian_seats_class_i = 1}
+				}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance > 0.50}
+				}
+				set_variable = { senatechance = random }
+				if = { 
+					limit = { 
+						check_variable = { senatechance > 0.59 }
+					}
+					add_to_variable = { socdem_seats_class_i = 1}
+				}
+				if = { 
+					limit = { 
+						check_variable = { senatechance < 0.60 }
+						check_variable = { senatechance > 0.24 }
+					}
+					add_to_variable = { marlib_seats_class_i = 1}
+				}
+				if = { 
+					limit = { 
+						check_variable = { senatechance < 0.25 }
+					}
+					add_to_variable = { soclib_seats_class_i = 1}
+				}				
+			}
+		}
+	if = {
+		limit = {
+			check_variable = {
+				var = dem_pop
+				value = gop_pop
+				compare = less_than
+			}
+		}
+		set_variable = { senatechance = random }
+		if = { 
+			limit = { 
+				check_variable = { senatechance < 0.65 }
+			}
+			set_variable = { senatechance = random }
+			if = { 
+				limit = { 
+					check_variable = { senatechance > 0.59 }
+				}
+				add_to_variable = { neocon_seats_class_i = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.60 }
+					check_variable = { senatechance > 0.24 }
+				}
+				add_to_variable = { cons_seats_class_i = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.25 }
+				}
+				add_to_variable = { libertarian_seats_class_i = 1}
+			}
+		}
+		if = { 
+			limit = { 
+				check_variable = { senatechance > 0.64}
+			}
+			set_variable = { senatechance = random }
+			if = { 
+				limit = { 
+					check_variable = { senatechance > 0.59 }
+				}
+				add_to_variable = { socdem_seats_class_i = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.60 }
+					check_variable = { senatechance > 0.24 }
+				}
+				add_to_variable = { marlib_seats_class_i = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.25 }
+				}
+				add_to_variable = { soclib_seats_class_i = 1}
+			}				
+		}
+	}
+}
+
+class_ii_tossup = {
+	if = {
+		limit = {
+			check_variable = {
+				dem_pop > gop_pop
+			}
+		}
+		set_variable = { senatechance = random }
+		if = { 
+			limit = { 
+				check_variable = { senatechance > 0.64} 
+			}
+			set_variable = { senatechance = random }
+			if = { 
+				limit = { 
+					check_variable = { senatechance > 0.59 }
+				}
+				add_to_variable = { neocon_seats_class_ii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.60 }
+					check_variable = { senatechance > 0.24 }
+				}
+				add_to_variable = { cons_seats_class_ii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.25 }
+				}
+				add_to_variable = { libertarian_seats_class_ii = 1}
+			}
+		}
+		if = { 
+			limit = { 
+				check_variable = { senatechance < 0.65 }
+			}
+			set_variable = { senatechance = random }
+			if = { 
+				limit = { 
+					check_variable = { senatechance > 0.59 }
+				}
+				add_to_variable = { socdem_seats_class_ii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.60 }
+					check_variable = { senatechance > 0.24 }
+				}
+				add_to_variable = { marlib_seats_class_ii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.25 }
+				}
+				add_to_variable = { soclib_seats_class_ii = 1}
+			}				
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				dem_pop = gop_pop
+			}
+		}
+		set_variable = { senatechance = random }
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.51 }
+				}
+				set_variable = { senatechance = random }
+				if = { 
+					limit = { 
+						check_variable = { senatechance > 0.59 }
+					}
+					add_to_variable = { neocon_seats_class_ii = 1}
+				}
+				if = { 
+					limit = { 
+						check_variable = { senatechance < 0.60 }
+						check_variable = { senatechance > 0.24 }
+					}
+					add_to_variable = { cons_seats_class_ii = 1}
+				}
+				if = { 
+					limit = { 
+						check_variable = { senatechance < 0.25 }
+					}
+					add_to_variable = { libertarian_seats_class_ii = 1}
+				}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance > 0.50}
+				}
+				set_variable = { senatechance = random }
+				if = { 
+					limit = { 
+						check_variable = { senatechance > 0.59 }
+					}
+					add_to_variable = { socdem_seats_class_ii = 1}
+				}
+				if = { 
+					limit = { 
+						check_variable = { senatechance < 0.60 }
+						check_variable = { senatechance > 0.24 }
+					}
+					add_to_variable = { marlib_seats_class_ii = 1}
+				}
+				if = { 
+					limit = { 
+						check_variable = { senatechance < 0.25 }
+					}
+					add_to_variable = { soclib_seats_class_ii = 1}
+				}				
+			}
+		}
+	if = {
+		limit = {
+			check_variable = {
+				dem_pop < gop_pop
+			}
+		}
+		set_variable = { senatechance = random }
+		if = { 
+			limit = { 
+				check_variable = { senatechance < 0.65 }
+			}
+			set_variable = { senatechance = random }
+			if = { 
+				limit = { 
+					check_variable = { senatechance > 0.59 }
+				}
+				add_to_variable = { neocon_seats_class_ii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.60 }
+					check_variable = { senatechance > 0.24 }
+				}
+				add_to_variable = { cons_seats_class_ii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.25 }
+				}
+				add_to_variable = { libertarian_seats_class_ii = 1}
+			}
+		}
+		if = { 
+			limit = { 
+				check_variable = { senatechance > 0.64}
+			}
+			set_variable = { senatechance = random }
+			if = { 
+				limit = { 
+					check_variable = { senatechance > 0.59 }
+				}
+				add_to_variable = { socdem_seats_class_ii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.60 }
+					check_variable = { senatechance > 0.24 }
+				}
+				add_to_variable = { marlib_seats_class_ii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.25 }
+				}
+				add_to_variable = { soclib_seats_class_ii = 1}
+			}				
+		}
+	}
+}
+
+class_iii_tossup = {
+	if = {
+		limit = {
+			check_variable = {
+				var = dem_pop
+				value = gop_pop
+				compare = greater_than
+			}
+		}
+		set_variable = { senatechance = random }
+		if = { 
+			limit = { 
+				check_variable = { senatechance > 0.64} 
+			}
+			set_variable = { senatechance = random }
+			if = { 
+				limit = { 
+					check_variable = { senatechance > 0.59 }
+				}
+				add_to_variable = { neocon_seats_class_iii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.60 }
+					check_variable = { senatechance > 0.24 }
+				}
+				add_to_variable = { cons_seats_class_iii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.25 }
+				}
+				add_to_variable = { libertarian_seats_class_iii = 1}
+			}
+		}
+		if = { 
+			limit = { 
+				check_variable = { senatechance < 0.65 }
+			}
+			set_variable = { senatechance = random }
+			if = { 
+				limit = { 
+					check_variable = { senatechance > 0.59 }
+				}
+				add_to_variable = { socdem_seats_class_iii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.60 }
+					check_variable = { senatechance > 0.24 }
+				}
+				add_to_variable = { marlib_seats_class_iii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.25 }
+				}
+				add_to_variable = { soclib_seats_class_iii = 1}
+			}				
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				var = dem_pop
+				value = gop_pop
+				compare = equals
+			}
+		}
+		set_variable = { senatechance = random }
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.51 }
+				}
+				set_variable = { senatechance = random }
+				if = { 
+					limit = { 
+						check_variable = { senatechance > 0.59 }
+					}
+					add_to_variable = { neocon_seats_class_iii = 1}
+				}
+				if = { 
+					limit = { 
+						check_variable = { senatechance < 0.60 }
+						check_variable = { senatechance > 0.24 }
+					}
+					add_to_variable = { cons_seats_class_iii = 1}
+				}
+				if = { 
+					limit = { 
+						check_variable = { senatechance < 0.25 }
+					}
+					add_to_variable = { libertarian_seats_class_iii = 1}
+				}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance > 0.50}
+				}
+				set_variable = { senatechance = random }
+				if = { 
+					limit = { 
+						check_variable = { senatechance > 0.59 }
+					}
+					add_to_variable = { socdem_seats_class_iii = 1}
+				}
+				if = { 
+					limit = { 
+						check_variable = { senatechance < 0.60 }
+						check_variable = { senatechance > 0.24 }
+					}
+					add_to_variable = { marlib_seats_class_iii = 1}
+				}
+				if = { 
+					limit = { 
+						check_variable = { senatechance < 0.25 }
+					}
+					add_to_variable = { soclib_seats_class_iii = 1}
+				}				
+			}
+		}
+	if = {
+		limit = {
+			check_variable = {
+				var = dem_pop
+				value = gop_pop
+				compare = less_than
+			}
+		}
+		set_variable = { senatechance = random }
+		if = { 
+			limit = { 
+				check_variable = { senatechance < 0.65 }
+			}
+			set_variable = { senatechance = random }
+			if = { 
+				limit = { 
+					check_variable = { senatechance > 0.59 }
+				}
+				add_to_variable = { neocon_seats_class_iii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.60 }
+					check_variable = { senatechance > 0.24 }
+				}
+				add_to_variable = { cons_seats_class_iii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.25 }
+				}
+				add_to_variable = { libertarian_seats_class_iii = 1}
+			}
+		}
+		if = { 
+			limit = { 
+				check_variable = { senatechance > 0.64}
+			}
+			set_variable = { senatechance = random }
+			if = { 
+				limit = { 
+					check_variable = { senatechance > 0.59 }
+				}
+				add_to_variable = { socdem_seats_class_iii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.60 }
+					check_variable = { senatechance > 0.24 }
+				}
+				add_to_variable = { marlib_seats_class_iii = 1}
+			}
+			if = { 
+				limit = { 
+					check_variable = { senatechance < 0.25 }
+				}
+				add_to_variable = { soclib_seats_class_iii = 1}
+			}				
+		}
+	}
+}
