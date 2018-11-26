@@ -6,6 +6,7 @@ add_namespace = gre
 add_namespace = GRE
 add_namespace = CYP
 add_namespace = greece 
+add_namespace = greece.junta
 
 country_event = {
 	id = greece.0
@@ -67,6 +68,46 @@ country_event = {
 	
 	    name = "Difficult days ahead.."
 	
+	}
+	
+}
+
+country_event = {
+	id = greece.junta.1
+	title = greece.junta.1951.1.t
+	desc = greece.junta.1951.1.d
+	picture = GFX_report_event_alexandros_diomidis
+	
+    fire_only_once = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		complete_national_focus = GRE_Officers_Coup_Attempt_1951
+        	
+	}
+	
+	option = {
+		name = "Papagos Intervenes"
+		complete_national_focus = GRE_Papagos_Intervenes
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 100
+			}
+		}
+	}
+	
+	option = {
+		name = "Papagos stays silent"
+		complete_national_focus = GRE_Officers_Coup_Attempt_1951
+		ai_chance = {
+			factor = 10
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 	
 }
