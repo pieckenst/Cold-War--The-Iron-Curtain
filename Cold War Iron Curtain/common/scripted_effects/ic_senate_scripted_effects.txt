@@ -1,4 +1,6 @@
 class_1_senate_calc = {
+	set_variable = { class_i_size = 32 }
+	set_variable = { total_seats = class_i_size }
 	set_variable = { cons_seats_class_i = 0 }
 	set_variable = { neocon_seats_class_i = 0 }
 	set_variable = { christian_dem_seats_class_i = 0 }
@@ -21,9 +23,11 @@ class_1_senate_calc = {
 	
 	#Liberal GOP Safe
 	set_variable = { centre_seats_class_i = 5 }
+	subtract_from_variable = { total_seats = 5 }
 
 	#Dixiecrat Safe
 	set_variable = { aut_seats_class_i = 5 }
+	subtract_from_variable = { total_seats = 5 }
 
 	#50-50 Liberal GOP vs Liberal Deal Dem
 	set_variable = { senatechance = random }
@@ -32,12 +36,14 @@ class_1_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { marlib_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { centre_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	set_variable = { senatechance = random }
 	if = { 
@@ -45,12 +51,14 @@ class_1_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { marlib_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { centre_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	#New Deal Dem vs Liberal GOP
 	set_variable = { senatechance = random }
@@ -59,12 +67,14 @@ class_1_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { socdem_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { centre_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	set_variable = { senatechance = random }
 	if = { 
@@ -72,6 +82,7 @@ class_1_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { socdem_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
@@ -87,12 +98,14 @@ class_1_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { socdem_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { aut_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	#50-50 Liberal GOP vs Paleocon Deal Dem
 	set_variable = { senatechance = random }
@@ -101,12 +114,14 @@ class_1_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { marlib_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { cons_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	#50-50 New Deal Dem vs Libertarian GOP
 	set_variable = { senatechance = random }
@@ -115,12 +130,14 @@ class_1_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { socdem_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { libertarian_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	set_variable = { senatechance = random }
 	if = { 
@@ -128,17 +145,21 @@ class_1_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = {  soclib_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { libertarian_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}	
 	add_to_variable = { neocon_seats_class_i = 2}
+	subtract_from_variable = { total_seats = 2 }
 
 	#New Deal Dem
 	add_to_variable = { socdem_seats_class_i = 2}
+	subtract_from_variable = { total_seats = 2 }
 
 	#Safe Liberal Dem
 	if = { 
@@ -146,19 +167,16 @@ class_1_senate_calc = {
 			has_country_flag = hawaii_statehood
 		}
 		add_to_variable = {  soclib_seats_class_i = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	#Tossup
 	#Set GOP Nationwide Pop
 	set_variable = { gop_pop = 0 } 
 	
 	set_variable = { cons_pop = party_popularity@conservative } 
-	multiply_variable = { cons_pop = 100 }
 	set_variable = { neocon_pop = party_popularity@Liberal_Conservatism } 
-	multiply_variable = { neocon_pop = 100 }
 	set_variable = { christian_dem_pop = party_popularity@Christian_Democratic } 
-	multiply_variable = { christian_dem_pop = 100 }
 	set_variable = { libertarian_pop = party_popularity@liberal} 
-	multiply_variable = { libertarian_pop = 100 }
 	
 	add_to_variable = { gop_pop = cons_pop }
 	add_to_variable = { gop_pop = neocon_pop }
@@ -169,13 +187,9 @@ class_1_senate_calc = {
 	set_variable = { dem_pop = 0 } 
 	
 	set_variable = { demsoc_pop = party_popularity@socialist} 
-	multiply_variable = { demsoc_pop = 100 }
 	set_variable = { socdem_pop = party_popularity@Social_Democratic} 
-	multiply_variable = { socdem_pop = 100 }
 	set_variable = { soclib_pop = party_popularity@Social_Liberalism} 
-	multiply_variable = { soclib_pop = 100 }
 	set_variable = { marlib_pop = party_popularity@democratic} 
-	multiply_variable = { marlib_pop = 100 }
 	
 	add_to_variable = { dem_pop = demsoc_pop }
 	add_to_variable = { dem_pop = socdem_pop }
@@ -190,7 +204,12 @@ class_1_senate_calc = {
 	divide_variable = { dem_pop = national_pop }
 	divide_variable = { gop_pop = national_pop }
 
-	
+	if = {
+		limit = {
+			check_variable = { total_seats > 0}
+		}		
+		class_i_random = yes
+	}	
 	add_to_variable = { class_i_gop = cons_seats_class_i }
 	add_to_variable = { class_i_gop = neocon_seats_class_i }
 	add_to_variable = { class_i_gop = christian_dem_seats_class_i} 
@@ -209,6 +228,8 @@ class_1_senate_calc = {
 }	
 
 class_2_senate_calc = {
+	set_variable = { class_ii_size = 32 }
+	set_variable = { total_seats = class_ii_size }
 	set_variable = { cons_seats_class_ii = 0 }
 	set_variable = { neocon_seats_class_ii = 0 }
 	set_variable = { christian_dem_seats_class_ii = 0 }
@@ -228,21 +249,19 @@ class_2_senate_calc = {
 	
 	#Liberal GOP Safe
 	set_variable = { centre_seats_class_ii = 5 }
+	subtract_from_variable = { total_seats = 5 }
 
 	#Dixiecrat Safe
 	set_variable = { aut_seats_class_ii = 8 }
+	subtract_from_variable = { total_seats = 8 }
 
 	#New Deal Dem
 	add_to_variable = { socdem_seats_class_ii = 1}
+	subtract_from_variable = { total_seats = 1 }
 
 	#New Deal Dem
-	add_to_variable = { cons_seats_class_ii = 1}	
-	if = { 
-		limit = {
-			has_country_flag = alaska_statehood
-		}
-		add_to_variable = { cons_seats_class_ii = 1}
-	}
+	add_to_variable = { cons_seats_class_ii = 1}
+	subtract_from_variable = { total_seats = 1 }	
 	
 	#50-50 Liberal GOP vs Liberal Deal Dem
 	set_variable = { senatechance = random }
@@ -251,12 +270,14 @@ class_2_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { marlib_seats_class_ii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { centre_seats_class_ii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	#50-50 Dixiecrat vs New Deal Dem
 	set_variable = { senatechance = random }
@@ -265,12 +286,14 @@ class_2_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { socdem_seats_class_ii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { aut_seats_class_ii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	#50-50 Dixiecrat vs New Deal Dem
 	set_variable = { senatechance = random }
@@ -279,12 +302,14 @@ class_2_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { socdem_seats_class_ii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { aut_seats_class_ii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	#50-50 Dixiecrat vs New Deal Dem
 	set_variable = { senatechance = random }
@@ -293,12 +318,14 @@ class_2_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { socdem_seats_class_ii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { aut_seats_class_ii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	#50-50 Dixiecrat vs New Deal Dem
 	set_variable = { senatechance = random }
@@ -307,12 +334,14 @@ class_2_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { socdem_seats_class_ii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { aut_seats_class_ii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	#Tossups
 	#Tossup
@@ -320,13 +349,9 @@ class_2_senate_calc = {
 	set_variable = { gop_pop = 0 } 
 	
 	set_variable = { cons_pop = party_popularity@conservative } 
-	multiply_variable = { cons_pop = 100 }
 	set_variable = { neocon_pop = party_popularity@Liberal_Conservatism } 
-	multiply_variable = { neocon_pop = 100 }
 	set_variable = { christian_dem_pop = party_popularity@Christian_Democratic } 
-	multiply_variable = { christian_dem_pop = 100 }
 	set_variable = { libertarian_pop = party_popularity@liberal} 
-	multiply_variable = { libertarian_pop = 100 }
 	
 	add_to_variable = { gop_pop = cons_pop }
 	add_to_variable = { gop_pop = neocon_pop }
@@ -337,13 +362,9 @@ class_2_senate_calc = {
 	set_variable = { dem_pop = 0 } 
 	
 	set_variable = { demsoc_pop = party_popularity@socialist} 
-	multiply_variable = { demsoc_pop = 100 }
 	set_variable = { socdem_pop = party_popularity@Social_Democratic} 
-	multiply_variable = { socdem_pop = 100 }
 	set_variable = { soclib_pop = party_popularity@Social_Liberalism} 
-	multiply_variable = { soclib_pop = 100 }
 	set_variable = { marlib_pop = party_popularity@democratic} 
-	multiply_variable = { marlib_pop = 100 }
 	
 	add_to_variable = { dem_pop = demsoc_pop }
 	add_to_variable = { dem_pop = socdem_pop }
@@ -358,8 +379,13 @@ class_2_senate_calc = {
 	divide_variable = { dem_pop = national_pop }
 	divide_variable = { gop_pop = national_pop }
 	
-	class_ii_tossup = yes
-
+	if = {
+		limit = {
+			check_variable = { total_seats > 0}
+		}		
+		class_ii_random = yes
+	}	
+	
 	add_to_variable = { class_ii_gop = cons_seats_class_ii }
 	add_to_variable = { class_ii_gop = neocon_seats_class_ii }
 	add_to_variable = { class_ii_gop = christian_dem_seats_class_ii} 
@@ -376,6 +402,8 @@ class_2_senate_calc = {
 	add_to_variable = { total_sen_gop = class_ii_gop }	
 }	
 class_3_senate_calc = {
+	set_variable = { class_iii_size = 32 }
+	set_variable = { total_seats = class_iii_size }
 	set_variable = { cons_seats_class_iii = 0 }
 	set_variable = { neocon_seats_class_iii = 0 }
 	set_variable = { christian_dem_seats_class_iii = 0 }
@@ -395,34 +423,26 @@ class_3_senate_calc = {
 	
 	#Liberal GOP Safe
 	set_variable = { centre_seats_class_iii = 4 }
-
+	subtract_from_variable = { total_seats = 4 }
+	
 	#Dixiecrat Safe
 	set_variable = { aut_seats_class_iii = 6 }
-
-	if = { 
-		limit = {
-			has_country_flag = alaska_statehood
-		}
-		add_to_variable = { marlib_seats_class_iii = 1}
-	}
-	if = { 
-		limit = {
-			has_country_flag = hawaii_statehood
-		}
-		add_to_variable = {  soclib_seats_class_iii = 1}
-	}
+	subtract_from_variable = { total_seats = 6 }
+	
 	set_variable = { senatechance = random }
 	if = { 
 		limit = { 
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = {  soclib_seats_class_iii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { neocon_seats_class_iii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}		
 	#New Deal vs Dixiecrat x2
 	set_variable = { senatechance = random }
@@ -431,12 +451,14 @@ class_3_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { socdem_seats_class_iii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { aut_seats_class_iii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	set_variable = { senatechance = random }
 	if = { 
@@ -444,12 +466,14 @@ class_3_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { socdem_seats_class_iii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { aut_seats_class_iii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 
 	#New Deal vs Liberal GOP x2
@@ -459,12 +483,14 @@ class_3_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { socdem_seats_class_iii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { centre_seats_class_iii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	set_variable = { senatechance = random }
 	if = { 
@@ -472,12 +498,14 @@ class_3_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { socdem_seats_class_iii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { centre_seats_class_iii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	
 	#New Deal vs Paleocons
@@ -487,27 +515,32 @@ class_3_senate_calc = {
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { socdem_seats_class_iii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { cons_seats_class_iii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}	
 	if = { 
 		limit = { 
 			check_variable = { senatechance > 0.5}
 		}
 		add_to_variable = { socdem_seats_class_iii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}
 	if = { 
 		limit = { 
 			check_variable = { senatechance < 0.51}
 		}
 		add_to_variable = { cons_seats_class_iii = 1}
+		subtract_from_variable = { total_seats = 1 }
 	}	
 	#Neocon
 	add_to_variable = { neocon_seats_class_iii = 4}
+	subtract_from_variable = { total_seats = 4 }
 
 	#Set GOP Nationwide Pop
 	set_variable = { gop_pop = 0 } 
@@ -550,7 +583,12 @@ class_3_senate_calc = {
 	
 	divide_variable = { dem_pop = national_pop }
 	divide_variable = { gop_pop = national_pop }
-
+	if = {
+		limit = {
+			check_variable = { total_seats > 0}
+		}		
+		class_iii_random = yes
+	}	
 	
 	add_to_variable = { class_iii_gop = cons_seats_class_iii }
 	add_to_variable = { class_iii_gop = neocon_seats_class_iii }
