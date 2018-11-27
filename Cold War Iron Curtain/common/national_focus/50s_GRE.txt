@@ -1388,4 +1388,790 @@ focus_tree = {
 
 	}
 
+###Election of 1952###
+
+	focus = {
+		id = GRE_Elections_of_1952
+		icon = GFX_focus_generic_election
+		cost = 10.00
+		
+		x = 36
+		y = 8
+        
+		available = {
+					has_global_flag = greek_elections_1952
+				}
+		bypass = {
+					has_global_flag = greek_elections_1952
+				}
+	}
+	
+##Papagos 1952
+	
+	focus = {
+		id = GRE_Papagos_1952
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Elections_of_1952
+		}
+	
+		x = 31
+		y = 9
+			available = {
+					always = no
+				}
+
+	}
+	
+	focus = {
+		id = GRE_Recognize_USA
+		icon = GFX_focus_chi_mission_to_the_us
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Papagos_1952
+		}
+		
+		completion_reward = {
+					GRE = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = large_increase
+								}
+						}
+				}
+	
+		x = 33
+		y = 10
+
+	}
+	
+	focus = {
+		id = GRE_USA_bases_1
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Recognize_USA
+		}
+	
+		x = 33
+		y = 12
+
+	}
+	
+	focus = {
+		id = GRE_KYP
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_USA_bases_1
+		}
+		
+		completion_reward = {
+		    add_ideas = GRE_State_Intelligence_Agency
+		}
+	
+		x = 33
+		y = 13
+
+	}
+	
+	focus = {
+		id = GRE_Cyprus_question
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Papagos_1952
+			focus = GRE_Plastiras_1952
+		}
+		
+		completion_reward = {
+					GRE = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = medium_decrease
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = medium_decrease
+								}
+						}
+				}
+	
+		x = 36
+		y = 11
+
+	}
+	
+	focus = {
+		id = GRE_Greece_wants_union
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Cyprus_question
+		}
+		
+		completion_reward = {
+					GRE = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = medium_decrease
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = medium_decrease
+								}
+						}
+				}
+	
+		x = 35
+		y = 12
+
+	}
+	
+	focus = {
+		id = GRE_Greece_resort_to_UN
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Greece_wants_union
+		}
+		
+		completion_reward = {
+					GRE = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = medium_decrease
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = medium_decrease
+								}
+						}
+					GRE = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = medium_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = medium_decrease
+								}
+						}
+				}
+	
+		x = 35
+		y = 13
+
+	}
+	
+	focus = {
+		id = GRE_Tension_with_Turkey_rise 
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Cyprus_question
+		}
+		
+		completion_reward = {
+					
+					GRE = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = medium_decrease
+								}
+						}
+					TUR = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = medium_decrease
+								}
+						}
+				}
+	
+		x = 37
+		y = 12
+
+	}
+	
+	focus = {
+		id = GRE_Tension_with_Turkey_high 
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Tension_with_Turkey_rise 
+		}
+		
+		completion_reward = {
+					
+					add_stability = -0.1
+					GRE = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_decrease
+								}
+						}
+					TUR = {
+							add_opinion_modifier = {
+									target = TUR
+									modifier = large_decrease
+								}
+						}
+				}
+
+		x = 37
+		y = 13
+
+	}
+	
+	focus = {
+		id = GRE_Greece_Backs_Down 
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Tension_with_Turkey_high  
+		}
+		prerequisite = {
+			focus = GRE_Greece_resort_to_UN
+		}
+		
+		completion_reward = {
+		    add_stability = -0.10
+					
+			GRE = {
+				add_opinion_modifier = {
+				    target = USA
+				    modifier = medium_increase
+				    }
+				}
+			USA = {
+				add_opinion_modifier = {
+					target = GRE
+					modifier = medium_increase
+					}
+				}
+			GRE = {
+				add_opinion_modifier = {
+					target = ENG
+					modifier = medium_increase
+					}
+				}
+			ENG = {
+				add_opinion_modifier = {
+					target = GRE
+					modifier = medium_increase
+					}
+				}
+			GRE = {
+				add_opinion_modifier = {
+					target = TUR
+					modifier = medium_increase
+					}
+				}
+			TUR = {
+				add_opinion_modifier = {
+					target = GRE
+					modifier = medium_increase
+					}
+				}
+		}
+
+		x = 36
+		y = 14
+
+	}
+	
+	focus = {
+		id = GRE_Economic_reconstruction
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Papagos_1952
+		}
+		
+		completion_reward = {
+		    swap_ideas = {
+                remove_idea = GRE_war_devastation_harsh 
+                add_idea = GRE_war_devastation_medium
+            }
+		}
+	
+		x = 29
+		y = 10
+
+	}
+	
+	focus = {
+		id = GRE_Degrade_Drachma
+		icon = GFX_PileofMoney
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Economic_reconstruction
+		}
+		
+		completion_reward = {
+		    remove_ideas = GRE_hyperinflation
+		}
+	
+		x = 27
+		y = 11
+	}
+	
+	focus = {
+		id = GRE_Breton_Woods
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Economic_reconstruction
+		}
+	
+		x = 29
+		y = 11
+	}
+	
+	focus = {
+		id = GRE_Attract_Foreign_Capital
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Economic_reconstruction
+		}
+		
+		completion_reward = {
+					add_timed_idea = {
+							idea = GRE_foreign_investment
+							days = 900
+						}
+				}
+
+		x = 31
+		y = 11
+	}
+	
+	focus = {
+		id = GRE_Start_economic_growth
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Degrade_Drachma
+		}
+		
+		prerequisite = {
+			focus = GRE_Breton_Woods
+		}
+		prerequisite = {
+			focus = GRE_Attract_Foreign_Capital
+		}
+		
+		completion_reward = {
+		    swap_ideas = {
+                remove_idea = GRE_war_devastation_medium 
+                add_idea = GRE_war_devastation_small
+            }
+		}
+	
+		x = 29
+		y = 12
+	}
+	
+	focus = {
+		id = GRE_LIPTOL
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Start_economic_growth
+		}
+		
+		completion_reward = {
+					185 = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = coal_plant
+									level = 1
+									instant_build = yes
+								}
+						}
+				}
+	
+		x = 27
+		y = 13
+	}
+	
+	focus = {
+		id = GRE_Invest_Tourism_1952
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Start_economic_growth
+		}
+		
+		completion_reward = {
+					182 = {
+							limit = {
+									industrial_complex > 0
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+	            }
+		x = 29
+		y = 13
+	}
+	
+	focus = {
+		id = GRE_Greek_Oil_Company
+		icon = GFX_NorthernGas
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Start_economic_growth
+		}
+		
+		completion_reward = {
+					47 = {
+							add_resource = {
+									type = oil
+									amount = 5
+								}
+						}
+				}
+	
+		x = 31
+		y = 13
+	}
+	
+	focus = {
+		id = GRE_start_housing_program 
+		icon = GFX_focus_expand_Housing
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Greek_Oil_Company
+		}
+		prerequisite = {
+			focus = GRE_Invest_Tourism_1952
+		}
+		prerequisite = {
+			focus = GRE_LIPTOL
+		}
+		
+		completion_reward = {
+					add_timed_idea = {
+							idea = GRE_expanded_housing
+							days = 1200
+						}
+				}
+	
+		x = 29
+		y = 14
+	}
+	
+	focus = {
+		id = GRE_Papagos_Death
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_KYP
+		}
+	
+		x = 33
+		y = 15
+	}
+	
+###Plastiras 1952
+
+	focus = {
+		id = GRE_Plastiras_1952
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Elections_of_1952
+		}
+	
+		x = 41
+		y = 9
+			available = {
+					always = no
+				}
+
+	}
+	
+	focus = {
+		id = GRE_continue_economic_recovery
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Plastiras_1952
+		}
+		
+		completion_reward = {
+		    swap_ideas = {
+                remove_idea = GRE_war_devastation_harsh 
+                add_idea = GRE_war_devastation_medium 
+            }
+		}
+	
+		x = 44
+		y = 10
+
+	}
+	
+	focus = {
+		id = GRE_fight_hyperinflation
+		icon = GFX_PileofMoney
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_continue_economic_recovery
+		}
+		
+		completion_reward = {
+		    remove_ideas = GRE_hyperinflation
+		}
+	
+		x = 43
+		y = 11
+
+	}
+	
+	focus = {
+		id = GRE_price_control
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_fight_hyperinflation
+		}
+		completion_reward = {
+					add_ideas = agricultural_price_controls
+				}
+		
+	
+		x = 43
+		y = 12
+
+	}
+	
+	focus = {
+		id = GRE_invite_foreign_invstors
+		icon = GFX_industrial_methods
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_continue_economic_recovery
+		}
+		
+		completion_reward = {
+					add_timed_idea = {
+							idea = GRE_foreign_investment
+							days = 900
+						}
+				}
+	
+		x = 45
+		y = 11
+
+	}
+	
+	focus = {
+		id = GRE_Crete_investments
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_invite_foreign_invstors
+		}
+		
+		completion_reward = {
+					182 = {
+							limit = {
+									industrial_complex > 0
+									free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = industrial_complex
+									level = 1
+									instant_build = yes
+								}
+						}
+	            }
+		x = 45
+		y = 12
+
+	}
+	
+	focus = {
+		id = GRE_start_economic_recov
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_price_control
+		}
+		prerequisite = {
+			focus = GRE_Crete_investments
+		}
+		
+		completion_reward = {
+		    swap_ideas = {
+                remove_idea = GRE_war_devastation_medium 
+                add_idea = GRE_war_devastation_small
+            }
+		}
+	
+		x = 44
+		y = 13
+
+	}
+	
+	focus = {
+		id = GRE_Further_decrease_political_prosecutions
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Plastiras_1952
+		}
+		
+		completion_reward = {
+                remove_ideas = GRE_repression
+				remove_ideas = GRE_repression_harsh
+		}
+	
+		x = 39
+		y = 10
+
+	}
+	
+	focus = {
+		id = GRE_close_some_exile_camps 
+		icon = GFX_goal_support_democracy 
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Plastiras_1952
+		}
+		
+		completion_reward = {
+		    swap_ideas = {
+                remove_idea = GRE_indoctrination_camps_harsh
+                add_idea = GRE_indoctrination_camps_normal
+            }
+		}
+	
+		x = 41
+		y = 10
+
+	}
+	
+	focus = {
+		id = GRE_king_disapproves
+		icon = GFX_goal_support_democracy 
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Further_decrease_political_prosecutions
+		}
+		prerequisite = {
+			focus = GRE_close_some_exile_camps 
+		}
+		
+		completion_reward = {
+		            add_stability = -0.10
+		}
+	
+		x = 40
+		y = 11
+
+	}
+	
+	focus = {
+		id = GRE_Plastiras_death_Venizelos_in_charge
+		icon = GFX_goal_support_democracy 
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_king_disapproves
+		}
+	
+		x = 40
+		y = 12
+
+	}
+	
+	focus = {
+		id = GRE_fix_relations_USA
+		icon = GFX_focus_chi_mission_to_the_us 
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Plastiras_death_Venizelos_in_charge
+		}
+		
+		completion_reward = {
+					GRE = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = large_increase
+								}
+						}
+				}
+	
+		x = 40
+		y = 13
+
+	}
+	
+	focus = {
+		id = GRE_USA_bases
+		icon = GFX_goal_support_democracy 
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_fix_relations_USA
+		}
+	
+		x = 40
+		y = 14
+
+	}
+	
+	focus = {
+		id = GRE_establish_KYP
+		icon = GFX_goal_support_democracy 
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_USA_bases
+		}
+		
+		completion_reward = {
+		    add_ideas = GRE_State_Intelligence_Agency
+		}
+	
+		x = 40
+		y = 15
+
+	}
+	
 }
