@@ -2125,11 +2125,11 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-		    swap_ideas = {
-                remove_idea = GRE_war_devastation_harsh 
-                add_idea = GRE_war_devastation_medium 
-            }
-		}
+					add_timed_idea = {
+							idea = urban_planning
+							days = 1400
+						}
+				}
 	
 		x = 44
 		y = 10
@@ -2137,15 +2137,11 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_fight_hyperinflation
-		icon = GFX_PileofMoney
+		id = GRE_welfare_program_1952
+		icon = GFX_goal_generic_construct_civ_factory
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_continue_economic_recovery
-		}
-		
-		completion_reward = {
-		    remove_ideas = GRE_hyperinflation
 		}
 	
 		x = 43
@@ -2154,16 +2150,19 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_price_control
-		icon = GFX_goal_support_democracy
+		id = GRE_plastiras_housing_program_1952
+		icon = GFX_goal_generic_construct_civ_factory
 		cost = 10.00
 		prerequisite = {
-			focus = GRE_fight_hyperinflation
+			focus = GRE_welfare_program_1952
 		}
-		completion_reward = {
-					add_ideas = agricultural_price_controls
-				}
 		
+		completion_reward = {
+					add_timed_idea = {
+							idea = GRE_expanded_housing
+							days = 1600
+						}
+				}
 	
 		x = 43
 		y = 12
@@ -2222,21 +2221,18 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_start_economic_recov
-		icon = GFX_goal_generic_construct_civ_factory
+		id = GRE_fight_hyperinflation
+		icon = GFX_PileofMoney
 		cost = 10.00
 		prerequisite = {
-			focus = GRE_price_control
+			focus = GRE_plastiras_housing_program_1952
 		}
 		prerequisite = {
 			focus = GRE_Crete_investments
 		}
 		
 		completion_reward = {
-		    swap_ideas = {
-                remove_idea = GRE_war_devastation_medium 
-                add_idea = GRE_war_devastation_small
-            }
+		    remove_ideas = GRE_hyperinflation
 		}
 	
 		x = 44
@@ -2245,16 +2241,31 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_Further_decrease_political_prosecutions
+		id = GRE_start_economic_recov
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_fight_hyperinflation
+		}
+		
+		completion_reward = {
+		    swap_ideas = {
+                remove_idea = GRE_war_devastation_harsh
+                add_idea = GRE_war_devastation_medium 
+            }
+		}
+	
+		x = 44
+		y = 15
+
+	}
+	
+	focus = {
+		id = GRE_close_military_tribunals
 		icon = GFX_goal_support_democracy
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_Plastiras_1952
-		}
-		
-		completion_reward = {
-                remove_ideas = GRE_repression
-				remove_ideas = GRE_repression_harsh
 		}
 	
 		x = 39
@@ -2263,7 +2274,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_close_some_exile_camps 
+		id = GRE_close_exile_camps 
 		icon = GFX_goal_support_democracy 
 		cost = 10.00
 		prerequisite = {
@@ -2271,10 +2282,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-		    swap_ideas = {
-                remove_idea = GRE_indoctrination_camps_harsh
-                add_idea = GRE_indoctrination_camps_normal
-            }
+                remove_ideas = GRE_indoctrination_camps_normal
 		}
 	
 		x = 41
@@ -2283,14 +2291,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_king_disapproves
+		id = GRE_Rumors_king_disapprovment
 		icon = GFX_goal_support_democracy 
 		cost = 10.00
 		prerequisite = {
-			focus = GRE_Further_decrease_political_prosecutions
+			focus = GRE_close_military_tribunals
 		}
 		prerequisite = {
-			focus = GRE_close_some_exile_camps 
+			focus = GRE_close_exile_camps  
 		}
 		
 		completion_reward = {
@@ -2303,6 +2311,52 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = GRE_Further_decrease_political_prosecutions
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Rumors_king_disapprovment
+		}
+		
+		completion_reward = {
+                remove_ideas = GRE_repression
+		}
+	
+		x = 39
+		y = 12
+
+	}
+	
+	focus = {
+		id = GRE_steps_towards_liberal_society
+		icon = GFX_goal_support_democracy 
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Rumors_king_disapprovment
+		}
+	
+		x = 41
+		y = 12
+
+	}
+	
+	focus = {
+		id = GRE_king_disapproves
+		icon = GFX_goal_support_democracy 
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Further_decrease_political_prosecutions
+		}
+		prerequisite = {
+			focus = GRE_steps_towards_liberal_society
+		}
+	
+		x = 40
+		y = 13
+
+	}
+	
+	focus = {
 		id = GRE_Plastiras_death_Venizelos_in_charge
 		icon = GFX_goal_support_democracy 
 		cost = 10.00
@@ -2311,7 +2365,7 @@ focus_tree = {
 		}
 	
 		x = 40
-		y = 12
+		y = 14
 
 	}
 	
@@ -2339,7 +2393,7 @@ focus_tree = {
 				}
 	
 		x = 40
-		y = 13
+		y = 15
 
 	}
 	
@@ -2348,11 +2402,11 @@ focus_tree = {
 		icon = GFX_goal_support_democracy 
 		cost = 10.00
 		prerequisite = {
-			focus = GRE_fix_relations_USA
+			focus = GRE_Plastiras_death_Venizelos_in_charge
 		}
 	
-		x = 40
-		y = 14
+		x = 38
+		y = 15
 
 	}
 	
@@ -2361,16 +2415,18 @@ focus_tree = {
 		icon = GFX_goal_support_democracy 
 		cost = 10.00
 		prerequisite = {
-			focus = GRE_USA_bases
+			focus = GRE_Plastiras_death_Venizelos_in_charge
 		}
 		
 		completion_reward = {
 		    add_ideas = GRE_State_Intelligence_Agency
 		}
 	
-		x = 40
+		x = 42
 		y = 15
 
 	}
+	
+
 	
 }
