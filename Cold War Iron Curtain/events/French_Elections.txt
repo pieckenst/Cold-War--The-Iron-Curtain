@@ -997,6 +997,32 @@ country_event = {
 		complete_national_focus = FRA_60s_Referendum_Fail
 	}
 }
+#End of the War Peace
+country_event = {
+	id = algerian_war.0
+	title = algerian_war.0.t
+	desc = algerian_war.0.d
+	picture = GFX_FRA_Rene_Mayer_Country
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = FRA
+		has_idea = Algerian_Independentism
+		check_variable = { FRA.Algerian_mending > 75 }
+		check_variable = { FRA.Algerian_Nationalism < 15 }
+	}
+	
+	option = {
+		name = algerian_war.1.a
+		add_political_power = 150
+		add_stability = 0.1
+		remove_idea = Algerian_Independentism
+		set_variable = { FRA.Algerian_mending = 0 }
+		set_variable = { FRA.Algerian_Nationalism = 0 }
+	}
+}
 #Nothing found
 country_event = {
 	id = algerian_war.1
@@ -1006,7 +1032,12 @@ country_event = {
 	
 	fire_only_once = yes
 	is_triggered_only = yes
-
+	
+	trigger = {
+		tag = FRA
+		has_idea = Algerian_Independentism
+	}
+	
 	option = {
 		name = algerian_war.1.a
 		add_political_power = -50
@@ -1022,6 +1053,11 @@ country_event = {
 	fire_only_once = yes
 	is_triggered_only = yes
 
+	trigger = {
+		tag = FRA
+		has_idea = Algerian_Independentism
+	}
+	
 	option = {
 		name = algerian_war.2.a
 		add_stability = -0.05
@@ -1090,9 +1126,15 @@ country_event = {
 	fire_only_once = yes
 	is_triggered_only = yes
 
+	trigger = {
+		tag = FRA
+		has_idea = Algerian_Independentism
+	}
+
 	option = {
 		name = algerian_war.3.a
 		add_stability = -0.05
+		set_country_flag = mayer_culprit
 		add_political_power = 150
 		if = {
 			limit = {
@@ -1158,6 +1200,11 @@ country_event = {
 	fire_only_once = yes
 	is_triggered_only = yes
 
+	trigger = {
+		tag = FRA
+		has_idea = Algerian_Independentism
+	}
+
 	option = {
 		name = algerian_war.4.a
 		add_stability = 0.01
@@ -1210,6 +1257,11 @@ country_event = {
 	
 	fire_only_once = yes
 	is_triggered_only = yes
+
+	trigger = {
+		tag = FRA
+		has_idea = Algerian_Independentism
+	}
 
 	option = {
 		name = algerian_war.5.a
