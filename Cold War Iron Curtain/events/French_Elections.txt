@@ -51,7 +51,7 @@ country_event = {
 	# François Mitterrand
 	option = {
 		name = "François Mitterrand"
-	create_country_leader = {
+	    create_country_leader = {
 		name = "François Mitterrand"
 		picture = "Portrait_France_Francois_Mitterrand.dds"
 		expire = "1996.1.8"
@@ -84,6 +84,8 @@ country_event = {
 	immediate = {
 		set_country_flag = french_elections_1969
 		complete_national_focus = FRA_60s_Elections_of_1969
+		
+		
 	}
 
 	# Georges Pompidou
@@ -120,6 +122,7 @@ country_event = {
 			ideology = christian_democracy
 		}
 		set_global_flag = alain_poher_1969
+		complete_national_focus = FRA_60s_Alain_Poher_1969
 		set_politics = {
 			ruling_party = Christian_Democratic
 			elections_allowed = yes
@@ -149,8 +152,38 @@ country_event = {
 		ideology = socialism
 		}
 		set_global_flag = mitterand_1969
+		complete_national_focus = FRA_60s_Mitterand_1969
 		set_politics = {
 			ruling_party = socialist
+			elections_allowed = yes
+		}
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+	
+	option = {
+		name = "Jacques Duclos"
+		trigger = {
+			OR = {
+				has_completed_focus = FRA_60s_Gaullist_Defeat
+				has_completed_focus = FRA_60s_Referendum_Success
+			}
+		}
+		create_country_leader = {
+		name = "Jacques Duclos"
+		picture = "Portrait_Jacques_Duclos.dds"
+		expire = "1975.4.25"
+		ideology = stalinism
+		}
+		set_global_flag = jacque_duclot_1969
+		complete_national_focus = FRA_60s_Jacque_Duclot
+		set_politics = {
+			ruling_party = communism
 			elections_allowed = yes
 		}
 		ai_chance = {
