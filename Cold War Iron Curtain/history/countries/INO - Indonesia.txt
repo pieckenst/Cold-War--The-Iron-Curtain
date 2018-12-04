@@ -116,27 +116,41 @@ add_ideas = {
 set_convoys = 6
 set_war_support = 0.9
 
+declare_war_on = {
+	target = HOL
+	type = annex_everything
+}
+declare_war_on = {
+	target = INS
+	type = annex_everything
+}
+
+set_variable = { var = domestic_influence_amount value = 5000 }
+set_variable = { var = influencer1 value = JAP.id }
+set_variable = { var = influencer1_amount value = 200 }
+set_variable = { var = influencer2 value = USA.id }
+set_variable = { var = influencer2_amount value = 1000 }
+set_variable = { var = influencer3 value = SOV.id }
+set_variable = { var = influencer3_amount value = 10 }
+
 set_politics = {
 
 	parties = {
         democratic = { popularity = 0 }
-        communism = { popularity = 18 }
+        communism = { popularity = 0 }
         fascism = { popularity = 0 }
         nationalism = { popularity = 0 }
         monarchism = { popularity = 0 }
         neutrality = { popularity = 0 }
-        islamism = { popularity = 0 }
+        islamism = { popularity = 39.3 }
         radical_shiaism = { popularity = 0 }
-        
         Social_Democratic = { popularity = 0 }
         Social_Liberalism = { popularity = 0 }
         Salafism = { popularity = 0 }
-        
-        Liberal_Conservatism = { popularity = 24 }
-        
+        Liberal_Conservatism = { popularity = 0 }
         conservative = { popularity = 0 }
         Christian_Democratic = { popularity = 0 }
-        socialist = { popularity = 58 }
+        socialist = { popularity = 60.7 }
         centrist = { popularity = 0 }
         liberal = { popularity = 0 }
         trotskyism = { popularity = 0 }
@@ -146,47 +160,50 @@ set_politics = {
 	}
 	
 	ruling_party = socialist
-	last_election = "1945.1.1"
-	election_frequency = 72
-	elections_allowed = no
+	last_election = "1939.9.29"
+	election_frequency = 192
+	elections_allowed = yes
 }
+
 create_country_leader = {
 	name = "Sukarno"
 	picture = "Sukarno.dds"
-	expire = "1968.1.1"
 	ideology = socialism
 }
 
-1945.1.1 = {
-	declare_war_on = {
-		target = HOL
-		type = annex_everything
-	}
-		declare_war_on = {
-		target = INS
-		type = annex_everything
-	}
-	declare_war_on = {
-		target = DAR
-		type = annex_everything
-	}
+create_country_leader = {
+	name = "Suharto"
+	picture = "Suharto.dds"
+	ideology = reactionary
 }
-	set_variable = { var = domestic_influence_amount value = 5000 }
-  
-	set_variable = { var = influencer1 value = JAP.id }
-	set_variable = { var = influencer1_amount value = 200 }
-	set_variable = { var = influencer2 value = USA.id }
-	set_variable = { var = influencer2_amount value = 1000 }
-	set_variable = { var = influencer3 value = SOV.id }
-	set_variable = { var = influencer3_amount value = 10 }
+
+create_country_leader = {
+	name = "Joko Widodo"
+	picture = "Joko_Widodo.dds"
+	ideology = social_democrat
+}
+
+create_country_leader = {
+	name = "Hasyim Asy'ari"
+	picture = "Hasyim_Asyari.dds"
+	ideology = democratic_islamism
+}
+
+1947.1.1 = {
+	create_country_leader = {
+	    name = "Soekiman Wirjosandjojo"
+	    picture = "Soekiman_Wirjosandjojo.dds"
+	    ideology = democratic_islamism
+    }
+}
 	
-1949.12.31 = {
+1949.12.1 = {
     capital = 842
     white_peace = INS
     white_peace = HOL
     remove_ideas = {
-	cold_war_civil_war_ideological_idea
-  }
+	    cold_war_civil_war_ideological_idea
+    }
 }
 
 1950.1.1 = {
@@ -196,93 +213,99 @@ create_country_leader = {
 	}
 }
 
+1960.9.1 = {
+	set_party_name = {
+		ideology = islamism
+		long_name = "Partai Kebangkitan Bangsa"
+		name = "PKB"
+	}
+	create_country_leader = {
+	    name = "Abdurrahman Wahid"
+	    picture = "Abdurrahman_Wahid.dds"
+	    ideology = democratic_islamism
+    }
+}
+
 1963.1.1 = {
 	white_peace = SMK
 }
 
-1968.1.1 = {
-set_politics = {
+1966.1.1 = {
+	set_politics = {
+	    parties = {
+            democratic = { popularity = 0 }
+            communism = { popularity = 0 }
+            fascism = { popularity = 0 }
+            nationalism = { popularity = 0 }
+            monarchism = { popularity = 0 }
+            neutrality = { popularity = 62.82 }
+            islamism = { popularity = 0 }
+            radical_shiaism = { popularity = 0 }
+            Social_Democratic = { popularity = 0 }
+            Social_Liberalism = { popularity = 0 }
+            Salafism = { popularity = 0 }
+            Liberal_Conservatism = { popularity = 0 }
+            conservative = { popularity = 0 }
+            Christian_Democratic = { popularity = 0 }
+            socialist = { popularity = 37.18 }
+            centrist = { popularity = 0 }
+            liberal = { popularity = 0 }
+            trotskyism = { popularity = 0 }
+            maoism = { popularity = 0 }
+            National_Socialism = { popularity = 0 }
 
-	parties = {
-        democratic = { popularity = 0 }
-        communism = { popularity = 23 }
-        fascism = { popularity = 0 }
-        nationalism = { popularity = 42 }
-        monarchism = { popularity = 0 }
-        neutrality = { popularity = 0 }
-        islamism = { popularity = 0 }
-        radical_shiaism = { popularity = 0 }
-        
-        Social_Democratic = { popularity = 0 }
-        Social_Liberalism = { popularity = 0 }
-        Salafism = { popularity = 0 }
-        
-        Liberal_Conservatism = { popularity = 35 }
-        
-        conservative = { popularity = 0 }
-        Christian_Democratic = { popularity = 0 }
-        socialist = { popularity = 0 }
-        centrist = { popularity = 0 }
-        liberal = { popularity = 0 }
-        trotskyism = { popularity = 0 }
-        maoism = { popularity = 0 }
-        National_Socialism = { popularity = 0 }
-
-	}
-	
-	ruling_party = nationalism
-	last_election = "1945.1.1"
-	election_frequency = 48
-	elections_allowed = no
+	    }
+	    ruling_party = neutrality
+	    last_election = "1972.5.2"
+	    election_frequency = 60
+	    elections_allowed = yes
+    }
 }
 
-create_country_leader = {
-	name = "Muhammad Suharto"
-	picture = "Muhammad_Suharto.dds"
-	expire = "1998.1.1"
-	ideology = nationalist_ideology
-  }
+1998.1.1 = {
+	create_country_leader = {
+	    name = "Akbar Tandjung"
+	    picture = "Akbar_Tandjung.dds"
+	    ideology = reactionary
+    }
 }
 
-2000.1.1 = {
-set_politics = {
+1999.1.1 = {
+	set_politics = {
+	    parties = {
+            democratic = { popularity = 0 }
+            communism = { popularity = 0 }
+            fascism = { popularity = 0 }
+            nationalism = { popularity = 0 }
+            monarchism = { popularity = 0 }
+            neutrality = { popularity = 21.58 }
+            islamism = { popularity = 59.89 }
+            radical_shiaism = { popularity = 0 }
+            Social_Democratic = { popularity = 18.53 }
+            Social_Liberalism = { popularity = 0 }
+            Salafism = { popularity = 0 }
+            Liberal_Conservatism = { popularity = 0 }
+            conservative = { popularity = 0 }
+            Christian_Democratic = { popularity = 0 }
+            socialist = { popularity = 0 }
+            centrist = { popularity = 0 }
+            liberal = { popularity = 0 }
+            trotskyism = { popularity = 0 }
+            maoism = { popularity = 0 }
+            National_Socialism = { popularity = 0 }
 
-	parties = {
-        democratic = { popularity = 0 }
-        communism = { popularity = 8 }
-        fascism = { popularity = 0 }
-        nationalism = { popularity = 0 }
-        monarchism = { popularity = 0 }
-        neutrality = { popularity = 0 }
-        islamism = { popularity = 2 }
-        radical_shiaism = { popularity = 0 }
-        
-        Social_Democratic = { popularity = 0 }
-        Social_Liberalism = { popularity = 0 }
-        Salafism = { popularity = 0 }
-        
-        Liberal_Conservatism = { popularity = 72 }
-        
-        conservative = { popularity = 0 }
-        Christian_Democratic = { popularity = 0 }
-        socialist = { popularity = 0 }
-        centrist = { popularity = 18 }
-        liberal = { popularity = 0 }
-        trotskyism = { popularity = 0 }
-        maoism = { popularity = 0 }
-        National_Socialism = { popularity = 0 }
-
-	}
-	
-	ruling_party = Liberal_Conservatism
-	last_election = "2000.1.1"
-	election_frequency = 48
-	elections_allowed = yes
+	    }
+	    ruling_party = islamism
+	    last_election = "1999.4.5"
+	    election_frequency = 60
+	    elections_allowed = yes
+    }
 }
 
-create_country_leader = {
-	name = "Abdurrahman Wahid"
-	picture = "Abdurrahman_Wahid.dds"
-	ideology = liberal_conservatism
-  }
+2004.1.1 = {
+	create_country_leader = {
+	    name = "Jusuf Kalla"
+	    picture = "Jusuf_Kalla.dds"
+	    ideology = reactionary
+    }
 }
