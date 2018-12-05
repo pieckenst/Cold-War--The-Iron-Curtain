@@ -61,68 +61,6 @@ ideas = {
 			}
 		}
 
-		FRA_disjointed_government = {
-			
-			allowed = {
-				original_tag = FRA
-				always = no
-			}
-
-			allowed_civil_war = {
-				has_government = democratic
-			}
-
-			removal_cost = -1
-
-			picture = generic_disjointed_gov
-			
-			modifier = {
-				political_power_cost = 0.8
-				stability_factor = -0.10
-				surrender_limit = -0.5
-			}
-		}
-
-		FRA_protected_by_the_maginot_line = {
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				NOT = {
-					OR = {
-						AND = {
-							has_government = democratic
-							GER = {
-								has_government = democratic
-							}
-						}
-						AND = {
-							has_government = communism
-							GER = {
-								has_government = communism
-							}
-						}
-						AND = {	
-							has_government = fascism
-							GER = {
-								has_government = fascism
-							}
-						}
-					}
-				}
-			}
-
-			removal_cost = -1
-
-			picture = generic_wall_line
-			
-			modifier = {
-				max_planning = 0.25
-				planning_speed = -0.25
-			}
-		}
 
 		FRA_infantry_focus = {
 		
@@ -598,12 +536,35 @@ ideas = {
 			allowed = {
 				original_tag = FRA
 			}
+			visible = { date < 1974.1.1 }
+			picture = VGEyoung
 			
 			traits = { debt_expert }
 		}
+		Schuman_Econ_minister = { 
+		
+			allowed = {
+				original_tag = FRA
+			}
+			visible = { date < 1963.09.29 }
+			picture = Schuman_econ
+			
+			traits = { trade_policy_expert }
+		}
 	}
+	intel_advisor = {
+	
+		Pierre_Abelin_Intel_minister = { 
 		
-		
+			allowed = {
+				original_tag = FRA
+			}
+			visible = { date < 1977.05.23 }
+			picture = Pierre_Abelin
+			
+			traits = { basic_state_security }
+		}
+	}
 	# MILITARY
 	army_chief = {
 		
