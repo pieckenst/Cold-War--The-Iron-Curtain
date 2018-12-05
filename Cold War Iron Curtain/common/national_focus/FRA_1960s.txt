@@ -1,7 +1,7 @@
 focus_tree = {
 	id = FRA_1960s
 	country = {
-		factor = 0
+		factor = 1000
 	}
 	default = no
 	shared_focus = FRA_60s_Urbanization
@@ -172,7 +172,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Stay_in_Algeria
-		icon = GFX_goal_generic_more_territorial_claims
+		icon = GFX_French_Algeria
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Generals_Coup
@@ -187,7 +187,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Crush_the_FLN
-		icon = GFX_focus_secret_rearmament
+		icon = GFX_Algeria_Crushed
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Stay_in_Algeria
@@ -206,7 +206,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Anti_Insurgency_Tactics
-		icon = GFX_focus_generic_little_entente
+		icon = GFX_Algerian_Partisans
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Crush_the_FLN
@@ -226,7 +226,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Save_the_Pied_Noirs
-		icon = GFX_goal_continuous_increase_nu
+		icon = GFX_FRA_Returning_Home
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Crush_the_FLN
@@ -299,7 +299,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Relax_Media_Restrictions
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_goal_big_news
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Expand_Civilian_Nuclear_Program
@@ -447,109 +447,73 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_State_Directed_Growth
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_Spread_Industrialization
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_SICOMI_Creation
 		}
 		x = 23
 		y = 4
-			completion_reward = {
-					every_owned_state = {
-							add_extra_state_shared_building_slots = 1
-						}
-					random_owned_controlled_state = {
-							limit = {
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
 									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
 								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
+							}
 						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-						}
+					}
 				}
-
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = no
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+						level = 2
+						instant_build = no
+					}
+			}
+		}
 	}
 	focus = {
 		id = FRA_60s_New_National_Police
@@ -666,7 +630,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Degaulle_World_Tour
-		icon = GFX_goal_unknown
+		icon = GFX_Financial_Domination
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Vive_le_Quebec_libre
@@ -827,7 +791,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Fouchet_Reform
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_Commie_Treaty
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Create_IUT
@@ -1065,7 +1029,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_SMIC_Creation
-		icon = GFX_focus_generic_the_giant_wakes
+		icon = GFX_Cash_and_Carry
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Work_and_Remuneration_Reform
@@ -1091,7 +1055,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Reduce_Military_Service_To_One_Year
-		icon = GFX_focus_generic_the_giant_wakes
+		icon = GFX_Death_or_Dishonor
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Parental_Authority_Equality_Between_Men_And_Women
@@ -1152,12 +1116,12 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Alain_Poher_1969
-		icon = GFX_goal_support_democracy
+		icon = GFX_Leading_Torch
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Elections_of_1969
 		}
-		x = 25
+		x = 26
 		y = 13
 			available = {
 					has_country_flag = alain_poher_1969
@@ -1276,7 +1240,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Social_Housing_His
-		icon = GFX_goal_generic_major_alliance
+		icon = GFX_Encourage_Urbanization
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Academic_Funding_His
@@ -1416,7 +1380,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_60s_Elections_of_1969
 		}
-		x = 31
+		x = 30
 		y = 13
 			available = {
 					has_country_flag = mitterand_1969
@@ -1478,7 +1442,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Pass_Economic_And_Social_Empowerment_Law_in_Force
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_Room_Meeting
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Left_Victory
@@ -1494,7 +1458,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Restore_Franco_American_Relationship
-		icon = GFX_goal_generic_major_alliance
+		icon = GFX_goal_USA_deal
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Alain_Poher_1969
@@ -1534,7 +1498,7 @@ focus_tree = {
 
 	focus = {
 		id = FRA_60s_End_Gaulist_Social_Repression
-		icon = GFX_goal_support_democracy
+		icon = GFX_focus_peace_talks
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Georges_Pompidou_1969
@@ -1553,7 +1517,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Condemn_Anti_Clericalism
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_Enshrine_Secularism
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_End_Gaulist_Social_Repression
@@ -1588,7 +1552,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Negotiation_with_Protestors
-		icon = GFX_goal_generic_dangerous_deal
+		icon = GFX_tblra_union_agreement
 		cost = 2.80
 		prerequisite = {
 			focus = FRA_60s_May_1968
@@ -1742,7 +1706,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Decentralized_Power_69
-		icon = GFX_goal_anschluss
+		icon = GFX_Political_Support
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Support_Regional_Identities_69
@@ -1911,7 +1875,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Evain_Accords
-		icon = GFX_goal_generic_improve_relations
+		icon = GFX_Quell_Algerian_Nationalist_Demands
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Failure_of_the_Coup
@@ -1928,7 +1892,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Politique_de_Grandeur
-		icon = GFX_goal_support_democracy
+		icon = GFX_France_Flag_Focus
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Evain_Accords
@@ -1964,21 +1928,20 @@ focus_tree = {
 					has_completed_focus = FRA_60s_Dissolve_National_Assembly_62
 					has_completed_focus = FRA_60s_Universal_Suffrage_Referendum_62
 				}
-			completion_reward = {
-					random_owned_controlled_state = {
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = nuclear_reactor
-									level = 2
-									instant_build = yes
-								}
-						}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = nuclear_reactor
+					level = 2
+					instant_build = no
 				}
-
+			}
+		}
 	}
 	focus = {
 		id = FRA_60s_Assert_French_Independence
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_focus_francefirst
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Expand_the_Nuclear_Program
@@ -1993,7 +1956,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Dissolve_National_Assembly_62
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_National_Security_Act
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Politique_de_Grandeur
@@ -2008,7 +1971,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Universal_Suffrage_Referendum_62
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_French_Glory
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Politique_de_Grandeur
@@ -2051,7 +2014,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Create_State_Security_Court
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_Room_Meeting
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Assert_French_Independence
@@ -2108,7 +2071,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Teaching_Reform
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_Paper
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Friendship_Treaty_with_Germany
@@ -2122,7 +2085,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Stabilization_Plan
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_Expand_the_Topke_System
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_French_Fleet_Out_of_Nato_Integrated
@@ -2188,7 +2151,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Reform_RTF
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_tv
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Franco_Portuguese_Immigration_Treaty
@@ -2207,7 +2170,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Recognize_the_PRC
-		icon = GFX_goal_generic_improve_relations
+		icon = GFX_focus_chi_one_china_policy
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Franco_Portuguese_Immigration_Treaty
@@ -2256,7 +2219,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Create_the_Agence_De_Bassin
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_Bonneville_Dam
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Recognize_the_PRC
@@ -2302,7 +2265,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Military_Service_Reformation
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_To_The_Last_Man
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Create_the_Agence_De_Bassin
@@ -2319,7 +2282,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Empty_Chair_Policy
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_empty_seat_France
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Leave_SEATO
@@ -2403,208 +2366,116 @@ focus_tree = {
 					has_completed_focus = FRA_60s_Dissolve_National_Assembly_62
 					has_completed_focus = FRA_60s_Universal_Suffrage_Referendum_62
 				}
-			completion_reward = {
-					every_owned_state = {
-							add_extra_state_shared_building_slots = 1
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-						}
-				}
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+		}
 	}
 	focus = {
 		id = FRA_60s_Dirigisme_Economics
-		icon = GFX_goal_continuous_non_factory_construct
+		icon = GFX_FRA_Cooperation
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Trente_Glorieuses
 		}
 		x = 18
 		y = 9
-			completion_reward = {
-					every_owned_state = {
-							add_extra_state_shared_building_slots = 1
-						}
-					random_owned_controlled_state = {
-							limit = {
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
 									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
 								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
+							}
 						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-						}
-					random_owned_controlled_state = {
-							limit = {
-									free_building_slots = {
-											building = industrial_complex
-											size > 0
-											include_locked = yes
-										}
-									OR = {
-											is_in_home_area = yes
-											NOT = {
-													owner = {
-															any_owned_state = {
-																	free_building_slots = {
-																			building = industrial_complex
-																			size > 0
-																			include_locked = yes
-																		}
-																	is_in_home_area = yes
-																}
-														}
-												}
-										}
-								}
-							add_extra_state_shared_building_slots = 2
-							add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-						}
+					}
 				}
-
+				add_building_construction = {
+					type = industrial_complex
+						level = 2
+						instant_build = no
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = no
+					}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = no
+				}
+			}
+		}
 	}
 	focus = {
 		id = FRA_60s_Support_Regional_Identities
@@ -2629,7 +2500,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Social_Housing
-		icon = GFX_goal_generic_construction2
+		icon = GFX_BEL_socialist_infrastructure2
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Increase_the_Pensions
@@ -2651,7 +2522,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Decentralized_Power
-		icon = GFX_goal_anschluss
+		icon = GFX_SP_focus_shadow_government
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Social_Housing
@@ -2669,7 +2540,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Ban_the_Death_Penalty
-		icon = GFX_goal_support_democracy
+		icon = GFX_reign_of_terror
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Support_Regional_Identities
@@ -2810,7 +2681,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Industrialization_of_Paris
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_Expand_the_Metros
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Mitterand_1969
@@ -2864,7 +2735,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Censor_Motion_Get_Rejected
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_shadow_government
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Pass_Economic_And_Social_Empowerment_Law_in_Force
@@ -2878,7 +2749,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Censor_Motion_Pass
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_Puppet_President
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Pass_Economic_And_Social_Empowerment_Law_in_Force
@@ -2904,7 +2775,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Euro_Communism_His
-		icon = GFX_focus_YUG_pan_slavic_congress
+		icon = GFX_European_Relations
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_National_Unity
