@@ -9,6 +9,7 @@ add_namespace = morroccoelection
 add_namespace = morocco
 add_namespace = casablanca
 add_namespace = Maghreb
+add_namespace = morocco_news
 
 country_event = {
 	id = mor_ind.1
@@ -190,14 +191,14 @@ news_event = {
 }
 news_event = {
 	id = casablanca.1
-	title = "[GetNewspaperHeader]Casablanca Group Conference"
+	title = casablanca.1.t
 	desc = casablanca.1.d
-	picture = news_event_hernandez_texas
+	picture = GFX_report_event_Casablanca
 	fire_only_once = yes
 	is_triggered_only = yes
-	
+	major = yes
 	option = {
-		name = "A step in favor of the African Union"
+		name = casablanca.1.a
 	}
 }
 news_event = {
@@ -223,20 +224,18 @@ news_event = {
 }
 country_event = {
 	id = morocco.4
-	title = "Assassination attempt on the Prince"
+	title = morrocco.4.t
 	desc = morrocco.4.d
 	picture = GFX_report_event_usa_election_generic
 
 	is_triggered_only = yes
 
-	trigger = {
-	}
 	immediate = {
 		set_country_flag = assassination_attempt
 		remove_ideas = MOR_plot
 	}
 	option = { 
-		name = "The Prince survive"
+		name = morrocco.4.a
 		ai_chance = {
 			factor = 70
 			modifier = {
@@ -247,17 +246,20 @@ country_event = {
 		trigger = {
 		}
 		set_country_flag = hassansurvive
-		add_popularity = {
-				ideology = socialist
-				popularity = -0.10
-		}
-		add_popularity = {
-				ideology = communism
-				popularity = -0.10
+		hidden_effect = {
+			news_event = morocco_news.1
+			add_popularity = {
+					ideology = socialist
+					popularity = -0.10
+			}
+			add_popularity = {
+					ideology = communism
+					popularity = -0.10
+			}
 		}
 	}
 	option = { 
-		name = "The Prince die"
+		name = morrocco.4.b
 		ai_chance = {
 			factor = 30
 			modifier = {
@@ -266,18 +268,63 @@ country_event = {
 			}
 		}
 		trigger = {
-		has_country_flag = unfp_arrestation
+			NOT = {
+				has_country_flag = unfp_arrestation
+			}
 		}
-		add_popularity = {
-				ideology = monarchism
-				popularity = -0.10
-		}
-		add_popularity = {
-				ideology = communism
-				popularity = -0.10
+		hidden_effect = {
+			add_popularity = {
+					ideology = monarchism
+					popularity = -0.10
+			}
+			add_popularity = {
+					ideology = communism
+					popularity = -0.10
+			}
+			news_event = morocco_news.1
 		}
 		complete_national_focus = MOR_60s_PRINCE_ASSASSINATION
 		set_country_flag = hassan_assassination
+	}
+}
+news_event = {
+	id = morocco_news.1
+	title = {
+		text = morocco_news.1.t.his
+		trigger = { has_country_flag = hassansurvive }
+	}
+	title = {
+		text = morocco_news.1.t.alt
+		trigger = {
+			has_country_flag = hassan_assassination
+		}
+	}
+	desc = {
+		text = morocco_news.1.d.his
+		trigger = {
+			has_country_flag = hassansurvive
+		}
+	}
+	desc = {
+		text = morocco_news.1.d.alt
+		trigger = {
+			has_country_flag = hassan_assassination
+		}
+	}
+	picture = news_event_hernandez_texas
+
+	is_triggered_only = yes
+	option = { 
+		name = morocco_news.1.a
+		trigger = {
+			has_country_flag = hassansurvive
+		}
+	}
+	option = { 
+		name = morocco_news.1.b
+		trigger = {
+			has_country_flag = hassan_assassination
+		}
 	}
 }
 news_event = {
