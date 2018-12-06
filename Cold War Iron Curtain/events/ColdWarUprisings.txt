@@ -3,6 +3,7 @@
 ################################
 
 add_namespace = cwu
+add_namespace = ULT_SOV
 
 # Berlin uprising 1953
 country_event = {
@@ -269,7 +270,7 @@ country_event = {
 		ai_chance = { factor = 0 modifier = { is_historical_focus_on = no factor = 20 } }
 	}
 
-	option = { # Give in to their demands + civil war
+	option = { # Historical
 		name = cwu.7.b
 		set_autonomy = { target = HUN autonomy_state = autonomy_free }
 		set_politics = {
@@ -286,11 +287,7 @@ country_event = {
 				centrist = { popularity = 20 }
 			}
 		}
-		start_civil_war = {
-			ruling_party = socialist
-			ideology = communism
-			size = 0.8
-		}
+		USA = { country_event = cwu.300 }
 		hidden_effect = {
 			set_country_flag = hun_become_democratic
 			set_global_flag = hun_become_democratic_1
@@ -993,4 +990,69 @@ news_event = {
 			}
 		}
 
+}
+country_event = {
+	id = cwu.300
+	title = cwu.300.t
+	desc = cwu.300.d
+
+	is_triggered_only = yes
+
+	option = { # Fight them
+		name = "Issue Diplomatic Objections"
+		complete_national_focus = USA_Diplomatic_Objections
+		news_event = cwu.310
+		ai_chance = { factor = 1 modifier = { is_historical_focus_on = no factor = 80 } }
+	}
+	option = { # Fight them
+		name = "Issue an Ultimatum"
+		complete_national_focus = USA_Ultimatum_to_the_Soviets
+		ai_chance = { factor = 1 modifier = { is_historical_focus_on = no factor = 80 } }
+	}
+}
+country_event = {
+	id = ULT_SOV.1
+	title = ULT_SOV.1.t
+	desc = ULT_SOV.1.d
+
+	is_triggered_only = yes
+
+	option = { # Release Hungary
+		name = "Allow the Hungarian Revolution"
+		news_event = cwu.311
+		USA = { complete_national_focus = USA_Democracy_Restored_in_Hungary }
+		ai_chance = { factor = 1 modifier = { is_historical_focus_on = no factor = 80 } }
+	}
+	option = { # Fight them
+		name = "Reject the Ultimatum"
+		USA = { country_event = ULT_SOV.2 }
+		ai_chance = { factor = 1 modifier = { is_historical_focus_on = no factor = 80 } }
+	}
+}
+country_event = {
+	id = ULT_SOV.2
+	title = ULT_SOV.2.t
+	desc = ULT_SOV.2.d
+
+	is_triggered_only = yes
+
+	option = { # 
+		name = "To War Oncemore"
+		news_event = cwu.312
+		create_faction = NATO
+		HUN = {
+			add_ideas = nato_member
+			
+		}
+		add_to_faction = HUN
+		news_event = cwu.312
+		USA = { complete_national_focus = USA_The_Final_Struggle }
+		ai_chance = { factor = 1 modifier = { is_historical_focus_on = no factor = 80 } }
+	}
+	option = { # Fight them
+		name = "Back Down"
+		news_event = cwu.313
+		USA = { complete_national_focus = USA_Back_Down }
+		ai_chance = { factor = 1 modifier = { is_historical_focus_on = no factor = 80 } }
+	}
 }
