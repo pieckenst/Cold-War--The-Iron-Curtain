@@ -92,11 +92,21 @@ USA_foriegn_policy = {
 }
 stay_in_alliance_NATO = {
     enable = {
-		has_idea = nato_member
+        AND = {
+            is_in_faction = yes
+            any_allied_country = {
+                tag = USA
+                is_faction_leader = yes
+            }
+        }
     }
  
     abort = {
-        NOT = { country_exists = USA }
+       OR = {
+		 is_in_faction = no
+		 NOT = { country_exists = USA }
+	   }
+	
     }
    
     ai_strategy = {
