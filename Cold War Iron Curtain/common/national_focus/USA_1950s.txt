@@ -15,7 +15,7 @@
 	}
 	shared_focus = {
 		id = USA_Department_of_Defense
-		icon = GFX_focus_chi_mission_to_the_us
+		icon = GFX_focus_USA_mission_to_the_us
 		cost = 5.00
 		x = 15
 		y = 11
@@ -692,10 +692,108 @@
 		}
 		x = 20
 		y = 2
-
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}			
+					FRA = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						}		
+					ISR = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = ISR
+									modifier = large_increase
+								}
+						}		
+			
+					EGY = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = EGY
+									modifier = large_decrease
+								}
+						}
+					SAU = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = SAU
+									modifier = large_decrease
+								}
+						}
+					JOR = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = JOR
+									modifier = large_decrease
+								}
+						}
+					IRQ = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = IRQ
+									modifier = large_decrease
+								}
+						}
+					SYR = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = SYR
+									modifier = large_decrease
+								}
+						}
+				}
 	}
 	shared_focus = {
-		id = USA_Arm_Israel
+		id = USA_Arm_Israel_suez
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
@@ -703,7 +801,18 @@
 		}
 		x = 19
 		y = 3
-
+			completion_reward = {
+					send_equipment = {
+							target = ISR
+							type = infantry_equipment
+							amount = 4000
+						}
+					send_equipment = {
+							target = ISR
+							type = fighter_equipment
+							amount = 1000
+						}
+				}
 	}
 	shared_focus = {
 		id = USA_Support_Colonial_Powers_in_UN
@@ -714,7 +823,10 @@
 		}
 		x = 21
 		y = 3
-
+		completion_reward = {
+			add_threat = 10
+			news_event = america_colon.1
+		}
 	}
 	shared_focus = {
 		id = USA_Ignore_the_Crisis
@@ -758,7 +870,7 @@
 	}
 	shared_focus = {
 		id = USA_The_Truman_Doctrine
-		icon = GFX_focus_chi_mission_to_the_us
+		icon = GFX_focus_USA_mission_to_the_us
 		cost = 5.00
 		prerequisite = {
 			focus = USA_foriegn_affairs
@@ -1423,7 +1535,7 @@
 	}
 	shared_focus = {
 		id = USA_Containment
-		icon = GFX_focus_chi_mission_to_the_us
+		icon = GFX_focus_USA_mission_to_the_us
 		cost = 10.00
 		prerequisite = {
 			focus = USA_invite_greece_and_turkey_nato
@@ -2382,7 +2494,10 @@
 		}
 		x = 40
 		y = 5
-
+		completion_reward = {
+			KOR = { add_offsite_building = { type = industrial_complex level = 2 } }
+			JAP = { add_offsite_building = { type = industrial_complex level = 2 } }
+		}
 	}
 	shared_focus = {
 		id = USA_the_chinese_civil_war
@@ -2456,7 +2571,7 @@
 
 	}
 	shared_focus = {
-		id = CHI_Recognize_Reality
+		id = USA_Recognize_Reality
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
@@ -2464,7 +2579,11 @@
 		}
 		x = 43
 		y = 4
-
+		completion_reward = {
+			add_stability = -0.05
+			add_war_support = -0.05
+			add_political_power = 200
+		}
 	}
 	shared_focus = {
 		id = USA_declare_war_on_prc
@@ -2504,7 +2623,7 @@
 			focus = USA_declare_war_on_prc
 		}
 		prerequisite = {
-			focus = CHI_Recognize_Reality
+			focus = USA_Recognize_Reality
 		}
 		x = 44
 		y = 5
@@ -2611,7 +2730,7 @@
 	}
 	shared_focus = {
 		id = USA_Formosa_Decleration
-		icon = GFX_focus_chi_cooperation_with_the_nationalists
+		icon = GFX_focus_USA_cooperation_with_the_nationalists
 		cost = 10.00
 		prerequisite = {
 			focus = USA_Develop_Taiwanese_Industry
@@ -2868,7 +2987,7 @@
 	}
 	shared_focus = {
 		id = USA_The_Colonization_Question
-		icon = GFX_focus_chi_mission_to_the_us
+		icon = GFX_focus_USA_mission_to_the_us
 		cost = 10.00
 		prerequisite = {
 			focus = USA_foriegn_affairs
@@ -2958,7 +3077,7 @@
 	}
 	shared_focus = {
 		id = USA_intervene_in_vietnam
-		icon = GFX_focus_chi_reach_out_to_france
+		icon = GFX_focus_USA_reach_out_to_france
 		cost = 10.00
 		prerequisite = {
 			focus = USA_preserve_colonial_empires
@@ -2988,7 +3107,7 @@
 	}
 	shared_focus = {
 		id = USA_intervene_in_malaysia
-		icon = GFX_focus_chi_british_cooperation
+		icon = GFX_focus_USA_british_cooperation
 		cost = 10.00
 		prerequisite = {
 			focus = USA_preserve_colonial_empires
@@ -3478,7 +3597,7 @@
 
 	}
 	shared_focus = {
-		id = USA_Outreach_to_Ho_Chi_Minh
+		id = USA_Outreach_to_Ho_USA_Minh
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
@@ -3489,18 +3608,48 @@
 		}
 		x = 63
 		y = 3
-
+		available = {
+			country_exists = VIN
+			date > 1953.6.1
+		}
+		completion_reward = {
+			VIN = {
+				country_event = americ_vin.1
+			}
+		}
 	}
 	shared_focus = {
 		id = USA_The_Unification_of_Vietnam
 		icon = GFX_goal_unknown
 		cost = 10.00
 		prerequisite = {
-			focus = USA_Outreach_to_Ho_Chi_Minh
+			focus = USA_Outreach_to_Ho_USA_Minh
 		}
 		x = 63
 		y = 4
-
+		completion_reward = {
+			VIN = {
+				annex_country = {
+					target = VIE
+					transfer_troops = yes
+				}			
+				create_country_leader = {
+					name = "Ho Chi Minh"
+					picture = "Ho_USA_Minh.dds"
+					ideology = socialism
+				}
+				add_popularity = {
+					ideology = socialist
+					popularity = 0.65
+				}
+				set_politics = {
+					ruling_party = socialist
+					elections_allowed = no
+				}
+			}	
+			complete_national_focus = USA_Finlandization_of_Vietnam
+			news_event = americ_vin.2
+		}
 	}
 	shared_focus = {
 		id = USA_Finlandization_of_Vietnam
@@ -3511,7 +3660,12 @@
 		}
 		x = 63
 		y = 5
-
+		completion_reward = {
+			news_event = americ_vin.3
+			VIN = {
+				add_ideas = neutrality_idea
+			}
+		}
 	}
 	shared_focus = {
 		id = USA_support_for_south_vietnam
@@ -3521,7 +3675,7 @@
 			focus = USA_end_of_colonization
 		}
 		mutually_exclusive = {
-			focus = USA_Outreach_to_Ho_Chi_Minh
+			focus = USA_Outreach_to_Ho_USA_Minh
 		}
 		x = 65
 		y = 3
@@ -3819,7 +3973,7 @@
 	}
 	shared_focus = {
 		id = USA_Creation_of_the_CIA
-		icon = GFX_focus_chi_mission_to_the_us
+		icon = GFX_focus_USA_mission_to_the_us
 		cost = 10.00
 		prerequisite = {
 			focus = USA_foriegn_affairs
@@ -3847,7 +4001,32 @@
 		}
 		x = 75
 		y = 2
-
+		completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = PER
+									modifier = small_increase
+								}
+						}
+					PER = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+						}	
+					USA = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_increase
+								}
+						}
+					ENG = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}		
+		}
 	}
 	shared_focus = {
 		id = USA_Foriegn_Aid_to_Iran
@@ -3858,7 +4037,23 @@
 		}
 		x = 75
 		y = 3
-
+		completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = PER
+									modifier = small_increase
+								}
+						}
+					PER = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+								add_offsite_building = { type = industrial_complex level = 2 }
+						}
+						
+						add_to_variable = { var = influencer2_amount value = 250 }
+			}
 	}
 	shared_focus = {
 		id = USA_Redevelopment_of_the_Iranian_Armed_Forces
@@ -3869,7 +4064,24 @@
 		}
 		x = 75
 		y = 4
-
+		completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = PER
+									modifier = small_increase
+								}
+						}
+					PER = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+								army_experience = 25
+								add_offsite_building = { type = industrial_complex level = 2 }
+						}
+						
+						add_to_variable = { var = influencer2_amount value = 400 }
+			}
 	}
 	shared_focus = {
 		id = USA_support_monarchism_iran
@@ -4134,7 +4346,13 @@
 		}
 		x = 81
 		y = 4
-
+			completion_reward = {
+					send_equipment = {
+							target = LEB
+							type = infantry_equipment
+							amount = 3000
+						}
+				}
 	}
 	shared_focus = {
 		id = USA_Support_Nasser
@@ -4148,7 +4366,21 @@
 		}
 		x = 83
 		y = 3
-
+		completion_reward = {
+					EGY = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = EGY
+									modifier = small_increase
+								}
+						}
+						add_to_variable = { var = influencer2_amount value = 100 }		
+		}
 	}
 	shared_focus = {
 		id = USA_Fund_the_Aswan_Dam
@@ -4159,7 +4391,21 @@
 		}
 		x = 83
 		y = 4
-
+		completion_reward = {
+					EGY = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = EGY
+									modifier = large_increase
+								}
+						}
+						add_to_variable = { var = influencer2_amount value = 200 }
+		}
 	}
 	shared_focus = {
 		id = USA_PBSUCCESS
@@ -4339,7 +4585,7 @@
 	}
 	shared_focus = {
 		id = USA_Operation_Condor
-		icon = GFX_focus_chi_mission_to_the_us
+		icon = GFX_focus_USA_mission_to_the_us
 		cost = 10.00
 		prerequisite = {
 			focus = USA_Creation_of_the_CIA
@@ -5352,7 +5598,7 @@
 	}
 	shared_focus = {
 		id = USA_Post_War_China
-		icon = GFX_focus_chi_one_china_policy
+		icon = GFX_focus_USA_one_china_policy
 		cost = 10.00
 		prerequisite = {
 			focus = USA_Second_Chinese_Civil_War
@@ -6191,7 +6437,15 @@
 		}
 		x = 14
 		y = 14
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = jet_rocket_bonus
+							bonus = 0.25
+							uses = 1
+							category = rocketry
+							category = jet_technology
+						}
+				}
 	}
 	shared_focus = {
 		id = USA_Atlas_Program
@@ -6205,6 +6459,14 @@
 		}
 		x = 13
 		y = 15
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = jet_rocket_bonus
+							bonus = 0.25
+							uses = 2
+							category = rocketry
+							category = jet_technology
+						}
+				}
 	}
 
