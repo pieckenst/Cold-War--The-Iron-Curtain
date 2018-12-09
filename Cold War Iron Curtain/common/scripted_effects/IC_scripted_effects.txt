@@ -3095,6 +3095,38 @@ ic_pulse = {
 		#Korea
 	if = {
 		limit = {	
+			tag = KOR
+			country_exists = KPA
+			KOR = { has_war_with = KPA }
+			has_global_flag = korean_war_begun
+			has_global_flag = korean_war_usa_enters
+			NOT = { has_global_flag = korean_armistice_china }
+			KOR = {
+				controls_state = 745
+				controls_state = 747
+				controls_state = 746
+			}
+		}
+		country_event = korea.10
+	}
+	if = {
+		limit = {	
+			tag = KPA
+			country_exists = KPA
+			KPA = { has_war_with = KOR }
+			has_global_flag = korean_war_begun
+			has_global_flag = korean_war_usa_enters
+			NOT = { has_global_flag = korean_armistice_china }
+			KPA = {
+				controls_state = 750
+				controls_state = 751
+				controls_state = 1127 								
+			}
+		}
+		country_event = korea.7
+	}	
+	if = {
+		limit = {	
 			tag = USA
 			country_exists = KOR
 			country_exists = KPA
