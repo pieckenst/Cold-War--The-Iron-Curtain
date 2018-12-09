@@ -3094,72 +3094,54 @@ ic_pulse = {
 		}
 		#Korea
 	if = {
-			limit = {	
-				tag = USA
-				country_exists = KOR
-				country_exists = KPA
-				KOR = { has_war_with = KPA }
-				has_global_flag = korean_war_begun
-				has_global_flag = korean_war_usa_enters
-				NOT = { has_global_flag = korean_armistice_china }
-				OR = {
-					date > 1953.7.26 
-					AND = {   
-						date > 1951.7.1 						
-						KOR = { 
-							controls_state = 866
-							controls_state = 917
-							controls_state = 919 								
-						}
-						KPA = { 
-							controls_state = 525
-							controls_state = 918
-							controls_state = 920							
-						}
-					}
-					AND = {   
-						date > 1950.1.1 						
-						KOR = { has_war_support < 0.2 }
-						KPA = { has_war_support < 0.2 }
-					}
-				}						
+		limit = {	
+			tag = USA
+			country_exists = KOR
+			country_exists = KPA
+			KOR = { has_war_with = KPA }
+			has_global_flag = korean_war_begun
+			has_global_flag = korean_war_usa_enters
+			NOT = { has_global_flag = korean_armistice_china }
+			date > 1953.7.26
+			date < 1953.8.1
+			KOR = {
+				controls_state = 866
+				controls_state = 750
+				controls_state = 753 								
 			}
-			country_event = korea.13
+			KPA = { 
+				controls_state = 920
+				controls_state = 1131
+				controls_state = 525							
+			}
 		}
+		country_event = korea.13
+	}
 	if = {
-			limit = {	
-				country_exists = KOR
-				country_exists = KPA
-				KPA = { has_war_with = KOR }
-				has_global_flag = korean_war_begun
-				NOT = {
-					has_global_flag = korean_war_china_enters
-					has_global_flag = korean_war_usa_enters
-				}
-				OR = {
-					date > 1953.7.26  
-					AND = {   
-						date > 1951.7.1 						
-						KOR = { 
-							controls_state = 866
-							controls_state = 917
-							controls_state = 919 								
-						}
-						KPA = { 
-							controls_state = 525
-							controls_state = 918
-							controls_state = 920							
-						}
-					}
-					AND = {   
-						date > 1950.1.1 						
-						KOR = { has_war_support < 0.2 }
-						KPA = { has_war_support < 0.2 }
-					}
-				}
+		limit = {	
+			country_exists = KOR
+			country_exists = KPA
+			KPA = { has_war_with = KOR }
+			has_global_flag = korean_war_begun
+			NOT = {
+				has_global_flag = korean_war_china_enters
+				has_global_flag = korean_war_usa_enters
 			}
-			country_event = korea.21
+			date > 1953.7.26  
+			date > 1953.8.1 						
+			KOR = {
+				controls_state = 866
+				controls_state = 750
+				controls_state = 753 								
+			}
+			KPA = { 
+				controls_state = 920
+				controls_state = 1131
+				controls_state = 525							
+			}
 		}
+		country_event = korea.21
+	}
 		if = {
 				limit = {	
 					tag = USA
