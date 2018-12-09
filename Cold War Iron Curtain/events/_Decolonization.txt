@@ -434,11 +434,17 @@ country_event = {
 	
 	option = {
 		name = decolonization.18.a
+		ai_chance = {
+		    factor = 100
+		}
 		release = MLT
 	}
 	
 	option = {
 		name = decolonization.18.b
+		ai_chance = {
+		    factor = 0
+		}
 		set_global_flag = overseas_territory_malta
 		add_political_power = -150
 		116 = { add_core_of = ROOT }
@@ -457,5 +463,43 @@ country_event = {
 	option = {
 		name = decolonization.19.a
 		release = BHM
+	}
+}
+
+#London-Zurich Agreements
+country_event = {
+	id = decolonization.20
+	title = decolonization.20.t	
+	desc = decolonization.20.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = decolonization.20.a
+		ai_chance = {
+		    factor = 100
+		}
+		CYP = { transfer_state = 183 transfer_state = 912 }
+		915 = { remove_core_of = CYP remove_core_of = NCY }
+	}
+	
+	option = {
+		name = decolonization.20.b
+		ai_chance = {
+		    factor = 0
+		}
+		random_list = {
+		    75 = {
+			    custom_effect_tooltip = "Chaos & Separatism"
+			    add_political_power = -100
+			    NCY = { transfer_state = 912 drop_cosmetic_tag = yes }
+				CYP = { transfer_state = 183 transfer_state = 915 }
+			}
+			25 = {
+			    custom_effect_tooltip = "Status-Quo"
+			    add_political_power = -50
+			}
+		}
 	}
 }

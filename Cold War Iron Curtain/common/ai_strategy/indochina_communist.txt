@@ -128,6 +128,41 @@ VIN_vietnam_war = {
 	}
 }
 
+VIN_first_indochina_war = {
+	
+	enable = {
+		OR = {
+		    has_government = communism
+			has_government = maoism
+			has_government = trotskyism
+		}
+	    OR = {
+		    original_tag = SOV
+			original_tag = PRC
+			original_tag = DDR
+			original_tag = POL
+		}
+		VIN = { has_war_with = FRA }
+		date < 1955.1.1	
+	}
+	
+	abort = {
+	    OR = {
+	        NOT = { VIN = { has_war_with = FRA } }
+		    NOT = {
+		        has_government = communism
+			    has_government = maoism
+			    has_government = trotskyism
+		    }
+	    }
+    }
+	ai_strategy = {
+		type = support
+		id = "VIN"			
+		value = 400
+	}
+}
+
 LAO_laotian_civil_war = {
 	
 	enable = {
