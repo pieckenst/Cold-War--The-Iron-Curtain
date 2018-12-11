@@ -394,7 +394,10 @@ CONGRESS_US = {
 			
             effect_tooltip = {
 			    add_political_power = 30
-		        add_ideas = agricultural_price_controls		
+		        add_timed_idea = {
+					idea = agricultural_price_controls
+					days = 1200
+				}
 		    } 			
         }
 		days_remove = 50
@@ -407,7 +410,10 @@ CONGRESS_US = {
 					}
 					country_event = { id = us_congress.100 }
 				    add_political_power = 30
-					add_ideas = agricultural_price_controls
+					add_timed_idea = {
+						idea = agricultural_price_controls
+						days = 1200
+					}
 				}
 				if = {
 				    limit = { 
@@ -1645,7 +1651,238 @@ CONGRESS_US = {
             }			
         }
     }
+	Renew_Agricultural_Subsidies_and_Price_Controls = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = Continue_Agricultural_Subsidies_Vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			#custom_effect_tooltip = will_vote
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.2 days = 15 }
+				country_event = { id = congress.7 days = 20 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+		        add_timed_idea = {
+					idea = agricultural_price_controls
+					days = 1200
+				}
+		    } 			
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					add_timed_idea = {
+						idea = agricultural_price_controls
+						days = 1200
+					}
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }	
+	Repeal_The_Taft_Hartley_Act = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = repeal_taft_hartley
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			#custom_effect_tooltip = will_vote
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+		        remove_ideas = taft_hartley_act
+		    } 			
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					remove_ideas = taft_hartley_act
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }
+	Fair_Labor_Stadnards_Amendment = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = Fair_Labor_Stadnards_Amendment_Vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			#custom_effect_tooltip = will_vote
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.2 days = 15 }
+				country_event = { id = congress.7 days = 20 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+		        add_ideas = Fair_Labor_Standards
+		    } 			
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					add_ideas = Fair_Labor_Standards
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }		
+	Rural_Healthcare_Act = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = Rural_Healthcare_Act_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			#custom_effect_tooltip = will_vote
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.2 days = 15 }
+				country_event = { id = congress.7 days = 20 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+		        add_timed_idea = {
+					idea = access_to_health_care
+					days = 1200
+				}
+		    } 			
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					add_timed_idea = {
+						idea = access_to_health_care
+						days = 1200
+					}
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }		
 }
+
 
 
 
