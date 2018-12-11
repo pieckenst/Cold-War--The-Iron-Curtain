@@ -45,6 +45,10 @@ set_convoys = 20
 
 set_cosmetic_tag = DOC_BEL
 
+set_variable = { var = domestic_influence_amount value = 500 }
+set_variable = { var = influencer1 value = BEL.id }
+set_variable = { var = influencer1_amount value = 2000 }
+
 set_politics = {
 
 	parties = {
@@ -53,16 +57,13 @@ set_politics = {
         fascism = { popularity = 0 }
         nationalism = { popularity = 0 }
         monarchism = { popularity = 0 }
-        neutrality = { popularity = 81 }
+        neutrality = { popularity = 100 }
         islamism = { popularity = 0 }
-		
         radical_shiaism = { popularity = 0 }
         Social_Democratic = { popularity = 0 }
         Social_Liberalism = { popularity = 0 }
         Salafism = { popularity = 0 }
-        
-        Liberal_Conservatism = { popularity = 19 }
-        
+        Liberal_Conservatism = { popularity = 0 }
         conservative = { popularity = 0 }
         Christian_Democratic = { popularity = 0 }
         socialist = { popularity = 0 }
@@ -74,7 +75,7 @@ set_politics = {
 	}
 	
 	ruling_party = neutrality
-	last_election = "1949.1.1"
+	last_election = "1945.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
@@ -86,15 +87,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Antoine Gizenga"
-	picture = "gfx/leaders/COG/Antoine_Gizenga.dds"
+	name = "Patrice Lumumba"
+	picture = "Patrice_Lumumba.dds"
 	ideology = democratic_socialist
-}
-
-create_country_leader = {
-	name = "Mobutu Sese Seko"
-	picture = "Mobutu_Sese_Seko.dds"
-	ideology = pan_africanism
 }
 
 create_country_leader = {
@@ -104,9 +99,15 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Laurent-Desire Kabila"
-	picture = "Laurent_Desire_Kabila.dds"
-	ideology = democratic_socialist
+	name = "Mobutu Sese Seko"
+	picture = "Mobutu_Sese_Seko.dds"
+	ideology = fascism_ideology
+}
+
+create_country_leader = {
+	name = "Antoine Gizenga"
+	picture = "Antoine_Gizenga.dds"
+	ideology = social_democrat
 }
 
 create_field_marshal = {
@@ -135,15 +136,37 @@ create_field_marshal = {
 	    ideology = colonial_regime
 	}
 }
-	set_variable = { var = domestic_influence_amount value = 500 }
-	set_variable = { var = influencer1 value = BEL.id }
-	set_variable = { var = influencer1_amount value = 2000 }
 
 1960.6.30 = {
-    drop_cosmetic_tag = yes
     remove_unit_leader = 581
-    set_party_name = { ideology = neutrality long_name = "Armée Nationale Congolaise" name = ANC }
-	
+	set_politics = {
+		parties = {
+            democratic = { popularity = 0 }
+            communism = { popularity = 0 }
+            fascism = { popularity = 0 }
+            nationalism = { popularity = 0 }
+            monarchism = { popularity = 0 }
+            neutrality = { popularity = 0 }
+            islamism = { popularity = 0 }
+            radical_shiaism = { popularity = 0 }
+            Social_Democratic = { popularity = 12.6 }
+            Social_Liberalism = { popularity = 0 }
+            Salafism = { popularity = 0 }
+            Liberal_Conservatism = { popularity = 9.5 }
+            conservative = { popularity = 0 }
+            Christian_Democratic = { popularity = 0 }
+            socialist = { popularity = 77.9 }
+            centrist = { popularity = 0 }
+            liberal = { popularity = 0 }
+            trotskyism = { popularity = 0 }
+            maoism = { popularity = 0 }
+            National_Socialism = { popularity = 0 }
+		}
+		ruling_party = socialist
+		last_election = "1960.5.22"
+		election_frequency = 60
+		elections_allowed = yes
+	}
 	set_variable = { var = domestic_influence_amount value = 1500 }
 	set_variable = { var = influencer1 value = BEL.id }
 	set_variable = { var = influencer1_amount value = 500 }
@@ -155,23 +178,21 @@ create_field_marshal = {
 	set_variable = { var = influencer4_amount value = 50 }
 }
 
-1965.1.1 = {
+1965.11.1 = {
 	set_politics = {
 		parties = {
             democratic = { popularity = 0 }
             communism = { popularity = 0 }
-            fascism = { popularity = 0 }
-            nationalism = { popularity = 83 }
+            fascism = { popularity = 100 }
+            nationalism = { popularity = 0 }
             monarchism = { popularity = 0 }
             neutrality = { popularity = 0 }
             islamism = { popularity = 0 }
             radical_shiaism = { popularity = 0 }
             Social_Democratic = { popularity = 0 }
-            Social_Liberalism = { popularity = 17 }
+            Social_Liberalism = { popularity = 0 }
             Salafism = { popularity = 0 }
-            
             Liberal_Conservatism = { popularity = 0 }
-            
             conservative = { popularity = 0 }
             Christian_Democratic = { popularity = 0 }
             socialist = { popularity = 0 }
@@ -182,10 +203,15 @@ create_field_marshal = {
             National_Socialism = { popularity = 0 }
 		}
 		
-		ruling_party = nationalism
-		last_election = "1965.1.1"
+		ruling_party = fascism
+		last_election = "1965.11.1"
 		election_frequency = 48
 		elections_allowed = no
+	}
+	set_party_name = {
+		ideology = Social_Democratic
+		long_name = "Parti Lumumbiste Unifié"
+		name = "PALU"
 	}
 }
 
@@ -200,7 +226,7 @@ create_field_marshal = {
             democratic = { popularity = 0 }
             communism = { popularity = 0 }
             fascism = { popularity = 0 }
-            nationalism = { popularity = 17 }
+            nationalism = { popularity = 0 }
             monarchism = { popularity = 0 }
             neutrality = { popularity = 0 }
             islamism = { popularity = 0 }
@@ -208,12 +234,10 @@ create_field_marshal = {
             Social_Democratic = { popularity = 0 }
             Social_Liberalism = { popularity = 0 }
             Salafism = { popularity = 0 }
-            
             Liberal_Conservatism = { popularity = 0 }
-            
             conservative = { popularity = 0 }
             Christian_Democratic = { popularity = 0 }
-            socialist = { popularity = 83 }
+            socialist = { popularity = 100 }
             centrist = { popularity = 0 }
             liberal = { popularity = 0 }
             trotskyism = { popularity = 0 }
@@ -223,7 +247,17 @@ create_field_marshal = {
 		ruling_party = socialist
 		last_election = "1997.1.1"
 		election_frequency = 48
-		elections_allowed = yes
+		elections_allowed = no
+	}
+	create_country_leader = {
+	    name = "Laurent-Desire Kabila"
+	    picture = "Laurent_Desire_Kabila.dds"
+	    ideology = democratic_socialist
+    }
+	set_party_name = {
+		ideology = socialist
+		long_name = "Parti du Peuple pour la Reconstruction et la Démocratie"
+		name = "PPRD"
 	}
 }
 

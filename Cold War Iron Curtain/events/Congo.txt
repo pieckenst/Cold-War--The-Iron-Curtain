@@ -11,38 +11,10 @@ country_event = {
 	
 	option = {
 		name = congo.1.a
-		ai_chance = {
-			factor = 99
-		}
-		country_event = { id = congo.2 hours = 1 }
-		hidden_effect = {
-			set_global_flag = congo_crisis_historical
-		}
+		country_event = congo.2
+		set_global_flag = congo_crisis_historical
 	}
-	option = {
-		name = congo.1.b
-		ai_chance = {
-			factor = 1
-		}
-		create_country_leader = {
-	        name = "Emile Janssens"
-	        picture = "Emile_Janssens.dds"
-	        ideology = military_junta
-        }
-		set_party_name = {
-	        ideology = neutrality
-	        name = "Force Publique"
-	    }
-		start_civil_war = {
-			ruling_party = neutrality
-			ideology = nationalism
-			size = 0.5
-			states = { 538 1207 827 826 718 }
-		}
-		hidden_effect = {
-			set_global_flag = congo_crisis_unhistorical
-		}
-	}
+	#Another option: suggest to Generalis
 }
 
 #Janssens fired
@@ -56,7 +28,6 @@ country_event = {
 	option = {
 		name = congo.2.a
 		remove_unit_leader = 581
-		set_party_name = { ideology = neutrality long_name = "Armée Nationale Congolaise" name = ANC }
 		create_field_marshal = {
 	        name = "Victor Lundula"
 		    picture = "Victor_Lundula.dds"
@@ -261,7 +232,7 @@ country_event = {
 			transfer_state = 827
 			transfer_state = 822
 			declare_war_on = { target = DOC type = annex_everything }
-			set_political_party = { ideology = communism popularity = 0.9 } 
+			add_popularity = { ideology = communism popularity = 0.9 } 
 			set_politics = { ruling_party = communism elections_allowed = no }
 			load_focus_tree = Simba_60s
 	    }
@@ -278,7 +249,7 @@ country_event = {
 			transfer_state = 827 
 			transfer_state = 822
 			declare_war_on = { target = DOC type = annex_everything }
-			set_political_party = { ideology = communism popularity = 0.9 } 
+			add_popularity = { ideology = communism popularity = 0.9 } 
 			set_politics = { ruling_party = communism elections_allowed = no }
 			load_focus_tree = Simba_60s
 	    }
@@ -315,8 +286,8 @@ country_event = {
 			factor = 100
 		}
 		set_global_flag = mobutu_coup
-        set_politics = { ruling_party = nationalism elections_allowed = no }
-		add_popularity = { ideology = nationalism popularity = 0.8 }
+        set_politics = { ruling_party = fascism elections_allowed = no }
+		add_popularity = { ideology = fascism popularity = 0.9 }
 	}
 	option = {
 		name = congo.7.b
@@ -325,9 +296,9 @@ country_event = {
 		}
 		set_global_flag = mobutu_civil_war
         start_civil_war = {
-			ruling_party = Liberal_Conservatism
-			ideology = nationalism
-			size = 0.7
+			ruling_party = socialist
+			ideology = fascism
+			size = 0.8
 			states = { 538 1207 827 826 718 }
 		}
 	}
