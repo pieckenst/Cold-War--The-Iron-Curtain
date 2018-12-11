@@ -431,7 +431,7 @@ focus_tree = {
 		completion_reward = {
 					add_timed_idea = {
 							idea = traditionalist_influence
-							days = 200
+							days = 720
 					}
 				}
 		
@@ -548,12 +548,12 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-		            add_timed_idea = {
-							idea = Social_Liberalism_drift_4
-							days = 100
-					}
-					add_stability = 0.05
-				}
+		    add_popularity = {
+                ideology = Social_Liberalism
+                popularity = 0.08
+		    }
+		    add_stability = 0.05
+		}
 		
 		x = 16
 		y = 3
@@ -590,6 +590,10 @@ focus_tree = {
 		prerequisite = {
 			focus = GRE_Voting_Right_to_Women
 		}
+		
+		completion_reward = {
+					country_event = greece.3
+				}
 
 		
 		x = 15
@@ -749,7 +753,7 @@ focus_tree = {
 				}
 				
 		completion_reward = {
-					add_stability = -0.10
+					add_stability = -0.05
 					country_event = greece.junta.1 
 				}
 		
@@ -936,7 +940,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_USA_import_equipment
+		id = GRE_USA_army_investments
 		icon = GFX_goal_generic_construction
 		cost = 8.00
 		prerequisite = {
@@ -947,11 +951,23 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-		        add_timed_idea = {
-							idea = importing_western_machinery
-							days = 360
+					random_owned_controlled_state = {
+							limit = {
+									arms_factory > 0
+									free_building_slots = {
+											building = arms_factory
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
 						}
-		}
+				}
 	
 		x = 20
 		y = 13
@@ -986,11 +1002,15 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-					add_timed_idea = {
-							idea = conservative_drift_3
-							days = 360
-						}
-				}
+			add_popularity = {
+                ideology = conservative
+                popularity = 0.1
+		    }
+            add_popularity = {
+                ideology = socialist
+                popularity = -0.05
+		    }			
+		}
 	
 		x = 23
 		y = 12
@@ -1161,7 +1181,7 @@ focus_tree = {
 		
 		completion_reward = {
 					add_stability = 0.05
-					country_event = greece.3 
+					country_event = greece.4 
 				}
 				
 		x = 8
@@ -1182,11 +1202,11 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-					add_timed_idea = {
-							idea = Social_Liberalism_drift_2
-							days = 360
-						}
-				}
+			add_popularity = {
+                ideology = Social_Liberalism
+                popularity = 0.05
+		    }
+		}
 		
 		x = 7
 		y = 13
@@ -1210,15 +1230,19 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-					add_timed_idea = {
-							idea = conservative_drift_4
-							days = 360
-						}
-				    add_timed_idea = {
-							idea = socialist_drift_1
-							days = 360
-						}
-				}
+			add_popularity = {
+                ideology = conservative
+                popularity = 0.15
+		    }
+			add_popularity = {
+                ideology = socialist
+                popularity = -0.05
+		    }	 
+            add_popularity = {
+                ideology = Social_Liberalism
+                popularity = -0.10
+		    }			
+		}
 		
 		x = 9
 		y = 13
@@ -2416,6 +2440,15 @@ focus_tree = {
 		prerequisite = {
 			focus = GRE_Plastiras_1952
 		}
+		
+		completion_reward = {
+			add_political_power = 100
+		    add_stability = 0.05
+			add_popularity = {
+                ideology = Social_Liberalism
+                popularity = 0.05
+		    }
+		}
 	
 		x = 45
 		y = 2
@@ -2451,7 +2484,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-		            add_stability = -0.10
+		        add_stability = -0.05
 		}
 	
 		x = 46
@@ -2498,6 +2531,10 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = GRE_steps_towards_liberal_society
+		}
+		
+		completion_reward = {
+		    add_stability = -0.05
 		}
 	
 		x = 46
@@ -2583,8 +2620,8 @@ focus_tree = {
 		icon = GFX_focus_generic_election
 		cost = 10.00
 		
-		x = 36
-		y = 17
+		x = 42
+		y = 8
         
 		available = {
 					has_global_flag = greek_elections_1956
@@ -2605,8 +2642,8 @@ focus_tree = {
 			focus = GRE_Elections_of_1956
 		}
 		
-		x = 31
-		y = 18
+		x = 37
+		y = 9
         
 	}
 	
@@ -2624,8 +2661,8 @@ focus_tree = {
 					add_political_power = -100
 		}
 		
-		x = 32
-		y = 20
+		x = 38
+		y = 11
         
 	}
 	
@@ -2639,14 +2676,14 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-					add_timed_idea = {
-							idea = conservativism_drift
-							days = 360
-						}
-				}
+			add_popularity = {
+                ideology = conservative
+                popularity = 0.1
+		    }		
+		}
 		
-		x = 31
-		y = 21
+		x = 37
+		y = 12
         
 	}
 	
@@ -2659,8 +2696,8 @@ focus_tree = {
 			focus = GRE_Electoral_Reform_1957
 		}
 		
-		x = 32
-		y = 22
+		x = 37
+		y = 13
         
 	}
 	
@@ -2690,8 +2727,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 33
-		y = 21
+		x = 39
+		y = 12
         
 	}
 	
@@ -2708,8 +2745,8 @@ focus_tree = {
                 remove_ideas = GRE_war_devastation_small
 		}
 		
-		x = 28
-		y = 19
+		x = 34
+		y = 10
         
 	}
 	
@@ -2729,8 +2766,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 27
-		y = 20
+		x = 33
+		y = 11
         
 	}
 	
@@ -2780,8 +2817,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 27
-		y = 21
+		x = 33
+		y = 12
         
 	}
 	
@@ -2812,8 +2849,8 @@ focus_tree = {
 								}
 						}
 		        }
-		x = 29
-		y = 20
+		x = 35
+		y = 11
         
 	}
 	
@@ -2845,8 +2882,8 @@ focus_tree = {
 						}
 		        }
 		
-		x = 29
-		y = 21
+		x = 35
+		y = 12
         
 	}
 	
@@ -2862,8 +2899,8 @@ focus_tree = {
 			focus = GRE_Tourism_Investments_1956
 		}
 		
-		x = 28
-		y = 22
+		x = 34
+		y = 13
         
 	}
 	
@@ -2878,8 +2915,8 @@ focus_tree = {
 			focus = GRE_Elections_of_1956
 		}
 		
-		x = 41
-		y = 18
+		x = 47
+		y = 9
         
 	}
 	
@@ -2892,8 +2929,8 @@ focus_tree = {
 			focus = GRE_Papandreou_1956
 		}
 		
-		x = 44
-		y = 19
+		x = 50
+		y = 11
         
 	}
 	
@@ -2906,8 +2943,8 @@ focus_tree = {
 			focus = GRE_Social_reforms_p
 		}
 				
-		x = 45
-		y = 20
+		x = 49
+		y = 12
         
 	}
 	
@@ -2920,8 +2957,8 @@ focus_tree = {
 			focus = GRE_Social_reforms_p
 		}
 		
-		x = 43
-		y = 20
+		x = 51
+		y = 12
         
 	}
 	
@@ -2942,8 +2979,8 @@ focus_tree = {
 		}
 		
 		
-		x = 44
-		y = 21
+		x = 50
+		y = 13
         
 	}
 	
@@ -2962,8 +2999,8 @@ focus_tree = {
 					add_stability = 0.1
 				}
 		
-		x = 40
-		y = 19
+		x = 46
+		y = 10
         
 	}
 	
@@ -2993,8 +3030,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 39
-		y = 20
+		x = 45
+		y = 11
         
 	}
 	
@@ -3007,8 +3044,8 @@ focus_tree = {
 			focus = GRE_Pap_denies_MRBM_bases
 		}
 		
-		x = 39
-		y = 21
+		x = 45
+		y = 12
         
 	}
 	
@@ -3022,12 +3059,16 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-					add_political_power = 100
-					add_stability = 0.05
-				}
+			add_political_power = 100
+		    add_stability = 0.05
+			add_popularity = {
+                ideology = socialist
+                popularity = 0.1
+		    }
+		}
 				
-		x = 41
-		y = 20
+		x = 47
+		y = 11
         
 	}
 	
@@ -3041,14 +3082,18 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-					add_timed_idea = {
-							idea = centrist_drift_3
-							days = 360
-						}
-				}
+			add_popularity = {
+                ideology = centrist
+                popularity = 0.10
+		    }
+			add_popularity = {
+                ideology = socialist
+                popularity = 0.05
+		    }
+		}
 		
-		x = 41
-		y = 21
+		x = 47
+		y = 12
         
 	}
 	
@@ -3064,12 +3109,15 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-		            add_stability = -0.10
-					add_political_power = -100
+		    add_stability = -0.05
+			add_popularity = {
+                ideology = centrist
+                popularity = 0.05
+		    }
 		}
 		
-		x = 40
-		y = 22
+		x = 46
+		y = 13
         
 	}
 	
@@ -3086,8 +3134,8 @@ focus_tree = {
 			
 		}
 		
-		x = 36
-		y = 19
+		x = 42
+		y = 10
         
 	}
 	
@@ -3100,8 +3148,8 @@ focus_tree = {
 			focus = GRE_Cyprus_Question_Contineus
 		}
 		
-		x = 35
-		y = 20
+		x = 41
+		y = 11
         
 	}
 	
@@ -3114,8 +3162,8 @@ focus_tree = {
 			focus = GRE_Cyprus_Question_Contineus
 		}
 		
-		x = 37
-		y = 20
+		x = 43
+		y = 11
         
 	}
 	
@@ -3130,8 +3178,8 @@ focus_tree = {
 			focus = GRE_Protest_for_Cyprus_Self-determination
 		}
 		
-		x = 36
-		y = 21
+		x = 42
+		y = 12
         
 	}
 
@@ -3142,8 +3190,8 @@ focus_tree = {
 		icon = GFX_focus_generic_election
 		cost = 10.00
 		
-		x = 36
-		y = 23
+		x = 42
+		y = 14
         
 		available = {
 					has_global_flag = greek_elections_1958
@@ -3163,8 +3211,8 @@ focus_tree = {
 			focus = GRE_Elections_of_1958
 		}
 		
-		x = 31
-		y = 24
+		x = 37
+		y = 15
         
 	}
 	
@@ -3185,8 +3233,8 @@ focus_tree = {
 			}
 		}
 		
-		x = 27
-		y = 25
+		x = 33
+		y = 16
         
 	}
 	
@@ -3202,8 +3250,8 @@ focus_tree = {
 		    add_ideas = GRE_automobile_industry
 		}
 		
-		x = 27
-		y = 26
+		x = 32
+		y = 17
         
 	}
 	
@@ -3224,8 +3272,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 26
-		y = 27
+		x = 31
+		y = 18
         
 	}
 	
@@ -3246,8 +3294,8 @@ focus_tree = {
 						}
 				}
 				
-		x = 28
-		y = 27
+		x = 33
+		y = 18
         
 	}
 	
@@ -3271,8 +3319,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 27
-		y = 28
+		x = 32
+		y = 19
         
 	}
 	
@@ -3293,8 +3341,8 @@ focus_tree = {
 						}
 				}
 				
-		x = 30
-		y = 27
+		x = 35
+		y = 18
         
 	}
 	
@@ -3315,8 +3363,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 30
-		y = 28
+		x = 35
+		y = 19
         
 	}
 	
@@ -3339,8 +3387,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 29
-		y = 26
+		x = 34
+		y = 17
         
 	}
 	
@@ -3356,8 +3404,8 @@ focus_tree = {
 			focus = GRE_Elections_of_1958
 		}
 		
-		x = 41
-		y = 24
+		x = 47
+		y = 15
         
 	}
 	
@@ -3405,8 +3453,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 45
-		y = 25
+		x = 51
+		y = 16
         
 	}
 	
@@ -3427,8 +3475,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 43
-		y = 26
+		x = 50
+		y = 17
         
 	}
 	
@@ -3444,8 +3492,8 @@ focus_tree = {
 				add_ideas = GRE_urbanisme
 		}
 		
-		x = 42
-		y = 27
+		x = 49
+		y = 18
         
 	}
 	
@@ -3464,8 +3512,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 42
-		y = 28
+		x = 49
+		y = 19
         
 	}
 	
@@ -3481,8 +3529,8 @@ focus_tree = {
 		    add_ideas = GRE_Autarky 
 		}
 		
-		x = 45
-		y = 26
+		x = 52
+		y = 17
         
 	}
 	
@@ -3503,8 +3551,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 44
-		y = 27
+		x = 51
+		y = 18
         
 	}
 	
@@ -3525,8 +3573,8 @@ focus_tree = {
 						}
 				}
 				
-		x = 46
-		y = 27
+		x = 53
+		y = 18
         
 	}
 	
@@ -3542,8 +3590,8 @@ focus_tree = {
 		}
 		add_stability = -0.1
 		
-		x = 36
-		y = 25
+		x = 42
+		y = 16
         
 	}
 	
@@ -3560,11 +3608,24 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-					add_ideas = GRE_General_Directorate_of_National_Security
-				}
+			add_ideas = GRE_General_Directorate_of_National_Security
+            add_popularity = {
+                ideology = conservative
+                popularity = 0.05
+		    }
+			add_popularity = {
+                ideology = centrist
+                popularity = 0.05
+		    }
+			add_popularity = {
+                ideology = socialism
+                popularity = -0.10
+		    
+		    }
+		}
 		
-		x = 35
-		y = 26
+		x = 41
+		y = 17
         
 	}
 	
@@ -3580,8 +3641,13 @@ focus_tree = {
 			focus = GRE_General_Directorate_National_Security
 		}
 		
-		x = 37
-		y = 26
+		completion_reward = {
+		            add_political_power = 100
+		            add_stability = 0.05
+		}
+		
+		x = 43
+		y = 17
         
 	}
 	
@@ -3593,10 +3659,16 @@ focus_tree = {
 			focus = GRE_ask_left_support
 			focus = GRE_General_Directorate_National_Security
 		}
-
 		
-		x = 36
-		y = 28
+		completion_reward = {
+			add_popularity = {
+                ideology = centrist
+                popularity = 0.10
+		    }
+		}
+
+		x = 42
+		y = 19
         
 	}
 	
@@ -3609,8 +3681,8 @@ focus_tree = {
 			focus = GRE_Papandreou_1958
 		}
 		
-		x = 39
-		y = 26
+		x = 46
+		y = 17
         
 	}
 	
@@ -3626,8 +3698,8 @@ focus_tree = {
 			focus = GRE_negotiations_hard_line
 		}
 		
-		x = 38
-		y = 27
+		x = 45
+		y = 18
         
 	}
 	
@@ -3643,8 +3715,8 @@ focus_tree = {
 		            add_stability = -0.10
 		}
 		
-		x = 38
-		y = 28
+		x = 45
+		y = 19
         
 	}
 	
@@ -3660,8 +3732,8 @@ focus_tree = {
 			focus = GRE_Zurich_London_Agreement
 		}
 		
-		x = 40
-		y = 27
+		x = 47
+		y = 18
         
 	}
 	
@@ -3674,8 +3746,8 @@ focus_tree = {
 		}
 		
 		
-		x = 40
-		y = 28
+		x = 47
+		y = 19
         
 	}
 
@@ -3705,8 +3777,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 33
-		y = 26
+		x = 38
+		y = 16
         
 	}
 	
@@ -3723,7 +3795,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-					add_political_power = -100
+					add_political_power = -50
 					add_stability = -0.05
 					random_owned_controlled_state = {
 							limit = {
@@ -3759,8 +3831,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 32
-		y = 27
+		x = 37
+		y = 17
         
 	}
 	
@@ -3792,8 +3864,8 @@ focus_tree = {
 								}
 						}
 		}
-		x = 34
-		y = 27
+		x = 39
+		y = 17
         
 	}
 	
@@ -3822,8 +3894,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 32
-		y = 28
+		x = 37
+		y = 18
         
 	}
 	
