@@ -1880,7 +1880,171 @@ CONGRESS_US = {
 				clr_country_flag = law_passing
             }			
         }
-    }		
+    }	
+	Establish_Nasa = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = nasa_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			#custom_effect_tooltip = will_vote
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.2 days = 15 }
+				country_event = { id = congress.3 days = 25 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+		        add_ideas = nasa		
+		    } 			
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					add_ideas = nasa
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }
+	Establish_ARPA = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = arpa_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			#custom_effect_tooltip = will_vote
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.2 days = 15 }
+				country_event = { id = congress.3 days = 25 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+		        add_ideas = ARPA		
+		    } 			
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					add_ideas = ARPA
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }	
+	The_Landrum_Griffin_Act = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = Landrum_Griffin_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			#custom_effect_tooltip = will_vote
+			
+			hidden_effect = {
+				country_event = { id = congress.2 days = 5 }
+				country_event = { id = congress.3 days = 10 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+		        add_ideas = landrum_griffin_act		
+		    } 			
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					add_ideas = landrum_griffin_act
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }	
 }
 
 
