@@ -24,13 +24,22 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Victory_in_the_Civil_War
-		icon = GFX_focus_prc_maoism
+		icon = GFX_Pride_of_The_Left
 		cost = 10.00
 		x = 16
 		y = 5
 		available = {
 		has_civil_war = no
 		always = no
+		}
+		completion_reward = {
+		custom_effect_tooltip = 68_Maoist_Victory
+			hidden_effect = {
+				add_timed_idea = {
+					idea = FRA_Maoist_Victory
+					days = 700
+				}
+			}
 		}
 	}
 	focus = {
@@ -42,7 +51,14 @@ focus_tree = {
 		}
 		x = 14
 		y = 6
-
+		completion_reward = {
+		custom_effect_tooltip = 68_Social_Reorganization
+			hidden_effect = {
+				add_stability = -0.1
+				add_political_power = 100
+				add_war_support = -0.3
+			}
+		}
 	}
 	focus = {
 		id = FRA_60s_Non_NATO_Intervention_Treaty
@@ -227,7 +243,23 @@ focus_tree = {
 		}
 		x = 18
 		y = 6
-
+		completion_reward = {
+		custom_effect_tooltip = 68_Establish_relations_with_PRC
+			hidden_effect = {
+				PRC = {
+					add_opinion_modifier = {
+						target = FRA
+						modifier = large_increase
+					}
+				}
+				FRA = {
+					add_opinion_modifier = {
+						target = PRC
+						modifier = large_increase
+					}
+				}
+			}
+		}
 	}
 	focus = {
 		id = FRA_60s_Honor_22_Marsh_Movement
@@ -252,7 +284,12 @@ focus_tree = {
 		}
 		x = 16
 		y = 8
-
+		completion_reward = {
+		custom_effect_tooltip = 68_Hearts_of_Real_Communism
+			hidden_effect = {
+				add_ideas = { FRA_Hearts_of_Communism }
+			}
+		}
 	}
 	focus = {
 		id = FRA_60s_Support_from_Soviets
@@ -350,7 +387,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Great_Offensive
-		icon = GFX_goal_generic_political_pressure
+		icon = GFX_FocusKampfgruppenDerArbeiterklasse
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Restart_Military_Factories
