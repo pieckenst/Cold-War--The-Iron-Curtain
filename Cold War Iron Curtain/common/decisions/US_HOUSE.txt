@@ -1,4 +1,59 @@
 CONGRESS_US = {
+	The_National_Defense_Education_Act = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = National_Defense_Education_Act_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			#custom_effect_tooltip = will_vote
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.2 days = 15 }
+				country_event = { id = congress.3 days = 25 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+		        add_ideas = National_Defense_Education_Act		
+		    } 			
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					add_ideas = National_Defense_Education_Act
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }
 	Communist_Control_Act = {
 	
         allowed = { tag = USA }
@@ -1374,6 +1429,243 @@ CONGRESS_US = {
             }			
         }
     }
+	Revise_the_Walsh_Healey_Contracts_Act = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = Revise_the_Walsh_Healey_Contracts_Act_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.2 days = 10 }
+				country_event = { id = congress.3 days = 15 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+				army_experience = 50
+				air_experience = 50
+				navy_experience = 50
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					army_experience = 50
+					air_experience = 50
+					navy_experience = 50
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }
+	
+	
+	Department_of_Defense_Reorganization_Act = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = Department_of_Defense_Reorganization_Act_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.2 days = 10 }
+				country_event = { id = congress.3 days = 15 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+				army_experience = 50
+				air_experience = 50
+				navy_experience = 50
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					army_experience = 50
+					air_experience = 50
+					navy_experience = 50
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }
+	The_Transportation_Act = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = Interstate_Highway_Act_of_1955_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.2 days = 10 }
+				country_event = { id = congress.3 days = 15 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+				every_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}				
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}	
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}	
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}	
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}	
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}	
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}	
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}	
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}	
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = infrastructure
+							level = 2
+							instant_build = yes
+						}
+					}	
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }	
 	The_Interstate_Highway_Act_of_1955 = {
 	
         allowed = { tag = USA }
