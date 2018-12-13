@@ -890,13 +890,13 @@ infantry_equipment_category = {
 		
 		visible = {
 			has_tech = hmg_1
-			NOT = { has_tech = manpads_2}
+			NOT = { has_tech = manpads_1}
 			}
 		
 		available = {
 			has_country_flag = var_done
-			has_tech = manpads_1
-			NOT = { has_tech = manpads_2}
+			has_tech = hmg_1
+			NOT = { has_tech = manpads_1}
 		}
 		
 		remove_trigger = {
@@ -925,14 +925,14 @@ infantry_equipment_category = {
 	adopt_manpad_II_slow = {
 		
 		visible = {
-			has_tech = manpads_2
-			NOT = { has_tech = manpads_3}
+			has_tech = manpads_1
+			NOT = { has_tech = manpads_2}
 			}
 		
 		available = {
 			has_country_flag = var_done
-			NOT = { has_tech = manpads_3}
-			has_tech = manpads_2
+			NOT = { has_tech = manpads_2}
+			has_tech = manpads_1
 		}
 		
 		remove_trigger = {
@@ -963,14 +963,14 @@ infantry_equipment_category = {
 	adopt_manpad_III_slow = {
 		
 		visible = {
-			has_tech = manpads_3
-			NOT = { has_tech = manpads_4}
+			has_tech = manpads_2
+			NOT = { has_tech = manpads_3}
 			}
 		
 		available = {
 			has_country_flag = var_done
-			NOT = { has_tech = manpads_4}
-			has_tech = manpads_3
+			NOT = { has_tech = manpads_3}
+			has_tech = manpads_2
 		}
 		
 		remove_trigger = {
@@ -999,15 +999,17 @@ infantry_equipment_category = {
 		
 	}
 
-	adopt_manpad_IV_1_slow = {
+	adopt_manpad_IV_slow = {
 		
 		visible = {
-			has_tech = manpads_4
+			has_tech = manpads_3
+			NOT = { has_tech = manpads_4}
 			}
 		
 		available = {
 			has_country_flag = var_done
-			has_tech = manpads_4
+			NOT = { has_tech = manpads_4}
+			has_tech = manpads_3
 		}
 		
 		remove_trigger = {
@@ -1035,19 +1037,56 @@ infantry_equipment_category = {
 		}
 		
 	}	
+	
+	adopt_manpad_V_slow = {
+		
+		visible = {
+			has_tech = manpads_4
+			}
+		
+		available = {
+			has_country_flag = var_done
+			has_tech = manpads_4
+		}
+		
+		remove_trigger = {
+			has_country_flag = manpad_5
+		}
+		
+		complete_effect = {
+		}
+		
+		days_remove = size_arm
+		
+		remove_effect = { 
+			set_country_flag = manpad_5
+			swap_ideas = {
+				
+				remove_idea = manpad_4
+				add_idea = manpad_5
+			}
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 2
+		}
+		
+	}
 
 
 	adopt_manpad_I_fast = {
 		
 		visible = {
 			has_tech = hmg_1
-			NOT = { has_tech = manpads_2}
+			NOT = { has_tech = manpads_1}
 			}
 		
 		available = {
 			has_country_flag = var_done
-			has_tech = manpads_1
-			NOT = { has_tech = manpads_2}
+			has_tech = hmg_1
+			NOT = { has_tech = manpads_1}
 		}
 		
 		remove_trigger = {
@@ -1086,14 +1125,14 @@ infantry_equipment_category = {
 	adopt_manpad_II_fast = {
 		
 		visible = {
-			has_tech = manpads_2
-			NOT = { has_tech = manpads_3}
+			has_tech = manpads_1
+			NOT = { has_tech = manpads_2}
 			}
 		
 		available = {
 			has_country_flag = var_done
-			has_tech = manpads_2
-			NOT = { has_tech = manpads_3}
+			has_tech = manpads_1
+			NOT = { has_tech = manpads_2}
 		}
 		
 		remove_trigger = {
@@ -1135,8 +1174,8 @@ infantry_equipment_category = {
 	adopt_manpad_III_fast = {
 		
 		visible = {
-			has_tech = manpads_3
-			NOT = { has_tech = manpads_4}
+			has_tech = manpads_2
+			NOT = { has_tech = manpads_3}
 			}
 		
 		available = {
@@ -1184,12 +1223,14 @@ infantry_equipment_category = {
 	adopt_manpad_IV_fast = {
 		
 		visible = {
-			has_tech = manpads_4
+			has_tech = manpads_3
+			NOT = { has_tech = manpads_4}
 			}
 		
 		available = {
 			has_country_flag = var_done
-			has_tech = manpads_4
+			has_tech = manpads_3
+			NOT = { has_tech = manpads_4}
 		}
 		
 		remove_trigger = {
@@ -1214,6 +1255,53 @@ infantry_equipment_category = {
 				
 				remove_idea = manpad_3
 				add_idea = manpad_4
+			}
+		}
+		
+		ai_will_do = {
+		    base = 10
+		    modifier = {
+			    has_war = yes}
+		}
+		
+		ai_will_do = {
+			base = 1
+		}
+	}
+	
+	adopt_manpad_V_fast = {
+		
+		visible = {
+			has_tech = manpads_4
+			}
+		
+		available = {
+			has_country_flag = var_done
+			has_tech = manpads_4
+		}
+		
+		remove_trigger = {
+			has_country_flag = manpad_5
+		}
+		
+		complete_effect = {
+			add_command_power = command_cost	
+		}
+
+		custom_cost_trigger = {
+			command_power>command_cost_p
+		}
+
+		custom_cost_text = AM_CP
+		
+		days_remove = size_arm_f
+		
+		remove_effect = {
+			set_country_flag = manpad_5
+			swap_ideas = {
+				
+				remove_idea = manpad_4
+				add_idea = manpad_5
 			}
 		}
 		
