@@ -2045,10 +2045,306 @@ CONGRESS_US = {
             }			
         }
     }	
+	The_Civil_Rights_Act_of_1957 = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+			NOT = { has_country_flag = law_passing }
+			has_country_flag = civil_rights_act_if_1957
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			#custom_effect_tooltip = will_vote
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.4 days = 10 }
+				country_event = { id = congress.7 days = 15 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+				remove_ideas = segregation_question
+		        add_ideas = civil_rights_act_of_1957		
+		    } 			
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					remove_ideas = segregation_question
+					add_ideas = civil_rights_act_of_1957
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }	
+	The_Civil_Rights_Act_of_1960 = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+			NOT = { has_country_flag = law_passing }
+			has_country_flag = civil_rights_act_of_1960_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			#custom_effect_tooltip = will_vote
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.4 days = 10 }
+				country_event = { id = congress.7 days = 15 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+				remove_ideas = segregation_question
+		        remove_ideas = civil_rights_act_of_1957		
+				add_ideas = civil_rights_act_of_1960
+		    } 			
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					remove_ideas = segregation_question
+					remove_ideas = civil_rights_act_of_1957		
+					add_ideas = civil_rights_act_of_1960				
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }	
+	The_Airways_Modernization_Act = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = Airways_Modernization_Act_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.2 days = 10 }
+				country_event = { id = congress.3 days = 15 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+				random_owned_state = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}			
+				random_owned_state = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}		
+				random_owned_state = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}						
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					random_owned_state = {
+						add_building_construction = {
+							type = air_base
+							level = 2
+							instant_build = yes
+						}
+					}			
+					random_owned_state = {
+						add_building_construction = {
+							type = air_base
+							level = 2
+							instant_build = yes
+						}
+					}		
+					random_owned_state = {
+						add_building_construction = {
+							type = air_base
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }	
+	The_Federal_Aviation_Act = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = Federal_Aviation_Act_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.2 days = 10 }
+				country_event = { id = congress.3 days = 15 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+				random_owned_state = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}			
+				random_owned_state = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}		
+				random_owned_state = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}						
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					random_owned_state = {
+						add_building_construction = {
+							type = air_base
+							level = 2
+							instant_build = yes
+						}
+					}			
+					random_owned_state = {
+						add_building_construction = {
+							type = air_base
+							level = 2
+							instant_build = yes
+						}
+					}		
+					random_owned_state = {
+						add_building_construction = {
+							type = air_base
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }	
 }
-
-
-
-
-
-
