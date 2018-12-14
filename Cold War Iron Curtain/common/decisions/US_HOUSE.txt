@@ -1,4 +1,63 @@
 CONGRESS_US = {
+	The_Admission_of_Alaska_and_Hawaii = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = Admission_of_Alaska_and_Hawaii_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			#custom_effect_tooltip = will_vote
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.2 days = 15 }
+				country_event = { id = congress.3 days = 25 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+				463 = { add_core_of = USA }
+				629 = { add_core_of = USA }
+
+		    } 			
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					463 = { add_core_of = USA }
+					629 = { add_core_of = USA }
+					set_country_flag = ak_hi_state
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }
 	The_Price_Anderson_Nuclear_Industries_Indemnity_Act = {
 	
         allowed = { tag = USA }
@@ -54,6 +113,119 @@ CONGRESS_US = {
             }			
         }
     }
+	Legislation_to_Ban_the_Sale_of_Switchblades = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = Ban_the_Sale_of_Switchblades_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			#custom_effect_tooltip = will_vote
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.2 days = 15 }
+				country_event = { id = congress.3 days = 25 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+		        add_ideas = Switchblades_Banned		
+		    } 			
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					add_ideas = Narcotics_Manufacturing_Act
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }
+	
+	
+	The_Narcotics_Manufacturing_Act = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = Narcotics_Manufacturing_Act_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			#custom_effect_tooltip = will_vote
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.2 days = 15 }
+				country_event = { id = congress.3 days = 25 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+		        add_ideas = Narcotics_Manufacturing_Act		
+		    } 			
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					add_ideas = Narcotics_Manufacturing_Act
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }
+
 	The_National_Defense_Education_Act = {
 	
         allowed = { tag = USA }
@@ -1365,7 +1537,8 @@ CONGRESS_US = {
             effect_tooltip = {
 			    add_political_power = 30
 				add_ideas =	Multiple_Mineral_Development_Act		
-        }
+			}
+		}
 		days_remove = 50
 		remove_effect = {
 			hidden_effect = {
@@ -1419,6 +1592,7 @@ CONGRESS_US = {
             effect_tooltip = {
 			    add_political_power = 30
 				add_ideas =	Small_Buisness_Act		
+			}
         }
 		days_remove = 50
 		remove_effect = {
@@ -1431,6 +1605,166 @@ CONGRESS_US = {
 					country_event = { id = us_congress.100 }
 				    add_political_power = 30
 					add_ideas =	Small_Buisness_Act	
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }
+	Repeal_the_Selective_Service_Act = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = Repeal_the_Selective_Service_Act_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.7 days = 15 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+				remove_ideas =	Selective_Service_Act
+			}
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					remove_ideas = Selective_Service_Act	
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }
+	Campaign_Finance_Reform_Legislation = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = Campaign_Finance_Reform_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.7 days = 15 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+				add_ideas =	Campaign_Finance_Reform		
+			}
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					add_ideas =	Campaign_Finance_Reform	
+				}
+				if = {
+				    limit = { 
+						check_variable = { supseat < 217 } 
+						check_variable = { supseat_sen < 48 } 
+					}
+				    country_event = { id = parliament.1 }
+				}
+				set_variable = { supseat = 0 }
+				set_variable = { supseat_sen = 0 }
+				
+				clr_country_flag = law_passing
+            }			
+        }
+    }
+	The_Drug_Efficacy_Amendment = {
+	
+        allowed = { tag = USA }
+		
+        available = {
+            NOT = { has_country_flag = law_passing }
+		   has_country_flag = Drug_Efficacy_Amendment_vote
+        }
+        visible = {
+            NOT = { has_country_flag = law_passing }
+        }
+		cost = 0
+        fire_only_once = yes
+		
+		complete_effect = {
+	        set_country_flag = law_passing
+			
+			hidden_effect = {
+				country_event = { id = congress.1 days = 5 }
+				country_event = { id = congress.2 days = 10 }
+				country_event = { id = congress.7 days = 15 }
+			}
+			
+            effect_tooltip = {
+			    add_political_power = 30
+				add_ideas =	Drug_Efficacy_Amendment	
+			}
+        }
+		days_remove = 50
+		remove_effect = {
+			hidden_effect = {
+			    if = {
+					limit = { 
+						check_variable = { supseat > 216 } 
+						check_variable = { supseat_sen > 47 } 
+					}
+					country_event = { id = us_congress.100 }
+				    add_political_power = 30
+					add_ideas =	Drug_Efficacy_Amendment	
 				}
 				if = {
 				    limit = { 
@@ -1471,7 +1805,8 @@ CONGRESS_US = {
 			
             effect_tooltip = {
 			    add_political_power = 30
-				add_ideas =	Air_Pollution_Control_Act		
+				add_ideas =	Air_Pollution_Control_Act	
+			}
         }
 		days_remove = 50
 		remove_effect = {
@@ -1524,7 +1859,8 @@ CONGRESS_US = {
 			
             effect_tooltip = {
 			    add_political_power = 30
-				add_ideas =	Health_Research_Facilities_Act		
+				add_ideas =	Health_Research_Facilities_Act	
+			}
         }
 		days_remove = 50
 		remove_effect = {
@@ -1580,6 +1916,7 @@ CONGRESS_US = {
 				army_experience = 50
 				air_experience = 50
 				navy_experience = 50
+			}
         }
 		days_remove = 50
 		remove_effect = {
@@ -1639,6 +1976,7 @@ CONGRESS_US = {
 				army_experience = 50
 				air_experience = 50
 				navy_experience = 50
+			}
         }
 		days_remove = 50
 		remove_effect = {
@@ -1699,7 +2037,8 @@ CONGRESS_US = {
 						level = 2
 						instant_build = yes
 					}
-				}				
+				}	
+			}
         }
 		days_remove = 50
 		remove_effect = {
@@ -1820,7 +2159,8 @@ CONGRESS_US = {
 						level = 2
 						instant_build = yes
 					}
-				}				
+				}	
+			}
         }
 		days_remove = 50
 		remove_effect = {
@@ -1933,7 +2273,8 @@ CONGRESS_US = {
 			
             effect_tooltip = {
 			    add_political_power = 30
-				add_ideas =	National_Firearms_Act		
+				add_ideas =	National_Firearms_Act	
+			}
         }
 		days_remove = 50
 		remove_effect = {
@@ -1985,7 +2326,8 @@ CONGRESS_US = {
 			
             effect_tooltip = {
 			    add_political_power = 30
-				add_ideas =	Internal_Revenue_Code_of_1954		
+				add_ideas =	Internal_Revenue_Code_of_1954	
+			}
         }
 		days_remove = 50
 		remove_effect = {
@@ -2038,7 +2380,8 @@ CONGRESS_US = {
 			
             effect_tooltip = {
 			    add_political_power = 30
-				add_ideas =	Career_Incentive_Act		
+				add_ideas =	Career_Incentive_Act	
+			}
         }
 		days_remove = 50
 		remove_effect = {
@@ -2622,7 +2965,8 @@ CONGRESS_US = {
 						level = 2
 						instant_build = yes
 					}
-				}						
+				}	
+			}
         }
 		days_remove = 50
 		remove_effect = {
@@ -2715,7 +3059,8 @@ CONGRESS_US = {
 						level = 2
 						instant_build = yes
 					}
-				}						
+				}	
+			}
         }
 		days_remove = 50
 		remove_effect = {
@@ -2808,7 +3153,8 @@ CONGRESS_US = {
 						level = 2
 						instant_build = yes
 					}
-				}						
+				}	
+			}
         }
 		days_remove = 50
 		remove_effect = {
