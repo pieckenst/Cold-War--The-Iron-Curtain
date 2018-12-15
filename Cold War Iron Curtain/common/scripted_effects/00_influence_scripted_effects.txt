@@ -1,6 +1,16 @@
 #Written by Killerrabbit and SWF541
 
 #Script to run after any change to influence
+monthly_power_projection_gain = {
+	set_variable = { foriegnPowerProjectionMonth = num_of_factories }
+	add_to_variable = { foriegnPowerProjectionMonth = num_subjects }
+	add_to_variable = { foriegnPowerProjectionMonth = num_owned_controlled_states }
+	add_to_variable = { foriegnPowerProjectionMonth = num_subjects }
+
+	divide_variable = { foriegnPowerProjectionMonth = 100 }
+	add_to_variable = { foriegnPowerProjection = foriegnPowerProjectionMonth }
+	
+}
 recalculate_influence = {
 	influence_refresh = yes
 	set_variable = { found_num_vars = 0 } #always have this
@@ -1344,49 +1354,49 @@ set_recent_action_check_defense_treaty = {
 coup_influence_change_success = {
 	if = {
 		limit = {
-			NOT = { check_variable = { influencer1 = FROM.temp_check } }
+			NOT = { check_variable = { influencer1 = ROOT.temp_check } }
 		}
 		
 		multiply_variable = { influencer1_amount = 0.5 }
 	}
 	if = {
 		limit = {
-			NOT = { check_variable = { influencer2 = FROM.temp_check } }
+			NOT = { check_variable = { influencer2 = ROOT.temp_check } }
 		}
 		
 		multiply_variable = { influencer2_amount = 0.5 }
 	}
 	if = {
 		limit = {
-			NOT = { check_variable = { influencer3 = FROM.temp_check } }
+			NOT = { check_variable = { influencer3 = ROOT.temp_check } }
 		}
 		
 		multiply_variable = { influencer3_amount = 0.5 }
 	}
 	if = {
 		limit = {
-			NOT = { check_variable = { influencer4 = FROM.temp_check } }
+			NOT = { check_variable = { influencer4 = ROOT.temp_check } }
 		}
 		
 		multiply_variable = { influencer4_amount = 0.5 }
 	}
 	if = {
 		limit = {
-			NOT = { check_variable = { influencer5 = FROM.temp_check } }
+			NOT = { check_variable = { influencer5 = ROOT.temp_check } }
 		}
 		
 		multiply_variable = { influencer5_amount = 0.5 }
 	}
 	if = {
 		limit = {
-			NOT = { check_variable = { influencer6 = FROM.temp_check } }
+			NOT = { check_variable = { influencer6 = ROOT.temp_check } }
 		}
 		
 		multiply_variable = { influencer6_amount = 0.5 }
 	}
 	if = {
 		limit = {
-			NOT = { check_variable = { influencer7 = FROM.temp_check } }
+			NOT = { check_variable = { influencer7 = ROOT.temp_check } }
 		}
 		
 		multiply_variable = { influencer7_amount = 0.5 }
@@ -1397,49 +1407,49 @@ coup_influence_change_success = {
 coup_influence_change_failure = {
 	if = {
 		limit = {
-			check_variable = { influencer1 = FROM.temp_check }
+			check_variable = { influencer1 = ROOT.temp_check }
 		}
 		
 		multiply_variable = { influencer1_amount = 0.25 }
 	}
 	if = {
 		limit = {
-			check_variable = { influencer2 = FROM.temp_check }
+			check_variable = { influencer2 = ROOT.temp_check }
 		}
 		
 		multiply_variable = { influencer2_amount = 0.25 }
 	}
 	if = {
 		limit = {
-			check_variable = { influencer3 = FROM.temp_check }
+			check_variable = { influencer3 = ROOT.temp_check }
 		}
 		
 		multiply_variable = { influencer3_amount = 0.25 }
 	}
 	if = {
 		limit = {
-			check_variable = { influencer4 = FROM.temp_check }
+			check_variable = { influencer4 = ROOT.temp_check }
 		}
 		
 		multiply_variable = { influencer4_amount = 0.25 }
 	}
 	if = {
 		limit = {
-			check_variable = { influencer5 = FROM.temp_check }
+			check_variable = { influencer5 = ROOT.temp_check }
 		}
 		
 		multiply_variable = { influencer5_amount = 0.25 }
 	}
 	if = {
 		limit = {
-			check_variable = { influencer6 = FROM.temp_check }
+			check_variable = { influencer6 = ROOT.temp_check }
 		}
 		
 		multiply_variable = { influencer6_amount = 0.25 }
 	}
 	if = {
 		limit = {
-			check_variable = { influencer7 = FROM.temp_check }
+			check_variable = { influencer7 = ROOT.temp_check }
 		}
 		
 		multiply_variable = { influencer7_amount = 0.25 }
