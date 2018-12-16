@@ -7,71 +7,65 @@ focus_tree = {
 			tag = MEX
 		}
 	}
-	continuous_focus_position = { x = 1500 y = 10000 }
 	default = no
+	continuous_focus_position = { x = 0 y = 3800 }
 	focus = {
 		id = MEX_The_Legislative_Elections_of_1949
 		icon = GFX_goal_support_democracy
 		cost = 10.00
 		x = 5
 		y = 0
-		completion_reward = {
-			add_political_power = 300
-		}
+			completion_reward = {
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = MEX_The_Guatamalan_Crisis
 		icon = GFX_goal_generic_neutrality_focus
 		cost = 10.00
 		x = 16
-		y = 0	
-		available = {
-			USA = {
-				has_completed_focus = USA_PBSUCCESS
-			}
-		}
-		completion_reward = {
-			add_political_power = 300
-		}
+		y = 0
+			available = {
+					USA = {
+							has_completed_focus = USA_PBSUCCESS
+						}
+				}
+			completion_reward = {
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = MEX_The_1958_Presidential_Elections
 		icon = GFX_goal_support_democracy
 		cost = 10.00
-		x = 5
+		x = 4
 		y = 22
-		available = {
-			has_country_flag = mex_1958_elections
-		}
-		bypass = {
-			has_country_flag = mex_1958_elections		
-		}
-	}
-	focus = {
-		id = MEX_American_Mexican_Negotiations
-		icon = GFX_focus_chi_mission_to_the_us
-		cost = 10.00
-		x = 7
-		y = 24
-		prerequisite = {
-			focus = MEX_The_National_Action_Party_1958
-		}
+			available = {
+					has_country_flag = mex_1958_elections
+				}
+			bypass = {
+					has_country_flag = mex_1958_elections
+				}
+
 	}
 	focus = {
 		id = MEX_Limitation_of_Elections
 		icon = GFX_focus_generic_strike_at_democracy2
 		cost = 10.00
-		x = 15
-		y = 22
-		available = {
-			OR = {
-				has_government = communism
-				has_government = monarchism
-			}
-		}
-		bypass = {
-			date > 1958.1.1
-		}
+		x = 12
+		y = 17
+			available = {
+					OR = {
+							has_government = communism
+							has_government = monarchism
+						}
+				}
+			bypass = {
+					date > 1958.1.1
+				}
+
 	}
 	focus = {
 		id = MEX_Fund_the_DFS
@@ -79,9 +73,10 @@ focus_tree = {
 		cost = 10.00
 		x = 20
 		y = 13
-		completion_reward = {
-			add_political_power = 300
-		}
+			completion_reward = {
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = MEX_Return_from_the_Expeditions
@@ -89,9 +84,10 @@ focus_tree = {
 		cost = 10.00
 		x = 31
 		y = 0
-		completion_reward = {
-			add_manpower = 50000
-		}
+			completion_reward = {
+					add_manpower = 50000
+				}
+
 	}
 	focus = {
 		id = MEX_The_Popular_Socialist_Party
@@ -100,16 +96,20 @@ focus_tree = {
 		prerequisite = {
 			focus = MEX_The_Legislative_Elections_of_1949
 		}
-		x = 2
-		y = 1
 		mutually_exclusive = {
 			focus = MEX_The_National_Action_Party
-			focus = MEX_The_Federation_of_Mexican_Peoples_Parties
 			focus = MEX_The_Institutional_Revolutionary_Party
-		}	
-		completion_reward = {
-			add_popularity = { ideology = communism popularity = 0.05 }
+			focus = MEX_The_Mexican_Democratic_Party
 		}
+		x = 2
+		y = 1
+			completion_reward = {
+					add_popularity = {
+							ideology = communism
+							popularity = 0.05
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Seek_Soviet_Support
@@ -120,22 +120,25 @@ focus_tree = {
 		}
 		x = 2
 		y = 2
-		completion_reward = {
-			random_owned_controlled_state = {
+			completion_reward = {
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}		
-			add_popularity = { ideology = communism popularity = 0.05 }
-		}
-		
+								}
+						}
+					add_popularity = {
+							ideology = communism
+							popularity = 0.05
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_State_Visit_to_Moscow
-		icon = GFX_goal_generic_improve_relations
+		icon = GFX_focus_chi_mission_to_the_soviet_union
 		cost = 10.00
 		prerequisite = {
 			focus = MEX_Seek_Soviet_Support
@@ -145,20 +148,21 @@ focus_tree = {
 		}
 		x = 3
 		y = 3
-		completion_reward = {
-				SOV = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = small_increase
-					}
+			completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = small_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = SOV
-						modifier = small_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_The_National_Action_Party
@@ -167,17 +171,21 @@ focus_tree = {
 		prerequisite = {
 			focus = MEX_The_Legislative_Elections_of_1949
 		}
+		mutually_exclusive = {
+			focus = MEX_The_Popular_Socialist_Party
+			focus = MEX_The_Institutional_Revolutionary_Party
+			focus = MEX_The_Mexican_Democratic_Party
+		}
 		x = 4
 		y = 1
-		mutually_exclusive = {
-			focus = MEX_The_Federation_of_Mexican_Peoples_Parties
-			focus = MEX_The_Institutional_Revolutionary_Party
-			focus = MEX_The_Popular_Socialist_Party
-		}	
-		completion_reward = {
-			add_popularity = { ideology = conservative popularity = 0.05 }
-			add_political_power = 150
-		}
+			completion_reward = {
+					add_popularity = {
+							ideology = conservative
+							popularity = 0.05
+						}
+					add_political_power = 150
+				}
+
 	}
 	focus = {
 		id = MEX_Capitalist_Influence
@@ -188,17 +196,21 @@ focus_tree = {
 		}
 		x = 4
 		y = 2
-		completion_reward = {
-			random_owned_controlled_state = {
+			completion_reward = {
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}		
-			add_popularity = { ideology = conservative popularity = 0.05 }
-		}
+								}
+						}
+					add_popularity = {
+							ideology = conservative
+							popularity = 0.05
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_The_Institutional_Revolutionary_Party
@@ -207,16 +219,20 @@ focus_tree = {
 		prerequisite = {
 			focus = MEX_The_Legislative_Elections_of_1949
 		}
+		mutually_exclusive = {
+			focus = MEX_The_Popular_Socialist_Party
+			focus = MEX_The_National_Action_Party
+			focus = MEX_The_Mexican_Democratic_Party
+		}
 		x = 6
 		y = 1
-		mutually_exclusive = {
-			focus = MEX_The_National_Action_Party
-			focus = MEX_The_Federation_of_Mexican_Peoples_Parties
-			focus = MEX_The_Popular_Socialist_Party
-		}	
-		completion_reward = {
-			add_popularity = { ideology = neutrality popularity = 0.05 }
-		}
+			completion_reward = {
+					add_popularity = {
+							ideology = neutrality
+							popularity = 0.05
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Relations_with_America
@@ -227,62 +243,18 @@ focus_tree = {
 		}
 		x = 6
 		y = 2
-		completion_reward = {
-			random_owned_controlled_state = {
+			completion_reward = {
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}		
-			add_political_power = 300
-		}
-	}
-	focus = {
-		id = MEX_Request_to_Join_NATO
-		icon = GFX_goal_unknown
-		cost = 10.00
-		prerequisite = {
-			focus = MEX_American_Mexican_Negotiations
-		}
-		x = 7
-		y = 25
-		completion_reward = {
-			USA = { country_event = generic.8 }
-		}
-	}
-	focus = {
-		id = MEX_American_Rejection
-		icon = GFX_goal_generic_dangerous_deal
-		cost = 10.00
-		prerequisite = {
-			focus = MEX_Request_to_Join_NATO
-		}
-		mutually_exclusive = {
-			focus = MEX_American_Acceptance
-		}
-		x = 6
-		y = 26
-		available = {
-			NOT = { has_idea = nato_member }
-		}
-		completion_reward = {
-			add_political_power = 300
-		}
-	}
-	focus = {
-		id = MEX_The_Latin_Union
-		icon = GFX_goal_generic_improve_relations
-		cost = 10.00
-		prerequisite = {
-			focus = MEX_American_Rejection
-		}
-		x = 6
-		y = 27
-		completion_reward = {
-			create_faction = "The Latin Union"
-		}
+								}
+						}
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = MEX_The_Mexican_Democratic_Party
@@ -291,12 +263,21 @@ focus_tree = {
 		prerequisite = {
 			focus = MEX_The_Legislative_Elections_of_1949
 		}
+		mutually_exclusive = {
+			focus = MEX_The_Popular_Socialist_Party
+			focus = MEX_The_National_Action_Party
+			focus = MEX_The_Institutional_Revolutionary_Party
+		}
 		x = 8
 		y = 1
-		completion_reward = {
-			add_popularity = { ideology = democratic popularity = 0.05 }
-			add_political_power = 150
-		}
+			completion_reward = {
+					add_popularity = {
+							ideology = democratic
+							popularity = 0.05
+						}
+					add_political_power = 150
+				}
+
 	}
 	focus = {
 		id = MEX_Seek_American_Support
@@ -307,17 +288,21 @@ focus_tree = {
 		}
 		x = 8
 		y = 2
-		completion_reward = {
-			random_owned_controlled_state = {
+			completion_reward = {
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}		
-			add_popularity = { ideology = democratic popularity = 0.05 }
-		}
+								}
+						}
+					add_popularity = {
+							ideology = democratic
+							popularity = 0.05
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Non_Alignment_Stature
@@ -330,50 +315,55 @@ focus_tree = {
 			focus = MEX_Seek_American_Support
 		}
 		mutually_exclusive = {
-			focus = MEX_State_Visit_Moscow
+			focus = MEX_State_Visit_to_Moscow
 			focus = MEX_State_Visit_to_Washington
-		}	
+		}
 		x = 5
 		y = 3
-		completion_reward = {
-				add_stability = 0.05
-				YUG = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = small_increase
-					}
+			completion_reward = {
+					add_stability = 0.05
+					YUG = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = YUG
+									modifier = small_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = YUG
-						modifier = small_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_State_Visit_to_Washington
-		icon = GFX_goal_generic_improve_relations
+		icon = GFX_focus_chi_mission_to_the_us
 		cost = 10.00
 		prerequisite = {
 			focus = MEX_Seek_American_Support
 		}
+		mutually_exclusive = {
+			focus = MEX_Non_Alignment_Stature
+		}
 		x = 7
 		y = 3
-		completion_reward = {
-				USA = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = small_increase
-					}
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = USA
-						modifier = small_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_Encourage_Diplomacy
@@ -387,14 +377,15 @@ focus_tree = {
 		}
 		x = 12
 		y = 1
-		available = {
-			NOT = {
-				OR = {
-					has_government = communism
-					has_government = monarchism
+			available = {
+					NOT = {
+							OR = {
+									has_government = communism
+									has_government = monarchism
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = MEX_State_Visit_to_Guatamala
@@ -405,20 +396,21 @@ focus_tree = {
 		}
 		x = 12
 		y = 2
-		completion_reward = {
-				GUA = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = small_increase
-					}
+			completion_reward = {
+					GUA = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = GUA
+									modifier = small_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = GUA
-						modifier = small_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_Central_American_Trade_Agreement
@@ -429,20 +421,21 @@ focus_tree = {
 		}
 		x = 12
 		y = 3
-		completion_reward = {
-				GUA = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = large_increase
-					}
+			completion_reward = {
+					GUA = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = large_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = GUA
+									modifier = large_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = GUA
-						modifier = large_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_Trade_Agreement_with_Nicaragua
@@ -453,20 +446,21 @@ focus_tree = {
 		}
 		x = 10
 		y = 4
-		completion_reward = {
-				NIC = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = large_increase
-					}
+			completion_reward = {
+					NIC = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = large_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = NIC
+									modifier = large_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = NIC
-						modifier = large_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_Trade_Agreement_with_Costa_Rica
@@ -477,20 +471,21 @@ focus_tree = {
 		}
 		x = 12
 		y = 4
-		completion_reward = {
-				COS = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = large_increase
-					}
+			completion_reward = {
+					COS = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = large_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = COS
+									modifier = large_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = COS
-						modifier = large_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_Trade_Agreement_with_Honduras
@@ -501,20 +496,21 @@ focus_tree = {
 		}
 		x = 14
 		y = 4
-		completion_reward = {
-				HON = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = large_increase
-					}
+			completion_reward = {
+					HON = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = large_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = HON
+									modifier = large_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = HON
-						modifier = large_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_The_Support_Belize_Independence
@@ -531,11 +527,12 @@ focus_tree = {
 		}
 		x = 12
 		y = 5
-		completion_reward = {
-			ENG = {
-				country_event = MEX.2500
-			}
-		}
+			completion_reward = {
+					ENG = {
+							country_event = MEX.2500
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Victory_for_Belize
@@ -546,12 +543,13 @@ focus_tree = {
 		}
 		x = 11
 		y = 6
-		available = {
-			country_exists = BLZ
-		}
-		completion_reward = {
-			puppet = BLZ
-		}
+			available = {
+					country_exists = BLZ
+				}
+			completion_reward = {
+					puppet = BLZ
+				}
+
 	}
 	focus = {
 		id = MEX_Belize_Crushed
@@ -562,20 +560,21 @@ focus_tree = {
 		}
 		x = 13
 		y = 6
-		completion_reward = {
-				ENG = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = large_decrease
-					}
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = large_decrease
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = large_decrease
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = ENG
-						modifier = large_decrease
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_Agressive_Posture
@@ -589,15 +588,16 @@ focus_tree = {
 		}
 		x = 20
 		y = 1
-		available = {
-			OR = {
-				has_government = communism
-				has_government = monarchism
-			}
-		}
-		completion_reward = {
-			add_political_power = 300
-		}
+			available = {
+					OR = {
+							has_government = communism
+							has_government = monarchism
+						}
+				}
+			completion_reward = {
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = MEX_War_Justification_Against_Guatamala
@@ -608,12 +608,13 @@ focus_tree = {
 		}
 		x = 20
 		y = 2
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = GUA
-			} 	
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = GUA
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Demand_Belize
@@ -624,11 +625,12 @@ focus_tree = {
 		}
 		x = 19
 		y = 3
-		completion_reward = {
-			ENG = {
-				country_event = MEX.2000
-			}
-		}	
+			completion_reward = {
+					ENG = {
+							country_event = MEX.2000
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Invade_Nicaragua
@@ -639,12 +641,13 @@ focus_tree = {
 		}
 		x = 21
 		y = 3
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = NIC
-			} 	
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = NIC
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Submit_Costa_Rica
@@ -658,12 +661,13 @@ focus_tree = {
 		}
 		x = 20
 		y = 4
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = CSR
-			} 	
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = CSR
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Reclaim_Honduras
@@ -674,12 +678,13 @@ focus_tree = {
 		}
 		x = 20
 		y = 5
-		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = HON
-			} 	
-		}
+			completion_reward = {
+					create_wargoal = {
+							type = annex_everything
+							target = HON
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_For_The_Empire
@@ -693,12 +698,13 @@ focus_tree = {
 		}
 		x = 18
 		y = 6
-		available = {
-			has_government = monarchism
-		}
-		completion_reward = {
-			add_stability = 0.15
-		}
+			available = {
+					has_government = monarchism
+				}
+			completion_reward = {
+					add_stability = 0.15
+				}
+
 	}
 	focus = {
 		id = MEX_Fertilize_the_Soil_with_Mexican_Blood
@@ -709,12 +715,21 @@ focus_tree = {
 		}
 		x = 17
 		y = 7
-		completion_reward = {
-			313 = { add_core_of = ROOT }
-			312 = { add_core_of = ROOT }
-			316 = { add_core_of = ROOT }
-			317 = { add_core_of = ROOT }
-		}
+			completion_reward = {
+					313 = {
+							add_core_of = ROOT
+						}
+					312 = {
+							add_core_of = ROOT
+						}
+					316 = {
+							add_core_of = ROOT
+						}
+					317 = {
+							add_core_of = ROOT
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_For_the_Union
@@ -728,9 +743,10 @@ focus_tree = {
 		}
 		x = 22
 		y = 6
-		completion_reward = {
-			add_political_power = 300
-		}
+			completion_reward = {
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = MEX_La_Reconquestia
@@ -742,26 +758,27 @@ focus_tree = {
 		}
 		x = 20
 		y = 7
-		available = {
-			OR = {
-				has_government = communism
-				has_government = monarchism
-			}
-		}
-		completion_reward = {
-				MEX = {
-					add_opinion_modifier = {
-						target = USA
-						modifier = large_decrease
-					}
+			available = {
+					OR = {
+							has_government = communism
+							has_government = monarchism
+						}
 				}
-				USA = {
-					add_opinion_modifier = {
-					target = MEX
-					modifier = large_decrease
-				}		
-			}
-		}
+			completion_reward = {
+					MEX = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = large_decrease
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Prepare_for_War
@@ -772,9 +789,10 @@ focus_tree = {
 		}
 		x = 20
 		y = 8
-		completion_reward = {
-			add_ideas = tot_economic_mobilisation
-		}
+			completion_reward = {
+					add_ideas = tot_economic_mobilisation
+				}
+
 	}
 	focus = {
 		id = MEX_Reclaim_Our_Lost_Lands
@@ -785,18 +803,33 @@ focus_tree = {
 		}
 		x = 20
 		y = 9
-		completion_reward = {
-			377 = { add_core_of = ROOT }
-			376 = { add_core_of = ROOT }
-			375 = { add_core_of = ROOT }
-			380 = { add_core_of = ROOT }
-			382 = { add_core_of = ROOT }
-			379 = { add_core_of = ROOT }
-			378 = { add_core_of = ROOT }
-		}
+			completion_reward = {
+					377 = {
+							add_core_of = ROOT
+						}
+					376 = {
+							add_core_of = ROOT
+						}
+					375 = {
+							add_core_of = ROOT
+						}
+					380 = {
+							add_core_of = ROOT
+						}
+					382 = {
+							add_core_of = ROOT
+						}
+					379 = {
+							add_core_of = ROOT
+						}
+					378 = {
+							add_core_of = ROOT
+						}
+				}
+
 	}
 	focus = {
-		id = MEX_Remove_the_Fortifications	#rename in localization
+		id = MEX_Remove_the_Fortifications
 		icon = GFX_goal_generic_construct_civilian
 		cost = 10.00
 		prerequisite = {
@@ -804,9 +837,10 @@ focus_tree = {
 		}
 		x = 20
 		y = 10
-		completion_reward = {
-			add_ideas = military_youth_focus
-		}
+			completion_reward = {
+					add_ideas = military_youth_focus
+				}
+
 	}
 	focus = {
 		id = MEX_Declare_La_Reconquestia
@@ -817,9 +851,13 @@ focus_tree = {
 		}
 		x = 20
 		y = 11
-		completion_reward = {
-			declare_war_on = { target = USA type = annex_everything }	
-		}
+			completion_reward = {
+					declare_war_on = {
+							target = USA
+							type = annex_everything
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Our_Final_Stand
@@ -830,9 +868,10 @@ focus_tree = {
 		}
 		x = 21
 		y = 12
-		completion_reward = {
-			add_ideas = scraping_the_barrel
-		}
+			completion_reward = {
+					add_ideas = scraping_the_barrel
+				}
+
 	}
 	focus = {
 		id = MEX_Mobilize_the_Masses
@@ -843,9 +882,10 @@ focus_tree = {
 		}
 		x = 22
 		y = 8
-		completion_reward = {
-			add_ideas = militarism_focus
-		}
+			completion_reward = {
+					add_ideas = militarism_focus
+				}
+
 	}
 	focus = {
 		id = MEX_Cooperation_with_the_KGB
@@ -859,20 +899,21 @@ focus_tree = {
 		}
 		x = 22
 		y = 14
-		completion_reward = {
-				SOV = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = small_increase
-					}
+			completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = small_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = SOV
-						modifier = small_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_Spy_on_the_American_Nuclear_Program
@@ -883,14 +924,15 @@ focus_tree = {
 		}
 		x = 22
 		y = 15
-		completion_reward = {
-			add_tech_bonus = {
-				name = nuclear_bonus
-				bonus = 0.15
-				uses = 1
-				category = nuclear
-			}		
-		}
+			completion_reward = {
+					add_tech_bonus = {
+							name = nuclear_bonus
+							bonus = 0.15
+							uses = 1
+							category = nuclear
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Spy_On_American_Airforce
@@ -910,6 +952,7 @@ focus_tree = {
 							category = light_air
 						}
 				}
+
 	}
 	focus = {
 		id = MEX_Outcome_of_Castle_Bravo
@@ -920,14 +963,15 @@ focus_tree = {
 		}
 		x = 22
 		y = 17
-		completion_reward = {
-			add_tech_bonus = {
-				name = nuclear_bonus
-				bonus = 0.15
-				uses = 1
-				category = nuclear
-			}		
-		}
+			completion_reward = {
+					add_tech_bonus = {
+							name = nuclear_bonus
+							bonus = 0.15
+							uses = 1
+							category = nuclear
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Our_Own_Special_Project
@@ -941,9 +985,10 @@ focus_tree = {
 		}
 		x = 22
 		y = 18
-		completion_reward = {
-			add_political_power = 300
-		}
+			completion_reward = {
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = MEX_La_Habanero
@@ -954,14 +999,15 @@ focus_tree = {
 		}
 		x = 22
 		y = 19
-		completion_reward = {
-			add_tech_bonus = {
-				name = nuclear_bonus
-				bonus = 0.125
-				uses = 1
-				category = nuclear
-			}		
-		}
+			completion_reward = {
+					add_tech_bonus = {
+							name = nuclear_bonus
+							bonus = 0.125
+							uses = 1
+							category = nuclear
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_The_Liberation_of_Central_America
@@ -972,12 +1018,31 @@ focus_tree = {
 		}
 		x = 23
 		y = 7
-		completion_reward = {
-			release_puppet = NIC
-			release_puppet = CSR	
-			release_puppet = GUA	
-			release_puppet = HON	
+			completion_reward = {
+					release_puppet = NIC
+					release_puppet = CSR
+					release_puppet = GUA
+					release_puppet = HON
+				}
+
+	}
+	focus = {
+		id = MEX_We_Have_More_Important_Matters
+		icon = GFX_focus_generic_self_management
+		cost = 10.00
+		prerequisite = {
+			focus = MEX_Outcome_of_Castle_Bravo
 		}
+		mutually_exclusive = {
+			focus = MEX_Our_Own_Special_Project
+		}
+		x = 24
+		y = 18
+			completion_reward = {
+					add_stability = 0.25
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = MEX_Agreement_with_the_United_States
@@ -988,20 +1053,21 @@ focus_tree = {
 		}
 		x = 31
 		y = 1
-		completion_reward = {
-				USA = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = small_increase
-					}
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = USA
-						modifier = small_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_Unite_the_Militias
@@ -1012,10 +1078,11 @@ focus_tree = {
 		}
 		x = 26
 		y = 2
-		completion_reward = {
-			add_manpower = 50000
-			army_experience = 25
-		}
+			completion_reward = {
+					add_manpower = 50000
+					army_experience = 25
+				}
+
 	}
 	focus = {
 		id = MEX_Offensive_Army
@@ -1024,11 +1091,15 @@ focus_tree = {
 		prerequisite = {
 			focus = MEX_Unite_the_Militias
 		}
+		mutually_exclusive = {
+			focus = MEX_Defensive_Army
+		}
 		x = 25
 		y = 3
-		completion_reward = {
-			add_ideas = strike_back
-		}
+			completion_reward = {
+					add_ideas = strike_back
+				}
+
 	}
 	focus = {
 		id = MEX_Defensive_Army
@@ -1042,9 +1113,10 @@ focus_tree = {
 		}
 		x = 27
 		y = 3
-		completion_reward = {
-			add_ideas = hold_firm
-		}
+			completion_reward = {
+					add_ideas = hold_firm
+				}
+
 	}
 	focus = {
 		id = MEX_Mechanization_of_the_Army
@@ -1056,16 +1128,15 @@ focus_tree = {
 		}
 		x = 26
 		y = 4
-		completion_reward = {
-
+			completion_reward = {
 					add_tech_bonus = {
 							name = motorized_equipment_bonus
 							bonus = 0.125
 							uses = 1
 							category = motorized_equipment
 						}
-					
-		}
+				}
+
 	}
 	focus = {
 		id = MEX_Focus_on_Tanks
@@ -1087,6 +1158,7 @@ focus_tree = {
 							category = armor
 						}
 				}
+
 	}
 	focus = {
 		id = MEX_Study_American_Tanks
@@ -1105,6 +1177,7 @@ focus_tree = {
 							category = armor
 						}
 				}
+
 	}
 	focus = {
 		id = MEX_A_Seperate_Navy
@@ -1115,25 +1188,26 @@ focus_tree = {
 		}
 		x = 31
 		y = 2
-		completion_reward = {
-			navy_experience = 25
-							random_owned_controlled_state = {
-									limit = {
-											is_coastal = yes
-											free_building_slots = {
-													building = dockyard
-													size > 2
-													include_locked = yes
-												}
-										}
-									add_extra_state_shared_building_slots = 3
-									add_building_construction = {
-											type = dockyard
-											level = 3
-											instant_build = yes
+			completion_reward = {
+					navy_experience = 25
+					random_owned_controlled_state = {
+							limit = {
+									is_coastal = yes
+									free_building_slots = {
+											building = dockyard
+											size > 2
+											include_locked = yes
 										}
 								}
-		}
+							add_extra_state_shared_building_slots = 3
+							add_building_construction = {
+									type = dockyard
+									level = 3
+									instant_build = yes
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Revive_the_Gulf_Navy
@@ -1292,15 +1366,15 @@ focus_tree = {
 										}
 								}
 						}
-						add_tech_bonus = {
-										name = frigate_bonus
-										bonus = 0.125
-										uses = 1
-										category = dd_tech
+					add_tech_bonus = {
+							name = frigate_bonus
+							bonus = 0.125
+							uses = 1
+							category = dd_tech
 						}
-						navy_experience = 50
-						
+					navy_experience = 50
 				}
+
 	}
 	focus = {
 		id = MEX_Quantity_over_Quality
@@ -1414,6 +1488,7 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = MEX_Specialized_Production
@@ -1524,6 +1599,7 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = MEX_Specialized_Production_II
@@ -1634,6 +1710,7 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = MEX_Lessons_from_the_Pacific_War
@@ -1644,9 +1721,10 @@ focus_tree = {
 		}
 		x = 36
 		y = 2
-		completion_reward = {
-			air_experience = 50
-		}
+			completion_reward = {
+					air_experience = 50
+				}
+
 	}
 	focus = {
 		id = MEX_Mexico_City_International_Airport
@@ -1671,6 +1749,7 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = MEX_Look_for_Soviet_Help
@@ -1684,20 +1763,84 @@ focus_tree = {
 		}
 		x = 35
 		y = 4
-		completion_reward = {
-				MEX = {
-					add_opinion_modifier = {
-						target = SOV
-						modifier = large_increase
-					}
+			completion_reward = {
+					MEX = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = large_increase
+								}
+						}
 				}
-				SOV = {
-					add_opinion_modifier = {
-					target = MEX
-					modifier = large_increase
-				}		
-			}
+
+	}
+	focus = {
+		id = MEX_American_Mexican_Negotiations
+		icon = GFX_focus_chi_mission_to_the_us
+		cost = 10.00
+		prerequisite = {
+			focus = MEX_The_National_Action_Party_1958
 		}
+		x = 7
+		y = 24
+
+	}
+	focus = {
+		id = MEX_Request_to_Join_NATO
+		icon = GFX_nato
+		cost = 10.00
+		prerequisite = {
+			focus = MEX_American_Mexican_Negotiations
+		}
+		x = 7
+		y = 25
+			completion_reward = {
+					USA = {
+							country_event = generic.8
+						}
+				}
+
+	}
+	focus = {
+		id = MEX_American_Rejection
+		icon = GFX_focus_cze_german_puppet
+		cost = 10.00
+		prerequisite = {
+			focus = MEX_Request_to_Join_NATO
+		}
+		mutually_exclusive = {
+			focus = MEX_American_Acceptance
+		}
+		x = 6
+		y = 26
+			available = {
+					NOT = {
+							has_idea = nato_member
+						}
+				}
+			completion_reward = {
+					add_political_power = 300
+				}
+
+	}
+	focus = {
+		id = MEX_The_Latin_Union
+		icon = GFX_goal_generic_improve_relations
+		cost = 10.00
+		prerequisite = {
+			focus = MEX_American_Rejection
+		}
+		x = 6
+		y = 27
+			completion_reward = {
+					create_faction = "The Latin Union"
+				}
+
 	}
 	focus = {
 		id = MEX_Jump_Starting_El_Milagro_Mexicano
@@ -1710,32 +1853,33 @@ focus_tree = {
 		}
 		x = 5
 		y = 4
-	completion_reward = {
-			random_owned_controlled_state = {
+			completion_reward = {
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}
-			random_owned_controlled_state = {
+								}
+						}
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}
-			random_owned_controlled_state = {
+								}
+						}
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}				
-		}
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Develop_Mexico_City
@@ -1761,6 +1905,7 @@ focus_tree = {
 								}
 						}
 				}
+
 	}
 	focus = {
 		id = MEX_The_Integration_of_Beja_California
@@ -1771,10 +1916,15 @@ focus_tree = {
 		}
 		x = 3
 		y = 6
-		completion_reward = {
-			484 = { add_core_of = MEX }
-			1005 = { add_core_of = MEX }
-		}
+			completion_reward = {
+					484 = {
+							add_core_of = MEX
+						}
+					1005 = {
+							add_core_of = MEX
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Universidad_Autonoma_de_Mexico
@@ -1785,9 +1935,10 @@ focus_tree = {
 		}
 		x = 5
 		y = 6
-		completion_reward = {
-			add_research_slot = 1
-		}
+			completion_reward = {
+					add_research_slot = 1
+				}
+
 	}
 	focus = {
 		id = MEX_Develop_Acapulco
@@ -1798,8 +1949,8 @@ focus_tree = {
 		}
 		x = 7
 		y = 6
-		completion_reward = {
-			485 = {
+			completion_reward = {
+					485 = {
 							add_building_construction = {
 									type = infrastructure
 									level = 2
@@ -1810,9 +1961,10 @@ focus_tree = {
 									type = industrial_complex
 									level = 5
 									instant_build = yes
-								}				
-			}
-		}
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_The_1952_Presidential_Elections
@@ -1829,12 +1981,13 @@ focus_tree = {
 		}
 		x = 5
 		y = 7
-		available = {
-			has_country_flag = mex_election_1952
-		}
-		bypass = {
-			has_country_flag = mex_election_1952
-		}
+			available = {
+					has_country_flag = mex_election_1952
+				}
+			bypass = {
+					has_country_flag = mex_election_1952
+				}
+
 	}
 	focus = {
 		id = MEX_The_Institutional_Revolutionary_Party_1952
@@ -1845,12 +1998,13 @@ focus_tree = {
 		}
 		x = 2
 		y = 8
-		available = {
-			has_country_flag = irp_1952
-		}
-		bypass = {
-			has_country_flag = irp_1952
-		}
+			available = {
+					has_country_flag = irp_1952
+				}
+			bypass = {
+					has_country_flag = irp_1952
+				}
+
 	}
 	focus = {
 		id = MEX_Close_the_Border
@@ -1861,10 +2015,11 @@ focus_tree = {
 		}
 		x = 2
 		y = 9
-		completion_reward = {
-			add_political_power = 300
-			add_stability = -0.05
-		}
+			completion_reward = {
+					add_political_power = 300
+					add_stability = -0.05
+				}
+
 	}
 	focus = {
 		id = MEX_The_Military_Question
@@ -1875,10 +2030,11 @@ focus_tree = {
 		}
 		x = 2
 		y = 10
-		completion_reward = {
-			add_political_power = 300
-			add_stability = -0.05
-		}
+			completion_reward = {
+					add_political_power = 300
+					add_stability = -0.05
+				}
+
 	}
 	focus = {
 		id = MEX_Ideological_Military_Intervention
@@ -1889,10 +2045,11 @@ focus_tree = {
 		}
 		x = 2
 		y = 11
-		completion_reward = {
-			add_political_power = 300
-			add_stability = -0.15
-		}
+			completion_reward = {
+					add_political_power = 300
+					add_stability = -0.15
+				}
+
 	}
 	focus = {
 		id = MEX_Restabilize_the_Government
@@ -1903,10 +2060,11 @@ focus_tree = {
 		}
 		x = 2
 		y = 12
-		completion_reward = {
-			add_political_power = 300
-			add_stability = 0.15
-		}
+			completion_reward = {
+					add_political_power = 300
+					add_stability = 0.15
+				}
+
 	}
 	focus = {
 		id = MEX_Return_of_the_Monarchy
@@ -1920,14 +2078,18 @@ focus_tree = {
 		}
 		x = 3
 		y = 13
-		completion_reward = {
-			set_politics = {
-				ruling_party = monarchism
-				elections_allowed = no
-			}
-			add_popularity = { ideology = neutrality popularity = 0.25 }
-			add_ideas = monarchist_influence
-		}
+			completion_reward = {
+					set_politics = {
+							ruling_party = monarchism
+							elections_allowed = no
+						}
+					add_popularity = {
+							ideology = neutrality
+							popularity = 0.25
+						}
+					add_ideas = monarchist_influence
+				}
+
 	}
 	focus = {
 		id = MEX_Continue_our_Government
@@ -1941,9 +2103,13 @@ focus_tree = {
 		}
 		x = 1
 		y = 13
-		completion_reward = {
-			add_popularity = { ideology = neutrality popularity = 0.15 }
-		}
+			completion_reward = {
+					add_popularity = {
+							ideology = neutrality
+							popularity = 0.15
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_El_Tercer_Imperio_Mexicano
@@ -1954,9 +2120,10 @@ focus_tree = {
 		}
 		x = 3
 		y = 14
-		completion_reward = {
-			add_ideas = ideological_fanaticism_focus
-		}
+			completion_reward = {
+					add_ideas = ideological_fanaticism_focus
+				}
+
 	}
 	focus = {
 		id = MEX_For_the_Emperor
@@ -1967,9 +2134,10 @@ focus_tree = {
 		}
 		x = 3
 		y = 15
-		completion_reward = {
-			add_ideas = total_loyalty
-		}
+			completion_reward = {
+					add_ideas = total_loyalty
+				}
+
 	}
 	focus = {
 		id = MEX_Enforce_Catholicism
@@ -1980,9 +2148,10 @@ focus_tree = {
 		}
 		x = 3
 		y = 16
-		completion_reward = {
-			add_ideas = repression
-		}
+			completion_reward = {
+					add_ideas = repression
+				}
+
 	}
 	focus = {
 		id = MEX_For_God
@@ -1993,9 +2162,10 @@ focus_tree = {
 		}
 		x = 3
 		y = 17
-		completion_reward = {
-			add_ideas = familia
-		}
+			completion_reward = {
+					add_ideas = familia
+				}
+
 	}
 	focus = {
 		id = MEX_March_on_Mexico_City
@@ -2006,9 +2176,10 @@ focus_tree = {
 		}
 		x = 1
 		y = 14
-		completion_reward = {
-			add_stability = 0.25
-		}
+			completion_reward = {
+					add_stability = 0.25
+				}
+
 	}
 	focus = {
 		id = MEX_Mexico_Needs_You
@@ -2019,9 +2190,10 @@ focus_tree = {
 		}
 		x = 1
 		y = 15
-		completion_reward = {
-			add_ideas = militarism_focus
-		}
+			completion_reward = {
+					add_ideas = militarism_focus
+				}
+
 	}
 	focus = {
 		id = MEX_Oppress_other_Parties
@@ -2032,9 +2204,13 @@ focus_tree = {
 		}
 		x = 1
 		y = 16
-		completion_reward = {
-			add_timed_idea = { idea = repression days = 900 }
-		}
+			completion_reward = {
+					add_timed_idea = {
+							idea = repression
+							days = 900
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Nationalistic_Propaganda
@@ -2045,9 +2221,13 @@ focus_tree = {
 		}
 		x = 1
 		y = 17
-		completion_reward = { 
-			add_timed_idea = { idea = reactionary_drift days = 900 }
-		}
+			completion_reward = {
+					add_timed_idea = {
+							idea = reactionary_drift
+							days = 900
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_The_Federation_of_Mexican_Peoples_Parties
@@ -2058,17 +2238,13 @@ focus_tree = {
 		}
 		x = 5
 		y = 8
-		mutually_exclusive = {
-			focus = MEX_The_National_Action_Party
-			focus = MEX_The_Institutional_Revolutionary_Party
-			focus = MEX_The_Popular_Socialist_Party
-		}	
-		available = {
-			has_country_flag = Federation_of_Mexican_Peoples_Parties_1952 
-		}
-		bypass = {
-			has_country_flag = Federation_of_Mexican_Peoples_Parties_1952
-		}
+			available = {
+					has_country_flag = Federation_of_Mexican_Peoples_Parties_1952
+				}
+			bypass = {
+					has_country_flag = Federation_of_Mexican_Peoples_Parties_1952
+				}
+
 	}
 	focus = {
 		id = MEX_The_Popular_Socialist_Party_1952
@@ -2079,12 +2255,13 @@ focus_tree = {
 		}
 		x = 9
 		y = 8
-		available = {
-			has_country_flag = Popular_Socialist_Party_1952
-		}
-		bypass = {
-			has_country_flag = Popular_Socialist_Party_1952
-		}
+			available = {
+					has_country_flag = Popular_Socialist_Party_1952
+				}
+			bypass = {
+					has_country_flag = Popular_Socialist_Party_1952
+				}
+
 	}
 	focus = {
 		id = MEX_The_National_Action_Party_1952
@@ -2095,12 +2272,13 @@ focus_tree = {
 		}
 		x = 14
 		y = 8
-		available = {
-			has_country_flag = National_Action_Party_1952
-		}
-		bypass = {
-			has_country_flag = National_Action_Party_1952
-		}
+			available = {
+					has_country_flag = National_Action_Party_1952
+				}
+			bypass = {
+					has_country_flag = National_Action_Party_1952
+				}
+
 	}
 	focus = {
 		id = MEX_Focus_on_Social_Politics
@@ -2111,17 +2289,18 @@ focus_tree = {
 		}
 		x = 5
 		y = 9
-		completion_reward = {
-			add_ideas = access_to_health_care
-			random_owned_controlled_state = {
+			completion_reward = {
+					add_ideas = access_to_health_care
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}
-		}
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Approach_France
@@ -2132,20 +2311,21 @@ focus_tree = {
 		}
 		x = 5
 		y = 10
-		completion_reward = {
-				FRA = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = small_increase
-					}
+			completion_reward = {
+					FRA = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = small_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = FRA
-						modifier = small_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_Actions_Against_Criminals
@@ -2156,11 +2336,12 @@ focus_tree = {
 		}
 		x = 5
 		y = 11
-		completion_reward = {
-			add_political_power = 300
-			add_stability = 0.20
-		}
-	}	
+			completion_reward = {
+					add_political_power = 300
+					add_stability = 0.20
+				}
+
+	}
 	focus = {
 		id = MEX_The_Federative_Plan
 		icon = GFX_focus_generic_the_giant_wakes
@@ -2170,17 +2351,18 @@ focus_tree = {
 		}
 		x = 5
 		y = 12
-		completion_reward = {
-			add_stability = 0.15
-			random_owned_controlled_state = {
+			completion_reward = {
+					add_stability = 0.15
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}
-		}
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Deal_with_the_Communists
@@ -2191,9 +2373,13 @@ focus_tree = {
 		}
 		x = 5
 		y = 13
-		completion_reward = {
-			add_timed_idea = { idea = anti_communist_propaganda days = 700 }
-		}
+			completion_reward = {
+					add_timed_idea = {
+							idea = anti_communist_propaganda
+							days = 700
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Armed_Neutrality
@@ -2202,12 +2388,18 @@ focus_tree = {
 		prerequisite = {
 			focus = MEX_Friendships_with_East_and_West
 		}
+		mutually_exclusive = {
+			focus = MEX_Propose_a_Fifth_Internationale
+			focus = MEX_Propose_a_Fifth_Internationale
+			focus = MEX_Sonora_Arizonan_Trail
+		}
 		x = 5
 		y = 16
-		completion_reward = {
-			add_ideas = military_expansion
-			add_ideas = neutrality_idea
-		}
+			completion_reward = {
+					add_ideas = military_expansion
+					add_ideas = neutrality_idea
+				}
+
 	}
 	focus = {
 		id = MEX_Friendships_with_East_and_West
@@ -2218,32 +2410,33 @@ focus_tree = {
 		}
 		x = 5
 		y = 15
-		completion_reward = {
-				USA = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = small_increase
-					}
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = small_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = USA
-						modifier = small_increase
-					}
-				}
-				SOV = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = small_increase
-					}
-				}
-				MEX = {
-					add_opinion_modifier = {
-						target = SOV
-						modifier = small_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_Propose_a_Fifth_Internationale
@@ -2252,34 +2445,40 @@ focus_tree = {
 		prerequisite = {
 			focus = MEX_Deal_With_Poverty
 		}
+		mutually_exclusive = {
+			focus = MEX_Armed_Neutrality
+			focus = MEX_Sonora_Arizonan_Trail
+			focus = MEX_Armed_Neutrality
+		}
 		x = 7
 		y = 16
-		completion_reward = {
-			SOV = {
-				add_opinion_modifier = {
-					target = MEX
-					modifier = small_increase
+			completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = small_increase
+								}
+						}
+					PRC = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					DDR = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
 				}
-			}
-			MEX = {
-				add_opinion_modifier = {
-					target = SOV
-					modifier = small_increase
-				}
-			}
-			PRC = {
-				add_opinion_modifier = {
-					target = MEX
-					modifier = small_increase
-				}
-			}
-			DDR = {
-				add_opinion_modifier = {
-					target = MEX
-					modifier = small_increase
-				}
-			}	
-		}
+
 	}
 	focus = {
 		id = MEX_State_Visit_to_France
@@ -2290,20 +2489,21 @@ focus_tree = {
 		}
 		x = 5
 		y = 14
-		completion_reward = {
-				FRA = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = large_increase
-					}
+			completion_reward = {
+					FRA = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = large_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = FRA
+									modifier = large_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = FRA
-						modifier = large_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_State_Visit_to_the_Eastern_Bloc
@@ -2315,20 +2515,21 @@ focus_tree = {
 		}
 		x = 9
 		y = 13
-		completion_reward = {
-				MEX = {
-					add_opinion_modifier = {
-						target = SOV
-						modifier = large_increase
-					}
+			completion_reward = {
+					MEX = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = large_increase
+								}
+						}
+					SOV = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = large_increase
+								}
+						}
 				}
-				SOV = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = large_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_Deal_With_Poverty
@@ -2340,24 +2541,25 @@ focus_tree = {
 		}
 		x = 7
 		y = 15
-		completion_reward = {
-			random_owned_controlled_state = {
+			completion_reward = {
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}
-			random_owned_controlled_state = {
+								}
+						}
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}			
-		}
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Sonora_Arizonan_Trail
@@ -2366,11 +2568,21 @@ focus_tree = {
 		prerequisite = {
 			focus = MEX_Promote_Collective_Agriculture
 		}
+		mutually_exclusive = {
+			focus = MEX_Propose_a_Fifth_Internationale
+			focus = MEX_Armed_Neutrality
+		}
 		x = 9
 		y = 16
-		completion_reward = {
-			USA = { add_timed_idea = { idea = internationalism days = 100 } }
-		}
+			completion_reward = {
+					USA = {
+							add_timed_idea = {
+									idea = internationalism
+									days = 100
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Promote_Collective_Agriculture
@@ -2388,6 +2600,7 @@ focus_tree = {
 							category = agri_tech
 						}
 				}
+
 	}
 	focus = {
 		id = MEX_Jump_Start_the_Five_Year_Plan
@@ -2398,36 +2611,37 @@ focus_tree = {
 		}
 		x = 9
 		y = 14
-		completion_reward = {
-			random_owned_controlled_state = {
+			completion_reward = {
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}
-			random_owned_controlled_state = {
+								}
+						}
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}
-			random_owned_controlled_state = {
+								}
+						}
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}				
-		}
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Cultural_Changes
-		icon = GFX_focus_YUG_pan_slavic_congress
+		icon = GFX_GFX_Communism7
 		cost = 10.00
 		prerequisite = {
 			focus = MEX_The_Popular_Socialist_Party_1952
@@ -2439,19 +2653,21 @@ focus_tree = {
 					add_ideas = partisan_suppression_focus
 					add_ideas = militarized_schools
 				}
+
 	}
 	focus = {
 		id = MEX_Affirm_the_Labour_Unions
-		icon = GFX_focus_generic_socialist_science
+		icon = GFX_focus_yug_pan_slavic_congress
 		cost = 10.00
 		prerequisite = {
 			focus = MEX_Cultural_Changes
 		}
 		x = 9
 		y = 10
-		completion_reward = {
-			add_ideas = strengthened_labor_unions
-		}
+			completion_reward = {
+					add_ideas = strengthened_labor_unions
+				}
+
 	}
 	focus = {
 		id = MEX_One_Party_System
@@ -2462,22 +2678,27 @@ focus_tree = {
 		}
 		x = 8
 		y = 12
-		completion_reward = {
-			add_timed_idea = { days = 700 idea = internationalism }
-		}
+			completion_reward = {
+					add_timed_idea = {
+							days = 700
+							idea = internationalism
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Personality_Cult
-		icon = GFX_focus_generic_join_comintern
+		icon = GFX_Stalin_Cult
 		cost = 10.00
 		prerequisite = {
 			focus = MEX_Authoritative_Communism
 		}
 		x = 10
 		y = 12
-		completion_reward = {
-			add_ideas = total_loyalty
-		}
+			completion_reward = {
+					add_ideas = total_loyalty
+				}
+
 	}
 	focus = {
 		id = MEX_Authoritative_Communism
@@ -2491,13 +2712,14 @@ focus_tree = {
 		}
 		x = 10
 		y = 11
-		completion_reward = {
-			set_politics = {
-				ruling_party = communism
-				elections_allowed = no
-			}
-			add_stability = -0.15
-		}
+			completion_reward = {
+					set_politics = {
+							ruling_party = communism
+							elections_allowed = no
+						}
+					add_stability = -0.15
+				}
+
 	}
 	focus = {
 		id = MEX_Legislative_Socialism
@@ -2511,10 +2733,11 @@ focus_tree = {
 		}
 		x = 8
 		y = 11
-		completion_reward = {
-			add_stability = 0.10
-			add_political_power = 300
-		}
+			completion_reward = {
+					add_stability = 0.10
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = MEX_The_New_Government_Coalition
@@ -2525,9 +2748,10 @@ focus_tree = {
 		}
 		x = 14
 		y = 9
-		completion_reward = {
-			add_political_power = 300
-		}
+			completion_reward = {
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = MEX_Crusade_Against_the_Radical_Left
@@ -2538,9 +2762,13 @@ focus_tree = {
 		}
 		x = 14
 		y = 10
-		completion_reward = {
-			add_timed_idea = { days = 600 idea = leftist_persecution_cam }
-		}
+			completion_reward = {
+					add_timed_idea = {
+							days = 600
+							idea = leftist_persecution_cam
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_The_Truman_Doctrine
@@ -2554,41 +2782,43 @@ focus_tree = {
 		}
 		x = 13
 		y = 11
-		completion_reward = {
-			random_owned_controlled_state = {
+			completion_reward = {
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}
-			random_owned_controlled_state = {
+								}
+						}
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}
-		}
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Mexican_Isolationism
 		icon = GFX_goal_generic_neutrality_focus
 		cost = 10.00
-		mutually_exclusive = {
-			focus = MEX_The_Truman_Doctrine
-		}
 		prerequisite = {
 			focus = MEX_Crusade_Against_the_Radical_Left
 		}
+		mutually_exclusive = {
+			focus = MEX_The_Truman_Doctrine
+		}
 		x = 15
 		y = 11
-		completion_reward = {
-			add_ideas = neutrality_idea
-			add_stability = 0.10
-		}
+			completion_reward = {
+					add_ideas = neutrality_idea
+					add_stability = 0.10
+				}
+
 	}
 	focus = {
 		id = MEX_Prepare_the_Anti_Communist_Coalition
@@ -2602,10 +2832,14 @@ focus_tree = {
 		}
 		x = 14
 		y = 12
-		completion_reward = {
-			add_political_power = 300
-			add_popularity = { ideology = conservative popularity = 0.10 }
-		}
+			completion_reward = {
+					add_political_power = 300
+					add_popularity = {
+							ideology = conservative
+							popularity = 0.10
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Support_the_Military
@@ -2619,9 +2853,10 @@ focus_tree = {
 		}
 		x = 16
 		y = 13
-		completion_reward = {
-			add_ideas = military_expansion
-		}
+			completion_reward = {
+					add_ideas = military_expansion
+				}
+
 	}
 	focus = {
 		id = MEX_Buisness_Interest_Coalition
@@ -2635,24 +2870,25 @@ focus_tree = {
 		}
 		x = 12
 		y = 13
-		completion_reward = {
-			random_owned_controlled_state = {
+			completion_reward = {
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}
-			random_owned_controlled_state = {
+								}
+						}
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = arms_factory
 									level = 2
 									instant_build = yes
-								}			
-			}
-		}
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Promote_Civilian_Industry
@@ -2663,24 +2899,25 @@ focus_tree = {
 		}
 		x = 13
 		y = 14
-		completion_reward = {
-			random_owned_controlled_state = {
+			completion_reward = {
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}
-			random_owned_controlled_state = {
+								}
+						}
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}
-		}
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Promote_Military_Industrial_Development
@@ -2691,24 +2928,25 @@ focus_tree = {
 		}
 		x = 15
 		y = 14
-		completion_reward = {
-			random_owned_controlled_state = {
+			completion_reward = {
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = arms_factory
 									level = 2
 									instant_build = yes
-								}			
-			}
-			random_owned_controlled_state = {
+								}
+						}
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = arms_factory
 									level = 2
 									instant_build = yes
-								}			
-			}
-		}
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Encourage_Lower_State_Taxes
@@ -2723,6 +2961,7 @@ focus_tree = {
 			completion_reward = {
 					add_ideas = tax_cuts
 				}
+
 	}
 	focus = {
 		id = MEX_Anti_Communist_Propaganda
@@ -2733,9 +2972,13 @@ focus_tree = {
 		}
 		x = 14
 		y = 16
-		completion_reward = {
-			add_timed_idea = { idea = anti_communist_propaganda days = 700 }
-		}
+			completion_reward = {
+					add_timed_idea = {
+							idea = anti_communist_propaganda
+							days = 700
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Fortify_the_Border
@@ -2746,9 +2989,13 @@ focus_tree = {
 		}
 		x = 18
 		y = 8
-		completion_reward = {
-			add_timed_idea = { idea = fortification_build_up days = 900 }
-		}
+			completion_reward = {
+					add_timed_idea = {
+							idea = fortification_build_up
+							days = 900
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Victory
@@ -2759,20 +3006,34 @@ focus_tree = {
 		}
 		x = 19
 		y = 12
-		available = {	 
-			377 = { is_fully_controlled_by = ROOT }
-			376 = { is_fully_controlled_by = ROOT }
-			375 = { is_fully_controlled_by = ROOT }
-			380 = { is_fully_controlled_by = ROOT }
-			382 = { is_fully_controlled_by = ROOT }
-			379 = { is_fully_controlled_by = ROOT }
-			378 = { is_fully_controlled_by = ROOT }
-		}
-		completion_reward = {
-			add_manpower = 50000
-			add_political_power = 400
-		}
-		
+			available = {
+					377 = {
+							is_fully_controlled_by = ROOT
+						}
+					376 = {
+							is_fully_controlled_by = ROOT
+						}
+					375 = {
+							is_fully_controlled_by = ROOT
+						}
+					380 = {
+							is_fully_controlled_by = ROOT
+						}
+					382 = {
+							is_fully_controlled_by = ROOT
+						}
+					379 = {
+							is_fully_controlled_by = ROOT
+						}
+					378 = {
+							is_fully_controlled_by = ROOT
+						}
+				}
+			completion_reward = {
+					add_manpower = 50000
+					add_political_power = 400
+				}
+
 	}
 	focus = {
 		id = MEX_Response_to_Riots
@@ -2784,10 +3045,11 @@ focus_tree = {
 		}
 		x = 2
 		y = 18
-		completion_reward = {
-			add_stability = -0.15
-			add_political_power = 300
-		}
+			completion_reward = {
+					add_stability = -0.15
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = MEX_Basic_Redemocriticization
@@ -2801,10 +3063,11 @@ focus_tree = {
 		}
 		x = 1
 		y = 19
-		completion_reward = {
-			add_political_power = 150
-			add_stability = 0.15
-		}
+			completion_reward = {
+					add_political_power = 150
+					add_stability = 0.15
+				}
+
 	}
 	focus = {
 		id = MEX_The_Emperors_Speech
@@ -2818,10 +3081,11 @@ focus_tree = {
 		}
 		x = 3
 		y = 19
-		completion_reward = {
-			add_political_power = 300
-			add_stability = 0.10
-		}
+			completion_reward = {
+					add_political_power = 300
+					add_stability = 0.10
+				}
+
 	}
 	focus = {
 		id = MEX_Support_American_Interventionism
@@ -2833,16 +3097,17 @@ focus_tree = {
 		}
 		x = 2
 		y = 20
-		completion_reward = {
-			random_owned_controlled_state = {
+			completion_reward = {
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}			
-		}
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Reopening_the_Borders
@@ -2853,17 +3118,18 @@ focus_tree = {
 		}
 		x = 2
 		y = 21
-		completion_reward = {
-			add_stability = 0.05
-			random_owned_controlled_state = {
+			completion_reward = {
+					add_stability = 0.05
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}			
-		}
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_The_Federation_of_Mexican_Peoples_Parties_1958
@@ -2874,12 +3140,13 @@ focus_tree = {
 		}
 		x = 5
 		y = 23
-		available = {
-			has_country_flag = mex_Federation_of_Mexican_Peoples_Parties_1958
-		}
-		bypass = {
-			has_country_flag = mex_Federation_of_Mexican_Peoples_Parties_1958
-		}
+			available = {
+					has_country_flag = mex_Federation_of_Mexican_Peoples_Parties_1958
+				}
+			bypass = {
+					has_country_flag = mex_Federation_of_Mexican_Peoples_Parties_1958
+				}
+
 	}
 	focus = {
 		id = MEX_The_National_Action_Party_1958
@@ -2890,12 +3157,13 @@ focus_tree = {
 		}
 		x = 7
 		y = 23
-		available = {
-			has_country_flag = mex_National_Action_Party_1958
-		}
-		bypass = {
-			has_country_flag = mex_National_Action_Party_1958
-		}
+			available = {
+					has_country_flag = mex_National_Action_Party_1958
+				}
+			bypass = {
+					has_country_flag = mex_National_Action_Party_1958
+				}
+
 	}
 	focus = {
 		id = MEX_End_Military_Control_Elect_Lopez_Mateos
@@ -2906,12 +3174,13 @@ focus_tree = {
 		}
 		x = 3
 		y = 23
-		available = {
-			has_country_flag = mex_Lopez_Mateos_1958
-		}
-		bypass = {
-			has_country_flag = mex_Lopez_Mateos_1958
-		}
+			available = {
+					has_country_flag = mex_Lopez_Mateos_1958
+				}
+			bypass = {
+					has_country_flag = mex_Lopez_Mateos_1958
+				}
+
 	}
 	focus = {
 		id = MEX_Continued_Military_Oppression
@@ -2922,12 +3191,13 @@ focus_tree = {
 		}
 		x = 1
 		y = 23
-		available = {
-			has_country_flag = mex_mil_takeover_58
-		}
-		bypass  = {
-			has_country_flag = mex_mil_takeover_58
-		}	
+			available = {
+					has_country_flag = mex_mil_takeover_58
+				}
+			bypass = {
+					has_country_flag = mex_mil_takeover_58
+				}
+
 	}
 	focus = {
 		id = MEX_Reduce_Military_Power
@@ -2938,12 +3208,13 @@ focus_tree = {
 		}
 		x = 3
 		y = 24
-		completion_reward = {
-			army_experience = -25
-			add_manpower = -10000
-			add_political_power = 500
-			add_stability = 0.25
-		}
+			completion_reward = {
+					army_experience = -25
+					add_manpower = -10000
+					add_political_power = 500
+					add_stability = 0.25
+				}
+
 	}
 	focus = {
 		id = MEX_Allow_Other_Parties
@@ -2954,14 +3225,15 @@ focus_tree = {
 		}
 		x = 3
 		y = 25
-		completion_reward = {
-			remove_ideas = gulag_politic
-			remove_ideas = repression
-			remove_ideas = reactionary_drift
-			remove_ideas = monarchist_influence
-			add_political_power = 200
-			add_stability = 0.25
-		}
+			completion_reward = {
+					remove_ideas = gulag_politic
+					remove_ideas = repression
+					remove_ideas = reactionary_drift
+					remove_ideas = monarchist_influence
+					add_political_power = 200
+					add_stability = 0.25
+				}
+
 	}
 	focus = {
 		id = MEX_Declare_Neutrality
@@ -2975,10 +3247,11 @@ focus_tree = {
 		}
 		x = 4
 		y = 26
-		completion_reward = {
-			add_political_power = 300
-			add_ideas = neutrality_idea
-		}
+			completion_reward = {
+					add_political_power = 300
+					add_ideas = neutrality_idea
+				}
+
 	}
 	focus = {
 		id = MEX_A_Developed_Country
@@ -2989,32 +3262,33 @@ focus_tree = {
 		}
 		x = 5
 		y = 25
-		completion_reward = {
-			random_owned_controlled_state = {
+			completion_reward = {
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}
-			random_owned_controlled_state = {
+								}
+						}
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}
-			random_owned_controlled_state = {
+								}
+						}
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}				
-		}
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Stabilize_the_Economy
@@ -3025,24 +3299,25 @@ focus_tree = {
 		}
 		x = 5
 		y = 24
-		completion_reward = {
-			random_owned_controlled_state = {
+			completion_reward = {
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}
-			random_owned_controlled_state = {
+								}
+						}
+					random_owned_controlled_state = {
 							add_extra_state_shared_building_slots = 2
 							add_building_construction = {
 									type = industrial_complex
 									level = 2
 									instant_build = yes
-								}			
-			}	
-		}
+								}
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_The_Fourth_Mexican_Civil_War
@@ -3053,9 +3328,10 @@ focus_tree = {
 		}
 		x = 1
 		y = 24
-		completion_reward = {
-			country_event = mex.3000
-		}
+			completion_reward = {
+					country_event = mex.3000
+				}
+
 	}
 	focus = {
 		id = MEX_Outcome_of_the_Civil_War
@@ -3066,10 +3342,11 @@ focus_tree = {
 		}
 		x = 1
 		y = 25
-		completion_reward = {
-			add_manpower = 50000
-			army_experience = 50
-		}
+			completion_reward = {
+					add_manpower = 50000
+					army_experience = 50
+				}
+
 	}
 	focus = {
 		id = MEX_Junta_Victory
@@ -3083,10 +3360,13 @@ focus_tree = {
 		}
 		x = 2
 		y = 26
-		available = {
-			has_government = neutrality
-			NOT = { has_war = yes }	
-		}
+			available = {
+					has_government = neutrality
+					NOT = {
+							has_war = yes
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Communist_Victory
@@ -3100,10 +3380,13 @@ focus_tree = {
 		}
 		x = 0
 		y = 26
-		available = {
-			has_government = communism
-			NOT = { has_war = yes }	
-		}
+			available = {
+					has_government = communism
+					NOT = {
+							has_war = yes
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Purge_the_Army
@@ -3114,10 +3397,11 @@ focus_tree = {
 		}
 		x = 0
 		y = 27
-		completion_reward = {
-			army_experience = -50
-			add_manpower = -50000
-		}
+			completion_reward = {
+					army_experience = -50
+					add_manpower = -50000
+				}
+
 	}
 	focus = {
 		id = MEX_Cooperation_with_Moscow
@@ -3128,11 +3412,12 @@ focus_tree = {
 		}
 		x = 0
 		y = 28
-		completion_reward = {
-			SOV = {
-				country_event = generic.8
-			}
-		}
+			completion_reward = {
+					SOV = {
+							country_event = generic.8
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Cooperation_with_NATO
@@ -3143,11 +3428,12 @@ focus_tree = {
 		}
 		x = 2
 		y = 28
-		completion_reward = {
-			USA = {
-				country_event = generic.8
-			}
-		}
+			completion_reward = {
+					USA = {
+							country_event = generic.8
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_The_Oaxaca_Trials
@@ -3158,10 +3444,14 @@ focus_tree = {
 		}
 		x = 2
 		y = 27
-		completion_reward = {
-			add_stability = 0.15
-			add_popularity = { ideology = communism popularity = -0.25 }
-		}
+			completion_reward = {
+					add_stability = 0.15
+					add_popularity = {
+							ideology = communism
+							popularity = -0.25
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_American_Acceptance
@@ -3175,12 +3465,13 @@ focus_tree = {
 		}
 		x = 8
 		y = 26
-		available = {
-			has_idea = nato_member
-		}
-		bypass = {
-			has_idea = nato_member
-		}
+			available = {
+					has_idea = nato_member
+				}
+			bypass = {
+					has_idea = nato_member
+				}
+
 	}
 	focus = {
 		id = MEX_Invite_Brazil
@@ -3191,9 +3482,12 @@ focus_tree = {
 		}
 		x = 6
 		y = 28
-		completion_reward = {
-			BRA = { country_event = generic.2 }
-		}
+			completion_reward = {
+					BRA = {
+							country_event = generic.2
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Argentina
@@ -3204,9 +3498,12 @@ focus_tree = {
 		}
 		x = 8
 		y = 28
-		completion_reward = {
-			ARG = { country_event = generic.2 }
-		}
+			completion_reward = {
+					ARG = {
+							country_event = generic.2
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Colombia
@@ -3217,9 +3514,12 @@ focus_tree = {
 		}
 		x = 4
 		y = 28
-		completion_reward = {
-			COL = { country_event = generic.2 }
-		}
+			completion_reward = {
+					COL = {
+							country_event = generic.2
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Limit_States_Rights
@@ -3229,34 +3529,35 @@ focus_tree = {
 			focus = MEX_State_Visit_to_Prague
 			focus = MEX_State_Visit_Hamburg
 		}
-		x = 15
-		y = 26
-		completion_reward = {
-			add_political_power = 300
-			add_stability = -0.15
-			add_timed_idea = { idea = repression days = 365 }
-		}
+		x = 12
+		y = 21
+			completion_reward = {
+					add_political_power = 300
+					add_stability = -0.15
+					add_timed_idea = {
+							idea = repression
+							days = 365
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Join_Nato
 		icon = GFX_focus_chi_mission_to_the_us
 		cost = 10.00
 		prerequisite = {
-			focus = MEX_Limit_States_Rights
-		}
-		prerequisite = {
 			focus = MEX_State_Visit_Hamburg
 		}
 		mutually_exclusive = {
-			focus = MEX_American_Rejection
 			focus = MEX_Embrace_Neutrality
 			focus = MEX_Join_Warsaw
 		}
-		x = 13
-		y = 27
-		completion_reward = {
-			add_ideas = nato_member
-		}
+		x = 10
+		y = 22
+			completion_reward = {
+					add_ideas = nato_member
+				}
+
 	}
 	focus = {
 		id = MEX_Embrace_Neutrality
@@ -3266,35 +3567,35 @@ focus_tree = {
 			focus = MEX_Limit_States_Rights
 		}
 		mutually_exclusive = {
-			focus = MEX_Join_Warsaw
 			focus = MEX_Join_Nato
+			focus = MEX_Join_Warsaw
 		}
-		x = 15
-		y = 28
-		completion_reward = {
-			add_ideas = neutrality_idea 
-		}
+		x = 12
+		y = 22
+			completion_reward = {
+					add_ideas = neutrality_idea
+				}
+
 	}
 	focus = {
 		id = MEX_Join_Warsaw
 		icon = GFX_goal_support_communism
 		cost = 10.00
 		prerequisite = {
-			focus = MEX_Limit_States_Rights
-		}
-		prerequisite = {
 			focus = MEX_State_Visit_to_Prague
 		}
 		mutually_exclusive = {
-			focus = MEX_Communist_Victory
-			focus = MEX_Embrace_Neutrality
 			focus = MEX_Join_Nato
+			focus = MEX_Embrace_Neutrality
 		}
-		x = 17
-		y = 27
-		completion_reward = {
-			SOV = { country_event = generic.8 }
-		}
+		x = 14
+		y = 22
+			completion_reward = {
+					SOV = {
+							country_event = generic.8
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_State_Visit_to_London
@@ -3303,22 +3604,23 @@ focus_tree = {
 		prerequisite = {
 			focus = MEX_The_Empire_Prevails
 		}
-		x = 13
-		y = 24
-		completion_reward = {
-				ENG = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = small_increase
-					}
+		x = 10
+		y = 19
+			completion_reward = {
+					ENG = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = ENG
+									modifier = small_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = ENG
-						modifier = small_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_State_Visit_Moscow
@@ -3327,22 +3629,23 @@ focus_tree = {
 		prerequisite = {
 			focus = MEX_The_Revolution_Prevails
 		}
-		x = 17
-		y = 24
-		completion_reward = {
-				SOV = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = small_increase
-					}
+		x = 14
+		y = 19
+			completion_reward = {
+					SOV = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = SOV
+									modifier = small_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = SOV
-						modifier = small_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_State_Visit_Hamburg
@@ -3351,22 +3654,23 @@ focus_tree = {
 		prerequisite = {
 			focus = MEX_State_Visit_to_London
 		}
-		x = 13
-		y = 25
-		completion_reward = {
-				WGR = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = small_increase
-					}
+		x = 10
+		y = 20
+			completion_reward = {
+					WGR = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = WGR
+									modifier = small_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = WGR
-						modifier = small_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_State_Visit_to_Prague
@@ -3375,22 +3679,23 @@ focus_tree = {
 		prerequisite = {
 			focus = MEX_State_Visit_Moscow
 		}
-		x = 17
-		y = 25
-		completion_reward = {
-				CZE = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = small_increase
-					}
+		x = 14
+		y = 20
+			completion_reward = {
+					CZE = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = CZE
+									modifier = small_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = CZE
-						modifier = small_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_The_Empire_Prevails
@@ -3399,14 +3704,18 @@ focus_tree = {
 		prerequisite = {
 			focus = MEX_Limitation_of_Elections
 		}
-		x = 13
-		y = 23
-		completion_reward = {
-			add_stability = 0.05
-			add_ideas = militarized_schools
-			add_political_power = 300
+		mutually_exclusive = {
+			focus = MEX_The_Revolution_Prevails
 		}
-	}	
+		x = 10
+		y = 18
+			completion_reward = {
+					add_stability = 0.05
+					add_ideas = militarized_schools
+					add_political_power = 300
+				}
+
+	}
 	focus = {
 		id = MEX_The_Revolution_Prevails
 		icon = GFX_focus_generic_soviet_politics
@@ -3414,13 +3723,17 @@ focus_tree = {
 		prerequisite = {
 			focus = MEX_Limitation_of_Elections
 		}
-		x = 17
-		y = 23
-		completion_reward = {
-			add_stability = 0.05
-			add_ideas = ideological_fanaticism_focus
-			add_political_power = 300
+		mutually_exclusive = {
+			focus = MEX_The_Empire_Prevails
 		}
+		x = 14
+		y = 18
+			completion_reward = {
+					add_stability = 0.05
+					add_ideas = ideological_fanaticism_focus
+					add_political_power = 300
+				}
+
 	}
 	focus = {
 		id = MEX_Cooperation_with_the_CIA
@@ -3434,20 +3747,21 @@ focus_tree = {
 		}
 		x = 18
 		y = 14
-		completion_reward = {
-				USA = {
-					add_opinion_modifier = {
-						target = MEX
-						modifier = small_increase
-					}
+			completion_reward = {
+					USA = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = small_increase
+								}
+						}
+					MEX = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = small_increase
+								}
+						}
 				}
-				MEX = {
-					add_opinion_modifier = {
-						target = USA
-						modifier = small_increase
-					}
-				}
-			}
+
 	}
 	focus = {
 		id = MEX_Spy_on_the_Soviet_Space_Program
@@ -3458,14 +3772,15 @@ focus_tree = {
 		}
 		x = 18
 		y = 15
-		completion_reward = {
-			add_tech_bonus = {
-				name = space_unmanned_bonus
-				bonus = 0.10
-				uses = 1
-				category = space_unmanned
-			}			
-		}
+			completion_reward = {
+					add_tech_bonus = {
+							name = space_unmanned_bonus
+							bonus = 0.10
+							uses = 1
+							category = space_unmanned
+						}
+				}
+
 	}
 	focus = {
 		id = MEX_Spy_On_Soviet_Armor
@@ -3484,74 +3799,7 @@ focus_tree = {
 							category = armor
 						}
 				}
-	}
-	focus = {
-		id = MEX_We_Have_More_Important_Matters
-		icon = GFX_focus_generic_self_management
-		cost = 10.00
-		prerequisite = {
-			focus = MEX_Outcome_of_Castle_Bravo
-			focus = MEX_The_Soviets_Send_a_Man_to_Space
-		}
-		mutually_exclusive = {
-			focus = MEX_Cooperation_with_the_CIA
-			focus = MEX_Our_Own_Special_Project
-		}
-		x = 20
-		y = 18
-		completion_reward = {
-			add_stability = 0.25
-			add_political_power = 300
-		}
-	}
 
-	focus = {
-		id = MEX_The_Soviets_Send_a_Man_to_Space
-		icon = GFX_goal_generic_intelligence_exchange
-		cost = 10.00
-		prerequisite = {
-			focus = MEX_Spy_On_Soviet_Armor
-		}
-		x = 18
-		y = 17
-		completion_reward = {
-			add_tech_bonus = {
-				name = space_manned_bonus
-				bonus = 0.15
-				uses = 1
-				category = space_manned
-			}
-			add_tech_bonus = {
-				name = space_unmanned_bonus
-				bonus = 0.15
-				uses = 1
-				category = space_unmanned
-			}			
-		}
-	}
-	focus = {
-		id = MEX_Send_a_Mexican_to_Space
-		icon = GFX_goal_generic_scientific_exchange
-		cost = 10.00
-		prerequisite = {
-			focus = MEX_The_Soviets_Send_a_Man_to_Space
-		}
-		x = 18
-		y = 19
-		completion_reward = {
-			add_tech_bonus = {
-				name = space_manned_bonus
-				bonus = 0.15
-				uses = 1
-				category = space_manned
-			}
-			add_tech_bonus = {
-				name = space_unmanned_bonus
-				bonus = 0.15
-				uses = 1
-				category = space_unmanned
-			}			
-		}
 	}
 	focus = {
 		id = MEX_Motorized_Trucks
@@ -3565,16 +3813,15 @@ focus_tree = {
 		}
 		x = 25
 		y = 5
-		completion_reward = {
-
+			completion_reward = {
 					add_tech_bonus = {
 							name = motorized_equipment_bonus
 							bonus = 0.125
 							uses = 1
 							category = motorized_equipment
 						}
-					
-		}
+				}
+
 	}
 	focus = {
 		id = MEX_Copy_Old_German_Trucks
@@ -3585,16 +3832,15 @@ focus_tree = {
 		}
 		x = 25
 		y = 6
-		completion_reward = {
-
+			completion_reward = {
 					add_tech_bonus = {
 							name = motorized_equipment_bonus
 							bonus = 0.125
 							uses = 1
 							category = motorized_equipment
 						}
-					
-		}
+				}
+
 	}
 	focus = {
 		id = MEX_Finish_Mechanization_of_the_Army
@@ -3606,16 +3852,15 @@ focus_tree = {
 		}
 		x = 26
 		y = 7
-		completion_reward = {
-
+			completion_reward = {
 					add_tech_bonus = {
 							name = motorized_equipment_bonus
 							bonus = 0.125
 							uses = 1
 							category = motorized_equipment
 						}
-					
-		}
+				}
+
 	}
 	focus = {
 		id = MEX_New_Military_Research
@@ -3632,9 +3877,10 @@ focus_tree = {
 		}
 		x = 31
 		y = 8
-		completion_reward = {
-			add_research_slot = 1
-		}
+			completion_reward = {
+					add_research_slot = 1
+				}
+
 	}
 	focus = {
 		id = MEX_Complete_Naval_Modernization
@@ -3767,6 +4013,7 @@ focus_tree = {
 							category = light_air
 						}
 				}
+
 	}
 	focus = {
 		id = MEX_Study_American_Frigates
@@ -3785,6 +4032,7 @@ focus_tree = {
 							category = dd_tech
 						}
 				}
+
 	}
 	focus = {
 		id = MEX_Research_British_Frigates
@@ -3803,6 +4051,7 @@ focus_tree = {
 							category = dd_tech
 						}
 				}
+
 	}
 	focus = {
 		id = MEX_Look_for_American_Help
@@ -3816,20 +4065,21 @@ focus_tree = {
 		}
 		x = 37
 		y = 4
-		completion_reward = {
-				MEX = {
-					add_opinion_modifier = {
-						target = USA
-						modifier = large_increase
-					}
+			completion_reward = {
+					MEX = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_increase
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = MEX
+									modifier = large_increase
+								}
+						}
 				}
-				USA = {
-					add_opinion_modifier = {
-					target = MEX
-					modifier = large_increase
-				}		
-			}
-		}
+
 	}
 	focus = {
 		id = MEX_Import_Chinese_J_5_Fresco
@@ -3840,19 +4090,23 @@ focus_tree = {
 		}
 		x = 35
 		y = 6
-		#PRC_jet_multirole_equipment_3
-		completion_reward = {
-			add_equipment_to_stockpile = { type = jet_multirole_equipment_3 amount = 40 producer = PRC }
-			PRC = {
-				create_production_license = {
-					target = ROOT 
-					equipment = {
-						type = jet_multirole_equipment_3
-					}
-					cost_factor = 0
+			completion_reward = {
+					add_equipment_to_stockpile = {
+							type = jet_multirole_equipment_3
+							amount = 40
+							producer = PRC
+						}
+					PRC = {
+							create_production_license = {
+									target = ROOT
+									equipment = {
+											type = jet_multirole_equipment_3
+										}
+									cost_factor = 0
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = MEX_Import_British_DH_112_Venom
@@ -3863,19 +4117,23 @@ focus_tree = {
 		}
 		x = 37
 		y = 6
-		#ENG_jet_interceptor_equipment_2
-		completion_reward = {
-			add_equipment_to_stockpile = { type = jet_interceptor_equipment_2 amount = 40 producer = ENG }
-			ENG = {
-				create_production_license = {
-					target = ROOT 
-					equipment = {
-						type = jet_interceptor_equipment_2
-					}
-					cost_factor = 0
+			completion_reward = {
+					add_equipment_to_stockpile = {
+							type = jet_interceptor_equipment_2
+							amount = 40
+							producer = ENG
+						}
+					ENG = {
+							create_production_license = {
+									target = ROOT
+									equipment = {
+											type = jet_interceptor_equipment_2
+										}
+									cost_factor = 0
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = MEX_Import_F_100_Super_Sabre
@@ -3886,19 +4144,23 @@ focus_tree = {
 		}
 		x = 37
 		y = 5
-		#USA_jet_multirole_equipment_3
-		completion_reward = {
-			add_equipment_to_stockpile = { type = jet_multirole_equipment_3 amount = 40 producer = USA }
-			USA = {
-				create_production_license = {
-					target = ROOT 
-					equipment = {
-						type = jet_multirole_equipment_3
-					}
-					cost_factor = 0
+			completion_reward = {
+					add_equipment_to_stockpile = {
+							type = jet_multirole_equipment_3
+							amount = 40
+							producer = USA
+						}
+					USA = {
+							create_production_license = {
+									target = ROOT
+									equipment = {
+											type = jet_multirole_equipment_3
+										}
+									cost_factor = 0
+								}
+						}
 				}
-			}
-		}
+
 	}
 	focus = {
 		id = MEX_Import_MIG_17_Fresco
@@ -3909,18 +4171,22 @@ focus_tree = {
 		}
 		x = 35
 		y = 5
-		#SOV_jet_multirole_equipment_3
-		completion_reward = {
-			add_equipment_to_stockpile = { type = jet_multirole_equipment_3 amount = 40 producer = SOV }
-			SOV = {
-				create_production_license = {
-					target = ROOT 
-					equipment = {
-						type = jet_multirole_equipment_3
-					}
-					cost_factor = 0
+			completion_reward = {
+					add_equipment_to_stockpile = {
+							type = jet_multirole_equipment_3
+							amount = 40
+							producer = SOV
+						}
+					SOV = {
+							create_production_license = {
+									target = ROOT
+									equipment = {
+											type = jet_multirole_equipment_3
+										}
+									cost_factor = 0
+								}
+						}
 				}
-			}
-		}
+
 	}
 }
