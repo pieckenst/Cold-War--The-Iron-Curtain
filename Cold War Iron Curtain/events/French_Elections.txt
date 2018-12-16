@@ -913,6 +913,7 @@ country_event = {
 
 	immediate = {
 		set_country_flag = french_elections_1965
+		complete_national_focus = FRA_60s_Elections_of_1965
 	}
 
 	# Charles de Gaulle
@@ -925,6 +926,7 @@ country_event = {
 			ideology = gaullist
 		}
 		set_country_flag = de_galle_1965
+		complete_national_focus = FRA_60s_Re_Elect_De_Galle
 		set_politics = {
 			ruling_party = conservative
 			elections_allowed = yes
@@ -945,8 +947,9 @@ country_event = {
 		picture = "Portrait_France_Francois_Mitterrand.dds"
 		expire = "1996.1.8"
 		ideology = socialism
-	}
-				set_country_flag = mitterand_1965
+		}
+		set_country_flag = mitterand_1965
+		complete_national_focus = FRA_60s_Mitterand_1965
 		set_politics = {
 			ruling_party = socialist
 			elections_allowed = yes
@@ -1203,6 +1206,197 @@ news_event = {
 				tag = SOV
 				is_in_faction_with = SOV	
 				has_idea = nato_member
+			}
+		}
+	}
+}
+# 1967 Legislative Elections
+country_event = {
+	id = french_elections.11
+	title = "1967 Legislative Elections"
+	desc = french_elections.11.d
+	picture = GFX_report_event_brazil_election_1955
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = french_legislative_elections_1967
+		complete_national_focus = FRA_60s_Legislative_Election_67
+	}
+
+	# URP Victory
+	option = {
+		name = "Union Républicaine Populaire Victory"
+		add_popularity = {
+			ideology = conservatism
+			popularity = 0.5
+		}
+		set_country_flag = URP_Victory
+		complete_national_focus = FRA_60s_URP_Victory
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 100
+			}
+		}
+	}
+	# Stalemate
+	option = {
+		name = "Stalemate"
+		set_politics = {
+			parties = {
+				conservatism = { 
+					popularity = 50
+				}
+				
+				communism = {
+					popularity = 15
+				}
+				
+				socialism = { 
+					popularity = 23
+				}
+				
+				centrist = { 
+					popularity = 12
+				}
+			}
+		}
+		complete_national_focus = FRA_60s_Stalemate
+		set_country_flag = Leg_Stalemate
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 100
+			}
+		}
+	}
+	# Left Victory
+	option = {
+		name = "Union Républicaine Populaire Victory"
+		add_popularity = {
+			ideology = socialism
+			popularity = 0.2
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.2
+		}
+		set_country_flag = Left_Victory
+		complete_national_focus = FRA_60s_Left_Victory
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 100
+			}
+		}
+	}
+}
+# Economic & Social Empowerment Law
+country_event = {
+	id = french_elections.12
+	title = "Economic & Social Empowerment Law"
+	desc = french_elections.12.d
+	picture = GFX_report_event_brazil_election_1955
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = eco_and_social_emp_law
+	}
+
+	# Law Pass
+	option = {
+		name = "The Law Pass"
+		trigger = {
+			has_completed_focus = FRA_60s_URP_Victory
+		}
+		set_country_flag = Law_passed
+		complete_national_focus = FRA_60s_Censor_Motion_Rejected
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 100
+			}
+		}
+	}
+	# Law is Rejected
+	option = {
+		name = "The Law is Rejected"
+		trigger = {
+			NOT = {
+				has_completed_focus = FRA_60s_URP_Victory
+			}
+		}
+		set_country_flag = Law_rejected
+		country_event = {
+			id = french_elections.13
+			days = 1
+		}
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 100
+			}
+		}
+	}
+}
+# Motion of Censor
+country_event = {
+	id = french_elections.13
+	title = "Motion of Censor by the Communist"
+	desc = french_elections.13.d
+	picture = GFX_report_event_brazil_election_1955
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = motion_of_censor
+	}
+
+	# The Motion fail
+	option = {
+		name = "The Motion fail"
+		trigger = {
+			OR = {
+				has_completed_focus = FRA_60s_URP_Victory
+				has_completed_focus = FRA_60s_Stalemate
+			}
+		}
+		set_country_flag = Motion_fail
+		complete_national_focus = FRA_60s_Censor_Motion_Rejected
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 100
+			}
+		}
+	}
+	# The Motion succeed
+	option = {
+		name = "The Motion pass"
+		trigger = {
+			OR = {
+				has_completed_focus = FRA_60s_Left_Victory
+				has_completed_focus = FRA_60s_Stalemate
+			}
+		}
+		set_country_flag = Motion_pass
+		complete_national_focus = FRA_60s_Censor_Motion_Pass
+		ai_chance = {
+			factor = 15
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 100
 			}
 		}
 	}
