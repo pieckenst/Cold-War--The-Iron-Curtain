@@ -14,13 +14,15 @@ focus_tree = {
 		cost = 10.00
 		x = 13
 		y = 1
-			ai_will_do = {
-					factor = 1000
+			available = {
+				always = no
+			}
+			bypass = {
+				OR = {
+				    NOT = { country_exists = INO }
+					NOT = { country_exists = INS }
 				}
-			completion_reward = {
-					add_political_power = 300
-					country_event = INO.3
-				}
+			}
 
 	}
 	focus = {
@@ -883,7 +885,7 @@ focus_tree = {
 		x = 12
 		y = 2
 			available = {
-					always = no
+					NOT = { country_exists = INO }
 				}
 			completion_reward = {
 					add_political_power = 300
@@ -903,7 +905,7 @@ focus_tree = {
 		x = 14
 		y = 2
 			available = {
-					always = no
+					NOT = { country_exists = INS }
 				}
 			completion_reward = {
 					add_stability = -0.1
