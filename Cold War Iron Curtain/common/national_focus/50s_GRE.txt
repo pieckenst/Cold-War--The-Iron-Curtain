@@ -1428,7 +1428,7 @@ focus_tree = {
 	
 	focus = {
 		id = GRE_Compromise_with_Palace_junta_1951
-		icon = GFX_goal_support_democracy
+		icon = GFX_King_compromises_with_Junta
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_Establish_Junta_1950
@@ -2326,7 +2326,7 @@ focus_tree = {
 	
 	focus = {
 		id = GRE_plastiras_housing_program_1952
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_gre_housing_1
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_welfare_program_1952
@@ -2952,7 +2952,7 @@ focus_tree = {
 	
 	focus = {
 		id = GRE_education_reform_p
-		icon = GFX_goal_support_democracy
+		icon = GFX_Gre_Education_Reform
 		cost = 10.00
 		
 		prerequisite = {
@@ -3501,7 +3501,7 @@ focus_tree = {
 	
 	focus = {
 		id = GRE_house_expansion_1958
-		icon = GFX_focus_expand_Housing
+		icon = GFX_gre_housing_1
 		cost = 10.0
 		prerequisite = {
 			focus = GRE_Construction_Development_1958
@@ -3537,8 +3537,8 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_Statefunded_Aspropyrgos_Oil_Refinery
-		icon = GFX_NorthernGas
+		id = GRE_Statefunded_Oil_Refinery
+		icon = GFX_Goal_gre_oil_refinery
 		cost = 10.0
 		prerequisite = {
 			focus = GRE_Autarkey_focus_1958
@@ -3559,24 +3559,67 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_Statefunded_Plastic_Industry_1958
-		icon = GFX_goal_generic_construct_civ_factory
+		id = GRE_Small_arms_industry_1
+		icon = GFX_Small_arms_industry_1
 		cost = 10.0
 		prerequisite = {
 			focus = GRE_Autarkey_focus_1958
 		}
 		
 		completion_reward = {
-					47 = {
-							add_resource = {
-									type = rubber
-									amount = 5
+					random_owned_controlled_state = {
+							limit = {
+									arms_factory > 0
+									free_building_slots = {
+											building = arms_factory
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
 								}
 						}
 				}
-				
+	
 		x = 53
 		y = 18
+        
+	}
+	
+	focus = {
+		id = GRE_arty_industry_1
+		icon = GFX_arty_industry_1
+		cost = 10.0
+		prerequisite = {
+			focus = GRE_Small_arms_industry_1
+		}
+
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									arms_factory > 0
+									free_building_slots = {
+											building = arms_factory
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = arms_factory
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+		
+	
+		x = 53
+		y = 19
         
 	}
 	
@@ -3633,7 +3676,7 @@ focus_tree = {
 	
 	focus = {
 		id = GRE_ask_left_support
-		icon = GFX_goal_support_democracy
+		icon = GFX_Enosi_Kentrou
 		cost = 6.00
 		prerequisite = {
 			focus = GRE_EDA_takes_24
@@ -3655,7 +3698,7 @@ focus_tree = {
 	
 	focus = {
 		id = GRE_left_moves_towards_center
-		icon = GFX_goal_support_democracy
+		icon = GFX_Left_towards_center
 		cost = 6.00
 		prerequisite = {
 			focus = GRE_ask_left_support
