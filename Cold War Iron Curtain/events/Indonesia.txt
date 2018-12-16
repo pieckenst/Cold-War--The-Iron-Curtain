@@ -1,233 +1,25 @@
-﻿#####################
-# Malaysia Events
-#####################
-
-add_namespace = INO
-
+﻿add_namespace = indonesia
+	
+#The Dutch-Indonesian Round Table Conference
 country_event = {
-	id = INO.201
-	title = "Indonesia Demands Brunei"
-	desc = "Indonesia Demands Brunei"
-	picture = GFX_report_event_german_troops
+	id = indonesia.1
+	title = "Dutch-Indonesian Round Table Conference"
+	desc = "After our continuous failure to defeat rebel forces in Indonesia, we are now forced to reach an agreement to end the war. The agreement is as follows: The Dutch East Indies will be dissolved and merged with the Republic of the United States of Indonesia. Western New Guinea will become a overseas territory of the Netherlands."
 	
 	is_triggered_only = yes
-
-	option = {
-		name = "Agree to the Demands"
-		ai_chance = {
-			factor = 80
-		}
-		INO = { annex_country = { target = BRU } }
-	}
-
-	option = {
-		name = "Reject the Demands"
-		ai_chance = {
-			factor = 20
-		}
-		INO = {
-			create_wargoal = { 
-				type = annex_everything 
-				target = BRU
-			}
-		}
-	}	
-}
-country_event = {
-	id = INO.202
-	title = "Indonesia Demands East Timor"
-	desc = "Indonesia Demands East Timor"
-	picture = GFX_report_event_german_troops
-	
-	is_triggered_only = yes
-
-	option = {
-		name = "Agree to the Demands"
-		ai_chance = {
-			factor = 80
-		}	
-		INO = { annex_country = { target = MAL } }
-	}
-	option = {
-		name = "Reject the Demands"
-		ai_chance = {
-			factor = 20
-		}
-		INO = {
-			create_wargoal = { 
-				type = annex_everything 
-				target = MAL
-			}
-		}
-	}	
-}
-country_event = {
-	id = INO.205
-	title = "Indonesia Requests Unification with Malaysia"
-	desc = "Indonesia Requests Unification with Malaysia"
-	picture = GFX_report_event_german_troops
-	
-	is_triggered_only = yes
-
-	option = {
-		name = "Agree to the Demands"
-		ai_chance = {
-			factor = 80
-		}	
-		INO = { annex_country = { target = MAL } }
-	}
-	option = {
-		name = "Reject the Demands"
-		ai_chance = {
-			factor = 20
-		}
-		INO = {
-			create_wargoal = { 
-				type = annex_everything 
-				target = MAL
-			}
-		}
-	}
-}
-
-# Hidden Trigger, end of civil war
-country_event = {
-	id = INO.1
-	hidden = yes
-
 	fire_only_once = yes
-	is_triggered_only = yes
-
-	immediate = {
-		INS = { 
-			white_peace = INO
-			annex_country = { target = INO }
+	
+	option = {
+		name = indonesia.1.a
+		white_peace = INO
+		white_peace = DAR
+		INO = { set_capital = 842 set_cosmetic_tag = USI annex_country = { target = INS transfer_troops = yes }
+		transfer_state = 858
+		transfer_state = 669
+		858 = { add_core_of = ROOT }
+		669 = { add_core_of = ROOT }
+		hidden_effect = {
+			INS = { drop_cosmetic_tag = yes set_autonomy = { target = INS autonomy_state = autonomy_free } }
 		}
-		INO = { set_capital = 1413 }
-		HOL = { white_peace = INO }
 	}
-
 }
-#INS End of Civil War
-country_event = {
-	id = INO.2
-	hidden = yes
-	is_triggered_only = yes
-
-	fire_only_once = yes
-
-	immediate = {
-		INS = { white_peace = INO }
-		INO = { 
-			annex_country = { target = INS }
-			set_capital = 1413
-		}
-		HOL = { white_peace = INO }
-
-	}
-
-}
-#country_event = {
-#	id = INO.3
-#	title = "Dutch-Indonesian Round Table Conference"
-#	desc = INO.3.d
-#	picture = GFX_report_event_german_troops
-#	is_triggered_only = yes
-#	fire_only_once = yes
-#
-#	immediate = {
-#	set_global_flag = di_round_table_conference
-#	}
-#	
-#	option = {
-#		name = "Abandon East Indies expect New Guinea"
-#		complete_national_focus = HOL_Loss_of_Indonesia
-#		set_global_flag = historical_table_conference_proposition
-#		ai_chance = {
-#			factor = 50
-#		}	
-#		INO = { country_event = INO.4 }
-#	}
-#	option = {
-#		name = "Abandon all East Indies"
-#		complete_national_focus = HOL_Loss_of_Indonesia
-#		set_global_flag = alt_table_conference_proposition
-#		ai_chance = {
-#			factor = 50
-#		}
-#		INO = { country_event = INO.4 }
-#	}
-#	option = {
-#		name = "Continue the Fight"
-#		complete_national_focus = HOL_Crush_Indonesia
-#		set_global_flag = alt_table_conference_stopped
-#		ai_chance = {
-#			factor = 50
-#		}
-#		INO = { country_event = INO.4 }
-#		add_political_power = 100
-#	}
-#
-#ountry_event = {
-#	id = INO.4
-#	title = "Dutch-Indonesian Round Table Conference"
-#	desc = INO.4.d
-#	picture = GFX_report_event_german_troops
-#	is_triggered_only = yes
-#	fire_only_once = yes
-#
-#	immediate = {
-#	set_country_flag = di_round_table_conference_indonesia
-#	}
-#	option = {
-#		name = "Dutch abandon East Indies expect New Guinea"
-#		set_country_flag = historical_table_conference_proposition_accepted
-#		HOL = { set_country_flag = historical_table_conference_proposition_accepted }
-#		trigger = {
-#			has_global_flag = historical_table_conference_proposition
-#		}
-#		ai_chance = {
-#			factor = 50
-#		}	
-#		news_event = INO.5
-#			INO = {
-#				white_peace = HOL	
-#				annex_country = { target = INS }
-#			}
-#			HOL = {
-#				transfer_state = 669
-#				transfer_state = 858			
-#			}
-#			669 = { add_core_of = HOL }	
-#			858 = { add_core_of = HOL }	
-#			DAR = {
-#				white_peace = HOL
-#			}
-#	}
-#	option = {
-#		name = "Dutch abandon all East Indies"
-#		set_country_flag = historical_table_conference_proposition_accepted
-#		HOL = { set_country_flag = historical_table_conference_proposition_accepted }
-#		trigger = {
-#			has_global_flag = alt_table_conference_proposition
-#		}
-#		ai_chance = {
-#			factor = 50
-#		}	
-#		news_event = INO.5
-#			INO = {
-#				white_peace = HOL	
-#				annex_country = { target = INS }
-#			}
-#			DAR = {
-#				white_peace = HOL
-#			}
-#	}
-#	option = {
-#		name = "We will not Negotiate with the Dutch !"
-#		ai_chance = {
-#			factor = 50
-#		}	
-#		news_event = INO.6
-#	}
-#

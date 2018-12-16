@@ -5199,6 +5199,7 @@ ic_pulse = {
 				has_cosmetic_tag = IND_ENG
 				has_cosmetic_tag = NZL_ENG
 				has_cosmetic_tag = UAE_ENG
+				has_cosmetic_tag = ZAZ_ENG
 				has_cosmetic_tag = SKK_RAJ
 				has_cosmetic_tag = SKK_ENG
 				has_cosmetic_tag = SOR_ITA
@@ -5220,7 +5221,6 @@ ic_pulse = {
 				has_cosmetic_tag = MLD_SSR
 				has_cosmetic_tag = RIF_SPR 
 				has_cosmetic_tag = GEQ_SPR
-				has_cosmetic_tag = ANG_POR
 				has_cosmetic_tag = KPA_SOV
 				has_cosmetic_tag = KOR_USA
 			}
@@ -5674,6 +5674,19 @@ ic_pulse = {
 			
 		}
 		country_event = chinese_civil_war.1
+	}
+	if = {
+		limit = {
+			original_tag = HOL
+			country_exists = INS
+			INS = { is_subject_of = ROOT }
+			has_war_with = INO
+			OR = {
+                date > 1949.11.1
+				INS = { has_capitulated = yes }
+			}
+		}
+		country_event = indonesia.1
 	}
 	if = {
 		limit = {
