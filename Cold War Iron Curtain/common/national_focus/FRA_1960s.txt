@@ -1,7 +1,7 @@
 focus_tree = {
 	id = FRA_1960s
 	country = {
-		factor = 0
+		factor = 1000
 	}
 	default = no
 	shared_focus = FRA_60s_Urbanization
@@ -1341,6 +1341,9 @@ focus_tree = {
 		x = 25
 		y = 20
 		completion_reward = {
+			add_manpower = 20000
+			add_stability = -0.05
+			add_political_power = -50
 		}
 
 	}
@@ -1354,8 +1357,12 @@ focus_tree = {
 		x = 25
 		y = 19
 		completion_reward = {
+			add_political_power = 300
+			add_timed_idea = {
+				idea = decentralization
+				days = 1000
+			}
 		}
-
 	}
 	focus = {
 		id = FRA_60s_Increase_the_Pensions_His
@@ -1383,8 +1390,13 @@ focus_tree = {
 		x = 23
 		y = 20
 		completion_reward = {
+			add_stability = -0.1
+			add_political_power = 100
+			add_timed_idea = {
+				idea = degaulle_memoire
+				days = 375
+			}
 		}
-
 	}
 	focus = {
 		id = FRA_60s_Announce_Our_Social_Plan
@@ -1399,8 +1411,9 @@ focus_tree = {
 		x = 24
 		y = 21
 		completion_reward = {
+			add_stability = 0.05
+			add_political_power = -200
 		}
-
 	}
 	focus = {
 		id = FRA_60s_Social_Housing_His
@@ -2956,6 +2969,23 @@ focus_tree = {
 		x = 32
 		y = 17
 		completion_reward = {
+			every_country = {
+				limit = {
+					has_idea = nato_member
+					NOT = { original_tag = FRA }
+					OR = {
+						communism > 0.2
+						socialist > 0.2
+						Social_Democratic > 0.2
+						trotskyism > 0.2
+						maoism > 0.2
+					}
+				}
+				add_opinion_modifier = {
+					target = FRA
+					modifier = large_increase
+				}
+			}
 		}
 	}
 	focus = {
@@ -2967,21 +2997,20 @@ focus_tree = {
 		}
 		x = 32
 		y = 18
-			completion_reward = {
-					FRA = {
-							add_opinion_modifier = {
-									target = SOV
-									modifier = large_decrease
-								}
-						}
-					SOV = {
-							add_opinion_modifier = {
-									target = FRA
-									modifier = large_decrease
-								}
-						}
+		completion_reward = {
+			FRA = {
+				add_opinion_modifier = {
+					target = SOV
+					modifier = large_decrease
 				}
-
+			}
+			SOV = {
+				add_opinion_modifier = {
+					target = FRA
+					modifier = large_decrease
+				}
+			}
+		}
 	}
 	focus = {
 		id = FRA_60s_Ties_with_Yugoslavia_His
@@ -2992,21 +3021,20 @@ focus_tree = {
 		}
 		x = 31
 		y = 19
-			completion_reward = {
-					FRA = {
-							add_opinion_modifier = {
-									target = YUG
-									modifier = large_increase
-								}
-						}
-					YUG = {
-							add_opinion_modifier = {
-									target = FRA
-									modifier = large_increase
-								}
-						}
+		completion_reward = {
+			FRA = {
+				add_opinion_modifier = {
+					target = YUG
+					modifier = large_increase
 				}
-
+			}
+			YUG = {
+				add_opinion_modifier = {
+					target = FRA
+					modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = FRA_60s_Democratic_Communism_His
@@ -3018,6 +3046,12 @@ focus_tree = {
 		x = 33
 		y = 19
 		completion_reward = {
+			add_political_power = -200
+			add_stability = 0.05
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.1
+			}
 		}
 	}
 	focus = {
@@ -3030,8 +3064,12 @@ focus_tree = {
 		x = 33
 		y = 20
 		completion_reward = {
+			add_stability = -0.2
+			add_timed_idea = {
+				idea = Cultural_Freedom
+				days = 2000
+			}
 		}
-
 	}
 	focus = {
 		id = FRA_60s_Social_Dividends_His
