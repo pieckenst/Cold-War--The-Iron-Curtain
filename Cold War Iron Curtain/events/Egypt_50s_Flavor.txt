@@ -14,6 +14,7 @@ add_namespace = RCC_Crisis
 add_namespace = egy_elect
 add_namespace = UAR_annex
 add_namespace = sudan_egy
+add_namespace = farouk_exiled
 
 
 news_event = {
@@ -172,3 +173,152 @@ news_event = {
 		name = "Interesting"
 	}
 }
+news_event = {
+	id = black_saturday.1
+	title = "[GetNewspaperHeader]Black Saturday Riots in Egypt"
+	desc = black_saturday.1.t
+	#picture = 
+	is_triggered_only = yes
+	major = yes
+	trigger = {
+         NOT = { has_country_flag = black_saturday_1}
+	}
+	option = {
+		name = "Terrible"
+		set_country_flag = black_saturday_1
+		if = {
+			limit = {
+				tag = EGY
+			}
+			complete_national_focus = EGY_Black_Saturday
+		}
+	}
+}
+news_event = {
+	id = farouk_exiled.1
+	title = "[GetNewspaperHeader]Black Saturday Riots in Egypt"
+	desc = farouk_exiled.1.t
+	#picture = 
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = "A New Era in Egypt has Begun"
+	}
+}
+country_event = {
+	id = RCC_Crisis.1
+	title = "RCC in Crisis"
+	desc = RCC_Crisis.1.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Nasser Consolidates Power"
+		complete_national_focus = EGY_Nasser_Consolidates_Power
+		ai_chance = {
+			factor = 80
+		}
+	}
+	option = {
+		name = "Naguib Consolidates Power"
+		complete_national_focus = EGY_Naguib_Consolidates_Power 
+		create_country_leader = {
+			name = "Mohamed Naguib"
+			picture = "Naguib.dds"
+			ideology = nasserism
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+	option = {
+		name = "Kahlid Mohieddin"
+		complete_national_focus = EGY_Kahlid_Mohieddin_Coup
+		set_politics = {
+			ruling_party = communism
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.3
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+country_event = {
+	id = egy_elect.1
+	title = "Egyptian Elections"
+	desc = "Egyptian Elections"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Naguib Victory"
+		complete_national_focus = EGY_Naguib_Victory
+		ai_chance = {
+			factor = 34
+		}
+	}
+	option = {
+		name = "Hassan al Hudaybi Victory"
+		complete_national_focus = EGY_Hassan_al_Hudaybi
+		complete_national_focus = EGY_Ilkwhan_Victory
+		set_politics = {
+			ruling_party = islamism
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = islamism
+			popularity = 0.3
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+	option = {
+		name = "Sayyid Qutb Victory"
+		complete_national_focus = EGY_Ilkwhan_Victory
+		complete_national_focus = EGY_Sayyid_Qutb
+		set_politics = {
+			ruling_party = Salafism
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = Salafism
+			popularity = 0.3
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+country_event = {
+	id = egypt_suez.1
+	title = "Egypt Requests the Suez"
+	desc = "Egypt Requests the Suez"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Accept the Requests"
+		EGY = {
+			transfer_state = 743
+		}
+		ai_chance = {
+			factor = 65
+		}
+	}
+	option = {
+		name = "Reject the Proposal"
+		set_global_flag = negotiaiton_fail_suez
+		ai_chance = {
+			factor = 35
+		}
+	}
+
+}
+
+

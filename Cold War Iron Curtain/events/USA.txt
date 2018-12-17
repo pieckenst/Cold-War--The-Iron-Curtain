@@ -168,20 +168,6 @@ country_event = {
 		set_global_flag = eisenhower_gop_nominee_52
 	}
 
-	option = { 
-		name = "Robert Taft"
-		ai_chance = {
-			factor = 10
-		}
-		set_global_flag = taft_gop_nominee_52
-	}
-	option = { 
-		name = "Douglas MacArthur"
-		ai_chance = {
-			factor = 10
-		}
-		set_global_flag = macarthur_gop_nominee_52
-	}	
 }
 
 # Election of 1952
@@ -211,6 +197,7 @@ country_event = {
 			has_global_flag = truman_dem_nominee_52
 		}
 		add_political_power = 10
+		load_focus_tree = USA_Truman_1952
 	}
 
 	option = { 
@@ -229,6 +216,7 @@ country_event = {
 			ideology = democratic_america
 		}
 		set_global_flag = president_stevenson
+		load_focus_tree = USA_Stevenson_1952
 	}
 	
 	option = { 
@@ -247,6 +235,7 @@ country_event = {
 			ideology = democratic_america
 		}
 		set_global_flag = president_kefauver
+		load_focus_tree = USA_Kefauver_1952
 	}
 	option = {
 		name = "Douglas MacArthur"
@@ -311,6 +300,7 @@ country_event = {
 		}
 		set_politics = { ruling_party = conservative elections_allowed = yes }
 		set_global_flag = president_eisenhower
+		load_focus_tree = USA_Eisenhower_1952
 	}
 }
 
@@ -394,41 +384,6 @@ country_event = {
 	}
 
 	option = { 
-		name = "Robert Taft"
-		trigger = {
-			NOT = { has_global_flag = president_macarthur }
-			NOT = { has_global_flag = president_eisenhower }
-		}
-		ai_chance = {
-			factor = 35
-		}
-
-		set_global_flag = taft_gop_nominee_56
-
-	}
-	option = { 
-		name = "Douglas MacArthur"
-		trigger = {
-			NOT = { has_global_flag = president_taft }
-			NOT = { has_global_flag = president_eisenhower }
-		}
-		ai_chance = {
-			factor = 10
-		}
-		set_global_flag = macarthur_gop_nominee_56
-	}	
-	option = { 
-		name = "Joseph McCarthy"
-		trigger = {
-			NOT = { has_global_flag = president_taft }
-			NOT = { has_global_flag = president_eisenhower }
-		}
-		ai_chance = {
-			factor = 10
-		}
-		set_global_flag = Joseph_McCarthy_gop_nominee_56
-	}	
-	option = { 
 		name = "Richard Nixon"
 		trigger = {
 			has_global_flag = dwight_heart_attack
@@ -481,6 +436,7 @@ country_event = {
 			}
 			clr_global_flag = president_taft
 		}
+		load_focus_tree = USA_Stevenson_1956
 	}
 	
 	option = { 
@@ -506,6 +462,8 @@ country_event = {
 			}
 			clr_global_flag = president_taft
 		}
+		load_focus_tree = USA_Kefauver_1956
+
 	}
 	option = { 
 		name = "Douglas MacArthur"
@@ -573,6 +531,7 @@ country_event = {
 		}
 		set_politics = { ruling_party = conservative elections_allowed = yes }
 		set_global_flag = president_eisenhower
+		load_focus_tree = USA_Eisenhower_1956
 		if = {
 			limit = {
 				has_global_flag = president_taft

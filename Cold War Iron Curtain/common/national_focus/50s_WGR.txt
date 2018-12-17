@@ -331,8 +331,10 @@ focus_tree = {
 									modifier = WGR_Joining_the_EDC_opinion
 								}
 						}
-					remove_ideas = Pleven_Plan
-					add_ideas = Member_of_European_Defense_Community
+						swap_ideas = { 
+							remove_idea = Pleven_Plan
+							add_idea = Member_of_European_Defense_Community
+						}
 				}
 			completion_reward = {
 					BEL = {
@@ -1176,8 +1178,7 @@ focus_tree = {
 			add_stability = -0.25
 			create_country_leader = {
 				name = "Ludwig Erhard"
-				picture = "Portrait_WestGermany_Ludwig_Erhard.dds"
-				expire = "1977.5.5"
+				picture = "Ludwig_Erhard.dds"
 				ideology = christian_democracy
 			}
 		}		
@@ -1533,7 +1534,6 @@ focus_tree = {
 		x = 17
 		y = 13
 		completion_reward = {
-			
 		}
 	}
 	focus = {
@@ -1628,6 +1628,8 @@ focus_tree = {
 		x = 18
 		y = 17
 		completion_reward = {
+		if = {
+			limit = { country_exists = POL }
 			diplomatic_relation = {
 				country = POL
 				relation = non_aggression_pact
@@ -1646,6 +1648,7 @@ focus_tree = {
 								}
 						}				
 		}
+	}
 	}
 	focus = {
 		id = WGR_Kurt_Schumacher
@@ -4671,9 +4674,6 @@ focus_tree = {
 		}
 		x = 82
 		y = 1
-			available = {
-
-}
 			completion_reward = {
 					add_equipment_production = {
 							equipment = {
@@ -4977,9 +4977,6 @@ focus_tree = {
 		}
 		x = 86
 		y = 1
-			available = {
-
-}
 			completion_reward = {
 					add_equipment_production = {
 							equipment = {
@@ -5357,8 +5354,10 @@ focus_tree = {
 		x = 20
 		y = 11
 			completion_reward = {
-					remove_ideas = NATO_Military_Restrictions
-					add_ideas = nato_member
+				swap_ideas = { 
+					remove_idea = NATO_Military_Restrictions
+					add_idea = nato_member
+				}
 				}
 			ai_will_do = {
 					factor = 20
@@ -6786,42 +6785,6 @@ focus_tree = {
 				}
 			ai_will_do = {
 					factor = 60
-					modifier = {
-							is_historical_focus_on = yes
-							factor = 0
-						}
-				}
-
-	}
-	focus = {
-		id = WGR_Expedition_to_South_America
-		icon = GFX_BurningGlobe
-		cost = 4.00
-		prerequisite = {
-			focus = WGR_Reunification_of_the_Reich
-		}
-		mutually_exclusive = {
-			focus = WGR_A_New_Fuhrer
-			focus = WGR_Keep_Remer
-		}
-		x = 9
-		y = 18
-			available = {
-					NOT = {
-							has_global_flag = hitler_back
-						}
-				}
-			completion_reward = {
-					WGR = {
-							country_event = {
-									days = 1
-									id = hitler.1
-								}
-							set_global_flag = hitler_back
-						}
-				}
-			ai_will_do = {
-					factor = 20
 					modifier = {
 							is_historical_focus_on = yes
 							factor = 0
