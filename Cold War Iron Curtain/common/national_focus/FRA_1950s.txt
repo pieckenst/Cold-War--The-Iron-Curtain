@@ -1786,7 +1786,7 @@ focus_tree = {
 						}
 					set_politics = {
 							ruling_party = Social_Democratic
-							elections_allowed = yes
+							elections_allowed = no
 						}
 				}
 
@@ -1908,7 +1908,7 @@ focus_tree = {
 			completion_reward = {
 					set_politics = {
 							ruling_party = Social_Liberalism
-							elections_allowed = yes
+							elections_allowed = no
 						}
 					create_country_leader = {
 							name = "Edgar Faure"
@@ -1933,7 +1933,7 @@ focus_tree = {
 			completion_reward = {
 					set_politics = {
 							ruling_party = Social_Liberalism
-							elections_allowed = yes
+							elections_allowed = no
 						}
 					create_country_leader = {
 							name = "Henri Queuille"
@@ -1982,7 +1982,7 @@ focus_tree = {
 			completion_reward = {
 					set_politics = {
 							ruling_party = centrist
-							elections_allowed = yes
+							elections_allowed = no
 						}
 					create_country_leader = {
 							name = "Rene Pleven"
@@ -2032,7 +2032,7 @@ focus_tree = {
 			completion_reward = {
 					set_politics = {
 							ruling_party = Social_Liberalism
-							elections_allowed = yes
+							elections_allowed = no
 						}
 					create_country_leader = {
 							name = "Henri Queuille"
@@ -2112,7 +2112,7 @@ focus_tree = {
 			completion_reward = {
 					set_politics = {
 							ruling_party = Social_Liberalism
-							elections_allowed = yes
+							elections_allowed = no
 						}
 					create_country_leader = {
 							name = "Rene Mayer"
@@ -2137,7 +2137,7 @@ focus_tree = {
 			completion_reward = {
 					set_politics = {
 							ruling_party = Liberal_Conservatism
-							elections_allowed = yes
+							elections_allowed = no
 						}
 					create_country_leader = {
 							name = "Joseph Laniel"
@@ -2162,7 +2162,7 @@ focus_tree = {
 			completion_reward = {
 					set_politics = {
 							ruling_party = Social_Liberalism
-							elections_allowed = yes
+							elections_allowed = no
 						}
 					create_country_leader = {
 							name = "Pierre Mendès France"
@@ -2239,7 +2239,7 @@ focus_tree = {
 			completion_reward = {
 					set_politics = {
 							ruling_party = Social_Liberalism
-							elections_allowed = yes
+							elections_allowed = no
 						}
 					create_country_leader = {
 							name = "Edgar Faure"
@@ -2281,30 +2281,28 @@ focus_tree = {
 		}
 		x = 22
 		y = 24
-			available = {
-					date > 1958.4.1
+		available = {
+			date > 1958.4.1
+		}
+		completion_reward = {
+			set_politics = {
+				ruling_party = conservative
+				elections_allowed = no
+			}
+			create_country_leader = {
+				name = "Charles de Gaulle"
+				desc = "POLITICS_CHARLES_DE_GAULLE_DESC"
+				picture = "Charles_de_Gaulle.dds"
+				expire = "1971.1.1"
+				ideology = gaullist
+				traits = {
 				}
-			completion_reward = {
-					set_politics = {
-							ruling_party = conservative
-							elections_allowed = yes
-						}
-					create_country_leader = {
-							name = "Charles de Gaulle"
-							desc = "POLITICS_CHARLES_DE_GAULLE_DESC"
-							picture = "Portrait_France_Charles_De_Gaulle.dds"
-							expire = "1965.1.1"
-							ideology = gaullist
-							traits = {
-
-}
-						}
-					add_popularity = {
-							ideology = conservative
-							popularity = 0.1
-						}
-				}
-
+			}
+			add_popularity = {
+				ideology = conservative
+				popularity = 0.1
+			}
+		}
 	}
 	focus = {
 		id = FRA_degaulle_one
@@ -3264,7 +3262,10 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_1958_Crisis
 		}
-		x = 29
+		available = {
+			always = no
+		}
+		x = 28
 		y = 24
 			completion_reward = {
 					add_popularity = {
@@ -3281,7 +3282,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_DeGaulle_Declines
 		}
-		x = 29
+		x = 28
 		y = 25
 			completion_reward = {
 					news_event = ressurection.1
@@ -3330,269 +3331,6 @@ focus_tree = {
 							
 						}
 				}
-	}
-	focus = {
-		id = FRA_Rethink_the_Republic
-		icon = GFX_focus_rom_abdicate
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Operation_Resurrection
-		}
-		mutually_exclusive = {
-			focus = FRA_Salan_Takes_Power
-		}
-		x = 41
-		y = 26
-			completion_reward = {
-					country_event = frenchelections.1702
-				}
-
-	}
-	focus = {
-		id = FRA_Bonapartist
-		icon = GFX_goal_BEL_Crown
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Rethink_the_Republic
-		}
-		mutually_exclusive = {
-			focus = FRA_Orleanist
-			focus = FRA_Legitimist
-			focus = FRA_Jacobite
-		}
-		x = 34
-		y = 27
-			completion_reward = {
-					set_politics = {
-							ruling_party = monarchism
-							elections_allowed = no
-						}
-				}
-			available = {
-					has_global_flag = bonaparte
-				}
-			bypass = {
-					has_global_flag = bonaparte
-				}
-
-	}
-	focus = {
-		id = FRA_Napoleon
-		icon = GFX_GenericPolitical
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Bonapartist
-		}
-		x = 34
-		y = 28
-			completion_reward = {
-					create_country_leader = {
-							name = "Napoléon VI"
-							picture = "Portrait_France_Napoleon_VI.dds"
-							expire = "1997.5.3"
-							ideology = monarchy
-						}
-				}
-			available = {
-					has_global_flag = bonaparte
-				}
-			bypass = {
-					has_global_flag = bonaparte
-				}
-
-	}
-	focus = {
-		id = FRA_Third_Empire
-		icon = GFX_focus_chi_reach_out_to_france
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Napoleon
-		}
-		x = 34
-		y = 29
-			completion_reward = {
-					add_political_power = 150
-				}
-
-	}
-	focus = {
-		id = FRA_Natural_Border
-		icon = GFX_CardTricks
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Third_Empire
-		}
-		x = 32
-		y = 30
-			completion_reward = {
-					add_state_claim = 51
-					add_state_claim = 42
-				}
-
-	}
-	focus = {
-		id = FRA_Micro_states
-		icon = GFX_Agression
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Third_Empire
-		}
-		x = 34
-		y = 30
-			completion_reward = {
-					annex_country = {
-							target = AND
-						}
-					annex_country = {
-							target = MOC
-						}
-				}
-
-	}
-	focus = {
-		id = FRA_Pet_Lux
-		icon = GFX_goal_LUX_deal
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Natural_Border
-		}
-		prerequisite = {
-			focus = FRA_Micro_states
-		}
-		mutually_exclusive = {
-			focus = FRA_Crush_Lux
-		}
-		x = 33
-		y = 31
-			completion_reward = {
-					LUX = {
-							country_event = generic.1
-						}
-				}
-
-	}
-	focus = {
-		id = FRA_Belgium
-		icon = GFX_goal_BEL_Borders
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Third_Empire
-		}
-		x = 36
-		y = 30
-			completion_reward = {
-					add_state_claim = 34
-					add_state_claim = 6
-					add_state_claim = 57
-				}
-
-	}
-	focus = {
-		id = FRA_Crush_Lux
-		icon = GFX_goal_LUX_Crush
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Micro_states
-		}
-		prerequisite = {
-			focus = FRA_Belgium
-		}
-		mutually_exclusive = {
-			focus = FRA_Pet_Lux
-		}
-		x = 35
-		y = 31
-			completion_reward = {
-					add_state_claim = 8
-					create_wargoal = {
-							type = annex_everything
-							target = LUX
-						}
-				}
-
-	}
-	focus = {
-		id = FRA_Rhinland
-		icon = GFX_goal_rhineland
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Crush_Lux
-			focus = FRA_Pet_Lux
-		}
-		x = 34
-		y = 32
-			completion_reward = {
-					create_wargoal = {
-							type = take_claimed_state
-							target = GER
-						}
-				}
-
-	}
-	focus = {
-		id = FRA_Crush_Net
-		icon = GFX_goal_HOL_Crush
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Crush_Lux
-		}
-		x = 36
-		y = 32
-			completion_reward = {
-					add_state_claim = 35
-					create_wargoal = {
-							type = take_claimed_state
-							target = HOL
-						}
-					create_wargoal = {
-							type = puppet_wargoal_focus
-							target = HOL
-						}
-				}
-
-	}
-	focus = {
-		id = FRA_Integrate_Saar
-		icon = GFX_goal_generic_construct_military
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Pet_Lux
-		}
-		x = 32
-		y = 32
-			completion_reward = {
-					annex_country = {
-							target = SAR
-						}
-				}
-
-	}
-	focus = {
-		id = FRA_Swiss
-		icon = GFX_focus_attack_switzerland
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Crush_Net
-			focus = FRA_Integrate_Saar
-		}
-		prerequisite = {
-			focus = FRA_Rhinland
-		}
-		x = 35
-		y = 33
-			completion_reward = {
-					add_state_claim = 1077
-					add_state_claim = 1084
-					create_wargoal = {
-							type = take_claimed_state
-							target = SWI
-						}
-					create_wargoal = {
-							type = puppet_wargoal_focus
-							target = SWI
-						}
-				}
-
 	}
 	focus = {
 		id = FRA_New_Naval_Tactics
@@ -3653,148 +3391,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = FRA_Legitimist
-		icon = GFX_focus_rom_royal_dictatorship
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Rethink_the_Republic
-		}
-		mutually_exclusive = {
-			focus = FRA_Bonapartist
-			focus = FRA_Orleanist
-			focus = FRA_Jacobite
-		}
-		x = 39
-		y = 27
-			completion_reward = {
-					set_politics = {
-							ruling_party = monarchism
-							elections_allowed = no
-						}
-				}
-			available = {
-					has_global_flag = bourbon
-				}
-			bypass = {
-					has_global_flag = bourbon
-				}
-
-	}
-	focus = {
-		id = FRA_Henri
-		icon = GFX_HenriVI
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Legitimist
-		}
-		x = 39
-		y = 28
-			completion_reward = {
-					create_country_leader = {
-							name = "Henri VI"
-							picture = "Portrait_France_Henri_VI.dds"
-							expire = "1975.3.20"
-							ideology = monarchy
-						}
-				}
-			available = {
-					has_global_flag = bourbon
-				}
-			bypass = {
-					has_global_flag = bourbon
-				}
-
-	}
-	focus = {
-		id = FRA_Absolutism
-		icon = GFX_goal_anschluss
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Henri
-		}
-		x = 39
-		y = 29
-			completion_reward = {
-					add_political_power = 50
-				}
-
-	}
-	focus = {
-		id = FRA_Corporatist
-		icon = GFX_industrial_methods
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Absolutism
-		}
-		x = 39
-		y = 30
-			completion_reward = {
-					remove_ideas = national_corporations
-				}
-
-	}
-	focus = {
-		id = FRA_aristocracy
-		icon = GFX_Aristocracy
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Corporatist
-		}
-		x = 38
-		y = 31
-			completion_reward = {
-					add_political_power = -100
-					add_stability = 0.1
-				}
-
-	}
-	focus = {
-		id = FRA_Leftist
-		icon = GFX_Anti_Communist
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Corporatist
-		}
-		x = 40
-		y = 31
-			completion_reward = {
-					add_ideas = socialism_banned
-					add_ideas = communism_banned
-				}
-
-	}
-	focus = {
-		id = FRA_Militarized_50
-		icon = GFX_focus_secret_rearmament
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Leftist
-		}
-		prerequisite = {
-			focus = FRA_aristocracy
-		}
-		x = 39
-		y = 32
-			completion_reward = {
-					add_ideas = militarized_schools
-				}
-
-	}
-	focus = {
-		id = FRA_MON_strengthen_OAS
-		icon = GFX_focus_generic_treaty
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Militarized_50
-		}
-		x = 39
-		y = 33
-			completion_reward = {
-					add_manpower = 20000
-				}
-
-	}
-	focus = {
 		id = FRA_Military_Service
 		icon = GFX_goal_unknown
 		cost = 10.00
@@ -3822,152 +3418,6 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = paramilitarism_focus
 		}
-	}
-	focus = {
-		id = FRA_Orleanist
-		icon = GFX_goal_tfv_strengthen_commonwealth_ties
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Rethink_the_Republic
-		}
-		mutually_exclusive = {
-			focus = FRA_Bonapartist
-			focus = FRA_Legitimist
-			focus = FRA_Jacobite
-		}
-		x = 43
-		y = 27
-			completion_reward = {
-					set_politics = {
-							ruling_party = monarchism
-							elections_allowed = no
-						}
-				}
-			available = {
-					has_global_flag = orleans
-				}
-			bypass = {
-					has_global_flag = orleans
-				}
-
-	}
-	focus = {
-		id = FRA_Henry
-		icon = GFX_Orelanist
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Orleanist
-		}
-		x = 43
-		y = 28
-			completion_reward = {
-					create_country_leader = {
-							name = "Henri VI"
-							picture = "Portrait_France_Henry_VI.dds"
-							expire = "1999.6.19"
-							ideology = monarchy
-						}
-				}
-			available = {
-					has_global_flag = orleans
-				}
-			bypass = {
-					has_global_flag = orleans
-				}
-
-	}
-	focus = {
-		id = FRA_Constitutional
-		icon = GFX_Paper
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Henry
-		}
-		x = 43
-		y = 29
-			completion_reward = {
-					set_politics = {
-							ruling_party = monarchism
-							elections_allowed = no
-						}
-				}
-
-	}
-	focus = {
-		id = FRA_Royal_Education
-		icon = GFX_focus_generic_democratic_science
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Constitutional
-		}
-		x = 42
-		y = 30
-			completion_reward = {
-					add_research_slot = 1
-				}
-
-	}
-	focus = {
-		id = FRA_Liberal_economy
-		icon = GFX_SAU_foreign_loans
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Constitutional
-		}
-		x = 44
-		y = 30
-			completion_reward = {
-					add_political_power = -200
-					add_ideas = capitalism
-				}
-
-	}
-	focus = {
-		id = FRA_Support_Middleclass
-		icon = GFX_Aristocracy
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Liberal_economy
-		}
-		prerequisite = {
-			focus = FRA_Royal_Education
-		}
-		x = 43
-		y = 31
-			completion_reward = {
-					add_political_power = 100
-					add_stability = 0.05
-				}
-
-	}
-	focus = {
-		id = FRA_Support_Regionalism
-		icon = GFX_Agriculture_2
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Support_Middleclass
-		}
-		x = 43
-		y = 32
-			completion_reward = {
-					add_political_power = 100
-					add_stability = -0.1
-				}
-
-	}
-	focus = {
-		id = FRA_Liberal_Kingdom
-		icon = GFX_focus_generic_the_giant_wakes
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Support_Regionalism
-		}
-		x = 43
-		y = 33
-			completion_reward = {
-					add_ideas = rights_for_people
-				}
-
 	}
 	focus = {
 		id = FRA_The_Foriegn_Legion
@@ -4006,177 +3456,6 @@ focus_tree = {
 				category = armor
 			}
 		}
-	}
-	focus = {
-		id = FRA_Jacobite
-		icon = GFX_UrbanWarfareHOI4
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Rethink_the_Republic
-		}
-		mutually_exclusive = {
-			focus = FRA_Bonapartist
-			focus = FRA_Legitimist
-			focus = FRA_Orleanist
-		}
-		x = 48
-		y = 27
-			completion_reward = {
-					set_politics = {
-							ruling_party = monarchism
-							elections_allowed = no
-						}
-				}
-			available = {
-					has_global_flag = stuart
-				}
-			bypass = {
-					has_global_flag = stuart
-				}
-
-	}
-	focus = {
-		id = FRA_Albert
-		icon = GFX_Albrecht_I
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Jacobite
-		}
-		x = 48
-		y = 28
-			completion_reward = {
-					create_country_leader = {
-							name = "Albert I"
-							picture = "Portrait_France_Albert_I.dds"
-							expire = "1996.7.2"
-							ideology = monarchy
-						}
-				}
-			available = {
-					has_global_flag = stuart
-				}
-			bypass = {
-					has_global_flag = stuart
-				}
-
-	}
-	focus = {
-		id = FRA_Divine
-		icon = GFX_protestant
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Albert
-		}
-		x = 48
-		y = 29
-			completion_reward = {
-					add_ideas = ideological_fanaticism_focus
-				}
-
-	}
-	focus = {
-		id = FRA_Claim
-		icon = GFX_TheBigPush
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Divine
-		}
-		x = 48
-		y = 30
-			completion_reward = {
-					add_state_claim = 119
-					add_state_claim = 120
-					add_state_claim = 121
-					add_state_claim = 122
-					add_state_claim = 123
-					add_state_claim = 125
-					add_state_claim = 127
-					add_state_claim = 128
-					add_state_claim = 129
-					add_state_claim = 130
-					add_state_claim = 131
-					add_state_claim = 132
-					add_state_claim = 133
-					add_state_claim = 136
-					add_state_claim = 1047
-					add_state_claim = 338
-				}
-
-	}
-	focus = {
-		id = FRA_Ireland_offer
-		icon = GFX_Paper
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Claim
-		}
-		x = 47
-		y = 31
-			completion_reward = {
-					IRE = {
-							country_event = frenchelections.1706
-						}
-				}
-
-	}
-	focus = {
-		id = FRA_Bavarian_Separatism
-		icon = GFX_TheBurgosMeeting
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Claim
-		}
-		x = 49
-		y = 31
-			completion_reward = {
-					WGR = {
-							country_event = frenchelections.1705
-						}
-				}
-
-	}
-	focus = {
-		id = FRA_English_Throne
-		icon = GFX_goal_ENG_deal
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Bavarian_Separatism
-		}
-		prerequisite = {
-			focus = FRA_Ireland_offer
-		}
-		x = 48
-		y = 32
-			completion_reward = {
-					ENG = {
-							country_event = frenchelections.1706
-						}
-				}
-
-	}
-	focus = {
-		id = FRA_Crush_England
-		icon = GFX_Backstab
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_English_Throne
-		}
-		x = 48
-		y = 33
-			available = {
-					ENG = {
-							is_puppet_of = FRA
-						}
-				}
-			completion_reward = {
-					annex_country = {
-							target = ENG
-						}
-					IRE = {
-							transfer_state = 119
-						}
-				}
-
 	}
 	focus = {
 		id = FRA_Our_Artillery_Will_Destroy_the_Enemy
@@ -5082,12 +4361,8 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_Operation_Resurrection
-			focus = FRA_Promote_French_Nationalism
 		}
-		mutually_exclusive = {
-			focus = FRA_Rethink_the_Republic
-		}
-		x = 27
+		x = 28
 		y = 26
 			completion_reward = {
 					set_politics = {
@@ -5298,7 +4573,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Establish_a_Junta
 		}
-		x = 26
+		x = 27
 		y = 28
 			completion_reward = {
 					add_ideas = military_expansion
@@ -5312,7 +4587,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Establish_a_Junta
 		}
-		x = 28
+		x = 29
 		y = 28
 			completion_reward = {
 					ALG = {
@@ -5344,7 +4619,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Military_Expansion2
 		}
-		x = 27
+		x = 28
 		y = 29
 			completion_reward = {
 					add_ideas = communism_banned
@@ -5358,7 +4633,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Crush_FLN
 		}
-		x = 29
+		x = 30
 		y = 29
 			completion_reward = {
 					add_ideas = militarism_focus
@@ -5372,7 +4647,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Salan_Takes_Power
 		}
-		x = 27
+		x = 28
 		y = 27
 			completion_reward = {
 					add_political_power = 200
@@ -5391,7 +4666,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Military_Expansion2
 		}
-		x = 25
+		x = 26
 		y = 29
 			completion_reward = {
 					SPR = {
@@ -5419,7 +4694,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Ties_With_Franco
 		}
-		x = 26
+		x = 27
 		y = 30
 			completion_reward = {
 					POR = {
@@ -5447,7 +4722,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_Subvert_PCI
 		}
-		x = 28
+		x = 29
 		y = 30
 			completion_reward = {
 					USA = {
@@ -5461,48 +4736,6 @@ focus_tree = {
 									target = USA
 									modifier = large_increase
 								}
-						}
-				}
-
-	}
-	focus = {
-		id = FRA_Catalonia
-		icon = GFX_Agression
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Crush_Net
-			focus = FRA_Integrate_Saar
-		}
-		prerequisite = {
-			focus = FRA_Rhinland
-		}
-		x = 33
-		y = 33
-			completion_reward = {
-					add_state_claim = 165
-					create_wargoal = {
-							type = take_claimed_state
-							target = SPR
-						}
-				}
-
-	}
-	focus = {
-		id = FRA_Soviet
-		icon = GFX_goal_SOV_Crush
-		cost = 10.00
-		prerequisite = {
-			focus = FRA_Catalonia
-		}
-		prerequisite = {
-			focus = FRA_Swiss
-		}
-		x = 34
-		y = 34
-			completion_reward = {
-					create_wargoal = {
-							type = puppet_wargoal_focus
-							target = SOV
 						}
 				}
 

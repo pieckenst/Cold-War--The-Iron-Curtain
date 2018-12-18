@@ -1628,7 +1628,7 @@ ic_pulse = {
 
 			if = {
 				limit = {
-					date > 1959.12.1
+					date > 1959.12.31
 					date < 1960.1.31
 					NOT = {
 						has_country_flag = focus_tree_60_reset
@@ -1676,14 +1676,13 @@ ic_pulse = {
 			}
 			if = {
 				limit = {
-					date > 1959.12.1
+					date > 1959.12.31
 					date < 1960.1.31
 					NOT = {
 						has_country_flag = focus_tree_60_reset
 					}
 					OR = { 
 						tag = ROM
-						tag = USA
 						tag = ENG
 						tag = DDR
 						tag = SOV
@@ -1716,13 +1715,7 @@ ic_pulse = {
 						tag = CAR
 					}
 				}
-				set_country_flag = focus_tree_60_reset
-				if = {
-					limit = {
-						tag = USA
-					}
-					load_focus_tree = USA_1960s
-				}			
+				set_country_flag = focus_tree_60_reset		
 				if = {
 					limit = {
 						tag = UGA
@@ -1786,8 +1779,37 @@ ic_pulse = {
 				if = {
 					limit = {
 						tag = FRA
+						NOT = {
+							has_government = communism
+							has_government = neutrality
+							has_government = fascism
+						}
 					}
 					load_focus_tree = FRA_1960s
+				}
+				
+				if = {
+					limit = {
+						tag = FRA
+						has_government = communism
+					}
+					load_focus_tree = FRA_1960s_Communist
+				}
+				
+				if = {
+					limit = {
+						tag = FRA
+						has_government = neutrality
+					}
+					load_focus_tree = FRA_1960s_Junta
+				}
+				
+				if = {
+					limit = {
+						tag = FRA
+						has_government = fascism
+					}
+					load_focus_tree = FRA_1960s_Fascist
 				}
 				if = {
 					limit = {
@@ -2472,21 +2494,6 @@ ic_pulse = {
 					original_tag = ZIM
 				}
 				country_event = zimbabwe.65
-			}
-			if = {
-				limit = {
-					tag = FRA
-					has_civil_war = no
-					date > 1951.6.1
-					date < 1952.1.1
-					NOT = { has_country_flag = french_elections_1965 }
-					NOT = { has_government = fascism }
-					NOT = { has_government = communism }
-					NOT = { has_government = maoism }
-					NOT = { has_government = neutrality }
-					NOT = { has_government = monarchism }
-				}
-				country_event = french_elections.2
 			}
 			if = {
 				limit = {
@@ -3924,59 +3931,6 @@ ic_pulse = {
 			POR = { owns_state = 879 }	
 		}
 		country_event = goa.1
-	}
-	if = {
-		limit = {
-			tag = FRA
-			date > 1959.12.30
-			not = { has_global_flag = FRA_60_loaded }
-		}
-		load_focus_tree = FRA_1960s
-		set_global_flag = FRA_60_loaded
-	}
-	
-	if = {
-		limit = {
-			tag = FRA
-			date > 1959.12.30
-			not = { has_global_flag = FRA_60_loaded }
-			has_government = communism
-		}
-		load_focus_tree = FRA_1960s_Communist
-		set_global_flag = FRA_60_loaded
-	}
-	
-	if = {
-		limit = {
-			tag = FRA
-			date > 1959.12.30
-			not = { has_global_flag = FRA_60_loaded }
-			has_government = neutrality
-		}
-		load_focus_tree = FRA_1960s_Junta
-		set_global_flag = FRA_60_loaded
-	}
-	
-	if = {
-		limit = {
-			tag = FRA
-			date > 1959.12.30
-			not = { has_global_flag = FRA_60_loaded }
-			has_government = fascism
-		}
-		load_focus_tree = FRA_1960s_Fascist
-		set_global_flag = FRA_60_loaded
-	}
-	
-	if = {
-		limit = {
-			tag = FRA
-			date > 1959.12.30
-			not = { has_global_flag = FRA_60_loaded }
-			has_government = monarchism
-		}
-		load_focus_tree = FRA_1960s_Monarchist
-		set_global_flag = FRA_60_loaded
 	}
 
 	if = {
