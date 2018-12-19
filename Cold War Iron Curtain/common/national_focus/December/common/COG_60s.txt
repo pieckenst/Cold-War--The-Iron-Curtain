@@ -3,8 +3,8 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 10
-			tag = COG
+			add = 0
+			tag = DOC
 		}
 	}
 	default = no
@@ -87,7 +87,9 @@ focus_tree = {
 		}
 		x = 11
 		y = 4
-
+		completion_reward = {
+			add_ideas = militarism_focus
+		}
 	}
 	focus = {
 		id = DOC_Appoint_Mpolo
@@ -101,7 +103,10 @@ focus_tree = {
 		}
 		x = 24
 		y = 3
-
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 		id = DOC_Consolidate_Support_in_the_Armed_Forces
@@ -154,7 +159,17 @@ focus_tree = {
 		}
 		x = 22
 		y = 6
-
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = Social_Democratic
+				popularity = 0.05
+			}			
+		}
 	}
 	focus = {
 		id = DOC_One_thousand_peoples_one_Country
@@ -165,7 +180,10 @@ focus_tree = {
 		}
 		x = 17
 		y = 7
-
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 50
+		}
 	}
 	focus = {
 		id = DOC_Nationalize_American_Assets
@@ -213,7 +231,10 @@ focus_tree = {
 		}
 		x = 26
 		y = 6
-
+		completion_reward = {
+			remove_ideas = traditional_culture
+			
+		}
 	}
 	focus = {
 		id = DOC_Socialism_in_Reason
@@ -227,7 +248,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 7
-
+		completion_reward = {
+			add_ideas = socialist_realism
+		}
 	}
 	focus = {
 		id = DOC_Neutrality
@@ -257,7 +280,20 @@ focus_tree = {
 		}
 		x = 26
 		y = 8
-
+		completion_reward = {
+			DOC = {
+				add_opinion_modifier = {
+				target = SOV
+				modifier = large_increase
+				}
+			}
+			SOV = {
+				add_opinion_modifier = {
+				target = DOC
+				modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = DOC_Nationalize_Belgian_Industry
@@ -295,7 +331,9 @@ focus_tree = {
 		}
 		x = 24
 		y = 11
-
+		completion_reward = {
+			add_ideas = nationalized_resources
+		}
 	}
 	focus = {
 		id = DOC_A_Council_of_Workers
@@ -309,7 +347,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 12
-
+		completion_reward = {
+			add_ideas = workers_culture
+		}
 	}
 	focus = {
 		id = DOC_A_Council_of_Experts
@@ -323,7 +363,9 @@ focus_tree = {
 		}
 		x = 22
 		y = 12
-
+		completion_reward = {
+			add_ideas = Technocracy
+		}
 	}
 	focus = {
 		id = DOC_A_Minimum_of_Comfort_is_Needed_For_the_practice_of_Virture
@@ -349,7 +391,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 10
-
+		completion_reward = {
+			add_ideas = collectivisation
+		}
 	}
 	focus = {
 		id = DOC_A_Nation_of_Progress
@@ -360,7 +404,9 @@ focus_tree = {
 		}
 		x = 31
 		y = 7
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = DOC_Cuban_and_Yugoslavian_Advisors
@@ -385,7 +431,9 @@ focus_tree = {
 		}
 		x = 33
 		y = 8
-
+		completion_reward = {
+			add_ideas = womens_rights
+		}
 	}
 	focus = {
 		id = DOC_The_Currency_Question
@@ -399,7 +447,10 @@ focus_tree = {
 		}
 		x = 31
 		y = 9
-
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.03
+		}
 	}
 	focus = {
 		id = DOC_Central_Price_Controls
@@ -413,7 +464,20 @@ focus_tree = {
 		}
 		x = 29
 		y = 10
-
+		completion_reward =	{
+			add_timed_idea = {
+				idea = Currency_Devaluation
+				days = 1600
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = DOC_Backed_Currency
@@ -427,7 +491,13 @@ focus_tree = {
 		}
 		x = 33
 		y = 10
-
+		completion_reward =	{
+			add_timed_idea = {
+				idea = combat_inflation
+				days = 600
+			}
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
 	}
 	focus = {
 		id = DOC_The_Nature_of_the_Economy
@@ -454,7 +524,9 @@ focus_tree = {
 		}
 		x = 31
 		y = 12
-
+		completion_reward = {
+			add_ideas = DDR_idea_first_five_year_plan
+		}
 	}
 	focus = {
 		id = DOC_African_Socialism
@@ -468,7 +540,9 @@ focus_tree = {
 		}
 		x = 33
 		y = 12
-
+		completion_reward = {
+			add_ideas = welfare_state
+		}
 	}
 	focus = {
 		id = DOC_The_Path_of_Kadar_and_Tito
@@ -578,7 +652,9 @@ focus_tree = {
 		}
 		x = 12
 		y = 13
-
+		completion_reward = {
+			news_event = lumumba_death.1
+		}
 	}
 	focus = {
 		id = DOC_Diplomatic_Protests
@@ -1827,7 +1903,16 @@ focus_tree = {
 		}
 		x = 17
 		y = 9
-
+		completion_reward = {
+			295 = {
+				add_stability = 0.02
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}					
+			}
+		}
 	}
 	focus = {
 		id = DOC_Farm_Tool_Production_and_Distribution
@@ -1861,7 +1946,15 @@ focus_tree = {
 		}
 		x = 16
 		y = 11
-
+		completion_reward = {
+			every_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}					
+			}
+		}
 	}
 	focus = {
 		id = DOC_The_Golden_Coast
@@ -1878,7 +1971,16 @@ focus_tree = {
 		}
 		x = 18
 		y = 11
-
+		completion_reward = {
+			295 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}				
+			}
+		}
 	}
 	focus = {
 		id = DOC_Supplying_Electricity
