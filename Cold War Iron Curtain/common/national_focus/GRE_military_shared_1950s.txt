@@ -1,6 +1,6 @@
 	shared_focus = {
 		id = GRE_lessons_from_the_civil_war
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_lessons_from_the_civil_war
 		cost = 10.00
 		x = 7
 		y = 0
@@ -19,7 +19,7 @@
 	
 	shared_focus = {
 		id = GRE_establishing_ministry_of_defence
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_lessons_from_the_civil_war
@@ -62,7 +62,7 @@
 	
 	shared_focus = {
 		id = GRE_greek_GES
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_establishing_army_general_staff
@@ -82,12 +82,20 @@
 	
 	shared_focus = {
 		id = GRE_officers_armor
-		icon = GFX_GRE_officers_armor
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_greek_GES
 		}
 		
+		completion_reward = {
+			add_tech_bonus = {
+				name = cat_medium_armor
+				bonus = 0.25
+				uses = 2
+				category = armor
+			}
+		}
 		
 		x = 0
 		y = 3
@@ -96,7 +104,7 @@
 	
 	shared_focus = {
 		id = GRE_SAS
-		icon = GFX_GRE_officers_armor
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_greek_GES
@@ -110,7 +118,7 @@
 	
 	shared_focus = {
 		id = GRE_STEAMX
-		icon = GFX_GRE_officers_armor
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_greek_GES
@@ -147,7 +155,7 @@
 	
 	shared_focus = {
 		id = GRE_SAN
-		icon = GFX_SAN
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_SAS
@@ -162,7 +170,7 @@
 	
 	shared_focus = {
 		id = GRE_replace_old_equipment
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_officers_academy_patra
@@ -170,6 +178,8 @@
 		prerequisite = {
 			focus = GRE_SAN
 		}
+		
+	
 		
 		completion_reward = {
 					add_equipment_to_stockpile = {
@@ -202,7 +212,7 @@
 	
 	shared_focus = {
 		id = GRE_heavy_weapons_tanks_arty
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_officers_academy_patra
@@ -211,14 +221,23 @@
 			focus = GRE_SAN
 		}
 		
+		available = {
+			USA = {
+				AND = {
+					has_tech = main_battle_tanks_2 
+					has_tech = light_tanks_3
+				}
+			}
+		}
+		
 		completion_reward = {
 		            add_equipment_to_stockpile = {
-							type = lt_equipment
+							type = lt_equipment_3
 							amount = 100
 							producer = USA
 						}
 					add_equipment_to_stockpile = {
-							type = mbt_equipment
+							type = mbt_equipment_2
 							amount = 40
 							producer = USA
 						}
@@ -262,7 +281,7 @@
 	
 	shared_focus = {
 		id = GRE_reform_TEA
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_national_mil_academy_athens
@@ -275,7 +294,7 @@
 	
 	shared_focus = {
 		id = GRE_army_reforms_1
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_national_mil_academy_athens
@@ -288,7 +307,7 @@
 	
 	shared_focus = {
 		id = GRE_army_reforms_NATO
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_reform_TEA
@@ -297,6 +316,10 @@
 			focus = GRE_army_reforms_1
 		}
 		
+		completion_reward = {
+					add_ideas = american_advisors
+				}
+				
 		x = 2
 		y = 7
 		
@@ -304,7 +327,7 @@
 	
 	shared_focus = {
 		id = GRE_officers_armor_reform
-		icon = GFX_GRE_officers_armor
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_reform_TEA
@@ -313,6 +336,14 @@
 			focus = GRE_army_reforms_1
 		}
 		
+		completion_reward = {
+			add_tech_bonus = {
+				name = cat_medium_armor
+				bonus = 0.25
+				uses = 2
+				category = armor
+			}
+		}
 		
 		x = 4
 		y = 7
@@ -329,11 +360,7 @@
 		prerequisite = {
 			focus = GRE_army_reforms_1
 		}
-		
-		completion_reward = {
-					army_experience = 5
-					add_ideas = militarized_schools
-				}
+
 		
 		x = 0
 		y = 7
@@ -342,10 +369,18 @@
 	
 	shared_focus = {
 		id = GRE_guns_NATO_standards 
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_army_reforms_NATO
+		}
+		
+		available = {
+			USA = {
+				AND = {
+					has_tech = main_battle_tanks_3
+				}
+			}
 		}
 		
 		completion_reward = {
@@ -355,8 +390,8 @@
 			    producer = USA
 			}
 			add_equipment_to_stockpile = {
-				type = mbt_equipment
-				amount = 40
+				type = mbt_equipment_3
+				amount = 80
 				producer = USA
 			}
 			add_equipment_to_stockpile = {
@@ -376,7 +411,7 @@
 	
 	shared_focus = {
 		id = GRE_clear_minefields
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_guns_NATO_standards 
@@ -414,7 +449,7 @@
 	
 	shared_focus = {
 		id = GRE_para_school
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_clear_minefields
@@ -439,7 +474,7 @@
 	
 	shared_focus = {
 		id = GRE_army_reforms_2
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_army
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_para_school
@@ -454,7 +489,7 @@
 
    shared_focus = {
 		id = GRE_GEA
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_airforce
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_establishing_army_general_staff
@@ -463,7 +498,7 @@
 			focus = GRE_establishing_ministry_of_defence
 		}
 		
-		x = 7
+		x = 8
 		y = 2
 
 
@@ -471,13 +506,48 @@
 	
 	shared_focus = {
 		id = GRE_stya
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_airforce
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_GEA
 		}
 		
 		x = 6
+		y = 3
+
+
+	}
+	
+	shared_focus = {
+		id = GRE_Eleusina_Airfield
+		icon = GFX_GRE_airforce
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_GEA
+		}
+		
+		completion_reward = {
+		
+					if = {
+							limit = {
+									capital_scope = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+								}
+							capital_scope = {
+									add_building_construction = {
+											type = air_base
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+		}
+		
+		x = 8
 		y = 3
 
 
@@ -485,13 +555,13 @@
 	
 	shared_focus = {
 		id = GRE_ikarwn
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_airforce
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_GEA
 		}
 		
-		x = 8
+		x = 10
 		y = 3
 
 
@@ -499,16 +569,13 @@
 	
 	shared_focus = {
 		id = GRE_first_training_planes
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_airforce
 		cost = 10.00
 		prerequisite = {
-			focus = GRE_stya
-		}
-		prerequisite = {
-			focus = GRE_ikarwn
+			focus = GRE_Eleusina_Airfield
 		}
 		
-		x = 7
+		x = 8
 		y = 4
 
 
@@ -516,13 +583,13 @@
 	
 	shared_focus = {
 		id = GRE_airforce_nato
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_airforce
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_first_training_planes
 		}
 		
-		x = 6
+		x = 7
 		y = 5
 
 
@@ -530,13 +597,28 @@
 	
 	shared_focus = {
 		id = GRE_F84G
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_airforce
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_first_training_planes
 		}
 		
-		x = 8
+		available = {
+			USA = {
+				AND = {
+					has_tech = jet_CAS1 
+				}
+			}
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				    type = jet_CAS_equipment_1
+			        amount = 30
+					producer = USA
+				}
+		}
+				
+		x = 9
 		y = 5
 
 
@@ -544,7 +626,7 @@
 	
 	shared_focus = {
 		id = GRE_larissa_command
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_airforce
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_F84G
@@ -553,14 +635,14 @@
 			focus = GRE_airforce_nato
 		}
 		
-		x = 7
+		x = 8
 		y = 6
 
 	}
 	
 	shared_focus = {
 		id = GRE_logistics_command
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_airforce
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_larissa_command
@@ -572,12 +654,50 @@
 	}
 	
 	shared_focus = {
+		id = GRE_andravida_airbase
+		icon = GFX_GRE_airforce
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_larissa_command
+		}
+		
+		completion_reward = {
+		
+					if = {
+							limit = {
+									capital_scope = {
+											free_building_slots = {
+													building = air_base
+													size > 1
+												}
+										}
+								}
+							capital_scope = {
+									add_building_construction = {
+											type = air_base
+											level = 3
+											instant_build = yes
+										}
+								}
+						}
+		}
+		
+		x = 9
+		y = 7
+
+	}
+	
+	shared_focus = {
 		id = GRE_Air_reconnaissance_Center
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_airforce
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_logistics_command
 		}
+		prerequisite = {
+			focus =  GRE_andravida_airbase
+		}
+		
 		
 		x = 6
 		y = 8
@@ -586,10 +706,28 @@
 	
 	shared_focus = {
 		id = GRE_F84F
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_airforce
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_logistics_command
+		}
+		prerequisite = {
+			focus =  GRE_andravida_airbase
+		}
+		
+		available = {
+			USA = {
+				AND = {
+					has_tech = jet_CAS2 
+				}
+			}
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				    type = jet_CAS_equipment_2
+			        amount = 30
+					producer = USA
+				}
 		}
 		
 		x = 8
@@ -598,8 +736,24 @@
 	}
 	
 	shared_focus = {
+		id = GRE_tanagra_airbase
+		icon = GFX_GRE_airforce
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_logistics_command
+		}
+		prerequisite = {
+			focus =  GRE_andravida_airbase
+		}
+		
+		x = 10
+		y = 8
+
+	}
+	
+	shared_focus = {
 		id = GRE_F86E
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_airforce
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_F84F
@@ -607,15 +761,33 @@
 		prerequisite = {
 			focus = GRE_Air_reconnaissance_Center
 		}
+		prerequisite = {
+			focus =  GRE_tanagra_airbase
+		}
 		
-		x = 7
+		available = {
+			USA = {
+				AND = {
+					has_tech = jet_multirole2 
+				}
+			}
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				    type = jet_multirole_equipment_2
+			        amount = 50
+					producer = USA
+				}
+		}
+		
+		x = 8
 		y = 9
 
 	}
 	
 	shared_focus = {
 		id = GRE_31st_Airforce_Training_Headquarter
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_airforce
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_F86E
@@ -628,7 +800,7 @@
 	
 	shared_focus = {
 		id = GRE_refrom_ikarwn
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_airforce
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_F86E
@@ -640,11 +812,25 @@
 
 	}
 	
+	shared_focus = {
+		id = GRE_limnos_airbase
+		icon = GFX_GRE_airforce
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_F86E
+		}
+		
+		x = 10
+		y = 10
+
+
+	}
+	
 ###NAVY
 
    shared_focus = {
 		id = GRE_GEN
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_navy
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_establishing_army_general_staff
@@ -653,7 +839,7 @@
 			focus = GRE_establishing_ministry_of_defence
 		}
 		
-		x = 12
+		x = 14
 		y = 2
 
 
@@ -661,13 +847,13 @@
 	
 	shared_focus = {
 		id = GRE_concession_British_Italian_ships
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_navy
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_GEN
 		}
 		
-		x = 12
+		x = 14
 		y = 3
 
 
@@ -675,38 +861,10 @@
 	
 	shared_focus = {
 		id = GRE_Crete_naval_facility
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_navy
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_concession_British_Italian_ships
-		}
-		
-		x = 12
-		y = 4
-
-
-	}
-	
-	shared_focus = {
-		id = GRE_SMYN
-		icon = GFX_goal_generic_construct_civ_factory
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_GEN
-		}
-		
-		x = 10
-		y = 4
-
-
-	}
-	
-	shared_focus = {
-		id = GRE_SND
-		icon = GFX_goal_generic_construct_civ_factory
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_GEN
 		}
 		
 		x = 14
@@ -716,14 +874,42 @@
 	}
 	
 	shared_focus = {
+		id = GRE_SMYN
+		icon = GFX_GRE_navy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_GEN
+		}
+		
+		x = 12
+		y = 4
+
+
+	}
+	
+	shared_focus = {
+		id = GRE_SND
+		icon = GFX_GRE_navy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_GEN
+		}
+		
+		x = 16
+		y = 4
+
+
+	}
+	
+	shared_focus = {
 		id = GRE_Navy_NATO_standards 
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_navy
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_Crete_naval_facility
 		}
 		
-		x = 12
+		x = 14
 		y = 5
 
 
@@ -731,13 +917,13 @@
 	
 	shared_focus = {
 		id = GRE_Bostwick_class_destroyers
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_navy
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_Navy_NATO_standards
 		}
 		
-		x = 11
+		x = 13
 		y = 6
 
 
@@ -745,13 +931,13 @@
 	
 	shared_focus = {
 		id = GRE_expand_salamina
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_GRE_navy
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_Navy_NATO_standards
 		}
 		
-		x = 13
+		x = 15
 		y = 6
 
 
