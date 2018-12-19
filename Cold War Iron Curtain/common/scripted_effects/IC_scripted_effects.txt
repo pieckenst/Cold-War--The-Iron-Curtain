@@ -8,13 +8,6 @@ ic_pulse = {
 	}				
 	if = {
 		limit = {
-			NOT = { has_variable = domestic_influence_amount }
-		}
-		set_variable = { var = domestic_influence_amount value = 500 }
-		recalculate_influence = yes
-	}
-	if = {
-		limit = {
 			tag = USA
 			date > 1950.11.1
 			date < 1950.12.30
@@ -22,7 +15,7 @@ ic_pulse = {
 		calc_us_house = yes
 		swf_us_chance_seats = yes
 		us_calc_house_total_party = yes
-		class_3_senate_calc = yes
+		class_3_senate_calc = yes = yes
 	}
 	if = {
 		limit = {
@@ -33,7 +26,7 @@ ic_pulse = {
 		calc_us_house = yes
 		swf_us_chance_seats = yes
 		us_calc_house_total_party = yes
-		class_1_senate_calc = yes
+		class_1_senate_calc = yes = yes
 	}
 	if = {
 		limit = {
@@ -44,7 +37,7 @@ ic_pulse = {
 		calc_us_house = yes
 		swf_us_chance_seats = yes
 		us_calc_house_total_party = yes
-		class_2_senate_calc = yes
+		class_2_senate_calc = yes = yes
 	}
 	if = {
 		limit = {
@@ -332,27 +325,6 @@ ic_pulse = {
      }	
 	if = {
 		limit = {
-                tag = "PHI"
-                date > 1970.1.1
-                date < 1970.3.1
-				NOT = { has_country_flag = phi_events_two }
-            }
-		news_event = phi_events.2
-		set_country_flag = phi_events_two
-     }	
-	if = {
-		limit = {
-                tag = "PHI"
-                date > 1972.9.1
-                date < 1973.11.1
-				NOT = { has_country_flag = phi_events_three }
-            }
-		news_event = phi_events.3
-		set_country_flag = phi_events_three
-     }	
-
-	if = {
-		limit = {
                 tag = SOV
                 date > 1969.1.1
                 date < 1969.2.1
@@ -489,17 +461,6 @@ ic_pulse = {
 		news_event = cultural_events.1
 		set_country_flag = cultural_events_one
      } 		 	 
-	if = {
-		limit = {
-                tag = ENG
-                date > 1954.6.1
-                date < 1954.7.1
-				NOT = { has_country_flag = cultural_events_eight }
-            }
-		news_event = cultural_events.8
-		set_country_flag = cultural_events_eight
-     } 		 	 
-
 	if = {
 		limit = {
                 tag = USA
@@ -1083,7 +1044,6 @@ ic_pulse = {
 		add_to_variable = { var = senate_total_voting_support value = -20 }
 		add_to_variable = { var = house_total_voting_support value = -100 }
 	}
-
 	if = {
 		limit = {
 			has_stability < 0.5
@@ -1097,7 +1057,9 @@ ic_pulse = {
 				not = { has_state_flag = pacified_insurgency }
 				is_demilitarized_zone = no
 			}
+			
 				
+			
 		}
 		random_list = {
 			15 = {
@@ -1396,158 +1358,6 @@ ic_pulse = {
 	}
 	if = {
 		limit = {
-			has_stability < 0.5
-			maoism > 0.35
-			NOT = { has_government = maoism }
-			any_owned_state = {
-				is_core_of = ROOT
-				is_owned_and_controlled_by = ROOT
-				NOT = { has_state_flag = maoism_insurgency }
-				NOT = { has_state_flag = active_insurgency }
-				not = { has_state_flag = pacified_insurgency }
-				is_demilitarized_zone = no
-			}
-				
-		}
-		random_list = {
-			15 = {
-				country_event = insurgency.200
-			}
-			85 = {
-			
-			}
-		}
-	}
-	if = {
-		limit = {
-			any_owned_state = {
-					check_variable = { var = insurgency_strength value = 100 compare = greater_than_or_equals }
-					is_owned_and_controlled_by = ROOT
-					has_state_flag = active_insurgency		
-					has_state_flag = maoism_insurgency
-			}
-		}
-		maoism_civil_war_pt_1 = yes
-		maoism_civil_war_pt_2 = yes
-		maoism_civil_war_pt_3 = yes
-		maoism_civil_war_pt_4 = yes
-	}
-	if = {
-		limit = {
-			has_stability < 0.5
-			fascism > 0.35
-			NOT = { has_government = fascism }
-			any_owned_state = {
-				is_core_of = ROOT
-				is_owned_and_controlled_by = ROOT
-				NOT = { has_state_flag = fascism_insurgency }
-				NOT = { has_state_flag = active_insurgency }
-				not = { has_state_flag = pacified_insurgency }
-				is_demilitarized_zone = no
-			}
-				
-		}
-		random_list = {
-			15 = {
-				country_event = insurgency.400
-			}
-			85 = {
-			
-			}
-		}
-	}
-	if = {
-		limit = {
-			any_owned_state = {
-					check_variable = { var = insurgency_strength value = 100 compare = greater_than_or_equals }
-					is_owned_and_controlled_by = ROOT
-					has_state_flag = active_insurgency		
-					has_state_flag = fascism_insurgency
-			}
-		}
-		fascism_civil_war_pt_1 = yes
-		fascism_civil_war_pt_2 = yes
-		fascism_civil_war_pt_3 = yes
-		fascism_civil_war_pt_4 = yes
-	}
-	if = {
-		limit = {
-			has_stability < 0.5
-			radical_shiaism > 0.35
-			NOT = { has_government = radical_shiaism }
-			any_owned_state = {
-				is_core_of = ROOT
-				is_owned_and_controlled_by = ROOT
-				NOT = { has_state_flag = radical_shiaism_insurgency }
-				NOT = { has_state_flag = active_insurgency }
-				not = { has_state_flag = pacified_insurgency }
-				is_demilitarized_zone = no
-			}
-				
-		}
-		random_list = {
-			15 = {
-				country_event = insurgency.500
-			}
-			85 = {
-			
-			}
-		}
-	}
-	if = {
-		limit = {
-			has_stability < 0.5
-			Salafism > 0.35
-			NOT = { has_government = Salafism }
-			any_owned_state = {
-				is_core_of = ROOT
-				is_owned_and_controlled_by = ROOT
-				NOT = { has_state_flag = salafism_insurgency }
-				NOT = { has_state_flag = active_insurgency }
-				not = { has_state_flag = pacified_insurgency }
-				is_demilitarized_zone = no
-			}
-				
-		}
-		random_list = {
-			15 = {
-				country_event = insurgency.700
-			}
-			85 = {
-			
-			}
-		}
-	}
-	if = {
-		limit = {
-			any_owned_state = {
-					check_variable = { var = insurgency_strength value = 100 compare = greater_than_or_equals }
-					is_owned_and_controlled_by = ROOT
-					has_state_flag = active_insurgency		
-					has_state_flag = salafism_insurgency
-			}
-		}
-		Salafism_civil_war_pt_1 = yes
-		Salafism_civil_war_pt_2 = yes
-		Salafism_civil_war_pt_3 = yes
-		Salafismcivil_war_pt_4 = yes
-	}
-	if = {
-		limit = {
-			any_owned_state = {
-					check_variable = { var = insurgency_strength value = 100 compare = greater_than_or_equals }
-					is_owned_and_controlled_by = ROOT
-					has_state_flag = active_insurgency		
-					has_state_flag = radical_shiaism_insurgency
-			}
-		}
-		radical_shiaism_civil_war_pt_1 = yes
-		radical_shiaism_civil_war_pt_2 = yes
-		radical_shiaism_civil_war_pt_3 = yes
-		radical_shiaism_civil_war_pt_4 = yes
-	}
-	if = {
-		limit = {
 			any_owned_state = {
 					has_variable = insurgency_strength
 					is_owned_and_controlled_by = ROOT
@@ -1630,6 +1440,7 @@ ic_pulse = {
 				has_government = fascism
 				has_government = trotskyism
 				has_government = communism
+				has_government = National_Socialism
 				has_government = maoism
 			}
 			NOT = {
@@ -1649,6 +1460,7 @@ ic_pulse = {
 				has_government = fascism
 				has_government = trotskyism
 				has_government = nationalism
+				has_government = National_Socialism
 			}
 			NOT = {
 				has_country_flag = cos_tag_drop
@@ -1715,6 +1527,7 @@ ic_pulse = {
 					}
 					OR = { 
 						tag = ROM
+						tag = USA
 						tag = ENG
 						tag = DDR
 						tag = SOV
@@ -1747,7 +1560,13 @@ ic_pulse = {
 						tag = CAR
 					}
 				}
-				set_country_flag = focus_tree_60_reset		
+				set_country_flag = focus_tree_60_reset
+				if = {
+					limit = {
+						tag = USA
+					}
+					load_focus_tree = USA_1960s
+				}			
 				if = {
 					limit = {
 						tag = UGA
@@ -1811,37 +1630,8 @@ ic_pulse = {
 				if = {
 					limit = {
 						tag = FRA
-						NOT = {
-							has_government = communism
-							has_government = neutrality
-							has_government = fascism
-						}
 					}
 					load_focus_tree = FRA_1960s
-				}
-				
-				if = {
-					limit = {
-						tag = FRA
-						has_government = communism
-					}
-					load_focus_tree = FRA_1960s_Communist
-				}
-				
-				if = {
-					limit = {
-						tag = FRA
-						has_government = neutrality
-					}
-					load_focus_tree = FRA_1960s_Junta
-				}
-				
-				if = {
-					limit = {
-						tag = FRA
-						has_government = fascism
-					}
-					load_focus_tree = FRA_1960s_Fascist
 				}
 				if = {
 					limit = {
@@ -2457,6 +2247,7 @@ ic_pulse = {
 				limit = {
 					has_idea = nato_member
 					OR = {
+						has_government = National_Socialism
 						has_government = maoism
 						has_government = communism
 						has_government = Salafism
@@ -2531,9 +2322,26 @@ ic_pulse = {
 				limit = {
 					tag = FRA
 					has_civil_war = no
+					date > 1951.6.1
+					date < 1952.1.1
+					NOT = { has_country_flag = french_elections_1965 }
+					NOT = { has_government = National_Socialism }
+					NOT = { has_government = fascism }
+					NOT = { has_government = communism }
+					NOT = { has_government = maoism }
+					NOT = { has_government = neutrality }
+					NOT = { has_government = monarchism }
+				}
+				country_event = french_elections.2
+			}
+			if = {
+				limit = {
+					tag = FRA
+					has_civil_war = no
 					date > 1965.12.3
 					date < 1966.10.15
 					NOT = { has_country_flag = french_elections_1965 }
+					NOT = { has_government = National_Socialism }
 					NOT = { has_government = fascism }
 					NOT = { has_government = communism }
 					NOT = { has_government = maoism }
@@ -2549,7 +2357,7 @@ ic_pulse = {
 					date > 1969.6.13
 					date < 1969.10.15
 					NOT = { has_country_flag = french_elections_1969 }
-					
+					NOT = { has_government = National_Socialism }
 					NOT = { has_government = fascism }
 					NOT = { has_government = communism }
 					NOT = { has_government = maoism }
@@ -2565,7 +2373,7 @@ ic_pulse = {
 					date > 1974.5.5
 					date < 1974.5.20
 					NOT = { has_country_flag = french_elections_1974 }
-					
+					NOT = { has_government = National_Socialism }
 					NOT = { has_government = fascism }
 					NOT = { has_government = maoism }
 					NOT = { has_government = neutrality }
@@ -2580,7 +2388,7 @@ ic_pulse = {
 					date > 1981.5.1
 					date < 1981.5.12
 					NOT = { has_country_flag = french_elections_1981 }
-					
+					NOT = { has_government = National_Socialism }
 					NOT = { has_government = fascism }
 					NOT = { has_government = maoism }
 					NOT = { has_government = neutrality }
@@ -2595,7 +2403,7 @@ ic_pulse = {
 					date > 1988.4.25
 					date < 1988.5.10
 					NOT = { has_country_flag = french_elections_1988 }
-					
+					NOT = { has_government = National_Socialism }
 					NOT = { has_government = fascism }
 					NOT = { has_government = maoism }
 					NOT = { has_government = neutrality }
@@ -2610,7 +2418,7 @@ ic_pulse = {
 					date > 1995.4.28
 					date < 1995.5.10
 					NOT = { has_country_flag = french_elections_1995 }
-					
+					NOT = { has_government = National_Socialism }
 					NOT = { has_government = fascism }
 					NOT = { has_government = maoism }
 					NOT = { has_government = neutrality }
@@ -2625,7 +2433,7 @@ ic_pulse = {
 					date > 2002.4.26
 					date < 2002.5.7
 					NOT = { has_country_flag = french_elections_2002 }
-					
+					NOT = { has_government = National_Socialism }
 					NOT = { has_government = fascism }
 					NOT = { has_government = maoism }
 					NOT = { has_government = neutrality }
@@ -2640,7 +2448,7 @@ ic_pulse = {
 					date > 2007.4.24
 					date < 2007.5.8
 					NOT = { has_country_flag = french_elections_2007 }
-					
+					NOT = { has_government = National_Socialism }
 					NOT = { has_government = fascism }
 					NOT = { has_government = maoism }
 					NOT = { has_government = neutrality }
@@ -2655,7 +2463,7 @@ ic_pulse = {
 					date > 2012.4.24
 					date < 2012.5.8
 					NOT = { has_country_flag = french_elections_2012 }
-					
+					NOT = { has_government = National_Socialism }
 					NOT = { has_government = fascism }
 					NOT = { has_government = maoism }
 					NOT = { has_government = neutrality }
@@ -2670,7 +2478,7 @@ ic_pulse = {
 					date > 2017.4.25
 					date < 2017.5.9
 					NOT = { has_country_flag = french_elections_2017 }
-					
+					NOT = { has_government = National_Socialism }
 					NOT = { has_government = fascism }
 					NOT = { has_government = maoism }
 					NOT = { has_government = neutrality }
@@ -2685,7 +2493,7 @@ ic_pulse = {
 					date > 1967.3.1
 					date < 1967.3.15
 					NOT = { has_country_flag = french_legislative_elections_1967 }
-					
+					NOT = { has_government = National_Socialism }
 					NOT = { has_government = fascism }
 					NOT = { has_government = communism }
 					NOT = { has_government = maoism }
@@ -2699,7 +2507,7 @@ ic_pulse = {
 					tag = FRA
 					date > 1951.6.1
 					date < 1952.1.1
-					
+					NOT = { has_government = National_Socialism }
 					NOT = { has_government = fascism }
 					NOT = { has_government = communism }
 					NOT = { has_government = maoism }
@@ -2713,7 +2521,7 @@ ic_pulse = {
 					tag = FRA
 					date > 1956.1.1
 					date < 1957.1.1
-					
+					NOT = { has_government = National_Socialism }
 					NOT = { has_government = fascism }
 					NOT = { has_government = communism }
 					NOT = { has_government = maoism }
@@ -2725,47 +2533,12 @@ ic_pulse = {
 			if = {
 				limit = {
 					tag = FRA
-					date > 1968.4.28
-					date < 1968.5.2
-					has_completed_focus = FRA_60s_Re_Elect_De_Galle
+					has_country_flag = de_galle_1965
+					date > 1968.4.30
+					date < 1969.10.15
+					NOT = { has_country_flag = FRA_MAY_68 }
 				}
-				news_event = may.681
-			}
-			if = {
-				limit = {
-					tag = FRA
-					date > 1968.4.28
-					date < 1968.5.2
-					has_completed_focus = FRA_60s_Re_Elect_De_Galle
-				}
-				news_event = may.682
-			}
-			if = {
-				limit = {
-					tag = FRA
-					date > 1968.5.20
-					date < 1968.5.24
-					has_completed_focus = FRA_60s_Repress_the_Protestors
-				}
-				news_event = may.687
-			}
-			if = {
-				limit = {
-					tag = FRA
-					date > 1968.5.14
-					date < 1968.5.19
-					has_completed_focus = FRA_60s_Negotiation_with_Protestors
-				}
-				news_event = may.688
-			}
-			if = {
-				limit = {
-					tag = FRA
-					date > 1968.5.28
-					date < 1968.6.1
-					has_completed_focus = FRA_60s_Re_Elect_De_Galle
-				}
-				country_event = may.71
+				country_event = may_68.1
 			}
 			if = {
 				limit = {
@@ -3998,6 +3771,59 @@ ic_pulse = {
 			POR = { owns_state = 879 }	
 		}
 		country_event = goa.1
+	}
+	if = {
+		limit = {
+			tag = FRA
+			date > 1959.12.30
+			not = { has_global_flag = FRA_60_loaded }
+		}
+		load_focus_tree = FRA_1960s
+		set_global_flag = FRA_60_loaded
+	}
+	
+	if = {
+		limit = {
+			tag = FRA
+			date > 1959.12.30
+			not = { has_global_flag = FRA_60_loaded }
+			has_government = communism
+		}
+		load_focus_tree = FRA_1960s_Communist
+		set_global_flag = FRA_60_loaded
+	}
+	
+	if = {
+		limit = {
+			tag = FRA
+			date > 1959.12.30
+			not = { has_global_flag = FRA_60_loaded }
+			has_government = neutrality
+		}
+		load_focus_tree = FRA_1960s_Junta
+		set_global_flag = FRA_60_loaded
+	}
+	
+	if = {
+		limit = {
+			tag = FRA
+			date > 1959.12.30
+			not = { has_global_flag = FRA_60_loaded }
+			has_government = fascism
+		}
+		load_focus_tree = FRA_1960s_Fascist
+		set_global_flag = FRA_60_loaded
+	}
+	
+	if = {
+		limit = {
+			tag = FRA
+			date > 1959.12.30
+			not = { has_global_flag = FRA_60_loaded }
+			has_government = monarchism
+		}
+		load_focus_tree = FRA_1960s_Monarchist
+		set_global_flag = FRA_60_loaded
 	}
 
 	if = {
@@ -6429,5 +6255,14 @@ ic_pulse = {
 			date < 1958.12.31
 		}
 		country_event = spr.6
+	}
+}
+	if = {
+		limit = {
+			original_tag = PRC
+			date > 1958.1.1
+			date < 1958.12.31
+		}
+		country_event = prc.1
 	}
 }
