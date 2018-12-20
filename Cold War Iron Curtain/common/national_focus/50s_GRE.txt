@@ -814,70 +814,6 @@ focus_tree = {
 
 	}
 	
-	focus = {
-		id = GRE_Current_System_Stays
-		icon = GFX_goal_support_democracy
-		cost = 8.00
-		prerequisite = {
-			focus = GRE_Plastiras_electoral_system
-		}
-		
-		mutually_exclusive = {
-			focus = GRE_Majority_Voting_System
-		}
-		
-		completion_reward = {
-			add_popularity = {
-                ideology = Social_Liberalism
-                popularity = 0.05
-		    }
-		}
-		
-		x = 10
-		y = 15
-		
-		available = {
-			always = no
-		}
-
-	}
-	
-	focus = {
-		id = GRE_Majority_Voting_System
-		icon = GFX_goal_support_democracy
-		cost = 8.00
-		prerequisite = {
-			focus = GRE_Plastiras_electoral_system
-		}
-		
-		mutually_exclusive = {
-			focus = GRE_Current_System_Stays
-		}
-		
-		completion_reward = {
-			add_popularity = {
-                ideology = conservative
-                popularity = 0.15
-		    }
-			add_popularity = {
-                ideology = socialist
-                popularity = -0.05
-		    }	 
-            add_popularity = {
-                ideology = Social_Liberalism
-                popularity = -0.10
-		    }			
-		}
-		
-		x = 12
-		y = 15
-		
-		available = {
-			always = no
-		}
-
-	}
-	
 ##Common
     
 	focus = {
@@ -933,6 +869,10 @@ focus_tree = {
 		prerequisite = {
 			focus = GRE_closer_ties_USA
 		}
+		
+		available = {
+            has_global_flag = korean_war_begun
+        }
 		
 		x = 18
 		y = 15
@@ -1304,46 +1244,6 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_Greece_resort_to_UN
-		icon = GFX_Greece_resort_to_UN
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_Greece_wants_union
-		}
-		
-		completion_reward = {
-					GRE = {
-							add_opinion_modifier = {
-									target = ENG
-									modifier = medium_decrease
-								}
-						}
-					ENG = {
-							add_opinion_modifier = {
-									target = GRE
-									modifier = medium_decrease
-								}
-						}
-					GRE = {
-							add_opinion_modifier = {
-									target = USA
-									modifier = medium_decrease
-								}
-						}
-					USA = {
-							add_opinion_modifier = {
-									target = GRE
-									modifier = medium_decrease
-								}
-						}
-				}
-	
-		x = 41
-		y = 4
-
-	}
-	
-	focus = {
 		id = GRE_Tension_with_Turkey_rise 
 		icon = GFX_goal_support_democracy
 		cost = 10.00
@@ -1373,41 +1273,58 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_Tension_with_Turkey_high 
-		icon = GFX_goal_support_democracy
+		id = GRE_Greece_resort_to_UN
+		icon = GFX_Greece_resort_to_UN
 		cost = 10.00
 		prerequisite = {
-			focus = GRE_Tension_with_Turkey_rise 
+			focus = GRE_Greece_wants_union
+		}
+		prerequisite = {
+			focus = GRE_Tension_with_Turkey_rise
 		}
 		
 		completion_reward = {
-					
-					add_stability = -0.1
 					GRE = {
 							add_opinion_modifier = {
-									target = TUR
-									modifier = large_decrease
+									target = ENG
+									modifier = medium_decrease
 								}
 						}
-					TUR = {
+					ENG = {
 							add_opinion_modifier = {
-									target = TUR
-									modifier = large_decrease
+									target = GRE
+									modifier = medium_decrease
+								}
+						}
+					GRE = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = medium_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = GRE
+									modifier = medium_decrease
 								}
 						}
 				}
-
-		x = 43
+	
+		x = 42
 		y = 4
 
 	}
+	
+	
+	
+	
 	
 	focus = {
 		id = GRE_Greece_Backs_Down 
 		icon = GFX_goal_support_democracy
 		cost = 10.00
 		prerequisite = {
-			focus = GRE_Tension_with_Turkey_high  
+			focus = GRE_Tension_with_Turkey_rise 
 		}
 		prerequisite = {
 			focus = GRE_Greece_resort_to_UN
@@ -1580,20 +1497,6 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_Breton_Woods
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_Degrade_Drachma
-		}
-	
-		x = 33
-		y = 4
-	}
-	
-	
-	
-	focus = {
 	    id = GRE_start_housing_program 
 		icon = GFX_gre_housing_1
 		cost = 10.00
@@ -1727,38 +1630,7 @@ focus_tree = {
 		y = 6
 	}
 	
-	focus = {
-		id = GRE_Invest_Tourism_1952
-		icon = GFX_Invest_Tourism
-		cost = 10.00
-		prerequisite = {
-			focus = GRE_Infastructure_1952_3
-		}
-		prerequisite = {
-			focus = GRE_Infastructure_1952_4
-		}
-		
-		completion_reward = {
-					182 = {
-							limit = {
-									industrial_complex > 0
-									free_building_slots = {
-											building = industrial_complex
-											size > 1
-											include_locked = yes
-										}
-								}
-							add_extra_state_shared_building_slots = 1
-							add_building_construction = {
-									type = industrial_complex
-									level = 1
-									instant_build = yes
-								}
-						}
-	            }
-		x = 35
-		y = 6
-	}
+	
 	
 	focus = {
 		id = GRE_Greek_Oil_Company
@@ -1792,9 +1664,6 @@ focus_tree = {
 			focus = GRE_Greek_Oil_Company
 		}
 		prerequisite = {
-			focus = GRE_Invest_Tourism_1952
-		}
-		prerequisite = {
 			focus = GRE_LIPTOL
 		}
 		
@@ -1815,6 +1684,25 @@ focus_tree = {
 		cost = 10.00
 		prerequisite = {
 			focus = GRE_KYP
+		}
+		available = {
+					always = no
+				}
+				
+		completion_reward = {
+		    add_stability = -0.05
+		}
+	
+		x = 39
+		y = 6
+	}
+	
+	focus = {
+		id = GRE_Karamanlis_in_charge
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		prerequisite = {
+			focus = GRE_Papagos_Death
 		}
 	
 		x = 39
@@ -2023,7 +1911,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_Rumors_king_disapprovment
+		id = GRE_bur_reforms_1952
 		icon = GFX_goal_support_democracy 
 		cost = 10.00
 		prerequisite = {
@@ -2047,7 +1935,7 @@ focus_tree = {
 		icon = GFX_goal_support_democracy
 		cost = 10.00
 		prerequisite = {
-			focus = GRE_Rumors_king_disapprovment
+			focus = GRE_bur_reforms_1952
 		}
 		
 		completion_reward = {
@@ -2064,7 +1952,7 @@ focus_tree = {
 		icon = GFX_goal_support_democracy 
 		cost = 10.00
 		prerequisite = {
-			focus = GRE_Rumors_king_disapprovment
+			focus = GRE_bur_reforms_1952
 		}
 	
 		x = 47
@@ -2073,7 +1961,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_king_disapproves
+		id = GRE_Plastiras_death
 		icon = GFX_goal_support_democracy 
 		cost = 10.00
 		prerequisite = {
@@ -2082,6 +1970,10 @@ focus_tree = {
 		prerequisite = {
 			focus = GRE_steps_towards_liberal_society
 		}
+		
+		available = {
+					always = no
+				}
 		
 		completion_reward = {
 		    add_stability = -0.05
@@ -2093,11 +1985,11 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_Plastiras_death_Venizelos_in_charge
+		id = GRE_Venizelos_in_charge
 		icon = GFX_goal_support_democracy 
 		cost = 10.00
 		prerequisite = {
-			focus = GRE_king_disapproves
+			focus = GRE_Plastiras_death
 		}
 	
 		x = 46
@@ -2110,7 +2002,7 @@ focus_tree = {
 		icon = GFX_focus_chi_mission_to_the_us 
 		cost = 10.00
 		prerequisite = {
-			focus = GRE_Plastiras_death_Venizelos_in_charge
+			focus = GRE_Venizelos_in_charge
 		}
 		
 		completion_reward = {
@@ -2138,7 +2030,7 @@ focus_tree = {
 		icon = GFX_goal_support_democracy 
 		cost = 10.00
 		prerequisite = {
-			focus = GRE_Plastiras_death_Venizelos_in_charge
+			focus = GRE_Venizelos_in_charge
 		}
 	
 		x = 44
@@ -2151,7 +2043,7 @@ focus_tree = {
 		icon = GFX_KYP 
 		cost = 10.00
 		prerequisite = {
-			focus = GRE_Plastiras_death_Venizelos_in_charge
+			focus = GRE_Venizelos_in_charge
 		}
 		
 		completion_reward = {
@@ -2192,6 +2084,10 @@ focus_tree = {
 			focus = GRE_Elections_of_1956
 		}
 		
+		available = {
+					always = no
+				}
+		
 		x = 37
 		y = 9
         
@@ -2211,43 +2107,8 @@ focus_tree = {
 					add_political_power = -100
 		}
 		
-		x = 38
+		x = 39
 		y = 11
-        
-	}
-	
-	focus = {
-		id = GRE_Electoral_Reform_1957
-		icon = GFX_Electoral_Reform
-		cost = 10.00
-		
-		prerequisite = {
-			focus = GRE_Political_Instability_1956
-		}
-		
-		completion_reward = {
-			add_popularity = {
-                ideology = conservative
-                popularity = 0.1
-		    }		
-		}
-		
-		x = 37
-		y = 12
-        
-	}
-	
-	focus = {
-		id = GRE_Karamanlis_Looses_Majority
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		
-		prerequisite = {
-			focus = GRE_Electoral_Reform_1957
-		}
-		
-		x = 37
-		y = 13
         
 	}
 	
@@ -2283,6 +2144,27 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = GRE_Electoral_Reform_1957
+		icon = GFX_Electoral_Reform
+		cost = 10.00
+		
+		prerequisite = {
+			focus = GRE_USA_MRBM
+		}
+		
+		completion_reward = {
+			add_popularity = {
+                ideology = conservative
+                popularity = 0.1
+		    }		
+		}
+		
+		x = 39
+		y = 13
+        
+	}
+	
+	focus = {
 		id = GRE_Monetary_Stability_Doctrine
 		icon = GFX_goal_support_democracy
 		cost = 10.00
@@ -2295,7 +2177,7 @@ focus_tree = {
                 remove_ideas = GRE_war_devastation_small
 		}
 		
-		x = 34
+		x = 35
 		y = 10
         
 	}
@@ -2316,7 +2198,7 @@ focus_tree = {
 						}
 				}
 		
-		x = 33
+		x = 34
 		y = 11
         
 	}
@@ -2367,7 +2249,7 @@ focus_tree = {
 						}
 				}
 		
-		x = 33
+		x = 34
 		y = 12
         
 	}
@@ -2399,7 +2281,7 @@ focus_tree = {
 								}
 						}
 		        }
-		x = 35
+		x = 36
 		y = 11
         
 	}
@@ -2432,7 +2314,7 @@ focus_tree = {
 						}
 		        }
 		
-		x = 35
+		x = 36
 		y = 12
         
 	}
@@ -2449,7 +2331,7 @@ focus_tree = {
 			focus = GRE_Tourism_Investments_1956
 		}
 		
-		x = 34
+		x = 35
 		y = 13
         
 	}
@@ -2465,22 +2347,12 @@ focus_tree = {
 			focus = GRE_Elections_of_1956
 		}
 		
+		available = {
+					always = no
+				}
+		
 		x = 47
 		y = 9
-        
-	}
-	
-	focus = {
-		id = GRE_bur_reforms_p
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		
-		prerequisite = {
-			focus = GRE_Papandreou_1956
-		}
-		
-		x = 50
-		y = 11
         
 	}
 	
@@ -2490,7 +2362,7 @@ focus_tree = {
 		cost = 10.00
 		
 		prerequisite = {
-			focus = GRE_bur_reforms_p
+			focus = GRE_Papandreou_1956
 		}
 		
 		completion_reward = {
@@ -2501,8 +2373,8 @@ focus_tree = {
 						}
 				}
 		
-		x = 49
-		y = 12
+		x = 50
+		y = 10
         
 	}
 	
@@ -2512,11 +2384,11 @@ focus_tree = {
 		cost = 10.00
 		
 		prerequisite = {
-			focus = GRE_bur_reforms_p
+			focus = GRE_land_reform_p
 		}
 		
-		x = 51
-		y = 12
+		x = 50
+		y = 11
         
 	}
 	
@@ -2528,9 +2400,6 @@ focus_tree = {
 		prerequisite = {
 			focus = GRE_education_reform_p
 		}
-		prerequisite = {
-			focus = GRE_land_reform_p
-		}
 		
 		completion_reward = {
                 remove_ideas = GRE_war_devastation_small
@@ -2538,7 +2407,7 @@ focus_tree = {
 		
 		
 		x = 50
-		y = 13
+		y = 12
         
 	}
 	
@@ -2594,20 +2463,6 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = GRE_Defence_minister_resigns
-		icon = GFX_goal_support_democracy
-		cost = 10.00
-		
-		prerequisite = {
-			focus = GRE_Pap_denies_MRBM_bases
-		}
-		
-		x = 45
-		y = 12
-        
-	}
-	
-	focus = {
 		id = GRE_Pap_loosens_left_prosecutions
 		icon = GFX_Decrease_Communists_Prosecutions
 		cost = 10.00
@@ -2634,7 +2489,9 @@ focus_tree = {
 		id = GRE_Pap_electoral_reform
 		icon = GFX_Electoral_Reform
 		cost = 10.00
-		
+		prerequisite = {
+			focus = GRE_Pap_denies_MRBM_bases
+		}
 		prerequisite = {
 			focus = GRE_Pap_loosens_left_prosecutions
 		}
@@ -2650,7 +2507,7 @@ focus_tree = {
 		    }
 		}
 		
-		x = 47
+		x = 46
 		y = 12
         
 	}
@@ -2659,9 +2516,6 @@ focus_tree = {
 		id = GRE_Palace_signals_disappoinment
 		icon = GFX_goal_support_democracy
 		cost = 10.00
-		prerequisite = {
-			focus = GRE_Defence_minister_resigns
-		}
 		prerequisite = {
 			focus = GRE_Pap_electoral_reform
 		}
@@ -2752,6 +2606,10 @@ focus_tree = {
 			focus = GRE_Elections_of_1958
 		}
 		
+		available = {
+					always = no
+				}
+				
 		x = 37
 		y = 15
         
@@ -2774,7 +2632,7 @@ focus_tree = {
 			}
 		}
 		
-		x = 33
+		x = 35
 		y = 16
         
 	}
@@ -2791,7 +2649,7 @@ focus_tree = {
 		    add_ideas = GRE_automobile_industry
 		}
 		
-		x = 32
+		x = 34
 		y = 17
         
 	}
@@ -2813,7 +2671,7 @@ focus_tree = {
 						}
 				}
 		
-		x = 31
+		x = 33
 		y = 18
         
 	}
@@ -2835,7 +2693,7 @@ focus_tree = {
 						}
 				}
 				
-		x = 33
+		x = 35
 		y = 18
         
 	}
@@ -2860,7 +2718,7 @@ focus_tree = {
 						}
 				}
 		
-		x = 32
+		x = 34
 		y = 19
         
 	}
@@ -2882,7 +2740,7 @@ focus_tree = {
 						}
 				}
 				
-		x = 35
+		x = 37
 		y = 18
         
 	}
@@ -2904,7 +2762,7 @@ focus_tree = {
 						}
 				}
 		
-		x = 35
+		x = 37
 		y = 19
         
 	}
@@ -2928,7 +2786,7 @@ focus_tree = {
 						}
 				}
 		
-		x = 34
+		x = 36
 		y = 17
         
 	}
@@ -2945,6 +2803,10 @@ focus_tree = {
 			focus = GRE_Elections_of_1958
 		}
 		
+		available = {
+					always = no
+				}
+				
 		x = 47
 		y = 15
         
@@ -2994,7 +2856,7 @@ focus_tree = {
 						}
 				}
 		
-		x = 51
+		x = 49
 		y = 16
         
 	}
@@ -3016,7 +2878,7 @@ focus_tree = {
 						}
 				}
 		
-		x = 50
+		x = 48
 		y = 17
         
 	}
@@ -3033,7 +2895,7 @@ focus_tree = {
 				add_ideas = GRE_urbanisme
 		}
 		
-		x = 49
+		x = 47
 		y = 18
         
 	}
@@ -3053,7 +2915,7 @@ focus_tree = {
 						}
 				}
 		
-		x = 49
+		x = 47
 		y = 19
         
 	}
@@ -3070,7 +2932,7 @@ focus_tree = {
 		    add_ideas = GRE_Autarky 
 		}
 		
-		x = 52
+		x = 50
 		y = 17
         
 	}
@@ -3092,7 +2954,7 @@ focus_tree = {
 						}
 				}
 		
-		x = 51
+		x = 49
 		y = 18
         
 	}
@@ -3124,7 +2986,7 @@ focus_tree = {
 						}
 				}
 	
-		x = 53
+		x = 51
 		y = 18
         
 	}
@@ -3157,7 +3019,7 @@ focus_tree = {
 				}
 		
 	
-		x = 53
+		x = 51
 		y = 19
         
 	}
@@ -3174,7 +3036,7 @@ focus_tree = {
 		}
 		add_stability = -0.1
 		
-		x = 42
+		x = 45
 		y = 16
         
 	}
@@ -3202,20 +3064,20 @@ focus_tree = {
                 popularity = 0.05
 		    }
 			add_popularity = {
-                ideology = socialism
+                ideology = socialist
                 popularity = -0.10
 		    
 		    }
 		}
 		
-		x = 41
+		x = 44
 		y = 17
         
 	}
 	
 	focus = {
 		id = GRE_ask_left_support
-		icon = GFX_Enosi_Kentrou
+		icon = GFX_Left_towards_center
 		cost = 6.00
 		prerequisite = {
 			focus = GRE_EDA_takes_24
@@ -3230,29 +3092,8 @@ focus_tree = {
 		            add_stability = 0.05
 		}
 		
-		x = 43
+		x = 46
 		y = 17
-        
-	}
-	
-	focus = {
-		id = GRE_left_moves_towards_center
-		icon = GFX_Left_towards_center
-		cost = 6.00
-		prerequisite = {
-			focus = GRE_ask_left_support
-			focus = GRE_General_Directorate_National_Security
-		}
-		
-		completion_reward = {
-			add_popularity = {
-                ideology = centrist
-                popularity = 0.10
-		    }
-		}
-
-		x = 42
-		y = 19
         
 	}
 	
@@ -3265,8 +3106,8 @@ focus_tree = {
 			focus = GRE_Papandreou_1958
 		}
 		
-		x = 46
-		y = 17
+		x = 42
+		y = 18
         
 	}
 	
@@ -3282,24 +3123,7 @@ focus_tree = {
 			focus = GRE_negotiations_hard_line
 		}
 		
-		x = 45
-		y = 18
-        
-	}
-	
-	focus = {
-		id = GRE_Reaction_at_Home
-		icon = GFX_goal_support_democracy
-		cost = 4.00
-		prerequisite = {
-			focus = GRE_Zurich_London_Agreement
-		}
-		completion_reward = {
-		            add_political_power = -100
-		            add_stability = -0.10
-		}
-		
-		x = 45
+		x = 41
 		y = 19
         
 	}
@@ -3316,21 +3140,7 @@ focus_tree = {
 			focus = GRE_Zurich_London_Agreement
 		}
 		
-		x = 47
-		y = 18
-        
-	}
-	
-	focus = {
-		id = GRE_International_rep_tarnished
-		icon = GFX_goal_support_democracy
-		cost = 4.00
-		prerequisite = {
-			focus = GRE_negotiations_hard_line
-		}
-		
-		
-		x = 47
+		x = 43
 		y = 19
         
 	}
@@ -3361,7 +3171,7 @@ focus_tree = {
 						}
 				}
 		
-		x = 38
+		x = 39
 		y = 16
         
 	}
@@ -3415,7 +3225,7 @@ focus_tree = {
 						}
 				}
 		
-		x = 37
+		x = 38
 		y = 17
         
 	}
@@ -3448,38 +3258,8 @@ focus_tree = {
 								}
 						}
 		}
-		x = 39
+		x = 40
 		y = 17
-        
-	}
-	
-	focus = {
-		id = GRE_Merten_Relishes 
-		icon = GFX_goal_support_democracy
-		cost = 4.00
-		prerequisite = {
-			focus = GRE_German_Loan
-		}
-		completion_reward = {
-					add_stability = -0.1
-				}
-		completion_reward = {
-					GRE = {
-							add_opinion_modifier = {
-									target = WGR
-									modifier = large_increase
-								}
-						}
-					WGR = {
-							add_opinion_modifier = {
-									target = GRE
-									modifier = large_increase
-								}
-						}
-				}
-		
-		x = 37
-		y = 18
         
 	}
 	
