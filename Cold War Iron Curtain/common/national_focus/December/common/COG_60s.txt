@@ -578,7 +578,12 @@ focus_tree = {
 		}
 		x = 31
 		y = 13
-
+		completion_reward = {
+			add_timed_idea = {
+				idea = economic_growth
+				days = 900
+			}
+		}
 	}
 	focus = {
 		id = DOC_Lumumba_Deposed
@@ -622,7 +627,21 @@ focus_tree = {
 		}
 		x = 9
 		y = 5
-
+		completion_reward = {
+			add_war_support = 0.05
+			DOC = {
+				add_opinion_modifier = {
+				target = BEL
+				modifier = large_decrease
+				}
+			}
+			BEL = {
+				add_opinion_modifier = {
+				target = DOC
+				modifier = large_decrease
+				}
+			}
+		}
 	}
 	focus = {
 		id = DOC_Appeal_to_the_UN
@@ -633,7 +652,9 @@ focus_tree = {
 		}
 		x = 7
 		y = 6
-
+		completion_reward = {
+			news_event = un_congo.1
+		}
 	}
 	focus = {
 		id = DOC_Demand_Belgian_Withdrawal
@@ -644,7 +665,22 @@ focus_tree = {
 		}
 		x = 11
 		y = 6
-
+		completion_reward = {
+			add_war_support = 0.02
+			news_event = belgium_congo.1
+			DOC = {
+				add_opinion_modifier = {
+				target = BEL
+				modifier = large_decrease
+				}
+			}
+			BEL = {
+				add_opinion_modifier = {
+				target = DOC
+				modifier = large_decrease
+				}
+			}
+		}
 	}
 	focus = {
 		id = DOC_UN_Incompetence
@@ -658,7 +694,10 @@ focus_tree = {
 		}
 		x = 9
 		y = 7
-
+		completion_reward = {
+			add_stability = -0.05
+			add_threat = 5
+		}
 	}
 	focus = {
 		id = DOC_Extradite_Lumumba_to_Katanga
@@ -685,7 +724,9 @@ focus_tree = {
 		}
 		x = 7
 		y = 8
-
+		completion_reward = {
+			news_event = un_congo.2
+		}
 	}
 	focus = {
 		id = DOC_The_Soviet_Option
@@ -699,7 +740,20 @@ focus_tree = {
 		}
 		x = 11
 		y = 8
-
+		completion_reward = {
+			DOC = {
+				add_opinion_modifier = {
+				target = SOV
+				modifier = large_increase
+				}
+			}
+			SOV = {
+				add_opinion_modifier = {
+				target = DOC
+				modifier = large_increase
+				}
+			}
+		}
 	}
 	focus = {
 		id = DOC_Demand_Withdrawal_of_UN_Troops
@@ -710,7 +764,9 @@ focus_tree = {
 		}
 		x = 11
 		y = 9
-
+		completion_reward = {
+			news_event = congo_un.20
+		}
 	}
 	focus = {
 		id = DOC_The_Final_Demand
@@ -721,7 +777,9 @@ focus_tree = {
 		}
 		x = 7
 		y = 9
-
+		completion_reward = {
+			news_event = un_congo.3
+		}
 	}
 	focus = {
 		id = DOC_Soviet_Support
@@ -733,7 +791,14 @@ focus_tree = {
 		}
 		x = 9
 		y = 10
-
+		completion_reward = {
+			add_ideas = soviet_advisors
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 25000
+				producer = SOV
+			}		
+		}
 	}
 	focus = {
 		id = DOC_The_Mobutu_Coup
@@ -772,7 +837,6 @@ focus_tree = {
 		y = 13
 		completion_reward = {
 			add_threat = 5
-			add_threat = 1
 					DOC = {
 							add_opinion_modifier = {
 									target = USA
@@ -868,7 +932,10 @@ focus_tree = {
 		}
 		x = 8
 		y = 17
-
+		completion_reward = {
+			add_stability = 0.15
+			add_political_power = -200
+		}
 	}
 	focus = {
 		id = DOC_International_Neutrality
@@ -892,7 +959,22 @@ focus_tree = {
 		}
 		x = 14
 		y = 17
-
+		completion_reward = {
+			ANG = { add_offsite_building = { type = arms_factory level = 2 } }
+			add_threat = 1
+					DOC = {
+							add_opinion_modifier = {
+									target = USA
+									modifier = large_decrease
+								}
+						}
+					USA = {
+							add_opinion_modifier = {
+									target = DOC
+									modifier = large_decrease
+								}
+						}
+		}
 	}
 	focus = {
 		id = DOC_Loss_of_Popular_Support
@@ -906,7 +988,9 @@ focus_tree = {
 		}
 		x = 9
 		y = 18
-
+		completion_reward = {
+			add_political_power = -200
+		}	
 	}
 	focus = {
 		id = DOC_Protectionist_Economics
@@ -920,7 +1004,9 @@ focus_tree = {
 		}
 		x = 13
 		y = 18
-
+		completion_reward = {
+			add_ideas = closed_economy
+		}
 	}
 	focus = {
 		id = DOC_Left_Wing_Opposition
@@ -934,7 +1020,16 @@ focus_tree = {
 		}
 		x = 11
 		y = 19
-
+		completion_reward = {
+			add_popularity = {
+				ideology = socialist
+				popularity = 0.10
+			}
+			add_popularity = {
+				ideology = Social_Democratic
+				popularity = 0.10
+			}
+		}
 	}
 	focus = {
 		id = DOC_The_Communist_Threat
@@ -945,7 +1040,17 @@ focus_tree = {
 		}
 		x = 9
 		y = 20
-
+		completion_reward = {
+			add_war_support = -0.05
+			add_popularity = {
+				ideology = communism
+				popularity = 0.10
+			}
+			add_popularity = {
+				ideology = maoism
+				popularity = 0.10
+			}
+		}
 	}
 	focus = {
 		id = DOC_The_Angering_of_the_Lumumbaists
@@ -956,7 +1061,10 @@ focus_tree = {
 		}
 		x = 13
 		y = 20
-
+		completion_reward = {
+			add_political_power = 100
+			add_stability = -0.02
+		}
 	}
 	focus = {
 		id = DOC_The_Red_and_Blue_Unite
@@ -1304,6 +1412,7 @@ focus_tree = {
 		y = 32
 		completion_reward = {
 			add_ideas = Privitization
+			remove_idea = closed_economy
 		}	
 	}
 	focus = {
@@ -1900,6 +2009,7 @@ focus_tree = {
 		y = 34
 		completion_reward = {
 			add_ideas = embrace_free_trade
+			remove_idea = closed_economy
 		}
 	}
 	focus = {
