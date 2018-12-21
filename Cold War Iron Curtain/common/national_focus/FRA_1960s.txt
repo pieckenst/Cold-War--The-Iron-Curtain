@@ -493,7 +493,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_New_National_Police
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_goal_ENG_reinforce_police
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Continue_Dirigisme_Economics
@@ -735,7 +735,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Condemn_Israeli_Expansionism
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_goal_ISR_Proclamation
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Withdraw_From_NATO_Integrated_Commmandment
@@ -760,7 +760,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Condemn_American_Vietnamese_Strategy
-		icon = GFX_goal_generic_forceful_treaty
+		icon = GFX_Greece_recon_USA
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Condemn_Israeli_Expansionism
@@ -976,7 +976,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Increase_Relations_With_USSR
-		icon = GFX_goal_generic_major_alliance
+		icon = GFX_focus_chi_mission_to_the_soviet_union
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Jacque_Duclot
@@ -1026,7 +1026,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Academic_Funding
-		icon = GFX_goal_tfv_generic_tech_sharing
+		icon = GFX_focus_generic_military_academy
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Mitterand_1965
@@ -1058,7 +1058,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Condemn_American_Imperialism
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_focus_USA_flag
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Funding_for_the_Arts
@@ -1212,7 +1212,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Start_ORTF_Decentralization
-		icon = GFX_focus_generic_the_giant_wakes
+		icon = GFX_tv	
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Reduce_Military_Service_To_One_Year
@@ -1231,7 +1231,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Contraception_Decree
-		icon = GFX_focus_generic_the_giant_wakes
+		icon = GFX_femelections
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_TGV_Project
@@ -1252,7 +1252,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Pleven_Law
-		icon = GFX_focus_generic_the_giant_wakes
+		icon = GFX_Paper
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Social_Welfare
@@ -1286,7 +1286,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Increase_Relations_With_America
-		icon = GFX_goal_generic_major_alliance
+		icon = GFX_goal_USA_deal
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Relax_Media_Restrictions
@@ -1312,7 +1312,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Academic_Funding_His
-		icon = GFX_goal_generic_major_alliance
+		icon = GFX_focus_generic_military_academy
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Increase_Relations_With_America
@@ -1328,7 +1328,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Create_The_Larzac_Camp
-		icon = GFX_goal_generic_major_alliance
+		icon = GFX_Close_Exile_Camps
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Propose_New_Regionalization_Reform
@@ -1344,7 +1344,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Propose_New_Regionalization_Reform
-		icon = GFX_goal_generic_major_alliance
+		icon = GFX_Freedom2
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Social_Housing_His
@@ -1377,7 +1377,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Comite_National_Creation
-		icon = GFX_goal_generic_major_alliance
+		icon = GFX_FRA_Yes_De_Gaulle
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Increase_the_Pensions_His
@@ -1395,7 +1395,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Announce_Our_Social_Plan
-		icon = GFX_goal_generic_major_alliance
+		icon = GFX_BEL_socialist_infrastructure2
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Comite_National_Creation
@@ -1668,9 +1668,20 @@ focus_tree = {
 		}
 		x = 26
 		y = 15
-			completion_reward = {
-					add_ideas = nato_member
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_idea = nato_member
+					NOT = {
+						original_tag = FRA
+					}
 				}
+				add_opinion_modifier = {
+				target = FRA
+				modifier = large_increase
+				}
+			}
+		}
 
 	}
 
@@ -2192,7 +2203,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_60s_Create_State_Security_Court
-		icon = GFX_Room_Meeting
+		icon = GFX_Court_Justice
 		cost = 10.00
 		prerequisite = {
 			focus = FRA_60s_Assert_French_Independence
