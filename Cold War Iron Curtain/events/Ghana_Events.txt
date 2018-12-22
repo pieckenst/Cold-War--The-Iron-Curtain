@@ -92,6 +92,59 @@ country_event = {
 }
 
 country_event = {
+    id = Ghana.20
+	title = "Elections of 1956"
+	desc = "Elections of 1956"
+	picture = GFX_report_event_usa_election_generic
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	immediate = {
+		complete_national_focus = GHA_Election_of_1956
+	}	
+	
+	option = {
+	    name = "Kwame Nkhrumah"
+		ai_chance = {
+		    factor = 80
+		}
+		complete_national_focus = GHA_Nkhrumah_56
+		set_politics = { ruling_party = socialist elections_allowed = no }
+		add_popularity = { ideology = socialist popularity = 0.1 }
+
+	}
+	option = {
+	    name = "Kofi Busia"
+		complete_national_focus = GHA_Kofi_Busia_56
+		set_politics = { ruling_party = conservative elections_allowed = no }
+		add_popularity = { ideology = conservative popularity = 0.2 }
+		create_country_leader = {
+		    name = "Kofi Busia"
+			picture = "Kofi_Busia.dds"
+			ideology = conservatism
+		}
+		ai_chance = {
+		    factor = 1-
+		}
+	}		
+	option = {
+	    name = "Simon Diedong"
+		ai_chance = {
+		    factor = 10
+		}
+		complete_national_focus = GHA_Simon_Diedong_56
+		set_politics = { ruling_party = nationalism elections_allowed = no }
+		add_popularity = { ideology = nationalism popularity = 0.2 }
+		create_country_leader = {
+		    name = "Simon Diedong"
+			picture = "Simon_Diedong.dds"
+			ideology = national_democrat
+		}
+	}
+}
+
+country_event = {
     id = Ghana.3
 	title = "Elections of 1960"
 	desc = "Elections of 1960"
