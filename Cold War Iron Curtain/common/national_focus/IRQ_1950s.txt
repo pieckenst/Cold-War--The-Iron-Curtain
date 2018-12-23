@@ -249,7 +249,7 @@ focus_tree = {
 		x = 30
 		y = 1
 		completion_reward = {
-			air_expierence = 50
+			air_experience = 50
 			add_manpower = 1000
 		}
 	}
@@ -263,7 +263,7 @@ focus_tree = {
 		x = 28
 		y = 2
 		completion_reward = {
-			air_expierence = 25
+			air_experience = 25
 			add_equipment_to_stockpile = {
 				type = fighter_equipment_3
 				amount = 50
@@ -801,7 +801,7 @@ focus_tree = {
 		x = 52
 		y = 6
 		completion_reward = {
-			add_ideas = press_censorship_1
+			add_ideas = censorship_2
 		}
 	}
 	focus = {
@@ -995,11 +995,13 @@ focus_tree = {
 			}
 			every_country = {
 				limit = { is_in_faction_with  = IRQ }
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}	
+				every_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}	
+				}
 			}
 		}
 	}
@@ -1507,7 +1509,7 @@ focus_tree = {
 		}
 		x = 63
 		y = 10
-		complete_national_focus = {
+		completion_reward = {
 			add_ideas = military_youth_focus
 		}
 	}
@@ -3097,11 +3099,10 @@ focus_tree = {
 		x = 61
 		y = 19
 		available = {
-			NOT = { exists = UAR }
-			has_global_flag = uar_formed
+			NOT = { has_global_flag = uar_formed }
 		}
 		completion_reward = {
-			set_cosmetic_tag = UAR
+			set_cosmetic_tag = UAR_EGY
 			every_owned_state = {
 				limit = { NOT = { is_core_of = ROOT } }
 				add_core_of = ROOT
