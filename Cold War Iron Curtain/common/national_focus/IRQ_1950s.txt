@@ -7,7 +7,617 @@ focus_tree = {
 			tag = IRQ
 		}
 	}
+	
 	default = no
+
+	focus = {
+		id = IRQ_Establish_the_National_Development_Board
+		icon = GFX_goal_unknown
+		cost = 10.00
+		x = 6
+		y = 0
+		completion_reward = {
+			add_ideas = National_Economic_Development_Council
+		}
+	}
+	focus = {
+		id = IRQ_The_Royal_Iraqi_Armed_Forces
+		icon = GFX_goal_unknown
+		cost = 10.00
+		x = 23
+		y = 0
+		completion_reward = {
+			army_experience = 25
+			navy_experience = 25
+			air_experience = 25
+		}
+	}
+	focus = {
+		id = IRQ_The_First_Multi_Year_Plan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_Establish_the_National_Development_Board
+		}
+		x = 6
+		y = 1
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
+	}
+	focus = {
+		id = IRQ_Improve_Agricultural_Efficiency
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_The_First_Multi_Year_Plan
+		}
+		x = 4
+		y = 2
+			completion_reward = {
+					add_tech_bonus = {
+							name = agri_tech_bonus
+							bonus = 0.5
+							category = agri_tech
+						}
+				}
+	}
+	focus = {
+		id = IRQ_River_Infrastructure
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_Improve_Agricultural_Efficiency
+		}
+		x = 2
+		y = 3
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+		}
+	}
+	focus = {
+		id = IRQ_Encourage_Tourism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_The_First_Multi_Year_Plan
+		}
+		x = 8
+		y = 2
+			completion_reward = {
+					add_political_power = 150
+					add_stability = 0.10
+				}
+	}
+	focus = {
+		id = IRQ_Flood_Prevention_Canals
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_Improve_Agricultural_Efficiency
+		}
+		prerequisite = {
+			focus = IRQ_Encourage_Tourism
+		}
+		x = 6
+		y = 3
+		completion_reward = {
+					add_offsite_building = { type = industrial_complex level = 1 }
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+						add_stability = 0.10
+		}
+	}
+	focus = {
+		id = IRQ_Develop_National_Infrastructure
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_Flood_Prevention_Canals
+		}
+		prerequisite = {
+			focus = IRQ_River_Infrastructure
+		}
+		x = 4
+		y = 4
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+		}
+	}
+	focus = {
+		id = IRQ_British_Investment
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_Encourage_Tourism
+		}
+		x = 10
+		y = 3
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	focus = {
+		id = IRQ_Booming_Oil_Industry
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_British_Investment
+		}
+		prerequisite = {
+			focus = IRQ_Flood_Prevention_Canals
+		}
+		x = 8
+		y = 4
+			completion_reward = {
+					capital_scope = {
+							add_resource = {
+									type = oil
+									amount = 50
+								}
+						}
+				}
+	}
+	focus = {
+		id = IRQ_The_Royal_Iraqi_Army
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_The_Royal_Iraqi_Armed_Forces
+		}
+		x = 16
+		y = 1
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+	focus = {
+		id = IRQ_Purchase_Western_Arms
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_The_Royal_Iraqi_Army
+		}
+		x = 14
+		y = 2
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 10000
+				producer = ENG
+			}		
+		}
+	}
+	focus = {
+		id = IRQ_Invest_in_Motorized_Infantry
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_The_Royal_Iraqi_Army
+		}
+		x = 18
+		y = 2
+			completion_reward = {
+					add_tech_bonus = {
+							name = motorized_bonus
+							bonus = 0.5
+							technology = motorised_infantry
+						}
+				}
+	}
+	focus = {
+		id = IRQ_End_British_Military_Occupation
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_Invest_in_Motorized_Infantry
+		}
+		prerequisite = {
+			focus = IRQ_Purchase_Western_Arms
+		}
+		x = 16
+		y = 3
+		completion_reward = {
+			add_war_support = 0.10
+			diplomatic_relation = {
+				country = ENG
+				relation = military_access
+				active = no
+			}		
+		}
+	}
+	focus = {
+		id = IRQ_Lessons_from_Al_Nakba
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_End_British_Military_Occupation
+		}
+		x = 16
+		y = 4
+		completion_reward = {
+			army_experience = 33
+			add_manpower = 5000
+		}
+	}
+	focus = {
+		id = IRQ_The_Royal_Iraqi_Navy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_The_Royal_Iraqi_Armed_Forces
+		}
+		x = 23
+		y = 1
+		completion_reward = {
+			navy_experience = 50
+		}
+	}
+	focus = {
+		id = IRQ_Expand_the_Port_of_Basra
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_The_Royal_Iraqi_Navy
+		}
+		x = 21
+		y = 2
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2 }
+			813 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}			
+			}
+		}
+	}
+	focus = {
+		id = IRQ_Dockyard_Expansion
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_The_Royal_Iraqi_Navy
+		}
+		x = 25
+		y = 2
+		completion_reward = {
+			813 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
+	}
+	focus = {
+		id = IRQ_Arabic_Gulf_Academy_for_Sea_Studies
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_Dockyard_Expansion
+		}
+		prerequisite = {
+			focus = IRQ_Expand_the_Port_of_Basra
+		}
+		x = 23
+		y = 3
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 0.15
+				bonus = 1
+				uses = 1
+				technology = early_submarine
+				technology = basic_submarine
+				technology = improved_submarine
+				technology = advanced_submarine
+			}
+		}
+	}
+	focus = {
+		id = IRQ_Naval_Expansion
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_Arabic_Gulf_Academy_for_Sea_Studies
+		}
+		x = 23
+		y = 4
+		completion_reward = {
+			813 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}			
+			}
+		}
+	}
+	focus = {
+		id = IRQ_The_Royal_Iraqi_Airforce
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_The_Royal_Iraqi_Armed_Forces
+		}
+		x = 30
+		y = 1
+		completion_reward = {
+			air_experience = 50
+			add_manpower = 1000
+		}
+	}
+	focus = {
+		id = IRQ_Recover_from_Al_Nakba
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_The_Royal_Iraqi_Airforce
+		}
+		x = 28
+		y = 2
+		completion_reward = {
+			air_experience = 25
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_3
+				amount = 50
+				producer = ENG
+			}		
+		}
+	}
+	focus = {
+		id = IRQ_Purchase_Hawker_Furies
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_The_Royal_Iraqi_Airforce
+		}
+		x = 32
+		y = 2
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_3
+				amount = 350
+				producer = ENG
+			}		
+		}
+	}
+	focus = {
+		id = IRQ_Import_British_Jets
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_Purchase_Hawker_Furies
+		}
+		prerequisite = {
+			focus = IRQ_Recover_from_Al_Nakba
+		}
+		x = 30
+		y = 3
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = jet_CAS_equipment_1
+				amount = 200
+				producer = ENG
+			}		
+		}
+	}
+	focus = {
+		id = IRQ_Expand_Airbases
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_Import_British_Jets
+		}
+		x = 30
+		y = 4
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = IRQ_Develop_Baghdad
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = IRQ_Booming_Oil_Industry
+		}
+		prerequisite = {
+			focus = IRQ_Develop_National_Infrastructure
+		}
+		x = 6
+		y = 5
+		completion_reward = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 6
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	
+	
 	focus = {
 		id = IRQ_the_israeli_question
 		icon = GFX_goal_generic_neutrality_focus_Arabic
@@ -455,7 +1065,7 @@ focus_tree = {
 		x = 52
 		y = 6
 		completion_reward = {
-			add_ideas = press_censorship_1
+			add_ideas = censorship_2
 		}
 	}
 	focus = {
@@ -649,11 +1259,13 @@ focus_tree = {
 			}
 			every_country = {
 				limit = { is_in_faction_with  = IRQ }
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}	
+				every_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}	
+				}
 			}
 		}
 	}
@@ -1161,7 +1773,7 @@ focus_tree = {
 		}
 		x = 63
 		y = 10
-		complete_national_focus = {
+		completion_reward = {
 			add_ideas = military_youth_focus
 		}
 	}
@@ -2751,11 +3363,10 @@ focus_tree = {
 		x = 61
 		y = 19
 		available = {
-			NOT = { exists = UAR }
-			has_global_flag = uar_formed
+			NOT = { has_global_flag = uar_formed }
 		}
 		completion_reward = {
-			set_cosmetic_tag = UAR
+			set_cosmetic_tag = UAR_EGY
 			every_owned_state = {
 				limit = { NOT = { is_core_of = ROOT } }
 				add_core_of = ROOT

@@ -16,7 +16,13 @@ set_technology = {
 	hardware_I = 1
 	radio = 1
 	radar_0 = 1
-
+sp_artillery_1 = 1	
+sp_rocket1 = 1
+mechanized_heavy_infantry = 1
+sp_artillery_1 = 1
+mechanized_infantry = 1
+main_battle_tanks = 1
+light_sp_artillery_1 = 1
 	
 	advanced_rocket_engines = 1
 	liquid_propelled_rocket = 1
@@ -351,11 +357,6 @@ if = {
 		freedom_level = 0.1
 	}
 	set_autonomy = {
-		target = SLK		
-		autonomous_state = autonomy_dominion
-		freedom_level = 0.1
-	}
-	set_autonomy = {
 		target = BRU
 		autonomous_state = autonomy_protectorate
 		freedom_level = 0.1
@@ -475,7 +476,6 @@ if = {
 		puppet = UAE
 		puppet = GHA
 		puppet = TAT
-		puppet = SLK
 		puppet = SKK
 		puppet = GND
 		puppet = SWK
@@ -557,6 +557,23 @@ set_politics = {
 	elections_allowed = no
   }
  }
+}
+
+1948.1.1 = {
+    if = {
+	    limit = {
+		    has_dlc = "Together for Victory"
+	    }
+        set_autonomy = {
+            target = SLK
+            autonomous_state = autonomy_dominion
+            freedom_level = 0.1
+        }
+  	    else = {
+		    puppet = SLK
+	    }
+    }
+	SLK = { set_politics = { parties = { conservative = { popularity = 100 } } ruling_party = conservative elections_allowed = no } }
 }
 
 1949.1.1 = {
