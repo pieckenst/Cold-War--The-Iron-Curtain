@@ -819,67 +819,6 @@ CONGRESS_US = {
             }			
         }
     }		
-	Fair_Labor_Standards_Amendment = {
-	
-        allowed = { tag = USA }
-		
-        available = {
-            NOT = { has_country_flag = law_passing }
-		   has_country_flag = Fair_Labor_Standards_Amendment_enabled
-        }
-        visible = {
-            NOT = { has_country_flag = law_passing }
-        }
-		cost = 0
-        fire_only_once = yes
-		
-		complete_effect = {
-	        set_country_flag = law_passing
-			#custom_effect_tooltip = will_vote
-			
-			hidden_effect = {
-				country_event = { id = congress.1 days = 5 }
-				country_event = { id = congress.2 days = 15 }
-				country_event = { id = congress.7 days = 20 }
-			}
-			
-            effect_tooltip = {
-			    add_political_power = 30
-				add_timed_idea = {
-					idea = increase_the_wages
-					days = 1200
-				}	
-			} 			
-        }
-		days_remove = 50
-		remove_effect = {
-			hidden_effect = {
-			    if = {
-					limit = { 
-						check_variable = { supseat > 216 } 
-						check_variable = { supseat_sen > 47 } 
-					}
-					country_event = { id = us_congress.100 }
-				    add_political_power = 30
-					add_timed_idea = {
-						idea = increase_the_wages
-						days = 1200
-					}						
-				}
-				if = {
-				    limit = { 
-						check_variable = { supseat < 217 } 
-						check_variable = { supseat_sen < 48 } 
-					}
-				    country_event = { id = parliament.1 }
-				}
-				set_variable = { supseat = 0 }
-				set_variable = { supseat_sen = 0 }
-				
-				clr_country_flag = law_passing
-            }			
-        }
-    }		
 	Defense_Production_Act_of_1950 = {
 	
         allowed = { tag = USA }
@@ -1871,64 +1810,6 @@ CONGRESS_US = {
 					country_event = { id = us_congress.100 }
 				    add_political_power = 30
 					add_ideas =	Health_Research_Facilities_Act	
-				}
-				if = {
-				    limit = { 
-						check_variable = { supseat < 217 } 
-						check_variable = { supseat_sen < 48 } 
-					}
-				    country_event = { id = parliament.1 }
-				}
-				set_variable = { supseat = 0 }
-				set_variable = { supseat_sen = 0 }
-				
-				clr_country_flag = law_passing
-            }			
-        }
-    }
-	Revise_the_Walsh_Healey_Contracts_Act = {
-	
-        allowed = { tag = USA }
-		
-        available = {
-            NOT = { has_country_flag = law_passing }
-		   has_country_flag = Revise_the_Walsh_Healey_Contracts_Act_vote
-        }
-        visible = {
-            NOT = { has_country_flag = law_passing }
-        }
-		cost = 0
-        fire_only_once = yes
-		
-		complete_effect = {
-	        set_country_flag = law_passing
-			
-			hidden_effect = {
-				country_event = { id = congress.1 days = 5 }
-				country_event = { id = congress.2 days = 10 }
-				country_event = { id = congress.3 days = 15 }
-			}
-			
-            effect_tooltip = {
-			    add_political_power = 30
-				army_experience = 50
-				air_experience = 50
-				navy_experience = 50
-			}
-        }
-		days_remove = 50
-		remove_effect = {
-			hidden_effect = {
-			    if = {
-					limit = { 
-						check_variable = { supseat > 216 } 
-						check_variable = { supseat_sen > 47 } 
-					}
-					country_event = { id = us_congress.100 }
-				    add_political_power = 30
-					army_experience = 50
-					air_experience = 50
-					navy_experience = 50
 				}
 				if = {
 				    limit = { 
