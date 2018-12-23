@@ -16,6 +16,14 @@ country_event = {
 				is_owned_and_controlled_by = ROOT
 				NOT = { has_state_flag = active_insurgency }
 				not = { has_state_flag = pacified_insurgency }
+				OR = {
+					date > 1964.5.28
+				    NOT = { is_core_of = PAL }
+				}
+				OR = {
+					date > 1975.1.1
+				    NOT = { is_core_of = PAP }
+				}
 			}
 			set_state_flag = active_insurgency
 			set_state_flag = anti_colonial_insurgency
@@ -140,9 +148,10 @@ country_event = {
 				every_neighbor_state = {
 					set_state_flag = flip_reb
 				}
+				clr_state_flag = flip_back
 			}
 			insurgency_state_check_civil = yes
-			clr_state_flag = flip_back
+			
 
 			insurgency_border_flip = yes
 			capital_scope = {
