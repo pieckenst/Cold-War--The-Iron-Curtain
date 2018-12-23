@@ -45,7 +45,7 @@ technologies = {
 
 	liquid_propelled_rocket = {
 
-		rocket_sp_artillery =  {
+		rocket_sp_artillery = {
 			soft_attack = 0.05
 		}
 
@@ -79,10 +79,10 @@ technologies = {
 
 	hybrid_propelled_rocket = {
 
-		rocket_sp_artillery =  {
+		rocket_sp_artillery = {
 			soft_attack = 0.05
 		}		
-		research_time_factor = -0.015
+		research_time_factor = -0.01
 
 		research_cost = 2
 		start_year = 1953
@@ -109,10 +109,10 @@ technologies = {
 
 	cryogenic_propelled_rocket = {
 
-		rocket_sp_artillery =  {
+		rocket_sp_artillery = {
 			soft_attack = 0.05
 		}		
-		research_time_factor = -0.015
+		research_time_factor = -0.01
 
 		research_cost = 2
 		start_year = 1962
@@ -138,8 +138,8 @@ technologies = {
 
 	space_satellite = {
 
-		encryption = 1
-		decryption = 1
+		encryption = 0.2
+		decryption = 0.2
 
 		research_cost = 2
 		start_year = 1957
@@ -262,8 +262,7 @@ technologies = {
 
 	no_descent = {
 
-		army_bonus_air_superiority_factor = 0.15
-		air_accidents_factor = 0.3
+		air_accidents_factor = -0.05
 
 		XOR = {
 			safe_descent
@@ -293,7 +292,7 @@ technologies = {
 	
 	safe_descent = {
 		
-		air_accidents_factor = -0.1
+		air_accidents_factor = -0.05
 
 		XOR = {
 			no_descent
@@ -323,7 +322,7 @@ technologies = {
 
 	manned_space_travel = {
 		
-		research_time_factor = -0.01
+		research_time_factor = -0.0025
 
 		research_cost = 2
 		start_year = 1961
@@ -355,8 +354,8 @@ technologies = {
 
 	sub_orbital_flight = {
 		
-		research_time_factor = -0.005
-		decryption = 0.2
+		research_time_factor = -0.0025
+		decryption = 0.1
 
 		research_cost = 2
 		start_year = 1962
@@ -383,8 +382,8 @@ technologies = {
 
 	orbital_flight = {
 		
-		research_time_factor = -0.005
-		encryption = 0.2
+		research_time_factor = -0.0025
+		encryption = 0.1
 
 		research_cost = 2
 		start_year = 1962
@@ -411,6 +410,8 @@ technologies = {
 
 	advancing_space_travel = {
 
+		research_time_factor = -0.001
+	
 		research_cost = 2
 		start_year = 1969
 
@@ -428,15 +429,6 @@ technologies = {
 			space_manned
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_manned_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_manned
-			}
-		}
-
 		path = {
 			leads_to_tech = multi_crewed_flight
 			research_cost_coeff = 1
@@ -450,6 +442,8 @@ technologies = {
 
 	multi_crewed_flight = {
 
+		research_time_factor = -0.001
+		
 		research_cost = 2
 		start_year = 1964
 
@@ -467,15 +461,6 @@ technologies = {
 			space_manned
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = medium_air_bonus
-				bonus = 0.5
-				uses = 1
-				category = medium_air
-			}
-		}
-
 		path = {
 			leads_to_tech = manned_lunar_programs
 			research_cost_coeff = 1
@@ -484,7 +469,7 @@ technologies = {
 
 	modern_systems = {	
 
-		research_time_factor = -0.01
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1973
@@ -510,6 +495,8 @@ technologies = {
 	}
 
 	manned_lunar_programs = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1973
@@ -528,15 +515,6 @@ technologies = {
 			space_lunar
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_lunar_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_lunar
-			}
-		}
-
 		path = {
 			leads_to_tech = space_shuttle
 			research_cost_coeff = 1
@@ -544,6 +522,8 @@ technologies = {
 	}
 
 	space_shuttle = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1977
@@ -562,21 +542,6 @@ technologies = {
 			space_shuttle
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = heavy_air_bonus
-				bonus = 0.5
-				uses = 1
-				category = heavy_air
-			}
-			add_tech_bonus = {
-				name = rocketry_bonus
-				bonus = 0.5
-				uses = 1
-				category = rocketry
-			}
-		}
-
 		path = {
 			leads_to_tech = reusable_engines
 			research_cost_coeff = 1
@@ -591,7 +556,7 @@ technologies = {
 	reusable_engines = {
 
 		logistics_company = {
-			supply_consumption_factor = -0.05
+			supply_consumption_factor = -0.02
 		}
 
 		research_cost = 2
@@ -619,8 +584,10 @@ technologies = {
 	}
 
 	external_fuel_tanks = {	
+	
+		research_time_factor = -0.001
 
-		army_speed_factor = 0.10
+		army_speed_factor = 0.05
 
 		research_cost = 2
 		start_year = 1979
@@ -647,6 +614,8 @@ technologies = {
 	}
 
 	advanced_space_travel = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1988
@@ -665,21 +634,6 @@ technologies = {
 			space_manned
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_manned_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_manned
-			}
-			add_tech_bonus = {
-				name = space_unmanned_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_unmanned
-			}
-		}
-
 		path = {
 			leads_to_tech = colonization_modules
 			research_cost_coeff = 1
@@ -692,6 +646,8 @@ technologies = {
 	}
 
 	colonization_modules = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1993
@@ -703,15 +659,6 @@ technologies = {
 
 		ai_will_do = {
 			factor = 1
-		}
-
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_colonization_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_colonization
-			}
 		}
 
 		categories = {
@@ -727,7 +674,7 @@ technologies = {
 
 	extended_fuel_reserves = {	
 
-		supply_consumption_factor = -0.10
+		supply_consumption_factor = -0.02
 
 		research_cost = 2
 		start_year = 1997
@@ -754,6 +701,8 @@ technologies = {
 
 	manned_martian_programs = {	
 
+		research_time_factor = -0.001
+	
 		research_cost = 2
 		start_year = 1999
 
@@ -770,15 +719,6 @@ technologies = {
 			space_research
 			space_mars
 		}
-		
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_mars_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_mars
-			}
-		}
 
 		path = {
 			research_cost_coeff = 1
@@ -786,6 +726,8 @@ technologies = {
 	}
 
 	unmanned_lunar_missions = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1959
@@ -805,15 +747,6 @@ technologies = {
 			space_unmanned
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_lunar_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_lunar
-			}
-		}
-
 		path = {
 			leads_to_tech = lunar_probe_flyby
 			research_cost_coeff = 1
@@ -827,7 +760,7 @@ technologies = {
 
 	lunar_probe_flyby = {
 
-		decryption = 0.5
+		decryption = 0.1
 
 		research_cost = 2
 		start_year = 1959
@@ -856,7 +789,7 @@ technologies = {
 	lunar_probe_orbit = {	
 
 		signal_company = {
-			initiative = 0.03
+			initiative = 0.02
 		}
 
 		research_cost = 2
@@ -884,6 +817,8 @@ technologies = {
 	}
 
 	lunar_probe_lander = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1967
@@ -903,15 +838,6 @@ technologies = {
 			space_unmanned
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_colonization_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_colonization
-			}
-		}
-
 		path = {
 			leads_to_tech = manned_lunar_flyby
 			research_cost_coeff = 1
@@ -919,6 +845,8 @@ technologies = {
 	}
 
 	crewed_lunar_missions = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1961
@@ -938,15 +866,6 @@ technologies = {
 			space_manned
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_lunar_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_lunar
-			}
-		}
-
 		path = {
 			leads_to_tech = manned_lunar_flyby
 			research_cost_coeff = 1
@@ -959,6 +878,8 @@ technologies = {
 	}
 
 	manned_lunar_flyby = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1968
@@ -978,15 +899,6 @@ technologies = {
 			space_manned
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_lunar_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_lunar
-			}
-		}
-
 		path = {
 			leads_to_tech = manned_lunar_landing
 			research_cost_coeff = 1
@@ -996,6 +908,8 @@ technologies = {
 
 	manned_lunar_landing = {	
 
+		research_time_factor = -0.001
+	
 		research_cost = 2
 		start_year = 1969
 
@@ -1014,21 +928,6 @@ technologies = {
 			space_manned
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_manned_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_manned
-			}
-			add_tech_bonus = {
-				name = space_unmanned_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_unmanned
-			}
-		}
-
 		path = {
 			leads_to_tech = moon_base
 			research_cost_coeff = 1
@@ -1038,9 +937,8 @@ technologies = {
 
 	moon_base = {
 
-		MONTHLY_POPULATION  = 0.1
-		conscription_factor = 0.01
-		local_resources_factor = 0.10
+		conscription_factor = 0.005
+		local_resources_factor = 0.1
 
 		research_cost = 4
 		start_year = 1985
@@ -1070,7 +968,7 @@ technologies = {
 	lunar_colonization = {	
 
 		MONTHLY_POPULATION  = 0.1
-		conscription_factor = 0.01
+		conscription_factor = 0.005
 
 		research_cost = 5
 		start_year = 1995
@@ -1098,6 +996,8 @@ technologies = {
 	}
 
 	unmanned_martian_missions = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1960
@@ -1117,15 +1017,6 @@ technologies = {
 			space_unmanned
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_mars_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_mars
-			}
-		}
-
 		path = {
 			leads_to_tech = martian_probe_flyby
 			research_cost_coeff = 1
@@ -1140,7 +1031,7 @@ technologies = {
 
 	martian_probe_flyby = {	
 
-		decryption = 0.5
+		decryption = 0.1
 
 		research_cost = 2
 		start_year = 1962
@@ -1170,7 +1061,7 @@ technologies = {
 	martian_probe_landning = {	
 
 		signal_company = {
-			initiative = 0.03
+			initiative = 0.02
 		}
 
 		research_cost = 2
@@ -1199,6 +1090,8 @@ technologies = {
 	}
 
 	martian_rover_lander = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1973
@@ -1218,15 +1111,6 @@ technologies = {
 			space_unmanned
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_colonization_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_colonization
-			}
-		}
-
 		path = {
 			leads_to_tech = manned_martian_flight
 			research_cost_coeff = 1
@@ -1235,6 +1119,8 @@ technologies = {
 	}
 
 	crewed_martian_missions = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 5
 		start_year = 1985
@@ -1254,15 +1140,6 @@ technologies = {
 			space_manned
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_lunar_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_lunar
-			}
-		}
-
 		path = {
 			leads_to_tech = manned_martian_flyby
 			research_cost_coeff = 1
@@ -1276,6 +1153,8 @@ technologies = {
 	}
 
 	manned_martian_flyby = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 5
 		start_year = 1987
@@ -1295,15 +1174,6 @@ technologies = {
 			space_manned
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_mars_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_mars
-			}
-		}
-
 		path = {
 			leads_to_tech = manned_martian_landing
 			research_cost_coeff = 1
@@ -1312,6 +1182,8 @@ technologies = {
 	}
 
 	manned_martian_landing = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 5
 		start_year = 1995
@@ -1331,21 +1203,6 @@ technologies = {
 			space_manned
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_manned_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_manned
-			}
-			add_tech_bonus = {
-				name = space_unmanned_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_unmanned
-			}
-		}
-
 		path = {
 			leads_to_tech = martian_base
 			research_cost_coeff = 1
@@ -1355,8 +1212,7 @@ technologies = {
 
 	martian_base = {
 
-		MONTHLY_POPULATION  = 0.1
-		conscription_factor = 0.01
+		conscription_factor = 0.005
 		local_resources_factor = 0.10
 
 		research_cost = 8
@@ -1387,8 +1243,7 @@ technologies = {
 	martian_colonization = {
 
 		MONTHLY_POPULATION  = 0.2
-		conscription_factor = 0.02
-		local_resources_factor = 0.10
+		conscription_factor = 0.005
 
 		research_cost = 9
 		start_year = 1997
@@ -1416,6 +1271,8 @@ technologies = {
 	}
 
 	unmanned_venus_missions = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1961
@@ -1435,15 +1292,6 @@ technologies = {
 			space_unmanned
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_venus_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_venus
-			}
-		}
-
 		path = {
 			leads_to_tech = venus_probe_flyby
 			research_cost_coeff = 1
@@ -1458,7 +1306,7 @@ technologies = {
 
 	venus_probe_flyby = {
 
-		decryption = 0.5
+		encryption = 0.1
 
 		research_cost = 2
 		start_year = 1962
@@ -1487,7 +1335,7 @@ technologies = {
 	venus_probe_orbit = {	
 
 		signal_company = {
-			initiative = 0.03
+			initiative = 0.02
 		}
 
 		research_cost = 2
@@ -1543,6 +1391,8 @@ technologies = {
 	}
 
 	pressurized_module = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1971
@@ -1562,15 +1412,6 @@ technologies = {
 			space_station
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_station_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_station
-			}
-		}
-
 		path = {
 			leads_to_tech = life_support_module
 			research_cost_coeff = 1
@@ -1585,8 +1426,8 @@ technologies = {
 	life_support_module = {
 
 		submarine = {
-			max_organisation = 10
-			surface_detection = 0.1	
+			max_organisation = 5
+			surface_detection = 0.05	
 		}
 
 		research_cost = 2
@@ -1617,12 +1458,12 @@ technologies = {
 	solar_module = {
 
 		category_all_infantry = {
-			max_organisation = 5
+			max_organisation = 1
 		}
 		category_all_armor = {
-			breakthrough = 0.20
+			breakthrough = 0.05
 		}
-		motorized_infantry = {
+		motorized = {
 			max_organisation = 1
 		}
 
@@ -1653,7 +1494,7 @@ technologies = {
 
 	storage_module = {
 
-		out_of_supply_factor = -0.10
+		out_of_supply_factor = -0.1
 
 		research_cost = 2
 		start_year = 1977
@@ -1712,13 +1553,13 @@ technologies = {
 	space_station = {
 
 		recon = {
-			recon = 5
+			recon = 1
 		}
-		decryption = 0.5
+		encryption = 0.1
 		signal_company = {
-			initiative = 0.1
+			initiative = 0.02
 		}
-		research_time_factor = -0.025
+		research_time_factor = -0.005
 
 		research_cost = 2
 		start_year = 1982
@@ -1748,13 +1589,13 @@ technologies = {
 	international_space_station = {
 
 		recon = {
-			recon = 10
+			recon = 1
 		}
-		decryption = 1
+		encryption = 0.2
 		signal_company = {
-			initiative = 0.1
+			initiative = 0.03
 		}
-		research_time_factor = -0.025
+		research_time_factor = -0.005
 
 		research_cost = 2
 		start_year = 1998
@@ -1781,6 +1622,8 @@ technologies = {
 	}
 
 	unmanned_mercury_missions = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1972
@@ -1800,15 +1643,6 @@ technologies = {
 			space_mercury
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_mercury_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_mercury
-			}
-		}
-
 		path = {
 			leads_to_tech = mercury_probe_flyby
 			research_cost_coeff = 1
@@ -1823,7 +1657,7 @@ technologies = {
 
 	mercury_probe_flyby = {
 
-		decryption = 0.5
+		decryption = 0.1
 
 		research_cost = 2
 		start_year = 1973
@@ -1853,7 +1687,7 @@ technologies = {
 	mercury_probe_orbit = {
 
 		signal_company = {
-			initiative = 0.03
+			initiative = 0.02
 		}
 
 		research_cost = 2
@@ -1910,6 +1744,8 @@ technologies = {
 	}
 
 	unmanned_jupiter_missions = {	
+	
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1973
@@ -1929,15 +1765,6 @@ technologies = {
 			space_jupiter
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_jupiter_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_jupiter
-			}
-		}
-
 		path = {
 			leads_to_tech = jupiter_probe_flyby
 			research_cost_coeff = 1
@@ -1952,7 +1779,7 @@ technologies = {
 
 	jupiter_probe_flyby = {
 
-		decryption = 0.5
+		decryption = 0.1
 
 		research_cost = 2
 		start_year = 1974
@@ -1981,7 +1808,7 @@ technologies = {
 	jupiter_probe_orbit = {
 
 		signal_company = {
-			initiative = 0.03
+			initiative = 0.02
 		}
 
 		research_cost = 2
@@ -2035,7 +1862,9 @@ technologies = {
 		}
 	}
 
-	unmanned_saturn_missions = {	
+	unmanned_saturn_missions = {
+
+		research_time_factor = -0.001
 
 		research_cost = 2
 		start_year = 1978
@@ -2055,15 +1884,6 @@ technologies = {
 			space_saturn
 		}
 
-		on_research_complete = {
-			add_tech_bonus = {
-				name = space_saturn_bonus
-				bonus = 0.5
-				uses = 1
-				category = space_saturn
-			}
-		}
-
 		path = {
 			leads_to_tech = saturn_probe_flyby
 			research_cost_coeff = 1
@@ -2072,7 +1892,7 @@ technologies = {
 
 	saturn_probe_flyby = {
 
-		decryption = 0.5
+		encryption = 0.1
 
 		research_cost = 2
 		start_year = 1979
@@ -2101,7 +1921,7 @@ technologies = {
 	saturn_probe_orbit = {
 
 		signal_company = {
-			initiative = 0.03
+			initiative = 0.02
 		}
 
 		research_cost = 2
