@@ -16,7 +16,9 @@ focus_tree = {
 		cost = 10.00
 		x = 6
 		y = 0
-
+		completion_reward = {
+			add_ideas = National_Economic_Development_Council
+		}
 	}
 	focus = {
 		id = IRQ_The_Royal_Iraqi_Armed_Forces
@@ -24,7 +26,11 @@ focus_tree = {
 		cost = 10.00
 		x = 23
 		y = 0
-
+		completion_reward = {
+			army_experience = 25
+			navy_experience = 25
+			air_experience = 25
+		}
 	}
 	focus = {
 		id = IRQ_The_First_Multi_Year_Plan
@@ -35,7 +41,71 @@ focus_tree = {
 		}
 		x = 6
 		y = 1
-
+			completion_reward = {
+					every_owned_state = {
+							add_extra_state_shared_building_slots = 1
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = industrial_complex
+											size > 0
+											include_locked = yes
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = industrial_complex
+																			size > 0
+																			include_locked = yes
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+						}
+					}
 	}
 	focus = {
 		id = IRQ_Improve_Agricultural_Efficiency
@@ -46,7 +116,13 @@ focus_tree = {
 		}
 		x = 4
 		y = 2
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = agri_tech_bonus
+							bonus = 0.5
+							category = agri_tech
+						}
+				}
 	}
 	focus = {
 		id = IRQ_River_Infrastructure
@@ -57,7 +133,38 @@ focus_tree = {
 		}
 		x = 2
 		y = 3
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+		}
 	}
 	focus = {
 		id = IRQ_Encourage_Tourism
@@ -68,7 +175,10 @@ focus_tree = {
 		}
 		x = 8
 		y = 2
-
+			completion_reward = {
+					add_political_power = 150
+					add_stability = 0.10
+				}
 	}
 	focus = {
 		id = IRQ_Flood_Prevention_Canals
@@ -82,7 +192,40 @@ focus_tree = {
 		}
 		x = 6
 		y = 3
-
+		completion_reward = {
+					add_offsite_building = { type = industrial_complex level = 1 }
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+						add_stability = 0.10
+		}
 	}
 	focus = {
 		id = IRQ_Develop_National_Infrastructure
@@ -96,7 +239,53 @@ focus_tree = {
 		}
 		x = 4
 		y = 4
-
+		completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+											include_locked = yes
+										}
+								}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+		}
 	}
 	focus = {
 		id = IRQ_British_Investment
@@ -107,7 +296,9 @@ focus_tree = {
 		}
 		x = 10
 		y = 3
-
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
 	}
 	focus = {
 		id = IRQ_Booming_Oil_Industry
@@ -121,7 +312,14 @@ focus_tree = {
 		}
 		x = 8
 		y = 4
-
+			completion_reward = {
+					capital_scope = {
+							add_resource = {
+									type = oil
+									amount = 50
+								}
+						}
+				}
 	}
 	focus = {
 		id = IRQ_The_Royal_Iraqi_Army
@@ -132,7 +330,9 @@ focus_tree = {
 		}
 		x = 16
 		y = 1
-
+		completion_reward = {
+			army_experience = 50
+		}
 	}
 	focus = {
 		id = IRQ_Purchase_Western_Arms
@@ -143,7 +343,13 @@ focus_tree = {
 		}
 		x = 14
 		y = 2
-
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 10000
+				producer = ENG
+			}		
+		}
 	}
 	focus = {
 		id = IRQ_Invest_in_Motorized_Infantry
@@ -154,7 +360,13 @@ focus_tree = {
 		}
 		x = 18
 		y = 2
-
+			completion_reward = {
+					add_tech_bonus = {
+							name = motorized_bonus
+							bonus = 0.5
+							technology = motorised_infantry
+						}
+				}
 	}
 	focus = {
 		id = IRQ_End_British_Military_Occupation
@@ -168,7 +380,14 @@ focus_tree = {
 		}
 		x = 16
 		y = 3
-
+		completion_reward = {
+			add_war_support = 0.10
+			diplomatic_relation = {
+				country = ENG
+				relation = military_access
+				active = no
+			}		
+		}
 	}
 	focus = {
 		id = IRQ_Lessons_from_Al_Nakba
@@ -179,7 +398,10 @@ focus_tree = {
 		}
 		x = 16
 		y = 4
-
+		completion_reward = {
+			army_experience = 33
+			add_manpower = 5000
+		}
 	}
 	focus = {
 		id = IRQ_The_Royal_Iraqi_Navy
@@ -190,7 +412,9 @@ focus_tree = {
 		}
 		x = 23
 		y = 1
-
+		completion_reward = {
+			navy_experience = 50
+		}
 	}
 	focus = {
 		id = IRQ_Expand_the_Port_of_Basra
@@ -201,7 +425,17 @@ focus_tree = {
 		}
 		x = 21
 		y = 2
-
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2 }
+			813 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = IRQ_Dockyard_Expansion
@@ -212,7 +446,16 @@ focus_tree = {
 		}
 		x = 25
 		y = 2
-
+		completion_reward = {
+			813 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = IRQ_Arabic_Gulf_Academy_for_Sea_Studies
@@ -226,7 +469,19 @@ focus_tree = {
 		}
 		x = 23
 		y = 3
-
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 0.15
+				bonus = 1
+				uses = 1
+				technology = early_submarine
+				technology = basic_submarine
+				technology = improved_submarine
+				technology = advanced_submarine
+			}
+		}
 	}
 	focus = {
 		id = IRQ_Naval_Expansion
@@ -237,7 +492,16 @@ focus_tree = {
 		}
 		x = 23
 		y = 4
-
+		completion_reward = {
+			813 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}			
+			}
+		}
 	}
 	focus = {
 		id = IRQ_The_Royal_Iraqi_Airforce
