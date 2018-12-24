@@ -1266,12 +1266,6 @@ focus_tree = {
 		id = PER_Shah_Refuses
 		icon = GFX_IntotheFlames
 		cost = 10.00
-		prerequisite = {
-			focus = PER_Operation_Ajax
-		}
-		mutually_exclusive = {
-			focus = PER_Shah_Consents_to_Coup
-		}
 		x = 48
 		y = 22
 		available = {
@@ -1650,11 +1644,13 @@ focus_tree = {
 		id = PER_Crush_the_Protests
 		icon = GFX_CrushResistance
 		cost = 1.00
-		prerequisite = {
-			focus = PER_Staged_Riots
-		}
 		x = 7
 		y = 26
+		available = {
+			NOT = { has_completed_focus = PER_Salvage_the_Situation }
+			NOT = { has_completed_focus = PER_Tudeh_Hijacking }
+			has_completed_focus = PER_Staged_Riots
+		}
 		completion_reward = {
 			news_event = AJAX.100
 		}
@@ -1663,11 +1659,13 @@ focus_tree = {
 		id = PER_Tudeh_Hijacking
 		icon = GFX_TheRussianBear
 		cost = 2.00
-		prerequisite = {
-			focus = PER_Staged_Riots
-		}
 		x = 19
 		y = 26
+		available = {
+			NOT = { has_completed_focus = PER_Salvage_the_Situation }
+			NOT = { has_completed_focus = PER_Crush_the_Protests }
+			has_completed_focus = PER_Staged_Riots
+		}
 		completion_reward = {
 			news_event = AJAX.300
 		}
@@ -1861,9 +1859,13 @@ focus_tree = {
 		id = PER_Salvage_the_Situation
 		icon = GFX_SwingtheSword
 		cost = 10.00
-		prerequisite = {
-			focus = PER_Staged_Riots
-			focus = PER_Restore_Public_Order
+		available = {
+			OR = { 
+				has_completed_focus = PER_Staged_Riots
+				has_completed_focus = PER_Restore_Public_Order
+			}
+			NOT = { has_completed_focus = PER_Crush_the_Protests }
+			NOT = { has_completed_focus = PER_Tudeh_Hijacking }
 		}
 		x = 37
 		y = 26

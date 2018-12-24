@@ -4,6 +4,13 @@ focus_tree = {
 		factor = 0
 	}
 	default = no
+	
+	shared_focus = GRE_1960s_non_aligned
+	
+	shared_focus = GRE_1960s_soviet_alignment
+	
+	shared_focus = GRE_1960s_american_alignment
+
 	focus = {
 		id = DOC_Indepencne_Secured
 		icon = GFX_Freedom
@@ -55,7 +62,9 @@ focus_tree = {
 		}
 		x = 9
 		y = 3
+		
 		completion_reward = {
+			set_country_flag = mobutu_cos_con
 			news_event = mobutu_cos.1
 		}
 	}
@@ -100,6 +109,7 @@ focus_tree = {
 		x = 24
 		y = 3
 		completion_reward = {
+			set_country_flag = congo_mob 
 			add_stability = 0.05
 			add_war_support = 0.05
 		}
@@ -108,9 +118,7 @@ focus_tree = {
 		id = DOC_Consolidate_Support_in_the_Armed_Forces
 		icon = GFX_Gold
 		cost = 10.00
-		prerequisite = {
-			focus = DOC_Appoint_Mpolo
-		}
+		available = { has_country_flag = congo_mob } 
 		x = 24
 		y = 4
 		completion_reward = {
@@ -602,11 +610,14 @@ focus_tree = {
 		id = DOC_PM_Joseph_Iléo
 		icon = GFX_goal_unknown
 		cost = 10.00
+		x = 10
+		y = 13
+		available = {
+			always = no
+		}
 		prerequisite = {
 			focus = DOC_Lumumba_Deposed
 		}
-		x = 10
-		y = 13
 		completion_reward = {
 			set_politics = {
 				ruling_party = Christian_Democratic
@@ -618,14 +629,9 @@ focus_tree = {
 		id = DOC_Condemn_Belgian_Intervention
 		icon = GFX_AfricainFlames
 		cost = 10.00
-		prerequisite = {
-			focus = DOC_Africanization
-		}
-		prerequisite = {
-			focus = DOC_Appointment_of_African_Officers
-		}
 		x = 9
 		y = 5
+		available = { has_country_flag = mobutu_cos_con } 
 		completion_reward = {
 			add_war_support = 0.05
 			DOC = {
@@ -1166,8 +1172,9 @@ focus_tree = {
 		id = DOC_PM_Tshombe
 		icon = GFX_goal_unknown
 		cost = 10.00
-		prerequisite = {
-			focus = DOC_The_Formation_of_the_CNL
+		available = {
+			has_completed_focus = DOC_The_Formation_of_the_CNL
+			has_completed_focus = DOC_Reconciliation_with_Katanga
 		}
 		x = 11
 		y = 25

@@ -1,7 +1,7 @@
 focus_tree = {
 	id = 60s_BEN
 	country = {
-		factor = 0
+		factor = 100
 		modifier = {
 			add = 10
 			tag = BEN
@@ -663,11 +663,13 @@ focus_tree = {
 	}
 	focus = {
 		id = BEN_Tentative_Power_Sharing_Agreement
-		icon = GFX_goal_unknown
+		icon = GFX_status
 		cost = 10.00
-		prerequisite = {
-			focus = BEN_The_Bokhiri_Affair
-			focus = BEN_Northern_Seccessionist_Movement
+		available = {
+			OR = { 
+				has_completed_focus = BEN_The_Bokhiri_Affair
+				has_completed_focus = BEN_Northern_Seccessionist_Movement
+			}
 		}
 		x = 13
 		y = 9
@@ -1031,7 +1033,12 @@ focus_tree = {
 		}
 		x = 14
 		y = 19
-
+		completion_reward = {
+			add_stability = -0.05
+			add_war_support = 0.05
+			add_manpower = 10000
+			add_political_power = 50
+		}
 	}
 	focus = {
 		id = BEN_Kouandete_Coup
@@ -1045,7 +1052,13 @@ focus_tree = {
 		}
 		x = 13
 		y = 20
-
+		completion_reward = {
+			create_country_leader = {
+				name = "Maurice Kouandete"
+				picture = "Maurice_Kouandete.dds"
+				ideology = military_junta
+			  }
+		}
 	}
 	focus = {
 		id = BEN_Kerekou_Coups
@@ -1056,14 +1069,21 @@ focus_tree = {
 		}
 		x = 9
 		y = 43
-
+		completion_reward = {
+			create_country_leader = {
+				name = "Mathieu Kérékou"
+				picture = "Mathieu_Kerekou.dds"
+				ideology = military_junta
+			  }
+		}
 	}
 	focus = {
 		id = BEN_Appoint_Alphonse_Alley
 		icon = GFX_goal_unknown
 		cost = 10.00
-		prerequisite = {
-			focus = BEN_Kouandete_Coup
+		
+		available = {
+			has_completed_focus = BEN_Kouandete_Coup
 		}
 		x = 13
 		y = 21
@@ -1134,7 +1154,7 @@ focus_tree = {
 	}
 	focus = {
 		id = BEN_Declining_Popularity
-		icon = GFX_goal_unknown
+		icon = GFX_focus_internal_dissent
 		cost = 10.00
 		prerequisite = {
 			focus = BEN_Ban_Former_Leaders_Participation
@@ -1174,7 +1194,7 @@ focus_tree = {
 	}
 	focus = {
 		id = BEN_Indepence_From_the_Military
-		icon = GFX_goal_unknown
+		icon = GFX_Freedom
 		cost = 10.00
 		prerequisite = {
 			focus = BEN_Appoint_emile_Derlin_Zinsou
@@ -1189,7 +1209,7 @@ focus_tree = {
 	}
 	focus = {
 		id = BEN_Tax_Reform
-		icon = GFX_goal_unknown
+		icon = GFX_PileofMoney
 		cost = 10.00
 		prerequisite = {
 			focus = BEN_Appoint_emile_Derlin_Zinsou
@@ -1205,18 +1225,22 @@ focus_tree = {
 	}
 	focus = {
 		id = BEN_Anti_Strike_Legislation
-		icon = GFX_goal_unknown
+		icon = GFX_Anti_Communist
 		cost = 10.00
 		prerequisite = {
 			focus = BEN_Appoint_emile_Derlin_Zinsou
 		}
 		x = 15
 		y = 26
-
+		completion_reward = {
+			remove_ideas = strengthened_labor_unions
+			remove_ideas = strengthened_labor_unions_2
+			add_ideas = Subjugation_of_the_Labour_Unions
+		}
 	}
 	focus = {
 		id = BEN_Crack_Down_on_Smugglers
-		icon = GFX_goal_unknown
+		icon = GFX_purge
 		cost = 10.00
 		prerequisite = {
 			focus = BEN_Indepence_From_the_Military
@@ -1226,11 +1250,14 @@ focus_tree = {
 		}
 		x = 12
 		y = 27
-
+		completion_reward = {
+			add_stability = 0.10
+			add_political_power = 150
+		}
 	}
 	focus = {
 		id = BEN_Military_Discontent
-		icon = GFX_goal_unknown
+		icon = GFX_fist
 		cost = 10.00
 		prerequisite = {
 			focus = BEN_Anti_Strike_Legislation
