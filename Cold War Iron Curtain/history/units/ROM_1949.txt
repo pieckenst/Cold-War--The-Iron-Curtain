@@ -10,10 +10,10 @@
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
 		infantry = { x = 1 y = 3 }			
-		artillery = { x = 2 y = 0 }		
-		artillery = { x = 2 y = 1 }
-		direct_fire_gun = { x = 2 y = 2 }	
-		auto_cannon = { x = 2 y = 3 }					
+		artillery_brigade = { x = 2 y = 0 }		
+		artillery_brigade = { x = 2 y = 1 }
+		anti_air_brigade = { x = 2 y = 2 }	
+		anti_tank_brigade = { x = 2 y = 3 }					
 	}
 	support = {
 		recon = { x = 0 y = 0 } 		
@@ -33,8 +33,8 @@ division_template = {
 		mountaineers = { x = 1 y = 0 }
 		mountaineers = { x = 1 y = 1 }	
 		mountaineers = { x = 1 y = 2 }		
-		artillery = { x = 2 y = 0 }
-		artillery = { x = 2 y = 1 }				
+		artillery_brigade = { x = 2 y = 0 }
+		artillery_brigade = { x = 2 y = 1 }				
 	}
 	support = {
 		engineer = { x = 0 y = 0 } 
@@ -60,28 +60,28 @@ division_template = {
 	name = "Diviziune Aeropurtat"
 
 	regiments = {
-		airborne = { x = 0 y = 0 }
-		airborne = { x = 0 y = 1 }
-        airborne = { x = 0 y = 2 }
-		airborne = { x = 1 y = 0 }
-		airborne = { x = 1 y = 1 }
-        airborne = { x = 1 y = 2 }
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+        paratrooper = { x = 0 y = 2 }
+		paratrooper = { x = 1 y = 0 }
+		paratrooper = { x = 1 y = 1 }
+        paratrooper = { x = 1 y = 2 }
 	}
 }
 division_template = {
 	name = "Diviziune Mecanizat Infanterie"
 
 	regiments = {
-		mechanized_infantry = { x = 0 y = 0 }
-		mechanized_infantry = { x = 0 y = 1 }
-		mechanized_infantry = { x = 0 y = 2 }		
-		mechanized_infantry = { x = 0 y = 3 }
-		mechanized_infantry = { x = 1 y = 0 }		
-		motorized_infantry = { x = 1 y = 1 }
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }		
+		mechanized = { x = 0 y = 3 }
+		mechanized = { x = 1 y = 0 }		
+		motorized = { x = 1 y = 1 }
 		medium_armor = { x = 2 y = 0 }	
 		medium_armor = { x = 2 y = 1 }
-		sp_artillery = { x = 2 y = 2 }	
-		rocket_sp_artillery = { x = 3 y = 0 }			
+		light_sp_artillery_brigade = { x = 2 y = 2 }	
+		motorized_rocket_brigade = { x = 3 y = 0 }			
 	}
 	support = {
 	 	engineer = { x = 0 y = 0 }
@@ -95,16 +95,14 @@ division_template = {
 	name = "Diviziune Blindat"
 
 	regiments = {
-		medium_armor = { x = 0 y = 0 } ### 3 Regiments of Tanks, 1 Armored Infantry Regiment, 1 Artillery Regiment
+		medium_armor = { x = 0 y = 0 } ### 2 Regiments of Tanks, 1 Mechanized Regiment, 1 Artillery Regiment
 		medium_armor = { x = 0 y = 1 }
 		medium_armor = { x = 0 y = 2 }		
-		medium_armor = { x = 1 y = 0 }	
-		medium_armor = { x = 1 y = 1 }		
-		medium_armor = { x = 1 y = 2 }		
-		armored_infantry = { x = 2 y = 0 }	
-		armored_infantry = { x = 2 y = 1 }
-		sp_artillery = { x = 3 y = 0 }	
-		rocket_sp_artillery = { x = 4 y = 0 }	
+		medium_armor = { x = 0 y = 3 }		
+		mechanized = { x = 1 y = 0 }	
+		mechanized = { x = 1 y = 1 }
+		medium_sp_artillery_brigade = { x = 2 y = 0 }
+		motorized_rocket_brigade = { x = 3 y = 0 }	
 	}
 	support = {
 	 	engineer = { x = 0 y = 0 }
@@ -122,10 +120,10 @@ division_template = {
 		heavy_armor = { x = 0 y = 1 }
 		medium_armor = { x = 0 y = 2 }
 		light_armor = { x = 0 y = 3 }
-		mechanized_infantry= { x = 1 y = 0 }
-       	mechanized_infantry = { x = 1 y = 1 }
-		sp_artillery = { x = 2 y = 0 }	
-		rocket_sp_artillery = { x = 3 y = 0 }		
+		mechanized = { x = 1 y = 0 }
+       	mechanized = { x = 1 y = 1 }
+		medium_sp_artillery_brigade = { x = 2 y = 0 }
+		motorized_rocket_brigade = { x = 3 y = 0 }		
 	}
 	support = {
 	 	engineer = { x = 0 y = 0 }
@@ -143,113 +141,106 @@ units = {
 		name = "1. Diviziune 'Tudor Vladimirescu' Blindat"
 		location = 9617
 		division_template = "Diviziune Blindat"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.5
+		start_experience_factor = 0.45
+		start_equipment_factor = 1.0
+	}
+	division= {	
+		name = "2. Diviziune 'Horia, Closca si Crisan' Usoara Mecanizat Infanterie"
+		location = 9672
+		division_template = "Diviziune Mecanizat Infanterie"
+		start_experience_factor = 0.65
+		start_equipment_factor = 1.0
 	}
 	division= {	
 		name = "1. Diviziune Munte"
 		location = 690
 		division_template = "Diviziune Munte"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
+		start_equipment_factor = 0.9
 	}
 	division= {	
-		name = "2. Diviziune Infanterie"
-		location = 6652
-		division_template = "Divizia Infanterie"
+		name = "2. Diviziune Munte"
+		location = 6667
+		division_template = "Diviziune Munte"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
+		start_equipment_factor = 0.85
 	}
 	division= {	
-		name = "2. Diviziune 'Horia, Cloșca și Crișan' Ușoară Mecanizat Infanterie"
-		location = 9672
-		division_template = "Diviziune Mecanizat Infanterie"
-		start_experience_factor = 0.3
-		start_equipment_factor = 0.5
+		name = "3. Diviziune Munte"
+		location = 693
+		division_template = "Diviziune Munte"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
 	}
 	division= {	
 		name = "3. Diviziune Infanterie"
 		location = 11603
 		division_template = "Divizia Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
+		start_equipment_factor = 0.85
 	}
 	division= {	
 		name = "4. Diviziune Infanterie"
 		location = 693
 		division_template = "Divizia Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "4. Diviziune Munte"
-		location = 693
-		division_template = "Diviziune Munte"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
+		start_equipment_factor = 0.75
 	}
 	division= {	
 		name = "5. Diviziune Infanterie"
 		location = 3630
 		division_template = "Divizia Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		name = "5. Diviziune Munte"
-		location = 6667
-		division_template = "Diviziune Munte"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
+		start_equipment_factor = 0.80
 	}
 	division= {	
 		name = "6. Diviziune Infanterie"
 		location = 11588
 		division_template = "Divizia Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
+		start_equipment_factor = 0.65
 	}
 	division= {	
 		name = "7. Diviziune Infanterie"
 		location = 818
 		division_template = "Divizia Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
+		start_equipment_factor = 0.65
 	}
 	division= {	
 		name = "8. Diviziune Infanterie"
 		location = 6682
 		division_template = "Divizia Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
+		start_equipment_factor = 0.90
 	}
 	division= {	
 		name = "9. Diviziune Infanterie"
 		location = 657
 		division_template = "Divizia Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
+		start_equipment_factor = 0.80
 	}
 	division= {	
 		name = "10. Diviziune Infanterie"
 		location = 9606
 		division_template = "Divizia Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
+		start_equipment_factor = 0.70
 	}
 	division= {	
 		name = "11. Diviziune Infanterie"
 		location = 6658
 		division_template = "Divizia Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
+		start_equipment_factor = 0.45
 	}
 	division= {	
 		name = "12. Diviziune Infanterie"
 		location = 746
 		division_template = "Divizia Infanterie"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.5
+		start_equipment_factor = 1.0
 	}
 	division= {	
 		name = "59. Diviziune Cavalerie"
