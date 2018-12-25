@@ -1456,17 +1456,6 @@ establish_new_influencer = {
 	add_to_variable = { foriegnPowerProjection = -100 }
 	if = {
 		limit = {
-			NOT = {
-			   OR = {
-					check_variable = { influencer1 = ROOT } 
-					check_variable = { influencer2 = ROOT } 
-					check_variable = { influencer3 = ROOT } 
-					check_variable = { influencer4 = ROOT } 
-					check_variable = { influencer5 = ROOT } 
-					check_variable = { influencer6 = ROOT } 
-					check_variable = { influencer7 = ROOT } 
-			   }
-			  }
 			  NOT = { has_variable = influencer1 }
 		}
 		set_variable = { influencer1 = ROOT.id }
@@ -1475,20 +1464,9 @@ establish_new_influencer = {
 	}
 	if = {
 		limit = {
-			NOT = {
-			   OR = {
-					check_variable = { influencer1 = ROOT } 
-					check_variable = { influencer2 = ROOT } 
-					check_variable = { influencer3 = ROOT } 
-					check_variable = { influencer4 = ROOT } 
-					check_variable = { influencer5 = ROOT } 
-					check_variable = { influencer6 = ROOT } 
-					check_variable = { influencer7 = ROOT } 
-			   }
-			  }
-			  NOT = { has_variable = influencer2 }
+			 NOT = { has_variable = influencer2 }
 		}
-		set_variable = { influencer2 = ROOT.id }
+		set_variable = { influencer2 = ROOT.temp_check }
 		set_variable = { var = influencer2_amount value = 250 }
 		recalculate_influence = yes	
 	}
