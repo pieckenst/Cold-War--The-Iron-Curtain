@@ -328,15 +328,18 @@ scripted_gui = {
 		}
 		triggers = {
 			economic_investments_click_enabled = {
-				has_political_power > 99
 				NOT = { has_idea = foriegn_economic_investments }
-				check_variable = { ROOT.foriegnPowerProjection > 2 }
-
+				ROOT = {
+					check_variable = { foriegnPowerProjection > 2 }
+					has_political_power > 99
+				}
 			}
 			defense_treaty_click_enabled = {
 				not_signed_defense_treaty = yes
-				check_variable = { ROOT.foriegnPowerProjection > 9 }
-				has_political_power > 499
+				ROOT = {
+					check_variable = { foriegnPowerProjection > 9 }
+					has_political_power > 499
+				}
 				OR = {
 					AND = {
 						check_variable = { influencer1 = ROOT.temp_check }
@@ -410,8 +413,10 @@ scripted_gui = {
 			}
 			trade_agreement_click_enabled = {
 				not_signed_trade_deal = yes
-				check_variable = { ROOT.foriegnPowerProjection > 9 }
-				has_political_power > 499
+				ROOT = {
+					check_variable = { foriegnPowerProjection > 9 }
+					has_political_power > 499
+				}
 				OR = {
 					AND = {
 						check_variable = { influencer1 = ROOT.temp_check }
@@ -447,8 +452,10 @@ scripted_gui = {
 
 			}
 			political_influence_click_enabled = {
-				check_variable = { ROOT.foriegnPowerProjection > 24 }
-				has_political_power > 299
+				ROOT = {
+					check_variable = { foriegnPowerProjection > 24 }
+					has_political_power > 499
+				}
 				OR = {
 					AND = {
 						check_variable = { influencer1 = ROOT.temp_check }
@@ -483,8 +490,10 @@ scripted_gui = {
 				}
 			}
 			attempt_political_coup_click_enabled = {
-				check_variable = { ROOT.foriegnPowerProjection > 74 }
-				has_political_power > 750
+				ROOT = {
+					check_variable = { foriegnPowerProjection > 74 }
+					has_political_power > 749
+				}
 				OR = {
 					AND = {
 						check_variable = { influencer1 = ROOT.temp_check }
