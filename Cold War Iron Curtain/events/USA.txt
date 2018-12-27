@@ -3,7 +3,26 @@
 #############################
 
 add_namespace = usa
+add_namespace = focus_check
 
+
+country_event = {
+	id = focus_check.1
+	hidden = yes
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+
+	immediate = {
+		if = {
+			limit = {
+				date > 1956.1.1
+			}
+			load_focus_tree = "USA_60s"
+		}
+	}
+}
 news_event = {
 	id = usa.1
 	title = "[GetNewspaperHeader]Eisenhower's farewell address"
@@ -669,6 +688,7 @@ country_event = {
 	
 	immediate = {
 		set_global_flag = us_elections_1960
+		load_focus_tree = "USA_60s"
 	}
 
 	option = { 
