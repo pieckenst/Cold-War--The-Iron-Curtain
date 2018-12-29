@@ -16,7 +16,76 @@ add_namespace = UAR_annex
 add_namespace = sudan_egy
 add_namespace = farouk_exiled
 
+country_event = { 
+	id = sudan_egy.1
+	title = "Egypt Wants to Annex Sudan"
+	desc = "Egypt Wants to Annex Sudan"
 
+	is_triggered_only = yes
+	
+
+	option = {
+		name = "Concede to Egyptian Demands"
+		EGY = { set_country_flag = england_sudan_yes }
+		ai_chance = {
+			factor = 85
+		}
+	}
+	option = {
+		name = "Reject their Claims and Release Sudan"
+			news_event = Sudan.1
+			ENG = {
+				set_autonomy = {
+					target = SUD
+					autonomy_state = autonomy_free
+				}			
+			}
+			SUD = {
+				drop_cosmetic_tag = yes
+				set_politics = {
+
+					parties = {
+						democratic = { popularity = 0 }
+						communism = { popularity = 0 }
+						fascism = { popularity = 0 }
+						nationalism = { popularity = 0 }
+						monarchism = { popularity = 0 }
+						neutrality = { popularity = 63 }
+						islamism = { popularity = 0 }
+						radical_shiaism = { popularity = 0 }
+						
+						Social_Democratic = { popularity = 0 }
+						Social_Liberalism = { popularity = 0 }
+						Salafism = { popularity = 0 }
+						
+						Liberal_Conservatism = { popularity = 37 }
+						
+						conservative = { popularity = 0 }
+						Christian_Democratic = { popularity = 0 }
+						socialist = { popularity = 0 }
+						centrist = { popularity = 0 }
+						liberal = { popularity = 0 }
+						trotskyism = { popularity = 0 }
+						maoism = { popularity = 0 }
+						
+
+					}
+					
+					ruling_party = neutrality
+					last_election = "1945.1.1"
+					election_frequency = 48
+					elections_allowed = no
+				 }
+				create_country_leader = {
+						name = "Ibrahim Abboud"
+						picture = "Ibrahim_Abboud.dds"
+						ideology = military_junta
+					}
+				}		ai_chance = {
+			factor = 15
+		}
+	}
+}
 news_event = {
 	id = farouk_gang.1
 	title = "[GetNewspaperHeader]King Farouk Bans All Red Cars"
