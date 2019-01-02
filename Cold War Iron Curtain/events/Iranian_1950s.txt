@@ -4,6 +4,7 @@ add_namespace = tudeh
 add_namespace = AJAX
 add_namespace = iran_oil
 add_namespace = iran_elections
+add_namespace = persia_coup
 
 news_event = {
 	id = iran_political.10
@@ -112,7 +113,7 @@ news_event = {
 
 country_event = {
 	id = iran_political.1299
-	title = "[GetNewspaperHeader]Trial of the Royal Family"
+	title = "Trial of the Royal Family"
 	desc = "The trial of the former ruling house has begun, we could make an example of them or show a sign of mercy....."
 	is_triggered_only = yes
 	
@@ -129,6 +130,27 @@ country_event = {
 		news_event = { id = tudeh.1 days = 5 }
 	}
 }
+country_event = {
+	id = persia_coup.100
+	title = "Military Coup Plot?"
+	desc = "Rumors of a military coup to depose the Shah are rampant in the court currently, what should we do?"
+	is_triggered_only = yes
+	
+	immediate = {
+		news_event = iran_political.1298
+	}
+	
+	option = {
+		name = "Arrest the Perpetrators"
+		complete_national_focus = PER_Imprison_Gharani
+	}
+	option = {
+		name = "Ignore the Plot (Coup will succeed)"
+		complete_national_focus = PER_Gharani_Coup
+	}
+}
+
+
 news_event = {
 	id = iran_political.1298
 	title = "[GetNewspaperHeader]The Tehran Trials"

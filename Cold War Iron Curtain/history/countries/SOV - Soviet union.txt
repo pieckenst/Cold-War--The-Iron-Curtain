@@ -486,7 +486,8 @@ set_technology = {
 set_convoys = 384
 set_stability = 0.55
 give_guarantee = TRI
-give_guarantee = SIK
+
+set_variable = { var = domestic_influence_amount value = 10000 }
 
 if = {
 	limit = {
@@ -996,19 +997,6 @@ create_equipment_variant = {
 	obsolete = yes
 }
 
-1949.1.1 = {
-	add_ai_strategy = {
-		type = support
-		id = "SIK"
-		value = 400
-	}
-	add_ai_strategy = {
-		type = send_volunteers_desire
-		id = "SIK"
-		value = 400
-	}
-}
-
 1955.1.1 = {
     drop_cosmetic_tag = yes
 	create_faction = "Warsaw Pact"
@@ -1026,20 +1014,21 @@ create_equipment_variant = {
 		picture = "Nikita_Khrushchev.dds"
 		ideology = marxism_leninism
 	}
+	load_focus_tree = SOV_Khruschev
 }
 
 1960.1.1 = {
-	load_focus_tree = SOV_Khruschev
 	set_autonomy = { target = ALB autonomy_state = autonomy_free }
 	set_autonomy = { target = CZE autonomy_state = autonomy_free }
 }
 
-1964.10.14 = {
+1964.1.1 = {
 	create_country_leader = {
-		name = "Leonid Breznhev"
+		name = "Leonid Brezhnev"
 		picture = "Leonid_Brezhnev.dds"
 		ideology = stalinism
 	}
+	load_focus_tree = SOV_Brezhnev
 }
 
 1970.1.1 = {
@@ -1058,7 +1047,6 @@ create_equipment_variant = {
 	}
 
 	set_autonomy = { target = ROM autonomy_state = autonomy_free }
-	load_focus_tree = SOV_Brezhnev
 }
 
 1981.1.1 = { 
@@ -1076,30 +1064,6 @@ create_equipment_variant = {
 }
 
 1985.1.1 = {
-    set_cosmetic_tag = RUS
-	create_faction = "Warsaw Pact"
-	add_to_faction = SOV
-	add_to_faction = MON
-	add_to_faction = DDR
-	add_to_faction = BUL
-	add_to_faction = LAT
-	add_to_faction = EST
-	add_to_faction = GEO
-	add_to_faction = ARM
-	add_to_faction = AZR
-	add_to_faction = UKR
-	add_to_faction = BLR
-	add_to_faction = MLD
-	add_to_faction = KAZ
-	add_to_faction = TJK
-	add_to_faction = UZB
-	add_to_faction = KRG
-	add_to_faction = TRK
-	set_autonomy = { target = DDR autonomy_state = autonomy_free }
-	set_autonomy = { target = HUN autonomy_state = autonomy_free }
-	set_autonomy = { target = CZE autonomy_state = autonomy_free }
-	set_autonomy = { target = POL autonomy_state = autonomy_free }
-	set_autonomy = { target = LIT autonomy_state = autonomy_free }
 	create_country_leader = {		
 	    name = "Mikhail Gorbachev"		
 	    picture = "Mikhail_Gorbachev.dds"		
@@ -1110,20 +1074,13 @@ create_equipment_variant = {
 1991.1.1 = {
 	remove_ideas = home_of_revolution
 	dismantle_faction = yes
+	set_cosmetic_tag = RUS
     set_autonomy = { target = MON autonomy_state = autonomy_free }
     set_autonomy = { target = BUL autonomy_state = autonomy_free }
-	set_autonomy = { target = UKR autonomy_state = autonomy_free }
-	set_autonomy = { target = EST autonomy_state = autonomy_free }
-	set_autonomy = { target = LAT autonomy_state = autonomy_free }
-	set_autonomy = { target = MLD autonomy_state = autonomy_free }
-	set_autonomy = { target = AZR autonomy_state = autonomy_free }
-    set_autonomy = { target = ARM autonomy_state = autonomy_free }
-	set_autonomy = { target = GEO autonomy_state = autonomy_free }
-	set_autonomy = { target = KAZ autonomy_state = autonomy_free }
-	set_autonomy = { target = UZB autonomy_state = autonomy_free }
-	set_autonomy = { target = TJK autonomy_state = autonomy_free }
-	set_autonomy = { target = TRK autonomy_state = autonomy_free }
-	set_autonomy = { target = KRG autonomy_state = autonomy_free }
+	set_autonomy = { target = DDR autonomy_state = autonomy_free }
+	set_autonomy = { target = HUN autonomy_state = autonomy_free }
+	set_autonomy = { target = CZE autonomy_state = autonomy_free }
+	set_autonomy = { target = POL autonomy_state = autonomy_free }
 	create_country_leader = {
 	    name = "Gennady Zyuganov"
 	    picture = "Gennady_Zyuganov.dds"
@@ -1149,7 +1106,6 @@ create_equipment_variant = {
             neutrality = { popularity = 54.4 }
             islamism = { popularity = 0 }
             radical_shiaism = { popularity = 0 }
-            
             Social_Democratic = { popularity = 0 }
             Social_Liberalism = { popularity = 0 }
             Salafism = { popularity = 0 }
@@ -1161,8 +1117,6 @@ create_equipment_variant = {
             liberal = { popularity = 0 }
             trotskyism = { popularity = 0 }
             maoism = { popularity = 0 }
-            
-
 	    }
 	    ruling_party = neutrality
 	    last_election = "1996.3.26"
@@ -1170,7 +1124,6 @@ create_equipment_variant = {
 	    elections_allowed = yes
     }
 }
-set_variable = { var = domestic_influence_amount value = 10000 }
 1992.1.1 = { 
     remove_unit_leader = 19821
 }
@@ -1194,7 +1147,6 @@ set_variable = { var = domestic_influence_amount value = 10000 }
             neutrality = { popularity = 71.9 }
             islamism = { popularity = 0 }
             radical_shiaism = { popularity = 0 }
-            
             Social_Democratic = { popularity = 0 }
             Social_Liberalism = { popularity = 0 }
             Salafism = { popularity = 0 }
