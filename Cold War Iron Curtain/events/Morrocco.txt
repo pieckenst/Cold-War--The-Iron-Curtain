@@ -3,8 +3,6 @@
 #####################
 
 add_namespace = mor_ind
-add_namespace = morrocco_ind
-add_namespace = morrocco_war
 add_namespace = morroccoelection
 add_namespace = morocco
 add_namespace = casablanca
@@ -13,14 +11,14 @@ add_namespace = morocco_news
 
 country_event = {
 	id = mor_ind.1
-	title = "Aix Les Bains Conference"
-	desc = "Conference on the State and Potential Independence of Morrocco"
+	title = mor_ind.1.t
+	desc = mor_ind.1.d
 	picture = GFX_report_event_finnish_soldiers_snow
 	
 	is_triggered_only = yes
 
 	option = {
-		name = "Allow Morroccan Independence"
+		name = mor_ind.1.a
 		complete_national_focus = MOR_50s_FRANCE_ACCEPT
 		ai_chance = {
 			factor = 70
@@ -31,7 +29,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = "Reject Morroccan Independence"
+		name = mor_ind.1.b
 		complete_national_focus = MOR_50s_FRANCE_REJECT
 		ai_chance = {
 			factor = 30
@@ -44,22 +42,22 @@ country_event = {
 }
 
 country_event = {
-	id = morrocco_ind.1
-	title = "Morrocco on the Edge"
-	desc = "After our rejection of Morroccan Independence tensions have dramatically risen, if we do not accede to the demands war will surely break out"
+	id = mor_ind.2
+	title = mor_ind.2.t
+	desc = mor_ind.2.d
 	picture = GFX_report_event_finnish_soldiers_snow
 	
 	is_triggered_only = yes
 
 	option = {
-		name = "Allow Morroccan Independence"
+		name = mor_ind.2.a
 		complete_national_focus = MOR_50s_FRANCE_ACCEPT
 		ai_chance = {
 			factor = 25
 		}
 	}
 	option = {
-		name = "Reject Morroccan Independence"
+		name = mor_ind.2.b
 		complete_national_focus = MOR_50s_FRANCE_REJECT
 		FRA = {
 			declare_war_on = {
@@ -74,8 +72,8 @@ country_event = {
 }
 country_event = {
 	id = morroccoelection.1
-	title = "Election of 1963"
-	desc = "Election of 1963"
+	title = morroccoelection.1.t
+	desc = morroccoelection.1.d
 	picture = GFX_report_event_usa_election_generic
 
 	is_triggered_only = yes
@@ -87,7 +85,7 @@ country_event = {
 		complete_national_focus = MOR_60s_REP_PRES_ELECTION_1963
 	}
 	option = { 
-		name = "Mehdi Ben Barka"
+		name = morroccoelection.1.a
 		ai_chance = {
 			factor = 30
 		}
@@ -105,7 +103,7 @@ country_event = {
 		set_country_flag = president_benbarka
 	}
 	option = { 
-		name = "Allal El Fassi"
+		name = morroccoelection.1.b
 		ai_chance = {
 			factor = 30
 		}
@@ -126,7 +124,7 @@ country_event = {
 
 country_event = {
 	id = morocco.1
-	title = "Mohammed V Death"
+	title = morrocco.1.t
 	desc = morrocco.1.d
 	picture = GFX_report_event_usa_election_generic
 
@@ -139,7 +137,7 @@ country_event = {
 		complete_national_focus = MOR_60s_MOHAMMED_V_DEATH
 	}
 	option = { 
-		name = "Hassan II"
+		name = morrocco.1.a
 		ai_chance = {
 			factor = 30
 		}
@@ -158,7 +156,7 @@ country_event = {
 		set_country_flag = hassanii
 	}
 	option = { 
-		name = "Abdallah III"
+		name = morrocco.1.b
 		ai_chance = {
 			factor = 30
 		}
@@ -179,14 +177,14 @@ country_event = {
 }
 news_event = {
 	id = morocco.2
-	title = "[GetNewspaperHeader]Mohammed V meet the congolese president"
+	title = morocco.2.t
 	desc = morocco.2.d
 	picture = news_event_hernandez_texas
 	fire_only_once = yes
 	is_triggered_only = yes
 	
 	option = {
-		name = "Major event for the African Union"
+		name = morocco.2.a
 	}
 }
 news_event = {
@@ -203,7 +201,7 @@ news_event = {
 }
 news_event = {
 	id = morocco.3
-	title = "[GetNewspaperHeader]Trials of the Culprits"
+	title = morocco.3.t
 	desc = morocco.3.d
 	picture = news_event_hernandez_texas
 	fire_only_once = yes
@@ -213,13 +211,13 @@ news_event = {
 	trigger = {
 	NOT = { TAG = MOR }
 	}
-		name = "What a barbary"
+		name = morocco.3.a
 	}
 	option = {
 	trigger = {
 	TAG = MOR
 	}
-		name = "They got what they deserved"
+		name = morocco.3.b
 	}
 }
 country_event = {
@@ -353,14 +351,14 @@ news_event = {
 }
 news_event = {
 	id = morocco.7
-	title = "[GetNewspaperHeader]Unity governemt proposal to Ben Barka"
+	title = morrocco.7.t
 	desc = morocco.7.d
 	picture = news_event_hernandez_texas
 	fire_only_once = yes
 	is_triggered_only = yes
 	
 	option = {
-		name = "Ben Barka refused"
+		name = morrocco.7.a
 		ai_chance = {
 			factor = 70
 			modifier = {
@@ -380,14 +378,14 @@ news_event = {
 	trigger = {
 	has_completed_focus = MOR_60s_COALITION_GOVERNMENT
 	}
-		name = "Ben Barka Accepted !"
+		name = morrocco.7.b
 		set_country_flag = ben_barka_accepted
 	}
 }
 country_event = {
 	id = morocco.8
-	title = "Unity Government proposal"
-	desc = "Unity Government proposal"
+	title = morrocco.8.t
+	desc = morrocco.8.d
 	picture = GFX_report_event_usa_election_generic
 
 	is_triggered_only = yes
@@ -396,7 +394,7 @@ country_event = {
 		set_country_flag = mor_unity_gov_proposal
 	}
 	option = { 
-		name = "The Unity Government proposition failed"
+		name = morrocco.8.a
 		ai_chance = {
 			factor = 70
 			modifier = {
@@ -418,7 +416,7 @@ country_event = {
 		set_country_flag = hassanii_fourth_government
 	}
 	option = { 
-		name = "The Unity Government proposition accepted"
+		name = morrocco.8.b
 		ai_chance = {
 			factor = 30
 			modifier = {
@@ -490,7 +488,7 @@ news_event = {
 }
 news_event = {
 	id = morocco.13
-	title = "[GetNewspaperHeader]Terror In Morocco!"
+	title = morocco.13.t
 	desc = morocco.13.d
 	picture = GFX_morocco_car_bomb
 	fire_only_once = yes
@@ -498,19 +496,19 @@ news_event = {
 	major = yes
 	
 	option = {
-		name = "Vive la revolution!"
+		name = morocco.13.a
 		trigger = {
 			tag = MOR
 		}
 	}
 	option = {
-		name = "Increase Our Precence There"
+		name = morocco.13.b
 		trigger = {
 			tag = FRA
 		}
 	}
 	option = {
-		name = "Dear God"
+		name = morocco.13.c
 		trigger = {
 			NOT = {
 				tag = MOR
@@ -521,8 +519,8 @@ news_event = {
 }
 country_event = {
 	id = morroccoelection.2
-	title = "Legislative Election of 1963"
-	desc = "Legislative Election of 1963"
+	title = morroccoelection.2.t
+	desc = morroccoelection.2.d
 	picture = GFX_report_event_usa_election_generic
 
 	is_triggered_only = yes
@@ -537,7 +535,7 @@ country_event = {
 		complete_national_focus = MOR_60s_LEG_ELECTIONS_1963
 	}
 	option = { 
-		name = "Ben Barka and the UNFP Coalition win"
+		name = morroccoelection.2.a
 		ai_chance = {
 			factor = 30
 			modifier = {
@@ -559,7 +557,7 @@ country_event = {
 		set_country_flag = coalition_government
 	}
 	option = { 
-		name = "Bahinini and the FDIC win"
+		name = morroccoelection.2.b
 		ai_chance = {
 			factor = 70
 			modifier = {
@@ -582,8 +580,8 @@ country_event = {
 }
 country_event = {
 	id = morroccoelection.3
-	title = "Presidential Election of 1968"
-	desc = "Presidential Election of 1968"
+	title = morroccoelection.3.t
+	desc = morroccoelection.3.d
 	picture = GFX_report_event_usa_election_generic
 
 	is_triggered_only = yes
@@ -595,7 +593,7 @@ country_event = {
 		complete_national_focus = MOR_60s_PRES_ELECTION_1968
 	}
 	option = { 
-		name = "Ali Yata"
+		name = morroccoelection.3.a
 		ai_chance = {
 			factor = 30
 		}
@@ -613,7 +611,7 @@ country_event = {
 		set_country_flag = president_ali_yata_68
 	}
 	option = { 
-		name = "Ben Barka"
+		name = morroccoelection.3.b
 		ai_chance = {
 			factor = 30
 		}
@@ -631,7 +629,7 @@ country_event = {
 		set_country_flag = president_benbarka_68
 	}
 	option = {
-		name = "Allal El Fassi"
+		name = morroccoelection.3.c
 		ai_chance = {
 			factor = 30
 		}
@@ -651,8 +649,8 @@ country_event = {
 }
 country_event = {
 	id = morroccoelection.4
-	title = "Shkirat Coup"
-	desc = "Shkirat Coup"
+	title = morroccoelection.4.t
+	desc = morroccoelection.4.d
 	picture = GFX_report_event_usa_election_generic
 
 	is_triggered_only = yes
@@ -662,7 +660,7 @@ country_event = {
 	immediate = {
 	}
 	option = { 
-		name = "Success of the Coup"
+		name = morroccoelection.4.a
 		ai_chance = {
 			factor = 30
 		}
@@ -673,7 +671,7 @@ country_event = {
 		set_country_flag = success_shkirat
 	}
 	option = { 
-		name = "Failure of the Coup"
+		name = morroccoelection.4.b
 		ai_chance = {
 			factor = 30
 		}
