@@ -221,22 +221,15 @@ create_country_leader = {
 	    limit = {
 		    has_dlc = "Together for Victory"
 	    }
-        set_autonomy = {
-            target = SKK
-            autonomous_state = autonomy_protectorate
-            freedom_level = 0.1
-        }
 		set_autonomy = {
             target = KAS
             autonomous_state = autonomy_protectorate
             freedom_level = 0.1
         }
   	    else = {
-		    puppet = SKK
 			puppet = KAS
 	    }
     }
-	SKK = { set_politics = { parties = { monarchism = { popularity = 100 } } ruling_party = monarchism elections_allowed = no } }
 	KAS = { set_politics = { parties = { monarchism = { popularity = 100 } } ruling_party = monarchism elections_allowed = no } }
 }
 
@@ -325,7 +318,10 @@ create_country_leader = {
 }
 
 1975.1.1 = {
-	set_autonomy = { target = SKK autonomy_state = autonomy_free }	
+	annex_country = {
+    target = SKK
+    transfer_troops = yes
+}	
 }
 
 1980.1.1 = {
