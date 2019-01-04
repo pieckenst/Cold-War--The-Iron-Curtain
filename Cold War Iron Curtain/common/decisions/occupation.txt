@@ -14,9 +14,14 @@ occupation_of_austria = {
 		cost = 0
 
 		complete_effect = {
-		    release = AUS
 			set_global_flag = aus_questions_over
 			news_event = austria.3
+			all_owned_state = {
+		        limit = {
+			        is_core_of = AUS
+		        }
+		        AUS = { transfer_state = PREV }
+	        }
 			USA = { country_event = austria.1 }
 			ENG = { country_event = austria.1 }
 			FRA = { country_event = austria.1 }
@@ -61,9 +66,9 @@ occupation_of_austria = {
 	            }
             }
 			news_event = austria.4
-			USA = { country_event = austria.2 release = AUS }
-			ENG = { country_event = austria.2 release = AUS }
-			FRA = { country_event = austria.2 release = AUS }
+			USA = { country_event = austria.2 }
+			ENG = { country_event = austria.2 }
+			FRA = { country_event = austria.2 }
 			add_named_threat = { threat = 10 name = "Divided Austria" }
 			AUS = { add_ideas = nato_member }
 		}
