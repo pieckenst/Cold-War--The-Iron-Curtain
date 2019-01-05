@@ -79,3 +79,46 @@ prc_announcement_category = {
 	}
 	}
 }
+
+eng_announcement_category = {
+	eng_address_korean_war = {
+		icon = generic_propaganda
+		cost = 0
+		fire_only_once = yes
+		
+		allowed = {
+			NOT = { tag = ENG }
+		}
+		
+		visible = {
+		country_exists = ENG
+		ENG = {
+			NOT = {
+					has_government = communism
+			}
+			}
+			date > 1950.6.25
+			date < 1950.7.27
+	}
+	
+	available = {
+		ENG = {
+			NOT = {
+					has_government = communism
+			}
+			has_country_leader = { ruling_only = yes name = "Clement Attlee" }
+			}
+			date > 1950.6.25
+			date < 1950.7.27
+			KPA = {
+					has_war_with = KOR
+			}
+	}
+	
+	complete_effect = {
+		hidden_effect = {
+			sound_effect = sp_eng_attlee_korea
+		}
+	}
+	}
+}
