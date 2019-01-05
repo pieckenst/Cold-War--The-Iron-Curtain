@@ -79,7 +79,7 @@ NDefines.NNavy.SUBMARINE_REVEALED_TIMEOUT = 8 -- Amount of in-game-hours that ma
 
 NDefines.NTechnology.BASE_RESEARCH_POINTS_SAVED = 50.0 -- Base amount of research points a country can save per slot.
 NDefines.NTechnology.BASE_YEAR_AHEAD_PENALTY_FACTOR = 4 -- Base year ahead penalty
-NDefines.NTechnology.MAX_TECH_SHARING_BONUS = 0.75 -- Max technology sharing bonus that can be applied instantly
+NDefines.NTechnology.MAX_TECH_SHARING_BONUS = 0.15 -- Max technology sharing bonus that can be applied instantly
 
 NDefines.NTrade.RELATION_TRADE_FACTOR = 5 -- Trade factor is modified by Opinion value times this
 
