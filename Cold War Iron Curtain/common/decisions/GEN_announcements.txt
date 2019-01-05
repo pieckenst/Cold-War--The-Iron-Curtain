@@ -1,0 +1,81 @@
+usa_announcement_category = {
+	usa_address_korea_war = {
+		icon = generic_propaganda
+		cost = 0
+		fire_only_once = yes
+		
+		allowed = {
+			NOT = { tag = USA }
+		}
+		
+		visible = {
+		country_exists = USA
+		USA = {
+			NOT = {
+					has_government = communism
+			}
+			}
+			date > 1950.6.25
+			date < 1953.7.27
+	}
+	
+	available = {
+		USA = {
+			NOT = {
+					has_government = communism
+			}
+			has_country_leader = { ruling_only = yes name = "Harry S. Truman" }
+			}
+			date > 1950.6.25
+			date < 1953.7.27
+			KPA = {
+					has_war_with = KOR
+			}
+	}
+	
+	complete_effect = {
+		hidden_effect = {
+			sound_effect = sp_usa_truman_korea
+		}
+	}
+	}
+}
+
+prc_announcement_category = {
+	prc_address_korea_war = {
+		icon = generic_propaganda
+		cost = 0
+		fire_only_once = yes
+		
+		allowed = {
+			NOT = { tag = PRC }
+		}
+		
+		visible = {
+			country_exists = PRC
+			PRC = {
+				has_government = maoism
+			}
+			date > 1950.6.25
+			date < 1953.7.27
+		}
+		
+		available = {
+			PRC = {
+				has_government = maoism
+				has_country_leader = { ruling_only = yes name = "Mao Zedong" }
+			}
+			KPA = {
+					has_war_with = KOR
+			}
+			date > 1950.6.25
+			date < 1953.7.27
+		}
+		
+		complete_effect = {
+		hidden_effect = {
+			sound_effect = sp_prc_mao_korea
+		}
+	}
+	}
+}
