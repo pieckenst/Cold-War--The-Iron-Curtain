@@ -119,4 +119,37 @@ truman_speech_category = {
 				}
 			}
 	}
+	
+	truman_speech_congress = {
+			icon = generic_propaganda
+			cost = 0
+			fire_only_once = yes
+			allowed = {
+				tag = USA
+			}
+	
+			visible = {
+				NOT = {
+					has_government = communism
+				}
+				date > 1952.1.1
+				date < 1952.12.30
+			}
+			
+			available = {
+			NOT = {
+				has_government = communism
+			}
+			has_country_leader = { ruling_only = yes name = "Harry S. Truman" }
+			date > 1952.1.1
+			date < 1952.12.30
+			}
+			
+			complete_effect = {
+				add_stability = 0.05
+				hidden_effect = {
+					sound_effect = sp_usa_truman_congress
+				}
+			}
+	}
 }
