@@ -37,10 +37,14 @@ country_event = {
 	
 	option = {
 		name = cuba.3.a
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+		}
 		create_country_leader = { 
 			name = "Fulgencio Batista" 
 			picture = "gfx/leaders/CUB/fulgencio_batista.dds"
-			ideology = conservatism 
+			ideology = military_junta 
 		}
 	}
 }
@@ -484,6 +488,73 @@ country_event = {
 		hidden_effect = { BOL = { add_popularity = { ideology = fascism popularity = 0.5 } } }
 		hidden_effect = { BOL = { set_politics = { ruling_party = fascism elections_allowed = no } } }
 		set_rule = { can_send_volunteers = yes }
+	}
+}
+
+country_event = {
+	id = cuba.25
+	title = "The Election of 1952"
+	desc = "The Election of 1952"
+	
+	trigger = {	
+		tag = CUB
+		date > 1952.1.1
+		date < 1953.1.1
+	}	
+
+	is_triggered_only = yes
+	immediate = {
+		complete_national_focus = CUB_1952_elections
+	}	
+	option = {
+	trigger = {
+			has_country_flag = CUB_agaramonte
+		}
+		name = "Roberto Agramonte wins election"
+
+		set_politics = {
+			ruling_party = socialist
+			elections_allowed = yes
+		}
+		create_country_leader = {
+			name = "Roberto Agramonte"
+			picture = "Roberto_Agramonte.dds"
+			ideology = democratic_socialist
+		}
+		add_popularity = { ideology = socialist popularity = 0.1 }
+		complete_national_focus = CUB_roberto_agramonte
+		ai_chance = {
+			factor = 34
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+	}
+	option = {
+	trigger = {
+			has_country_flag = CUB_helia
+		}
+		name = "Carlos Hevia wins election"
+
+		set_politics = {
+			ruling_party = nationalism
+			elections_allowed = yes
+		}
+		create_country_leader = {
+			name = "Carlos Hevia"
+			picture = "Carlos_Hevia.dds"
+			ideology = nationalist_ideology
+		}
+		add_popularity = { ideology = nationalism popularity = 0.1 }
+		complete_national_focus = CUB_hevia
+		ai_chance = {
+			factor = 33
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
 	}
 }
 
