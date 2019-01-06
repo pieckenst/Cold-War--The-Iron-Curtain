@@ -39,6 +39,55 @@ usa_announcement_category = {
 		}
 	}
 	}
+	
+	usa_address_communism = {
+		icon = generic_propaganda
+		cost = 0
+		fire_only_once = yes
+		
+		allowed = {
+			NOT = { tag = USA }
+		}
+		
+		visible = {
+		country_exists = USA
+		USA = {
+			NOT = {
+					has_government = communism
+			}
+			}
+		date > 1951.1.1
+		date < 1951.12.30
+		NOT = {
+					has_government = communism
+			}	
+		NOT = {
+					has_government = maoism
+		}
+		}
+		
+		available = {
+		USA = {
+			NOT = {
+					has_government = communism
+			}
+			has_country_leader = { ruling_only = yes name = "Harry S. Truman" }
+		}
+		date > 1951.1.1
+		date < 1951.12.30
+		SOV = {
+			has_government = communism
+			has_added_tension_amount > 10
+		}
+		}
+		
+		complete_effect = {
+			add_war_support = 0.05
+			hidden_effect = {
+				sound_effect = sp_usa_truman_communism
+			}
+		}
+	}
 }
 
 prc_announcement_category = {

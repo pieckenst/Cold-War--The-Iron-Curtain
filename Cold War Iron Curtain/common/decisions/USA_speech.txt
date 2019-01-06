@@ -55,7 +55,7 @@ truman_speech_category = {
 				NOT = {
 					has_government = communism
 				}
-				date >1950.6.25
+				date > 1950.6.25
 				date < 1953.7.27
 			}
 			
@@ -80,6 +80,43 @@ truman_speech_category = {
 			hidden_effect = {
 				sound_effect = sp_usa_truman_macarthur
 			}
+			}
+	}
+	
+	truman_against_communism = {
+			icon = generic_propaganda
+			cost = 0
+			fire_only_once = yes
+			allowed = {
+				tag = USA
+			}
+	
+			visible = {
+				NOT = {
+					has_government = communism
+				}
+				date > 1951.1.1
+				date < 1951.12.30
+			}
+			
+			available = {
+				NOT = {
+						has_government = communism
+				}
+				has_country_leader = { ruling_only = yes name = "Harry S. Truman" }
+				date > 1951.1.1
+				date < 1951.12.30
+				SOV = {
+					has_government = communism
+					has_added_tension_amount > 10
+				}
+			}
+			
+			complete_effect = {
+				add_war_support = 0.15
+				hidden_effect = {
+					sound_effect = sp_usa_truman_communism
+				}
 			}
 	}
 }
